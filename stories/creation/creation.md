@@ -2295,7 +2295,7 @@ Tell stories about what you remember. Name patterns in the stars and use them to
   Clear wording matters: asking when a pattern occurs is different from asking what causes it. Describing a correlation is a useful beginning, but does not by itself explain the mechanism.
 - Lunar rhythm
   - icon: ![Lunar rhythm](assets/icons/lunar-rhythm.webp) (circular)
-  People notice a larger gap between high and low tide around full and new Moons.
+  A larger gap between high and low tide around full and new Moons.
 
   ---
 
@@ -2499,7 +2499,7 @@ The work is done. It is time to rest, and sing.
 
 **Goals**
 - Sing together -- Shared song
-- next: Sing about creation -- Song of creation
+- next: Sing the wonder of creation -- Song of creation
 
 **Hotspots**
 - Social group (center 390px, 945.28px)
