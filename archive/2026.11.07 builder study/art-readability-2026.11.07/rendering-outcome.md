@@ -1,0 +1,50 @@
+# Builder readability production outcome
+
+The revision renders inspection views from the unchanged canonical models in `archive/2026.11.07 builder study/art`. `part-presentations.json` supplies explicit component selections; `assembly_views.py` supplies the revised construction subsets. `render_parts.py` groups work by model factory, supports canonical identity aliases, and rejects missing or unresolved selections. No fitted mesh dimensions or canonical model files were changed.
+
+Loose masters use 640 px transparent canvases, normally 24 samples and two render threads. The existing scoped optical helper uses 64 samples for the loose lens. Each selected object fills approximately 85% of its inspection canvas. The base fixed rerender retains the canonical 960/1200 px camera, canvas and lighting, without loose-part selections or poses. Mixed passes restore the original studio lighting before each fixed view. The later c20/c21 visibility pass below intentionally supplies chapter-specific cameras and labeled details.
+
+Ten loose views use reversible compact coils: wave cord, whale brace cord, prepared whale brace, harness extension, lift-control lead, stop cord, garden tether, ground-controller lead, crane cord and power-divider leads. The eleven flexible routes retain their source radii and lengths; fittings move rigidly to their corresponding endpoints or distance along the wire. The maximum measured length difference after Blender float storage is **0.0000000175 m**. Empty colour-cell and remote covers use their existing closed positions. None of these poses applies to installed construction diagrams.
+
+The four animation-strip inspections share one open-coil paper surface, camera and canvas. The surface retains the full **0.5684601294 m** strip (including its 8 mm overlap tab), **0.051 m** width and twelve-frame order. Original stroke footprints and widths are printed on the intended paper face and clipped at the real edges. This removes the canonical illustration tubes' backside bleed without introducing detached closeups. Several frames are readable at the 184 px inspection limit. Installed drum geometry is unchanged.
+
+Authored checks completed:
+
+- Sharp master coverage: **182 of 182 primitive catalogue identities**, including the separately supplied switch dock. Unchanged larger intermediate artwork remains available to the exporter.
+- All **14 base regenerated fixed views** have exactly their canonical camera values and no standalone pose or selector.
+- The rover deck and five overlays share one 960 px camera fitted around the fully populated deck. Recomposition matched the separately rendered complete deck's alpha mask exactly at alpha ≥ 24: **IoU 1.0, zero differing pixels**, identical bounds. This checks registration, not shading equivalence.
+- The earlier author pass inspected 13 corrections. The subsequent fresh review found further native-size defects and rejected the dark fixed batch; that earlier author check was not final acceptance.
+- The latest pass inspected **10 component refinements plus four shared paper states** at intended display sizes. It exposes the caster's actual orange ball by turning the whole unit over, enlarges the paper-roll end, foreshortens thin posts/struts, makes the rib loop broader in projection, and compacts the crane/stop cords and power leads. Fitted dimensions and material shaders remain unchanged.
+- The dragon mount's actual relief cut separates long and short sections. Its loose icon now shows one original long section with its captive pin. The independent switch dock is supplied in its own fitting step before the power divider; the new fixed state is an exact component subset of the canonical completed assembly.
+
+The first fixed rerender batch was rejected for dark lighting. The cause was a studio-light `matrix_world` snapshot taken before Blender's dependency update: the snapshot still contained identity transforms and later placed both lamps at the origin. The corrected renderer updates dependencies and saves/restores the explicit authored light transforms. All thirteen affected images were regenerated; the fourteenth is the new dock stage. Their canonical studio positions, rotations, powers, sizes and exposure were checked, all thirteen replacement pictures were viewed together, and the added dock stage was viewed separately. The rejected fixed files must not be used.
+
+These are production checks by the rendering author. They do not replace the separate final-size and continuity reviews of the exported game.
+
+Source-signature limitation: file-hash sampling in the compound run overlapped a renderer edit. The remaining-parts run likewise overlapped an assembly-adapter edit. Neither run captured the exact loaded code bytes at import time, so the first observed file hash does **not** establish an exact loaded-source binding. Earlier normalization of those signatures to the first observation was unsupported; the affected binding claims have been removed from the scratch manifests. The original per-image hash distribution was not retained. The PNGs are unchanged, and the compound alpha-mask reconstruction result remains valid because it compares those rendered images directly. Production sources are now frozen.
+
+For the corrected fixed pass, latest component pass, caster pass and paper pass, source/input file hashes matched before and after each controlled render interval. These interval checks establish that the sampled files did not change during those runs; they are not atomic snapshots of imported code bytes.
+
+To reproduce inspections, run Blender with `--python render_parts.py -- --catalogue CURRENT --source-catalogue ORIGINAL --presentations part-presentations.json --output OUTPUT --ids IDS`. Use `--fixed` for canonical construction views, or include the fixed identities in `--ids` and add `--fixed-ids IDS --fixed-output OUTPUT` to share model builds between fixed and loose passes. Use `--compound --ids rover-deck` for the registered owner, five overlays and separate reconstruction proof. `render_paper_views.py -- --output OUTPUT` generates the four registered paper inspections. The generated manifests record identities, sampled source-file signatures, selections, assembly subsets, cameras and pose length checks.
+
+Earlier refinement handoff: `parts/inspection-v2` contains nine components; `parts/inspection-v3` contains the corrected caster; `parts/paper-v2` contains the four shared paper states; `parts/registered-v2` contains thirteen corrected fixed views; `parts/registered-v3` contains the new dock stage. These are under disposable `runs/builder-readability`; `final-refinement-freeze.json` records the 28 PNG hashes. The original dark `parts/registered`, first paper pilot and shadowed caster pilot are rejected and must not enter exports. Existing accepted masters for unaffected identities remain in the earlier batches.
+
+## Fitted additions visible in c20 and c21
+
+Fresh review found the stop guide/button hidden on the far side and the under-deck dock unreadable. Fifteen chapter-specific masters now combine a stable service-side whale with a genuine close camera view. Every master is **992 × 992 px**, displayed as a complete **248 px square**: the whole whale is 220 px wide; the labeled detail is approximately 90 × 62 px. All fifteen main views share one union crop and scale. Their source cameras are:
+
+| View | Camera location (m) | Target (m) | Orthographic scale (m) |
+|---|---|---|---|
+| Whole service side | (1.1, 2, 1) | (0, 0, 0.32) | 1.24 |
+| c20 stop detail | (0.34, 0.75, 0.36) | (0.16, 0.18, 0.20) | 0.20 |
+| c21 under-deck detail | (0.45, 0.55, 0.30) | (-0.30, -0.13, 0.22) | 0.14 |
+
+The c21 detail uses one fixed **10 W, 120 mm area fill**, outside the hull at its camera location and aimed at the same target. It shines through the real opening; no occluders or materials change. The hatch stays closed until `whale-theatre-aboard`, then opens 95° for that state, `whale-switch-docked` and `whale-loaded`. Only the existing hatch hinge rotates; the trim handle and every unrelated setting retain their canonical state. The manuscript explicitly opens the hatch after projector placement and closes it at c22 start. Main and detail poses match in every image.
+
+Authored checks covered all fifteen compositions at 248 px, shared registration and identical c21 detail lighting. The guide adds three real source objects, the button/pushrod two, and the dock two. The eight c20 hashes stayed identical after their early handoff. This remains author verification; fresh review assesses the exported chapters separately.
+
+The first render run's broad file check detected the parent's edits to the **unexecuted exporter** and raised after completing the pictures. Its differing hashes were preserved; every other sampled file, including rendering code, canonical geometry, adapter, plan and catalogues, matched across that interval. The final lighting run records **19 actual render dependencies with no changes**, and separately records the exporter change. These are file-interval observations, not atomic imported-byte snapshots or claims of all-file invariance.
+
+`fitted-chapter-views.json` owns the approved cameras, crops, labels and hatch/light settings. `render_whale_detail_views.py` renders the actual views; `compose_whale_detail_views.py` registers and labels them without retouching geometry. The frozen fifteen `c20--ID.png` / `c21--ID.png` masters are in disposable `runs/builder-readability/parts/fitted-chapter-v1`. Its `manifest-chapters.json` records each actual main/detail request and source PNG hash; `fitted-chapter-freeze.json` records the fifteen final hashes. The prior candidate and its masters remain unchanged.
+
+Archival cleanup removed the presentation plan’s per-image before-size measurements, route observations and superseded issue notes. All rendering selectors, poses, aliases, roles, scale families and required-master settings are unchanged. The concise audit and revision outcome retain the findings; the production plan is not a raw verification dump.

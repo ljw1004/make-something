@@ -10,7 +10,7 @@ export function lintStoryImages(story: Story, markdown: string): Diagnostic[] {
   const images = new Set([
     ...(story.titleImages ?? []).map(image => image.url),
     ...(story.cover ? [story.cover] : []),
-    ...story.chapters.flatMap(chapter => chapter.image ? [chapter.image] : []),
+    ...story.chapters.flatMap(chapter => [chapter.image, chapter.reference?.url].filter((url): url is string => !!url)),
     ...prose.flatMap(text => [...text.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map(match => match[1])),
     ...items.flatMap(item => [item.icon, ...item.presentations.map(change => change.icon), ...item.slots.map(slot => slot.icon)].flatMap(icon => icon ? [icon.url] : [])),
     ...story.chapters.flatMap(chapter => Object.values(chapter.hotspotDefinitions ?? {})).flatMap(hotspot =>

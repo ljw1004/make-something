@@ -37,7 +37,7 @@ export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;
 }
 export interface Chapter {
-  id: string; name: string; image?: string; intro: string; skipped: string;
+  id: string; name: string; image?: string; reference?: HeadingImage; intro: string; skipped: string;
   hotspots: string[]; items: Ref[]; goals: Goal[]; goalOperator: 'and' | 'or'; source: Source; goalsSource?: Source;
   /** Fixed presentation belongs to a chapter; item identity remains global. */
   hotspotDefinitions?: Record<string, Hotspot>;

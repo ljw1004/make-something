@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly says to attach the tether to the test base.",
+    "choice": {
+      "combine": "Short safety tether",
+      "with": "Test-stand base"
+    },
+    "expectation": "The tether should be secured to the base for the lift test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tether is attached; the next step is to fit the guide posts.",
+    "reaction": "The safety tether makes sense before testing the lift tile.",
+    "step": 2,
+    "reason": "The new goal identifies the guide posts and test stand as the next parts to join.",
+    "choice": {
+      "combine": "Four bare guide posts",
+      "with": "Tethered test base"
+    },
+    "expectation": "The guide posts should fit onto the tethered base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The posts are fixed, with their tops clear for the cradle; the next goal is to fit its crossbars.",
+    "reaction": "The explanation makes the assembly order clear.",
+    "step": 3,
+    "reason": "The goal identifies the crossbars and cradle as the next parts to join.",
+    "choice": {
+      "combine": "Two guide crossbars",
+      "with": "Tile cradle with hanging supports"
+    },
+    "expectation": "The crossbars should fit onto the cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbars are fitted, and the tile can now be seated in the cradle.",
+    "reaction": "The next construction step is clear.",
+    "step": 4,
+    "reason": "The goal identifies the lift tile and its cradle as the next parts to join.",
+    "choice": {
+      "combine": "Experimental lift tile",
+      "with": "Cradle with guide crossbars"
+    },
+    "expectation": "The lift tile should sit in the cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift tile is seated in its cradle; the next goal is to connect the switch and battery pack.",
+    "reaction": "The next step is clear.",
+    "step": 5,
+    "reason": "The goal names the switch and battery pack as the parts to connect.",
+    "choice": {
+      "combine": "Spring-return test switch",
+      "with": "Tile battery pack"
+    },
+    "expectation": "The switch should connect to the battery pack.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch and battery pack now form a hold-to-lift supply; the cradled tile is ready to go onto the guide posts.",
+    "reaction": "The assembly order is clear.",
+    "step": 6,
+    "reason": "The goal directs me to slide the cradled tile onto the stand's guide posts.",
+    "choice": {
+      "combine": "Cradled lift tile",
+      "with": "Stand with bare guide posts"
+    },
+    "expectation": "The cradle's guide rings should slide down the posts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradled tile is on the guide posts; the top nuts are needed to retain it.",
+    "reaction": "The nuts make sense now that the cradle is on the posts.",
+    "step": 7,
+    "reason": "The goal identifies the top nuts as the next fitting for the cradle and stand.",
+    "choice": {
+      "combine": "Four guide-post top nuts",
+      "with": "Cradled tile on the guide posts"
+    },
+    "expectation": "The nuts should secure the cradle on the guide posts while allowing it to slide.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The top nuts retain the cradle, and the stand is ready for the switched supply.",
+    "reaction": "The guided assembly order remains clear.",
+    "step": 8,
+    "reason": "The goal calls for connecting the switched battery pack to test the lift.",
+    "choice": {
+      "combine": "Hold-to-lift supply",
+      "with": "Tile in test stand"
+    },
+    "expectation": "The supply should connect and allow a controlled lift test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The powered tile rises until the tether catches it and settles when released; the next goal is to test its lifting limit.",
+    "reaction": "Seeing the invented tile lift without a propeller or balloon is surprising.",
+    "step": 9,
+    "reason": "The goal calls for adding the test weight to the rising tile stand.",
+    "choice": {
+      "combine": "Test weight",
+      "with": "Rising tile stand"
+    },
+    "expectation": "The weight should let us test how much the tile can lift.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weight made the tile rise more slowly, completing the test, though the result did not state its maximum lifting limit.",
+    "reaction": "I was curious about the slower lift and wanted to know the actual limit.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing the powered tile was most worthwhile: the tether caught it, and releasing the switch made it settle, showing how the safety setup worked.",
+        "steps": [
+          1,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the switch to the battery was straightforward but less interesting on its own than seeing the assembled stand work.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The invented tile rose without a propeller or balloon, then settled when the switch was released.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the goals gave clear construction instructions and the parts had apparent purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the lift tile is used in the fair, especially after the test showed it could carry an extra weight.",
+        "steps": [
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

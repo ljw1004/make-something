@@ -1,0 +1,502 @@
+{
+  "kind": "author-assembly-split-plan",
+  "source_geometry": "archive/2026.11.07 builder study/art",
+  "principle": "Use actual connected components and unchanged final dimensions. Repeated matching-type pieces use one representative with honest quantity/variation wording.",
+  "recipe_syntax": "All IDs in recipe strings are unquoted for machine parsing; wrap each ID in backticks in manuscript. Existing @ fixed-receiver style may be used consistently.",
+  "chapters": [
+    {
+      "chapter": "c03",
+      "item_changes": [
+        {
+          "id": "pb-rails",
+          "name": "Shaped table rails",
+          "description": "Prepared retaining rails, a launch-lane divider and inward return lips, each with integral push-fit feet. Their different curves guide the marble; the icon shows one representative rail.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "pb-rails + pb-tray -> pb-railed",
+          "new": [
+            "pb-rails [consume] + pb-tray [transform] -> pb-rail-frame",
+            "pb-catch-cup [consume] + pb-rail-frame [transform] -> pb-railed"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "pb-catch-cup",
+          "name": "Catch apron and cup",
+          "description": "One connected front apron with its side rims, storage cup and locating bridges. It catches the marble at the player\u2019s end.",
+          "role": "part"
+        },
+        {
+          "id": "pb-rail-frame",
+          "name": "Tray with guiding rails",
+          "description": "The side rails, curved return lips and launch divider are fitted. The connected catch apron still belongs at the front.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "pb-rail-frame"
+      ],
+      "notes": []
+    },
+    {
+      "chapter": "c04",
+      "item_changes": [
+        {
+          "id": "pb-targets",
+          "name": "Three target arches",
+          "description": "Three matching clip-in arches with different shot markings. The icon shows one arch. A marble can roll through each without leaving the table.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "pb-targets + pb-flipper-table -> pb-target-table",
+          "new": [
+            "pb-targets [consume] + pb-flipper-table [transform] -> pb-arched-table",
+            "pb-score-wheel [consume] + pb-arched-table [transform] -> pb-target-table"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "pb-score-wheel",
+          "name": "Manual score wheel",
+          "description": "A numbered wheel already retained on its bearing and edge rail. The rail clips to the table; turn the wheel by hand after a successful shot.",
+          "role": "part"
+        },
+        {
+          "id": "pb-arched-table",
+          "name": "Table with three target arches",
+          "description": "The three arches are in place. The manual score wheel clips onto the left edge.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "pb-arched-table"
+      ],
+      "notes": []
+    },
+    {
+      "chapter": "c06",
+      "item_changes": [
+        {
+          "id": "cd-cutouts",
+          "name": "Dragon body",
+          "description": "One stiff card body with lightweight back scales, folded base tabs and drawn spectacles. Its wing and tail attachment holes are prepared.",
+          "role": "part"
+        },
+        {
+          "id": "cd-hinge-pins",
+          "name": "Wing hinge fittings",
+          "description": "Two broad-headed wing pins with spacing collars and smooth retaining washers. One complete fitting represents the pair; the tail arrives with its own captive pin.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "cd-hinge-pins + cd-cutouts -> cd-jointed-dragon",
+          "new": [
+            "cd-hinge-pins [consume] + cd-wings [transform] -> cd-hinged-wings",
+            "cd-hinged-wings [consume] + cd-cutouts [transform] -> cd-winged-dragon",
+            "cd-tail [consume] + cd-winged-dragon [transform] -> cd-jointed-dragon"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "cd-wings",
+          "name": "Two card wings",
+          "description": "A mirrored pair of light wings, each with a prepared hinge hole and its integral drive tab. One wing represents the pair.",
+          "role": "part"
+        },
+        {
+          "id": "cd-tail",
+          "name": "Pinned dragon tail",
+          "description": "One decorative card tail with its captive pin, washer and broad retainer. Its hole matches the prepared body hole.",
+          "role": "part"
+        },
+        {
+          "id": "cd-hinged-wings",
+          "name": "Wings with hinge fittings",
+          "description": "The pins and spacing collars are fitted to the wings. Release and reseat their retainers when fitting the pair through the body\u2019s shoulder holes.",
+          "role": "intermediate"
+        },
+        {
+          "id": "cd-winged-dragon",
+          "name": "Dragon with hinged wings",
+          "description": "Both wings pivot clear of the body. Fit the tail through its prepared hole before mounting the dragon.",
+          "role": "intermediate"
+        }
+      ],
+      "new_hotspots": [],
+      "notes": []
+    },
+    {
+      "chapter": "c-air-1",
+      "item_changes": [
+        {
+          "id": "air-cradle",
+          "name": "Paired barrel cups",
+          "description": "Two barrel cups with captive mounting fasteners. The rear cup has a soft retaining strap factory-bonded into it; the front cup supports the nozzle end. The icon shows the strapped rear cup.",
+          "role": "part"
+        },
+        {
+          "id": "air-mounted-syringe",
+          "name": "Syringe in barrel cups",
+          "description": "The cups cradle the barrel, and the rear strap retains it. The plunger is still free until its thumb pad meets the separate capture clip.",
+          "role": "intermediate"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "air-mounted-syringe + air-linked -> air-actuated",
+          "new": [
+            "air-plunger-clip [consume] + air-linked [transform] -> air-clip-ready",
+            "air-mounted-syringe [consume] + air-clip-ready [transform] -> air-actuated"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "air-plunger-clip",
+          "name": "Plunger capture clip",
+          "description": "One connected pair of C-shaped jaws on a bridge and central support. It fits the sliding crosshead and captures the output syringe\u2019s thumb pad.",
+          "role": "part"
+        },
+        {
+          "id": "air-clip-ready",
+          "name": "Grabber ready for its syringe",
+          "description": "The capture clip is on the crosshead. Seat the syringe cups on the beam with its nozzle toward the handle, and snap its thumb pad into the clip.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "air-clip-ready"
+      ],
+      "notes": []
+    },
+    {
+      "chapter": "c-air-2",
+      "item_changes": [
+        {
+          "id": "air-tube-clips",
+          "name": "Tube routing clips",
+          "description": "Two gentle C-clips on prepared peel-and-stick feet. One clip represents the pair. They hold the tube without flattening it, leaving a loose loop for handling.",
+          "role": "part"
+        },
+        {
+          "id": "air-fruit-game",
+          "name": "Sponge pear",
+          "description": "One light sponge pear for the grabber to carry. Jo puts a collecting cup on the garden table; the cup is part of the game setting.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "air-tube-clips + air-padded -> air-routed",
+          "new": [
+            "air-hand-holders [consume] + air-padded [transform] -> air-held",
+            "air-tube-clips [consume] + air-held [transform] -> air-routed"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "air-hand-holders",
+          "name": "Hand-syringe holders",
+          "description": "Two strapped cups on prepared peel-and-stick feet, one shaped for the handgrip and the other for the beam. One complete holder represents the pair.",
+          "role": "part"
+        },
+        {
+          "id": "air-held",
+          "name": "Grabber with its hand syringe held",
+          "description": "The strapped holders support the hand syringe beside the grip. Route the tube into its two gentle clips, keeping a free handling loop.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "air-held"
+      ],
+      "notes": [
+        "Keep the existing fruit-game recipe. Revise reward prose to use the same sponge pear and Jo\u2019s setting cup; no inventory cup disappears."
+      ]
+    },
+    {
+      "chapter": "c13",
+      "item_changes": [
+        {
+          "id": "rover-deck",
+          "name": "Prepared rover deck",
+          "description": "Keep the existing deck/jig/mount-hole description, and add: the fixed pen guide rods, removable captive top caps, return spring, hand-operated lift cam and lever stops are already mounted on the deck. The sliding pen carriage will be fitted later.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [],
+      "new_items": [],
+      "new_hotspots": [],
+      "notes": [
+        "This is a real ownership change: the stationary pen mechanism becomes supplied deck hardware and must appear from the first rover-deck view. The moving carriage and pen remain absent until their authored fitting."
+      ]
+    },
+    {
+      "chapter": "c14",
+      "item_changes": [
+        {
+          "id": "rover-pen-clip",
+          "name": "Sliding pen carriage",
+          "description": "One connected carriage bridge with its spring C-clip, follower shoe and joining web. It slides on the prepared guide rods; the deck\u2019s hand lever raises the follower.",
+          "role": "part"
+        },
+        {
+          "id": "rover-pen-mount",
+          "name": "Pen in its sliding carriage",
+          "description": "The pen is gripped in the connected carriage. With the rover stopped, release the captive guide caps, slide the carriage onto the rods, seat the return spring, and replace the caps.",
+          "role": "intermediate"
+        }
+      ],
+      "replace_recipes": [],
+      "new_items": [],
+      "new_hotspots": [],
+      "notes": [
+        "Retain both existing pen preparation/installation recipes. Describe releasing/reseating the actual captive guide caps to establish assembly access; never say the loose carriage contains the hand lever."
+      ]
+    },
+    {
+      "chapter": "c20",
+      "item_changes": [
+        {
+          "id": "whale-module-mount",
+          "name": "Lift support extensions",
+          "description": "Four measured extension struts with their locked sleeves and transverse pins. One complete extension represents the set. Work with the lift module supported and disconnected: fit them between its original short supports and lower frame, and move the same counterweight to the marked rear tray slot.",
+          "role": "part"
+        },
+        {
+          "id": "whale-mounted",
+          "name": "Whale with fork saddles",
+          "description": "The two compression forks rest against the upper spar. Jo supports them while the prepared lift module is seated beneath them.",
+          "role": "fixed-only"
+        },
+        {
+          "id": "whale-hatch",
+          "name": "Hinged service hatch",
+          "description": "One connected light surround with its hinged paper flap, rib brackets and latch. It opens over the controller and counterweight; the outside stop guide is a separate fitting.",
+          "role": "part"
+        },
+        {
+          "id": "whale-stop-extension",
+          "name": "Stop button and pushrod",
+          "description": "One connected red push button and matching pushrod. Slide the rod through the fitted guide to meet the module\u2019s stop switch.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "whale-module-mount + whale-braced-frame -> whale-mounted",
+          "new": [
+            "whale-module-mount [consume] + balanced-lift [transform] -> lift-extended",
+            "whale-harness-extension [consume] + lift-extended [transform] -> lift-reconnected",
+            "whale-forks [consume] @ whale-braced-frame [transform] -> whale-mounted"
+          ]
+        },
+        {
+          "old": "balanced-lift + whale-mounted -> whale-lift-inside",
+          "new": [
+            "lift-reconnected [consume] @ whale-mounted [transform] -> whale-lift-resting",
+            "whale-retaining-straps [consume] @ whale-lift-resting [transform] -> whale-lift-inside"
+          ]
+        },
+        {
+          "old": "whale-stop-extension + whale-hatched -> whale-lift-fitted",
+          "new": [
+            "whale-stop-guide [consume] @ whale-hatched [transform] -> whale-stop-guided",
+            "whale-stop-extension [consume] @ whale-stop-guided [transform] -> whale-lift-fitted"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "whale-harness-extension",
+          "name": "Lift harness extension",
+          "description": "One measured insulated lead with its two inline connectors. It bridges the extended gap between the original controller lead and tile lead without stretching either.",
+          "role": "part"
+        },
+        {
+          "id": "whale-forks",
+          "name": "Compression forks",
+          "description": "Two rigid U-shaped fork saddles. Each has two legs and one crosshead. Their crossheads bear against the whale\u2019s upper spar while their feet receive the lift cradle.",
+          "role": "part"
+        },
+        {
+          "id": "whale-retaining-straps",
+          "name": "Upper retaining straps",
+          "description": "Two prepared straps, each one continuous piece. They retain the original upper cradle against the fork saddles after the module is seated.",
+          "role": "part"
+        },
+        {
+          "id": "whale-stop-guide",
+          "name": "Outside stop guide",
+          "description": "One pushrod guide with its support flange and real rib bracket. It mounts beside the hatch, ready to receive the connected red button and pushrod.",
+          "role": "part"
+        },
+        {
+          "id": "lift-extended",
+          "name": "Extended lift module",
+          "description": "The original supports retain their lengths; the four extra struts bridge the gap to the lower frame. The original short electrical leads need the measured extension before the module can run.",
+          "role": "intermediate"
+        },
+        {
+          "id": "lift-reconnected",
+          "name": "Extended module with its harness",
+          "description": "The added lead joins both original connectors. The complete module is still supported and disconnected while Jo helps seat it beneath the fork saddles.",
+          "role": "intermediate"
+        },
+        {
+          "id": "whale-lift-resting",
+          "name": "Lift module seated in the whale",
+          "description": "The tile cradle meets the forks beneath the upper spar; the battery and counterweight hang low. Jo keeps the assembly supported while you fit the retaining straps.",
+          "role": "fixed-only"
+        },
+        {
+          "id": "whale-stop-guided",
+          "name": "Whale with an outside stop guide",
+          "description": "The guide is mounted beside the hatch. Its open bore lines up the pushrod with the module\u2019s stop switch.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "whale-lift-resting",
+        "whale-stop-guided"
+      ],
+      "notes": [
+        "Retain skin/hatch recipes after whale-lift-inside. Module extension/harness work is on the portable supported module before insertion; fork saddles go on the fixed whale frame."
+      ]
+    },
+    {
+      "chapter": "c17",
+      "item_changes": [
+        {
+          "id": "lift-posts",
+          "name": "Four guide posts",
+          "description": "Four smooth guide posts. Fit them into the test base; the cradle\u2019s guide rings slide over their bare tops. The separate nuts retain the rings after fitting.",
+          "role": "part"
+        },
+        {
+          "id": "lift-guided-base",
+          "name": "Stand with bare guide posts",
+          "description": "The four posts are fitted to the tethered base. Their tops remain open for the cradle\u2019s sliding guide rings.",
+          "role": "fixed-only"
+        },
+        {
+          "id": "lift-cradled-tile",
+          "name": "Tile in its guided cradle",
+          "description": "The tile sits in its padded cradle, with both crossbars clamped to the lower frame and their guide rings ready for the stand\u2019s posts.",
+          "role": "intermediate"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "lift-tile + lift-cradle -> lift-cradled-tile",
+          "new": [
+            "lift-guide-crossbars [consume] + lift-cradle [transform] -> lift-guided-cradle",
+            "lift-tile [consume] + lift-guided-cradle [transform] -> lift-cradled-tile"
+          ]
+        },
+        {
+          "old": "lift-cradled-tile + lift-guided-base -> lift-ready",
+          "new": [
+            "lift-cradled-tile [consume] @ lift-guided-base [transform] -> lift-seated",
+            "lift-post-nuts [consume] @ lift-seated [transform] -> lift-ready"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "lift-guide-crossbars",
+          "name": "Sliding guide crossbars",
+          "description": "Two connected crossbars, each with its guide rings and removable cradle-frame clamps. Fit them to the lower cradle before sliding their rings over the four posts.",
+          "role": "part"
+        },
+        {
+          "id": "lift-post-nuts",
+          "name": "Four guide-post nuts",
+          "description": "Four broad retaining nuts. Fit them after the cradle is on the posts; the guide rings can travel below them without lifting off.",
+          "role": "part"
+        },
+        {
+          "id": "lift-guided-cradle",
+          "name": "Cradle with sliding guide bars",
+          "description": "The two crossbars clamp to the lower cradle. Their open rings will slide over the stand\u2019s bare posts.",
+          "role": "intermediate"
+        },
+        {
+          "id": "lift-seated",
+          "name": "Tile cradle seated on guide posts",
+          "description": "The guide rings have slid over the four posts. Add the four retaining nuts before the first powered test.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "lift-seated"
+      ],
+      "notes": [
+        "Retain posts+tethered-base -> lift-guided-base, but its artwork omits the not-yet-fitted bars and nuts. This correction adds2 operations; combined split plan adds12, for193 total. All fitted source dimensions and final geometry remain unchanged."
+      ]
+    },
+    {
+      "chapter": "c21",
+      "item_changes": [
+        {
+          "id": "fair-dragon-bracket",
+          "name": "Dragon mounting sections",
+          "description": "Four mounting sections in two matching long/short pairs, with four captive pins. One actual long section represents the supply.",
+          "role": "part"
+        },
+        {
+          "id": "fair-power-divider",
+          "name": "Fused power divider",
+          "description": "The battery and fused divider with their connected motor and lamp leads. The switch parking dock is a separate fitting.",
+          "role": "part"
+        }
+      ],
+      "replace_recipes": [
+        {
+          "old": "fair-power-divider + whale-theatre-aboard -> whale-loaded",
+          "new": [
+            "fair-switch-dock [consume] @ whale-theatre-aboard [transform] -> whale-switch-docked",
+            "fair-power-divider [consume] @ whale-switch-docked [transform] -> whale-loaded"
+          ]
+        }
+      ],
+      "new_items": [
+        {
+          "id": "fair-switch-dock",
+          "name": "Switch parking dock",
+          "description": "A small teal parking plate on a short support arm. It mounts under the deck to hold the wired accessory switch.",
+          "role": "part"
+        },
+        {
+          "id": "whale-switch-docked",
+          "name": "Whale with switch dock",
+          "description": "The switch parking dock is fixed beneath the deck; the battery and fused power divider are not yet fitted.",
+          "role": "fixed-only"
+        }
+      ],
+      "new_hotspots": [
+        "whale-switch-docked"
+      ],
+      "notes": [
+        "The canonical power-divider group includes a dock and support arm attached to the deck rather than the battery assembly. Supply those actual components in their own operation; final fitted geometry and dimensions remain unchanged."
+      ]
+    }
+  ],
+  "totals": {
+    "new_identities": 26,
+    "added_operations": 13,
+    "total_identities": 366,
+    "total_recipes": 194
+  }
+}

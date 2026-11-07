@@ -17,6 +17,8 @@ export interface ArrivalOptions {
   goalsTop: number;
   previousChapter?: number;
   hotspots: HotspotRegion[];
+  /** Presentation controls reserve their real footprint without being game objects. */
+  reserved?: Rect[];
   /** Logical developer replays have no previous measured spatial arrangement. */
   checkpoint?: boolean;
 }
@@ -319,7 +321,7 @@ function tryArrival(tiles: ArrivalTile[], options: ArrivalOptions, working: Rect
 }
 
 function layoutFootprints(tiles: ArrivalTile[], options: ArrivalOptions): ArrivalLayout {
-  const {bounds,hotspots}=options,scene=options.scene??{width:390,height:844};
+  const {bounds}=options, reserved=options.reserved??[], hotspots=[...options.hotspots,...reserved], scene=options.scene??{width:390,height:844};
   const fixed=tiles.filter(t=>t.fixed||t.fresh&&t.start).map(t=>t.fresh&&t.start?{...t,x:t.start.x*scene.width-t.width/2,y:t.start.y*scene.height-t.height/2}:{...t});
   const movable=tiles.filter(t=>!t.fixed&&!(t.fresh&&t.start));
   // A wide item may consume the side comfort inset without covering the goals.
@@ -335,7 +337,7 @@ function layoutFootprints(tiles: ArrivalTile[], options: ArrivalOptions): Arriva
   // Give up the goal gap before the goals themselves, and retry all movable
   // objects if their separate chapter/supply reservations cannot coexist.
   for(const gap of [GAP,EDGE,0]){
-    const region=working(gap),ordinary=tryArrival(tiles,options,region,fixed);
+    const region=working(gap),ordinary=tryArrival(tiles,{...options,hotspots},region,fixed);
     if(ordinary)return ordinary;
     const joint=repackGroup(preferred(region),fixed,region,hotspots,bounds);
     if(joint)return arrivalResult([...fixed,...joint],false);
@@ -347,9 +349,12 @@ function layoutFootprints(tiles: ArrivalTile[], options: ArrivalOptions): Arriva
   // Expose as much of each receiving area as possible before accepting greater
   // item overlap. These positions are visual only; no hotspot action is made.
   for(const threshold of [.1,.15,.25,.4,.6,1]){
-    const placed=repackGroup(seed,fixed,bounds,[],bounds,threshold,{goals,softHotspots:hotspots,overflow:threshold===1});
+    const placed=repackGroup(seed,fixed,bounds,reserved,bounds,threshold,{goals,softHotspots:options.hotspots,overflow:threshold===1});
     if(placed)return arrivalResult([...fixed,...placed],true);
   }
+  // A genuinely oversized object can leave no reference-free position. Preserve
+  // the existing never-block-play fallback and minimize overlap in that case.
+  if(reserved.length)return layoutFootprints(tiles,{...options,reserved:undefined,hotspots});
   // At allowance 1 and with oversized artwork admitted, every candidate fits.
   throw new Error('Arrival packing exhausted the visible board');
 }

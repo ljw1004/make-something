@@ -50,7 +50,9 @@ async function checkImages(){
 }
 let step=0;
 try{
-  await page.goto(url);await page.getByRole('button',{name:'Start',exact:true}).click();await dismiss();
+  await page.goto(url);await page.getByRole('button',{name:'Start',exact:true}).click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await expect.poll(async()=>!!await state()).toBe(true);await dismiss();
   for(const record of route){
     if(record.action.type==='advance'){
       await page.getByRole('button',{name:'Continue story',exact:true}).click();await dismiss();await checkImages();

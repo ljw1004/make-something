@@ -17,7 +17,7 @@ function readingImages(text: string): string[] {
 }
 function sceneImages(story: Story, chapter: number, state: State, declared = false): string[] {
   const ids = declared ? activeHotspots(story,chapter) : presentHotspots(story,state,chapter);
-  return [background(story, chapter), ...ids.map(id => hotspotPresentation(story,state,chapter,id).icon?.url)].filter((url): url is string => !!url);
+  return [background(story, chapter), story.chapters[chapter].reference?.url, ...ids.map(id => hotspotPresentation(story,state,chapter,id).icon?.url)].filter((url): url is string => !!url);
 }
 
 export function coverArtwork(story: Story): string[] {

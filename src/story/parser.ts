@@ -383,6 +383,23 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     });
     return {image, content};
   }
+  function extractReference(body: Line[], heading?: Line, background?: string): {reference?: Chapter['reference']; content: Line[]} {
+    const firstLine = heading ? originalLines.findIndex((text, index) => index >= heading.line && text.trim()) + 1 : 0;
+    const expectedLine = background
+      ? originalLines.findIndex((text, index) => index >= firstLine && text.trim()) + 1 : firstLine;
+    let reference: Chapter['reference'];
+    const content = body.filter(line => {
+      if (!/^[\t ]*reference\s*:/.test(line.text)) return true;
+      const first = line.line === expectedLine;
+      if (!heading) error('reference-context', 'reference: belongs after a chapter heading, not on the cover.', line.line);
+      else if (!first) error('reference-position', 'reference: must be the first nonblank line after the chapter background, or after the chapter heading when no background is declared; only one reference is allowed.', line.line);
+      const match = /^[\t ]*reference:[\t ]+!\[([^\]]*)\]\(([^)]+)\)[\t ]*$/.exec(line.text);
+      if (!match?.[1].trim() || !match[2].trim()) error('reference-syntax', 'Use reference: ![nonempty caption](nonempty-path) on a line of its own.', line.line);
+      else if (heading && first) reference = {alt: match[1].trim(), url: match[2].trim(), source: source(line.line)};
+      return false;
+    });
+    return {reference, content};
+  }
   const chapterLines: { heading: Line; lines: Line[] }[] = []; const preamble: Line[] = [];
   for (const line of lines) {
     if (/^## /.test(line.text)) chapterLines.push({ heading: line, lines: [] });
@@ -399,7 +416,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   if (title) story.source = source(title.line);
   if (!title) error('missing-title', 'A story needs a # title.', 1);
   const cover = extractBackground(preamble.filter(l => l !== title), title);
-  story.description = cover.content.map(l => l.text).join('\n').trim();
+  story.description = extractReference(cover.content).content.map(l => l.text).join('\n').trim();
   if (cover.image) story.cover = cover.image;
   for (const block of chapterLines) {
     const heading = chapterHeading(block.heading.text.slice(3));
@@ -410,7 +427,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
     const background = extractBackground(block.lines, block.heading);
     if (background.image) chapter.image = background.image;
-    for (const line of background.content) {
+    const reference = extractReference(background.content, block.heading, background.image);
+    if (reference.reference) chapter.reference = reference.reference;
+    for (const line of reference.content) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
       if (section) {
         current = section[1];

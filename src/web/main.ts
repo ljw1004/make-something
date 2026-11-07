@@ -4,6 +4,7 @@ import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
 import './style.css';
 import './workspace.css';
 import './item-artwork.css';
+import './chapter-reference.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
@@ -31,6 +32,7 @@ import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
+import {chapterReferenceHTML, chapterReferenceReading, chapterReferenceRect} from './chapter-reference.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
@@ -350,6 +352,11 @@ function applyText(text: string) {
     itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
   };
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
+  if (context?.kind === 'reference') {
+    const previous = anchor.story.chapters.findIndex(chapter => chapter.id === context.chapter), next = update.chapters.get(previous);
+    dialogContext = next === undefined ? undefined : {kind: 'reference', chapter: story.chapters[next].id};
+    if (!dialogContext) closeDialog();
+  }
   encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
@@ -486,7 +493,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   if (!dialog.open) dialog.show();
   // Native dialog focusing can scroll long readings while opening them.
   dialog.scrollTop = changing ? 0 : scroll;
-  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
+  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : context.kind === 'reference' ? 'Build reference' : 'Story reading');
   if (context.kind === 'encyclopedia') {
     bookResize.observe(dialog); syncBookLayout();
     const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
@@ -519,6 +526,12 @@ function chapterContent() {
   return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
+function openChapterReference(id: string, remember = true) {
+  const chapter = story.chapters.find(chapter => chapter.id === id);
+  if (!chapter?.reference) { if (dialogContext?.kind === 'reference') closeDialog(); return; }
+  modal(chapterReferenceReading(chapter, asset), 'chapter-popup reference-popup', {kind: 'reference', chapter: id});
+  if (remember) { rememberInteraction(); save(); }
+}
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
   () => dialogContext?.kind === 'encyclopedia' && dialogContext.item && !bookIsSpread() ? !!dialogContext.detail : undefined,
@@ -623,6 +636,7 @@ function refreshDialog() {
     if (state.pending.length) openPendingReading();
     else closeDialog();
   } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
+  else if (dialogContext?.kind === 'reference') openChapterReference(dialogContext.chapter, false);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
   if (!dialogContext) showPending();
 }
@@ -684,6 +698,10 @@ function commit(action: Action) { try {
         }
         const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry(token.chapter).bounds, boardGeometry(token.chapter).scene) : undefined;
         const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
+        if(receivingRect&&receiver&&state.tokens[receiver.id].status==='available'){
+          const {hotspots,reserved}=chapterObstacles(token.chapter);
+          occupied.push(...hotspots,...reserved);
+        }
         const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
         const position=preferred ?? (receivingRect&&receiver
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
@@ -728,6 +746,17 @@ function worldHTML(scenes: {chapter: number; image?: string; content: string; la
   const chapters = frames.map(({chapter,content,label,geometry},position) => `<section class="chapter-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}" aria-label="${escape(label)}">${content}</section>`).join('');
   return `<div class="world" data-panel-height="${app.clientHeight}" style="width:100%;height:${scenes.length*app.clientHeight}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
+/** Use the same measured receiving regions for arrivals and adjacent creations. */
+function chapterObstacles(chapter: number) {
+  const geometry=boardGeometry(chapter);
+  const hotspots=presentHotspots(story,state,chapter).map(id=>{
+    const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
+    const measured=el.getBoundingClientRect();
+    return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},1/geometry.labelScale,geometry.bounds,geometry.scene);
+  });
+  const reserved=story.chapters[chapter].reference?[chapterReferenceRect(geometry.bounds)]:[];
+  return {hotspots,reserved};
+}
 function packArrival(checkpointLayout=false, source?: State){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!isFixed(story,t)),fresh=new Set(state.newItems);
   const geometry=boardGeometry(),primitives=indexStory(story).primitives;
@@ -741,14 +770,10 @@ function packArrival(checkpointLayout=false, source?: State){
       fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
       fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
   });
-  const stations=presentHotspots(story,state,state.chapter).map((id)=>{
-    const el=panel(state.chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
-    const measured=el.getBoundingClientRect();
-    return hotspotRect(fixedPresentation(state.chapter,id),activeHotspots(story,state.chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},1/geometry.labelScale,geometry.bounds,geometry.scene);
-  });
+  const obstacles=chapterObstacles(state.chapter);
   const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
   const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
-  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,hotspots:stations,checkpoint:checkpointLayout});
+  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,...obstacles,checkpoint:checkpointLayout});
   state.arrivalDivider=layout.divider!==undefined;
   for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
   const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');
@@ -824,7 +849,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   frameControls(geometry);
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
     const geometry=boardGeometry(chapter);
-    return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
+    return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${chapterReferenceHTML(story.chapters[chapter],geometry.bounds,asset)}${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
       const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
@@ -1015,6 +1040,7 @@ app.addEventListener('click',e=>{
   else if(command==='reset-story')restartStory();
   else if(command==='reset-chapter')restartChapter();
   else if(command==='story'){goalPulses.resetCounter();tutorialProgress?.finish('goalsDone');reopenChapter();}
+  else if(command==='reference')openChapterReference(target.dataset.referenceChapter!);
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
   else if(command==='encyclopedia-back')backToEncyclopediaIndex();

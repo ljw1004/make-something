@@ -19,7 +19,7 @@ function options(argv) {
   const result={};
   for(let i=0;i<argv.length;i++) {
     if(['--fast','--detailed','--technical','--keep-scratch','--help'].includes(argv[i]))result[argv[i]]=true;
-    else if(['--story','--chapters','--players','--concurrency','--guidance','--max-turns','--timeout-seconds','--label'].includes(argv[i])) {
+    else if(['--story','--project','--chapters','--players','--concurrency','--guidance','--max-turns','--timeout-seconds','--label'].includes(argv[i])) {
       if(argv[i+1]===undefined)throw new Error(`Missing value for ${argv[i]}`);
       result[argv[i]]=argv[++i];
     } else throw new Error(`Unknown option: ${argv[i]}`);
@@ -69,7 +69,7 @@ function validateSynthesis(text,mode) {
 async function main() {
   const args=options(process.argv.slice(2));
   if(args['--help']) {
-    console.log('node projects/builder-study/tools/run-playtests.mjs --story PATH (--fast|--detailed) --guidance TEXT [--chapters all|1,3-5] [--players 1|3] [--concurrency 4] [--label NAME] [--technical] [--keep-scratch]');return;
+    console.log('node run-playtests.mjs --story PATH (--fast|--detailed) --guidance TEXT [--project ACTIVE_PROJECT] [--chapters all|1,3-5] [--players 1|3] [--concurrency 4] [--label NAME] [--technical] [--keep-scratch]');return;
   }
   if(!args['--story']||!!args['--fast']===!!args['--detailed']||typeof args['--guidance']!=='string')throw new Error('Supply --story, exactly one playstyle, and explicit --guidance (including "").');
   const mode=args['--fast']?'fast':'detailed',players=positive(args['--players'],1,'players');
@@ -86,7 +86,7 @@ async function main() {
   const scratchRun=join(scratch,label);
   if(existsSync(scratchRun))throw new Error('Run label already used; select a fresh label.');
   mkdirSync(scratchRun);
-  const runProject=args['--technical']?scratchRun:project;
+  const runProject=args['--technical']?scratchRun:args['--project']?resolve(args['--project']):project;
   const directory=createPlaytest(runProject);
   const guide=readFileSync(join(root,'docs/fun-and-evaluation.md'),'utf8');
   const states=new Map(),jobs=[],failures=[];
