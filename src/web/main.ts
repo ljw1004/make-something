@@ -852,16 +852,18 @@ function highlight(key:string,pressed=false){
   }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
 }
 function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
-interface Drag {
-  id:string; pointer:number; el:HTMLElement; startX:number; startY:number;
-  grabX:number; grabY:number; moved:boolean;
+interface PointerPress {
+  pointer:number; el:HTMLElement; startX:number; startY:number; moved:boolean;
+}
+interface Drag extends PointerPress {
+  id:string; grabX:number; grabY:number;
   point:Pick<PointerEvent,'clientX'|'clientY'>; lockedChapter?:number; edgeScroll?:DragEdgeScroll;
   resolve?:ReturnType<typeof createDropResolver>;
 }
 let drag:Drag|undefined;
 let traceTile:HTMLElement|undefined,tracePointer:number|undefined;
-function movedEnough(d:NonNullable<typeof drag>,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale;}
-let hotspotPress:{key:string;pointer:number}|undefined;
+function movedEnough(d:PointerPress,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale;}
+let hotspotPress:(PointerPress&{key:string})|undefined;
 const feedback=new ItemFeedback(highlight,()=>clearHighlights());
 let suppressReleaseClick=false;
 // Suppress the native click belonging to the double-tap that opened a reader.
@@ -904,7 +906,7 @@ app.addEventListener('pointerdown',e=>{
   if(inputTrace?.enabled){traceTile=el;tracePointer=e.pointerId;}
   // Pointer feedback owns this press; a compatibility click must not leave touch focus hovering.
   e.preventDefault();
-  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId};feedback.begin(hotspotPress.key);app.setPointerCapture(e.pointerId);inputTrace?.record('hotspot:begin');updateTutorial();return;}
+  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,moved:false};feedback.begin(hotspotPress.key);app.setPointerCapture(e.pointerId);inputTrace?.record('hotspot:begin');updateTutorial();return;}
   const id=el.dataset.item!;feedback.begin(id);
   itemOrder = [...itemOrder.filter(item => item !== id), id];
   app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
@@ -923,6 +925,7 @@ app.addEventListener('pointerdown',e=>{
   updateTutorial();
 });
 document.addEventListener('pointermove',e=>{
+  if(hotspotPress?.pointer===e.pointerId){hotspotPress.moved ||= movedEnough(hotspotPress,e);return;}
   if(!drag||e.pointerId!==drag.pointer)return;
   if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
   drag.point={clientX:e.clientX,clientY:e.clientY};
@@ -952,7 +955,13 @@ function restoreGestureTile(d:NonNullable<typeof drag>){
 }
 function endDrag(e:PointerEvent,cancel=false){
   inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
-  if(hotspotPress?.pointer===e.pointerId){const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);if(cancel)feedback.clear();else if(feedback.release(press.key,true)){suppressReleaseClick=true;read(press.key.slice(8));}return;}
+  if(hotspotPress?.pointer===e.pointerId){
+    const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);
+    // Fixed targets keep the press, but attempted drags cannot become taps.
+    if(cancel)feedback.clear();
+    else if(feedback.release(press.key,!press.moved&&!movedEnough(press,e))){suppressReleaseClick=true;read(press.key.slice(8));}
+    return;
+  }
   if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
   d.edgeScroll?.stop();releaseCapture(d.pointer);
   if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});restoreGestureTile(d);feedback.clear();return;}
@@ -1037,7 +1046,7 @@ if(import.meta.env.DEV){
       chapter:state?.chapter,actions:state?.actions.length,dialog:dialogContext?.kind??null,
       focused:document.hasFocus(),visibility:document.visibilityState,
       drag:drag?{id:drag.id,pointer:drag.pointer,moved:drag.moved,startX:drag.startX,startY:drag.startY,grabX:drag.grabX,grabY:drag.grabY}:null,
-      hotspotPress:hotspotPress??null,captured:tracePointer!==undefined&&app.hasPointerCapture(tracePointer),
+      hotspotPress:hotspotPress?{key:hotspotPress.key,pointer:hotspotPress.pointer,moved:hotspotPress.moved,startX:hotspotPress.startX,startY:hotspotPress.startY}:null,captured:tracePointer!==undefined&&app.hasPointerCapture(tracePointer),
       item:token?{id:token.id,x:token.x,y:token.y,chapter:token.chapter,status:token.status,hotspot:token.hotspot??null}:null,
       tile:element?{connected:element.isConnected,left:element.style.left,top:element.style.top,dragging:element.classList.contains('dragging')}:null,
     };
