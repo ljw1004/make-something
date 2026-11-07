@@ -49,20 +49,17 @@ export class TutorialOverlay {
     this.root.dataset.modality = mode;
   }
 
-  get active(): boolean { return !!this.cue; }
-
   dragging(active: boolean) {
     if (this.interacting === active) return;
     this.interacting = active; this.epoch = performance.now();
     this.root.classList.toggle('tutorial-interacting', active);
-    if (this.cue?.kind === 'goals') this.cue.target.classList.toggle('tutorial-goals-paused', active);
   }
 
   /** The controller can fall through to a lower-priority cue when this one cannot be shown. */
   show(cue?: Cue): boolean {
     if (cue && !this.destination(cue)) return false;
     if (this.cue?.kind === 'goals' && (cue?.kind !== 'goals' || cue.target !== this.cue.target)) {
-      this.cue.target.classList.remove('tutorial-goals-target', 'tutorial-goals-paused');
+      this.cue.target.classList.remove('tutorial-goals-target');
     }
     if (!cue) {
       this.cue = undefined; this.root.hidden = true;
@@ -74,10 +71,7 @@ export class TutorialOverlay {
     const changed = this.appearance !== appearance || this.cue?.kind !== cue.kind || this.cue.target !== cue.target ||
       receiver(this.cue) !== receiver(cue) || elements.length !== previous.length || elements.some((source, index) => source !== previous[index]);
     this.appearance = appearance; this.cue = cue; this.root.dataset.tutorial = cue.kind;
-    if (cue.kind === 'goals') {
-      cue.target.classList.add('tutorial-goals-target');
-      cue.target.classList.toggle('tutorial-goals-paused', this.interacting);
-    }
+    if (cue.kind === 'goals') cue.target.classList.add('tutorial-goals-target');
     if (changed) {
       this.epoch = performance.now(); this.clearTracks();
       elements.forEach(source => {

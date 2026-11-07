@@ -135,6 +135,37 @@ test('any combination completes dragging; wonders delay goals, and both accompli
   await expect(cue(page, 'drag')).toBeVisible();
 });
 
+for (const reducedMotion of ['no-preference','reduce'] as const) test(`goals retain their backing and contrast during pickup and dragging (${reducedMotion})`, async ({page}) => {
+  await page.emulateMedia({reducedMotion});
+  await open(page); await combine(page, 'A', 'B');
+  await page.getByRole('button', {name: 'Continue', exact: true}).click();
+  await expect(cue(page, 'goals')).toBeVisible();
+  const goal = page.locator('.objective-line').first();
+  await expect.poll(() => goal.evaluate(element => element.getAnimations().some(a => a.id === 'goal-pulse'))).toBe(false);
+  // Hold the tutorial's bright phase so time alone cannot change the comparison.
+  const freezeBacking = () => goal.evaluate(element => element.getAnimations().forEach(animation => {
+    animation.pause(); animation.currentTime = 312;
+  }));
+  await freezeBacking();
+  const appearance = () => goal.evaluate(element => {
+    const style = getComputedStyle(element);
+    return {background: style.backgroundColor, color: style.color, shadow: style.boxShadow,
+      opacity: style.opacity, dockOpacity: getComputedStyle(element.closest('.hud-stack')!).opacity};
+  });
+  const before = await appearance(), box = (await tile(page, 'A').boundingBox())!;
+  await page.mouse.move(box.x + 15, box.y + 15); await page.mouse.down();
+  await expect(page.locator('.tutorial-gesture')).toBeHidden();
+  expect(await appearance()).toEqual(before);
+  await page.mouse.move(box.x + 15, box.y + 100, {steps: 4});
+  await expect(tile(page, 'A')).toHaveClass(/dragging/);
+  expect(await appearance()).toEqual(before);
+  await page.mouse.up();
+  // A release redraw can restart the tutorial cycle; compare the same phase.
+  await freezeBacking();
+  expect(await appearance()).toEqual(before);
+  await expect(cue(page, 'goals')).toBeVisible();
+});
+
 test('early goals clicks count, and confirmed story restart from chapter one clears both tutorials', async ({page}) => {
   await open(page);
   await page.getByRole('button', {name: 'Read this chapter'}).click();

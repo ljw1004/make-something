@@ -4,7 +4,7 @@ import {chapterComplete} from '../engine/game.ts';
 import {goalDistanceKey} from '../engine/nearest-goal.ts';
 import {displayedGoals} from './chapter-session.ts';
 
-interface Environment {blocked: boolean; tutorial: boolean; reducedMotion: boolean}
+interface Environment {blocked: boolean; reducedMotion: boolean}
 const reminderPickups = 6;
 export const goalPulseDuration = 800;
 
@@ -67,7 +67,7 @@ export class GoalPulses {
   update() {
     if (!this.story || !this.state) return;
     const env = this.environment();
-    if (env.blocked || env.tutorial) {
+    if (env.blocked) {
       this.stopAnimations();
       if (chapterComplete(this.story,this.state)) this.pending.clear();
       return;

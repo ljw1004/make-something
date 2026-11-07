@@ -148,23 +148,45 @@ test('a wonder immediately cancels a reminder that began on the same pickup',asy
   expect(await active.evaluate(animation => animation.playState)).toBe('idle');
 });
 
-test('drag, paired hotspot and goals tutorials suppress both reminder and change pulses',async ({page}) => {
+test('drag, paired hotspot and goals tutorials allow reminders, changed goals and final completion pulses',async ({page}) => {
   const text = manuscript.replace('**Items**','**Hotspots**\n- Bench (center 195px, 430px)\n**Items**\n- Bench')
     .replace('-> C\n','-> C (tutorial)\n').replace('C [preserve] + Tool [preserve] -> D','C [preserve] + Tool [preserve] @ Bench -> D');
   await open(page,text,false);
   const cue = (kind: string) => page.locator(`.tutorial-overlay[data-tutorial="${kind}"]`);
   await expect(cue('drag')).toBeVisible();
-  await pickup(page,6); await page.clock.runFor(750); expect(await pulses(page)).toEqual([]);
+  await pickup(page,6); expect((await pulses(page)).length).toBe(1);
+  const reminder = await row(page,0).evaluateHandle(element => {
+    const animation = element.parentElement!.getAnimations({subtree:true}).find(a => a.id === 'goal-pulse')!;
+    animation.pause(); return animation;
+  });
   await drag(page,tile(page,'A'),tile(page,'B'));
   await expect(cue('hotspot')).toBeVisible();
   await expect(page.locator('.tutorial-copy')).toHaveCount(2);
+  expect(await reminder.evaluate(animation => animation.playState)).toBe('paused');
+  await reminder.evaluate(animation => animation.finish());
+  await pickup(page,6); expect((await pulses(page)).length).toBe(2);
   await drag(page,tile(page,'A'),tile(page,'Tool'));
-  await page.clock.runFor(750); expect(await pulses(page)).toEqual([]);
+  expect((await pulses(page)).map(p => p.row).slice(2)).toEqual(['1']);
+  await expect(cue('hotspot')).toBeVisible();
   await drag(page,tile(page,'C'),page.locator('[data-hotspot="name:Bench"]'));
   await drag(page,tile(page,'Tool'),tile(page,'C'));
   await expect(cue('goals')).toBeVisible();
-  await pickup(page,6); await page.clock.runFor(750); expect(await pulses(page)).toEqual([]);
-  await readGoals(page); await page.clock.runFor(750); expect(await pulses(page)).toEqual([]);
+  expect((await pulses(page)).map(p => p.row).slice(3)).toEqual(['0']);
+  expect(await row(page,0).evaluate(element => element.getAnimations().some(a => a.id === 'goal-pulse'))).toBe(true);
+  await pickup(page,6); expect((await pulses(page)).length).toBe(5);
+  const highlight = await row(page,1).evaluate(element => {
+    const animation = element.getAnimations().find(a => a.id === 'goal-pulse')!;
+    animation.pause(); animation.currentTime = 176;
+    return getComputedStyle(element).backgroundColor;
+  });
+  expect(highlight).toBe('rgb(255, 210, 74)');
+  await drag(page,tile(page,'E'),tile(page,'Tool'));
+  expect((await pulses(page)).map(p => p.row).slice(5)).toEqual(['1']);
+  expect(await row(page,1).evaluate(element => element.getAnimations().some(a => a.id === 'goal-pulse'))).toBe(true);
+  await page.getByRole('button',{name:'Continue story'}).click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  // Seeing pulses or finishing a chapter does not stand in for a deliberate goals tap.
+  await expect(cue('goals')).toBeVisible();
 });
 
 test('chapter completion replaces a reminder with a final pulse concurrent with the usable arrow',async ({page}) => {

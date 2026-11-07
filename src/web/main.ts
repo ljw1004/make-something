@@ -77,7 +77,6 @@ let encyclopediaHistory: EncyclopediaHistory = {};
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const goalPulses = new GoalPulses(surface, () => ({
   blocked: !storyStarted || starting || mobileDebug.isOpen || document.hidden,
-  tutorial: tutorialOverlay.active,
   reducedMotion: reducedMotion.matches,
 }));
 const desktopDebug = matchMedia('(min-width: 900px)');
