@@ -540,8 +540,9 @@ function openChapterReference(id: string, remember = true) {
 }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
-  () => dialogContext?.kind === 'encyclopedia' && dialogContext.item && !bookIsSpread() ? !!dialogContext.detail : undefined,
-  detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, detail); });
+  () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
+  detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
+  () => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') dismissReading(); });
 const bookResize = new ResizeObserver(() => { bookSwipe.cancel(); syncBookLayout(); });
 function bookIsSpread() {
   const dialog = dialogLayer.querySelector('dialog');

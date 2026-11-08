@@ -90,7 +90,7 @@ test.describe('encyclopedia touch swipes', () => {
     await expect(page.locator('dialog')).toHaveCount(0);
   });
 
-  test('short, reversed and outward swipes settle back; vertical and diagonal touches scroll both pages', async ({ page, context }) => {
+  test('short and reversed swipes settle back; vertical and diagonal touches scroll both pages', async ({ page, context }) => {
     await openBook(page);
     const finger = touch(await context.newCDPSession(page));
     const track = page.locator('.encyclopedia-track'), pages = page.locator('.encyclopedia-pages');
@@ -100,7 +100,7 @@ test.describe('encyclopedia touch swipes', () => {
     await finger.start(100, 400); await finger.move(250, 400); await finger.move(110, 400); await finger.end();
     await settled(page);
     expect((await track.boundingBox())!.x).toBeCloseTo(start, 0);
-    await finger.swipe(200, 400, -100); await settled(page);
+    await finger.swipe(200, 400, -25); await settled(page);
     expect((await track.boundingBox())!.x).toBeCloseTo(start, 0);
     await finger.swipe(150, 600, 30, -220);
     await expect.poll(() => page.locator('.encyclopedia-reading').evaluate(el => el.scrollTop)).toBeGreaterThan(100);
@@ -113,6 +113,96 @@ test.describe('encyclopedia touch swipes', () => {
     await expect(pages).not.toHaveClass(/show-detail/);
   });
 
+  for (const view of ['index', 'detail', 'spread-left', 'spread-right']) {
+    test(`${view} outward swipe moves the whole book away, restores focus and does not click through`, async ({ page, context }) => {
+      const spread = view.startsWith('spread'), direction = view === 'index' || view === 'spread-right' ? 1 : -1;
+      if (spread) await page.setViewportSize({ width: 1000, height: 844 });
+      await openBook(page);
+      if (view === 'index') {
+        await page.getByRole('button', { name: 'Index', exact: true }).tap();
+        await settled(page);
+      }
+      await page.locator('.game-surface').evaluate(el => el.addEventListener('click', () => { document.body.dataset.clickedGame = 'true'; }));
+      const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
+      const start = (await track.boundingBox())!.x, x = spread ? 700 : direction > 0 ? 100 : 280;
+      await finger.start(x, 400); await finger.move(x + direction * 110, 400);
+      expect((await track.boundingBox())!.x).toBeCloseTo(start + direction * 110, 0);
+      await expect(page.locator('dialog')).toHaveCount(1);
+      await finger.end();
+      // Inspect an intermediate exit frame: paper, headings and controls travel
+      // together while the underlying game remains blocked until completion.
+      await track.evaluate(el => { const animation = el.getAnimations()[0]; animation.pause(); animation.currentTime = 100; });
+      expect(((await track.boundingBox())!.x - start) * direction).toBeGreaterThan(110);
+      await expect(page.locator('.game-surface')).toHaveAttribute('inert', '');
+      await track.evaluate(el => el.getAnimations()[0].finish());
+      await expect(page.locator('dialog')).toHaveCount(0);
+      await expect(page.locator('.game-surface')).not.toHaveAttribute('inert', '');
+      await expect(page.locator('[data-item="name:Entry 15"]')).toBeFocused();
+      expect(await page.locator('body').getAttribute('data-clicked-game')).toBeNull();
+      await page.keyboard.press('Enter');
+      await expect(page.locator('.encyclopedia-list [aria-current]')).toHaveText('Entry 15');
+    });
+  }
+
+  test('a long inward swipe reaches the facing page without dismissing, and cancelled exits cannot close later', async ({ page, context }) => {
+    await openBook(page);
+    const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
+    await finger.swipe(30, 400, 350); await settled(page);
+    await expect(page.locator('.encyclopedia-pages')).not.toHaveClass(/show-detail/);
+    await finger.start(100, 400); await finger.move(240, 400); await finger.cancel(); await settled(page);
+    await expect(page.locator('dialog')).toHaveCount(1);
+    await finger.start(100, 400); await finger.move(240, 400); await finger.move(110, 400); await finger.end(); await settled(page);
+    await expect(page.locator('dialog')).toHaveCount(1);
+    await finger.swipe(100, 400, 140);
+    await track.evaluate(el => el.getAnimations()[0].pause());
+    await page.setViewportSize({ width: 380, height: 844 });
+    await settled(page);
+    await page.waitForTimeout(250);
+    await expect(page.locator('dialog')).toHaveCount(1);
+    expect(await track.getAttribute('style')).toBeFalsy();
+    await finger.swipe(280, 400, -160); await settled(page);
+    await expect(page.locator('.encyclopedia-pages')).toHaveClass(/show-detail/);
+  });
+
+  test('both wide pages still scroll vertically and short outward swipes return to the spread', async ({ page, context }) => {
+    await page.setViewportSize({ width: 1000, height: 844 });
+    await openBook(page);
+    const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
+    const start = (await track.boundingBox())!.x;
+    for (const [selector, x] of [['.encyclopedia-list', 250], ['.encyclopedia-reading', 750]] as const) {
+      const pane = page.locator(selector);
+      await pane.evaluate(el => { el.scrollTop = 0; });
+      await finger.swipe(x, 600, 20, -200);
+      await expect.poll(() => pane.evaluate(el => el.scrollTop)).toBeGreaterThan(100);
+    }
+    await finger.swipe(750, 400, -25); await settled(page);
+    expect((await track.boundingBox())!.x).toBeCloseTo(start, 0);
+    await expect(page.locator('dialog')).toHaveCount(1);
+  });
+
+  test('a live edit cancels an exit without losing the reading or editor focus', async ({ page, context }) => {
+    await page.setViewportSize({ width: 1100, height: 844 });
+    await openBook(page);
+    await page.getByRole('button', { name: 'Close', exact: true }).tap();
+    await page.getByRole('button', { name: 'Toggle debug panel' }).tap();
+    await page.locator('[data-item="name:Entry 15"]').focus();
+    await page.keyboard.press('Enter');
+    await settled(page);
+    const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
+    await finger.swipe(280, 400, -140);
+    await track.evaluate(el => el.getAnimations()[0].pause());
+    const editor = page.getByRole('textbox', { name: 'Story Markdown' });
+    await editor.focus();
+    await page.keyboard.press('ControlOrMeta+A');
+    await page.keyboard.insertText(manuscript.replace('A paragraph about', 'An updated paragraph about'));
+    await expect(page.locator('.encyclopedia-reading')).toContainText('An updated paragraph about');
+    await settled(page);
+    await page.waitForTimeout(250);
+    await expect(page.locator('dialog')).toHaveCount(1);
+    await expect(editor).toBeFocused();
+    expect(await track.getAttribute('style')).toBeFalsy();
+  });
+
   test('selection and long presses retain the reading; ordinary source taps still work', async ({ page, context }) => {
     await openBook(page);
     const finger = touch(await context.newCDPSession(page));
@@ -120,10 +210,10 @@ test.describe('encyclopedia touch swipes', () => {
       const range = document.createRange(); range.selectNodeContents(el);
       getSelection()!.removeAllRanges(); getSelection()!.addRange(range);
     });
-    await finger.swipe(100, 400, 160);
+    await finger.swipe(280, 400, -160);
     await expect(page.locator('.encyclopedia-pages')).toHaveClass(/show-detail/);
     await page.evaluate(() => getSelection()?.removeAllRanges());
-    await finger.start(100, 400); await page.waitForTimeout(450); await finger.move(270, 400); await finger.end();
+    await finger.start(280, 400); await page.waitForTimeout(450); await finger.move(100, 400); await finger.end();
     await expect(page.locator('.encyclopedia-pages')).toHaveClass(/show-detail/);
     await page.evaluate(() => getSelection()?.removeAllRanges());
     // Observe activation without leaving the fixture or requesting the external URL.
@@ -165,7 +255,7 @@ test.describe('encyclopedia touch swipes', () => {
     await expect(page.locator('.encyclopedia-pages')).not.toHaveClass(/show-detail/);
   });
 
-  test('reduced motion switches only on release, and the wide spread does not swipe', async ({ page, context }) => {
+  test('reduced motion changes pages and dismisses only on release without sliding', async ({ page, context }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await openBook(page);
     const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
@@ -175,10 +265,20 @@ test.describe('encyclopedia touch swipes', () => {
     await finger.end();
     await expect(page.locator('.encyclopedia-pages')).not.toHaveClass(/show-detail/);
     await expect(track).toHaveCSS('transition-duration', '0s');
+    await page.locator('.game-surface').evaluate(el => el.addEventListener('click', () => { document.body.dataset.clickedGame = 'true'; }));
+    const indexStart = (await track.boundingBox())!.x;
+    await finger.start(100, 400); await finger.move(260, 400);
+    expect((await track.boundingBox())!.x).toBe(indexStart);
+    await finger.end();
+    await expect(page.locator('dialog')).toHaveCount(0);
+    expect(await page.locator('body').getAttribute('data-clicked-game')).toBeNull();
+    await page.keyboard.press('Enter');
     await page.setViewportSize({ width: 1000, height: 844 });
     await expect(page.locator('.encyclopedia-detail')).toHaveAttribute('aria-hidden', 'false');
-    await finger.swipe(250, 400, -160);
-    await expect(track).toHaveCSS('transform', 'none');
-    await expect(page.locator('.encyclopedia-pages')).not.toHaveClass(/show-detail/);
+    const spreadStart = (await track.boundingBox())!.x;
+    await finger.start(250, 400); await finger.move(90, 400);
+    expect((await track.boundingBox())!.x).toBe(spreadStart);
+    await finger.end();
+    await expect(page.locator('dialog')).toHaveCount(0);
   });
 });

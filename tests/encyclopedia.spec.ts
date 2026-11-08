@@ -302,7 +302,7 @@ test('touch opens an encyclopedia entry below threshold and dismisses reopened g
   await context.close();
 });
 
-test('mobile inner edges stay square; resizing reveals two accessible pages with only the right Close', async ({ page }) => {
+test('the active page is centered with facing paper to the game edge; wide layouts expose both pages', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openFixture(page, manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n'));
@@ -314,7 +314,7 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
   const index = page.locator('.encyclopedia-index'), detail = page.locator('.encyclopedia-detail');
   const pages = page.locator('.encyclopedia-pages'), spine = page.locator('.encyclopedia-spine');
   const node = (await dialog.elementHandle())!;
-  for (const width of [320, 639]) {
+  for (const width of [320, 390, 639]) {
     await page.setViewportSize({ width, height: 800 });
     await expect(index).toHaveAttribute('aria-hidden', 'false');
     await expect(detail).toHaveAttribute('aria-hidden', 'true');
@@ -324,10 +324,14 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
     expect(await page.getByRole('heading', { name: 'Index', exact: true }).evaluate(el => !!el.closest('.encyclopedia-index .encyclopedia-header'))).toBe(true);
     expect(await page.getByRole('button', { name: 'Close', exact: true }).evaluate(el => !!el.closest('.encyclopedia-index'))).toBe(true);
     const viewport = (await pages.boundingBox())!, left = (await index.boundingBox())!, fold = (await spine.boundingBox())!, right = (await detail.boundingBox())!;
-    expect(left.width).toBeCloseTo(viewport.width - 24, 0);
+    expect(viewport.x).toBe(0);
+    expect(viewport.width).toBe(width);
+    expect(left.x + left.width / 2).toBeCloseTo(width / 2, 0);
+    expect(left.x).toBeGreaterThan(0);
     expect(fold.width).toBeCloseTo(12, 0);
-    expect(right.x - viewport.x).toBeCloseTo(viewport.width - 12, 0);
-    expect(await dialog.evaluate(el => [getComputedStyle(el).borderTopRightRadius, getComputedStyle(el).borderBottomRightRadius])).toEqual(['0px', '0px']);
+    expect(right.x).toBeLessThan(width);
+    expect(right.x + right.width).toBeGreaterThan(width);
+    expect(await page.evaluate(() => !!document.elementFromPoint(innerWidth - 1, 400)?.closest('.encyclopedia-track'))).toBe(true);
     await page.getByRole('link', { name: 'Stone', exact: true }).click();
     await expect(index).toHaveAttribute('aria-hidden', 'true');
     await expect(detail).toHaveAttribute('aria-hidden', 'false');
@@ -341,9 +345,13 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
     expect(closeBox.x).toBeGreaterThan(indexBox.x + indexBox.width);
     expect(closeBox.y).toBeCloseTo(indexBox.y, 0);
     const turned = (await detail.boundingBox())!;
-    expect(turned.x - viewport.x).toBeCloseTo(24, 0);
-    expect(turned.width).toBeCloseTo(viewport.width - 24, 0);
-    expect(await dialog.evaluate(el => [getComputedStyle(el).borderTopLeftRadius, getComputedStyle(el).borderBottomLeftRadius])).toEqual(['0px', '0px']);
+    expect(turned.x + turned.width / 2).toBeCloseTo(width / 2, 0);
+    expect(turned.width).toBeCloseTo(left.width, 0);
+    const facing = (await index.boundingBox())!;
+    expect(facing.x).toBeLessThan(0);
+    expect(facing.x + facing.width).toBeGreaterThan(0);
+    expect(await page.evaluate(() => !!document.elementFromPoint(1, 400)?.closest('.encyclopedia-track'))).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
     expect(await page.locator('.encyclopedia-track').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
     await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
     expect(await node.evaluate(el => el.isConnected)).toBe(true);
@@ -362,10 +370,11 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
     await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
     await expect(detail.getByRole('button', { name: 'Close', exact: true })).toBeVisible();
     const viewport = (await pages.boundingBox())!, left = (await index.boundingBox())!, right = (await detail.boundingBox())!;
-    expect(left.x).toBeCloseTo(viewport.x, 0);
-    expect(left.width).toBeCloseTo((viewport.width - 12) / 2, 0);
+    expect(left.x).toBeGreaterThan(viewport.x);
+    expect(left.width).toBeCloseTo(right.width, 0);
     expect(right.x).toBeCloseTo(left.x + left.width + 12, 0);
-    expect(right.x + right.width).toBeCloseTo(viewport.x + viewport.width, 0);
+    expect(right.x + right.width).toBeLessThan(viewport.x + viewport.width);
+    expect((left.x + right.x + right.width) / 2).toBeCloseTo(width / 2, 0);
     await page.getByRole('link', { name: 'Stone', exact: true }).click();
     await expect(detail.locator('.reading-text')).toHaveText('A stone explanation.');
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
@@ -386,6 +395,13 @@ test('mobile inner edges stay square; resizing reveals two accessible pages with
   await expect(index).toHaveAttribute('aria-hidden', 'false');
   await expect(detail).toHaveAttribute('inert', '');
   await expect(index.getByRole('button', { name: 'Close', exact: true })).toBeVisible();
+  const game = (await page.locator('#app').boundingBox())!, previewPage = (await index.boundingBox())!;
+  expect(previewPage.x + previewPage.width / 2).toBeCloseTo(game.x + game.width / 2, 0);
+  expect((await pages.boundingBox())!.width).toBeCloseTo(game.width, 0);
+  expect(await page.evaluate(() => {
+    const bounds = document.querySelector('#app')!.getBoundingClientRect();
+    return !!document.elementFromPoint(bounds.right - 1, 400)?.closest('.encyclopedia-track');
+  })).toBe(true);
 });
 
 test('chapter opening chooses first, previous selection, then latest shown wonder; mobile always opens the index', async ({ page }) => {
