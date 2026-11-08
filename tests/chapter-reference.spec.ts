@@ -46,6 +46,11 @@ test('reference picture is a non-draggable reading control with relative assets 
   await open(page);
   const card = page.getByRole('button', {name: 'View build reference: A wind cart'});
   await expect(card).toBeVisible();
+  await expect(card).toHaveText('');
+  const frame=(await card.boundingBox())!;
+  expect(frame.x).toBeGreaterThanOrEqual(250);
+  expect(frame.x+frame.width).toBeLessThanOrEqual(390);
+  expect(frame.y).toBeGreaterThanOrEqual(48);
   await expect(card.locator('img')).toHaveAttribute('src', /reference-fixture\/assets\/cart.svg$/);
   await expect(card.locator('img')).toHaveAttribute('draggable', 'false');
   expect(await card.getAttribute('data-item')).toBeNull();
@@ -91,9 +96,9 @@ test('reference framing follows the fitted scene on a desktop editor layout', as
   await open(page);
   const panel = (await page.locator('.chapter-panel').boundingBox())!, card = (await page.locator('.chapter-reference').boundingBox())!;
   const scale = panel.width / 390;
-  expect(card.width).toBeCloseTo(196 * scale, 1);
-  expect(card.x - panel.x).toBeCloseTo(146 * scale, 1);
-  expect(card.y - panel.y).toBeCloseTo(12 * scale, 1);
+  expect(card.width).toBeCloseTo(130 * scale, 1);
+  expect(card.x - panel.x).toBeCloseTo(254 * scale, 1);
+  expect(card.y - panel.y).toBeCloseTo(52 * scale, 1);
   await clearOfReference(page, 0);
 });
 

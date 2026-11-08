@@ -30,3 +30,7 @@ Animation was explicitly deferred. The source models retain simple geometry and 
 Development began under `projects/builder-study`; the user's `builder wip` commit preserved an intermediate state. This is the study's first archive home. Historical playtest paths, hashes, exact model/guidance records and attributed reports are unchanged and describe their original versions. Raw sessions, screenshots, proof renders, reviewer answers, logs and export manifests were temporary verification output and were removed after retaining concise conclusions. No user-supplied artwork files accompanied this request; the user supplied conceptual references and a local Blender example path.
 
 Promotion checks and the shared reading-scroll repair are recorded in [evaluation](evaluation.md) and the repository [notes](../../notes.md). The live runtime assets and manuscript were verified byte for byte during promotion. The independent Creation wording edits in the shared workspace were outside this task and commit.
+
+## Active follow-on work
+
+The [current Builder study](../../projects/builder-study/README.md) contains the movable first-chapter prototype and subsequent short-label, white-page and literal-part revisions. This archive preserves the earlier editions and their original evidence.

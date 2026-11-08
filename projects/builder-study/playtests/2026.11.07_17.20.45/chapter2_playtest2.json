@@ -1,0 +1,60 @@
+[
+  {
+    "step": 1,
+    "reason": "The bearing tube name is ambiguous, so I’ll check the chassis for an available fitting.",
+    "choice": {
+      "inspect": "Chassis"
+    },
+    "expectation": "The chassis should show which parts can be fitted to it, possibly fitting a bearing tube automatically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chassis lists two bearing tubes, but their identical names make the intended fitting ambiguous.",
+    "reaction": "I’m unsure how to select either tube by name.",
+    "step": 2,
+    "reason": "I’ll check the wheels for another available way to make progress while the tubes are ambiguous.",
+    "choice": {
+      "inspect": "Wheels"
+    },
+    "expectation": "The wheels may show a compatible part or fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels have no available combination yet, and the correction confirms that naming a bearing tube is ambiguous.",
+    "reaction": "I’m unsure how to fit either identical tube.",
+    "step": 3,
+    "reason": "I’ll check the pinwheel for another available operation that might advance the build.",
+    "choice": {
+      "inspect": "Pinwheel"
+    },
+    "expectation": "The pinwheel may have a compatible part or hotspot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pinwheel has no available operation yet, and the bearing tube name is still ambiguous.",
+    "reaction": "The duplicate names make the first fitting unclear.",
+    "step": 4,
+    "reason": "I’ll check the starting gate for another available operation before concluding that the build is blocked.",
+    "choice": {
+      "inspect": "Starting gate"
+    },
+    "expectation": "The gate may have an available partner, though it may need the chassis finished first.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starting gate has no available operation yet, so it does not bypass the bearing-tube fitting.",
+    "reaction": "The first construction step still feels blocked by the duplicate names.",
+    "step": 5,
+    "reason": "I’ll check whether the sail has a usable partner, such as the mast, while the chassis fitting remains unclear.",
+    "choice": {
+      "inspect": "Sail"
+    },
+    "expectation": "The sail may be compatible with the mast, though it may also need the chassis to be built first.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

@@ -2,6 +2,7 @@
 
 This index describes live projects only. Each project keeps its briefs, research, plans and retained supporting material together throughout its development.
 
+- [Builder study](builder-study/README.md): a large movable construction prototype, four separate folds, literal bearing-tube copies, short labels and white instruction pages.
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
 

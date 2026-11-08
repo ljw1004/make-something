@@ -123,6 +123,8 @@ Four or more active hotspots are a hard lint error. Acknowledgments are chapter-
 
 A hotspot should represent a meaningful place, apparatus or process. Cut needless station visits and let complete equipment perform routine internal steps; dividing a process among more locations can turn making into repetitive sequencing. Do not split chapters merely to satisfy the count.
 
+In guided construction, separate adding a part from reshaping the workpiece. An attachment should visibly add its supplied geometry; a fold or flip belongs to an explicit process when it changes what the player sees or can reach. Use a deliberate whole-object viewpoint to reveal the work, preserving physical dimensions. The goal picture and one short current instruction can carry a quiet chapter without an introduction or routine creation popups. Keep optional mechanical explanation in encyclopedia-only text. When a small number of repeated pieces are separate visible fittings, give each its own identity and draggable object. They may share the same short display name; support either fitting order when they are interchangeable.
+
 Use [complete-operation abstractions](#complete-operations-and-elapsed-time) for routine handling and elapsed duration while preserving the important inputs and consequences.
 
 Use [separate specimens and consequential discoveries](#separate-specimens-and-consequential-discoveries) when investigation drives the story. Mere comparison need not create another physical object.

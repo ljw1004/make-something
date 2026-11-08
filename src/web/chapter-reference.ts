@@ -2,16 +2,16 @@ import type {Chapter} from '../story/types.ts';
 import type {BoardRect} from './board-geometry.ts';
 import {escape} from './markdown.ts';
 
-/** Leave the top-left supply pocket and the top-right debug control available. */
+/** The right-hand third of the instruction row, below the navigation controls. */
 export function chapterReferenceRect(bounds: BoardRect): BoardRect {
-  const width = Math.min(196, Math.max(44, bounds.width - 96));
-  return {x: bounds.x + bounds.width - width - 48, y: bounds.y + 12, width, height: 88};
+  const width = Math.min(130, Math.max(44, bounds.width / 3));
+  return {x: bounds.x + bounds.width - width - 6, y: bounds.y + 52, width, height: 112};
 }
 
 export function chapterReferenceHTML(chapter: Chapter, bounds: BoardRect, asset: (path: string) => string): string {
   if (!chapter.reference) return '';
   const {x, y, width, height} = chapterReferenceRect(bounds), {alt, url} = chapter.reference;
-  return `<button class="chapter-reference" data-command="reference" data-reference-chapter="${escape(chapter.id)}" style="left:${x-bounds.x}px;top:${y}px;width:${width}px;height:${height}px" aria-label="View build reference: ${escape(alt)}"><img src="${escape(asset(url))}" alt="" draggable="false"><span class="reference-caption"><span class="reference-eyebrow">Building toward</span><span>${escape(alt)}</span></span><span class="reference-expand" aria-hidden="true">↗</span></button>`;
+  return `<button class="chapter-reference" data-command="reference" data-reference-chapter="${escape(chapter.id)}" style="left:${x-bounds.x}px;top:${y}px;width:${width}px;height:${height}px" aria-label="View build reference: ${escape(alt)}"><img src="${escape(asset(url))}" alt="" draggable="false"></button>`;
 }
 
 export function chapterReferenceReading(chapter: Chapter, asset: (path: string) => string): string {

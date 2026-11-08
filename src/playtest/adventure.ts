@@ -60,9 +60,9 @@ export function choices(story: Story, state: State): Choice[] {
 }
 function optionText(story: Story, state: State, action: Choice) {
   const name = (id: string) => itemName(story, state, id);
-  if (action.type === 'move') return action.hotspot ? `Place ${name(action.item)} at ${label(story,state,action.hotspot)}` : `Move ${name(action.item)} off ${label(story,state,state.tokens[action.item].hotspot!)}`;
+  if (action.type === 'move') return action.hotspot ? `Place ${name(action.item)} at ${name(action.hotspot)}` : `Move ${name(action.item)} off ${name(state.tokens[action.item].hotspot!)}`;
   const hotspot = action.hotspot;
-  return `${name(action.a)}${action.b ? ` + ${name(action.b)}` : ''}${hotspot ? ` @ ${label(story,state,hotspot)}` : ''}`;
+  return `${name(action.a)}${action.b ? ` + ${name(action.b)}` : ''}${hotspot ? ` @ ${name(hotspot)}` : ''}`;
 }
 function goalsText(story: Story, state: State): string {
   return `Goals${story.chapters[state.chapter].goalOperator === 'or' ? ' (complete any one)' : ''}:\n${visibleGoals(story,state).map(g => `- ${g.text}`).join('\n') || '(none)'}`;
@@ -71,7 +71,7 @@ export function board(story: Story, state: State): string {
   const observation = chapterSurface(story, state);
   const items = observation.items.map(item => {
     const slots = item.slots.filter(s => !s.filled && s.name).map(s => s.name);
-    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${label(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}`;
+    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${itemName(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}`;
   });
   const hotspots = observation.hotspots.map(h => {
     const token=state.tokens[h.id], slots=story.items[h.id].slots.filter(slot=>slot.name&&!token.slots.includes(slot.accepts)).map(slot=>slot.name);
@@ -178,7 +178,7 @@ function changes(story: Story, before: State, after: State): string[] {
     else {
       const added = token.slots.filter(id => !old.slots.includes(id));
       if (added.length) result.push(`Fitted ${added.map(id => label(story, after, id)).join(', ')} into ${name}.`);
-      if (old.hotspot !== token.hotspot || old.chapter !== token.chapter) result.push(`${name} is now ${token.hotspot ? `at ${label(story,after,token.hotspot)}` : 'off the hotspot'}.`);
+      if (old.hotspot !== token.hotspot || old.chapter !== token.chapter) result.push(`${name} is now ${token.hotspot ? `at ${itemName(story,after,token.hotspot)}` : 'off the hotspot'}.`);
     }
   }
   return result;

@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal directly calls for fitting a bearing tube to the chassis.",
+    "choice": {
+      "combine": "Bearing tube (#1)",
+      "with": "Chassis"
+    },
+    "expectation": "The first bearing tube will attach to the chassis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first bearing tube is fitted, and the next goal calls for the other one.",
+    "reaction": "A straightforward first step.",
+    "step": 2,
+    "reason": "The new goal directly identifies the remaining bearing tube and chassis.",
+    "choice": {
+      "combine": "Bearing tube (#2)",
+      "with": "Chassis"
+    },
+    "expectation": "The second bearing tube will attach to the chassis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both bearing tubes are fitted, and the wheels are now the next goal.",
+    "reaction": "The assembly sequence is clear so far.",
+    "step": 3,
+    "reason": "The goal directly calls for adding the wheels to the chassis.",
+    "choice": {
+      "combine": "Wheels",
+      "with": "Chassis"
+    },
+    "expectation": "The wheels will attach to the chassis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheels are attached, and the next goal is to assemble the sail and mast.",
+    "reaction": "The construction sequence remains straightforward.",
+    "step": 4,
+    "reason": "The goal directly identifies the two parts to join.",
+    "choice": {
+      "combine": "Sail",
+      "with": "Mast"
+    },
+    "expectation": "The sail will clip onto the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail and mast are assembled, ready to fit to the wheeled chassis.",
+    "reaction": "The explanation of how moving air will push the toy makes the construction clearer.",
+    "step": 5,
+    "reason": "The new goal directly calls for fitting the sail to the chassis.",
+    "choice": {
+      "combine": "Sail",
+      "with": "Chassis"
+    },
+    "expectation": "The assembled sail will attach to the chassis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is fitted, creating a racer; the next goal is to aim its sail with the pinwheel.",
+    "reaction": "The separate parts have come together into a recognizable toy.",
+    "step": 6,
+    "reason": "The goal identifies the pinwheel and sail-equipped racer as the next pieces to use together.",
+    "choice": {
+      "combine": "Pinwheel",
+      "with": "Racer"
+    },
+    "expectation": "The pinwheel will help aim the racer's sail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pinwheel showed the breeze direction without being attached, and the racer is ready to start.",
+    "reaction": "Using the pinwheel to find the wind direction is a satisfying connection between the toys.",
+    "step": 7,
+    "reason": "The new goal calls for racing from the starting gate, so the racer and gate are the obvious pair.",
+    "choice": {
+      "combine": "Racer",
+      "with": "Starting gate"
+    },
+    "expectation": "The racer will start its race from the gate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The racer reached the watering can, completing the chapter and establishing that Kit can try it at the fair.",
+    "reaction": "Seeing the assembled racer make its run is a satisfying payoff.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the pinwheel to find the wind direction was the most worthwhile step: it connected the earlier toy to a practical part of making the racer work.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two bearing tubes in separate, nearly identical steps was the most repetitive passage, though the sequence was clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the pinwheel stayed in hand as a wind indicator rather than becoming part of the racer.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the goals gave each construction step a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: the wind-direction connection and the completed racer's run made me curious what the fair will do next. This text-only play cannot speak to the artwork or dragging.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

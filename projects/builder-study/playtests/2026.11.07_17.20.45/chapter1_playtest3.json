@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for folding a corner, so the paper belongs at the Fold hotspot.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "The paper's first corner will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first fold completed the goal, and the next goal calls for another corner fold.",
+    "reaction": "The next step is clear.",
+    "step": 2,
+    "reason": "The paper still needs a corner folded, so I will use Fold again.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "The paper's second corner will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second fold completed its goal, and a third corner now needs folding.",
+    "reaction": "The sequence remains straightforward.",
+    "step": 3,
+    "reason": "The new goal calls for another paper fold.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "The paper's third corner will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The third fold completed its goal, leaving the last corner to fold.",
+    "reaction": "The folding sequence is predictable.",
+    "step": 4,
+    "reason": "The last corner needs the same Fold action.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "The paper's last corner will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The last fold turned the paper into blades, and the next goal is to fit their hub.",
+    "reaction": "The folded paper becoming blades makes the sequence feel purposeful.",
+    "step": 5,
+    "reason": "The goal explicitly calls for fitting the hub to the blades.",
+    "choice": {
+      "combine": "Hub",
+      "with": "Blades"
+    },
+    "expectation": "The hub will attach to the blades.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hub is fitted, and the blades now need to be flipped over.",
+    "reaction": "The assembly is taking shape.",
+    "step": 6,
+    "reason": "The new goal explicitly calls for flipping the blades.",
+    "choice": {
+      "combine": "Blades",
+      "with": "Flip"
+    },
+    "expectation": "The blades will turn over.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blades are flipped, exposing the back of the hub for the axle.",
+    "reaction": "The next assembly step is clear.",
+    "step": 7,
+    "reason": "The goal calls for fitting the axle into the hub on the blades.",
+    "choice": {
+      "combine": "Axle",
+      "with": "Blades"
+    },
+    "expectation": "The axle will fit into the back of the hub.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The axle is fitted, and the remaining goal is to clip the handle onto it.",
+    "reaction": "The final assembly step is clear.",
+    "step": 8,
+    "reason": "The axle is part of the blades assembly, so the handle should attach there.",
+    "choice": {
+      "combine": "Handle",
+      "with": "Blades"
+    },
+    "expectation": "The handle will clip onto the axle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handle completed the pinwheel assembly; it now needs flipping to the front.",
+    "reaction": "It is satisfying to see the parts become a pinwheel.",
+    "step": 9,
+    "reason": "The goal explicitly calls for flipping the pinwheel.",
+    "choice": {
+      "combine": "Pinwheel",
+      "with": "Flip"
+    },
+    "expectation": "The pinwheel will turn to the front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Flipping the pinwheel completed the final goal and the chapter.",
+    "reaction": "It is satisfying to finish the assembled pinwheel, though the last flip was predictable.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the handle was the most worthwhile step because the assembled parts became a recognizable pinwheel.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Repeating the same fold for each corner was straightforward but became repetitive.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The folded paper becoming blades made the purpose of the folding sequence clear.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the goals explained each assembly step.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue to see what else the toys can do, though I would hope for more varied choices than the repeated folds.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

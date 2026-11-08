@@ -680,6 +680,15 @@ function commit(action: Action) { try {
   }
   if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
   const before = state, previous = state.chapter, next = act(story, state, action);
+  // A same-panel process transforms the workpiece at its working position.
+  // Returning it there keeps a row of process targets clear for the next step.
+  const processRecipe = action.type === 'combine' && action.hotspot && !action.b ? recipeFor(story, before, action) : undefined;
+  const processSource = processRecipe?.a.fate === 'transform' ? before.tokens[processRecipe.a.ref.id] : undefined;
+  const sourceElement = processSource && tile(processSource.id);
+  const processOrigin = processSource && sourceElement && next.tokens[processSource.id]?.status !== 'available'
+    && next.tokens[processRecipe!.hotspot!]?.status === 'available'
+    && next.tokens[processRecipe!.result.id]?.chapter === processSource.chapter
+    ? {x:processSource.x,y:processSource.y,width:sourceElement.offsetWidth,height:sourceElement.offsetHeight} : undefined;
   withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
     const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
@@ -710,7 +719,9 @@ function commit(action: Action) { try {
           occupied.push(...hotspots,...reserved);
         }
         const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
-        const position=preferred ?? (receivingRect&&receiver
+        const position=preferred ?? (processOrigin
+          ?placeCreation(processOrigin,{width:element.offsetWidth,height:element.offsetHeight},true,creationBounds)
+          :receivingRect&&receiver
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
           :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
         token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
