@@ -490,8 +490,14 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   reconcile(dialog, content);
   dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
   updateTutorial();
-  if (!dialog.open) dialog.show();
-  // Native dialog focusing can scroll long readings while opening them.
+  if (!dialog.open) {
+    // WebKit defers show()'s native focus scroll until layout. Suppress that
+    // initial focus; the explicit preventScroll focus below owns it instead.
+    dialog.inert = true;
+    dialog.show();
+    dialog.inert = false;
+  }
+  // New readings start at the top; live updates retain the reader's position.
   dialog.scrollTop = changing ? 0 : scroll;
   dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : context.kind === 'reference' ? 'Build reference' : 'Story reading');
   if (context.kind === 'encyclopedia') {

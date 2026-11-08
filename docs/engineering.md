@@ -34,7 +34,7 @@ The separate content-opportunity linter plans sets of goal/target dependencies b
 
 ## Tests that earn their cost
 
-The full default suite should finish in about 20 seconds. It includes semantic tests and Chromium interaction checks. Keep cases small and purposeful: parsing ambiguity, jointly hiding inputs, exclusive branches, compound preservation/wrapping, goal latching, hidden-information boundaries, real drag/reload/reset, and one complete legal witness for each active story.
+The full default suite should finish in about 20 seconds. It includes semantic tests, Chromium interaction checks and focused WebKit reading-scroll regressions. Keep cases small and purposeful: parsing ambiguity, jointly hiding inputs, exclusive branches, compound preservation/wrapping, goal latching, hidden-information boundaries, real drag/reload/reset, and one complete legal witness for each active story.
 
 Do not snapshot whole stories, pin incidental counts or rerun historical tests. A change in wording is not a reason to rebuild a large expected-output fixture. Add a regression case when a real counterexample exposes an important semantic boundary. Compare semantic state rather than string snapshots of large UI markup. Run timing checks when new tests or code make them relevant. Archive hash verification is an occasional preservation check, not part of each development test run.
 

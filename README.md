@@ -16,7 +16,7 @@ Use Node.js 22.18 or later.
 
 ```sh
 npm install
-npx playwright install chromium
+npx playwright install chromium webkit
 npm run dev
 ```
 
