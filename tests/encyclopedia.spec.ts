@@ -93,7 +93,7 @@ test('only the reopened chapter dismisses on backdrop clicks, with a top-right C
   const popup = (await dialog.boundingBox())!, x = (await close.boundingBox())!;
   expect(x.x).toBeGreaterThan(popup.x + popup.width / 2);
   expect(x.y - popup.y).toBeLessThan(12);
-  const recovery = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
+  const recovery = (await page.getByRole('button', { name: 'Restart this story', exact: true }).boundingBox())!;
   const footer = (await page.locator('.chapter-actions').boundingBox())!;
   expect(recovery.x + recovery.width).toBeCloseTo(footer.x + footer.width, 0);
   await page.locator('.chapter-popup .reading-text').click();
@@ -136,7 +136,7 @@ test('the compact chapter row opens the book through either its icon or label an
   await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeInViewport();
   await expect(book).toBeInViewport();
   const left = (await book.boundingBox())!, row = (await page.locator('.chapter-actions').boundingBox())!;
-  const right = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
+  const right = (await page.getByRole('button', { name: 'Restart this story', exact: true }).boundingBox())!;
   expect(left.x).toBeCloseTo(row.x, 0);
   expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
   expect(right.x).toBeGreaterThan(left.x + left.width);
@@ -467,7 +467,7 @@ test('story restart clears wonder history and the previous selection', async ({ 
   await expect(page.locator('.encyclopedia-list [aria-current]')).toHaveText('Stone');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart this story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();

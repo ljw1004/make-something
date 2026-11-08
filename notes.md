@@ -1788,3 +1788,9 @@ The compiled opening passed all 23 actions at four viewport sizes, reload and
 continuation. Temporary verification output was removed after concise outcomes;
 selected runtime assets have one home beside the live manuscript. The pre-existing
 development server remains available and private access is unchanged.
+
+## 7 November 2026 — restart scope follows combinations
+
+The user reported that moving overlapping items away from goals made story restart unavailable, and chose successful combinations in the current chapter as the sole trigger for chapter restart. The reopened goals popup now follows that rule and labels the other action **Restart this story**. The [UX contract](docs/ux.md#minimal-chapter-flow) owns the adopted behavior. Saved sessions retain a combination flag across reload and live edits; legacy movement flags are ignored in favor of recorded combinations since chapter entry. Legacy edited snapshots can only infer combinations still present in their retained action history.
+
+Validation: all six chapter-session unit checks pass. The focused browser run passed 78 of 79 checks initially; the viewport reload check exposed a missing wait for its native scroll event to save. After synchronizing that check with saved scroll position, all 12 viewport checks pass. Coverage includes moving cards away from goals, later chapters, successful combinations, chapter reset, draft edits, reload, story-restart confirmation and tutorial reset. TypeScript and the production build pass with the existing root-output and bundle-size warnings. Repeat with `node --test tests/chapter-session.test.ts`, `npx playwright test tests/{browser,landing,tutorial,hotspot-tutorial,encyclopedia,drag-order,viewport,editor}.spec.ts` and `npm run build`. Temporary browser output was discarded; generated publication files accompany the source. The user requested commit and push; access settings remain unchanged.

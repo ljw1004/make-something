@@ -2,16 +2,18 @@ import {test, expect, type Page, type Locator} from '@playwright/test';
 import {openDebugPanel} from './debug-helpers.ts';
 
 async function openFixture(page: Page, icons = false) {
-  const items = ['A', 'B', 'C', 'D'].map(id => `- ${id}${icons ? `\n  - icon: ![${id}](tile.svg)` : ''}`).join('\n');
+  const items = ['A', 'B', 'C', 'D', 'E'].map(id => `- ${id}${icons ? `\n  - icon: ![${id}](tile.svg)` : ''}`).join('\n');
   const text = `# Overlapping items
 ## Workshop
 Arrange the pieces.
 **Goals**
 - Make D -- D
+- Make E -- E
 **Items**
 ${items}
 **Combinations**
 - C [preserve] + B [preserve] -> D
+- C [preserve] + D [preserve] -> E
 `;
   await page.route('**/drag-order/story.md', route => route.fulfill({contentType: 'text/markdown', body: text}));
   await page.route('**/drag-order/tile.svg', route => route.fulfill({contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="224" height="224"><rect width="224" height="224" rx="12" fill="#b8ad80"/></svg>'}));
@@ -102,6 +104,7 @@ test('live renaming and draft reload preserve stacking; chapter reset restores a
   const arrival = await a.boundingBox();
   expect(await zIndex(a)).toBeLessThan(await zIndex(b));
   expect(await zIndex(b)).toBeLessThan(await zIndex(c));
+  await c.dragTo(b); await expect(item(page, 'D')).toBeVisible();
   await moveTo(page, b, 150, 360); await moveTo(page, a, 180, 360);
   const placed = await a.boundingBox(), overlap = {x: 200, y: 380};
   expect(await topAt(page, overlap)).toBe('name:A');

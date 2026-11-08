@@ -90,22 +90,20 @@ test('generated checkpoint has usable touch targets and loaded assets at phone w
 test('manual recovery controls are conditional and story restart requires confirmation',async({page})=>{
   await openMars(page);
   await page.getByRole('button',{name:'Read this chapter'}).click();
-  await expect(page.getByRole('button',{name:'Restart story',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Restart this story',exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Restart this chapter'})).toHaveCount(0);
   await page.getByRole('button',{name:'Close',exact:true}).click();
   await jumpToChapter(page,chapter('mars',1),true);
   await expect(page.locator('dialog button')).toHaveCount(1);await page.getByRole('button',{name:'Begin',exact:true}).click();
   await page.getByRole('button',{name:'Read this chapter'}).click();await expect(page.getByRole('button',{name:'Restart this chapter'})).toHaveCount(0);
-  await page.getByRole('button',{name:'Restart story',exact:true}).click();await expect(page.getByText(/This removes all progress in this story/)).toBeVisible();
-  await page.getByRole('button',{name:'Cancel',exact:true}).click();await expect(page.getByRole('button',{name:'Restart story',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Restart this story',exact:true}).click();await expect(page.getByText(/This removes all progress in this story/)).toBeVisible();
+  await page.getByRole('button',{name:'Cancel',exact:true}).click();await expect(page.getByRole('button',{name:'Restart this story',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Close',exact:true}).click();
-  const card=page.locator('.chapter-panel').last().locator('.thing').first(),before=(await card.boundingBox())!;
+  const card=page.locator('.chapter-panel').last().locator('.thing').first();
   await card.dragTo(page.locator('.viewport'),{targetPosition:{x:220,y:500}});
   await page.reload();await page.getByRole('button',{name:'Read this chapter'}).click();
-  await expect(page.getByRole('button',{name:'Restart story',exact:true})).toHaveCount(0);
-  await page.getByRole('button',{name:'Restart this chapter'}).click();await page.getByRole('button',{name:'Begin',exact:true}).click();
-  const restored=(await card.boundingBox())!;expect(restored.x).toBeCloseTo(before.x,1);expect(restored.y).toBeCloseTo(before.y,1);
-  await page.getByRole('button',{name:'Read this chapter'}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Restart this chapter'})).toHaveCount(0);
+  await page.getByRole('button',{name:'Restart this story',exact:true}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();
   await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();await expect(page.locator('dialog')).toHaveCount(0);await expect(page.locator('[data-item]')).toHaveCount(0);
 });
 
@@ -117,7 +115,9 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
   const overlap=(await card.boundingBox())!;
   await page.mouse.move(overlap.x+overlap.width/2,overlap.y+overlap.height/2);await page.mouse.down();await page.mouse.move(60,650,{steps:6});await page.mouse.up();
   expect((await card.boundingBox())!.y).toBeLessThan(overlap.y-100);await expect(page.locator('dialog')).toHaveCount(0);
-  await goals.click();await expect(page.getByRole('button',{name:'Restart this chapter'})).toBeVisible();
+  await page.reload();
+  await goals.click();await expect(page.getByRole('button',{name:'Restart this story',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Restart this chapter'})).toHaveCount(0);
 });
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{

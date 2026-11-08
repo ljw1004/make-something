@@ -91,24 +91,23 @@ test('resize and live editing cannot expose gameplay before Start or create prog
   await expect(page.locator('.reading-text')).toContainText('Edited introduction.');
 });
 
-test('chapter reset starts its ordinary intro; confirmed story restart clears progress and returns to Start', async ({ page }) => {
+test('confirmed story restart in a new chapter clears earlier progress and returns to Start', async ({ page }) => {
   await openFixture(page);
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   const frame = page.locator('[data-item="name:Frame"]');
   await frame.dragTo(page.locator('.viewport'), { targetPosition: { x: 200, y: 500 } });
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart this chapter' }).click();
-  await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Begin', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Restart this story', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
   await frame.dragTo(page.locator('[data-item="name:Tool"]'));
   await page.getByRole('button', { name: 'Continue story' }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart this story', exact: true }).click();
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart this story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await expectLanding(page);
   expect(await progressKeys(page)).toEqual([]);

@@ -23,7 +23,7 @@ import { encyclopediaEntries, openBook, restoreEncyclopediaHistory, remapEncyclo
 import { ItemFeedback } from './item-feedback.ts';
 import { restoreItemOrder } from './item-order.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
-import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
+import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, hasChapterCombination, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset } from './story-document.ts';
 import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
@@ -348,7 +348,7 @@ function applyText(text: string) {
   const entry = reconcileLiveStory(anchor.story, next, anchor.chapterSession.entry).state;
   chapterSession = {
     entry: entry.chapter === state.chapter ? entry : structuredClone(state),
-    changed: anchor.chapterSession.changed,
+    combined: anchor.chapterSession.combined,
     itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
   };
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
@@ -423,7 +423,7 @@ async function start() {
         const prior = restoreLiveState(source, saved.anchor.state);
         if (prior) {
           const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, changed: !!saved.anchor.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog), encyclopedia: restoreEncyclopediaHistory(saved.anchor.encyclopedia) };
+          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, combined: hasChapterCombination(prior, saved.anchor.chapterSession), itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog), encyclopedia: restoreEncyclopediaHistory(saved.anchor.encyclopedia) };
         }
       }
       if (saved?.hash === hash) {
@@ -432,7 +432,7 @@ async function start() {
           state = restored; editedSnapshot = !!saved.editedSnapshot;
           itemOrder = restoreItemOrder(Object.keys(state.tokens), saved.itemOrder);
           const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
-          chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), changed: !!saved.chapterSession?.changed, itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
+          chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), combined: hasChapterCombination(state, saved.chapterSession), itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
           loaded = true;
         }
       }
@@ -527,7 +527,7 @@ function chapterContent() {
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
   const encyclopedia = encyclopediaEntries(story, state).length >= 3
     ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label">Encyclopedia</span></button>` : '';
-  const restart = recovery === 'chapter' ? 'Restart this chapter' : 'Restart story';
+  const restart = recovery === 'chapter' ? 'Restart this chapter' : 'Restart this story';
   const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
   return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
 }
@@ -692,7 +692,7 @@ function commit(action: Action) { try {
   withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
     const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
-    state = next; noteChapterAction(chapterSession, before, action);
+    state = next; noteChapterAction(chapterSession, action);
     inputTrace?.record('commit:applied',{action});
     if (action.type === 'combine') tutorialProgress?.finish('dragDone');
     if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');

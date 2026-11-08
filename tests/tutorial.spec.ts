@@ -177,13 +177,13 @@ test('early goals clicks count, and confirmed story restart from chapter one cle
   await page.getByRole('button', {name: 'Restart this chapter'}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.getByRole('button', {name: 'Read this chapter'}).click();
-  await page.getByRole('button', {name: 'Restart story', exact: true}).click();
+  await page.getByRole('button', {name: 'Restart this story', exact: true}).click();
   await expect(page.getByText(/item positions and tutorial progress/)).toBeVisible();
   await page.getByRole('button', {name: 'Cancel', exact: true}).click();
   await page.getByRole('button', {name: 'Close', exact: true}).click();
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.getByRole('button', {name: 'Read this chapter'}).click();
-  await page.getByRole('button', {name: 'Restart story', exact: true}).click();
+  await page.getByRole('button', {name: 'Restart this story', exact: true}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
   await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
   await page.reload();

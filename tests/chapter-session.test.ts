@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {saveProgress} from '../src/web/persistence.ts';
 import {parseStory} from '../src/story/parser.ts';
 import {newGame,act} from '../src/engine/game.ts';
-import {captureChapter,chapterEntry,restorePresentation,restoreChapterSession,isNoopMove,noteChapterAction,chapterRecovery,displayedGoals} from '../src/web/chapter-session.ts';
+import {captureChapter,chapterEntry,restorePresentation,restoreChapterSession,isNoopMove,noteChapterAction,hasChapterCombination,chapterRecovery,displayedGoals} from '../src/web/chapter-session.ts';
 const story=parseStory(`# Session
 ## First
 background: ![room](room.webp)
@@ -31,18 +31,37 @@ Keep going.
 **Combinations**
 - C [preserve] + E [preserve] -> D`,{id:'session'});
 
-test('chapter reset eligibility ignores reading and no-op movement but remembers changes through reload',()=>{
+test('chapter reset requires a combination, ignoring reading and movement even onto a goal hotspot',()=>{
   let state=newGame(story);state.tokens['name:A'].x=40;state.tokens['name:A'].y=270;
   const session=captureChapter(state);assert.equal(chapterRecovery(session),'story');
-  noteChapterAction(session,state,{type:'dismiss'});assert.equal(session.changed,false);
+  noteChapterAction(session,{type:'dismiss'});assert.equal(session.combined,false);
   const noop={type:'move' as const,item:'name:A',chapter:0,x:40,y:270};
-  assert(isNoopMove(state,noop));noteChapterAction(session,state,noop);assert.equal(session.changed,false);
-  const move={...noop,x:90};noteChapterAction(session,state,move);state=act(story,state,move);
+  assert(isNoopMove(state,noop));noteChapterAction(session,noop);assert.equal(session.combined,false);
+  const move={...noop,x:90,hotspot:'name:Bench'};noteChapterAction(session,move);state=act(story,state,move);
+  assert.equal(chapterRecovery(session),'story');
+  assert.equal(chapterRecovery(restoreChapterSession(story,state,JSON.parse(JSON.stringify(session)))!),'story');
+  const combine={type:'combine' as const,a:'name:A',b:'name:B'};
+  state=act(story,state,combine);noteChapterAction(session,combine);
   assert.equal(chapterRecovery(session),'chapter');
   const loaded=restoreChapterSession(story,state,JSON.parse(JSON.stringify(session)))!;
-  assert.equal(loaded.changed,true);assert.equal(loaded.entry.tokens['name:A'].x,40);assert.equal(loaded.entry.tokens['name:A'].y,270);
+  assert.equal(loaded.combined,true);assert.equal(loaded.entry.tokens['name:A'].x,40);assert.equal(loaded.entry.tokens['name:A'].y,270);
+  assert(hasChapterCombination({...state,actions:[]},loaded),'live edits retain the combination flag when replay history is cleared');
   const reset=captureChapter(loaded.entry);assert.equal(chapterRecovery(reset),'story');
   assert.deepEqual(reset.entry,session.entry);
+});
+test('legacy saves infer combinations in the current chapter rather than trusting movement flags',()=>{
+  let state=newGame(story);
+  const saved={entry:structuredClone(state),changed:true};
+  state=act(story,state,{type:'dismiss'});
+  state=act(story,state,{type:'move',item:'name:A',chapter:0,x:100,y:600,hotspot:'name:Bench'});
+  assert.equal(chapterRecovery(restoreChapterSession(story,state,saved)!),'story');
+  state=act(story,state,{type:'combine',a:'name:A',b:'name:B'});
+  assert.equal(chapterRecovery(restoreChapterSession(story,state,saved)!),'chapter');
+  state=act(story,state,{type:'advance'});
+  assert.equal(state.chapter,2);
+  saved.entry=structuredClone(state);
+  state=act(story,state,{type:'move',item:'name:A',chapter:2,x:90,y:400});
+  assert.equal(chapterRecovery(restoreChapterSession(story,state,saved)!),'story');
 });
 test('snapshot reconstruction uses actual visited boundaries including skipped chapters and preserves scrollback geometry',()=>{
   let state=newGame(story);state=act(story,state,{type:'dismiss'});

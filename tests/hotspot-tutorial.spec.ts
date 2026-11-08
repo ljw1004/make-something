@@ -127,7 +127,7 @@ test('an unfinished lesson follows the next chapter; completion survives chapter
   await expect(cue(page, 'hotspot')).toBeHidden();
   await page.reload(); await expect(cue(page, 'hotspot')).toBeHidden();
   await page.getByRole('button', {name: 'Read this chapter'}).click();
-  await page.getByRole('button', {name: 'Restart story', exact: true}).click();
+  await page.getByRole('button', {name: 'Restart this story', exact: true}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();

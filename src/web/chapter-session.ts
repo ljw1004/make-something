@@ -5,9 +5,9 @@ import { act, newGame, restore } from '../engine/game.ts';
 import { restoreItemOrder } from './item-order.ts';
 
 /** Browser-only arrival snapshot: geometry is not part of the logical replay. */
-export interface ChapterSession { entry: State; changed: boolean; itemOrder?: string[] }
+export interface ChapterSession { entry: State; combined: boolean; itemOrder?: string[] }
 export function captureChapter(state: State, itemOrder?: string[]): ChapterSession {
-  return {entry:structuredClone(state),changed:false,itemOrder:restoreItemOrder(Object.keys(state.tokens),itemOrder)};
+  return {entry:structuredClone(state),combined:false,itemOrder:restoreItemOrder(Object.keys(state.tokens),itemOrder)};
 }
 export function chapterEntry(story: Story, current: State): State {
   let entry=newGame(story);
@@ -30,22 +30,28 @@ export function restorePresentation(story: Story, raw: State): State {
 export function restoreChapterSession(story: Story, state: State, raw: unknown): ChapterSession | undefined {
   try {
     const saved=raw as ChapterSession;
-    if(!saved?.entry||typeof saved.changed!=='boolean')return;
+    if(!saved?.entry)return;
     const entry=restorePresentation(story,saved.entry),boundary=chapterEntry(story,state);
     if(entry.chapter!==state.chapter||JSON.stringify(entry.actions)!==JSON.stringify(boundary.actions))return;
-    return {entry,changed:saved.changed,itemOrder:restoreItemOrder(Object.keys(entry.tokens),saved.itemOrder)};
+    return {entry,combined:hasChapterCombination(state,saved),itemOrder:restoreItemOrder(Object.keys(entry.tokens),saved.itemOrder)};
   } catch { return; }
+}
+/** Legacy movement flags are not evidence of a combination in this chapter. */
+export function hasChapterCombination(state: State, saved?: {combined?: unknown}): boolean {
+  if(typeof saved?.combined==='boolean')return saved.combined;
+  const arrival=state.actions.findLastIndex(action=>action.type==='advance');
+  return state.actions.slice(arrival+1).some(action=>action.type==='combine');
 }
 export function isNoopMove(state: State, action: Action): boolean {
   if(action.type!=='move')return false;
   const token=state.tokens[action.item];
   return !!token&&token.chapter===action.chapter&&token.hotspot===action.hotspot&&token.x===action.x&&token.y===action.y;
 }
-export function noteChapterAction(session: ChapterSession, before: State, action: Action): void {
-  if(action.type==='combine'||(action.type==='move'&&!isNoopMove(before,action)))session.changed=true;
+export function noteChapterAction(session: ChapterSession, action: Action): void {
+  if(action.type==='combine')session.combined=true;
 }
 export function chapterRecovery(session: ChapterSession): 'chapter'|'story' {
-  return session.changed?'chapter':'story';
+  return session.combined?'chapter':'story';
 }
 /** Show one stage per goal chain, retaining finished chains as checked rows. */
 export function displayedGoals(story: Story, state: State): {goal:Goal;done:boolean}[] {

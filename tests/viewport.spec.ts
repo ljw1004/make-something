@@ -23,6 +23,7 @@ A second reading.
 - Probe
 **Combinations**
 - Kit [preserve] + Probe [preserve] -> Final
+- Frame [preserve] + Probe [preserve] -> Offcut
 ## Home
 A last reading.
 **Goals**
@@ -105,6 +106,11 @@ test('latest-chapter pickups follow the pointer past the top, fit on release and
   await scrollTo(page, 664);
   expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
   await page.clock.resume();
+  // Let the native scroll event save the final position before navigating away.
+  await expect.poll(()=>page.evaluate(()=>{
+    const key=Object.keys(localStorage).find(key=>key.startsWith('combination-progress-v2:'));
+    return key?JSON.parse(localStorage.getItem(key)!).anchor.scrollTop:undefined;
+  })).toBe(664);
   await page.reload();
   await expectCurrentFits(page, 2);
   expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
@@ -158,6 +164,8 @@ test('older pickups scroll after an edge hold, remain free until dropped, then l
   expect(await scrollTop(page)).toBe(664);
   await page.mouse.up();
   await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Frame"]')).toHaveCount(1);
+  await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Probe"]'));
+  await expect(page.locator('[data-item="name:Offcut"]')).toBeVisible();
   await page.getByRole('button', {name:'Read this chapter'}).click();
   await page.getByRole('button', {name:'Restart this chapter'}).click();
   await page.getByRole('button', {name:'Begin',exact:true}).click();
