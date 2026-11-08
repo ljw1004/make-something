@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for fitting the battery to the assembled drive.",
+    "choice": {
+      "combine": "Battery",
+      "with": "Drive"
+    },
+    "expectation": "The battery will attach to the drive’s base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is installed, and the next goal is to fit the switch to the renamed Spinner.",
+    "reaction": "The added blue box makes the change clear.",
+    "step": 2,
+    "reason": "The goal identifies the switch as the next part to fit.",
+    "choice": {
+      "combine": "Switch",
+      "with": "Spinner"
+    },
+    "expectation": "The switch will attach to the spinner’s base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch is installed, and the next goal is to fit the fork.",
+    "reaction": "The green block makes the added switch identifiable.",
+    "step": 3,
+    "reason": "The goal directs me to fit the fork to the spinner.",
+    "choice": {
+      "combine": "Fork",
+      "with": "Spinner"
+    },
+    "expectation": "The fork will attach to the spinner’s base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fork is installed as two posts, and the next goal is to join the string ends.",
+    "reaction": "The posts are a clear addition to the assembly.",
+    "step": 4,
+    "reason": "The hollow joiner appears suited to connecting the two separated string ends.",
+    "choice": {
+      "combine": "Joiner",
+      "with": "String"
+    },
+    "expectation": "The joiner will connect the string ends into a loop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The joiner closed the string into a loop; it now needs to go over the wheel.",
+    "reaction": "The red sleeve makes the joined ends clear.",
+    "step": 5,
+    "reason": "The goal calls for threading the loop onto the spinner’s wheel.",
+    "choice": {
+      "combine": "Loop",
+      "with": "Spinner"
+    },
+    "expectation": "The loop will fit over the wheel and fork.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loop is installed, completing the string spinner; the motion shows the wheel turning and the red section travelling around the loop.",
+    "reaction": "Seeing the joined loop move is a satisfying payoff to the assembly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Threading the loop over the wheel completed the mechanism and revealed how its parts move together.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the battery and switch was straightforward, but less revealing about the mechanism than joining and installing the loop.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The completed motion showed the red section travelling around the loop as the wheel turns.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the goals identified each part and the joiner’s purpose was clear from the separated string ends.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see another mechanism come together, especially if its completed motion explains what the parts do.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

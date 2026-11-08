@@ -6,11 +6,11 @@ import './workspace.css';
 import './item-artwork.css';
 import './chapter-reference.css';
 import { parseStory } from '../story/parser.ts';
-import type { Story } from '../story/types.ts';
+import type { HeadingImage, Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, matches, recipeFor } from '../engine/game.ts';
 import {isFixed, presentHotspots} from '../engine/fixed-items.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
-import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
+import { backgroundAnimation, hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
@@ -34,7 +34,7 @@ import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
-import {chapterReferenceHTML, chapterReferenceReading, chapterReferenceRect} from './chapter-reference.ts';
+import {chapterReferenceHTML, chapterReferenceReading, chapterReferenceRect, chapterTitleHTML} from './chapter-reference.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
@@ -182,7 +182,7 @@ function animateGoalEntrance() {
   const current = goalView;
   goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, goalPulseDuration));
 }
-reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); });
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); itemArtwork.motion(surface, reducedMotion.matches); });
 
 function rememberInteraction() {
   if (!state) return;
@@ -502,7 +502,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   }
   // New readings start at the top; live updates retain the reader's position.
   dialog.scrollTop = changing ? 0 : scroll;
-  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : context.kind === 'reference' ? 'Build reference' : 'Story reading');
+  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : context.kind === 'reference' ? story.chapters.find(chapter => chapter.id === context.chapter)?.reference?.alt ?? 'Reference picture' : 'Story reading');
   if (context.kind === 'encyclopedia') {
     bookResize.observe(dialog); syncBookLayout();
     const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
@@ -751,7 +751,7 @@ function positionTile(element: HTMLElement, position: {x: number; y: number}) {
 /** One viewport per history entry, with independently fitted/cropped scene contents. */
 function panelStyle(geometry: ReturnType<typeof boardGeometry>, position: number) {
   const {scale, bounds, scene, left, top, labelScale, cardScale} = geometry;
-  return `left:${left}px;top:${position*app.clientHeight+top}px;--board-scale:${scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
+  return `left:${left}px;top:${position*app.clientHeight+top}px;--board-scale:${scale};--touch-scale:${1/scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
 }
 function frameControls(geometry: ReturnType<typeof boardGeometry>) {
   const hudScale = geometry.cover ? 1 : geometry.scale;
@@ -761,10 +761,10 @@ function frameControls(geometry: ReturnType<typeof boardGeometry>) {
     'goals-height':`${Math.min(140,geometry.height/hudScale*.2)}px`,
   })) app.style.setProperty(`--${key}`,value);
 }
-function worldHTML(scenes: {chapter: number; image?: string; content: string; label: string}[]) {
+function worldHTML(scenes: {chapter: number; image?: string; animation?: HeadingImage; content: string; label: string}[]) {
   const frames = scenes.map(scene => ({...scene,geometry:imageGeometry(scene.image)}));
   // Separate stacking contexts let the fixed goals sit between scenery and objects.
-  const scenery = frames.map(({chapter,image,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}</div>`).join('');
+  const scenery = frames.map(({chapter,image,animation,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" ${itemArtwork.imageSource(image,animation,asset,reducedMotion.matches).attributes} alt="">` : ''}</div>`).join('');
   const chapters = frames.map(({chapter,content,label,geometry},position) => `<section class="chapter-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}" aria-label="${escape(label)}">${content}</section>`).join('');
   return `<div class="world" data-panel-height="${app.clientHeight}" style="width:100%;height:${scenes.length*app.clientHeight}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
@@ -776,7 +776,8 @@ function chapterObstacles(chapter: number) {
     const measured=el.getBoundingClientRect();
     return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},1/geometry.labelScale,geometry.bounds,geometry.scene);
   });
-  const reserved=story.chapters[chapter].reference?[chapterReferenceRect(geometry.bounds)]:[];
+  const title=panel(chapter)?.querySelector<HTMLElement>('.chapter-title');
+  const reserved=[...(title?[{x:geometry.bounds.x+title.offsetLeft,y:title.offsetTop,width:title.offsetWidth,height:title.offsetHeight}]:[]),...(story.chapters[chapter].reference?[chapterReferenceRect(geometry.bounds)]:[])];
   return {hotspots,reserved};
 }
 function packArrival(checkpointLayout=false, source?: State){
@@ -849,7 +850,8 @@ function fixedPresentation(chapter:number,id:string){
 }
 function fixedHTML(chapter:number,id:string){
   const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
-  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true);
+  const appearance=itemPresentation(story,state.chapter,id);
+  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true,h.icon===appearance.icon?appearance.animation:undefined,reducedMotion.matches);
   const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
   return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry(chapter).bounds,boardGeometry(chapter).scene);
 }
@@ -872,8 +874,8 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   frameControls(geometry);
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
     const geometry=boardGeometry(chapter);
-    return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${chapterReferenceHTML(story.chapters[chapter],geometry.bounds,asset)}${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
-      const item=story.items[t.id],applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
+    return {chapter,image:background(story,chapter),animation:backgroundAnimation(story,chapter),label:`${story.title} scene ${position+1}`,content:`${chapterTitleHTML(story.chapters[chapter],geometry.bounds)}${chapterReferenceHTML(story.chapters[chapter],geometry.bounds,asset)}${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
+      const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon,false,appearance.animation,reducedMotion.matches);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
   }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);

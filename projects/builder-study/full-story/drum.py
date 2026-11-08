@@ -17,6 +17,8 @@ item('bf-film-prepared','Drum',['wall-round','tape'],group='film-under',css=245,
 item('bf-film-seated','Drum',['wall-round','tape','floor'],group='film-under',css=245,under=True,tabs='insertable')
 item('bf-film-shell','Drum',['wall-round','tape','floor'],group='film-under',css=245,under=True,tabs='folded')
 item('bf-film-turntable','Base',['base','bearing'],css=185)
+for identity in ('bf-film-base','bf-film-turntable'):PLAN[identity].update(group='film-base-build',css=185)
+item('bf-film-inverted-base','Base',['base','bearing'],group='film-base-inverted',css=185,under=True)
 item('bf-film-mounted-under','Drum',['wall-round','tape','floor','base','bearing'],group='film-under',css=245,under=True,tabs='folded')
 item('bf-film-standing','Drum',['wall-round','tape','floor','base','bearing'],group='film-standing',css=245,tabs='folded')
 item('bf-film-loop','Picture ring',['strip-round'],css=220)
@@ -31,7 +33,8 @@ dict(id='bf-film-floor-build',title='A turning drum',reference='animation-drum',
  ('bf-film-prepared','bf-film-floor','bf-film-seated','Slide the Floor over the straight tips'),
  ('bf-film-seated','bf-film-fold-process','bf-film-shell','Fold the tabs under the Floor'),
  ('bf-film-base','bf-film-bearing','bf-film-turntable','Fit the Turntable to the Base'),
- ('bf-film-shell','bf-film-turntable','bf-film-mounted-under','Fit the Base beneath the Drum'),
+ ('bf-film-turntable','bf-film-flip-process','bf-film-inverted-base','Flip the Base over'),
+ ('bf-film-shell','bf-film-inverted-base','bf-film-mounted-under','Fit the Base beneath the Drum'),
  ('bf-film-mounted-under','bf-film-flip-process','bf-film-standing','Flip the Drum upright')]),
 dict(id='bf-film-pictures',title='A tiny picture show',reference='animation-drum',processes={'bf-film-picture-roll':'roll'},steps=[
  ('bf-film-strip','bf-film-picture-roll','bf-film-loop','Roll the Picture strip'),
@@ -85,7 +88,8 @@ def build():
 
 def stage(m,identity):
     info=PLAN[identity]
-    m['root'].rotation_euler=(math.pi if info.get('under') else 0,0,0)
+    under=info.get('under') or identity=='bf-film-floor'
+    m['root'].rotation_euler=(math.pi if under else 0,0,0)
     for obj,angle in m['tabs']:
         if info.get('tabs') in {'insertable','folded'}:
             path=[(.090,.043),(.087,.043),(.087,.0365),(.083,.0365) if info.get('tabs')=='folded' else (.087,.0325)]
@@ -99,4 +103,5 @@ def stage(m,identity):
     if info['group']=='film-paper':return {'location':(.02,-1.,.30),'target':(0,0,.08),'scale':.65}
     if info['group'] in {'film-shell','film-standing'}:return {'location':(.40,-.70,.48),'target':(0,0,.075),'scale':.245}
     if info['group']=='film-under':return {'location':(.40,-.70,.48),'target':(0,0,-.075),'scale':.255}
-    return inspection(m,info['parts'],direction=(.40,-.70,.48),margin=1.23)
+    if info['group']=='film-base-build':return {'location':(.40,-.70,.425),'target':(0,0,.020),'scale':.20}
+    return inspection(m,info['parts'],direction=(.40,-.70,.555 if under else .405),margin=1.23)

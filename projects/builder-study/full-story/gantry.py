@@ -20,20 +20,31 @@ item('gh-one-side','Frame',['base','side-left'],'gh-frame',235)
 item('gh-two-sides','Frame',['base','side-left','side-right'],'gh-frame',235)
 item('gh-frame','Frame',['base','side-left','side-right','beam'],'gh-frame',235)
 for i,n in [('drum','Winch'),('ratchet','Ratchet'),('crank','Crank')]:item('gh-'+i,n,[i],s=110,e='The winch drum comes with its axle, two bearing cheeks, captive base fasteners and a sprung cord clamp.' if i=='drum' else '')
+R.plan['gh-drum'].update(group='gh-winch-work',css=150)
 winch={(): 'gh-drum',('ratchet',):'gh-ratchet-winch',('crank',):'gh-crank-winch',('ratchet','crank'):'gh-winch'}
 for extras,i in winch.items():
     if extras:item(i,'Winch',['drum',*extras],'gh-winch-work',150)
+item('gh-rear-drum','Winch',['drum'],'gh-winch-rear',150)
+item('gh-rear-ratchet-winch','Winch',['drum','ratchet'],'gh-winch-rear',150)
+item('gh-rear-winch','Winch',['drum','ratchet','crank'],'gh-winch-rear',150)
+item('gh-front-crank-winch','Winch',['drum','crank'],'gh-winch-work',150)
+R.plan['gh-crank-winch']['group']='gh-winch-rear'
 frameparts=['base','side-left','side-right','beam','drum','ratchet','crank']
 item('gh-mounted','Gantry',frameparts,'gh-hoist',265)
 recipes=[('gh-base',f'gh-side-{i}','gh-one-side') for i in (1,2)]
 recipes += [('gh-one-side',f'gh-side-{i}','gh-two-sides') for i in (1,2)]
 recipes += [('gh-two-sides','gh-crossbeam','gh-frame')]
-for extras,i in winch.items():
-    for part in ('ratchet','crank'):
-        if part not in extras:recipes.append((i,'gh-'+part,winch[tuple(x for x in ('ratchet','crank') if x in extras or x==part)]))
+recipes += [('gh-drum','gh-ratchet','gh-ratchet-winch'),
+            ('gh-front-crank-winch','gh-ratchet','gh-winch'),
+            ('gh-drum','gh-winch-flip','gh-rear-drum'),
+            ('gh-ratchet-winch','gh-winch-flip','gh-rear-ratchet-winch'),
+            ('gh-rear-drum','gh-crank','gh-crank-winch'),
+            ('gh-rear-ratchet-winch','gh-crank','gh-rear-winch'),
+            ('gh-crank-winch','gh-winch-flip','gh-front-crank-winch'),
+            ('gh-rear-winch','gh-winch-flip','gh-winch')]
 recipes += [('gh-frame','gh-winch','gh-mounted')]
 first=list(R.items)
-R.page('c-gantry-frame','A lifting frame','gh-mounted',first,[('Fit a side frame','gh-one-side'),('Fit the other side frame','gh-two-sides'),('Join the frames with the beam','gh-frame'),('Fit the ratchet to the winch',['gh-ratchet-winch','gh-winch']),('Fit the crank','gh-winch'),('Mount the winch','gh-mounted')],recipes)
+R.page('c-gantry-frame','A lifting frame','gh-mounted',first,[('Fit a side frame','gh-one-side'),('Fit the other side frame','gh-two-sides'),('Join the frames with the beam','gh-frame'),('Fit the ratchet to the winch',['gh-ratchet-winch','gh-winch']),('Turn the winch toward its crank end',['gh-rear-drum','gh-rear-ratchet-winch']),('Fit the crank',['gh-crank-winch','gh-rear-winch']),('Turn the winch back toward the ratchet',['gh-front-crank-winch','gh-winch']),('Mount the winch','gh-mounted')],recipes,processes={'gh-winch-flip':'flip'})
 for position,label in [('side','Side fork'),('drop','Drop fork')]:
     item('gh-'+position+'-fork',label,[position+'-fork'],s=95,e='An open pulley bracket with a split snap axle and a barbed mounting stem. Press a pulley over the axle tip, then push the stem through the beam until its head opens above the wood.')
     item('gh-'+position+'-pulley','Pulley unit',[position+'-fork',position+'-wheel'],'gh-'+position+'-unit',125)
@@ -213,7 +224,8 @@ def stage(model,identity):
     for index,point in enumerate(model['cord'].data.splines[0].points):
         point.radius=(1.1/1.2 if identity!='gh-rope' and index<4 else 1)
     bpy.context.view_layer.update()
-    return stage_view(model,PLAN,identity,direction=(.8,-1,.6))
+    rear=PLAN[identity]['group']=='gh-winch-rear' or identity=='gh-crank'
+    return stage_view(model,PLAN,identity,direction=(-.8,1,.6) if rear else (.8,-1,.6))
 
 
 if __name__=='__main__':R.write(__file__)

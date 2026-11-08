@@ -20,14 +20,19 @@ materials.apply(S)
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--output',required=True)
+parser.add_argument('--resolution',type=int,help='Override the production-settings square render size')
+parser.add_argument('--samples',type=int,help='Override the production-settings Cycles sample count')
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
 settings=json.loads((HERE/'production-settings.json').read_text())
 assert hashlib.sha256((HERE/'pinwheel.py').read_bytes()).hexdigest()==settings['modelSha256']
+resolution=args.resolution if args.resolution is not None else settings['render']['resolution'][0]
+samples=args.samples if args.samples is not None else settings['render']['samples']
+if resolution<=0 or samples<=0:raise ValueError('Resolution and sample count must be positive')
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-scene=S.configure_render(settings['render']['resolution'][0])
+scene=S.configure_render(resolution)
 scene.view_settings.exposure=settings['render']['exposure']
-scene.cycles.samples=settings['render']['samples']
+scene.cycles.samples=samples
 scene.render.threads_mode='FIXED';scene.render.threads=2
 model=P.make()
 view=P.view(model,'front')
@@ -50,4 +55,4 @@ for identity,count in F.FOLDS.items():
     scene.render.filepath=str(out/(identity+'.png'))
     bpy.ops.render.render(write_still=True)
     records.append({'id':identity,'completedBlades':count,'view':view,'sha256':hashlib.sha256((out/(identity+'.png')).read_bytes()).hexdigest()})
-(out/'render-manifest.json').write_text(json.dumps({'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'fold_stages.py',HERE/'render_folds.py',HERE/'production-settings.json',HERE.parent/'materials.py',P.BASE/'wind_toys.py',P.BASE/'scene_parts.py']},'images':records},indent=2)+'\n')
+(out/'render-manifest.json').write_text(json.dumps({'render':{'resolution':[resolution,resolution],'samples':samples,'threads':2,'exposure':scene.view_settings.exposure},'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'fold_stages.py',HERE/'render_folds.py',HERE/'production-settings.json',HERE.parent/'materials.py',P.BASE/'wind_toys.py',P.BASE/'scene_parts.py']},'images':records},indent=2)+'\n')

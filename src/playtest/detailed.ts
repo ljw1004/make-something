@@ -7,6 +7,7 @@ import {resolveName} from './commands.ts';
 import type {DetailedChoice,NamedObject} from './commands.ts';
 import {itemName,itemSelection} from './names.ts';
 import {isFixed,presentHotspots} from '../engine/fixed-items.ts';
+import {itemArtworkDescription} from './picture-descriptions.ts';
 
 type Operation = {reaction:LogicalReaction}|{placement:LogicalPlacement};
 export function detailedObjects(story:Story,state:State):NamedObject[] {
@@ -85,6 +86,8 @@ export function detailedTurn(story:Story,state:State,choice:DetailedChoice):{sta
     const transformed = inputs.some(id => after.tokens[id].status === 'transform');
     const empty = story.items[reaction.recipe.result.id].slots.filter(s => !after.tokens[reaction.recipe.result.id].slots.includes(s.accepts) && s.name).map(s => s.name);
     messages.push(`${transformed ? 'Transformed into' : 'Created'}: ${result}.${empty.length ? ` Empty slots: ${empty.join(', ')}.` : ''}`);
+    const artwork=!state.tokens[reaction.recipe.result.id] ? itemArtworkDescription(story,after,reaction.recipe.result.id) : '';
+    if(artwork)messages.push(`  ${artwork.replaceAll('\n','\n  ')}`);
   }
   return {state:after,text:messages.join('\n')};
 }

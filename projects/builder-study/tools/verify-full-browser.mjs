@@ -73,6 +73,9 @@ async function uncover(locator){
 }
 async function capture(label){
  await expect(page.getByRole('dialog')).toHaveCount(0);
+ await expect(panel().locator('.chapter-title')).toHaveText(story.chapters[current.chapter].name,{timeout:30_000});
+ const reference=story.chapters[current.chapter].reference;
+ if(reference)await expect(panel().locator('.reference-caption')).toHaveText(reference.alt);
  const bad=await page.locator('img').evaluateAll(async imgs=>{await Promise.all(imgs.map(i=>i.decode().catch(()=>{})));return imgs.filter(i=>!i.naturalWidth).map(i=>i.src);});expect(bad).toEqual([]);
  const sizes=await panel().locator('[data-item],[data-hotspot]').evaluateAll(nodes=>nodes.map(el=>{
   const r=el.getBoundingClientRect(),style=getComputedStyle(el),pseudo=getComputedStyle(el,'::before'),scale=r.width/parseFloat(style.width);
@@ -91,7 +94,9 @@ try{
  // The reference has its own pale panel and opens independently of construction.
  const reference=panel().locator('.chapter-reference');
  expect(await reference.evaluate(el=>getComputedStyle(el).backgroundColor)).toBe('rgb(241, 245, 243)');
- expect(await reference.evaluate(el=>parseFloat(el.style.top))).toBe(12);
+ expect(await reference.evaluate(el=>parseFloat(el.style.top))).toBe(36);
+ await expect(panel().locator('.chapter-title')).toHaveText(story.chapters[0].name);
+ await expect(reference.locator('.reference-caption')).toHaveText(story.chapters[0].reference.alt);
  await reference.click();await expect(page.locator('.reference-reading img')).toBeVisible();
  await page.getByRole('button',{name:'Close',exact:true}).click();
  for(const action of route){
@@ -120,7 +125,9 @@ try{
   const visibleReading=current.pending.some(notice=>notice.kind==='chapter'||browserItemText(notice.markdown));
   if(!hiddenDismiss&&!visibleReading&&!current.completed)await capture(`${String(count).padStart(3,'0')}-${recipe?recipe.result.id.slice(3):'chapter-'+(current.chapter+1)+'-start'}`);
  }
- expect((await saved()).completed).toBe(true);expect(errors).toEqual([]);expect(failed).toEqual([]);
+ // The final advance waits for the ending artwork to decode before committing.
+ await expect.poll(async()=>(await saved()).completed,{timeout:30_000}).toBe(true);
+ await capture('completed-ending');expect(errors).toEqual([]);expect(failed).toEqual([]);
  const outcome={sourceSha256:createHash('sha256').update(source).digest('hex'),viewport,combinations:count,chapters:story.chapters.length,mobileTouch:!!cdp,chapterReloads:true,processMarginDrop:true,referencePanel:true,errors,failed,rearrangements,measurements};
  fs.writeFileSync(path.join(out,'outcome.json'),JSON.stringify(outcome,null,2)+'\n');
  console.log(JSON.stringify({viewport,combinations:count,chapters:story.chapters.length,passed:true}));

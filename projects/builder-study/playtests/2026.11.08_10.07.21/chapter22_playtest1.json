@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit the reflector to follow the current goal and start the projector assembly.",
+    "choice": 2,
+    "expectation": "I expect the reflector to fit inside the box and reveal the next goal.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Punching the card disc may prepare it for projection, but the reflector is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflector is fitted, and the next goal is to punch the disc.",
+    "reaction": "Calling the assembly a projector already is a little surprising.",
+    "step": 2,
+    "reason": "Punch the card disc to follow the new goal; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect star-shaped holes to be punched around the disc.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The punched card is now a star disc, ready to go onto the spindle.",
+    "reaction": "The result follows the instruction clearly.",
+    "step": 3,
+    "reason": "Fit the disc onto the spindle as the current goal directs; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the star disc to slide onto the spindle, with another assembly goal following.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disc and spindle now form a star wheel, ready for its collar.",
+    "reaction": "The assembly sequence is clear so far.",
+    "step": 4,
+    "reason": "Fit the collar as instructed; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the collar to secure the disc on the spindle and reveal the next goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collar is fitted, and the star wheel needs turning to its loading side.",
+    "reaction": "The next orientation is specified, though its purpose is not yet clear.",
+    "step": 5,
+    "reason": "Flip the star wheel to follow the goal; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the wheel to turn to its loading side and reveal the next assembly step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel is on its loading side and ready to be lowered into the projector's bearings.",
+    "reaction": "The next instruction clarifies why the wheel was turned, though the bearings have not been mentioned before.",
+    "step": 6,
+    "reason": "Fit the star wheel into the projector as directed; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the wheel to sit in the bearings and reveal the next assembly goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The star wheel is fitted, and the box now needs turning toward the lamp seat.",
+    "reaction": "The sequence is clear, though the lamp seat's location isn't described.",
+    "step": 7,
+    "reason": "Flip the projector as directed; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the box to turn toward the lamp seat, ready for the lamp.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The box is oriented toward the lamp seat, and the lamp is ready to fit.",
+    "reaction": "The flip led to the expected next step.",
+    "step": 8,
+    "reason": "Fit the lamp as directed; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the lamp to fit into its seat and reveal the next assembly goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lamp is fitted, and the battery pack is next.",
+    "reaction": "The power connection is a logical next step.",
+    "step": 9,
+    "reason": "Connect the battery pack as directed; it is the only gameplay option.",
+    "choice": 1,
+    "expectation": "I expect the battery pack to connect to the projector, possibly completing the assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the battery pack completed the projector and all chapter goals.",
+    "reaction": "The completion was expected, though the text gives no demonstration of the finished projector.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Punching the star disc and fitting it onto the spindle made the projector's central assembly understandable through a clear sequence.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated fittings and flips became somewhat routine, especially with only one gameplay option at each of these steps.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The box was called a projector immediately after the reflector was fitted, before the wheel, lamp, or battery were installed.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Turning the star wheel to its loading side initially lacked an explanation, although the following instruction to lower it into the bearings gave it a purpose.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue based on this text pass alone: the assembly is clear, but the mostly prescribed sequence offers little choice. I cannot assess the artwork or working animation here.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

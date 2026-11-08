@@ -50,8 +50,9 @@ and verifies that all five addition/flip transitions retain the exact evaluated
 meshes already present.
 
 Loose hardware uses larger inspection magnification. Front paper states share
-one crop and scale, as do the two rear rotor states. Adding the long handle
-zooms out to a whole-object view; no part changes its physical dimensions.
+one physical scale. The rear rotor, axle and mounted handle share another,
+so the visible fitting does not shrink when the handle arrives. Each drawing
+is cropped tightly around its current geometry; no part changes its physical dimensions.
 Exact export sizes live in `production-settings.json`: broad paper/blade stages
 184px, finished pinwheel 400px, handle 270px, hub 96px and axle 112px, plus a
 three-pixel transparent margin. The pinwheel stays on its own page. `export.py`
@@ -62,8 +63,11 @@ including its actual hole cutter. `verify_folds.py` compares all evaluated blade
 meshes with those two baselines and checks partial-stage crossings. Its checks
 are still-picture geometry checks; they do not validate the entire moving fold.
 `render_folds.py` uses the same front camera, lights and selected render settings.
-`export_folds.py` reads the selected base export's crop and applies exactly that
-crop and pixel scale to each new state, rejecting any drawing outside it.
+Its optional `--resolution` and `--samples` arguments override the production
+defaults and are recorded in its manifest. Use the same raster size for main
+and partial-fold masters so their shared crop coordinates remain comparable.
+`export_folds.py` reads the selected base export's physical scale and applies it
+to each new state, with an independent tight crop.
 
 Run from the repository root, using a Pillow-enabled Python for the exporter:
 
@@ -72,14 +76,14 @@ python3 -m venv runs/builder-chapter-one/venv
 runs/builder-chapter-one/venv/bin/pip install Pillow==13.0.0
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
   --python projects/builder-study/chapter-one-art/render.py -- \
-  --output runs/builder-chapter-one/masters --samples 24
+  --output runs/builder-chapter-one/masters --resolution 1280 --samples 24
 runs/builder-chapter-one/venv/bin/python \
   projects/builder-study/chapter-one-art/export.py \
   --masters runs/builder-chapter-one/masters \
   --output runs/builder-chapter-one/export/items
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
   --python projects/builder-study/chapter-one-art/render_folds.py -- \
-  --output runs/builder-chapter-one/fold-masters
+  --output runs/builder-chapter-one/fold-masters --resolution 1280 --samples 24
 runs/builder-chapter-one/venv/bin/python \
   projects/builder-study/chapter-one-art/export_folds.py \
   --masters runs/builder-chapter-one/fold-masters \

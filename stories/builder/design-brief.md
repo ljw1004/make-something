@@ -1,18 +1,20 @@
-# A Fair in the Air
+# The Next Box
 
 ## Intent
 
 A making story for a curious ten-year-old. Build appealing toys from understandable
 parts, with enough physical truth that the player can see what each fitting does.
-The finished construction is usually its own reward. The user enjoyed the large,
+A completed whole toy rewards the work by visibly operating in a short loop. The user enjoyed the large,
 movable opening creations and their short step instructions; extend that experience
 through the whole story. An approximate 200-combination ambition is subordinate to
 worthwhile construction. Branch recipes for interchangeable parts are not extra
 work required of the player.
 
-The player works with Aunt Jo before a neighbourhood bring-a-thing fair. Keep that
-narrative in the author's mind, expressed through the choice of objects and very
-rare remarks. No routine chapter introductions, result popups, badges or generic
+The kit supplier quietly connects the player to a much more advanced maker culture.
+Keep that premise in the author's mind. Three final builds introduce pink modules
+as ordinary kit contents; their working behaviour reveals the connection. Never
+announce that a component is futuristic, magical or invented. Let the player infer
+what is extraordinary. Express the story through objects and reciprocal actions. No routine chapter introductions, result popups, badges or generic
 praise. Most pages should read as quiet illustrated instructions. Optional mechanical
 explanation belongs after the encyclopedia divider, not in the working sequence.
 
@@ -29,15 +31,12 @@ explanation belongs after the encyclopedia divider, not in the working sequence.
   separately fitted wings and their links. One cam suffices; avoid a forced service
   exercise merely to demonstrate another profile. Turn the shaft assembly to fit
   its rear collar visibly, then return to the front for its crank.
-- The periscope and kaleidoscope make mirrors, folded enclosures and a literal
-  three-piece colour cell understandable through their construction. The periscope
-  turns to expose each mirror opening while that end is being assembled.
 - A broad-based gantry replaces the long cantilever crane. Two pulley blocks route
   a continuous rope around a clear lifting bay to its own basket. It has no
   manufactured dependency on the later fictional machine.
 - A compact electric carousel replaces the long string-wave apparatus. Motor,
   pulley, belt, deck and three separately assembled horse/pole units make a toy
-  whose structure is satisfying even before the deferred animation phase.
+  whose separate horses visibly turn when the toy is finished.
 - A tabletop pneumatic claw replaces the long grabber. Its short structural palm
   anchors the jaws, slider, links and actuator. A real tube joins its hand syringe.
 - A picture drum uses a real slit wall, roll/seam operations, turntable and a
@@ -47,6 +46,14 @@ explanation belongs after the encyclopedia divider, not in the working sequence.
 - A projector combines a connected reflector liner, lamp, punched disc, spindle,
   lens, holder, hood, grooved handle and separate lid. Preserve those actual parts
   when the completed projector returns later.
+- An open tabletop Window contains a pink block among otherwise ordinary parts.
+  On completion, another maker holds up a familiar folded pinwheel beyond the
+  opening. A blade tips through the frame; there is no pane to vanish later.
+- A broad-based String spinner uses a motor, belt, two pulleys, open fork, joined
+  flexible string and a pink wheel. The circulating loop stays aloft. Contrasting
+  surface bands on the dark string make its actual travel visible. The final
+  fitting threads that loop onto the drive; every supplied part contributes to
+  this working toy.
 - The last machine is a compact whale-shaped flying lantern, built around the
   unchanged projector. A roughly 400×300 mm deck, two connected support arches,
   powered lift tile above the load, low batteries, projector dock and belt drive,
@@ -55,14 +62,24 @@ explanation belongs after the encyclopedia divider, not in the working sequence.
   the front and back faces for the handed panels and fins. Its broad body replaces
   the former metre-scale ribbed frame.
 
-The escalation is from simple paper to moving mechanisms, light and an impossible
-final lift. Only the **lift tile** is fictional: when powered it supplies a limited
-upward force, carries no person, and stops lifting when current is interrupted.
-Make its fictional status explicit in one short remark at its first appearance.
-It supplies neither energy nor solutions to ordinary mechanical problems. Keep
-real power, supports, balance, accessible controls and a stop function. The lift
-force must act above the loaded centre of mass. The final invitation can be as
-small as “Can I have a go?”
+The escalation runs from simple paper and understandable mechanisms to three final
+builds using pink modules. The early crates teach actions needed later; remove two
+weaker early builds rather than merely extending the sequence. The final emotional
+payoff is a visible consequence of the player's making, not a congratulatory
+speech. The late sequence was selected through blind concept rounds in the active study:
+Window, String spinner, Whale. The whale takes the original pinwheel to the other
+maker and returns with a paper star on a wooden tongue, held by the same clip.
+Show the removal, insertion and journey. Keep the other maker's identity and the
+supplier's purpose unstated. The three-dimensional ending is a use scene, not a
+new construction recipe. No one is a draggable ingredient.
+
+Only the specified pink modules may have impossible functions. They supply no
+unannounced solutions to ordinary mechanical problems. Keep real power, supports,
+retention, balance and accessible controls. The tile supplies a limited controlled force while powered: it supports the load
+and moves it gently. Its force acts above the loaded centre of mass. The Window
+block connects the open frame to another workshop; the spinner wheel supports
+the moving string loop. These are the only impossible functions. No
+player-facing disclaimer is needed: this is a fictional computer construction toy.
 
 Earlier independent toys need not become ingredients of the finale. A returning
 object must contribute its actual function at its unchanged physical dimensions.
@@ -98,7 +115,14 @@ assembly orders, rather than treating the instruction's suggested order as a new
 physical constraint. Goal dependencies must not preserve obsolete intermediates
 and duplicate unique components.
 
-Every operation needs a visible contribution. Assemble real repeated parts when
+Every operation needs a visible contribution. For every addition, the attachment
+site must face the viewer and occupy enough screen space for the fitted part to be
+recognized. Merely including it in the model is insufficient. A hidden back-face
+addition requires a preceding Flip; a small joint needs an appropriate working view
+or a larger assembly scale. Inspect the actual before/after pictures at phone size.
+The loose part should be presented in its fitting orientation; use an explicit
+process when the existing assembly must turn. Do not silently mirror or rotate a
+workpiece between an additive pair. Assemble real repeated parts when
 each addition is clear, but do not pad the story with individual identical screws.
 Completion is the final useful fitting. Remove weak tests, staged failures, scenery
 placement and compulsory operation sequences that only rename an existing object.
@@ -114,17 +138,19 @@ not a manufacturing specification or an instruction to build the fictional tile.
 
 Instruction pages are white. Use simple geometry and flat material colours:
 honey wood, **lighter** forest green and brick red, cream and charcoal hardware.
+Battery cases share a distinct blue material; pink is reserved for the advanced
+modules. Leads, cells and controls retain their ordinary material colours.
 Colour should suggest material or function rather than reproduce a kit brand's
 combined palette. The central production palette lives in the study's
 `materials.py`. No woodgrain, cloth maps or decorative texture noise. Preserve real
 openings and real material transparency; do not make solid wood translucent to
 help the interface. Keep source models suitable for a later compact 3D renderer.
 
-Each chapter has a picture of its actual construction target. The reference is
+Each chapter has a short visible title and a titled picture of its actual construction target. The reference is
 visibly distinct from loose parts: a very pale framed panel high in the right-hand
-third, picture only. Its enlarged view remains available. The [UX guide](../../docs/ux.md#construction-reference-pictures)
+third, with only a short object title alongside the picture. Its enlarged view remains available. The [UX guide](../../docs/ux.md#construction-reference-pictures)
 owns dimensions and placement; debug controls do not constrain its gameplay layout.
-Up to two process drawings occupy the other thirds. In chapter one, **Flip is on
+Up to two process drawings occupy the other thirds. A single process is centered on the page. In chapter one, **Flip is on
 the left and Fold in the middle**, so the large initial paper has a central target.
 Enlarged receiving areas around process art make drops forgiving without enlarging
 the drawings or overlapping the reference.
@@ -136,7 +162,10 @@ be larger. Finished toys stay generously sized. A carried subassembly becomes
 secondary until fitted; unrelated completed toys stay behind. Show slender parts
 diagonally where helpful and retain at least the ordinary 44px touch area.
 
-Use a stable camera and scale within an additive group. Explicit flips, a new
+Use a stable camera and physical scale within an additive group. Crop each current
+picture to its actual visible geometry, with only a small antialiasing margin. Do
+not reserve transparent space or a selection outline for parts added in future
+steps. Stable physical scale does not require identical image-canvas dimensions. Explicit flips, a new
 working face, or the completed-object view may change perspective to expose the
 relevant structure. Magnification may change between roles; fitted physical
 proportions never do. Actual tops and undersides must be distinguishable—for
@@ -167,8 +196,16 @@ nominal geometric checks and prescribed flex envelopes from material simulation,
 retention forces, manufactured reliability or child-safe operating loads. Fix rigid
 intersections and blocked assembly paths; describe evidence limits candidly.
 
-This phase produces still artwork. Animation, video and a Three.js runtime remain
-separate work. A static finished object must already be worth constructing.
+Whole completed objects have looping working animations, normally 5–10 seconds
+at about 15 frames per second. Intermediate subassemblies remain still. The first
+frame preserves the finished still's viewpoint and fitted geometry. Camera movement
+is optional and supports understanding; the pinwheel both spins and receives a
+modest camera orbit. Drive parts, followers, links and wheels must move consistently
+with their actual mechanism. Use the canonical models, simple materials and compact
+exports. A lower raster resolution must preserve its authored display size. Keep
+still reference pictures and a reduced-motion alternative. A static finished object
+must already be worth constructing; movement rewards completion without adding
+an arbitrary operate/test recipe. A Three.js runtime remains a separate phase.
 
 Follow the standing authoring and evaluation guides. Use informed necessity and
 mechanical reviews, fresh visual/continuity reviews, actual source-unexposed

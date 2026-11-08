@@ -1,7 +1,7 @@
-# ![A brick-red paper pinwheel](icon.png) A Fair in the Air
+# ![A brick-red paper pinwheel](icon.png) The Next Box
 background: ![White instruction page](assets/backgrounds/white.svg)
 
-Build toys that move, draw and shine—then make a little garden fair do something impossible.
+Paper, wheels, string and light. Open a box and make something.
 
 ## `c01` Something that moves
 background: ![White instruction page](assets/backgrounds/white.svg)
@@ -40,7 +40,7 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 - `pw-hub` Hub
   - icon: ![Teal hub](assets/items/pw-hub.webp) (center 140px, 460px)
 
-  {A green round cap with four small dark holes on its face and a slotted stem behind it.}
+  {A green round cap with four small dark holes on its face.}
 
   ---
 
@@ -95,6 +95,7 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
   {The wooden handle extends down from the back of the red blades, beneath the green centre fitting.}
 - `pinwheel` Pinwheel
   - icon: ![Pinwheel](assets/items/pinwheel.webp)
+  - animation: ![The red blades turn around the green centre; the wooden handle stays still.](assets/animations/pinwheel-working.webp)
 
   {Four curled red blades surround a green centre cap. A long wooden handle extends below.}
 
@@ -116,7 +117,7 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 
 ## `c02` A sail
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Completed sail](assets/items/wr-sail.webp)
+reference: ![Sail](assets/items/wr-sail.webp)
 
 **Goals**
 - Fit the connector to the mast
@@ -311,6 +312,7 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
   {The tan board sits above four red wheels. Small green fittings and the green ring around the centre hole are visible on top.}
 - `wind-racer` Wind racer
   - icon: ![Wind racer](assets/items/wind-racer.webp)
+  - animation: ![The red wheels turn beneath the wooden chassis and sail.](assets/animations/wind-racer-working.webp)
 
   {A cream triangular sail rises above a tan rectangular chassis with four red wheels.}
 
@@ -534,9 +536,9 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - next: Snap on the Right paddle -- `bf-pb-flipped`
 
 **Hotspots**
-- `bf-pb-flip` (center 130px, 216px)
+- `bf-pb-flip` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-pb-rimmed` Table
@@ -576,11 +578,11 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-upright` Table
   - icon: ![Table](assets/items/bf-pb-upright.webp)
 
-  {The railed table stands upright on its tan support, with two exposed dark pivot pins near the front.}
+  {A tilted tan rectangular board has raised green rails around its edges and two small dark pins near one end.}
 - `bf-pb-left-paddle` Left paddle
   - icon: ![Left paddle](assets/items/bf-pb-left-paddle.webp)
 
-  {A long flat red paddle narrows toward one end and has a socket near its broad rounded end.}
+  {A long, flat red-orange piece with a forked notch at its broad end and a tapered opposite end.}
 
   ---
 
@@ -588,11 +590,11 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-left` Table
   - icon: ![Table](assets/items/bf-pb-left.webp)
 
-  {One red paddle sits on the left front pivot; the right pivot remains bare.}
+  {One red-orange paddle lies near the lower end of the tan board, beside the opening between the green rails.}
 - `bf-pb-right-paddle` Right paddle
   - icon: ![Right paddle](assets/items/bf-pb-right-paddle.webp)
 
-  {A long flat red paddle narrows toward one end and has a socket near its broad rounded end.}
+  {A long, flat red-orange piece with a forked notch at one end and a tapered opposite end.}
 
   ---
 
@@ -600,7 +602,7 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-flipped` Table
   - icon: ![Table](assets/items/bf-pb-flipped.webp)
 
-  {Two red paddles angle inward near the front gap of the railed table.}
+  {Two red-orange paddles lie at different angles near the lower end of the tan board.}
 
 **Combinations**
 - `bf-pb-rimmed` [transform] @ `bf-pb-flip` -> `bf-pb-under`
@@ -626,7 +628,7 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-rod` Plunger rod
   - icon: ![Plunger rod](assets/items/bf-pb-rod.webp)
 
-  {A long charcoal rod ends in a red crosspiece forming a T handle.}
+  {A long charcoal rod meets a red-orange crossbar at a right angle, forming a T shape.}
 
   ---
 
@@ -634,15 +636,15 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-spring` Spring
   - icon: ![Spring](assets/items/bf-pb-spring.webp)
 
-  {A thick black coil with open ends, lying diagonally.}
+  {A black coil with open ends, shown diagonally.}
 - `bf-pb-sprung-rod` Plunger
   - icon: ![Plunger](assets/items/bf-pb-sprung-rod.webp)
 
-  {A black coil surrounds the far end of the charcoal rod; its red T handle remains exposed.}
+  {A black coil surrounds the far section of a long charcoal rod; a red-orange crossbar meets the rod near its other end.}
 - `bf-pb-tip` Plunger tip
   - icon: ![Plunger tip](assets/items/bf-pb-tip.webp)
 
-  {A stepped red round cap with a central round hole.}
+  {A red-orange stepped cylinder with a round hole through its centre.}
 
   ---
 
@@ -650,11 +652,11 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-tipped` Plunger
   - icon: ![Plunger](assets/items/bf-pb-tipped.webp)
 
-  {A red round cap sits beyond the coil at the far end of the charcoal rod and T handle.}
+  {A red-orange stepped cylinder caps the far end of a charcoal rod with a black coil; a red-orange crossbar meets the other end.}
 - `bf-pb-barrel` Launcher cradle
   - icon: ![Launcher cradle](assets/items/bf-pb-barrel.webp)
 
-  {An open grey half-tube sits at one end of a long green rail, with a red upright fitting at the other end.}
+  {A grey open trough and a red-orange block sit at opposite ends of a bent green bar.}
 
   ---
 
@@ -662,11 +664,11 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-open-launcher` Launcher
   - icon: ![Launcher](assets/items/bf-pb-open-launcher.webp)
 
-  {The coil and capped rod lie inside the open grey half-tube on the green rail; the T handle extends from the front.}
+  {A black coil and charcoal rod sit inside an open grey trough on a bent green support; a red-orange crossbar meets the rod near the lower end.}
 - `bf-pb-cover` Launcher cover
   - icon: ![Launcher cover](assets/items/bf-pb-cover.webp)
 
-  {A grey half-cylinder has black end rims and green clips hanging from its sides.}
+  {A grey half-cylinder with dark rims and small green clips along its sides.}
 
   ---
 
@@ -674,15 +676,15 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-launcher` Launcher
   - icon: ![Launcher](assets/items/bf-pb-launcher.webp)
 
-  {A grey cylindrical cover surrounds the coil, with green side clips; the charcoal rod and red T handle extend from its front.}
+  {A grey cylindrical cover with green clips surrounds a charcoal rod on a bent green support; a red-orange crossbar meets the rod near the lower end.}
 - `bf-pb-flipped` Table
   - icon: ![Table](assets/items/bf-pb-flipped.webp)
 
-  {Two red paddles angle inward near the front gap of the railed table.}
+  {Two red-orange paddles lie at different angles near the lower end of the tan board.}
 - `bf-pb-launched` Table
   - icon: ![Table](assets/items/bf-pb-launched.webp)
 
-  {The covered launcher sits beside the table’s right-hand lane, with its red T handle projecting from the front.}
+  {A grey cylinder on a bent green support sits beside the edge of the tan board; a charcoal rod and red-orange crossbar extend outward.}
 
 **Combinations**
 - `bf-pb-spring` [consume] + `bf-pb-rod` [transform] -> `bf-pb-sprung-rod`
@@ -700,38 +702,50 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - Fit the Lower arch -- `bf-pb-target-1`
 - next: Fit the Middle arch -- `bf-pb-target-2`
 - next: Fit the Upper arch -- `bf-pb-target-3`
+- next: Turn the Table toward the Score wheel -- `bf-pb-score-facing`
 - next: Fit the Score wheel -- `bf-pb-scored`
-- next: Put the Marble in its cup -- `pinball-table`
+- next: Set the Marble on the Table -- `pinball-table`
+
+**Hotspots**
+- `bf-pb-score-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-pb-launched` Table
   - icon: ![Table](assets/items/bf-pb-launched.webp)
 
-  {The covered launcher sits beside the table’s right-hand lane, with its red T handle projecting from the front.}
+  {A grey cylinder on a bent green support sits beside the edge of the tan board; a charcoal rod and red-orange crossbar extend outward.}
 - `bf-pb-arch-low` Lower arch
   - icon: ![Lower arch](assets/items/bf-pb-arch-low.webp)
 
-  {A green rectangular arch with one red dot on its top bar and round pegs below its two legs.}
+  {A green rectangular arch with one red-orange dot on its top bar and dark round pegs below its legs.}
 - `bf-pb-target-1` Table
   - icon: ![Table](assets/items/bf-pb-target-1.webp)
 
-  {One small green arch stands on the board above the two red paddles.}
+  {One small green arch with a red dot on its top bar stands on the tan board above two red-orange paddles.}
 - `bf-pb-arch-mid` Middle arch
   - icon: ![Middle arch](assets/items/bf-pb-arch-mid.webp)
 
-  {A green rectangular arch with two red dots on its top bar and round pegs below its two legs.}
+  {A green rectangular arch with two red-orange dots on its top bar and dark round pegs below its legs.}
 - `bf-pb-target-2` Table
   - icon: ![Table](assets/items/bf-pb-target-2.webp)
 
-  {Two small green arches stand at different positions on the board above the red paddles.}
+  {Two small green arches with red dots on their top bars stand on the tan board above two red-orange paddles.}
 - `bf-pb-arch-high` Upper arch
   - icon: ![Upper arch](assets/items/bf-pb-arch-high.webp)
 
-  {A green rectangular arch with three red dots on its top bar and round pegs below its two legs.}
+  {A green rectangular arch with three red-orange dots on its top bar and dark round pegs below its legs.}
 - `bf-pb-target-3` Table
   - icon: ![Table](assets/items/bf-pb-target-3.webp)
 
-  {Three small green arches stand in a staggered line along the board.}
+  {Three small green arches with red dots on their top bars stand in a staggered line on the tan board above two red-orange paddles.}
+- `bf-pb-score-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-pb-score-facing` Table
+  - icon: ![Table](assets/items/bf-pb-score-facing.webp)
+
+  {A tan board with green curved side rails has three green arches and two red bars near the front. A red numbered wheel on a tan-and-green bar stands beside its left edge.}
 - `bf-pb-score` Score wheel
   - icon: ![Score wheel](assets/items/bf-pb-score.webp)
 
@@ -746,19 +760,21 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
   {One red ball.}
 - `pinball-table` Pinball table
   - icon: ![Pinball table](assets/items/pinball-table.webp)
+  - animation: ![The red ball moves along the board, and a red flipper swings.](assets/animations/pinball-table-working.webp)
 
-  {The railed table has two red paddles, three green arches, a side launcher and red wheel. A small red ball sits in the green cup at the front.}
+  {A tan board with raised green rails, three green arches, two red-orange paddles, a side-mounted grey cylinder and a red-orange wheel. A pink ball rests just below the middle arch.}
 
 **Combinations**
 - `bf-pb-arch-low` [consume] + `bf-pb-launched` [transform] -> `bf-pb-target-1`
 - `bf-pb-arch-mid` [consume] + `bf-pb-target-1` [transform] -> `bf-pb-target-2`
 - `bf-pb-arch-high` [consume] + `bf-pb-target-2` [transform] -> `bf-pb-target-3`
-- `bf-pb-score` [consume] + `bf-pb-target-3` [transform] -> `bf-pb-scored`
+- `bf-pb-target-3` [transform] @ `bf-pb-score-flip` -> `bf-pb-score-facing`
+- `bf-pb-score` [consume] + `bf-pb-score-facing` [transform] -> `bf-pb-scored`
 - `bf-pb-marble` [consume] + `bf-pb-scored` [transform] -> `pinball-table`
 
 ## `bf-cd-crank` Round and round
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Crank dragon](assets/items/crank-dragon.webp)
+reference: ![Crank](assets/items/bf-cd-clipped.webp)
 
 **Goals**
 - Slide the Cam onto the Shaft -- `bf-cd-cammed`
@@ -770,18 +786,17 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - next: Flip back to the front -- `bf-cd-retained`
 - next: Fit the Crank -- `bf-cd-cranked`
 - next: Secure the Crank with its clip -- `bf-cd-clipped`
-- next: Mount the bearings on the Base -- `bf-cd-frame`
 
 **Hotspots**
-- `bf-cd-flip` (center 130px, 216px)
+- `bf-cd-flip` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-cd-shaft` Shaft
   - icon: ![Shaft](assets/items/bf-cd-shaft.webp)
 
-  {A long thin charcoal rod lying diagonally.}
+  {A long, thin charcoal rod with dark circular ends, shown diagonally.}
 
   ---
 
@@ -789,7 +804,7 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-cam` Cam
   - icon: ![Cam](assets/items/bf-cd-cam.webp)
 
-  {A red circular disc with a short split socket below the centre of its face.}
+  {A red-orange round disc with a short split cylindrical projection near the centre of one face.}
 
   ---
 
@@ -797,53 +812,53 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-cammed` Frame
   - icon: ![Frame](assets/items/bf-cd-cammed.webp)
 
-  {A charcoal shaft passes through the off-centre socket of a red disc.}
+  {A charcoal rod passes through the centre of a thick red-orange disc; a short raised cylinder sits off-centre on the disc face.}
 - `bf-cd-front-bearing` Front bearing
   - icon: ![Front bearing](assets/items/bf-cd-front-bearing.webp)
 
-  {A green rectangular frame with two legs, a round hole through its top bar and two black pins beneath its foot.}
+  {A green frame with two upright legs, a thick base, a round opening in the top bar and two dark pegs below the base.}
 - `bf-cd-bearing-1` Frame
   - icon: ![Frame](assets/items/bf-cd-bearing-1.webp)
 
-  {The charcoal shaft passes through one green frame in front of the red disc.}
+  {A red-orange disc on a charcoal rod stands beside one green rectangular frame; the rod projects through the frame.}
 - `bf-cd-rear-bearing` Rear bearing
   - icon: ![Rear bearing](assets/items/bf-cd-rear-bearing.webp)
 
-  {A green rectangular frame with two legs, a round hole through its top bar and two black pins beneath its foot.}
+  {A green frame with two upright legs, a thick base, a round opening in the top bar and two dark pegs below the base.}
 - `bf-cd-bearings` Frame
   - icon: ![Frame](assets/items/bf-cd-bearings.webp)
 
-  {A red disc sits on a charcoal shaft between two green frames; the near end of the shaft is bare.}
+  {A red-orange disc on a charcoal rod sits between two green rectangular frames, with the rod projecting through the nearer frame.}
 - `bf-cd-front-collar` Front collar
   - icon: ![Front collar](assets/items/bf-cd-front-collar.webp)
 
-  {A thick green ring with a split side and small holes around its rim.}
+  {A thick green ring with a gap in its rim and several small holes.}
 - `bf-cd-front-retained` Frame
   - icon: ![Frame](assets/items/bf-cd-front-retained.webp)
 
-  {A green ring surrounds the shaft just outside the nearer green frame. The red disc sits between the two frames.}
+  {A green ring surrounds the projecting charcoal rod beside the nearer green frame; a red-orange disc sits between the frames.}
 - `bf-cd-flip` Flip
   - icon: ![Flip](assets/actions/flip.svg)
 - `bf-cd-rear-facing` Frame
   - icon: ![Frame](assets/items/bf-cd-rear-facing.webp)
 
-  {From the other side, the plain back of the red disc faces us between two green frames. A bare charcoal shaft projects from the nearer frame.}
+  {The plain face of a red-orange disc is between two green frames; a charcoal rod projects beyond the nearer frame.}
 - `bf-cd-rear-collar` Rear collar
   - icon: ![Rear collar](assets/items/bf-cd-rear-collar.webp)
 
-  {A thick green ring with a split side and small holes around its rim.}
+  {A thick green ring with a gap in its rim and small holes.}
 - `bf-cd-retained-rear` Frame
   - icon: ![Frame](assets/items/bf-cd-retained-rear.webp)
 
-  {From the back, a green ring now surrounds the projecting shaft beside the nearer frame.}
+  {A green ring encircles the projecting charcoal rod beside the nearer green frame, viewed from the other side of the assembly.}
 - `bf-cd-retained` Frame
   - icon: ![Frame](assets/items/bf-cd-retained.webp)
 
-  {From the front again, a red disc sits between two green frames. A green ring surrounds the exposed front shaft.}
+  {A red-orange disc sits between two green frames; a green ring surrounds the rod beside the nearer frame.}
 - `bf-cd-handle` Crank
   - icon: ![Crank](assets/items/bf-cd-handle.webp)
 
-  {A green cylindrical grip attached to a short red arm.}
+  {A green cylinder joined to a short red-orange arm.}
 
   ---
 
@@ -851,27 +866,20 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-cranked` Frame
   - icon: ![Frame](assets/items/bf-cd-cranked.webp)
 
-  {A green cylindrical grip and short red arm extend from the front of the two green frames and red disc.}
+  {A green cylindrical piece and short red-orange arm extend from the charcoal rod beside the nearer green frame.}
 - `bf-cd-crank-clip` Crank clip
   - icon: ![Crank clip](assets/items/bf-cd-crank-clip.webp)
 
-  {One thin black wire bent into a narrow open loop with two unequal ends.}
+  {A thin black wire bent into an open, angular loop with two free ends.}
 
   ---
 
   One spring-wire clip. Its straight leg passes through the aligned crank and shaft holes; the curved leg grips outside the socket.
-- `bf-cd-clipped` Frame
-  - icon: ![Frame](assets/items/bf-cd-clipped.webp)
+- `bf-cd-clipped` Crank
+  - icon: ![Crank](assets/items/bf-cd-clipped.webp)
+  - from chapter `bf-cd-lift` icon: ![Crank](assets/items/bf-cd-crank-carried.webp)
 
-  {The green grip and red arm remain on the shaft; a small dark wire loop is visible beside the red socket.}
-- `bf-cd-base` Base
-  - icon: ![Base](assets/items/bf-cd-base.webp)
-
-  {A flat tan rectangular board with small round holes.}
-- `bf-cd-frame` Frame
-  - icon: ![Frame](assets/items/bf-cd-frame.webp)
-
-  {Two green frames hold a red disc and green crank above a broad tan board.}
+  {A green cylinder and red-orange arm project from the nearer frame; a small dark loop is visible around the rod near the disc.}
 
 **Combinations**
 - `bf-cd-cam` [consume] + `bf-cd-shaft` [transform] -> `bf-cd-cammed`
@@ -883,7 +891,6 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-retained-rear` [transform] @ `bf-cd-flip` -> `bf-cd-retained`
 - `bf-cd-handle` [consume] + `bf-cd-retained` [transform] -> `bf-cd-cranked`
 - `bf-cd-crank-clip` [consume] + `bf-cd-cranked` [transform] -> `bf-cd-clipped`
-- `bf-cd-base` [consume] + `bf-cd-clipped` [transform] -> `bf-cd-frame`
 
 
 ## `bf-cd-lift` Round becomes up
@@ -891,16 +898,29 @@ background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Crank dragon](assets/items/crank-dragon.webp)
 
 **Goals**
-- Slide the Follower into the Guide -- `bf-cd-open-follower`
+- Mount the Crank on the Base -- `bf-cd-frame`
+- next: Slide the Follower into the Guide -- `bf-cd-open-follower`
 - next: Snap on the Cover -- `bf-cd-guided`
 - next: Mount the Follower above the Cam -- `bf-cd-mounted`
 - next: Hook on the Spring -- `bf-cd-lifter`
 
 **Items**
+- `bf-cd-base` Base
+  - icon: ![Base](assets/items/bf-cd-base.webp)
+
+  {A flat tan rectangular board with small round holes near its edges and across its surface.}
+- `bf-cd-clipped` Crank
+  - icon: ![Crank](assets/items/bf-cd-clipped.webp)
+
+  {A green cylinder and red-orange arm project from the nearer frame; a small dark loop is visible around the rod near the disc.}
+- `bf-cd-frame` Frame
+  - icon: ![Frame](assets/items/bf-cd-frame.webp)
+
+  {Two green rectangular frames, a red-orange disc and a green cylinder with a red-orange arm sit on a broad tan board.}
 - `bf-cd-guide` Guide
   - icon: ![Guide](assets/items/bf-cd-guide.webp)
 
-  {A tall tan post on a small foot, with an open green frame at the top.}
+  {A tall tan post on a square foot, with a green open frame near the top.}
 
   ---
 
@@ -908,7 +928,7 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-follower` Follower
   - icon: ![Follower](assets/items/bf-cd-follower.webp)
 
-  {A thin red upright with a broad flat foot, a small crosspiece near its top and a black pin across its upper end.}
+  {A thin red-orange upright with a long flat foot, a broad crosspiece near the top, and a dark peg at its upper end.}
 
   ---
 
@@ -916,33 +936,30 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-open-follower` Follower
   - icon: ![Follower](assets/items/bf-cd-open-follower.webp)
 
-  {A red upright runs beside a tall tan post, through an open green frame; its broad red foot projects sideways.}
+  {A red-orange upright with broad crosspieces stands beside a tan post, within an open green frame.}
 - `bf-cd-cover` Cover
   - icon: ![Cover](assets/items/bf-cd-cover.webp)
 
-  {A flat green rectangular plate with short projecting tabs behind it.}
+  {A flat green rectangular plate with small tabs projecting from its back.}
 - `bf-cd-guided` Follower
   - icon: ![Follower](assets/items/bf-cd-guided.webp)
 
-  {A green plate closes the front of the frame around the red upright on the tan post.}
-- `bf-cd-frame` Frame
-  - icon: ![Frame](assets/items/bf-cd-frame.webp)
-
-  {Two green frames hold a red disc and green crank above a broad tan board.}
+  {A green plate covers part of the open frame around the red-orange upright and tan post.}
 - `bf-cd-mounted` Lifter
   - icon: ![Lifter](assets/items/bf-cd-mounted.webp)
 
-  {The tan post rises behind the red disc, with the broad red foot just above the disc and a cross-pin at the top.}
+  {A tall tan upright with red-orange crosspieces stands behind a red-orange disc on a tan board; green frames and fittings surround the lower section.}
 - `bf-cd-spring` Spring
   - icon: ![Spring](assets/items/bf-cd-spring.webp)
 
-  {A black coil with an open curved hook at each end.}
+  {A black coil with an open hook at each end.}
 - `bf-cd-lifter` Lifter
   - icon: ![Lifter](assets/items/bf-cd-lifter.webp)
 
-  {A thin black coil runs beside the red upright between its upper crosspiece and the green guide frame.}
+  {A tall tan upright with red-orange crosspieces stands behind a red-orange disc; a black coil is visible beside the upper crosspiece, between green fittings.}
 
 **Combinations**
+- `bf-cd-clipped` [consume] + `bf-cd-base` [transform] -> `bf-cd-frame`
 - `bf-cd-follower` [consume] + `bf-cd-guide` [transform] -> `bf-cd-open-follower`
 - `bf-cd-cover` [consume] + `bf-cd-open-follower` [transform] -> `bf-cd-guided`
 - `bf-cd-guided` [consume] + `bf-cd-frame` [transform] -> `bf-cd-mounted`
@@ -956,20 +973,27 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 **Goals**
 - Attach the Left wing -- `bf-cd-body-left`
 - next: Attach the Right wing -- `bf-cd-winged`
-- next: Attach the Tail -- `bf-cd-bodied`
+- next: Flip the Body to its back -- `bf-cd-winged-rear`
+- next: Attach the Tail -- `bf-cd-bodied-rear`
+- next: Flip the Body to its front -- `bf-cd-bodied`
 - next: Mount the Dragon on the Lifter -- `bf-cd-mounted-body`
 - next: Fit the Left link -- `bf-cd-linked-left`
 - next: Fit the Right link -- `crank-dragon`
+
+**Hotspots**
+- `bf-cd-body-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-cd-body` Body
   - icon: ![Body](assets/items/bf-cd-body.webp)
 
-  {A flat green dragon with a smiling face, red neck spikes and two long legs ending in small feet.}
+  {A flat green dragon shape with round eyes, a curved smile, triangular head and neck spikes, and two long legs with small feet.}
 - `bf-cd-left-wing` Left wing
   - icon: ![Left wing](assets/items/bf-cd-left-wing.webp)
 
-  {A pointed red wing with dark ribs and a short tan peg across its lower end.}
+  {A pointed red-orange wing with dark lines along it and a short tan peg near its lower end.}
 
   ---
 
@@ -977,11 +1001,11 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-body-left` Body
   - icon: ![Body](assets/items/bf-cd-body-left.webp)
 
-  {The flat green dragon has one raised red wing; its other shoulder remains bare.}
+  {A flat green dragon shape with one red-orange wing; the other side of its back is bare.}
 - `bf-cd-right-wing` Right wing
   - icon: ![Right wing](assets/items/bf-cd-right-wing.webp)
 
-  {A pointed red wing with dark ribs and a short tan peg across its lower end.}
+  {A pointed red-orange wing with dark lines along it and a short tan peg near its lower end.}
 
   ---
 
@@ -989,31 +1013,41 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-winged` Body
   - icon: ![Body](assets/items/bf-cd-winged.webp)
 
-  {Two pointed red wings rise from the green dragon’s shoulders.}
+  {A flat green dragon shape with two raised, pointed red-orange wings.}
+- `bf-cd-body-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-cd-winged-rear` Body
+  - icon: ![Body](assets/items/bf-cd-winged-rear.webp)
+
+  {Seen from behind, a flat green dragon shape has two raised red-orange wings; tan pegs and dark round fittings are visible near the wings’ lower ends.}
 - `bf-cd-tail` Tail
   - icon: ![Tail](assets/items/bf-cd-tail.webp)
 
-  {A flat green tail with an upturned tip and a small round fitting at its other end.}
+  {A flat green curved piece with an upturned tip and a small round fitting at the other end.}
 
   ---
 
   The tail carries a split snap pin. Its tapered tip passes through the body hole before its flexible barbs reopen.
+- `bf-cd-bodied-rear` Body
+  - icon: ![Body](assets/items/bf-cd-bodied-rear.webp)
+
+  {Seen from behind, a flat green dragon shape has two raised red-orange wings and a curved green tail with an upturned tip.}
 - `bf-cd-bodied` Dragon
   - icon: ![Dragon](assets/items/bf-cd-bodied.webp)
 
-  {The green dragon has two raised red wings and an upturned green tail.}
+  {A flat green dragon shape with two raised red-orange wings and a curved green tail with an upturned tip.}
 - `bf-cd-lifter` Lifter
   - icon: ![Lifter](assets/items/bf-cd-lifter.webp)
 
-  {A thin black coil runs beside the red upright between its upper crosspiece and the green guide frame.}
+  {A tall tan upright with red-orange crosspieces stands behind a red-orange disc; a black coil is visible beside the upper crosspiece, between green fittings.}
 - `bf-cd-mounted-body` Dragon
   - icon: ![Dragon](assets/items/bf-cd-mounted-body.webp)
 
-  {The green dragon stands on the tan board around the upright mechanism and red disc. Its two wings have bare lower pins.}
+  {A flat green dragon with two raised red-orange wings stands on a tan board around a green frame, red-orange disc and upright pieces; tan pegs project from the wings’ lower ends.}
 - `bf-cd-left-link` Left link
   - icon: ![Left link](assets/items/bf-cd-left-link.webp)
 
-  {A narrow green bar with an open circular eye at each end.}
+  {A narrow green bar with a round opening at each end.}
 
   ---
 
@@ -1021,340 +1055,30 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-linked-left` Dragon
   - icon: ![Dragon](assets/items/bf-cd-linked-left.webp)
 
-  {One green bar runs from the left wing’s lower pin to the central red upright; the right wing’s lower pin remains bare.}
+  {A narrow green bar runs from the lower end of one red-orange wing to the central red-orange upright; a tan peg projects from the other wing.}
 - `bf-cd-right-link` Right link
   - icon: ![Right link](assets/items/bf-cd-right-link.webp)
 
-  {A narrow green bar with an open circular eye at each end.}
+  {A narrow green bar with a round opening at each end.}
 
   ---
 
   One rigid 55 mm polymer link with two open snap eyes. It pivots independently beside the other link.
 - `crank-dragon` Crank dragon
   - icon: ![Crank dragon](assets/items/crank-dragon.webp)
+  - animation: ![The dragon’s two wings flap as the wheel and crank turn below.](assets/animations/crank-dragon-working.webp)
 
-  {The green dragon stands above a red disc and green crank on a tan board. Two short green bars connect its red wings to the central upright.}
+  {A flat green dragon with two raised red-orange wings and a curved tail stands above a red-orange disc and green crank on a tan board; two green bars extend from the wings toward the central upright.}
 
 **Combinations**
 - `bf-cd-left-wing` [consume] + `bf-cd-body` [transform] -> `bf-cd-body-left`
 - `bf-cd-right-wing` [consume] + `bf-cd-body-left` [transform] -> `bf-cd-winged`
-- `bf-cd-tail` [consume] + `bf-cd-winged` [transform] -> `bf-cd-bodied`
+- `bf-cd-winged` [transform] @ `bf-cd-body-flip` -> `bf-cd-winged-rear`
+- `bf-cd-tail` [consume] + `bf-cd-winged-rear` [transform] -> `bf-cd-bodied-rear`
+- `bf-cd-bodied-rear` [transform] @ `bf-cd-body-flip` -> `bf-cd-bodied`
 - `bf-cd-bodied` [consume] + `bf-cd-lifter` [transform] -> `bf-cd-mounted-body`
 - `bf-cd-left-link` [consume] + `bf-cd-mounted-body` [transform] -> `bf-cd-linked-left`
 - `bf-cd-right-link` [consume] + `bf-cd-linked-left` [transform] -> `crank-dragon`
-
-## `bf-pe-build` A look over the hedge
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Periscope](assets/items/periscope.webp)
-
-**Goals**
-- Fold the first side -- `bf-pe-fold-1`
-- next: Fold the second side -- `bf-pe-fold-2`
-- next: Fold and close the long seam -- `bf-pe-tube`
-- next: Flip to the upper opening -- `bf-pe-rear`
-- next: Fit the Upper mirror -- `bf-pe-upper-fit`
-- next: Fold the top closed -- `bf-pe-top-closed`
-- next: Fit the Top shade -- `bf-pe-shaded`
-- next: Flip to the lower opening -- `bf-pe-front`
-- next: Fit the Lower mirror -- `bf-pe-mirrored`
-- next: Fold the bottom closed -- `bf-pe-closed`
-- next: Fit the Eye shade -- `periscope`
-
-**Hotspots**
-- `bf-pe-flip` (center 130px, 216px)
-  - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
-- `bf-pe-fold` (center 390px, 216px)
-  - icon: ![Fold](assets/actions/fold.svg)
-  - hitbox: (center 390px, 216px) (size 236px, 248px)
-
-**Items**
-- `bf-pe-net` Tube net
-  - icon: ![Tube net](assets/items/bf-pe-net.webp)
-
-  {A flat tan sheet divided into four long panels, with square openings and longer end flaps.}
-
-  ---
-
-  One scored card net with dark inner faces, two end flaps, mirror ledges and prepared adhesive seam tabs. The end flaps stay open while you fit the mirrors.
-- `bf-pe-fold` Fold
-  - icon: ![Fold](assets/actions/fold.svg)
-- `bf-pe-fold-1` Tube
-  - icon: ![Tube](assets/items/bf-pe-fold-1.webp)
-
-  {One long side panel of the tan sheet folds away from the others; the lower square opening remains visible.}
-- `bf-pe-fold-2` Tube
-  - icon: ![Tube](assets/items/bf-pe-fold-2.webp)
-
-  {The folded tan panels surround a dark narrow channel, with a long open side and projecting end flaps.}
-- `bf-pe-tube` Tube
-  - icon: ![Tube](assets/items/bf-pe-tube.webp)
-
-  {A tall tan square tube with a dark lower opening and flat flaps projecting above and below.}
-- `bf-pe-flip` Flip
-  - icon: ![Flip](assets/actions/flip.svg)
-- `bf-pe-rear` Tube
-  - icon: ![Tube](assets/items/bf-pe-rear.webp)
-
-  {The other face of the tan tube has its dark square opening at the upper end. Its top flap still stands upright.}
-- `bf-pe-upper` Upper mirror
-  - icon: ![Upper mirror](assets/items/bf-pe-upper.webp)
-
-  {A silver rectangular plate held along two opposite edges by green strips.}
-
-  ---
-
-  An unbreakable mirror with retained edge clips. It seats on the upper forty-five-degree ledges.
-- `bf-pe-upper-fit` Tube
-  - icon: ![Tube](assets/items/bf-pe-upper-fit.webp)
-
-  {A pale angled edge and green side strips appear inside the upper opening; the top flap still stands upright.}
-- `bf-pe-top-closed` Tube
-  - icon: ![Tube](assets/items/bf-pe-top-closed.webp)
-
-  {The top of the tan tube is now closed flat above the dark upper opening.}
-- `bf-pe-top-shade` Top shade
-  - icon: ![Top shade](assets/items/bf-pe-top-shade.webp)
-
-  {A thick black square frame with a stepped edge around its open centre.}
-
-  ---
-
-  One stepped window hood. Its narrow neck enters the opening while its prepared adhesive flange rests on the card outside.
-- `bf-pe-shaded` Tube
-  - icon: ![Tube](assets/items/bf-pe-shaded.webp)
-
-  {A thick black square rim projects around the upper opening of the tan tube.}
-- `bf-pe-front` Tube
-  - icon: ![Tube](assets/items/bf-pe-front.webp)
-
-  {The tan tube is turned to its lower opening again. A black rim peeks from behind the top, and the bottom flap hangs down.}
-- `bf-pe-lower` Lower mirror
-  - icon: ![Lower mirror](assets/items/bf-pe-lower.webp)
-
-  {A silver rectangular plate held along two opposite edges by green strips.}
-
-  ---
-
-  A matching mirror in retained clips. Its reflecting face remains parallel to the upper mirror, redirecting the light towards your eye.
-- `bf-pe-mirrored` Tube
-  - icon: ![Tube](assets/items/bf-pe-mirrored.webp)
-
-  {A bright angled plate fills the lower opening, with a green strip along its side; the bottom flap still hangs down.}
-- `bf-pe-closed` Tube
-  - icon: ![Tube](assets/items/bf-pe-closed.webp)
-
-  {The bottom flap is folded flat beneath the bright angled plate in the lower opening.}
-- `bf-pe-eye-shade` Eye shade
-  - icon: ![Eye shade](assets/items/bf-pe-eye-shade.webp)
-
-  {A thick black square frame with a stepped edge around its open centre.}
-
-  ---
-
-  A matching stepped hood for the lower window, with prepared adhesive on its outer flange.
-- `periscope` Periscope
-  - icon: ![Periscope](assets/items/periscope.webp)
-
-  {A tall tan square tube has a black rim around its lower silver opening, with a small black edge peeking out behind its upper end.}
-
-**Combinations**
-- `bf-pe-net` [transform] @ `bf-pe-fold` -> `bf-pe-fold-1`
-- `bf-pe-fold-1` [transform] @ `bf-pe-fold` -> `bf-pe-fold-2`
-- `bf-pe-fold-2` [transform] @ `bf-pe-fold` -> `bf-pe-tube`
-- `bf-pe-tube` [transform] @ `bf-pe-flip` -> `bf-pe-rear`
-- `bf-pe-upper` [consume] + `bf-pe-rear` [transform] -> `bf-pe-upper-fit`
-- `bf-pe-upper-fit` [transform] @ `bf-pe-fold` -> `bf-pe-top-closed`
-- `bf-pe-top-shade` [consume] + `bf-pe-top-closed` [transform] -> `bf-pe-shaded`
-- `bf-pe-shaded` [transform] @ `bf-pe-flip` -> `bf-pe-front`
-- `bf-pe-lower` [consume] + `bf-pe-front` [transform] -> `bf-pe-mirrored`
-- `bf-pe-mirrored` [transform] @ `bf-pe-fold` -> `bf-pe-closed`
-- `bf-pe-eye-shade` [consume] + `bf-pe-closed` [transform] -> `periscope`
-
-## `bf-ka-mirrors` Three mirrors
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Kaleidoscope](assets/items/kaleidoscope.webp)
-
-**Goals**
-- Fit a Mirror to the Backing
-  - either: `bf-ka-mirrors-1`
-  - or: `bf-ka-only-2`
-  - or: `bf-ka-only-3`
-- next: Fit another Mirror
-  - either: `bf-ka-mirrors-2`
-  - or: `bf-ka-pair-13`
-  - or: `bf-ka-pair-23`
-- next: Fit the last Mirror -- `bf-ka-mirrors-3`
-- next: Fold the mirrors into a triangle -- `bf-ka-prism`
-- next: Slide the triangle into the Viewing tube -- `bf-ka-viewer`
-
-**Hotspots**
-- `bf-ka-fold` (center 130px, 216px)
-  - icon: ![Fold](assets/actions/fold.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
-
-**Items**
-- `bf-ka-backing` Backing
-  - icon: ![Backing](assets/items/bf-ka-backing.webp)
-
-  {A flat tan rectangular sheet.}
-
-  ---
-
-  One continuous scored binding sheet. Its three adhesive panels hold the mirror backs; the flexible seams become hinges.
-- `bf-ka-mirror-1` Mirror
-  - icon: ![Mirror](assets/items/bf-ka-mirror-1.webp)
-
-  {One long thin silver rectangular strip.}
-- `bf-ka-mirrors-1` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-mirrors-1.webp)
-
-  {One silver strip covers the left part of the tan backing; the rest is bare.}
-- `bf-ka-mirror-2` Mirror
-  - icon: ![Mirror](assets/items/bf-ka-mirror-2.webp)
-
-  {One long thin silver rectangular strip.}
-- `bf-ka-mirrors-2` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-mirrors-2.webp)
-
-  {Two silver strips lie side by side on the tan backing, with a bare tan panel at the right.}
-- `bf-ka-mirror-3` Mirror
-  - icon: ![Mirror](assets/items/bf-ka-mirror-3.webp)
-
-  {One long thin silver rectangular strip.}
-- `bf-ka-mirrors-3` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-mirrors-3.webp)
-
-  {Three silver strips cover the tan backing, separated by narrow tan lines.}
-- `bf-ka-fold` Fold
-  - icon: ![Fold](assets/actions/fold.svg)
-- `bf-ka-prism` Mirror triangle
-  - icon: ![Mirror triangle](assets/items/bf-ka-prism.webp)
-
-  {The tan sheet forms a long triangular tube with a triangular opening at its nearer end.}
-- `bf-ka-tube` Viewing tube
-  - icon: ![Viewing tube](assets/items/bf-ka-tube.webp)
-
-  {A tan cylindrical tube with a green rim around its open nearer end.}
-
-  ---
-
-  A prepared protective tube with a dark eyecap, padded mirror supports and a retained turning collar.
-- `bf-ka-viewer` Viewing tube
-  - icon: ![Viewing tube](assets/items/bf-ka-viewer.webp)
-
-  {A triangular opening is visible inside the green-rimmed end of the tan tube.}
-- `bf-ka-only-2` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-only-2.webp)
-
-  {One silver strip runs down the middle of the tan backing, with bare tan panels on both sides.}
-- `bf-ka-only-3` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-only-3.webp)
-
-  {One silver strip covers the right part of the tan backing; the left two panels are bare.}
-- `bf-ka-pair-13` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-pair-13.webp)
-
-  {Two silver strips flank one bare tan panel in the middle of the backing.}
-- `bf-ka-pair-23` Mirrors
-  - icon: ![Mirrors](assets/items/bf-ka-pair-23.webp)
-
-  {Two silver strips cover the middle and right panels of the backing; the left panel is bare.}
-
-**Combinations**
-- `bf-ka-mirror-1` [consume] + `bf-ka-backing` [transform] -> `bf-ka-mirrors-1`
-- `bf-ka-mirror-2` [consume] + `bf-ka-mirrors-1` [transform] -> `bf-ka-mirrors-2`
-- `bf-ka-mirror-3` [consume] + `bf-ka-mirrors-2` [transform] -> `bf-ka-mirrors-3`
-- `bf-ka-mirrors-3` [transform] @ `bf-ka-fold` -> `bf-ka-prism`
-- `bf-ka-tube` [consume] + `bf-ka-prism` [transform] -> `bf-ka-viewer`
-- `bf-ka-mirror-2` [consume] + `bf-ka-backing` [transform] -> `bf-ka-only-2`
-- `bf-ka-mirror-3` [consume] + `bf-ka-backing` [transform] -> `bf-ka-only-3`
-- `bf-ka-mirror-3` [consume] + `bf-ka-mirrors-1` [transform] -> `bf-ka-pair-13`
-- `bf-ka-mirror-1` [consume] + `bf-ka-only-2` [transform] -> `bf-ka-mirrors-2`
-- `bf-ka-mirror-3` [consume] + `bf-ka-only-2` [transform] -> `bf-ka-pair-23`
-- `bf-ka-mirror-1` [consume] + `bf-ka-only-3` [transform] -> `bf-ka-pair-13`
-- `bf-ka-mirror-2` [consume] + `bf-ka-only-3` [transform] -> `bf-ka-pair-23`
-- `bf-ka-mirror-2` [consume] + `bf-ka-pair-13` [transform] -> `bf-ka-mirrors-3`
-- `bf-ka-mirror-1` [consume] + `bf-ka-pair-23` [transform] -> `bf-ka-mirrors-3`
-
-
-## `bf-ka-colours` A pocket full of colours
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Kaleidoscope](assets/items/kaleidoscope.webp)
-
-**Goals**
-- Put the Triangle in the Colour cell -- `bf-ka-colour-1`
-- next: Add the Crescent -- `bf-ka-colour-2`
-- next: Add the Disc -- `bf-ka-colour-3`
-- next: Snap on the Clear lid -- `bf-ka-lidded`
-- next: Fit the Light cover -- `bf-ka-covered`
-- next: Fit the Colour cell to the Viewing tube -- `kaleidoscope`
-
-**Items**
-- `bf-ka-cell` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-cell.webp)
-
-  {A broad red circular rim around a dark grey bottom.}
-
-  ---
-
-  A connected clear-bottomed cell with a rotating collar fitting. Its separate snap lid leaves space for the coloured pieces to tumble.
-- `bf-ka-triangle` Triangle
-  - icon: ![Triangle](assets/items/bf-ka-triangle.webp)
-
-  {One thick green triangle.}
-- `bf-ka-colour-1` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-colour-1.webp)
-
-  {One small green triangle lies inside the red-rimmed round cell.}
-- `bf-ka-crescent` Crescent
-  - icon: ![Crescent](assets/items/bf-ka-crescent.webp)
-
-  {One thick yellow crescent.}
-- `bf-ka-colour-2` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-colour-2.webp)
-
-  {A green triangle and yellow crescent lie inside the red-rimmed round cell.}
-- `bf-ka-disc` Disc
-  - icon: ![Disc](assets/items/bf-ka-disc.webp)
-
-  {One thick blue disc.}
-- `bf-ka-colour-3` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-colour-3.webp)
-
-  {A green triangle, yellow crescent and blue disc lie inside the red-rimmed round cell.}
-- `bf-ka-lid` Clear lid
-  - icon: ![Clear lid](assets/items/bf-ka-lid.webp)
-
-  {A grey circular plate with three small red tabs around its edge.}
-- `bf-ka-lidded` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-lidded.webp)
-
-  {The three coloured shapes appear faintly beneath a grey circular lid with three small red edge tabs.}
-- `bf-ka-diffuser` Light cover
-  - icon: ![Light cover](assets/items/bf-ka-diffuser.webp)
-
-  {A pale round plate with a cream edge.}
-- `bf-ka-covered` Colour cell
-  - icon: ![Colour cell](assets/items/bf-ka-covered.webp)
-
-  {A pale circular cover fills the front of the red-rimmed cell.}
-- `bf-ka-viewer` Viewing tube
-  - icon: ![Viewing tube](assets/items/bf-ka-viewer.webp)
-
-  {A triangular opening is visible inside the green-rimmed end of the tan tube.}
-- `kaleidoscope` Kaleidoscope
-  - icon: ![Kaleidoscope](assets/items/kaleidoscope.webp)
-
-  {A long tan tube ends in green and red rings around a pale circular cover.}
-
-**Combinations**
-- `bf-ka-triangle` [consume] + `bf-ka-cell` [transform] -> `bf-ka-colour-1`
-- `bf-ka-crescent` [consume] + `bf-ka-colour-1` [transform] -> `bf-ka-colour-2`
-- `bf-ka-disc` [consume] + `bf-ka-colour-2` [transform] -> `bf-ka-colour-3`
-- `bf-ka-lid` [consume] + `bf-ka-colour-3` [transform] -> `bf-ka-lidded`
-- `bf-ka-diffuser` [consume] + `bf-ka-lidded` [transform] -> `bf-ka-covered`
-- `bf-ka-covered` [consume] + `bf-ka-viewer` [transform] -> `kaleidoscope`
 
 ## `c-gantry-frame` A lifting frame
 background: ![White instruction page](assets/backgrounds/white.svg)
@@ -1367,18 +1091,31 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - next: Fit the ratchet to the winch
   - either: `gh-ratchet-winch`
   - or: `gh-winch`
-- next: Fit the crank -- `gh-winch`
+- next: Turn the winch toward its crank end
+  - either: `gh-rear-drum`
+  - or: `gh-rear-ratchet-winch`
+- next: Fit the crank
+  - either: `gh-crank-winch`
+  - or: `gh-rear-winch`
+- next: Turn the winch back toward the ratchet
+  - either: `gh-front-crank-winch`
+  - or: `gh-winch`
 - next: Mount the winch -- `gh-mounted`
+
+**Hotspots**
+- `gh-winch-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `gh-base` Base
   - icon: ![Base](assets/items/gh-base.webp)
 
-  {A flat tan rectangular board with small round holes.}
+  {A flat tan rectangle with small dark round marks near its corners.}
 - `gh-side-1` Side frame
   - icon: ![Side frame](assets/items/gh-side-1.webp)
 
-  {A tall triangular tan frame with a crossbar near its feet and short black pins projecting from its corners.}
+  {A narrow tan triangular assembly with a low crosspiece and short dark projections at its corners.}
 
   ---
 
@@ -1387,7 +1124,7 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-side-2` Side frame
   - icon: ![Side frame](assets/items/gh-side-2.webp)
 
-  {A tall triangular tan frame with a crossbar near its feet and short black pins projecting from its corners.}
+  {A narrow tan triangular assembly with a low crosspiece and short dark projections at its corners.}
 
   ---
 
@@ -1396,7 +1133,7 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-crossbeam` Beam
   - icon: ![Beam](assets/items/gh-crossbeam.webp)
 
-  {A long square tan beam with small round holes along one face.}
+  {A long tan rectangular bar with small dark round marks along one face.}
 
   ---
 
@@ -1405,19 +1142,19 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-one-side` Frame
   - icon: ![Frame](assets/items/gh-one-side.webp)
 
-  {One triangular tan frame stands at the left end of the rectangular base.}
+  {One tan triangular assembly stands on the left end of a flat tan rectangle.}
 - `gh-two-sides` Frame
   - icon: ![Frame](assets/items/gh-two-sides.webp)
 
-  {Two triangular tan frames stand at opposite ends of the rectangular base; their tops are unjoined.}
+  {Two tan triangular assemblies stand at opposite ends of a flat tan rectangle, with a gap between their tops.}
 - `gh-frame` Frame
   - icon: ![Frame](assets/items/gh-frame.webp)
 
-  {A long tan beam joins the tops of the two triangular frames above the rectangular base.}
+  {A long tan bar joins the tops of two triangular assemblies above a flat tan rectangle.}
 - `gh-drum` Winch
   - icon: ![Winch](assets/items/gh-drum.webp)
 
-  {A tan spool with red end discs sits in a green stand, with black square-ended shafts projecting from both sides.}
+  {A tan cylinder with broad red discs at both ends sits between two green upright blocks; short dark rods project from its sides.}
 
   ---
 
@@ -1426,27 +1163,44 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-ratchet` Ratchet
   - icon: ![Ratchet](assets/items/gh-ratchet.webp)
 
-  {A red toothed disc with a square centre hole.}
+  {A red disc with square teeth around its edge and a square centre opening.}
 - `gh-crank` Crank
   - icon: ![Crank](assets/items/gh-crank.webp)
 
-  {A straight red arm with a square hole near one end and a green cylindrical grip at the other.}
+  {A straight red bar has a small square opening near one end and a short green cylinder at the other.}
 - `gh-ratchet-winch` Winch
   - icon: ![Winch](assets/items/gh-ratchet-winch.webp)
 
-  {A red toothed disc sits outside the near green support of the tan spool.}
+  {A red toothed disc is beside the outer face of the left green upright block; tan and red cylinders sit between the green blocks.}
 - `gh-crank-winch` Winch
   - icon: ![Winch](assets/items/gh-crank-winch.webp)
 
-  {A tall red arm and green grip rise behind the tan spool; the nearer shaft remains bare.}
+  {A red upright bar with a green cylinder at its top stands behind tan and red cylinders held between green blocks.}
 - `gh-winch` Winch
   - icon: ![Winch](assets/items/gh-winch.webp)
 
-  {The tan spool has a red toothed disc on its near side and a tall red crank with green grip behind it.}
+  {A red toothed disc is on one side of tan and red cylinders between green blocks; a red upright bar with a green cylinder at its top stands behind them.}
+- `gh-rear-drum` Winch
+  - icon: ![Winch](assets/items/gh-rear-drum.webp)
+
+  {Tan and red cylinders sit between two green upright blocks; short dark rods project from their sides.}
+- `gh-rear-ratchet-winch` Winch
+  - icon: ![Winch](assets/items/gh-rear-ratchet-winch.webp)
+
+  {A red toothed disc is at the far side of tan and red cylinders held between green blocks.}
+- `gh-rear-winch` Winch
+  - icon: ![Winch](assets/items/gh-rear-winch.webp)
+
+  {A green cylinder at the end of a red upright bar is behind tan and red cylinders held between green blocks; a red toothed disc is at the far side.}
+- `gh-front-crank-winch` Winch
+  - icon: ![Winch](assets/items/gh-front-crank-winch.webp)
+
+  {A red upright bar with a green cylinder at its top stands behind tan and red cylinders held between green blocks.}
 - `gh-mounted` Gantry
   - icon: ![Gantry](assets/items/gh-mounted.webp)
 
-  {The red-and-green winch sits on the left side of the broad tan frame’s base.}
+  {A small green assembly with tan and red cylinders sits on the left side of a broad tan rectangular base inside a tan triangular frame.}
+- `gh-winch-flip` Flip
 
 **Combinations**
 - `gh-side-1` [consume] + `gh-base` [transform] -> `gh-one-side`
@@ -1455,9 +1209,13 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-side-2` [consume] + `gh-one-side` [transform] -> `gh-two-sides`
 - `gh-crossbeam` [consume] + `gh-two-sides` [transform] -> `gh-frame`
 - `gh-ratchet` [consume] + `gh-drum` [transform] -> `gh-ratchet-winch`
-- `gh-crank` [consume] + `gh-drum` [transform] -> `gh-crank-winch`
-- `gh-crank` [consume] + `gh-ratchet-winch` [transform] -> `gh-winch`
-- `gh-ratchet` [consume] + `gh-crank-winch` [transform] -> `gh-winch`
+- `gh-ratchet` [consume] + `gh-front-crank-winch` [transform] -> `gh-winch`
+- `gh-drum` [transform] @ `gh-winch-flip` -> `gh-rear-drum`
+- `gh-ratchet-winch` [transform] @ `gh-winch-flip` -> `gh-rear-ratchet-winch`
+- `gh-crank` [consume] + `gh-rear-drum` [transform] -> `gh-crank-winch`
+- `gh-crank` [consume] + `gh-rear-ratchet-winch` [transform] -> `gh-rear-winch`
+- `gh-crank-winch` [transform] @ `gh-winch-flip` -> `gh-front-crank-winch`
+- `gh-rear-winch` [transform] @ `gh-winch-flip` -> `gh-winch`
 - `gh-winch` [consume] + `gh-frame` [transform] -> `gh-mounted`
 
 ## `c-gantry-rope` Over the beam
@@ -1489,7 +1247,7 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-side-fork` Side fork
   - icon: ![Side fork](assets/items/gh-side-fork.webp)
 
-  {A green right-angled bracket has a short horizontal green pin and a long black split pin above.}
+  {A green right-angled piece has a short horizontal green projection and a long dark upright projection with a split tip.}
 
   ---
 
@@ -1498,11 +1256,11 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-side-pulley` Pulley unit
   - icon: ![Pulley unit](assets/items/gh-side-pulley.webp)
 
-  {A red grooved wheel sits on the green bracket’s horizontal pin, below its long black top pin.}
+  {A thick red wheel with a grooved edge sits on a short green horizontal projection; a long dark pin rises above it.}
 - `gh-drop-fork` Drop fork
   - icon: ![Drop fork](assets/items/gh-drop-fork.webp)
 
-  {A green right-angled bracket has a short horizontal green pin and a long black split pin above.}
+  {A green right-angled piece has a short horizontal green projection and a long dark upright projection with a split tip.}
 
   ---
 
@@ -1511,11 +1269,11 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-drop-pulley` Pulley unit
   - icon: ![Pulley unit](assets/items/gh-drop-pulley.webp)
 
-  {A red grooved wheel sits on the green bracket’s horizontal pin, below its long black top pin.}
+  {A thick red wheel with a grooved edge sits on a short green horizontal projection; a long dark pin rises above it.}
 - `gh-pulley-1` Pulley
   - icon: ![Pulley](assets/items/gh-pulley-1.webp)
 
-  {A thick red wheel with a groove around its rim and a round centre hole.}
+  {A thick red wheel has a narrow groove around its edge and a small round centre hole.}
 
   ---
 
@@ -1524,7 +1282,7 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-pulley-2` Pulley
   - icon: ![Pulley](assets/items/gh-pulley-2.webp)
 
-  {A thick red wheel with a groove around its rim and a round centre hole.}
+  {A thick red wheel has a narrow groove around its edge and a small round centre hole.}
 
   ---
 
@@ -1533,7 +1291,7 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-pawl` Pawl
   - icon: ![Pawl](assets/items/gh-pawl.webp)
 
-  {A bent black lever rises from a green block and ends in a broad angled tip.}
+  {A bent dark bar rises from a green block and ends in a broad angled tip.}
 
   ---
 
@@ -1542,7 +1300,7 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-rope` Rope and hook
   - icon: ![Rope and hook](assets/items/gh-rope.webp)
 
-  {A black cord lies in a loose spiral, with a curved hook joined at its outer end.}
+  {A thin dark cord lies in a loose spiral, with a curved hook at one end.}
 
   ---
 
@@ -1551,7 +1309,7 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-basket` Basket
   - icon: ![Basket](assets/items/gh-basket.webp)
 
-  {A square green open box has a tan floor, dark lower band and a tall black handle.}
+  {A square green open box has a tan floor, a dark strip along its bottom and a tall dark handle.}
 
   ---
 
@@ -1560,39 +1318,40 @@ reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 - `gh-fitted-1` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-1.webp)
 
-  {One red pulley hangs beneath the left end of the tan top beam, above the winch.}
+  {One red wheel hangs below the left end of the tan top bar; a small green assembly sits below it.}
 - `gh-fitted-2` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-2.webp)
 
-  {One red pulley hangs near the middle of the tan top beam; the winch sits below at the left.}
+  {One red wheel hangs below the middle of the tan top bar; a small green assembly sits below its left end.}
 - `gh-fitted-3` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-3.webp)
 
-  {Two red pulleys hang beneath the tan top beam, one at its left end and one near the middle.}
+  {Two red wheels hang below the tan top bar, one near each end; a small green assembly sits below the left end.}
 - `gh-fitted-4` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-4.webp)
 
-  {A small green block and dark lever stand beside the winch’s red toothed disc; the top beam is bare.}
+  {A small green block and dark bent bar sit beside the red toothed disc; the tan top bar is bare.}
 - `gh-fitted-5` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-5.webp)
 
-  {A dark lever stands beside the winch, and one red pulley hangs beneath the left end of the top beam.}
+  {A dark bent bar stands beside the green and red assembly; one red wheel hangs below the left end of the tan top bar.}
 - `gh-fitted-6` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-6.webp)
 
-  {A dark lever stands beside the winch, and one red pulley hangs near the middle of the top beam.}
+  {A dark bent bar stands beside the green and red assembly; one red wheel hangs below the middle of the tan top bar.}
 - `gh-fitted-7` Gantry
   - icon: ![Gantry](assets/items/gh-fitted-7.webp)
 
-  {A dark lever stands beside the winch, below two red pulleys on the top beam.}
+  {A dark bent bar stands beside the green and red assembly; two red wheels hang below the tan top bar.}
 - `gh-roped` Hoist
   - icon: ![Hoist](assets/items/gh-roped.webp)
 
-  {A thin black cord rises from the winch, crosses the two overhead red pulleys and hangs down to a hook.}
+  {A thin dark cord runs from the small green and red assembly, over two red wheels beneath the tan top bar, then down to a curved hook.}
 - `gantry-hoist` Gantry hoist
   - icon: ![Gantry hoist](assets/items/gantry-hoist.webp)
+  - animation: ![The crank turns as the green basket rises and lowers.](assets/animations/gantry-hoist-working.webp)
 
-  {A green basket hangs from the black hook and cord between the tan frame’s legs, beneath two red pulleys.}
+  {A green open box hangs from a dark hook and cord between the legs of a tan triangular frame. Two red wheels sit beneath its top bar.}
 
   ---
 
@@ -1639,7 +1398,7 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-base` Base
   - icon: ![Base](assets/items/ca-base.webp)
 
-  {A thick tan circular base with a central hole, small round holes and square recesses.}
+  {A thick tan disc has a central round opening, several smaller round holes and square recesses.}
 
   ---
 
@@ -1648,7 +1407,7 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-spindle` Spindle
   - icon: ![Spindle](assets/items/ca-spindle.webp)
 
-  {A broad green grooved disc sits above a square green support; a short black shaft projects from its centre.}
+  {A broad green disc with a grooved edge sits on a square green block; a short dark rod projects from its centre.}
 
   ---
 
@@ -1657,7 +1416,7 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-motor` Motor
   - icon: ![Motor](assets/items/ca-motor.webp)
 
-  {A black cylindrical motor sits on a green foot, with a red pulley above and a short black lead ending in a green plug.}
+  {A dark upright cylinder sits on a green foot, with a red round piece above it and a short dark lead ending in a green block.}
 
   ---
 
@@ -1666,11 +1425,11 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-belt` Belt
   - icon: ![Belt](assets/items/ca-belt.webp)
 
-  {One thin black loop with a broad rounded end and a narrower end.}
+  {A thin dark loop has one broad rounded end and one narrow end.}
 - `ca-guard` Guard
   - icon: ![Guard](assets/items/ca-guard.webp)
 
-  {A dark translucent box-shaped cover has a small top hole, green corner feet and an opening at its lower edge.}
+  {A dark transparent box has a small opening on top, green feet at its corners and an opening along its lower edge.}
 
   ---
 
@@ -1679,7 +1438,7 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-battery` Battery and dial
   - icon: ![Battery and dial](assets/items/ca-battery.webp)
 
-  {A green rectangular box has a black switch and red round knob on top.}
+  {A blue rectangular box has a dark square button and a red round button on top.}
 
   ---
 
@@ -1688,7 +1447,7 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-deck` Deck
   - icon: ![Deck](assets/items/ca-deck.webp)
 
-  {A thin tan circular disc with a central hole and three smaller holes around it.}
+  {A thin tan disc has a central round opening and three smaller holes.}
 
   ---
 
@@ -1697,35 +1456,35 @@ reference: ![Carousel](assets/items/ca-platform.webp)
 - `ca-spindle-base` Base
   - icon: ![Base](assets/items/ca-spindle-base.webp)
 
-  {The green pulley and square support stand in the middle of the tan circular base.}
+  {A broad green disc on a square green block stands near the centre of a thick tan disc.}
 - `ca-motor-base` Base
   - icon: ![Base](assets/items/ca-motor-base.webp)
 
-  {The black motor with its red pulley stands near the left edge of the tan base; its lead and green plug lie beside it.}
+  {A dark cylinder with a red round piece above it stands near the left edge of the tan disc; a dark lead and small green block lie beside it.}
 - `ca-drive-base` Base
   - icon: ![Base](assets/items/ca-drive-base.webp)
 
-  {The black motor and red pulley stand beside the broad green pulley on the tan base.}
+  {A dark cylinder with a red round piece above it stands beside a broad green disc on the tan disc.}
 - `ca-belted` Base
   - icon: ![Base](assets/items/ca-belted.webp)
 
-  {A thin black belt spans the small red pulley and the large green pulley.}
+  {A thin dark loop runs between a small red wheel and a larger green disc.}
 - `ca-guarded` Base
   - icon: ![Base](assets/items/ca-guarded.webp)
 
-  {A dark translucent cover surrounds the motor and green pulley; their outlines remain visible through its sides.}
+  {A dark transparent box surrounds a dark cylinder and broad green disc; their shapes show through its sides.}
 - `ca-wired` Base
   - icon: ![Base](assets/items/ca-wired.webp)
 
-  {A green box with a black switch and red knob sits in front of the two pulleys and their black belt.}
+  {A blue box with a dark square button and red round button sits in front of two wheels joined by a dark loop.}
 - `ca-ready` Base
   - icon: ![Base](assets/items/ca-ready.webp)
 
-  {The dark translucent cover encloses the pulleys, with the green control box outside at the front.}
+  {A dark transparent box covers two wheels joined by a dark loop; a blue box with dark and red buttons sits at the front.}
 - `ca-platform` Carousel
   - icon: ![Carousel](assets/items/ca-platform.webp)
 
-  {A tan circular deck sits above the covered pulleys and lower round base; the green control box projects at the front.}
+  {A tan disc sits above a dark transparent box and another tan disc; a blue box projects at the front.}
 
 **Combinations**
 - `ca-spindle` [consume] + `ca-base` [transform] -> `ca-spindle-base`
@@ -1769,7 +1528,7 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-horse-1` Red horse
   - icon: ![Red horse](assets/items/ca-horse-1.webp)
 
-  {A small blocky red horse has a round hole in its back.}
+  {A small blocky red horse shape has a round hole in its back.}
 
   ---
 
@@ -1778,7 +1537,7 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-pole-1` Pole
   - icon: ![Pole](assets/items/ca-pole-1.webp)
 
-  {A thin black upright rod has two small green rings around its lower half.}
+  {A thin upright dark rod has two small green rings around its lower half.}
 
   ---
 
@@ -1787,11 +1546,11 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-rider-1` Red horse
   - icon: ![Red horse](assets/items/ca-rider-1.webp)
 
-  {A black pole passes through the red horse, with a green ring below it.}
+  {A dark upright rod passes through the red horse shape, with a green ring below it.}
 - `ca-horse-2` Green horse
   - icon: ![Green horse](assets/items/ca-horse-2.webp)
 
-  {A small blocky green horse has a round hole in its back.}
+  {A small blocky green horse shape has a round hole in its back.}
 
   ---
 
@@ -1800,7 +1559,7 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-pole-2` Pole
   - icon: ![Pole](assets/items/ca-pole-2.webp)
 
-  {A thin black upright rod has two small green rings around its lower half.}
+  {A thin upright dark rod has two small green rings around its lower half.}
 
   ---
 
@@ -1809,11 +1568,11 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-rider-2` Green horse
   - icon: ![Green horse](assets/items/ca-rider-2.webp)
 
-  {A black pole passes through the green horse, with a green ring below it.}
+  {A dark upright rod passes through the green horse shape, with a green ring below it.}
 - `ca-horse-3` Cream horse
   - icon: ![Cream horse](assets/items/ca-horse-3.webp)
 
-  {A small blocky cream horse has a round hole in its back.}
+  {A small blocky cream horse shape has a round hole in its back.}
 
   ---
 
@@ -1822,7 +1581,7 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-pole-3` Pole
   - icon: ![Pole](assets/items/ca-pole-3.webp)
 
-  {A thin black upright rod has two small green rings around its lower half.}
+  {A thin upright dark rod has two small green rings around its lower half.}
 
   ---
 
@@ -1831,43 +1590,43 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-rider-3` Cream horse
   - icon: ![Cream horse](assets/items/ca-rider-3.webp)
 
-  {A black pole passes through the cream horse, with a green ring below it.}
+  {A dark upright rod passes through the cream horse shape, with a green ring below it.}
 - `ca-horses-1` Carousel
   - icon: ![Carousel](assets/items/ca-horses-1.webp)
 
-  {One red horse stands on a black pole at the right side of the tan upper deck.}
+  {A red horse shape on a dark upright rod stands on the right side of the upper tan disc.}
 - `ca-horses-2` Carousel
   - icon: ![Carousel](assets/items/ca-horses-2.webp)
 
-  {One green horse stands on a black pole near the back of the tan upper deck.}
+  {A green horse shape on a dark upright rod stands near the back of the upper tan disc.}
 - `ca-horses-3` Carousel
   - icon: ![Carousel](assets/items/ca-horses-3.webp)
 
-  {A red horse at the right and a green horse at the back stand on black poles above the deck.}
+  {A red horse shape at the right and a green horse shape at the back stand on dark upright rods above the tan disc.}
 - `ca-horses-4` Carousel
   - icon: ![Carousel](assets/items/ca-horses-4.webp)
 
-  {One cream horse stands on a black pole at the left front of the tan upper deck.}
+  {A cream horse shape on a dark upright rod stands at the left front of the upper tan disc.}
 - `ca-horses-5` Carousel
   - icon: ![Carousel](assets/items/ca-horses-5.webp)
 
-  {Cream and red horses stand on black poles at opposite sides of the tan upper deck.}
+  {Cream and red horse shapes on dark upright rods stand at opposite sides of the upper tan disc.}
 - `ca-horses-6` Carousel
   - icon: ![Carousel](assets/items/ca-horses-6.webp)
 
-  {Cream and green horses stand on black poles at the left front and back of the upper deck.}
+  {Cream and green horse shapes on dark upright rods stand at the left front and back of the upper tan disc.}
 - `ca-horses-7` Carousel
   - icon: ![Carousel](assets/items/ca-horses-7.webp)
 
-  {Cream, green and red horses stand on three black poles around the tan upper deck.}
+  {Cream, green and red horse shapes on dark upright rods stand around the upper tan disc.}
 - `ca-roofpost` Roof post
   - icon: ![Roof post](assets/items/ca-roofpost.webp)
 
-  {A long tan upright rod has a short green fitting around its lower end.}
+  {A long tan upright rod has a short green ring around its lower end.}
 - `ca-canopy` Canopy
   - icon: ![Canopy](assets/items/ca-canopy.webp)
 
-  {A shallow red circular canopy has a small green cap at its centre.}
+  {A shallow red disc has a small green disc at its centre.}
 
   ---
 
@@ -1876,11 +1635,12 @@ reference: ![Electric carousel](assets/items/electric-carousel.webp)
 - `ca-posted` Carousel
   - icon: ![Carousel](assets/items/ca-posted.webp)
 
-  {A tall tan post rises from the centre of the deck between the three horses.}
+  {A tall tan rod rises from the centre of the upper disc between three horse shapes.}
 - `electric-carousel` Electric carousel
   - icon: ![Electric carousel](assets/items/electric-carousel.webp)
+  - animation: ![The three horses travel around the centre on the turning round deck.](assets/animations/electric-carousel-working.webp)
 
-  {A broad red canopy on a tan central post shelters three coloured horses on black poles, above two tan circular levels and a green control box.}
+  {A broad red disc with a small green disc at its centre sits atop a tan upright rod. Three horse shapes on dark upright rods stand above a tan disc; below it are a dark transparent box, a second tan disc and a blue box with dark and red buttons.}
 
   ---
 
@@ -2052,7 +1812,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-base` Palm
   - icon: ![Palm](assets/items/cl-base.webp)
 
-  {A tan rectangular board has a small green fitting near one end, a raised tan strip near the other and several small holes.}
+  {A diagonal tan board has a narrow tan strip along its left side and a green strip with a dark round knob on the right.}
 
   ---
 
@@ -2061,7 +1821,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-jaw-1` Left jaw
   - icon: ![Left jaw](assets/items/cl-jaw-1.webp)
 
-  {A long bent tan jaw has a hooked tip, a red-rimmed middle hole and a short green-and-black pin near its other end.}
+  {A tan hooked arm has two projecting pins and a dark edge.}
 
   ---
 
@@ -2070,7 +1830,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-jaw-2` Right jaw
   - icon: ![Right jaw](assets/items/cl-jaw-2.webp)
 
-  {A long bent tan jaw has a hooked tip, a red-rimmed middle hole and a short green-and-black pin near its other end.}
+  {A tan hooked arm has two projecting pins and a dark edge.}
 
   ---
 
@@ -2079,7 +1839,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-slider` Slider
   - icon: ![Slider](assets/items/cl-slider.webp)
 
-  {A green rectangular frame surrounds a red sliding piece and supports a tall green bracket.}
+  {A green frame surrounds a red block and a dark crosspiece. Two dark prongs project from one side; a longer green arm ends in a dark knob.}
 
   ---
 
@@ -2088,7 +1848,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-link-1` Link
   - icon: ![Link](assets/items/cl-link-1.webp)
 
-  {A slim red bar ends in two open circular eyes.}
+  {A thin red rod has an open round clip at each end.}
 
   ---
 
@@ -2097,7 +1857,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-link-2` Link
   - icon: ![Link](assets/items/cl-link-2.webp)
 
-  {A slim red bar ends in two open circular eyes.}
+  {A thin red rod has an open round clip at each end.}
 
   ---
 
@@ -2106,7 +1866,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-pad-1` Pad
   - icon: ![Pad](assets/items/cl-pad-1.webp)
 
-  {A thick black rectangular block with a green top.}
+  {A small dark block has a flat green face.}
 
   ---
 
@@ -2115,7 +1875,7 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-pad-2` Pad
   - icon: ![Pad](assets/items/cl-pad-2.webp)
 
-  {A thick black rectangular block with a green top.}
+  {A small dark block has a flat green face.}
 
   ---
 
@@ -2124,135 +1884,135 @@ reference: ![Claw](assets/items/cl-mechanical.webp)
 - `cl-mech-1` Claw
   - icon: ![Claw](assets/items/cl-mech-1.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A narrow green strip with a dark round knob sits on the right.}
 - `cl-mech-2` Claw
   - icon: ![Claw](assets/items/cl-mech-2.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A narrow green strip with a dark round knob sits on the right.}
 - `cl-mech-3` Claw
   - icon: ![Claw](assets/items/cl-mech-3.webp)
 
-  {Two tan hooked jaws spread to the right of the board.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A narrow green strip with a dark round knob sits on the right.}
 - `cl-mech-4` Claw
   - icon: ![Claw](assets/items/cl-mech-4.webp)
 
-  {A raised green bracket sits near the middle.}
+  {A diagonal tan board has a narrow tan strip along its left side. A green frame surrounding a red block and dark crosspiece sits on the right.}
 - `cl-mech-5` Claw
   - icon: ![Claw](assets/items/cl-mech-5.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board. A raised green bracket sits near the middle.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right.}
 - `cl-mech-6` Claw
   - icon: ![Claw](assets/items/cl-mech-6.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board. A raised green bracket sits near the middle.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A green frame surrounding a red block and dark crosspiece sits on the right.}
 - `cl-mech-7` Claw
   - icon: ![Claw](assets/items/cl-mech-7.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right.}
 - `cl-mech-13` Claw
   - icon: ![Claw](assets/items/cl-mech-13.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board. One red bar joins the central green bracket to the upper jaw.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block.}
 - `cl-mech-15` Claw
   - icon: ![Claw](assets/items/cl-mech-15.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block.}
 - `cl-mech-22` Claw
   - icon: ![Claw](assets/items/cl-mech-22.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board. One red bar joins the central green bracket to the lower jaw.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block.}
 - `cl-mech-23` Claw
   - icon: ![Claw](assets/items/cl-mech-23.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block.}
 - `cl-mech-31` Claw
   - icon: ![Claw](assets/items/cl-mech-31.webp)
 
-  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. Two red rods connect the arms to the red block.}
 - `cl-mech-33` Claw
   - icon: ![Claw](assets/items/cl-mech-33.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A narrow green strip with a dark round knob sits on the right. The lower hooked tip has a green pad.}
 - `cl-mech-35` Claw
   - icon: ![Claw](assets/items/cl-mech-35.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A narrow green strip with a dark round knob sits on the right. The lower hooked tip has a green pad.}
 - `cl-mech-37` Claw
   - icon: ![Claw](assets/items/cl-mech-37.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. The lower hooked tip has a green pad.}
 - `cl-mech-39` Claw
   - icon: ![Claw](assets/items/cl-mech-39.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. The lower hooked tip has a green pad.}
 - `cl-mech-45` Claw
   - icon: ![Claw](assets/items/cl-mech-45.webp)
 
-  {One tan hooked jaw extends from the upper right side of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block. The lower hooked tip has a green pad.}
 - `cl-mech-47` Claw
   - icon: ![Claw](assets/items/cl-mech-47.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block. The lower hooked tip has a green pad.}
 - `cl-mech-55` Claw
   - icon: ![Claw](assets/items/cl-mech-55.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block. The lower hooked tip has a green pad.}
 - `cl-mech-63` Claw
   - icon: ![Claw](assets/items/cl-mech-63.webp)
 
-  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. A dark green-topped pad covers the upper jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. Two red rods connect the arms to the red block. The lower hooked tip has a green pad.}
 - `cl-mech-66` Claw
   - icon: ![Claw](assets/items/cl-mech-66.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A narrow green strip with a dark round knob sits on the right. The upper hooked tip has a green pad.}
 - `cl-mech-67` Claw
   - icon: ![Claw](assets/items/cl-mech-67.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A narrow green strip with a dark round knob sits on the right. The upper hooked tip has a green pad.}
 - `cl-mech-70` Claw
   - icon: ![Claw](assets/items/cl-mech-70.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A green frame surrounding a red block and dark crosspiece sits on the right. The upper hooked tip has a green pad.}
 - `cl-mech-71` Claw
   - icon: ![Claw](assets/items/cl-mech-71.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. The upper hooked tip has a green pad.}
 - `cl-mech-79` Claw
   - icon: ![Claw](assets/items/cl-mech-79.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block. The upper hooked tip has a green pad.}
 - `cl-mech-86` Claw
   - icon: ![Claw](assets/items/cl-mech-86.webp)
 
-  {One tan hooked jaw extends from the lower right side of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries one hooked tan arm at the upper left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block. The upper hooked tip has a green pad.}
 - `cl-mech-87` Claw
   - icon: ![Claw](assets/items/cl-mech-87.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block. The upper hooked tip has a green pad.}
 - `cl-mech-95` Claw
   - icon: ![Claw](assets/items/cl-mech-95.webp)
 
-  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. A dark green-topped pad covers the lower jaw tip.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. Two red rods connect the arms to the red block. The upper hooked tip has a green pad.}
 - `cl-mech-99` Claw
   - icon: ![Claw](assets/items/cl-mech-99.webp)
 
-  {Two tan hooked jaws spread to the right of the board. Dark green-topped pads cover both jaw tips.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A narrow green strip with a dark round knob sits on the right. Both hooked tips have green pads.}
 - `cl-mech-103` Claw
   - icon: ![Claw](assets/items/cl-mech-103.webp)
 
-  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. Dark green-topped pads cover both jaw tips.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. Both hooked tips have green pads.}
 - `cl-mech-111` Claw
   - icon: ![Claw](assets/items/cl-mech-111.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. Dark green-topped pads cover both jaw tips.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the lower arm to the red block. Both hooked tips have green pads.}
 - `cl-mech-119` Claw
   - icon: ![Claw](assets/items/cl-mech-119.webp)
 
-  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. Dark green-topped pads cover both jaw tips.}
+  {A diagonal tan board carries two hooked tan arms, one at the upper left and one at the lower left. A green frame surrounding a red block and dark crosspiece sits on the right. One red rod connects the upper arm to the red block. Both hooked tips have green pads.}
 - `cl-mechanical` Claw
   - icon: ![Claw](assets/items/cl-mechanical.webp)
 
-  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. Dark green-topped pads cover both jaw tips.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right.}
 
 **Combinations**
 - `cl-jaw-1` [consume] + `cl-base` [transform] -> `cl-mech-1`
@@ -2360,11 +2120,11 @@ background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 
 **Goals**
-- Slide either cup to the farther seat
+- Slide a Cup onto the Syringe
   - either: `cl-front-supported`
   - or: `cl-supported-output`
-- next: Fit the other cup behind it -- `cl-supported-output`
-- next: Fit the plunger clip
+- next: Slide the other Cup onto the Syringe -- `cl-supported-output`
+- next: Fit the Plunger clip to the Claw
   - either: `cl-air-1`
   - or: `cl-air-3`
   - or: `cl-air-5`
@@ -2383,7 +2143,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-output` Output syringe
   - icon: ![Output syringe](assets/items/cl-output.webp)
 
-  {A transparent blue-grey syringe has a green rim, red plunger and round red thumb plate.}
+  {A blue-gray cylinder has a square green flange and a round red end.}
 
   ---
 
@@ -2392,7 +2152,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-rear-cup` Cup
   - icon: ![Cup](assets/items/cl-rear-cup.webp)
 
-  {A green upright has a semicircular recess, red curved retaining band and two black pins below.}
+  {A green plate has a large round opening with a red rim and two thin dark pins.}
 
   ---
 
@@ -2401,7 +2161,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-front-cup` Cup
   - icon: ![Cup](assets/items/cl-front-cup.webp)
 
-  {A green upright has a semicircular recess, red curved retaining band and two black pins below.}
+  {A green plate has a large round opening with a red rim and two thin dark pins.}
 
   ---
 
@@ -2410,7 +2170,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-clip` Plunger clip
   - icon: ![Plunger clip](assets/items/cl-clip.webp)
 
-  {A green clip has two open rectangular end fittings joined by a flat middle strip.}
+  {A green crosspiece joins two open fork-shaped ends, with two short stems projecting from its side.}
 
   ---
 
@@ -2419,7 +2179,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-band` Return band
   - icon: ![Return band](assets/items/cl-band.webp)
 
-  {One long narrow dark loop with rounded ends.}
+  {A pale rounded rectangular loop.}
 
   ---
 
@@ -2428,7 +2188,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-input` Hand syringe
   - icon: ![Hand syringe](assets/items/cl-input.webp)
 
-  {A transparent blue-grey syringe has a red band around its barrel, a green rim and an extended red plunger.}
+  {A blue-gray cylinder has a green square flange and a long red rod ending in a round red disc.}
 
   ---
 
@@ -2437,7 +2197,7 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-tube` Air hose
   - icon: ![Air hose](assets/items/cl-tube.webp)
 
-  {A short blue-green tube curves into a broad U.}
+  {A curved blue-green tube has an open end at each tip.}
 
   ---
 
@@ -2446,39 +2206,40 @@ reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 - `cl-front-supported` Syringe
   - icon: ![Syringe](assets/items/cl-front-supported.webp)
 
-  {A green upright stands beside the syringe barrel, with a red band around it near the plunger end.}
+  {A blue-gray cylinder with a round red end rests in a green support. A red ring circles its middle, and two dark pins project forward.}
 - `cl-supported-output` Syringe
   - icon: ![Syringe](assets/items/cl-supported-output.webp)
 
-  {Two green uprights and red bands hold opposite ends of the syringe barrel.}
+  {A blue-gray cylinder with a round red end rests in a longer green support. Red rings circle its middle and far end, and dark pins project forward.}
 - `cl-air-1` Claw
   - icon: ![Claw](assets/items/cl-air-1.webp)
 
-  {The two-jawed mechanism has a small upright green clip on its central bracket; both jaw tips have dark pads.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right. Two green fork-shaped ends extend from the upper right of the frame.}
 - `cl-air-3` Claw
   - icon: ![Claw](assets/items/cl-air-3.webp)
 
-  {A syringe on two green supports lies along the right end of the board, behind the central bracket and two padded jaws.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right. A blue-gray cylinder with red rings projects from the upper right, held between green supports.}
 - `cl-air-4` Claw
   - icon: ![Claw](assets/items/cl-air-4.webp)
 
-  {A dark loop stretches from the small right green fitting to the central bracket, beside the two padded jaws.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right. A pale narrow loop stretches between two dark knobs along the lower right edge of the frame.}
 - `cl-air-5` Claw
   - icon: ![Claw](assets/items/cl-air-5.webp)
 
-  {The central bracket has an upright green clip and a dark loop extending right; two padded jaws spread to the left.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right. Two green fork-shaped ends extend from the upper right of the frame. A pale narrow loop stretches between two dark knobs along the lower right edge of the frame.}
 - `cl-air-7` Claw
   - icon: ![Claw](assets/items/cl-air-7.webp)
 
-  {A supported syringe, upright green clip and dark loop sit behind the two padded jaws on the tan board.}
+  {A diagonal tan board carries two hooked tan arms with green tips. Two red rods connect them to a red block within a green frame on the right. A blue-gray cylinder with red rings projects from the upper right, held between green supports. A pale narrow loop stretches between two dark knobs along the lower right edge of the frame.}
 - `cl-controller` Hand syringe
   - icon: ![Hand syringe](assets/items/cl-controller.webp)
 
-  {A blue-green hose curves from the small end of the syringe; its red plunger extends from the other end.}
+  {A blue-gray cylinder with a green flange and long red rod connects to a curved blue-green tube.}
 - `pneumatic-claw` Pneumatic claw
   - icon: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
+  - animation: ![The wooden jaws close and reopen as the red rods pivot and the syringe rod moves.](assets/animations/pneumatic-claw-working.webp)
 
-  {Two padded wooden jaws and red links sit on a tan board. A supported syringe connects by a curved blue-green hose to a second syringe beside the board.}
+  {Two tan hooked arms with green tips sit on a board, joined by red rods to a green frame. A blue-gray cylinder projects from the frame; a pale loop stretches between two dark knobs. A curved blue-green tube connects the cylinder to a second cylinder with an extended red rod.}
 
   ---
 
@@ -2521,7 +2282,7 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-wall` Drum wall
   - icon: ![Drum wall](assets/items/bf-film-wall.webp)
 
-  {A long black card strip with fine pale vertical marks, a horizontal line and small tabs along its lower edge.}
+  {A long black strip has fine vertical lines near its upper edge and short tabs along its lower edge.}
 
   ---
 
@@ -2531,21 +2292,21 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-cut` Drum wall
   - icon: ![Drum wall](assets/items/bf-film-cut.webp)
 
-  {The black strip has narrow open slits descending from its upper edge; its lower band remains joined.}
+  {A long black strip has narrow slits descending from its upper edge and short tabs along its lower edge.}
 - `bf-film-roll-process` Roll
   - icon: ![Roll](assets/actions/roll.svg)
 - `bf-film-rolled` Drum
   - icon: ![Drum](assets/items/bf-film-rolled.webp)
 
-  {The black strip forms an open cylinder with narrow upper slits and small tabs pointing down from its bottom.}
+  {A black open cylinder has narrow slits descending from its upper rim and short tabs projecting from its lower rim.}
 - `bf-film-tape` Tape
   - icon: ![Tape](assets/items/bf-film-tape.webp)
 
-  {One narrow flat green strip.}
+  {A narrow, flat green strip.}
 - `bf-film-seamed` Drum
   - icon: ![Drum](assets/items/bf-film-seamed.webp)
 
-  {A green strip covers the lower part of the black cylinder’s front seam.}
+  {A black open cylinder has narrow slits near its upper rim, short lower tabs and a green rectangle on its side.}
 
 **Combinations**
 - `bf-film-wall` [transform] @ `bf-film-cut-process` -> `bf-film-cut`
@@ -2563,6 +2324,7 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - next: Slide the Floor over the straight tips -- `bf-film-seated`
 - next: Fold the tabs under the Floor -- `bf-film-shell`
 - next: Fit the Turntable to the Base -- `bf-film-turntable`
+- next: Flip the Base over -- `bf-film-inverted-base`
 - next: Fit the Base beneath the Drum -- `bf-film-mounted-under`
 - next: Flip the Drum upright -- `bf-film-standing`
 
@@ -2578,23 +2340,23 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-seamed` Drum
   - icon: ![Drum](assets/items/bf-film-seamed.webp)
 
-  {A green strip covers the lower part of the black cylinder’s front seam.}
+  {A black open cylinder has narrow slits near its upper rim, short lower tabs and a green rectangle on its side.}
 - `bf-film-flip-process` Flip
   - icon: ![Flip](assets/actions/flip.svg)
 - `bf-film-under` Drum
   - icon: ![Drum](assets/items/bf-film-under.webp)
 
-  {The black cylinder is upside down: its small tabs point upward and the long slits reach the lower edge.}
+  {A black open cylinder has long slits reaching its lower rim and short tabs projecting from its upper rim.}
 - `bf-film-fold-process` Fold
   - icon: ![Fold](assets/actions/fold.svg)
 - `bf-film-prepared` Drum
   - icon: ![Drum](assets/items/bf-film-prepared.webp)
 
-  {Short dark tabs project around the open upper rim of the upside-down black cylinder.}
+  {A black open cylinder has long slits reaching its lower rim and short dark tabs around its upper rim.}
 - `bf-film-floor` Floor
   - icon: ![Floor](assets/items/bf-film-floor.webp)
 
-  {A thin tan circular disc with small slots around its edge.}
+  {A thin tan circular disc has a centre hole and small slots around its rim.}
 
   ---
 
@@ -2602,19 +2364,19 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-seated` Drum
   - icon: ![Drum](assets/items/bf-film-seated.webp)
 
-  {A tan circular floor fills the upper opening of the upside-down cylinder; small black tab tips project through its edge slots.}
+  {A tan disc covers the upper opening of a black cylinder; small dark tabs show around the disc edge.}
 - `bf-film-shell` Drum
   - icon: ![Drum](assets/items/bf-film-shell.webp)
 
-  {The tan circular floor has small black tabs folded flat around its rim.}
+  {A black cylinder has a tan disc across its top, small dark tabs around the disc rim and long slits in its side.}
 - `bf-film-base` Base
   - icon: ![Base](assets/items/bf-film-base.webp)
 
-  {A thick tan circular disc with a small hole at its centre.}
+  {A thick tan circular disc has a small centre hole.}
 - `bf-film-bearing` Turntable
   - icon: ![Turntable](assets/items/bf-film-bearing.webp)
 
-  {A broad green disc sits above a narrow green stem, cream ring and projecting black pin.}
+  {A broad green disc sits above a narrow green stem and pale ring, with a dark pin projecting below.}
 
   ---
 
@@ -2622,15 +2384,19 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-turntable` Base
   - icon: ![Base](assets/items/bf-film-turntable.webp)
 
-  {The green turntable sits on a narrow stem in the middle of the thick tan circular base.}
+  {A green disc on a short stem stands above the centre of a thick tan circular disc.}
+- `bf-film-inverted-base` Base
+  - icon: ![Base](assets/items/bf-film-inverted-base.webp)
+
+  {A thick tan circular disc has a small dark centre hole and three green round pads on one face.}
 - `bf-film-mounted-under` Drum
   - icon: ![Drum](assets/items/bf-film-mounted-under.webp)
 
-  {A smaller tan base sits above the upside-down drum’s floor, with three green pads and a central hole on its exposed face.}
+  {A smaller tan disc with three green round pads sits above a black cylinder; another tan rim and the cylinder’s long slits are visible below.}
 - `bf-film-standing` Drum
   - icon: ![Drum](assets/items/bf-film-standing.webp)
 
-  {The black slit drum stands upright on a round tan base, with green tape along its front seam.}
+  {A black cylinder with long vertical slits stands on a tan circular base; a green strip is visible on its side.}
 
 **Combinations**
 - `bf-film-seamed` [transform] @ `bf-film-flip-process` -> `bf-film-under`
@@ -2638,7 +2404,8 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-floor` [consume] + `bf-film-prepared` [transform] -> `bf-film-seated`
 - `bf-film-seated` [transform] @ `bf-film-fold-process` -> `bf-film-shell`
 - `bf-film-bearing` [consume] + `bf-film-base` [transform] -> `bf-film-turntable`
-- `bf-film-turntable` [consume] + `bf-film-shell` [transform] -> `bf-film-mounted-under`
+- `bf-film-turntable` [transform] @ `bf-film-flip-process` -> `bf-film-inverted-base`
+- `bf-film-inverted-base` [consume] + `bf-film-shell` [transform] -> `bf-film-mounted-under`
 - `bf-film-mounted-under` [transform] @ `bf-film-flip-process` -> `bf-film-standing`
 
 
@@ -2651,15 +2418,15 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - next: Fit the Picture ring inside the Drum -- `animation-drum`
 
 **Hotspots**
-- `bf-film-picture-roll` (center 130px, 216px)
+- `bf-film-picture-roll` (center 390px, 216px)
   - icon: ![Roll](assets/actions/roll.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-film-strip` Picture strip
   - icon: ![Picture strip](assets/items/bf-film-strip.webp)
 
-  {A long pale strip divided into panels, with small red outlined fish in different positions and a green line near one edge.}
+  {A long pale strip is divided into panels marked with small red outlined fish and thin green lines.}
 
   ---
 
@@ -2669,15 +2436,16 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-loop` Picture ring
   - icon: ![Picture ring](assets/items/bf-film-loop.webp)
 
-  {The pale picture strip forms an open ring with red outlined fish and a green line around its inner face.}
+  {A pale open ring is divided into panels marked with red outlined fish and thin green lines.}
 - `bf-film-standing` Drum
   - icon: ![Drum](assets/items/bf-film-standing.webp)
 
-  {The black slit drum stands upright on a round tan base, with green tape along its front seam.}
+  {A black cylinder with long vertical slits stands on a tan circular base; a green strip is visible on its side.}
 - `animation-drum` Animation drum
   - icon: ![Animation drum](assets/items/animation-drum.webp)
+  - animation: ![The slotted dark cylinder turns, carrying the red line drawings around its pale inner surface.](assets/animations/animation-drum-working.webp)
 
-  {A pale ring of red outlined fish sits inside the black slit drum, above its round tan base.}
+  {A black slotted cylinder surrounds a pale band marked with red outlined fish; a tan circular disc is visible below.}
 
   ---
 
@@ -2689,7 +2457,7 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 
 ## `c-rover-drive` Two wheels, two motors
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/rv-mounted.webp)
+reference: ![Rover](assets/items/rv-mounted.webp)
 
 **Goals**
 - Flip the deck over -- `rv-under`
@@ -2758,15 +2526,15 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - next: Fit the receiver -- `rv-mounted`
 
 **Hotspots**
-- `rv-flip-build` (center 130px, 216px)
+- `rv-flip-build` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `rv-deck` Deck
   - icon: ![Deck](assets/items/rv-deck.webp)
 
-  {A tan rectangular board has two tall dark rods, small green fittings and a short red lever near its centre.}
+  {A tan rectangular board has several round holes, a rectangular opening near one corner, green fittings, two long thin dark rods, a green crossbar, and a short red lever.}
 
   ---
 
@@ -2774,7 +2542,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-motor-a` Left motor
   - icon: ![Left motor](assets/items/rv-motor-a.webp)
 
-  {A green box has a flat mounting plate, two black screws, a projecting dark shaft and a red lead ending in a dark plug.}
+  {A green rectangular box sits on a flat green plate. A dark round fitting is on top; a dark shaft and thin red lead project from opposite sides.}
 
   ---
 
@@ -2782,7 +2550,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-motor-b` Right motor
   - icon: ![Right motor](assets/items/rv-motor-b.webp)
 
-  {A green box has a flat mounting plate and two black screws; a short red lead and dark plug run along its side.}
+  {A green rectangular box sits on a flat green plate. A dark round fitting is on top; a dark shaft projects from one side and a thin red lead from the other.}
 
   ---
 
@@ -2814,7 +2582,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-pack` Battery pack
   - icon: ![Battery pack](assets/items/rv-pack.webp)
 
-  {A flat green box has two black mounting screws and a long red lead ending in a dark plug.}
+  {A blue rectangular case with a dark inset top sits on a blue plate; a thin red lead ends in a dark block.}
 
   ---
 
@@ -2822,7 +2590,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-receiver` Receiver
   - icon: ![Receiver](assets/items/rv-receiver.webp)
 
-  {A green rectangular box has two black mounting screws and a small red mark on its top plate.}
+  {A green rectangular box sits on a flat green plate, with one dark round fitting visible on the plate.}
 
   ---
 
@@ -2842,15 +2610,15 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-deck-01` Rover
   - icon: ![Rover](assets/items/rv-deck-01.webp)
 
-  {The tan board carries one black wheel unit on a green mount at its far edge.}
+  {A tan board carries a green box and a black wheel at its far edge.}
 - `rv-deck-02` Rover
   - icon: ![Rover](assets/items/rv-deck-02.webp)
 
-  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge.}
+  {A tan board carries a green box and a black wheel with red-brown spokes at its near edge.}
 - `rv-deck-03` Rover
   - icon: ![Rover](assets/items/rv-deck-03.webp)
 
-  {The tan board carries two black wheel units on green mounts.}
+  {A tan board carries two green boxes, each beside a black wheel; the near wheel has red-brown spokes.}
 - `rv-deck-04` Rover
   - icon: ![Rover](assets/items/rv-deck-04.webp)
 
@@ -2870,35 +2638,35 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-deck-08` Rover
   - icon: ![Rover](assets/items/rv-deck-08.webp)
 
-  {The tan board carries a dark-topped green box near the back.}
+  {The tan board carries a dark-topped blue box near the back.}
 - `rv-deck-09` Rover
   - icon: ![Rover](assets/items/rv-deck-09.webp)
 
-  {The tan board carries one black wheel unit on a green mount at its far edge and a dark-topped green box near the back.}
+  {The tan board carries one black wheel unit on a green mount at its far edge and a dark-topped blue box near the back.}
 - `rv-deck-10` Rover
   - icon: ![Rover](assets/items/rv-deck-10.webp)
 
-  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge and a dark-topped green box near the back.}
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge and a dark-topped blue box near the back.}
 - `rv-deck-11` Rover
   - icon: ![Rover](assets/items/rv-deck-11.webp)
 
-  {The tan board carries two black wheel units on green mounts and a dark-topped green box near the back.}
+  {The tan board carries two black wheel units on green mounts and a dark-topped blue box near the back.}
 - `rv-deck-12` Rover
   - icon: ![Rover](assets/items/rv-deck-12.webp)
 
-  {The tan board carries a green round-topped foot at the right and a dark-topped green box near the back.}
+  {The tan board carries a green round-topped foot at the right and a dark-topped blue box near the back.}
 - `rv-deck-13` Rover
   - icon: ![Rover](assets/items/rv-deck-13.webp)
 
-  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right and a dark-topped green box near the back.}
+  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right and a dark-topped blue box near the back.}
 - `rv-deck-14` Rover
   - icon: ![Rover](assets/items/rv-deck-14.webp)
 
-  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right and a dark-topped green box near the back.}
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right and a dark-topped blue box near the back.}
 - `rv-deck-15` Rover
   - icon: ![Rover](assets/items/rv-deck-15.webp)
 
-  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right and a dark-topped green box near the back.}
+  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right and a dark-topped blue box near the back.}
 - `rv-deck-16` Rover
   - icon: ![Rover](assets/items/rv-deck-16.webp)
 
@@ -2934,35 +2702,35 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - `rv-deck-24` Rover
   - icon: ![Rover](assets/items/rv-deck-24.webp)
 
-  {The tan board carries a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-25` Rover
   - icon: ![Rover](assets/items/rv-deck-25.webp)
 
-  {The tan board carries one black wheel unit on a green mount at its far edge, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries one black wheel unit on a green mount at its far edge, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-26` Rover
   - icon: ![Rover](assets/items/rv-deck-26.webp)
 
-  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-27` Rover
   - icon: ![Rover](assets/items/rv-deck-27.webp)
 
-  {The tan board carries two black wheel units on green mounts, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries two black wheel units on green mounts, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-28` Rover
   - icon: ![Rover](assets/items/rv-deck-28.webp)
 
-  {The tan board carries a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries a green round-topped foot at the right, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-29` Rover
   - icon: ![Rover](assets/items/rv-deck-29.webp)
 
-  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-deck-30` Rover
   - icon: ![Rover](assets/items/rv-deck-30.webp)
 
-  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right, a dark-topped blue box near the back and a closed green box near the front.}
 - `rv-mounted` Rover
   - icon: ![Rover](assets/items/rv-mounted.webp)
 
-  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+  {The tan board carries two green boxes beside black wheels, a green round-topped post, a blue case with a dark top and a closed green box.}
 - `rv-flip-build` Flip
 
 **Combinations**
@@ -3055,7 +2823,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 
 ## `c-rover-pen` A pen for the rover
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/drawing-rover.webp)
+reference: ![Drawing rover](assets/items/drawing-rover.webp)
 
 **Goals**
 - Connect the switch harness -- `rv-wired`
@@ -3071,15 +2839,15 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - next: Press on the guide cap -- `drawing-rover`
 
 **Hotspots**
-- `rv-flip-pen` (center 130px, 216px)
+- `rv-flip-pen` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `rv-harness` Switch harness
   - icon: ![Switch harness](assets/items/rv-harness.webp)
 
-  {A small red box has two black mounting screws, a black upright switch and a bent dark lead ending in a red plug.}
+  {A red rectangular box sits on a red plate. A dark round fitting is on top; a thin dark lead ends in a small red block.}
 
   ---
 
@@ -3087,7 +2855,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-guard-a` Guard
   - icon: ![Guard](assets/items/rv-guard-a.webp)
 
-  {An open cream box-shaped cover has a rounded side opening, a smaller rimmed opening and two red fittings at the top.}
+  {A cream box-shaped piece has a rectangular opening along its lower edge and a small dark fitting on its side.}
 
   ---
 
@@ -3095,7 +2863,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-guard-b` Guard
   - icon: ![Guard](assets/items/rv-guard-b.webp)
 
-  {An open cream box-shaped cover has rounded and rectangular edge cutouts, with two red fittings at the top.}
+  {A cream box-shaped piece has a short pale tube projecting from one face and a small dark fitting on its side.}
 
   ---
 
@@ -3103,7 +2871,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-pen` Pen
   - icon: ![Pen](assets/items/rv-pen.webp)
 
-  {A long green pen has a dark cap and pointed tip.}
+  {A long green rod has a dark rounded cap at one end.}
 
   ---
 
@@ -3111,7 +2879,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-clip` Pen carriage
   - icon: ![Pen carriage](assets/items/rv-clip.webp)
 
-  {A green bracket carries a split red circular clip and has a long flat arm projecting sideways.}
+  {A green flat bracket has a red-brown ring and a long flat arm projecting to one side.}
 
   ---
 
@@ -3119,7 +2887,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-spring` Return spring
   - icon: ![Return spring](assets/items/rv-spring.webp)
 
-  {A short red coil with open ends.}
+  {A large black helical coil has open ends.}
 
   ---
 
@@ -3127,7 +2895,7 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-cap` Guide cap
   - icon: ![Guide cap](assets/items/rv-cap.webp)
 
-  {A green rectangular bar has two rounded fittings underneath.}
+  {A long green bar has a widened rounded end.}
 
   ---
 
@@ -3135,39 +2903,40 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - `rv-wired` Rover
   - icon: ![Rover](assets/items/rv-wired.webp)
 
-  {Two wheel units, a round green caster and two green boxes sit on the tan deck, joined by thin leads and a small red switch box.}
+  {Two black wheels, a green round-topped post, green and blue boxes, and a small red box sit on the tan board; thin red and dark lines cross between them.}
 - `rv-one-guard-a` Rover
   - icon: ![Rover](assets/items/rv-one-guard-a.webp)
 
-  {A cream cover surrounds the far wheel’s green box; the nearer wheel’s green box remains exposed.}
+  {A cream box-shaped piece covers the green box beside the far wheel; the other green box is exposed.}
 - `rv-one-guard-b` Rover
   - icon: ![Rover](assets/items/rv-one-guard-b.webp)
 
-  {A cream cover surrounds the nearer wheel’s green box; the far wheel’s green box remains exposed.}
+  {A cream box-shaped piece covers the green box beside the near wheel; the other green box is exposed.}
 - `rv-guarded` Rover
   - icon: ![Rover](assets/items/rv-guarded.webp)
 
-  {Cream covers surround both wheel boxes; the green caster, two green boxes and red switch box remain visible between them.}
+  {Two cream box-shaped pieces sit beside the wheels. Between them are two green boxes, a blue case, a green round-topped post, a closed green box and a small red box.}
 - `rv-upright` Rover
   - icon: ![Rover](assets/items/rv-upright.webp)
 
-  {The tan board sits above the wheels and green rounded foot. Two dark guide rods, green fittings and a short red lever rise from its top.}
+  {A tan board is raised above two black wheels and a green round-topped post. Two long thin dark rods, green fittings, a green crossbar and a short red lever stand on the board.}
 - `rv-pen-carriage` Pen carriage
   - icon: ![Pen carriage](assets/items/rv-pen-carriage.webp)
 
-  {A green pen passes through the red ring of a green bracket, with the bracket’s flat arm projecting sideways.}
+  {A green rod passes through a red-brown ring on a green bracket with a long flat arm.}
 - `rv-pen-fitted` Rover
   - icon: ![Rover](assets/items/rv-pen-fitted.webp)
 
-  {The green pen and its bracket stand between the dark guide rods above the wheeled tan board.}
+  {A long green rod and bracket stand between two long thin dark rods above a tan board with black wheels.}
 - `rv-sprung` Rover
   - icon: ![Rover](assets/items/rv-sprung.webp)
 
-  {A short red coil surrounds the guide rod beside the green pen.}
+  {A large black coil surrounds one of the dark rods beside the green rod and bracket.}
 - `drawing-rover` Drawing rover
   - icon: ![Drawing rover](assets/items/drawing-rover.webp)
+  - animation: ![The rover turns, its wheels rotate, and a dark circular line shows beneath it.](assets/animations/drawing-rover-working.webp)
 
-  {A green top bar bridges the two guide rods beside the upright pen, above a tan board on two black wheels and a rounded green foot.}
+  {A tan board on two black wheels carries a compact arrangement of green rods and fittings, with a green crossbar, a red-brown lever and a thin dark circular line beneath it.}
 
   ---
 
@@ -3188,14 +2957,16 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 
 ## `c-projector-box` A box of stars
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/pj-wheel-box.webp)
+reference: ![Projector](assets/items/pj-wheel-box.webp)
 
 **Goals**
 - Fit the reflector inside the box -- `pj-lined`
 - next: Punch stars around the disc -- `pj-stars`
 - next: Slide the disc onto the spindle -- `pj-disc-shaft`
 - next: Fit the disc collar -- `pj-wheel`
+- next: Turn the star wheel to its loading side -- `pj-wheel-loading`
 - next: Lower the star wheel into the bearings -- `pj-loaded`
+- next: Turn the box toward the lamp seat -- `pj-lamp-facing`
 - next: Fit the lamp -- `pj-lamped`
 - next: Connect the battery pack -- `pj-wheel-box`
 
@@ -3203,12 +2974,15 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-punch` (center 130px, 216px)
   - icon: ![Punch](assets/actions/punch.svg)
   - hitbox: (center 130px, 216px) (size 236px, 248px)
+- `pj-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `pj-box` Box
   - icon: ![Box](assets/items/pj-box.webp)
 
-  {An open tan box has a dark upright panel across its interior, several round floor holes and shaped slots in its walls.}
+  {An open tan box has a dark panel across its interior, round floor holes and shaped openings in its walls.}
 
   ---
 
@@ -3216,7 +2990,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-liner` Reflector
   - icon: ![Reflector](assets/items/pj-liner.webp)
 
-  {A pale U-shaped liner has a flat bottom, two tall sides and a small round hole.}
+  {A pale U-shaped piece has a flat bottom, two tall sides and a round hole.}
 
   ---
 
@@ -3224,7 +2998,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-lamp` Lamp
   - icon: ![Lamp](assets/items/pj-lamp.webp)
 
-  {A small green rectangular fitting holds a pale panel and a long thin black lead.}
+  {A green rectangular fitting holds a pale flat panel; a long thin dark lead extends from it.}
 
   ---
 
@@ -3232,7 +3006,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-battery` Battery pack
   - icon: ![Battery pack](assets/items/pj-battery.webp)
 
-  {A green-sided pack holds two dark rectangular blocks, with a small red button near one top corner.}
+  {A blue-sided rectangular case has two blue blocks, a green end piece and a small red round button.}
 
   ---
 
@@ -3240,7 +3014,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-card` Card disc
   - icon: ![Card disc](assets/items/pj-card.webp)
 
-  {A flat dark circular disc with one small centre hole.}
+  {A flat dark circular disc has one small centre hole.}
 
   ---
 
@@ -3248,7 +3022,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-spindle` Spindle
   - icon: ![Spindle](assets/items/pj-spindle.webp)
 
-  {A long narrow dark shaft has small green and red fittings near one end.}
+  {A long dark shaft has small green and red round fittings near one end.}
 
   ---
 
@@ -3256,7 +3030,7 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-collar` Disc collar
   - icon: ![Disc collar](assets/items/pj-collar.webp)
 
-  {A thick green ring has a large central opening and a smaller hole through its side.}
+  {A thick green ring has a large central opening.}
 
   ---
 
@@ -3264,59 +3038,76 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-lined` Projector
   - icon: ![Projector](assets/items/pj-lined.webp)
 
-  {A broad pale liner covers part of the open tan box’s interior, beside a dark upright panel.}
+  {A pale liner covers much of the open box floor beside a dark interior panel; round holes remain visible.}
 - `pj-loaded` Projector
   - icon: ![Projector](assets/items/pj-loaded.webp)
 
-  {A long dark shaft projects from the open tan box. A dark circular disc stands across the nearer compartment.}
+  {An open tan box has a long dark shaft and a tilted dark disc across its nearer compartment.}
+- `pj-lamp-facing` Projector
+  - icon: ![Projector](assets/items/pj-lamp-facing.webp)
+
+  {An open tan box has a dark panel across its far interior and a pale fitting near the far wall. A long dark shaft projects through the box.}
 - `pj-lamped` Projector
   - icon: ![Projector](assets/items/pj-lamped.webp)
 
-  {A small pale rectangle in a green fitting sits beside the disc near the edge of the open box; the long shaft projects above it.}
+  {A pale rectangular panel in a green fitting sits near the far wall of the open box; a long dark shaft runs through the box.}
 - `pj-stars` Star disc
   - icon: ![Star disc](assets/items/pj-stars.webp)
 
-  {Many tiny holes circle the outer part of the dark disc, around its small central hole.}
+  {A dark circular disc has many tiny holes around its outer area and one larger centre hole.}
 - `pj-disc-shaft` Star wheel
   - icon: ![Star wheel](assets/items/pj-disc-shaft.webp)
 
-  {A dark shaft projects diagonally from the centre of the perforated disc.}
+  {A long dark shaft projects diagonally from a dark circular disc with many small holes around its outer area.}
 - `pj-wheel` Star wheel
   - icon: ![Star wheel](assets/items/pj-wheel.webp)
 
-  {A small green ring surrounds the shaft where it enters the perforated disc.}
+  {A green ring surrounds the end of a long dark shaft at the centre of a perforated dark disc.}
+- `pj-wheel-loading` Star wheel
+  - icon: ![Star wheel](assets/items/pj-wheel-loading.webp)
+
+  {A long dark shaft runs from a tilted dark disc; small green and red fittings are visible at its lower end.}
 - `pj-wheel-box` Projector
   - icon: ![Projector](assets/items/pj-wheel-box.webp)
 
-  {A dark block with a green edge is visible in the left-hand compartment of the open box, beside the disc and projecting shaft.}
+  {A blue rectangular case is visible in one compartment of the open tan box, beside a tilted dark disc and long shaft.}
 - `pj-punch` Punch
+- `pj-flip` Flip
 
 **Combinations**
 - `pj-card` [transform] @ `pj-punch` -> `pj-stars`
 - `pj-stars` [consume] + `pj-spindle` [transform] -> `pj-disc-shaft`
 - `pj-collar` [consume] + `pj-disc-shaft` [transform] -> `pj-wheel`
+- `pj-wheel` [transform] @ `pj-flip` -> `pj-wheel-loading`
+- `pj-loaded` [transform] @ `pj-flip` -> `pj-lamp-facing`
 - `pj-liner` [consume] + `pj-box` [transform] -> `pj-lined`
-- `pj-wheel` [consume] + `pj-lined` [transform] -> `pj-loaded`
-- `pj-lamp` [consume] + `pj-loaded` [transform] -> `pj-lamped`
+- `pj-wheel-loading` [consume] + `pj-lined` [transform] -> `pj-loaded`
+- `pj-lamp` [consume] + `pj-lamp-facing` [transform] -> `pj-lamped`
 - `pj-battery` [consume] + `pj-lamped` [transform] -> `pj-wheel-box`
 
 
 ## `c-projector-lens` Bring the stars into focus
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/star-projector.webp)
+reference: ![Star projector](assets/items/star-projector.webp)
 
 **Goals**
 - Close the box with its lid -- `pj-closed`
+- next: Turn the box toward the lens opening -- `pj-front-closed`
 - next: Fit the lens into its holder -- `pj-focus`
 - next: Fit the holder to the box -- `pj-focused`
 - next: Fit the hood around the lens -- `pj-hooded`
 - next: Fit the handle to the spindle -- `star-projector`
 
+**Hotspots**
+- `pj-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
+
 **Items**
 - `pj-lens` Lens
   - icon: ![Lens](assets/items/pj-lens.webp)
 
-  {A pale blue-grey circular lens with a thin darker rim.}
+  {A pale blue-grey circular disc has a darker blue rim.}
 
   ---
 
@@ -3324,7 +3115,7 @@ reference: ![Build reference](assets/items/star-projector.webp)
 - `pj-holder` Lens holder
   - icon: ![Lens holder](assets/items/pj-holder.webp)
 
-  {A green ring stands on a small green frame between two red blocks.}
+  {A green ring sits on a green frame with red rectangular blocks on either side.}
 
   ---
 
@@ -3332,7 +3123,7 @@ reference: ![Build reference](assets/items/star-projector.webp)
 - `pj-hood` Hood
   - icon: ![Hood](assets/items/pj-hood.webp)
 
-  {A short black hollow tube has a stepped outer rim.}
+  {A short black hollow tube has a thick rim.}
 
   ---
 
@@ -3340,7 +3131,7 @@ reference: ![Build reference](assets/items/star-projector.webp)
 - `pj-handle` Handle
   - icon: ![Handle](assets/items/pj-handle.webp)
 
-  {A red wheel has a centre hole, a groove around its rim and a short green grip on its face.}
+  {A red-brown circular disc has a centre hole, a groove around its edge and a short green peg on its face.}
 
   ---
 
@@ -3348,7 +3139,7 @@ reference: ![Build reference](assets/items/star-projector.webp)
 - `pj-lid` Lid
   - icon: ![Lid](assets/items/pj-lid.webp)
 
-  {A flat tan lid has a narrow top slot and a shaped vertical tab hanging underneath.}
+  {A flat tan panel has a narrow dark slot and a shaped tab beneath one edge.}
 
   ---
 
@@ -3356,23 +3147,28 @@ reference: ![Build reference](assets/items/star-projector.webp)
 - `pj-closed` Projector
   - icon: ![Projector](assets/items/pj-closed.webp)
 
-  {A flat tan lid closes the box; its shaped front opening and projecting shaft remain exposed.}
+  {A tan lid covers the box; a shaped opening and long dark shaft remain visible on its front face.}
+- `pj-front-closed` Projector
+  - icon: ![Projector](assets/items/pj-front-closed.webp)
+
+  {A tan box has a flat lid and a dark irregular opening on its front; a long dark shaft projects from the lower front.}
 - `pj-focus` Lens holder
   - icon: ![Lens holder](assets/items/pj-focus.webp)
 
-  {A pale circular lens fills the green ring on the small green-and-red frame.}
+  {A pale blue-grey disc sits inside the green ring on a green frame with red blocks.}
 - `pj-focused` Projector
   - icon: ![Projector](assets/items/pj-focused.webp)
 
-  {The green-and-red lens frame sits around the front opening of the closed tan box.}
+  {A green ring and red-brown fittings sit around an opening on the front of a closed tan box.}
 - `pj-hooded` Projector
   - icon: ![Projector](assets/items/pj-hooded.webp)
 
-  {A short black tube projects from the green lens frame on the front of the box.}
+  {A short black tube projects from a green ring and red-brown fittings on the front of a closed tan box.}
 - `star-projector` Star projector
   - icon: ![Star projector](assets/items/star-projector.webp)
+  - animation: ![The red wheel turns beside the box. The view moves across to pale stars on a dark screen, then returns to the box.](assets/animations/star-projector-working.webp)
 
-  {A tan box has a black lens hood in a green-and-red frame. Below it, a long shaft ends in a red wheel with a small green grip.}
+  {A tan box has a black tube in a green frame with red-brown fittings on its front. Below it, a long dark shaft ends in a red-brown disc with a small green peg.}
 
   ---
 
@@ -3381,36 +3177,557 @@ reference: ![Build reference](assets/items/star-projector.webp)
 **Combinations**
 - `pj-lens` [consume] + `pj-holder` [transform] -> `pj-focus`
 - `pj-lid` [consume] + `pj-wheel-box` [transform] -> `pj-closed`
-- `pj-focus` [consume] + `pj-closed` [transform] -> `pj-focused`
+- `pj-closed` [transform] @ `pj-flip` -> `pj-front-closed`
+- `pj-focus` [consume] + `pj-front-closed` [transform] -> `pj-focused`
 - `pj-hood` [consume] + `pj-focused` [transform] -> `pj-hooded`
 - `pj-handle` [consume] + `pj-hooded` [transform] -> `star-projector`
 
-## `c-lift-frame` The impossible part
+## `c-window-foot` A broad foot
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-lift-frame.webp)
+reference: ![Window base](assets/items/wn-foot-ready.webp)
 
-Jo sets down a violet tile. “This part is invented: power makes it lift.”
+**Goals**
+- Fit a foot
+  - either: `wn-one-foot`
+  - or: `wn-right-foot`
+- next: Fit the other foot -- `wn-two-feet`
+- next: Fit the battery
+  - either: `wn-fitted-1`
+  - or: `wn-fitted-3`
+  - or: `wn-fitted-5`
+  - or: `wn-fitted-7`
+  - or: `wn-fitted-9`
+  - or: `wn-fitted-11`
+  - or: `wn-fitted-13`
+  - or: `wn-foot-ready`
+- next: Fit the switch
+  - either: `wn-fitted-2`
+  - or: `wn-fitted-3`
+  - or: `wn-fitted-6`
+  - or: `wn-fitted-7`
+  - or: `wn-fitted-10`
+  - or: `wn-fitted-11`
+  - or: `wn-fitted-14`
+  - or: `wn-foot-ready`
+- next: Fit the block
+  - either: `wn-fitted-4`
+  - or: `wn-fitted-5`
+  - or: `wn-fitted-6`
+  - or: `wn-fitted-7`
+  - or: `wn-fitted-12`
+  - or: `wn-fitted-13`
+  - or: `wn-fitted-14`
+  - or: `wn-foot-ready`
+- next: Fit the sill -- `wn-foot-ready`
+
+**Items**
+- `wn-base` Base
+  - icon: ![Base](assets/items/wn-base.webp)
+
+  {A long tan rectangular board with a raised strip along one edge, several small holes, and a narrow raised block at each end.}
+- `wn-foot-1` Left foot
+  - icon: ![Left foot](assets/items/wn-foot-1.webp)
+
+  {A tan stepped block with a green rectangular fitting and dark round detail on its end.}
+- `wn-foot-2` Right foot
+  - icon: ![Right foot](assets/items/wn-foot-2.webp)
+
+  {A tan stepped block with a green rectangular fitting and dark round detail on its end.}
+- `wn-battery` Battery
+  - icon: ![Battery](assets/items/wn-battery.webp)
+
+  {A blue rectangular box with two dark round marks on top and a small red-brown block on a short dark lead.}
+- `wn-switch` Switch
+  - icon: ![Switch](assets/items/wn-switch.webp)
+
+  {A green rectangular box with a raised red-brown button, two dark round marks on top, and a square opening on its face.}
+- `wn-block` Block
+  - icon: ![Block](assets/items/wn-block.webp)
+
+  {A pink rectangular block with two dark round marks on top and a square opening on its face.}
+- `wn-sill` Sill
+  - icon: ![Sill](assets/items/wn-sill.webp)
+
+  {A long narrow tan bar with small holes near its ends and along its length.}
+- `wn-one-foot` Base
+  - icon: ![Base](assets/items/wn-one-foot.webp)
+
+  {A long tan board with a green block at one end and a raised tan piece beside it.}
+- `wn-right-foot` Base
+  - icon: ![Base](assets/items/wn-right-foot.webp)
+
+  {A long tan board with a raised tan piece and green end block at the right end.}
+- `wn-two-feet` Base
+  - icon: ![Base](assets/items/wn-two-feet.webp)
+
+  {A long tan board with raised pieces and green end blocks at both ends.}
+- `wn-fitted-1` Window base
+  - icon: ![Window base](assets/items/wn-fitted-1.webp)
+
+  {A long tan board with green end blocks; a blue rectangular box sits near the middle.}
+- `wn-fitted-2` Window base
+  - icon: ![Window base](assets/items/wn-fitted-2.webp)
+
+  {A long tan board with green end blocks; a green box with a raised red-brown button sits near one end.}
+- `wn-fitted-3` Window base
+  - icon: ![Window base](assets/items/wn-fitted-3.webp)
+
+  {A long tan board with green end blocks; a blue box and a green box with a raised red-brown button sit near the middle.}
+- `wn-fitted-4` Window base
+  - icon: ![Window base](assets/items/wn-fitted-4.webp)
+
+  {A long tan board with green end blocks; a pink rectangular block sits near one end.}
+- `wn-fitted-5` Window base
+  - icon: ![Window base](assets/items/wn-fitted-5.webp)
+
+  {A long tan board with green end blocks; a blue box and a pink block sit near the middle.}
+- `wn-fitted-6` Window base
+  - icon: ![Window base](assets/items/wn-fitted-6.webp)
+
+  {A long tan board with green end blocks; a green button box and a pink block sit near the middle.}
+- `wn-fitted-7` Window base
+  - icon: ![Window base](assets/items/wn-fitted-7.webp)
+
+  {A long tan board with green end blocks; a green button box, blue box, and pink block sit along the board.}
+- `wn-fitted-8` Window base
+  - icon: ![Window base](assets/items/wn-fitted-8.webp)
+
+  {A long tan board with green end blocks and a raised tan strip along one edge.}
+- `wn-fitted-9` Window base
+  - icon: ![Window base](assets/items/wn-fitted-9.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a blue box sits near the middle.}
+- `wn-fitted-10` Window base
+  - icon: ![Window base](assets/items/wn-fitted-10.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a green button box sits near one end.}
+- `wn-fitted-11` Window base
+  - icon: ![Window base](assets/items/wn-fitted-11.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a green button box and blue box sit near the middle.}
+- `wn-fitted-12` Window base
+  - icon: ![Window base](assets/items/wn-fitted-12.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a pink block sits near one end.}
+- `wn-fitted-13` Window base
+  - icon: ![Window base](assets/items/wn-fitted-13.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a blue box and pink block sit along it.}
+- `wn-fitted-14` Window base
+  - icon: ![Window base](assets/items/wn-fitted-14.webp)
+
+  {A long tan board with green end blocks and a raised tan strip; a green button box and pink block sit along it.}
+- `wn-foot-ready` Window base
+  - icon: ![Window base](assets/items/wn-foot-ready.webp)
+  - from chapter `c-window-frame` icon: ![Window base](assets/items/wn-base-carried.webp)
+
+  {A long tan board with green end blocks; a green button box, blue box, and pink block sit along it.}
+
+**Combinations**
+- `wn-foot-1` [consume] + `wn-base` [transform] -> `wn-one-foot`
+- `wn-foot-2` [consume] + `wn-base` [transform] -> `wn-right-foot`
+- `wn-foot-2` [consume] + `wn-one-foot` [transform] -> `wn-two-feet`
+- `wn-foot-1` [consume] + `wn-right-foot` [transform] -> `wn-two-feet`
+- `wn-battery` [consume] + `wn-two-feet` [transform] -> `wn-fitted-1`
+- `wn-switch` [consume] + `wn-two-feet` [transform] -> `wn-fitted-2`
+- `wn-block` [consume] + `wn-two-feet` [transform] -> `wn-fitted-4`
+- `wn-sill` [consume] + `wn-two-feet` [transform] -> `wn-fitted-8`
+- `wn-switch` [consume] + `wn-fitted-1` [transform] -> `wn-fitted-3`
+- `wn-block` [consume] + `wn-fitted-1` [transform] -> `wn-fitted-5`
+- `wn-sill` [consume] + `wn-fitted-1` [transform] -> `wn-fitted-9`
+- `wn-battery` [consume] + `wn-fitted-2` [transform] -> `wn-fitted-3`
+- `wn-block` [consume] + `wn-fitted-2` [transform] -> `wn-fitted-6`
+- `wn-sill` [consume] + `wn-fitted-2` [transform] -> `wn-fitted-10`
+- `wn-block` [consume] + `wn-fitted-3` [transform] -> `wn-fitted-7`
+- `wn-sill` [consume] + `wn-fitted-3` [transform] -> `wn-fitted-11`
+- `wn-battery` [consume] + `wn-fitted-4` [transform] -> `wn-fitted-5`
+- `wn-switch` [consume] + `wn-fitted-4` [transform] -> `wn-fitted-6`
+- `wn-sill` [consume] + `wn-fitted-4` [transform] -> `wn-fitted-12`
+- `wn-switch` [consume] + `wn-fitted-5` [transform] -> `wn-fitted-7`
+- `wn-sill` [consume] + `wn-fitted-5` [transform] -> `wn-fitted-13`
+- `wn-battery` [consume] + `wn-fitted-6` [transform] -> `wn-fitted-7`
+- `wn-sill` [consume] + `wn-fitted-6` [transform] -> `wn-fitted-14`
+- `wn-sill` [consume] + `wn-fitted-7` [transform] -> `wn-foot-ready`
+- `wn-battery` [consume] + `wn-fitted-8` [transform] -> `wn-fitted-9`
+- `wn-switch` [consume] + `wn-fitted-8` [transform] -> `wn-fitted-10`
+- `wn-block` [consume] + `wn-fitted-8` [transform] -> `wn-fitted-12`
+- `wn-switch` [consume] + `wn-fitted-9` [transform] -> `wn-fitted-11`
+- `wn-block` [consume] + `wn-fitted-9` [transform] -> `wn-fitted-13`
+- `wn-battery` [consume] + `wn-fitted-10` [transform] -> `wn-fitted-11`
+- `wn-block` [consume] + `wn-fitted-10` [transform] -> `wn-fitted-14`
+- `wn-block` [consume] + `wn-fitted-11` [transform] -> `wn-foot-ready`
+- `wn-battery` [consume] + `wn-fitted-12` [transform] -> `wn-fitted-13`
+- `wn-switch` [consume] + `wn-fitted-12` [transform] -> `wn-fitted-14`
+- `wn-switch` [consume] + `wn-fitted-13` [transform] -> `wn-foot-ready`
+- `wn-battery` [consume] + `wn-fitted-14` [transform] -> `wn-foot-ready`
+
+
+## `c-window-frame` An open frame
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Window](assets/items/open-window.webp)
+
+**Goals**
+- Fit an upright -- `wn-one-upright`
+- next: Fit the other upright -- `wn-uprights`
+- next: Join them with the crossbar -- `wn-frame`
+- next: Flip the window -- `wn-back`
+- next: Fit a strut -- `wn-one-strut`
+- next: Fit the other strut -- `wn-braced-back`
+- next: Flip the window -- `wn-braced`
+- next: Connect the lead -- `open-window`
+
+**Hotspots**
+- `wn-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
+
+**Items**
+- `wn-upright-1` Upright
+  - icon: ![Upright](assets/items/wn-upright-1.webp)
+
+  {A tall tan post with small dark holes and a green fitting at its lower end.}
+- `wn-upright-2` Upright
+  - icon: ![Upright](assets/items/wn-upright-2.webp)
+
+  {A tall tan post with small dark holes and a green fitting at its lower end.}
+- `wn-top` Crossbar
+  - icon: ![Crossbar](assets/items/wn-top.webp)
+
+  {A long tan rectangular bar with small dark fittings near both ends.}
+- `wn-strut-1` Strut
+  - icon: ![Strut](assets/items/wn-strut-1.webp)
+
+  {A tall green narrow piece with a square block and dark fitting at the top and a short foot at the bottom.}
+- `wn-strut-2` Strut
+  - icon: ![Strut](assets/items/wn-strut-2.webp)
+
+  {A tall green narrow piece with a square block and dark fitting at the top and a short foot at the bottom.}
+- `wn-lead` Lead
+  - icon: ![Lead](assets/items/wn-lead.webp)
+
+  {A thin dark bent wire with a green block at each end.}
+- `wn-one-upright` Window
+  - icon: ![Window](assets/items/wn-one-upright.webp)
+
+  {A tan board with green end blocks and three colored boxes; one tall tan post stands at one end.}
+- `wn-uprights` Window
+  - icon: ![Window](assets/items/wn-uprights.webp)
+
+  {A tan board with green end blocks and three colored boxes; two tall tan posts stand at its ends.}
+- `wn-frame` Window
+  - icon: ![Window](assets/items/wn-frame.webp)
+
+  {A tan rectangular frame stands on a board with green end blocks; three colored boxes sit on the board.}
+- `wn-back` Window
+  - icon: ![Window](assets/items/wn-back.webp)
+
+  {A tan rectangular frame stands on a board; three colored boxes sit along the board and a raised tan strip runs behind them.}
+- `wn-one-strut` Window
+  - icon: ![Window](assets/items/wn-one-strut.webp)
+
+  {A tan rectangular frame stands on a board with three colored boxes; a green fitting is attached to one side post.}
+- `wn-braced-back` Window
+  - icon: ![Window](assets/items/wn-braced-back.webp)
+
+  {A tan rectangular frame stands on a board with three colored boxes; green fittings are attached to both side posts.}
+- `wn-braced` Window
+  - icon: ![Window](assets/items/wn-braced.webp)
+
+  {A tan rectangular frame stands on a board with green end blocks and three colored boxes; small green fittings are attached to both side posts.}
+- `open-window` Window
+  - icon: ![Window](assets/items/open-window.webp)
+  - animation: ![A green-sleeved hand enters from the right holding a green-and-pale pinwheel. It tilts the pinwheel forward, returns it upright, then withdraws.](assets/animations/open-window-working.webp)
+
+  {A wooden frame on a broad foot. Green, blue and pink blocks sit along the base, with pale blue and brown areas visible inside the opening.}
+- `wn-flip` Flip
+
+**Combinations**
+- `wn-upright-1` [consume] + `wn-foot-ready` [transform] -> `wn-one-upright`
+- `wn-upright-1` [consume] + `wn-one-upright` [transform] -> `wn-uprights`
+- `wn-upright-2` [consume] + `wn-foot-ready` [transform] -> `wn-one-upright`
+- `wn-upright-2` [consume] + `wn-one-upright` [transform] -> `wn-uprights`
+- `wn-top` [consume] + `wn-uprights` [transform] -> `wn-frame`
+- `wn-frame` [transform] @ `wn-flip` -> `wn-back`
+- `wn-strut-1` [consume] + `wn-back` [transform] -> `wn-one-strut`
+- `wn-strut-1` [consume] + `wn-one-strut` [transform] -> `wn-braced-back`
+- `wn-strut-2` [consume] + `wn-back` [transform] -> `wn-one-strut`
+- `wn-strut-2` [consume] + `wn-one-strut` [transform] -> `wn-braced-back`
+- `wn-braced-back` [transform] @ `wn-flip` -> `wn-braced`
+- `wn-lead` [consume] + `wn-braced` [transform] -> `open-window`
+
+## `c-spinner-drive` Two pulleys
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Drive](assets/items/sp-drive-ready.webp)
+
+**Goals**
+- Mount the motor
+  - either: `sp-drive-1`
+  - or: `sp-drive-3`
+  - or: `sp-drive-11`
+  - or: `sp-drive-5`
+  - or: `sp-drive-7`
+  - or: `sp-drive`
+- next: Mount the spindle
+  - either: `sp-drive-2`
+  - or: `sp-drive-10`
+  - or: `sp-drive-3`
+  - or: `sp-drive-11`
+  - or: `sp-drive-7`
+  - or: `sp-drive`
+- next: Fit the small pulley
+  - either: `sp-motor-unit`
+  - or: `sp-drive-5`
+  - or: `sp-drive-7`
+  - or: `sp-drive`
+- next: Fit the large pulley -- `sp-drive`
+- next: Loop the belt around both pulleys -- `sp-belted`
+- next: Fit the guard -- `sp-guarded`
+- next: Fit the wheel -- `sp-wheeled`
+- next: Fit the collar -- `sp-drive-ready`
+
+**Items**
+- `sp-base` Base
+  - icon: ![Base](assets/items/sp-base.webp)
+
+  {A flat tan rectangular board with several small dark square marks near its edges.}
+- `sp-motor` Motor
+  - icon: ![Motor](assets/items/sp-motor.webp)
+
+  {A dark charcoal cylinder mounted horizontally in a dark green U-shaped bracket on a rectangular green base.}
+- `sp-bearing` Spindle
+  - icon: ![Spindle](assets/items/sp-bearing.webp)
+
+  {A dark green upright rectangular support on a low base, with a long dark rod projecting diagonally forward.}
+- `sp-motor-pulley` Small pulley
+  - icon: ![Small pulley](assets/items/sp-motor-pulley.webp)
+
+  {A reddish-brown stepped circular disk with a square hole in its center and a small dark peg on its rim.}
+- `sp-driven-pulley` Large pulley
+  - icon: ![Large pulley](assets/items/sp-driven-pulley.webp)
+
+  {A large dark green circular disk with a raised center hub, a square opening and a small dark side peg.}
+- `sp-belt` Belt
+  - icon: ![Belt](assets/items/sp-belt.webp)
+
+  {A thin black elongated loop with rounded ends.}
+- `sp-guard` Guard
+  - icon: ![Guard](assets/items/sp-guard.webp)
+
+  {A clear rectangular box-like panel with a narrow opening at the bottom and two small green blocks at its lower corners.}
+- `sp-wheel` Wheel
+  - icon: ![Wheel](assets/items/sp-wheel.webp)
+
+  {A large pink stepped disk with a square center opening, a short pale rectangular bar across its face and a small dark side peg.}
+- `sp-collar` Collar
+  - icon: ![Collar](assets/items/sp-collar.webp)
+
+  {A reddish-brown thick round disk with a square opening and a small dark peg on its side.}
+- `sp-motor-unit` Motor
+  - icon: ![Motor](assets/items/sp-motor-unit.webp)
+
+  {A dark horizontal cylinder held in a green bracket, with a reddish-brown stepped disk fitted at its front.}
+- `sp-bearing-unit` Spindle
+  - icon: ![Spindle](assets/items/sp-bearing-unit.webp)
+
+  {A green upright support carrying a large green disk, with a dark rod projecting forward from its center.}
+- `sp-drive-2` Base
+  - icon: ![Base](assets/items/sp-drive-2.webp)
+
+  {A tan rectangular board with a green upright support and a long dark rod mounted near its back edge.}
+- `sp-drive-10` Base
+  - icon: ![Base](assets/items/sp-drive-10.webp)
+
+  {A tan rectangular board with a green upright support, a large green disk and a dark rod projecting toward the front.}
+- `sp-drive-1` Base
+  - icon: ![Base](assets/items/sp-drive-1.webp)
+
+  {A tan rectangular board with a dark cylinder in a green bracket near one corner.}
+- `sp-drive-3` Base
+  - icon: ![Base](assets/items/sp-drive-3.webp)
+
+  {A tan rectangular board holding a dark cylinder in a green bracket on the left and a green upright support with a projecting dark rod on the right.}
+- `sp-drive-11` Base
+  - icon: ![Base](assets/items/sp-drive-11.webp)
+
+  {A tan rectangular board holding a dark cylinder in a green bracket on the left and a green disk with a projecting dark rod on the right.}
+- `sp-drive-5` Base
+  - icon: ![Base](assets/items/sp-drive-5.webp)
+
+  {A tan rectangular board with a dark cylinder in a green bracket and a reddish-brown stepped disk at the cylinder’s front.}
+- `sp-drive-7` Base
+  - icon: ![Base](assets/items/sp-drive-7.webp)
+
+  {A tan rectangular board holds a dark cylinder with a small reddish front disk on the left, and a green upright support with a projecting dark rod on the right.}
+- `sp-drive` Base
+  - icon: ![Base](assets/items/sp-drive.webp)
+
+  {A tan rectangular board holds a dark cylinder with a small reddish front disk on the left, and a large green disk with a projecting dark rod on the right.}
+- `sp-belted` Drive
+  - icon: ![Drive](assets/items/sp-belted.webp)
+
+  {A thin dark loop connects the small reddish disk on the left to the large green disk on the right, above a tan board with green mounts.}
+- `sp-guarded` Drive
+  - icon: ![Drive](assets/items/sp-guarded.webp)
+
+  {A clear box covers the dark cylinder, two disks and their connecting dark loop. A dark rod projects through the front of the box above a tan base.}
+- `sp-wheeled` Drive
+  - icon: ![Drive](assets/items/sp-wheeled.webp)
+
+  {A tan rectangular board with a dark cylinder and disks behind a clear box, plus a large pink disk at the right.}
+- `sp-drive-ready` Drive
+  - icon: ![Drive](assets/items/sp-drive-ready.webp)
+
+  {A tan rectangular board with a dark cylinder and disks inside a clear box, plus a large pink disk and a reddish-brown disk at its front.}
+
+**Combinations**
+- `sp-motor-pulley` [consume] + `sp-motor` [transform] -> `sp-motor-unit`
+- `sp-driven-pulley` [consume] + `sp-bearing` [transform] -> `sp-bearing-unit`
+- `sp-motor` [consume] + `sp-base` [transform] -> `sp-drive-1`
+- `sp-bearing` [consume] + `sp-base` [transform] -> `sp-drive-2`
+- `sp-motor-unit` [consume] + `sp-base` [transform] -> `sp-drive-5`
+- `sp-bearing-unit` [consume] + `sp-base` [transform] -> `sp-drive-10`
+- `sp-motor` [consume] + `sp-drive-2` [transform] -> `sp-drive-3`
+- `sp-driven-pulley` [consume] + `sp-drive-2` [transform] -> `sp-drive-10`
+- `sp-motor-unit` [consume] + `sp-drive-2` [transform] -> `sp-drive-7`
+- `sp-motor` [consume] + `sp-drive-10` [transform] -> `sp-drive-11`
+- `sp-motor-unit` [consume] + `sp-drive-10` [transform] -> `sp-drive`
+- `sp-bearing` [consume] + `sp-drive-1` [transform] -> `sp-drive-3`
+- `sp-motor-pulley` [consume] + `sp-drive-1` [transform] -> `sp-drive-5`
+- `sp-bearing-unit` [consume] + `sp-drive-1` [transform] -> `sp-drive-11`
+- `sp-motor-pulley` [consume] + `sp-drive-3` [transform] -> `sp-drive-7`
+- `sp-driven-pulley` [consume] + `sp-drive-3` [transform] -> `sp-drive-11`
+- `sp-motor-pulley` [consume] + `sp-drive-11` [transform] -> `sp-drive`
+- `sp-bearing` [consume] + `sp-drive-5` [transform] -> `sp-drive-7`
+- `sp-bearing-unit` [consume] + `sp-drive-5` [transform] -> `sp-drive`
+- `sp-driven-pulley` [consume] + `sp-drive-7` [transform] -> `sp-drive`
+- `sp-belt` [consume] + `sp-drive` [transform] -> `sp-belted`
+- `sp-guard` [consume] + `sp-belted` [transform] -> `sp-guarded`
+- `sp-wheel` [consume] + `sp-guarded` [transform] -> `sp-wheeled`
+- `sp-collar` [consume] + `sp-wheeled` [transform] -> `sp-drive-ready`
+
+
+## `c-spinner-ribbon` A loop of string
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![String spinner](assets/items/ribbon-spinner.webp)
+
+**Goals**
+- Fit the battery
+  - either: `sp-fitted-1`
+  - or: `sp-fitted-3`
+  - or: `sp-fitted-5`
+  - or: `sp-fitted-7`
+- next: Fit the switch
+  - either: `sp-fitted-2`
+  - or: `sp-fitted-3`
+  - or: `sp-fitted-6`
+  - or: `sp-fitted-7`
+- next: Fit the fork
+  - either: `sp-fitted-4`
+  - or: `sp-fitted-5`
+  - or: `sp-fitted-6`
+  - or: `sp-fitted-7`
+- next: Join the ends of the string -- `sp-string-loop`
+- next: Thread the loop over the wheel -- `ribbon-spinner`
+
+**Items**
+- `sp-battery` Battery
+  - icon: ![Battery](assets/items/sp-battery.webp)
+
+  {A blue rectangular box with two dark round marks on top and a black wire ending in a small reddish block.}
+- `sp-switch` Switch
+  - icon: ![Switch](assets/items/sp-switch.webp)
+
+  {A small green rectangular block with a reddish button on top, connected by a black wire to a reddish block at the other end.}
+- `sp-fork` Fork
+  - icon: ![Fork](assets/items/sp-fork.webp)
+
+  {A tan U-shaped frame has a green block at the top of each upright and small dark pins below.}
+- `sp-string` String
+  - icon: ![String](assets/items/sp-string.webp)
+
+  {A dark cord with pale bands forms a tall open loop; its two ends are separated on the right.}
+- `sp-joiner` Joiner
+  - icon: ![Joiner](assets/items/sp-joiner.webp)
+
+  {A small reddish-brown tapered hollow tube, wider at one end and open at the other.}
+- `sp-string-loop` Loop
+  - icon: ![Loop](assets/items/sp-string-loop.webp)
+
+  {A dark cord with pale bands forms a tall closed loop, with a short red sleeve on its right side.}
+- `sp-fitted-1` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-1.webp)
+
+  {A tan board supports a dark cylinder and two disks behind a clear box; a large pink disk sits at the right, and a blue rectangular box stands at the front left.}
+- `sp-fitted-2` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-2.webp)
+
+  {A tan board supports a dark cylinder and pink disk behind a clear box; a green block with a reddish top sits at the front right.}
+- `sp-fitted-3` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-3.webp)
+
+  {A tan board supports a dark cylinder and pink disk behind a clear box, with a blue box at the front left and a green block with a reddish top at the front right.}
+- `sp-fitted-4` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-4.webp)
+
+  {A tan board supports a dark cylinder and large pink wheel inside a clear box. Two tan posts with green tops stand on either side of the pink wheel.}
+- `sp-fitted-5` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-5.webp)
+
+  {A tan board supports a dark cylinder and large pink wheel inside a clear box, between two tan posts with green tops. A blue box and black wire sit at the front left.}
+- `sp-fitted-6` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-6.webp)
+
+  {A tan board supports a dark cylinder and large pink wheel inside a clear box, between two tan posts with green tops. A green box with a red top sits at the front right; a black wire runs around the board edge.}
+- `sp-fitted-7` Spinner
+  - icon: ![Spinner](assets/items/sp-fitted-7.webp)
+
+  {A tan board supports a dark cylinder and large pink wheel inside a clear box, between two tan posts with green tops. A blue box sits at the front left and a green box with a red top at the front right, joined by black wires.}
+- `ribbon-spinner` String spinner
+  - icon: ![String spinner](assets/items/ribbon-spinner.webp)
+  - animation: ![The pink wheel turns while a red section travels around the dark loop.](assets/animations/ribbon-spinner-working.webp)
+
+  {A tall dark loop with pale bands and a red sleeve rises above a large pink wheel. Below it, a tan base holds two tan posts, a clear box, a blue box and a green box with a red top.}
+
+**Combinations**
+- `sp-joiner` [consume] + `sp-string` [transform] -> `sp-string-loop`
+- `sp-battery` [consume] + `sp-drive-ready` [transform] -> `sp-fitted-1`
+- `sp-switch` [consume] + `sp-drive-ready` [transform] -> `sp-fitted-2`
+- `sp-fork` [consume] + `sp-drive-ready` [transform] -> `sp-fitted-4`
+- `sp-switch` [consume] + `sp-fitted-1` [transform] -> `sp-fitted-3`
+- `sp-fork` [consume] + `sp-fitted-1` [transform] -> `sp-fitted-5`
+- `sp-battery` [consume] + `sp-fitted-2` [transform] -> `sp-fitted-3`
+- `sp-fork` [consume] + `sp-fitted-2` [transform] -> `sp-fitted-6`
+- `sp-fork` [consume] + `sp-fitted-3` [transform] -> `sp-fitted-7`
+- `sp-battery` [consume] + `sp-fitted-4` [transform] -> `sp-fitted-5`
+- `sp-switch` [consume] + `sp-fitted-4` [transform] -> `sp-fitted-6`
+- `sp-switch` [consume] + `sp-fitted-5` [transform] -> `sp-fitted-7`
+- `sp-battery` [consume] + `sp-fitted-6` [transform] -> `sp-fitted-7`
+- `sp-string-loop` [consume] + `sp-fitted-7` [transform] -> `ribbon-spinner`
+
+## `c-lift-frame` A wide frame
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Frame](assets/items/fc-lift-frame.webp)
 
 **Goals**
 - Fit an arch to the deck -- `fc-one-arch`
 - next: Fit the second arch -- `fc-arches`
 - next: Clip the cradle across the arches -- `fc-top`
-- next: Seat the lift tile -- `fc-tiled`
+- next: Seat the Tile -- `fc-tiled`
 - next: Flip the frame over -- `fc-inverted`
 - next: Fit the battery underneath -- `fc-powered`
 - next: Flip the frame upright -- `fc-upright`
-- next: Fit the lift control -- `fc-lift-frame`
+- next: Fit the Control -- `fc-lift-frame`
 
 **Hotspots**
-- `fc-flip-lift` (center 130px, 216px)
+- `fc-flip-lift` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `fc-deck` Deck
   - icon: ![Deck](assets/items/fc-deck.webp)
 
-  {A broad flat tan rectangular board with small holes and a rectangular opening near one corner.}
+  {A flat tan rectangular board with small dark marks and a square opening near one corner.}
 
   ---
 
@@ -3418,7 +3735,7 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 - `fc-arch-a` Arch
   - icon: ![Arch](assets/items/fc-arch-a.webp)
 
-  {Two slim tan uprights joined by a tan crossbar, with green feet at their lower ends.}
+  {A tall tan right-angle frame with a green foot at each end.}
 
   ---
 
@@ -3426,7 +3743,7 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 - `fc-arch-b` Arch
   - icon: ![Arch](assets/items/fc-arch-b.webp)
 
-  {Two slim tan uprights joined by a tan crossbar, with green feet at their lower ends.}
+  {A tall tan right-angle frame with a green foot at each end.}
 
   ---
 
@@ -3434,31 +3751,31 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 - `fc-cradle` Tile cradle
   - icon: ![Tile cradle](assets/items/fc-cradle.webp)
 
-  {An open green rectangular frame with projecting ends and small raised tabs.}
+  {A dark green rectangular frame with two crossbars and raised blocks at the corners.}
 
   ---
 
   One connected top cradle. Four integral saddles clip over the arches; its padded rails receive the tile.
-- `fc-tile` Lift tile
-  - icon: ![Lift tile](assets/items/fc-tile.webp)
+- `fc-tile` Tile
+  - icon: ![Tile](assets/items/fc-tile.webp)
 
-  {A thick flat purple square.}
+  {A flat pink rectangular slab.}
 
   ---
 
-  This powered lift tile is explicitly fictional. Its limited force points upward while current flows. It makes no energy and carries no person.
+  A flat pink tile with a keyed power socket and retaining holes.
 - `fc-battery` Battery pack
   - icon: ![Battery pack](assets/items/fc-battery.webp)
 
-  {A black rectangular box beneath a flat green top, with a thin dark lead beside it.}
+  {A blue rectangular box with a darker blue end face sits on a dark green base. A thin black wire trails from it to a small green piece at the far end.}
 
   ---
 
   A compatible enclosed battery in its integral retained bracket. It mounts below the deck, keeping weight low.
-- `fc-control` Lift control
-  - icon: ![Lift control](assets/items/fc-control.webp)
+- `fc-control` Control
+  - icon: ![Control](assets/items/fc-control.webp)
 
-  {A green box with two red buttons and thin dark leads; one lead rises far above the box.}
+  {A small green rectangular base with two red round buttons and a thin bent wire ending in a dark block.}
 
   ---
 
@@ -3466,35 +3783,35 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 - `fc-one-arch` Frame
   - icon: ![Frame](assets/items/fc-one-arch.webp)
 
-  {One tall tan arch stands along the far edge of a broad tan board, on two green feet.}
+  {A tan rectangular board with one tall tan frame and green feet.}
 - `fc-arches` Frame
   - icon: ![Frame](assets/items/fc-arches.webp)
 
-  {Two tall tan arches stand at opposite ends of a broad tan board, on four green feet.}
+  {A tan rectangular board with two tall tan frames and green feet.}
 - `fc-top` Frame
   - icon: ![Frame](assets/items/fc-top.webp)
 
-  {A green rectangular frame spans the tops of two tan arches above a broad tan board.}
+  {A tan rectangular board beneath a dark green rectangular frame with crossbars.}
 - `fc-tiled` Frame
   - icon: ![Frame](assets/items/fc-tiled.webp)
 
-  {A purple square rests in the green frame at the top of the tan arches.}
+  {A tan board beneath a green frame, with a pink rectangle across the top.}
 - `fc-inverted` Frame
   - icon: ![Frame](assets/items/fc-inverted.webp)
 
-  {The construction is upside down: the broad tan board is on top and the purple square is below the arches.}
+  {A tan board above a green frame, with a pink rectangle hanging beneath it.}
 - `fc-powered` Frame
   - icon: ![Frame](assets/items/fc-powered.webp)
 
-  {A black box on a green plate sits on the upward-facing tan board. The purple square is below.}
+  {A tan board and green frame surrounding a pink lower rectangle; a blue block and thin dark wire sit on top.}
 - `fc-upright` Frame
   - icon: ![Frame](assets/items/fc-upright.webp)
 
-  {The tan board is below the arches again, with a purple square in the green frame above.}
+  {A tan board beneath a green frame and pink rectangle, with a small green upright block at one corner.}
 - `fc-lift-frame` Frame
   - icon: ![Frame](assets/items/fc-lift-frame.webp)
 
-  {A green box with two red buttons sits at the right of the tan board, beneath the purple-topped frame.}
+  {A tan board beneath a green frame and pink rectangle; a green block and red-button unit sit beside it.}
 - `fc-flip-lift` Flip
 
 **Combinations**
@@ -3512,7 +3829,7 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 
 ## `c-lift-projector` Stars aboard
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-powered-show.webp)
+reference: ![Frame](assets/items/fc-powered-show.webp)
 
 **Goals**
 - Fit the projector dock -- `fc-docked`
@@ -3521,21 +3838,22 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 - next: Mount the drive motor -- `fc-motor-mounted`
 - next: Loop the belt around both pulleys -- `fc-belted`
 - next: Flip to the underside -- `fc-drive-under`
-- next: Fit the Motor supply -- `fc-supply-under`
+- next: Fit the Battery pack -- `fc-supply-under`
 - next: Flip the Frame upright -- `fc-powered-show`
 
 **Hotspots**
-- `fc-flip-drive` (center 130px, 216px)
+- `fc-flip-drive` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `star-projector` Star projector
   - from chapter `c-lift-projector` icon: ![Star projector](assets/items/fc-projector-carried.webp)
+  - from chapter `c-lift-projector` animation: none
 - `fc-dock` Projector dock
   - icon: ![Projector dock](assets/items/fc-dock.webp)
 
-  {An open green rectangular frame with black corner fittings and small dark pins on top.}
+  {A dark green rectangular frame with raised corner blocks and small round details.}
 
   ---
 
@@ -3543,7 +3861,7 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 - `fc-motor` Gearmotor
   - icon: ![Gearmotor](assets/items/fc-motor.webp)
 
-  {A black cylinder sits on a tall green pedestal. A dark shaft projects from its front and a thin lead extends behind.}
+  {A green block on a flat base, topped by a black cylinder with a thin rod through it and a wire extending to the side.}
 
   ---
 
@@ -3551,7 +3869,7 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 - `fc-pulley` Small pulley
   - icon: ![Small pulley](assets/items/fc-pulley.webp)
 
-  {A thick red wheel with a groove around its edge and a round hole through its centre.}
+  {A reddish-brown round wheel with a central hole and a groove around its rim.}
 
   ---
 
@@ -3559,51 +3877,51 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 - `fc-belt` Belt
   - icon: ![Belt](assets/items/fc-belt.webp)
 
-  {One thin black loop, long and narrow with rounded ends.}
+  {A thin dark loop with long straight sides and rounded ends.}
 
   ---
 
   One continuous soft belt. Its small pulley drives the larger grooved handwheel more slowly.
-- `fc-motor-pack` Motor supply
-  - icon: ![Motor supply](assets/items/fc-motor-pack.webp)
+- `fc-motor-pack` Battery pack
+  - icon: ![Battery pack](assets/items/fc-motor-pack.webp)
 
-  {A small black rectangular box beneath a green top, with a fine dark lead extending beside it.}
+  {A small blue rectangular box with a green top piece and a reddish circular detail rests on a dark green base. A long thin black wire runs from it to a small green piece at the end.}
 
   ---
 
-  An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply; the lift has a separate circuit.
+  An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply.
 - `fc-docked` Frame
   - icon: ![Frame](assets/items/fc-docked.webp)
 
-  {An open green rectangular frame sits on the tan board beside the green two-button box.}
+  {Four tan posts carry a green upper frame and pink panel above a tan base. An open green rectangular frame sits on the base, beside a green box with red buttons.}
 - `fc-projector-aboard` Frame
   - icon: ![Frame](assets/items/fc-projector-aboard.webp)
 
-  {A tan box stands in the frame beneath the purple square. Its front has a round dark lens fitting and a projecting red wheel.}
+  {A tan box with a black cylinder and brown round disk on its side, beneath a pink panel and green frame; a green button unit stands beside it.}
 - `fc-drive` Drive motor
   - icon: ![Drive motor](assets/items/fc-drive.webp)
 
-  {A small red grooved wheel surrounds the projecting shaft of a black cylinder on a green pedestal.}
+  {A green block on a base topped by a black cylinder, with a long rod and a thin wire.}
 - `fc-motor-mounted` Frame
   - icon: ![Frame](assets/items/fc-motor-mounted.webp)
 
-  {The black cylinder on its green pedestal stands at the front right of the tan box, with its small red wheel facing outward.}
+  {A brown round wheel beside a green block topped with a black cylinder; a dark rod and wire extend from it.}
 - `fc-belted` Frame
   - icon: ![Frame](assets/items/fc-belted.webp)
 
-  {A thin dark belt stretches between the large red wheel on the tan box and the smaller wheel on the green pedestal.}
+  {A tan box and green frame beneath a pink panel, with a brown round disk, black cylinder, thin line, and green button unit.}
 - `fc-drive-under` Frame
   - icon: ![Frame](assets/items/fc-drive-under.webp)
 
-  {The construction is upside down. A black box on a green plate sits on the upward-facing board; the tan box and purple square are below.}
+  {A tan board and green frame with a pink lower panel; a blue block sits on top and dark parts show underneath.}
 - `fc-supply-under` Frame
   - icon: ![Frame](assets/items/fc-supply-under.webp)
 
-  {Two black boxes on green plates sit beside one another on the upward-facing board. The smaller box has a small coloured button on top.}
+  {A tan board and green frame with a pink lower panel; two blue blocks sit on top and dark parts show underneath.}
 - `fc-powered-show` Frame
   - icon: ![Frame](assets/items/fc-powered-show.webp)
 
-  {The tan box, two red wheels and dark belt sit beneath the purple-topped frame. A fine dark lead lies beside the right-hand controls.}
+  {A tan box, pink panel, green frame, brown round disk, black cylinder, wires, and green button unit arranged together.}
 - `fc-flip-drive` Flip
 
 **Combinations**
@@ -3619,27 +3937,35 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 
 ## `c-whale-shape` A whale takes shape
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-whale.webp)
+reference: ![Whale](assets/items/fc-whale.webp)
 
 **Goals**
-- Fit the Front side -- `fc-near-side`
+- Fit the Tail -- `fc-tailed`
+- next: Fit the Front side -- `fc-near-side`
 - next: Turn to the back -- `fc-side-rear`
 - next: Fit the Back side -- `fc-sided`
-- next: Fit the Tail -- `fc-tailed`
 - next: Fit the Back fin -- `fc-one-fin-b`
 - next: Turn to the front -- `fc-fin-front`
 - next: Fit the Front fin -- `fc-whale`
 
 **Hotspots**
-- `fc-flip-shell` (center 130px, 216px)
+- `fc-flip-shell` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
+- `fc-tail` Tail
+  - icon: ![Tail](assets/items/fc-tail.webp)
+
+  {A reddish-brown angular flat piece with a green block at one end.}
+
+  ---
+
+  One continuous fixed tail with its prepared root fitting.
 - `fc-side-a` Front side
   - icon: ![Front side](assets/items/fc-side-a.webp)
 
-  {A long green panel with pointed ends, two keyhole-shaped openings and small fittings near its upper edge.}
+  {A long dark green tapered panel with small protrusions and two pale openings.}
 
   ---
 
@@ -3647,78 +3973,70 @@ reference: ![Build reference](assets/items/fc-whale.webp)
 - `fc-side-b` Back side
   - icon: ![Back side](assets/items/fc-side-b.webp)
 
-  {A long green panel with pointed ends, two keyhole-shaped openings and small projecting fittings near its upper edge.}
+  {A flat dark green elongated polygonal panel has pointed, clipped ends, small dark details near both ends, and three small pale marks near the middle.}
 
   ---
 
   A second whale side panel, fitted separately.
-- `fc-tail` Tail
-  - icon: ![Tail](assets/items/fc-tail.webp)
-
-  {A flat red forked tail joined to a green rectangular socket.}
-
-  ---
-
-  One continuous fixed tail with its prepared root fitting. It does not steer or provide lift.
 - `fc-fin-a` Front fin
   - icon: ![Front fin](assets/items/fc-fin-a.webp)
 
-  {A broad red fin with a thick upper edge and two small green round fittings behind it.}
+  {A broad reddish-brown triangular panel with two green round pieces along one edge.}
 
   ---
 
-  One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips. It gives the whale its shape, not lift.
+  One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips.
 - `fc-fin-b` Back fin
   - icon: ![Back fin](assets/items/fc-fin-b.webp)
 
-  {A thin red fin seen almost edge-on, with two green round fittings along one edge.}
+  {A flat reddish-brown quadrilateral panel has a narrow dark edge and two dark green rounded pieces along its far edge.}
 
   ---
 
   The other fixed fin.
-- `fc-near-side` Whale
-  - icon: ![Whale](assets/items/fc-near-side.webp)
-
-  {A long green panel with two keyhole-shaped openings covers the near edge of the tan board, below the wheels and belt.}
-- `fc-side-rear` Whale
-  - icon: ![Whale](assets/items/fc-side-rear.webp)
-
-  {The plain tan back of the box faces us beneath the purple square. The two-button green control is at the left, and a green panel runs along the far board edge.}
-- `fc-sided` Whale
-  - icon: ![Whale](assets/items/fc-sided.webp)
-
-  {Green panels line both long edges of the tan board; the near panel has two keyhole-shaped openings.}
 - `fc-tailed` Whale
   - icon: ![Whale](assets/items/fc-tailed.webp)
 
-  {From the back, a red forked tail projects to the left of the green-sided construction. The plain tan box face is visible beneath the purple square.}
+  {A tan board and green frame with a pink panel, green box, brown round disk, and reddish angular panels extending at the sides.}
+- `fc-near-side` Whale
+  - icon: ![Whale](assets/items/fc-near-side.webp)
+
+  {A tan box beneath a pink panel and green frame, with a long dark green panel along the near edge and reddish angular pieces at the sides.}
+- `fc-side-rear` Whale
+  - icon: ![Whale](assets/items/fc-side-rear.webp)
+
+  {A tan box, green frame, and pink panel with dark green and reddish panels extending around the lower edges.}
+- `fc-sided` Whale
+  - icon: ![Whale](assets/items/fc-sided.webp)
+
+  {A tan box beneath a pink panel and green frame, with dark green panels along the sides and reddish angular panels at the ends.}
 - `fc-one-fin-b` Whale
   - icon: ![Whale](assets/items/fc-one-fin-b.webp)
 
-  {A red fin projects from the nearer green panel, below the plain back of the tan box. The red forked tail extends to the left.}
+  {A tan box and green frame beneath a pink panel, with one long dark green panel and reddish angular pieces around the base.}
 - `fc-fin-front` Whale
   - icon: ![Whale](assets/items/fc-fin-front.webp)
 
-  {The tan box’s lens fitting, red wheels and belt face us. The near green panel has two pale openings; a red forked tail extends to the right.}
+  {A tan box beneath a pink panel and green frame, with a dark green front panel and reddish angular pieces at the lower edges.}
 - `fc-whale` Whale
   - icon: ![Whale](assets/items/fc-whale.webp)
 
-  {A red fin projects from the near green side panel, below the wheels and belt. A red forked tail extends from the right end.}
+  {A tan box beneath a pink panel and green frame, with dark green side panels and reddish angular panels around the base.}
 - `fc-flip-shell` Flip
 
 **Combinations**
-- `fc-side-a` [consume] + `fc-powered-show` [transform] -> `fc-near-side`
+- `fc-tail` [consume] + `fc-powered-show` [transform] -> `fc-tailed`
+- `fc-side-a` [consume] + `fc-tailed` [transform] -> `fc-near-side`
 - `fc-near-side` [transform] @ `fc-flip-shell` -> `fc-side-rear`
 - `fc-side-b` [consume] + `fc-side-rear` [transform] -> `fc-sided`
-- `fc-tail` [consume] + `fc-sided` [transform] -> `fc-tailed`
-- `fc-fin-b` [consume] + `fc-tailed` [transform] -> `fc-one-fin-b`
+- `fc-fin-b` [consume] + `fc-sided` [transform] -> `fc-one-fin-b`
 - `fc-one-fin-b` [transform] @ `fc-flip-shell` -> `fc-fin-front`
 - `fc-fin-a` [consume] + `fc-fin-front` [transform] -> `fc-whale`
 
 
-## `c-whale-finish` Ready for the fair
+## `c-whale-finish` Landing feet
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/flying-whale.webp)
+reference: ![Whale](assets/items/fc-guarded.webp)
 
 **Goals**
 - Flip the whale over -- `fc-whale-under`
@@ -3730,18 +4048,18 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - next: Fit the weight rail -- `fc-railed`
 - next: Fit the weight through the wide slot -- `fc-weighted`
 - next: Flip the whale upright -- `fc-standing`
-- next: Fit the clear drive guard -- `flying-whale`
+- next: Fit the clear drive guard -- `fc-guarded`
 
 **Hotspots**
-- `fc-flip-feet` (center 130px, 216px)
+- `fc-flip-feet` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `fc-skid-a` Landing skid
   - icon: ![Landing skid](assets/items/fc-skid-a.webp)
 
-  {A long tan bar joined to two short green uprights with flat green ends.}
+  {A long tan rectangular beam rests across two dark green supports, each with a flat foot.}
 
   ---
 
@@ -3749,7 +4067,7 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-skid-b` Landing skid
   - icon: ![Landing skid](assets/items/fc-skid-b.webp)
 
-  {A long tan bar joined to two short green uprights with flat green ends.}
+  {A long tan rectangular beam rests across two dark green supports, each with a flat foot.}
 
   ---
 
@@ -3757,7 +4075,7 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-rail` Weight rail
   - icon: ![Weight rail](assets/items/fc-rail.webp)
 
-  {A long green channel with an upright fitting at each end and a small red end piece.}
+  {Two parallel dark green rails are joined by small dark green end blocks. A reddish-brown piece is visible on the left end, and dark details appear near the right end.}
 
   ---
 
@@ -3765,7 +4083,7 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-weight` Counterweight
   - icon: ![Counterweight](assets/items/fc-weight.webp)
 
-  {A black rectangular block with a cream top and a raised green fitting.}
+  {A large black rectangular block sits above a small dark green foot. A short reddish cylinder with a green ring at its base stands on top.}
 
   ---
 
@@ -3773,7 +4091,7 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-guard` Guard
   - icon: ![Guard](assets/items/fc-guard.webp)
 
-  {A long grey translucent cover with an open lower edge and green feet at its ends.}
+  {A long gray rectangular panel with small green fittings beneath its ends.}
 
   ---
 
@@ -3781,39 +4099,39 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-whale-under` Whale
   - icon: ![Whale](assets/items/fc-whale-under.webp)
 
-  {The whale-shaped construction is upside down. Black boxes and thin leads are visible on the upward-facing tan board; the purple square is below.}
+  {A tan board and green frame viewed from below, with two blue blocks on top and dark green and reddish panels projecting around it.}
 - `fc-one-skid-a` Whale
   - icon: ![Whale](assets/items/fc-one-skid-a.webp)
 
-  {On the upside-down construction, a long tan bar stands on two short green supports along the far side of the board.}
+  {A tan board and green frame with blue blocks, dark green panels, and a long tan bar with two green posts beneath it.}
 - `fc-one-skid-b` Whale
   - icon: ![Whale](assets/items/fc-one-skid-b.webp)
 
-  {On the upside-down construction, a long tan bar stands on two short green supports along the near side of the board.}
+  {A tan board and green frame with blue blocks, dark green panels, and a tan bar with one green post beneath it.}
 - `fc-skids` Whale
   - icon: ![Whale](assets/items/fc-skids.webp)
 
-  {Two long tan bars stand on green supports along opposite sides of the upward-facing board.}
+  {A tan board and green frame with blue blocks, dark green panels, and two long tan bars along the top.}
 - `fc-railed` Whale
   - icon: ![Whale](assets/items/fc-railed.webp)
 
-  {A long green channel crosses the upward-facing board between the two raised tan bars.}
+  {A tan board and green frame with blue blocks, dark green panels, and two tan bars joined by green end pieces.}
 - `fc-weighted` Whale
   - icon: ![Whale](assets/items/fc-weighted.webp)
 
-  {A small dark block with a red round fitting sits on the green channel between the raised tan bars.}
+  {A tan board and green frame with blue blocks, dark green panels, reddish pieces, and a dark rectangular block on top.}
 - `fc-standing` Whale
   - icon: ![Whale](assets/items/fc-standing.webp)
 
-  {The whale-shaped construction stands upright on two tan bars. The purple square is above the tan box, wheels and belt.}
-- `flying-whale` Whale
-  - icon: ![Whale](assets/items/flying-whale.webp)
+  {A tan box beneath a pink panel and green frame, with dark green side panels, reddish pieces, and a brown round disk.}
+- `fc-guarded` Whale
+  - icon: ![Whale](assets/items/fc-guarded.webp)
 
-  {A grey translucent cover encloses the front wheels and belt. The green-sided machine has a red fin and forked tail, tan skids and a purple square above.}
+  {A tan box, pink panel, and green frame with a translucent gray rectangular panel across the front.}
 
   ---
 
-  The real projector, motor, belt, batteries, arches and counterweight retain their ordinary jobs. Only the violet lift tile is fictional. The exposed rail lets the weight move opposite a heavier end while the machine is supported and disconnected. This is a dimensioned story model, not a manufactured flying toy.
+  The sliding weight balances a heavier end. Adjust it with the machine resting on its skids and the power off.
 - `fc-flip-feet` Flip
 
 **Combinations**
@@ -3825,9 +4143,45 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-rail` [consume] + `fc-skids` [transform] -> `fc-railed`
 - `fc-weight` [consume] + `fc-railed` [transform] -> `fc-weighted`
 - `fc-weighted` [transform] @ `fc-flip-feet` -> `fc-standing`
-- `fc-guard` [consume] + `fc-standing` [transform] -> `flying-whale`
+- `fc-guard` [consume] + `fc-standing` [transform] -> `fc-guarded`
+
+
+## `c-whale-cargo` One more thing
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Whale](assets/items/flying-whale.webp)
+
+**Goals**
+- Fit the Clip onto the arch -- `fc-clipped`
+- next: Slide the Pinwheel into the Clip -- `flying-whale`
+
+**Items**
+- `fc-guarded` Whale
+  - from chapter `c-whale-cargo` icon: ![Whale](assets/items/fc-cargo-ready.webp)
+- `pinwheel` Pinwheel
+  - from chapter `c-whale-cargo` icon: ![Pinwheel](assets/items/fc-pinwheel-carried.webp)
+  - from chapter `c-whale-cargo` animation: none
+- `fc-cargo` Clip
+  - icon: ![Clip](assets/items/fc-cargo.webp)
+
+  {A green rectangular box with a square opening on top, a round opening on one side, and a reddish round piece on the other.}
+
+  ---
+
+  A connected socket and open saddle. The open saddle sits over the arch and a captive side screw clamps it; the deep socket receives the wooden pinwheel handle. Soft side pads hold the handle by friction, with a small clearance above the socket floor.
+- `fc-clipped` Whale
+  - icon: ![Whale](assets/items/fc-clipped.webp)
+
+  {A green block with a dark recessed top and reddish knob sits at the end of the upper right rail, beside the pink panel.}
+- `flying-whale` Whale
+  - icon: ![Whale](assets/items/flying-whale.webp)
+  - animation: ![The red pinwheel turns above the frame, which rises a little and lowers again.](assets/animations/flying-whale-working.webp)
+
+  {A tan box beneath a pink panel and green frame, with dark green side panels, reddish angular pieces, a pinwheel, and green fittings.}
+
+**Combinations**
+- `fc-cargo` [consume] + `fc-guarded` [transform] -> `fc-clipped`
+- `pinwheel` [consume] + `fc-clipped` [transform] -> `flying-whale`
 
 ## `c-end` The End
-background: ![White instruction page](assets/backgrounds/white.svg)
-
-“Can I have a go?”
+background: ![A pinwheel and a paper star](assets/backgrounds/ending.webp)
+background animation: ![The red pinwheel moves to a hand on the left. A star appears above the machine on the right. The machine finishes with the star, and the hand holds the pinwheel.](assets/backgrounds/ending-working.webp)

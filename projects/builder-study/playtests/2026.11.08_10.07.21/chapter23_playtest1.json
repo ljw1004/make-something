@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "Closing the box directly follows the current goal.",
+    "choice": 2,
+    "expectation": "The lid will close the projector box and reveal the next assembly step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The lens and holder seem useful, but the current goal calls for the lid first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lid closed, and the next goal is to orient the box toward the lens opening.",
+    "reaction": "The sequence is straightforward, though the text does not show the box's orientation.",
+    "step": 2,
+    "reason": "Flipping the projector directly follows the new goal.",
+    "choice": 2,
+    "expectation": "The projector will turn toward the lens opening, allowing lens assembly or fitting next.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The lens assembly looks useful, but the current goal asks to turn the box first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projector is oriented toward the lens opening, and the next goal is to assemble the lens and holder.",
+    "reaction": "The sequence remains clear, although the orientation is only described in text.",
+    "step": 3,
+    "reason": "The only offered combination directly matches the current goal.",
+    "choice": 1,
+    "expectation": "The lens will fit into its holder, ready to attach to the projector.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens is in its holder; the next step is to fit it to the box.",
+    "reaction": "The instruction is clear and follows naturally from the lens assembly.",
+    "step": 4,
+    "reason": "The only offered combination matches the current goal.",
+    "choice": 1,
+    "expectation": "The lens holder will attach to the projector box.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens holder is fitted, and the hood is next.",
+    "reaction": "The sequence is clear, though the text alone does not show how the holder attaches.",
+    "step": 5,
+    "reason": "The only offered combination matches the goal of fitting the hood.",
+    "choice": 1,
+    "expectation": "The hood will fit around the projector lens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood is fitted, and the handle now needs to go on the spindle.",
+    "reaction": "The next instruction is clear, though the spindle's position isn't shown in the text.",
+    "step": 6,
+    "reason": "The only offered combination matches the goal.",
+    "choice": 1,
+    "expectation": "The handle will attach to the projector's spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handle completed the star projector and the chapter.",
+    "reaction": "The finished build is satisfying in concept, though its appearance and projection cannot be assessed from the text.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the lens into its holder and then onto the box was the clearest assembly sequence; each instruction followed naturally from the last.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Turning the box toward the lens opening was less engaging because the text did not show its orientation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the goals made the sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt clearly purposeless, although the text did not show where the spindle was when fitting the handle.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would not personally continue on this text pass: the instructions are clear, but the mostly prescribed choices offer little discovery, and I cannot assess the visual payoff.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

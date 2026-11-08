@@ -1,23 +1,21 @@
-## `c-lift-frame` The impossible part
+## `c-lift-frame` A wide frame
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-lift-frame.webp)
-
-Jo sets down a violet tile. “This part is invented: power makes it lift.”
+reference: ![Frame](assets/items/fc-lift-frame.webp)
 
 **Goals**
 - Fit an arch to the deck -- `fc-one-arch`
 - next: Fit the second arch -- `fc-arches`
 - next: Clip the cradle across the arches -- `fc-top`
-- next: Seat the lift tile -- `fc-tiled`
+- next: Seat the Tile -- `fc-tiled`
 - next: Flip the frame over -- `fc-inverted`
 - next: Fit the battery underneath -- `fc-powered`
 - next: Flip the frame upright -- `fc-upright`
-- next: Fit the lift control -- `fc-lift-frame`
+- next: Fit the Control -- `fc-lift-frame`
 
 **Hotspots**
-- `fc-flip-lift` (center 130px, 216px)
+- `fc-flip-lift` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `fc-deck` Deck
@@ -44,20 +42,20 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
   ---
 
   One connected top cradle. Four integral saddles clip over the arches; its padded rails receive the tile.
-- `fc-tile` Lift tile
-  - icon: ![Lift tile](assets/items/fc-tile.webp)
+- `fc-tile` Tile
+  - icon: ![Tile](assets/items/fc-tile.webp)
 
   ---
 
-  This powered lift tile is explicitly fictional. Its limited force points upward while current flows. It makes no energy and carries no person.
+  A flat pink tile with a keyed power socket and retaining holes.
 - `fc-battery` Battery pack
   - icon: ![Battery pack](assets/items/fc-battery.webp)
 
   ---
 
   A compatible enclosed battery in its integral retained bracket. It mounts below the deck, keeping weight low.
-- `fc-control` Lift control
-  - icon: ![Lift control](assets/items/fc-control.webp)
+- `fc-control` Control
+  - icon: ![Control](assets/items/fc-control.webp)
 
   ---
 
@@ -95,7 +93,7 @@ Jo sets down a violet tile. “This part is invented: power makes it lift.”
 
 ## `c-lift-projector` Stars aboard
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-powered-show.webp)
+reference: ![Frame](assets/items/fc-powered-show.webp)
 
 **Goals**
 - Fit the projector dock -- `fc-docked`
@@ -104,17 +102,18 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 - next: Mount the drive motor -- `fc-motor-mounted`
 - next: Loop the belt around both pulleys -- `fc-belted`
 - next: Flip to the underside -- `fc-drive-under`
-- next: Fit the Motor supply -- `fc-supply-under`
+- next: Fit the Battery pack -- `fc-supply-under`
 - next: Flip the Frame upright -- `fc-powered-show`
 
 **Hotspots**
-- `fc-flip-drive` (center 130px, 216px)
+- `fc-flip-drive` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `star-projector` Star projector
   - from chapter `c-lift-projector` icon: ![Star projector](assets/items/fc-projector-carried.webp)
+  - from chapter `c-lift-projector` animation: none
 - `fc-dock` Projector dock
   - icon: ![Projector dock](assets/items/fc-dock.webp)
 
@@ -139,12 +138,12 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
   ---
 
   One continuous soft belt. Its small pulley drives the larger grooved handwheel more slowly.
-- `fc-motor-pack` Motor supply
-  - icon: ![Motor supply](assets/items/fc-motor-pack.webp)
+- `fc-motor-pack` Battery pack
+  - icon: ![Battery pack](assets/items/fc-motor-pack.webp)
 
   ---
 
-  An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply; the lift has a separate circuit.
+  An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply.
 - `fc-docked` Frame
   - icon: ![Frame](assets/items/fc-docked.webp)
 - `fc-projector-aboard` Frame
@@ -176,23 +175,29 @@ reference: ![Build reference](assets/items/fc-powered-show.webp)
 
 ## `c-whale-shape` A whale takes shape
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/fc-whale.webp)
+reference: ![Whale](assets/items/fc-whale.webp)
 
 **Goals**
-- Fit the Front side -- `fc-near-side`
+- Fit the Tail -- `fc-tailed`
+- next: Fit the Front side -- `fc-near-side`
 - next: Turn to the back -- `fc-side-rear`
 - next: Fit the Back side -- `fc-sided`
-- next: Fit the Tail -- `fc-tailed`
 - next: Fit the Back fin -- `fc-one-fin-b`
 - next: Turn to the front -- `fc-fin-front`
 - next: Fit the Front fin -- `fc-whale`
 
 **Hotspots**
-- `fc-flip-shell` (center 130px, 216px)
+- `fc-flip-shell` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
+- `fc-tail` Tail
+  - icon: ![Tail](assets/items/fc-tail.webp)
+
+  ---
+
+  One continuous fixed tail with its prepared root fitting.
 - `fc-side-a` Front side
   - icon: ![Front side](assets/items/fc-side-a.webp)
 
@@ -205,32 +210,26 @@ reference: ![Build reference](assets/items/fc-whale.webp)
   ---
 
   A second whale side panel, fitted separately.
-- `fc-tail` Tail
-  - icon: ![Tail](assets/items/fc-tail.webp)
-
-  ---
-
-  One continuous fixed tail with its prepared root fitting. It does not steer or provide lift.
 - `fc-fin-a` Front fin
   - icon: ![Front fin](assets/items/fc-fin-a.webp)
 
   ---
 
-  One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips. It gives the whale its shape, not lift.
+  One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips.
 - `fc-fin-b` Back fin
   - icon: ![Back fin](assets/items/fc-fin-b.webp)
 
   ---
 
   The other fixed fin.
+- `fc-tailed` Whale
+  - icon: ![Whale](assets/items/fc-tailed.webp)
 - `fc-near-side` Whale
   - icon: ![Whale](assets/items/fc-near-side.webp)
 - `fc-side-rear` Whale
   - icon: ![Whale](assets/items/fc-side-rear.webp)
 - `fc-sided` Whale
   - icon: ![Whale](assets/items/fc-sided.webp)
-- `fc-tailed` Whale
-  - icon: ![Whale](assets/items/fc-tailed.webp)
 - `fc-one-fin-b` Whale
   - icon: ![Whale](assets/items/fc-one-fin-b.webp)
 - `fc-fin-front` Whale
@@ -240,18 +239,18 @@ reference: ![Build reference](assets/items/fc-whale.webp)
 - `fc-flip-shell` Flip
 
 **Combinations**
-- `fc-side-a` [consume] + `fc-powered-show` [transform] -> `fc-near-side`
+- `fc-tail` [consume] + `fc-powered-show` [transform] -> `fc-tailed`
+- `fc-side-a` [consume] + `fc-tailed` [transform] -> `fc-near-side`
 - `fc-near-side` [transform] @ `fc-flip-shell` -> `fc-side-rear`
 - `fc-side-b` [consume] + `fc-side-rear` [transform] -> `fc-sided`
-- `fc-tail` [consume] + `fc-sided` [transform] -> `fc-tailed`
-- `fc-fin-b` [consume] + `fc-tailed` [transform] -> `fc-one-fin-b`
+- `fc-fin-b` [consume] + `fc-sided` [transform] -> `fc-one-fin-b`
 - `fc-one-fin-b` [transform] @ `fc-flip-shell` -> `fc-fin-front`
 - `fc-fin-a` [consume] + `fc-fin-front` [transform] -> `fc-whale`
 
 
-## `c-whale-finish` Ready for the fair
+## `c-whale-finish` Landing feet
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/flying-whale.webp)
+reference: ![Whale](assets/items/fc-guarded.webp)
 
 **Goals**
 - Flip the whale over -- `fc-whale-under`
@@ -263,12 +262,12 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - next: Fit the weight rail -- `fc-railed`
 - next: Fit the weight through the wide slot -- `fc-weighted`
 - next: Flip the whale upright -- `fc-standing`
-- next: Fit the clear drive guard -- `flying-whale`
+- next: Fit the clear drive guard -- `fc-guarded`
 
 **Hotspots**
-- `fc-flip-feet` (center 130px, 216px)
+- `fc-flip-feet` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `fc-skid-a` Landing skid
@@ -315,12 +314,12 @@ reference: ![Build reference](assets/items/flying-whale.webp)
   - icon: ![Whale](assets/items/fc-weighted.webp)
 - `fc-standing` Whale
   - icon: ![Whale](assets/items/fc-standing.webp)
-- `flying-whale` Whale
-  - icon: ![Whale](assets/items/flying-whale.webp)
+- `fc-guarded` Whale
+  - icon: ![Whale](assets/items/fc-guarded.webp)
 
   ---
 
-  The real projector, motor, belt, batteries, arches and counterweight retain their ordinary jobs. Only the violet lift tile is fictional. The exposed rail lets the weight move opposite a heavier end while the machine is supported and disconnected. This is a dimensioned story model, not a manufactured flying toy.
+  The sliding weight balances a heavier end. Adjust it with the machine resting on its skids and the power off.
 - `fc-flip-feet` Flip
 
 **Combinations**
@@ -332,4 +331,34 @@ reference: ![Build reference](assets/items/flying-whale.webp)
 - `fc-rail` [consume] + `fc-skids` [transform] -> `fc-railed`
 - `fc-weight` [consume] + `fc-railed` [transform] -> `fc-weighted`
 - `fc-weighted` [transform] @ `fc-flip-feet` -> `fc-standing`
-- `fc-guard` [consume] + `fc-standing` [transform] -> `flying-whale`
+- `fc-guard` [consume] + `fc-standing` [transform] -> `fc-guarded`
+
+
+## `c-whale-cargo` One more thing
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Whale](assets/items/flying-whale.webp)
+
+**Goals**
+- Fit the Clip onto the arch -- `fc-clipped`
+- next: Slide the Pinwheel into the Clip -- `flying-whale`
+
+**Items**
+- `fc-guarded` Whale
+  - from chapter `c-whale-cargo` icon: ![Whale](assets/items/fc-cargo-ready.webp)
+- `pinwheel` Pinwheel
+  - from chapter `c-whale-cargo` icon: ![Pinwheel](assets/items/fc-pinwheel-carried.webp)
+  - from chapter `c-whale-cargo` animation: none
+- `fc-cargo` Clip
+  - icon: ![Clip](assets/items/fc-cargo.webp)
+
+  ---
+
+  A connected socket and open saddle. The open saddle sits over the arch and a captive side screw clamps it; the deep socket receives the wooden pinwheel handle. Soft side pads hold the handle by friction, with a small clearance above the socket floor.
+- `fc-clipped` Whale
+  - icon: ![Whale](assets/items/fc-clipped.webp)
+- `flying-whale` Whale
+  - icon: ![Whale](assets/items/flying-whale.webp)
+
+**Combinations**
+- `fc-cargo` [consume] + `fc-guarded` [transform] -> `fc-clipped`
+- `pinwheel` [consume] + `fc-clipped` [transform] -> `flying-whale`

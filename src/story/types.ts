@@ -21,10 +21,10 @@ export interface HeadingImage { url: string; alt: string; source: Source }
 export interface Slot { name?: string; accepts: string; icon?: Icon; source: Source }
 export interface Wonder { popup: string; encyclopedia: string; requires: string[]; source: Source }
 export interface ChapterReference { kind: 'id' | 'name'; value: string; source: Source }
-export interface ItemPresentation { chapter: ChapterReference; name?: string; icon?: Icon; source: Source }
+export interface ItemPresentation { chapter: ChapterReference; name?: string; icon?: Icon; animation?: HeadingImage | null; source: Source }
 export interface Item {
   id: string; name: string; compound: boolean; slots: Slot[]; wonders: Wonder[];
-  icon?: Icon; exclusiveWith?: string; presentations: ItemPresentation[]; source: Source;
+  icon?: Icon; animation?: HeadingImage; exclusiveWith?: string; presentations: ItemPresentation[]; source: Source;
 }
 export interface Placement { item: Ref; x: number; y: number; source: Source }
 /** A receiving rectangle in background-image pixels, independent of artwork. */
@@ -37,7 +37,7 @@ export interface Goal {
   id: string; text: string; next: boolean; operator: 'and' | 'or'; conditions: Condition[]; source: Source;
 }
 export interface Chapter {
-  id: string; name: string; image?: string; reference?: HeadingImage; intro: string; skipped: string;
+  id: string; name: string; image?: string; backgroundAnimation?: HeadingImage | null; reference?: HeadingImage; intro: string; skipped: string;
   hotspots: string[]; items: Ref[]; goals: Goal[]; goalOperator: 'and' | 'or'; source: Source; goalsSource?: Source;
   /** Fixed presentation belongs to a chapter; item identity remains global. */
   hotspotDefinitions?: Record<string, Hotspot>;

@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the switch harness to follow the current goal.",
+    "choice": 1,
+    "expectation": "I expect the harness to attach to the rover and reveal the next assembly step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pen and carriage also belong together, but the harness is the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The harness is connected, and the next goal is to fit a guard.",
+    "reaction": "The result is straightforward, though it gives no detail about the connection.",
+    "step": 2,
+    "reason": "Fit one of the guards to follow the current goal; either is offered.",
+    "choice": 1,
+    "expectation": "I expect guard #2 to attach to the rover, possibly followed by a goal to fit the other guard.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other guard also appears compatible, but there is no stated reason to prefer it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first guard is fitted, and the remaining guard is the next goal.",
+    "reaction": "Straightforward, though the result doesn't explain what the guard protects.",
+    "step": 3,
+    "reason": "Fit the remaining guard to complete the stated goal.",
+    "choice": 1,
+    "expectation": "I expect the other guard to attach to the rover and a new goal to appear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pen assembly is available, but the guard is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both guards are fitted, and the rover now needs to be turned upright.",
+    "reaction": "The repeated guard fittings were straightforward, though their purpose remains unclear.",
+    "step": 4,
+    "reason": "Flip the rover to follow the current goal.",
+    "choice": 1,
+    "expectation": "I expect the rover to turn upright and reveal the next assembly step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pen can be assembled now, but flipping is the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover is upright, and the pen assembly is now the goal.",
+    "reaction": "The flip was a straightforward preparation for the next fitting.",
+    "step": 5,
+    "reason": "Clip the pen into its carriage; it is the only offered gameplay action and matches the goal.",
+    "choice": 1,
+    "expectation": "I expect the pen to attach to the carriage, with a new goal for fitting it to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is in its carriage, which now needs to slide onto the rover's guides.",
+    "reaction": "The next fitting follows naturally, though the text doesn't show how the guides work.",
+    "step": 6,
+    "reason": "Fit the carriage to the rover; it matches the goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the carriage to attach to the rover and another assembly goal to appear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carriage is on the guides, and the return spring is next.",
+    "reaction": "The sequence is clear, though the spring's role isn't explained yet.",
+    "step": 7,
+    "reason": "Slide on the return spring; it matches the goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the spring to attach to the rover, possibly followed by fitting the guide cap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return spring is fitted, and the guide cap is the next goal.",
+    "reaction": "The predicted next step appeared; the spring's function remains unexplained in the text.",
+    "step": 8,
+    "reason": "Press on the guide cap, the only offered gameplay action and the stated goal.",
+    "choice": 1,
+    "expectation": "I expect the cap to fit onto the rover and possibly complete the drawing rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guide cap completed the drawing rover and all chapter goals.",
+    "reaction": "The finished rover is a clear payoff, though the text alone doesn't show it drawing.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clipping the pen into its carriage and sliding it onto the guides made the rover's drawing attachment take shape.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two guards felt repetitive, and the text did not explain what they protect.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was especially surprising; the return spring and guide cap followed the assembly sequence I expected.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The guards' purpose was unclear from the text, although fitting them was explicitly directed.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I probably wouldn't continue personally: the sequence was clear but mostly prescribed, with little explanation of how the parts work. I can't assess the artwork or animation from this text pass.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for fitting the projector dock to the frame.",
+    "choice": 1,
+    "expectation": "The dock should attach to the frame, creating a place for the projector.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor also look like they belong together, but the dock is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dock is now on the base, and the next goal is to mount the projector.",
+    "reaction": "The new frame makes the projector’s intended position clear.",
+    "step": 2,
+    "reason": "Mounting the projector follows the current goal.",
+    "choice": 1,
+    "expectation": "The star projector should sit on the dock inside the frame.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor are also available, but mounting the projector comes first in the instructions."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projector is mounted beneath the panel; the next goal is to prepare the motor.",
+    "reaction": "The assembly is starting to bring the separate builds together.",
+    "step": 3,
+    "reason": "The only offered combination fits the small pulley to the motor, as instructed.",
+    "choice": 1,
+    "expectation": "The pulley should attach to the gearmotor, ready to connect to the drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulley and gearmotor are now a drive motor, ready to mount.",
+    "reaction": "The description doesn't clearly distinguish the fitted pulley, so the physical change is a little unclear.",
+    "step": 4,
+    "reason": "The only offered combination mounts the drive motor, matching the current goal.",
+    "choice": 1,
+    "expectation": "The drive motor should attach to the frame near the projector.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive motor is mounted, and the next step is to connect the pulleys with the belt.",
+    "reaction": "The close-up makes the motor visible, though its position on the overall frame is less clear.",
+    "step": 5,
+    "reason": "The only offered combination follows the goal to loop the belt around both pulleys.",
+    "choice": 1,
+    "expectation": "The belt should connect the motor pulley to the other pulley so the motor can drive it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt is fitted, and the next goal is to access the underside.",
+    "reaction": "The thin line suggests the belt, though its route between the pulleys isn't clear from the description.",
+    "step": 6,
+    "reason": "Flipping the frame is the only offered combination and matches the goal.",
+    "choice": 1,
+    "expectation": "The frame should turn over to expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is flipped, exposing the side where the battery pack should fit.",
+    "reaction": "The orientation is clear, though the dark parts underneath are not identified.",
+    "step": 7,
+    "reason": "The only offered combination fits the battery pack as the goal directs.",
+    "choice": 1,
+    "expectation": "The battery pack should attach to the underside and supply the motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second battery pack is fitted, and the frame is ready to be turned upright.",
+    "reaction": "The second blue block is a clear visible change.",
+    "step": 8,
+    "reason": "Flipping the frame is the only offered combination and matches the goal.",
+    "choice": 1,
+    "expectation": "The frame should return upright with the battery packs underneath.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upright again, and the chapter is complete.",
+    "reaction": "The final description confirms the parts are together, but doesn't show what the completed assembly does.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the star projector brought the earlier build into the frame and made the larger construction more meaningful.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pulley was less rewarding because the resulting description didn't clearly distinguish the new part.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The projector was mounted beneath the pink panel; I hadn't known how the separate builds would come together.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the belt's route between the pulleys remained unclear in the description.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see what the combined assembly does, although this chapter's completed result didn't show its operation. Text alone can't establish how clearly the artwork shows the parts.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

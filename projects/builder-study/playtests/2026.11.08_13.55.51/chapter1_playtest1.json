@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for folding a corner, and the paper is the piece with marked corners.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "One corner of the paper will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first fold changed the paper and revealed that the next corner needs folding.",
+    "reaction": "The description makes the physical change clear.",
+    "step": 2,
+    "reason": "The new goal calls for another fold, so I will use the paper at Fold again.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "A second corner will curl inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second fold leaves two flat corners, and the next goal calls for folding the third.",
+    "reaction": "The description clearly shows the build progressing.",
+    "step": 3,
+    "reason": "The same paper and Fold action have worked for both previous corners.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "A third corner will curl inward toward the centre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Three corners are folded, leaving one flat corner to finish.",
+    "reaction": "The remaining corner is clearly identified, though the repeated folds are predictable.",
+    "step": 4,
+    "reason": "The last corner needs the same fold as the previous three.",
+    "choice": {
+      "combine": "Paper",
+      "with": "Fold"
+    },
+    "expectation": "The last corner will curl inward toward the centre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final fold made the paper into four blades, and the next goal is to fit the hub.",
+    "reaction": "It is satisfying to see the repeated folds become a recognizable blade assembly.",
+    "step": 5,
+    "reason": "The goal explicitly calls for fitting the hub to the blades.",
+    "choice": {
+      "combine": "Blades",
+      "with": "Hub"
+    },
+    "expectation": "The green hub will attach at the centre of the blades.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hub is now fitted over the centre, and the next goal is to turn the blades over.",
+    "reaction": "The green cap makes the assembly visibly closer to the reference.",
+    "step": 6,
+    "reason": "The goal explicitly calls for flipping the blades, and Flip is an available hotspot.",
+    "choice": {
+      "combine": "Blades",
+      "with": "Flip"
+    },
+    "expectation": "The blade assembly will turn over to expose its back.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Flipping exposed the back of the blades and the hub tip for the axle.",
+    "reaction": "The change of side and the next attachment point are clear.",
+    "step": 7,
+    "reason": "The goal calls for fitting the axle into the hub on the back of the blades.",
+    "choice": {
+      "combine": "Blades",
+      "with": "Axle"
+    },
+    "expectation": "The axle will attach to the back of the hub.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The axle is fitted to the back of the blades, leaving its stem available for the handle.",
+    "reaction": "The projecting stem makes the next connection clear.",
+    "step": 8,
+    "reason": "The goal explicitly calls for clipping the handle onto the axle.",
+    "choice": {
+      "combine": "Blades",
+      "with": "Handle"
+    },
+    "expectation": "The handle will clip onto the axle behind the blades.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handle is attached, forming the pinwheel; it now needs to be turned to the front.",
+    "reaction": "The assembled handle brings the construction close to the reference.",
+    "step": 9,
+    "reason": "The new goal explicitly calls for flipping the pinwheel.",
+    "choice": {
+      "combine": "Pinwheel",
+      "with": "Flip"
+    },
+    "expectation": "The pinwheel will turn to show its front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final flip revealed the completed pinwheel and showed that its blades turn while the handle stays still; all goals are complete.",
+    "reaction": "The moving blades are a satisfying payoff to the assembly, although text alone cannot establish how the artwork looks or the toy feels.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the handle brought the separate parts together into a recognizable pinwheel, setting up the final motion reveal.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated corner folds were clear and showed incremental changes, but became predictable.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final presentation showed the blades turning around a stationary handle, making the axle's purpose clearer.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: each goal named the next operation, and the described changes supported it.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter to see a different construction, though the very guided, repetitive folds offered few meaningful choices.",
+        "steps": [
+          2,
+          3,
+          4,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

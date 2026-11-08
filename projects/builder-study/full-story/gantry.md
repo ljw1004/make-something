@@ -9,8 +9,21 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - next: Fit the ratchet to the winch
   - either: `gh-ratchet-winch`
   - or: `gh-winch`
-- next: Fit the crank -- `gh-winch`
+- next: Turn the winch toward its crank end
+  - either: `gh-rear-drum`
+  - or: `gh-rear-ratchet-winch`
+- next: Fit the crank
+  - either: `gh-crank-winch`
+  - or: `gh-rear-winch`
+- next: Turn the winch back toward the ratchet
+  - either: `gh-front-crank-winch`
+  - or: `gh-winch`
 - next: Mount the winch -- `gh-mounted`
+
+**Hotspots**
+- `gh-winch-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `gh-base` Base
@@ -59,8 +72,17 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
   - icon: ![Winch](assets/items/gh-crank-winch.webp)
 - `gh-winch` Winch
   - icon: ![Winch](assets/items/gh-winch.webp)
+- `gh-rear-drum` Winch
+  - icon: ![Winch](assets/items/gh-rear-drum.webp)
+- `gh-rear-ratchet-winch` Winch
+  - icon: ![Winch](assets/items/gh-rear-ratchet-winch.webp)
+- `gh-rear-winch` Winch
+  - icon: ![Winch](assets/items/gh-rear-winch.webp)
+- `gh-front-crank-winch` Winch
+  - icon: ![Winch](assets/items/gh-front-crank-winch.webp)
 - `gh-mounted` Gantry
   - icon: ![Gantry](assets/items/gh-mounted.webp)
+- `gh-winch-flip` Flip
 
 **Combinations**
 - `gh-base` [transform] + `gh-side-1` [consume] -> `gh-one-side`
@@ -69,9 +91,13 @@ reference: ![Gantry](assets/items/gh-mounted.webp)
 - `gh-one-side` [transform] + `gh-side-2` [consume] -> `gh-two-sides`
 - `gh-two-sides` [transform] + `gh-crossbeam` [consume] -> `gh-frame`
 - `gh-drum` [transform] + `gh-ratchet` [consume] -> `gh-ratchet-winch`
-- `gh-drum` [transform] + `gh-crank` [consume] -> `gh-crank-winch`
-- `gh-ratchet-winch` [transform] + `gh-crank` [consume] -> `gh-winch`
-- `gh-crank-winch` [transform] + `gh-ratchet` [consume] -> `gh-winch`
+- `gh-front-crank-winch` [transform] + `gh-ratchet` [consume] -> `gh-winch`
+- `gh-drum` [transform] @ `gh-winch-flip` -> `gh-rear-drum`
+- `gh-ratchet-winch` [transform] @ `gh-winch-flip` -> `gh-rear-ratchet-winch`
+- `gh-rear-drum` [transform] + `gh-crank` [consume] -> `gh-crank-winch`
+- `gh-rear-ratchet-winch` [transform] + `gh-crank` [consume] -> `gh-rear-winch`
+- `gh-crank-winch` [transform] @ `gh-winch-flip` -> `gh-front-crank-winch`
+- `gh-rear-winch` [transform] @ `gh-winch-flip` -> `gh-winch`
 - `gh-frame` [transform] + `gh-winch` [consume] -> `gh-mounted`
 
 ## `c-gantry-rope` Over the beam

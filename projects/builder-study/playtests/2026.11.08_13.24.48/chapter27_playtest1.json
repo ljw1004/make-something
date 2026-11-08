@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit the battery first, as the current goal directs.",
+    "choice": 2,
+    "expectation": "The battery should attach to the drive, likely supplying power for the spinner.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Joining the string seems useful later, but the battery is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is fitted, and the next goal is the switch.",
+    "reaction": "The blue box makes the addition clear.",
+    "step": 2,
+    "reason": "Fit the switch as directed by the current goal.",
+    "choice": 2,
+    "expectation": "The switch should attach to the spinner, providing a control for its power.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The switch is fitted, and the fork is next.",
+    "reaction": "The green block makes the switch's placement clear.",
+    "step": 3,
+    "reason": "Fit the fork as the current goal directs.",
+    "choice": 2,
+    "expectation": "The fork should attach to the spinner, perhaps to support the string.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The string will need joining, but the fork is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fork is fitted, and the string ends are next.",
+    "reaction": "The two upright posts are a clear addition, though their role is not yet certain.",
+    "step": 4,
+    "reason": "Join the string ends as directed; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The joiner should connect the ends into a closed loop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The string is now a closed loop, ready to be threaded over the wheel.",
+    "reaction": "The sleeve makes the joined ends clear.",
+    "step": 5,
+    "reason": "Thread the loop over the wheel as directed; it's the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The loop should fit over the wheel, though its exact path is still unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loop completes the spinner, but the described separate cord and moving dark loop leave its exact path unclear.",
+    "reaction": "The moving wheel is a rewarding finish, though the ribbon and loop description is confusing.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Threading the loop completed the spinner and revealed its motion, making the preceding assembly feel purposeful.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the switch was straightforward but offered little insight beyond its placement.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The finished description introduced a pleated ribbon and a dark loop whose relationship to the pale string was unclear.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The fork's posts were visible when fitted, but their role in supporting or guiding the string remained uncertain.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another moving creation, though I would want clearer descriptions of how the finished parts connect.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

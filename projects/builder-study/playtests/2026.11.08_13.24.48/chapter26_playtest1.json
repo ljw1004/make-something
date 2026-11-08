@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "Mounting the motor follows the current goal and starts the drive assembly.",
+    "choice": 3,
+    "expectation": "The motor should sit on the base, revealing the next construction step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The small pulley belongs on the motor, but the goal calls for mounting the motor first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is mounted, and the next goal is to mount the spindle.",
+    "reaction": "The motor’s new position is clear.",
+    "step": 2,
+    "reason": "Mounting the spindle follows the current goal.",
+    "choice": 2,
+    "expectation": "The spindle should attach to the base beside the motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is mounted opposite the motor, and the next goal is to fit the small pulley.",
+    "reaction": "The two supports are clearly positioned.",
+    "step": 3,
+    "reason": "The small pulley follows the current goal and should connect to the motor.",
+    "choice": 1,
+    "expectation": "The small pulley should fit onto the mounted motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small pulley is fitted, and the next goal is to fit the large pulley.",
+    "reaction": "The description also mentions a green disk on the right, so the large pulley's visible change is a little unclear.",
+    "step": 4,
+    "reason": "This is the only offered action and follows the current goal.",
+    "choice": 1,
+    "expectation": "The large pulley should fit onto the spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large pulley is fitted, but the picture already describes a loop between the disks before the belt is added.",
+    "reaction": "That makes the next physical change confusing.",
+    "step": 5,
+    "reason": "The belt is the only offered action and follows the goal.",
+    "choice": 1,
+    "expectation": "The belt should connect the two pulleys, although the picture already shows a loop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt is fitted, but the picture now also mentions a clear box before the guard is added.",
+    "reaction": "The premature guard description makes the physical change unclear again.",
+    "step": 6,
+    "reason": "The guard is the only offered action and follows the current goal.",
+    "choice": 1,
+    "expectation": "The guard should cover the drive, although a clear box is already described.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guard is fitted, but the picture already shows the pink wheel before the wheel-fitting step.",
+    "reaction": "Another premature detail makes the construction change confusing.",
+    "step": 7,
+    "reason": "Fitting the wheel is the only offered action and follows the goal.",
+    "choice": 1,
+    "expectation": "The pink wheel should attach to the drive, although it is already visible in the description.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel is fitted, though the pink disk was already described in the previous picture. The collar is next.",
+    "reaction": "The wheel-fitting change remains hard to distinguish from the description.",
+    "step": 8,
+    "reason": "Fitting the collar follows the goal and is the only offered action.",
+    "choice": 1,
+    "expectation": "The collar should attach to the drive, likely securing the projecting wheel or shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collar is fitted and the drive is complete; the reddish-brown disk is now described at the front.",
+    "reaction": "The finished assembly is clear in outline, though its function is not demonstrated.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the spindle made the two supports and their positions clear, setting up the drive assembly.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The belt, guard and wheel sequence was confusing because each appeared in the picture description before its fitting step.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The loop was described between the disks before the belt was fitted.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No fitting seemed purposeless, but the premature details made several changes hard to distinguish.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I probably would not continue: the construction goals were clear, but the repeated premature details weakened the reward of seeing the drive come together. Text alone cannot establish how clear the artwork looks.",
+        "steps": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -46,11 +46,14 @@ test('reference picture is a non-draggable reading control with relative assets 
   await open(page);
   const card = page.getByRole('button', {name: 'View build reference: A wind cart'});
   await expect(card).toBeVisible();
-  await expect(card).toHaveText('');
+  await expect(card).toHaveText('A wind cart');
+  await expect(page.getByRole('heading', {name: 'First', exact: true})).toBeVisible();
+  const title = (await page.locator('.chapter-title').boundingBox())!;
+  expect(title.y + title.height).toBeLessThan((await card.boundingBox())!.y);
   const frame=(await card.boundingBox())!;
   expect(frame.x).toBeGreaterThanOrEqual(250);
   expect(frame.x+frame.width).toBeLessThanOrEqual(390);
-  expect(frame.y).toBeCloseTo(12, 1);
+  expect(frame.y).toBeCloseTo(36, 1);
   await expect(card.locator('img')).toHaveAttribute('src', /reference-fixture\/assets\/cart.svg$/);
   await expect(card.locator('img')).toHaveAttribute('draggable', 'false');
   expect(await card.getAttribute('data-item')).toBeNull();
@@ -64,7 +67,7 @@ test('reference picture is a non-draggable reading control with relative assets 
   expect(await card.boundingBox()).toEqual(bounds);
   expect(await saved(page)).toEqual(before);
   await card.click();
-  await expect(page.getByRole('dialog', {name: 'Build reference'})).toBeVisible();
+  await expect(page.getByRole('dialog', {name: 'A wind cart'})).toBeVisible();
   await expect(page.locator('.reference-reading img')).toHaveAttribute('alt', 'A wind cart');
   expect((await page.locator('.reference-reading img').boundingBox())!.width).toBeGreaterThan(250);
   await page.getByRole('button', {name: 'Close', exact: true}).click();
@@ -98,7 +101,7 @@ test('reference framing follows the fitted scene on a desktop editor layout', as
   const scale = panel.width / 390;
   expect(card.width).toBeCloseTo(130 * scale, 1);
   expect(card.x - panel.x).toBeCloseTo(254 * scale, 1);
-  expect(card.y - panel.y).toBeCloseTo(12 * scale, 1);
+  expect(card.y - panel.y).toBeCloseTo(36 * scale, 1);
   await clearOfReference(page, 0);
 });
 
@@ -109,7 +112,7 @@ test.describe('touch reference reading', () => {
     const before = await saved(page);
     await clearOfReference(page, 0);
     await page.getByRole('button', {name: 'View build reference: A wind cart'}).tap();
-    await expect(page.getByRole('dialog', {name: 'Build reference'})).toBeVisible();
+    await expect(page.getByRole('dialog', {name: 'A wind cart'})).toBeVisible();
     await page.getByRole('button', {name: 'Close', exact: true}).tap();
     expect(await saved(page)).toEqual(before);
   });

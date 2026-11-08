@@ -364,11 +364,11 @@ background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 
 **Goals**
-- Slide either cup to the farther seat
+- Slide a Cup onto the Syringe
   - either: `cl-front-supported`
   - or: `cl-supported-output`
-- next: Fit the other cup behind it -- `cl-supported-output`
-- next: Fit the plunger clip
+- next: Slide the other Cup onto the Syringe -- `cl-supported-output`
+- next: Fit the Plunger clip to the Claw
   - either: `cl-air-1`
   - or: `cl-air-3`
   - or: `cl-air-5`

@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the connector to the mast, so I’ll do that first.",
+    "choice": 2,
+    "expectation": "The green connector should attach to the mast, likely leaving an opening for another part.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The connector may also join the crossbar, but the goal calls for the mast first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connector is on the mast, with a side opening for the crossbar.",
+    "reaction": "The visible opening makes the next fitting clear.",
+    "step": 2,
+    "reason": "The goal calls for fitting the crossbar into the connector.",
+    "choice": 2,
+    "expectation": "The crossbar should fit into the connector’s side opening, forming part of the sail frame.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The foot also fits the mast, but the current goal calls for the crossbar."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar now meets the mast at the connector, forming the frame.",
+    "reaction": "The frame is taking shape clearly.",
+    "step": 3,
+    "reason": "The next goal is to push the foot onto the mast.",
+    "choice": 1,
+    "expectation": "The green foot should attach to the mast, leaving its split legs exposed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sail could attach to the frame, but the current goal calls for the foot first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The split foot is now fitted to the mast, leaving the sail to attach.",
+    "reaction": "The described fitting matches the build reference.",
+    "step": 4,
+    "reason": "The goal calls for clipping on the sail, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The sail’s clips should attach it to the mast and crossbar, completing the sail assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is clipped to the frame, matching the build reference and completing the chapter.",
+    "reaction": "The completed assembly is satisfying, though I can only assess its described appearance, not the artwork or handling.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clipping on the sail completed the recognizable assembly and matched the reference.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the foot was clear but relatively routine compared with forming the frame and adding the sail.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprising happened; the visible side opening made the crossbar’s placement clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary: each fitting had a clear purpose in the stated construction.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue briefly to see what the sail becomes part of, though this chapter’s guided fittings offered few meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

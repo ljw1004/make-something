@@ -51,6 +51,7 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - next: Slide the Floor over the straight tips -- `bf-film-seated`
 - next: Fold the tabs under the Floor -- `bf-film-shell`
 - next: Fit the Turntable to the Base -- `bf-film-turntable`
+- next: Flip the Base over -- `bf-film-inverted-base`
 - next: Fit the Base beneath the Drum -- `bf-film-mounted-under`
 - next: Flip the Drum upright -- `bf-film-standing`
 
@@ -93,6 +94,8 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
   One retained spindle, sleeve bearing and platform. The spindle stays fixed in the base while the platform turns.
 - `bf-film-turntable` Base
   - icon: ![Base](assets/items/bf-film-turntable.webp)
+- `bf-film-inverted-base` Base
+  - icon: ![Base](assets/items/bf-film-inverted-base.webp)
 - `bf-film-mounted-under` Drum
   - icon: ![Drum](assets/items/bf-film-mounted-under.webp)
 - `bf-film-standing` Drum
@@ -104,7 +107,8 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - `bf-film-prepared` [transform] + `bf-film-floor` [consume] -> `bf-film-seated`
 - `bf-film-seated` [transform] @ `bf-film-fold-process` -> `bf-film-shell`
 - `bf-film-base` [transform] + `bf-film-bearing` [consume] -> `bf-film-turntable`
-- `bf-film-shell` [transform] + `bf-film-turntable` [consume] -> `bf-film-mounted-under`
+- `bf-film-turntable` [transform] @ `bf-film-flip-process` -> `bf-film-inverted-base`
+- `bf-film-shell` [transform] + `bf-film-inverted-base` [consume] -> `bf-film-mounted-under`
 - `bf-film-mounted-under` [transform] @ `bf-film-flip-process` -> `bf-film-standing`
 
 
@@ -117,9 +121,9 @@ reference: ![Animation drum](assets/items/animation-drum.webp)
 - next: Fit the Picture ring inside the Drum -- `animation-drum`
 
 **Hotspots**
-- `bf-film-picture-roll` (center 130px, 216px)
+- `bf-film-picture-roll` (center 390px, 216px)
   - icon: ![Roll](assets/actions/roll.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-film-strip` Picture strip

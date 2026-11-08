@@ -202,7 +202,7 @@ for (const interruption of ['release', 'pointercancel', 'blur', 'resize']) test(
 });
 
 test('cover and chapter use identical pixels and cannot scroll at short, reference and tall phone sizes', async ({page}) => {
-  const sceneryOnly = '.story-start,.thing,.hud-stack,.debug-toggle,.tutorial-overlay {visibility:hidden!important}';
+  const sceneryOnly = '.story-start,.thing,.hud-stack,.debug-toggle,.tutorial-overlay,.chapter-title,.chapter-reference {visibility:hidden!important}';
   for (const viewport of [{width:390,height:664}, {width:390,height:844}, {width:320,height:740}]) {
     await page.setViewportSize(viewport);
     await openFixture(page);

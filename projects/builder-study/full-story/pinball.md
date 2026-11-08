@@ -70,9 +70,9 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - next: Snap on the Right paddle -- `bf-pb-flipped`
 
 **Hotspots**
-- `bf-pb-flip` (center 130px, 216px)
+- `bf-pb-flip` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-pb-rimmed` Table
@@ -192,8 +192,14 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - Fit the Lower arch -- `bf-pb-target-1`
 - next: Fit the Middle arch -- `bf-pb-target-2`
 - next: Fit the Upper arch -- `bf-pb-target-3`
+- next: Turn the Table toward the Score wheel -- `bf-pb-score-facing`
 - next: Fit the Score wheel -- `bf-pb-scored`
-- next: Put the Marble in its cup -- `pinball-table`
+- next: Set the Marble on the Table -- `pinball-table`
+
+**Hotspots**
+- `bf-pb-score-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-pb-launched` Table
@@ -210,6 +216,10 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
   - icon: ![Upper arch](assets/items/bf-pb-arch-high.webp)
 - `bf-pb-target-3` Table
   - icon: ![Table](assets/items/bf-pb-target-3.webp)
+- `bf-pb-score-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-pb-score-facing` Table
+  - icon: ![Table](assets/items/bf-pb-score-facing.webp)
 - `bf-pb-score` Score wheel
   - icon: ![Score wheel](assets/items/bf-pb-score.webp)
 - `bf-pb-scored` Table
@@ -223,5 +233,6 @@ reference: ![Pinball table](assets/items/pinball-table.webp)
 - `bf-pb-launched` [transform] + `bf-pb-arch-low` [consume] -> `bf-pb-target-1`
 - `bf-pb-target-1` [transform] + `bf-pb-arch-mid` [consume] -> `bf-pb-target-2`
 - `bf-pb-target-2` [transform] + `bf-pb-arch-high` [consume] -> `bf-pb-target-3`
-- `bf-pb-target-3` [transform] + `bf-pb-score` [consume] -> `bf-pb-scored`
+- `bf-pb-target-3` [transform] @ `bf-pb-score-flip` -> `bf-pb-score-facing`
+- `bf-pb-score-facing` [transform] + `bf-pb-score` [consume] -> `bf-pb-scored`
 - `bf-pb-scored` [transform] + `bf-pb-marble` [consume] -> `pinball-table`

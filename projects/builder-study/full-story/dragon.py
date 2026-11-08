@@ -12,6 +12,9 @@ supplies=[('base','Base'),('front-bearing','Front bearing'),('rear-bearing','Rea
           ('spring','Spring'),('body','Body'),('left-wing','Left wing'),('right-wing','Right wing'),('tail','Tail'),
           ('left-link','Left link'),('right-link','Right link')]
 for key,name in supplies:item('bf-cd-'+key,name,[key],css=160 if key in {'body','base'} else 105)
+PLAN['bf-cd-shaft'].update(group='cd-crank',css=240)
+PLAN['bf-cd-body'].update(group='cd-body',css=240)
+PLAN['bf-cd-guide'].update(group='cd-follower',css=180)
 CHAPTERS=[]
 def chain(cid,title,initial,parts,rows,group):
     steps=[];state=list(parts);current=initial
@@ -22,7 +25,7 @@ def chain(cid,title,initial,parts,rows,group):
     CHAPTERS.append(dict(id=cid,title=title,steps=steps,reference='crank-dragon'))
     return current,state
 
-frame,mechanism=chain('bf-cd-crank','Round and round','bf-cd-shaft',['shaft'],[
+crank,crank_parts=chain('bf-cd-crank','Round and round','bf-cd-shaft',['shaft'],[
  ('bf-cd-cam','bf-cd-cammed','Slide the Cam onto the Shaft',['cam']),
  ('bf-cd-front-bearing','bf-cd-bearing-1','Fit the Front bearing',['front-bearing']),
  ('bf-cd-rear-bearing','bf-cd-bearings','Fit the Rear bearing',['rear-bearing']),
@@ -31,31 +34,43 @@ frame,mechanism=chain('bf-cd-crank','Round and round','bf-cd-shaft',['shaft'],[
  ('bf-cd-rear-collar','bf-cd-retained-rear','Fit the Rear collar',['rear-collar']),
  ('bf-cd-flip','bf-cd-retained','Flip back to the front',[]),
  ('bf-cd-handle','bf-cd-cranked','Fit the Crank',['handle']),
- ('bf-cd-crank-clip','bf-cd-clipped','Secure the Crank with its clip',['crank-clip']),
- ('bf-cd-base','bf-cd-frame','Mount the bearings on the Base',['base'])],'cd-crank')
+ ('bf-cd-crank-clip','bf-cd-clipped','Secure the Crank with its clip',['crank-clip'])],'cd-crank')
 CHAPTERS[0]['processes']={'bf-cd-flip':'flip'}
+CHAPTERS[0]['reference']='bf-cd-clipped'
+NAMES['bf-cd-clipped']='Crank'
 for identity in ('bf-cd-rear-facing','bf-cd-retained-rear'):PLAN[identity]['group']='cd-crank-rear'
-PLAN['bf-cd-frame']['group']='cd-frame'
-item('bf-cd-open-follower','Follower',['guide','follower'],css=180)
-item('bf-cd-guided','Follower',['guide','follower','cover'],css=180)
+# The crank's small collars and clip are worked on before the broad base or
+# tall follower enters the picture. On the next page it becomes an incoming
+# subassembly; the base is the stationary recipient at the lifter's scale.
+item('bf-cd-crank-carried','Crank',crank_parts,group='cd-crank-carried',css=165)
+PLAN['bf-cd-base'].update(group='cd-lifter',css=240)
+frame='bf-cd-frame';mechanism=crank_parts+['base']
+item(frame,'Frame',mechanism,group='cd-lifter',css=240)
+item('bf-cd-open-follower','Follower',['guide','follower'],group='cd-follower',css=180)
+item('bf-cd-guided','Follower',['guide','follower','cover'],group='cd-follower',css=180)
 item('bf-cd-mounted','Lifter',mechanism+['guide','follower','cover'],group='cd-lifter',css=240)
 item('bf-cd-lifter','Lifter',mechanism+['guide','follower','cover','spring'],group='cd-lifter',css=240)
 CHAPTERS.append(dict(id='bf-cd-lift',title='Round becomes up',reference='crank-dragon',steps=[
+ ('bf-cd-base',crank,frame,'Mount the Crank on the Base'),
  ('bf-cd-guide','bf-cd-follower','bf-cd-open-follower','Slide the Follower into the Guide'),
  ('bf-cd-open-follower','bf-cd-cover','bf-cd-guided','Snap on the Cover'),
  (frame,'bf-cd-guided','bf-cd-mounted','Mount the Follower above the Cam'),
  ('bf-cd-mounted','bf-cd-spring','bf-cd-lifter','Hook on the Spring')]))
 item('bf-cd-body-left','Body',['body','left-wing'],group='cd-body',css=240)
 item('bf-cd-winged','Body',['body','left-wing','right-wing'],group='cd-body',css=240)
+item('bf-cd-winged-rear','Body',['body','left-wing','right-wing'],group='cd-body-rear',css=240)
+item('bf-cd-bodied-rear','Body',['body','left-wing','right-wing','tail'],group='cd-body-rear',css=240)
 item('bf-cd-bodied','Dragon',['body','left-wing','right-wing','tail'],group='cd-body',css=240)
 complete=mechanism+['guide','follower','cover','spring','body','left-wing','right-wing','tail']
 item('bf-cd-mounted-body','Dragon',complete,group='cd-whole',css=250)
 item('bf-cd-linked-left','Dragon',complete+['left-link'],group='cd-whole',css=250)
 item('crank-dragon','Crank dragon',complete+['left-link','right-link'],css=350)
-CHAPTERS.append(dict(id='bf-cd-dragon',title='The dragon',reference='crank-dragon',steps=[
+CHAPTERS.append(dict(id='bf-cd-dragon',title='The dragon',reference='crank-dragon',processes={'bf-cd-body-flip':'flip'},steps=[
  ('bf-cd-body','bf-cd-left-wing','bf-cd-body-left','Attach the Left wing'),
  ('bf-cd-body-left','bf-cd-right-wing','bf-cd-winged','Attach the Right wing'),
- ('bf-cd-winged','bf-cd-tail','bf-cd-bodied','Attach the Tail'),
+ ('bf-cd-winged','bf-cd-body-flip','bf-cd-winged-rear','Flip the Body to its back'),
+ ('bf-cd-winged-rear','bf-cd-tail','bf-cd-bodied-rear','Attach the Tail'),
+ ('bf-cd-bodied-rear','bf-cd-body-flip','bf-cd-bodied','Flip the Body to its front'),
  ('bf-cd-lifter','bf-cd-bodied','bf-cd-mounted-body','Mount the Dragon on the Lifter'),
  ('bf-cd-mounted-body','bf-cd-left-link','bf-cd-linked-left','Fit the Left link'),
  ('bf-cd-linked-left','bf-cd-right-link','crank-dragon','Fit the Right link')]))
@@ -198,10 +213,33 @@ def stage(m,identity):
     info=PLAN[identity];m['handle_state']='fitted';m['source'].apply_pose(m,.6,relaxed_spring=identity=='bf-cd-spring');m['source'].set_guide_cover(m,False)
     show(m,info['parts'])
     group=info['group']
-    if group=='cd-crank':return {'location':(.55,-.85,.48),'target':(0,0,.06),'scale':.32}
-    if group=='cd-crank-rear':return {'location':(-.55,.85,.48),'target':(0,0,.06),'scale':.32}
-    if group=='cd-frame':return {'location':(.55,-.85,.48),'target':(0,0,.06),'scale':.32}
-    if group=='cd-lifter':return {'location':(.55,-.85,.48),'target':(0,0,.105),'scale':.34}
-    if group=='cd-body':return {'location':(.55,-.85,.48),'target':(0,.02,.17),'scale':.40}
-    if group=='cd-whole':return dict(m['view'])
-    return inspection(m,info['parts'],margin=1.22)
+    if group=='cd-crank':return {'location':(.55,-.85,.48),'target':(0,0,.06),'scale':.24}
+    if group=='cd-crank-rear':return {'location':(-.55,.85,.52),'target':(0,0,.10),'scale':.34}
+    if group=='cd-lifter':return {'location':(.55,-.85,.52),'target':(0,0,.10),'scale':.34}
+    if group=='cd-body':return {'location':(.55,-.83,.59),'target':(0,.02,.17),'scale':.40}
+    if group=='cd-body-rear':return {'location':(-.55,.87,.59),'target':(0,.02,.17),'scale':.40}
+    if group=='cd-follower':return {'location':(.55,-.85,.53),'target':(0,0,.110),'scale':.29}
+    if group=='cd-whole' or identity=='crank-dragon':return {'location':(.55,-.85,.57),'target':(0,0,.150),'scale':.42}
+    if identity=='bf-cd-tail':direction=(-.55,.85,.42)
+    elif identity=='bf-cd-rear-collar':direction=(-.55,.85,.42)
+    elif identity in {'bf-cd-body','bf-cd-left-wing','bf-cd-right-wing'}:direction=(.55,-.85,.42)
+    elif identity in {'bf-cd-guide','bf-cd-follower','bf-cd-cover','bf-cd-open-follower','bf-cd-guided','bf-cd-spring'}:direction=(.55,-.85,.42)
+    else:direction=(.55,-.85,.42)
+    return inspection(m,info['parts'],direction=direction,margin=1.22)
+
+
+def write():
+    """Generate this family's chapter-dependent carried crank illustration."""
+    from pathlib import Path
+    from types import SimpleNamespace
+    from early_common import write_fragment as write_early_fragment
+    write_early_fragment(SimpleNamespace(__name__='dragon',CHAPTERS=CHAPTERS,
+                                        NAMES=NAMES,DESCRIPTIONS=DESCRIPTIONS))
+    path=Path(__file__).with_suffix('.md');text=path.read_text()
+    primary='  - icon: ![Crank](assets/items/bf-cd-clipped.webp)\n'
+    carried='  - from chapter `bf-cd-lift` icon: ![Crank](assets/items/bf-cd-crank-carried.webp)\n'
+    text=text.replace(primary,primary+carried,1)
+    path.write_text(text.rstrip()+'\n')
+
+
+if __name__=='__main__':write()

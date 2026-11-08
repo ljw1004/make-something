@@ -5,6 +5,7 @@ motor connectors and a cam-operated pen carriage. No test scenery is supplied.
 """
 from pathlib import Path
 import math
+import sys
 from late.common import Author, BASE, ROOT, geometry, visible, inspection
 
 A=Author()
@@ -16,6 +17,7 @@ for side in ('a','b'):
     I('rv-motor-'+side,label+' motor',['motor-'+side],image='rv-motor-'+side,note='An enclosed slow gearmotor, mounting flange and attached lead. Its output shaft drives one wheel.')
     I('rv-wheel-'+side,'Wheel',['wheel-a'],image='rv-wheel',note='Either wheel fits either geared motor. Its retained centre fastener locks the hub to the flat-sided shaft.')
     I('rv-drive-'+side,label+' drive',['motor-'+side,'wheel-'+side],'rover-drive-'+side,160)
+    A.plan['rv-motor-'+side].update(group='rover-drive-'+side,css=160)
     for wheel in ('a','b'): A.add('rv-wheel-'+wheel,'rv-motor-'+side,'rv-drive-'+side)
 for identity,name,key,note in [
     ('rv-caster','Caster','caster','The free-turning ball supports the third corner.'),
@@ -49,13 +51,14 @@ for side,other in [('a','b'),('b','a')]:
     A.add('rv-guard-'+side,'rv-wired','rv-one-guard-'+side)
     A.add('rv-guard-'+other,'rv-one-guard-'+side,'rv-guarded')
 full=base+['harness','guard-a','guard-b']
-I('rv-upright','Rover',full,'rover-top',250)
+I('rv-upright','Rover',full,'rover-pen-work',320)
 A.process('rv-guarded','rv-flip-pen','rv-upright')
 I('rv-pen-carriage','Pen carriage',['pen','carriage'],'rover-pen',150)
+A.plan['rv-clip'].update(group='rover-pen',css=150)
 A.add('rv-pen','rv-clip','rv-pen-carriage')
-I('rv-pen-fitted','Rover',full+['pen','carriage'],'rover-top',250)
+I('rv-pen-fitted','Rover',full+['pen','carriage'],'rover-pen-work',320)
 A.add('rv-pen-carriage','rv-upright','rv-pen-fitted')
-I('rv-sprung','Rover',full+['pen','carriage','spring'],'rover-top',250)
+I('rv-sprung','Rover',full+['pen','carriage','spring'],'rover-pen-work',320)
 A.add('rv-spring','rv-pen-fitted','rv-sprung')
 I('drawing-rover','Drawing rover',full+['pen','carriage','spring','cap'],'rover-finished',340,note='Different wheel speeds steer the rover. The hand lever lifts the pen between strokes. A slight motor mismatch makes a curve; the receiver has a trim screw. These are ordinary mechanisms, not a promise of precise handwriting.')
 A.add('rv-cap','rv-sprung','drawing-rover')
@@ -78,13 +81,45 @@ A.page('c-rover-pen','A pen for the rover','drawing-rover',
         ('Press on the guide cap','drawing-rover')],[('rv-flip-pen','Flip','flip')])
 PLAN=A.plan
 
+# A readable, real compression spring with room for the full 8 mm cam lift.
+# The guide extension and two wider seats exist before the spring is fitted;
+# no retained hardware changes shape during an additive construction step.
+GUIDE_EXTENSION=.016
+SPRING_RADIUS=.0052
+SPRING_WIRE=.00065
+SPRING_TURNS=4
+SPRING_SEAT_RADIUS=.0065
+SPRING_LOW=.095+SPRING_WIRE
+SPRING_HIGH=.107+GUIDE_EXTENSION-SPRING_WIRE
+SPRING_STEPS=192
+
+
+def spring_radius(lift):
+    """Let the helix widen slightly on compression, preserving its wire length."""
+    chord_factor=2*SPRING_STEPS*math.sin(math.pi*SPRING_TURNS/SPRING_STEPS)
+    rest_height=SPRING_HIGH-SPRING_LOW
+    return math.sqrt(SPRING_RADIUS**2+(rest_height**2-(rest_height-lift)**2)/chord_factor**2)
+
+
+def apply_pose(model,**kwargs):
+    """Retain the canonical drive/cam motion and update the larger elastic coil."""
+    import drawing_rover as R
+    pose=R.apply_pose(model,**kwargs)
+    low=SPRING_LOW+pose['lift'];radius=spring_radius(pose['lift'])
+    points=[(-.048+radius*math.cos(math.tau*SPRING_TURNS*i/SPRING_STEPS),
+             -.010+radius*math.sin(math.tau*SPRING_TURNS*i/SPRING_STEPS),
+             low+(SPRING_HIGH-low)*i/SPRING_STEPS) for i in range(SPRING_STEPS+1)]
+    curve=model['pressure'].data;curve.splines.clear()
+    spline=curve.splines.new('POLY');spline.points.add(len(points)-1)
+    for vertex,point in zip(spline.points,points):vertex.co=(*point,1)
+    return pose
+
 
 def build():
     import bpy
     from mathutils import Vector
     S=geometry()
     import drawing_rover as R
-    import sys
     sys.path.insert(0,str(BASE.parent/'art-readability-2026.11.07'))
     import assembly_views
     model=R.build_model();assembly_views.prepare(model)
@@ -94,6 +129,9 @@ def build():
     for new,previous in [('deck','rover-deck'),('caster','rover-caster'),('pack','rover-pack'),
                          ('harness','rover-switch'),('receiver','rover-radio'),('pen','rover-pen'),('carriage','rover-pen-clip')]:
         parts[new]=old[previous]
+    for obj in parts['pack']:
+        if obj.name.startswith(('closed low-voltage battery holder','battery holder mount flange')):
+            obj.data.materials.clear();obj.data.materials.append(S.material('battery'))
     # The exposed slider connects to the enclosed switch through a real slot.
     flange=next(o for o in parts['harness'] if o.name.startswith('switch mounting flange'))
     cutter=S.box('switch stem travel slot',(-.080,0,.0505),(.016,.005,.008),'ink')
@@ -110,9 +148,32 @@ def build():
     upper_seats=[obj for obj in parts['deck'] if obj.name.startswith('pen spring seat')]
     parts['deck']=[obj for obj in parts['deck'] if obj not in old_caps+upper_seats and obj!=model['pressure']]
     parts['spring']=[model['pressure']]
+    # A 11.7 mm outside diameter coil is seated on real 13 mm washers. Its
+    # 26.7 mm centreline height leaves distinct turns at playing size; the
+    # longer bare rods and cap also leave 18.7 mm at maximum cam lift.
+    # Rebuild the seats with unchanged bores rather than scaling their holes.
+    for key in ('deck','carriage'):
+        for old_seat in list(parts[key]):
+            if not old_seat.name.startswith('pen spring seat'):continue
+            seat=S.annulus('pen spring seat',(0,0,0),SPRING_SEAT_RADIUS,.0017,.001,'teal')
+            seat.parent=old_seat.parent;seat.location=old_seat.location;seat.rotation_euler=old_seat.rotation_euler
+            parts[key][parts[key].index(old_seat)]=seat
+            bpy.data.objects.remove(old_seat,do_unlink=True)
+    for index,old_seat in enumerate(upper_seats):
+        seat=S.annulus('pen spring upper seat',(0,0,0),SPRING_SEAT_RADIUS,.0017,.001,'teal')
+        seat.parent=old_seat.parent;seat.location=old_seat.location;seat.rotation_euler=old_seat.rotation_euler
+        seat.location.z+=GUIDE_EXTENSION;upper_seats[index]=seat
+        bpy.data.objects.remove(old_seat,do_unlink=True)
+    for rod in parts['deck']:
+        if rod.name.startswith('carriage guide rod'):
+            for vertex in rod.data.vertices:
+                if vertex.co.z>0:vertex.co.z+=GUIDE_EXTENSION
+            rod.data.update()
+    model['pressure'].data.bevel_depth=SPRING_WIRE
+    model['pressure'].data.materials.clear();model['pressure'].data.materials.append(S.material('ink'))
     parts['cap']=upper_seats
     def cap_add(obj):
-        obj.parent=model['vehicle'];parts['cap'].append(obj);return obj
+        obj.parent=model['vehicle'];obj.location.z+=GUIDE_EXTENSION;parts['cap'].append(obj);return obj
     cap_add(S.box('connected two-socket guide cap',(-.048,0,.1105),(.006,.026,.003),'teal'))
     for y in [-.010,.010]:
         cap=S.cylinder('guide cap blind socket',(-.048,y,.109),.003,.004,'teal','Z')
@@ -132,23 +193,37 @@ def build():
         for suffix in ('a','b'):parts[new+'-'+suffix]=[o for o in old[previous] if side(o)==suffix]
     for obj in model['root'].children_recursive:
         if obj.type in {'MESH','CURVE','FONT'}:obj.hide_render=True;obj.hide_set(True)
-    model['parts']=parts;model['_rover_source']=R
+    # The animation adapter uses this same source pose function, so the still
+    # and working loop share the extended spring rather than reverting to the
+    # historical short coil on the first animated frame.
+    model['parts']=parts;model['_rover_source']=sys.modules[__name__]
     for key,objects in parts.items():
         for obj in objects:obj['part_id']=key
     return model
 
 
 def stage(model,identity):
-    info=PLAN[identity];R=model['_rover_source']
+    import drawing_rover as R
+    info=PLAN[identity]
+    underside=info.get('upside',False) or any(key in info['parts'] for key in ('motor-a','motor-b','wheel-a','wheel-b','caster','pack','receiver','harness','guard-a','guard-b')) and 'deck' not in info['parts']
     R.pose_guard_installation(model)
-    R.apply_pose(model,upside_down=info.get('upside',False),pen_angle=0)
+    apply_pose(model,upside_down=underside,pen_angle=0)
     # Leads are already parked at the matching connector positions. Adding
     # the harness supplies the sockets; no earlier component silently reshapes.
     R._wire_state(model,True)
     visible(model,info['parts'])
     if info['group']=='rover-under':return dict(location=(.45,-.6,.8),target=(0,0,.075),scale=.39)
-    if info['group'] in {'rover-top','rover-finished'}:return dict(location=(.45,-.6,.48),target=(0,0,.055),scale=.39)
-    return inspection(model)
+    # The explicit upright Flip begins a larger pen-fitting display family.
+    # Only export magnification changes; the camera and physical geometry stay fixed.
+    if info['group'] in {'rover-top','rover-pen-work','rover-finished'}:return dict(location=(-.45,-.6,.705),target=(0,0,.055),scale=.39)
+    # A receiving motor/carriage retains its physical scale when its wheel or
+    # pen appears. Its fitting orientation also matches the destination deck.
+    group=info['group']
+    if group.startswith('rover-drive-') or group=='rover-pen':
+        keys={key for row in PLAN.values() if row['group']==group for key in row['parts']}
+        visible(model,keys);view=inspection(model,(.45,-.6,.725) if underside else (-.45,-.6,.65));visible(model,info['parts'])
+        return view
+    return inspection(model,(.45,-.6,.725) if underside else (-.45,-.6,.65))
 
 
 if __name__=='__main__':

@@ -70,6 +70,10 @@ def build():
         for end,sign in [('near',-1),('far',1)]:
             part = side+'-wheel-'+end
             wheel = a.cylinder(part,'brick red wheel',(x,sign*.075,.030),.030,.012,'orange','Y')
+            # Prepared wheel vents provide an honest visible rolling cue.
+            # The hub and continuous outer rim remain one connected component.
+            for angle in (0,2*math.pi/3,4*math.pi/3):
+                S.bore(wheel,(x+.018*math.cos(angle),sign*.075,.030+.018*math.sin(angle)),.002,.018,'Y')
             # A blind socket, open at the inner face and ending at the straw tip.
             S.bore(wheel,(x,sign*.072,.030),.003,.008,'Y')
             ring(a,part,'integral wheel spacer',(x,sign*.06775,.030),.005,.003,.0025,'orange')
@@ -113,7 +117,10 @@ def set_stage(model, identity):
     model['root'].rotation_euler=(0,0,0);model['root'].location=(0,0,0)
     for part,objects in model['parts'].items():
         for obj in objects: obj.hide_render=part not in allowed;obj.hide_set(obj.hide_render)
-    if info['view']=='underside':
+    # The loose bearing and wheel units are prepared in the same underside
+    # orientation in which they snap onto the already-flipped chassis.
+    underside_part=all(p.endswith(('bearing','axle','wheel-near','wheel-far')) for p in info['parts'])
+    if info['view']=='underside' or underside_part:
         model['root'].rotation_euler.x=math.pi;model['root'].location.z=.090
     bpy.context.view_layer.update()
     return info
@@ -129,11 +136,14 @@ def view(model, info):
     if info['view'] in ('underside','upright'): return dict(location=(.55,-.8,.65),target=(0,0,.045),scale=.34,roll=0)
     if info['view']=='axle':
         x=.075 if info['parts'][0].startswith('front') else -.075
-        centre=Vector((x,0,.030))
-        return dict(location=tuple(centre+Vector((.6,-.8,.5))),target=tuple(centre),scale=.25,roll=-.45)
+        centre=Vector((x,0,.060))
+        return dict(location=tuple(centre+Vector((.55,-.8,.605))),target=tuple(centre),scale=.25,roll=0)
     if info['view']=='complete': return dict(location=(.55,-.8,.48),target=(0,0,.145),scale=.38,roll=0)
     lo,hi=bounds(model);centre=Vector([(a+b)/2 for a,b in zip(lo,hi)])
     scale=max(hi[i]-lo[i] for i in range(3))*1.5
-    # The bearing's underside and mouth are inspection features, not hidden backs.
-    direction=Vector((.6,-.8,-.7) if any(p.endswith('bearing') for p in info['parts']) else (.6,-.8,.5))
-    return dict(location=tuple(centre+direction),target=tuple(centre),scale=scale,roll=-.45)
+    # This compact block's rolled projection exceeds its world-axis extent.
+    # Preserve its two visible sockets without clipping the inspection view.
+    if info['parts']==['connector']:scale=max(scale,.040)
+    mast_part=all(p in {'connector','crossbar','foot','cloth'} for p in info['parts'])
+    direction=Vector((.596,-.8,.245) if mast_part else (.55,-.8,.605))
+    return dict(location=tuple(centre+direction),target=tuple(centre),scale=scale,roll=-.55 if mast_part else 0)

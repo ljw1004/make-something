@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for mounting an arch; either offered arch appears suitable.",
+    "choice": 1,
+    "expectation": "I expect one arch to stand on the deck, leaving the other for later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The second arch appears equivalent, so I chose the first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first arch is mounted, and the goal now calls for the second.",
+    "reaction": "The single frame is a clear physical change.",
+    "step": 2,
+    "reason": "The only combination fits the remaining arch, as the goal directs.",
+    "choice": 1,
+    "expectation": "I expect the second arch to stand on the deck alongside the first.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both arches are mounted; the cradle is next.",
+    "reaction": "The second frame is a clear, predictable addition.",
+    "step": 3,
+    "reason": "The only combination follows the goal to connect the cradle across the arches.",
+    "choice": 1,
+    "expectation": "I expect the green cradle to span the two arches.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradle is fitted, and the tile is next.",
+    "reaction": "The crossbar frame is a clear addition.",
+    "step": 4,
+    "reason": "The only combination seats the tile as directed.",
+    "choice": 1,
+    "expectation": "I expect the pink tile to sit in the green cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tile is seated, and the frame needs turning over.",
+    "reaction": "The pink rectangle is a distinct addition.",
+    "step": 5,
+    "reason": "The only combination follows the goal to flip the frame.",
+    "choice": 1,
+    "expectation": "I expect to see the opposite side of the frame for the next fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is inverted, exposing the underside for the battery.",
+    "reaction": "The board-above-tile view makes the flip clear.",
+    "step": 6,
+    "reason": "The only combination fits the battery underneath as directed.",
+    "choice": 1,
+    "expectation": "I expect the battery pack to attach beneath the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is fitted on the exposed underside; the frame now needs to be turned upright.",
+    "reaction": "The blue block and wire make the addition identifiable.",
+    "step": 7,
+    "reason": "The only combination follows the goal to turn the frame upright.",
+    "choice": 1,
+    "expectation": "I expect the board to return below the frame, with the battery underneath.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upright again, and the control is the remaining indicated fitting.",
+    "reaction": "The orientation change is clear, though the battery is no longer visible in the description.",
+    "step": 8,
+    "reason": "The only combination fits the control as directed.",
+    "choice": 1,
+    "expectation": "I expect the control to attach to the frame, completing this stage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control is fitted and the chapter is complete; the result matches the build reference.",
+    "reaction": "The red-button unit is identifiable, though the completed frame has no described motion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Seating the pink tile gave the frame a distinctive, easily described addition.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second arch repeated the first fitting, although the instruction and result were clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprising happened; the flip clearly changed the frame's orientation.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The battery fitting had a clear stated purpose, though its connection to the tile was not yet apparent.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Probably not personally: the instructions were clear, but the mostly single-option steps and static completed frame offered limited payoff in text. The artwork and touch experience cannot be judged here.",
+        "steps": [
+          2,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

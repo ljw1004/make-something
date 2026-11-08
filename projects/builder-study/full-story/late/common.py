@@ -69,7 +69,8 @@ class Author:
     def markdown(self):
         pages=[]; declared=set(); emitted=set()
         for p in self.pages:
-            text=f'## `{p["identity"]}` {p["title"]}\nbackground: ![White instruction page](assets/backgrounds/white.svg)\nreference: ![Build reference](assets/items/{p["reference"]}.webp)\n\n'
+            reference_name=self.items[p["reference"]].splitlines()[0].split("` ",1)[1]
+            text=f'## `{p["identity"]}` {p["title"]}\nbackground: ![White instruction page](assets/backgrounds/white.svg)\nreference: ![{reference_name}](assets/items/{p["reference"]}.webp)\n\n'
             if p['prose']: text+=p['prose']+'\n\n'
             text+='**Goals**\n'
             for i,(instruction, refs) in enumerate(p['goals']):
@@ -82,7 +83,7 @@ class Author:
             if p['processes']:
                 text+='\n**Hotspots**\n'
                 for i,(identity,label,art) in enumerate(p['processes']):
-                    x=130+260*i
+                    x=390 if len(p['processes'])==1 else 130+260*i
                     text+=f'- `{identity}` (center {x}px, 216px)\n  - icon: ![{label}](assets/actions/{art}.svg)\n  - hitbox: (center {x}px, 216px) (size 236px, 248px)\n'
             text+='\n**Items**\n'
             for identity in p['supplies']+p['derived']:

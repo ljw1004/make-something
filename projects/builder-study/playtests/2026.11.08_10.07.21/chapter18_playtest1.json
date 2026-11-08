@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "Flip the drum to follow the current assembly goal.",
+    "choice": 1,
+    "expectation": "I expect the drum to turn over, revealing the next fitting step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base likely need assembling, but the current goal calls for flipping the drum first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum is flipped, and the next goal is to fold its scored tabs inward.",
+    "reaction": "The sequence is straightforward, though the text does not show the tabs.",
+    "step": 2,
+    "reason": "Fold the drum to follow the current assembly instruction.",
+    "choice": 1,
+    "expectation": "I expect the scored tabs to fold inward, preparing the drum for a fitting.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base also need assembly, but folding follows the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tabs are folded, and the floor is now ready to slide over the straight tips.",
+    "reaction": "The instruction is sequential, though the tips are hard to picture from text alone.",
+    "step": 3,
+    "reason": "Fit the floor to the drum as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the floor to slide over the tips and attach to the drum.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base can also be assembled, but the floor is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The floor is fitted, and the tabs now need folding underneath it.",
+    "reaction": "The fastening sequence makes sense, though its shape remains hard to picture from text alone.",
+    "step": 4,
+    "reason": "Fold the tabs under the floor as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the tabs to fold under the floor and hold it in place.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base also need assembly, but I want to finish fastening the floor first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The floor is secured, and the next goal is to assemble the turntable and base.",
+    "reaction": "The tab fastening makes practical sense, although the text alone leaves its shape unclear.",
+    "step": 5,
+    "reason": "Combine the turntable and base to follow the current goal; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the turntable to fit onto the base, preparing a support for the drum.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turntable is fitted to the base, which now needs flipping over.",
+    "reaction": "The sequence is clear, though the reason for flipping is not yet apparent.",
+    "step": 6,
+    "reason": "Flip the base as instructed; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the base to turn over, exposing a side needed for the next assembly step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The base has been flipped and is ready to fit beneath the drum.",
+    "reaction": "The next instruction clarifies the assembly sequence, though the reason for flipping remains unclear in text.",
+    "step": 7,
+    "reason": "Fit the base beneath the drum as instructed; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the drum to attach to the turntable base, completing or nearly completing the turning assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The base is fitted beneath the drum; the remaining goal is to turn the assembly upright.",
+    "reaction": "Joining the drum to its support is a clear assembly milestone.",
+    "step": 8,
+    "reason": "Flip the drum upright as instructed; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the assembled drum to turn upright, possibly completing the chapter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum is upright and all chapter goals are complete.",
+    "reaction": "The final flip provides a clear endpoint, though the text alone cannot convey how the drum looks or moves.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the base beneath the drum brought the separate assemblies together into a turning structure.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The base flips were straightforward but repetitive, and their physical purpose was not clear from the text alone.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Folding the tabs again after fitting the floor clarified how the floor was secured.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Flipping the base before fitting it felt underexplained in text, even though the sequence was clear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Probably not on this text-only experience: the assembly sequence is understandable, but the choices are mostly prescribed and the payoff is hard to assess without the artwork or animation.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

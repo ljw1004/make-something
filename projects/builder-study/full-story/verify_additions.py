@@ -48,7 +48,7 @@ for identity,info in module.PLAN.items():
     local_snapshots[identity]=local_parts
 
 def rigid_settling(before,after,keys):
-    """A stand may tilt the intact table slightly; no part may resize or bend."""
+    """Diagnose a shared rigid turn; it is not an exception to continuity."""
     objects={name:record for key in keys for name,record in before[key].items()}
     fitted={name:record for key in keys for name,record in after[key].items()}
     if objects.keys()!=fitted.keys() or any(objects[n][0]!=fitted[n][0] for n in objects):return None
@@ -76,7 +76,6 @@ for line in (HERE/(args.family+'.md')).read_text().splitlines():
     settling=None
     if changed and not missing:
         settling=rigid_settling(local_snapshots[workpiece],local_snapshots[result],before.keys())
-        if settling is not None:changed=[]
     if missing or changed or not added:failures.append(dict(workpiece=workpiece,incoming=incoming,result=result,missing=sorted(missing),changed=changed,added=sorted(added)))
     checks.append(dict(workpiece=workpiece,incoming=incoming,result=result,retained=len(before),added=sorted(added),rigidSettlingDegrees=settling))
 sources={str(Path(m.__file__).resolve().relative_to(core.ROOT)):hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest() for m in list(sys.modules.values()) if getattr(m,'__file__',None) and str(Path(m.__file__).resolve()).startswith(str(core.ROOT)) and str(m.__file__).endswith('.py')}

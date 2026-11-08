@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for an upright, and the window base is its natural mounting point.",
+    "choice": {
+      "combine": "Upright (#1)",
+      "with": "Window base"
+    },
+    "expectation": "One upright should stand on the window base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first upright is mounted, and the next goal calls for the remaining one.",
+    "reaction": "The single standing post makes the progress clear.",
+    "step": 2,
+    "reason": "The goal explicitly calls for the other upright on the window.",
+    "choice": {
+      "combine": "Upright (#2)",
+      "with": "Window"
+    },
+    "expectation": "The second upright should stand at the other end of the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both uprights are in place, and the next goal is to join them.",
+    "reaction": "The two posts make the frame's progress clear.",
+    "step": 3,
+    "reason": "The crossbar should connect the two upright posts as instructed.",
+    "choice": {
+      "combine": "Crossbar",
+      "with": "Window"
+    },
+    "expectation": "The crossbar will span the tops of the uprights.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar completes the rectangular frame; the next goal is to turn it over.",
+    "reaction": "The change from two posts to a complete frame is clear.",
+    "step": 4,
+    "reason": "The goal explicitly says to flip the window.",
+    "choice": {
+      "combine": "Window",
+      "with": "Flip"
+    },
+    "expectation": "The window will turn to show its other side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The window is turned to its other side, and the next goal is to fit a strut.",
+    "reaction": "The different view is subtle in the description.",
+    "step": 5,
+    "reason": "The goal calls for a strut, and the window frame is its mounting point.",
+    "choice": {
+      "combine": "Strut (#1)",
+      "with": "Window"
+    },
+    "expectation": "One green strut will attach to the window frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "One strut is fitted, and the goal now calls for the other.",
+    "reaction": "The green fitting makes the addition identifiable.",
+    "step": 6,
+    "reason": "The remaining strut belongs on the window frame, as the goal directs.",
+    "choice": {
+      "combine": "Strut (#2)",
+      "with": "Window"
+    },
+    "expectation": "The second strut will attach to the other side of the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both struts are fitted, and the next goal is to flip the window.",
+    "reaction": "The matching green fittings make the addition clear.",
+    "step": 7,
+    "reason": "The goal explicitly directs me to flip the window.",
+    "choice": {
+      "combine": "Window",
+      "with": "Flip"
+    },
+    "expectation": "The window will turn to show its other side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The window is flipped back, and the remaining goal is to connect the lead.",
+    "reaction": "The change in view is subtle in the description.",
+    "step": 8,
+    "reason": "The goal calls for connecting the lead to the window assembly.",
+    "choice": {
+      "combine": "Lead",
+      "with": "Window"
+    },
+    "expectation": "The lead will connect to the fittings on the window base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lead completed the window and triggered a motion showing a hand tilting a pinwheel; the lead’s connection itself was not clear from the description.",
+    "reaction": "The pinwheel appearance was unexpected, though its relationship to the lead is unclear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the uprights with the crossbar was satisfying: the separate posts became a recognizable rectangular frame, with a clear instruction and physical change.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two flips were less distinctive in text because the changes of view were subtle. I cannot judge how clear they would be in the artwork.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Connecting the lead produced a hand-and-pinwheel animation rather than an obvious depiction of the connection.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The final lead’s purpose was not apparent from the resulting description, although the goal clearly specified the action.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to see what the window does next, but the largely directed fittings and subtle view changes make that a modest interest rather than a strong desire to continue.",
+        "steps": [
+          3,
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

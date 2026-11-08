@@ -99,9 +99,9 @@ def write_fragment(module):
         if processes:
             lines += ['', '**Hotspots**']
             for i, (identity, action) in enumerate(processes.items()):
-                lines += [f'- `{identity}` (center {130 + i * 260}px, 216px)',
+                lines += [f'- `{identity}` (center {390 if len(processes)==1 else 130 + i * 260}px, 216px)',
                           f'  - icon: ![{action.title()}](assets/actions/{action}.svg)',
-                          f'  - hitbox: (center {130 + i * 260}px, 216px) (size 236px, 248px)']
+                          f'  - hitbox: (center {390 if len(processes)==1 else 130 + i * 260}px, 216px) (size 236px, 248px)']
         recipes=chapter['steps']+chapter.get('extra_steps',[])
         identities = list(dict.fromkeys(x for step in recipes for x in step[:3]))
         lines += ['', '**Items**']

@@ -80,7 +80,7 @@ body_items.append(item('wind-racer','Wind racer',full_body+['mast','connector','
 body_items.append('- `wr-flip` Flip\n')
 for side in ('front','rear'):
     body_items.append(item('wr-'+side+'-bearing','Bearing',[side+'-bearing'],'loose','wr-bearing', 'An open bearing clips beneath the chassis. Its spring lips let the axle snap into the channel.'))
-    body_items.append(item('wr-'+side+'-axle',side.title()+' straw',[side+'-axle'],'loose','wr-straw','A stiff hollow plastic axle. Push one wheel onto each end.'))
+    body_items.append(item('wr-'+side+'-axle',side.title()+' straw',[side+'-axle'],'axle','wr-straw','A stiff hollow plastic axle. Push one wheel onto each end.'))
     body_items.append(item('wr-'+side+'-one-wheel',side.title()+' axle',[side+'-axle',side+'-wheel-near'],'axle','wr-one-wheel'))
     body_items.append(item('wr-'+side+'-wheels',side.title()+' wheels',[side+'-axle',side+'-wheel-near',side+'-wheel-far'],'axle','wr-wheels'))
 for n in range(1,5):

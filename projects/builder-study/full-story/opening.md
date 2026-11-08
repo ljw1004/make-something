@@ -1,7 +1,7 @@
-# ![A brick-red paper pinwheel](icon.png) A Fair in the Air
+# ![A brick-red paper pinwheel](icon.png) The Next Box
 background: ![White instruction page](assets/backgrounds/white.svg)
 
-Build toys that move, draw and shine—then make a little garden fair do something impossible.
+Paper, wheels, string and light. Open a box and make something.
 
 ## `c01` Something that moves
 background: ![White instruction page](assets/backgrounds/white.svg)
@@ -90,7 +90,7 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 
 ## `c02` A sail
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Completed sail](assets/items/wr-sail.webp)
+reference: ![Sail](assets/items/wr-sail.webp)
 
 **Goals**
 - Fit the connector to the mast

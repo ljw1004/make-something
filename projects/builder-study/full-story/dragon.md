@@ -1,6 +1,6 @@
 ## `bf-cd-crank` Round and round
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Crank dragon](assets/items/crank-dragon.webp)
+reference: ![Crank](assets/items/bf-cd-clipped.webp)
 
 **Goals**
 - Slide the Cam onto the Shaft -- `bf-cd-cammed`
@@ -12,12 +12,11 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - next: Flip back to the front -- `bf-cd-retained`
 - next: Fit the Crank -- `bf-cd-cranked`
 - next: Secure the Crank with its clip -- `bf-cd-clipped`
-- next: Mount the bearings on the Base -- `bf-cd-frame`
 
 **Hotspots**
-- `bf-cd-flip` (center 130px, 216px)
+- `bf-cd-flip` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-cd-shaft` Shaft
@@ -70,12 +69,9 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
   ---
 
   One spring-wire clip. Its straight leg passes through the aligned crank and shaft holes; the curved leg grips outside the socket.
-- `bf-cd-clipped` Frame
-  - icon: ![Frame](assets/items/bf-cd-clipped.webp)
-- `bf-cd-base` Base
-  - icon: ![Base](assets/items/bf-cd-base.webp)
-- `bf-cd-frame` Frame
-  - icon: ![Frame](assets/items/bf-cd-frame.webp)
+- `bf-cd-clipped` Crank
+  - icon: ![Crank](assets/items/bf-cd-clipped.webp)
+  - from chapter `bf-cd-lift` icon: ![Crank](assets/items/bf-cd-crank-carried.webp)
 
 **Combinations**
 - `bf-cd-shaft` [transform] + `bf-cd-cam` [consume] -> `bf-cd-cammed`
@@ -87,7 +83,6 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 - `bf-cd-retained-rear` [transform] @ `bf-cd-flip` -> `bf-cd-retained`
 - `bf-cd-retained` [transform] + `bf-cd-handle` [consume] -> `bf-cd-cranked`
 - `bf-cd-cranked` [transform] + `bf-cd-crank-clip` [consume] -> `bf-cd-clipped`
-- `bf-cd-clipped` [transform] + `bf-cd-base` [consume] -> `bf-cd-frame`
 
 
 ## `bf-cd-lift` Round becomes up
@@ -95,12 +90,19 @@ background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Crank dragon](assets/items/crank-dragon.webp)
 
 **Goals**
-- Slide the Follower into the Guide -- `bf-cd-open-follower`
+- Mount the Crank on the Base -- `bf-cd-frame`
+- next: Slide the Follower into the Guide -- `bf-cd-open-follower`
 - next: Snap on the Cover -- `bf-cd-guided`
 - next: Mount the Follower above the Cam -- `bf-cd-mounted`
 - next: Hook on the Spring -- `bf-cd-lifter`
 
 **Items**
+- `bf-cd-base` Base
+  - icon: ![Base](assets/items/bf-cd-base.webp)
+- `bf-cd-clipped` Crank
+  - icon: ![Crank](assets/items/bf-cd-clipped.webp)
+- `bf-cd-frame` Frame
+  - icon: ![Frame](assets/items/bf-cd-frame.webp)
 - `bf-cd-guide` Guide
   - icon: ![Guide](assets/items/bf-cd-guide.webp)
 
@@ -119,8 +121,6 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
   - icon: ![Cover](assets/items/bf-cd-cover.webp)
 - `bf-cd-guided` Follower
   - icon: ![Follower](assets/items/bf-cd-guided.webp)
-- `bf-cd-frame` Frame
-  - icon: ![Frame](assets/items/bf-cd-frame.webp)
 - `bf-cd-mounted` Lifter
   - icon: ![Lifter](assets/items/bf-cd-mounted.webp)
 - `bf-cd-spring` Spring
@@ -129,6 +129,7 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
   - icon: ![Lifter](assets/items/bf-cd-lifter.webp)
 
 **Combinations**
+- `bf-cd-base` [transform] + `bf-cd-clipped` [consume] -> `bf-cd-frame`
 - `bf-cd-guide` [transform] + `bf-cd-follower` [consume] -> `bf-cd-open-follower`
 - `bf-cd-open-follower` [transform] + `bf-cd-cover` [consume] -> `bf-cd-guided`
 - `bf-cd-frame` [transform] + `bf-cd-guided` [consume] -> `bf-cd-mounted`
@@ -142,10 +143,17 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 **Goals**
 - Attach the Left wing -- `bf-cd-body-left`
 - next: Attach the Right wing -- `bf-cd-winged`
-- next: Attach the Tail -- `bf-cd-bodied`
+- next: Flip the Body to its back -- `bf-cd-winged-rear`
+- next: Attach the Tail -- `bf-cd-bodied-rear`
+- next: Flip the Body to its front -- `bf-cd-bodied`
 - next: Mount the Dragon on the Lifter -- `bf-cd-mounted-body`
 - next: Fit the Left link -- `bf-cd-linked-left`
 - next: Fit the Right link -- `crank-dragon`
+
+**Hotspots**
+- `bf-cd-body-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `bf-cd-body` Body
@@ -166,12 +174,18 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
   One card wing with a prepared split snap pin and spacer. The two tapered tips compress through the body hole and reopen behind it.
 - `bf-cd-winged` Body
   - icon: ![Body](assets/items/bf-cd-winged.webp)
+- `bf-cd-body-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-cd-winged-rear` Body
+  - icon: ![Body](assets/items/bf-cd-winged-rear.webp)
 - `bf-cd-tail` Tail
   - icon: ![Tail](assets/items/bf-cd-tail.webp)
 
   ---
 
   The tail carries a split snap pin. Its tapered tip passes through the body hole before its flexible barbs reopen.
+- `bf-cd-bodied-rear` Body
+  - icon: ![Body](assets/items/bf-cd-bodied-rear.webp)
 - `bf-cd-bodied` Dragon
   - icon: ![Dragon](assets/items/bf-cd-bodied.webp)
 - `bf-cd-lifter` Lifter
@@ -198,7 +212,9 @@ reference: ![Crank dragon](assets/items/crank-dragon.webp)
 **Combinations**
 - `bf-cd-body` [transform] + `bf-cd-left-wing` [consume] -> `bf-cd-body-left`
 - `bf-cd-body-left` [transform] + `bf-cd-right-wing` [consume] -> `bf-cd-winged`
-- `bf-cd-winged` [transform] + `bf-cd-tail` [consume] -> `bf-cd-bodied`
+- `bf-cd-winged` [transform] @ `bf-cd-body-flip` -> `bf-cd-winged-rear`
+- `bf-cd-winged-rear` [transform] + `bf-cd-tail` [consume] -> `bf-cd-bodied-rear`
+- `bf-cd-bodied-rear` [transform] @ `bf-cd-body-flip` -> `bf-cd-bodied`
 - `bf-cd-lifter` [transform] + `bf-cd-bodied` [consume] -> `bf-cd-mounted-body`
 - `bf-cd-mounted-body` [transform] + `bf-cd-left-link` [consume] -> `bf-cd-linked-left`
 - `bf-cd-linked-left` [transform] + `bf-cd-right-link` [consume] -> `crank-dragon`

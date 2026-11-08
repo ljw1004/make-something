@@ -1,6 +1,6 @@
 ## `c-rover-drive` Two wheels, two motors
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/rv-mounted.webp)
+reference: ![Rover](assets/items/rv-mounted.webp)
 
 **Goals**
 - Flip the deck over -- `rv-under`
@@ -69,9 +69,9 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 - next: Fit the receiver -- `rv-mounted`
 
 **Hotspots**
-- `rv-flip-build` (center 130px, 216px)
+- `rv-flip-build` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `rv-deck` Deck
@@ -282,7 +282,7 @@ reference: ![Build reference](assets/items/rv-mounted.webp)
 
 ## `c-rover-pen` A pen for the rover
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/drawing-rover.webp)
+reference: ![Drawing rover](assets/items/drawing-rover.webp)
 
 **Goals**
 - Connect the switch harness -- `rv-wired`
@@ -298,9 +298,9 @@ reference: ![Build reference](assets/items/drawing-rover.webp)
 - next: Press on the guide cap -- `drawing-rover`
 
 **Hotspots**
-- `rv-flip-pen` (center 130px, 216px)
+- `rv-flip-pen` (center 390px, 216px)
   - icon: ![Flip](assets/actions/flip.svg)
-  - hitbox: (center 130px, 216px) (size 236px, 248px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `rv-harness` Switch harness

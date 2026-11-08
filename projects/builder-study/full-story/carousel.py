@@ -36,7 +36,7 @@ recipes.append(('ca-ready','ca-deck','ca-platform'))
 first=list(R.items)
 R.page('c-carousel-drive','A turning deck','ca-platform',first,[('Fit the spindle',['ca-spindle-base','ca-drive-base']),('Fit the motor','ca-drive-base'),('Loop the belt around both pulleys','ca-belted'),('Set the guard over the drive',['ca-guarded','ca-ready']),('Plug in the battery','ca-ready'),('Fit the deck onto the spindle','ca-platform')],recipes)
 for j,name in enumerate(('Red horse','Green horse','Cream horse'),1):
-    item(f'ca-horse-{j}',name,[f'horse-{j}'],s=125,e='A single connected horse with a through socket in its back. Any of the three poles fits it.')
+    item(f'ca-horse-{j}',name,[f'horse-{j}'],g=f'ca-rider-{j}',s=175,e='A single connected horse with a through socket in its back. Any of the three poles fits it.')
     item(f'ca-pole-{j}','Pole',['pole-1'],s=140,e='A straight pole with a lower mounting peg and a shoulder that supports the horse. Any pole fits any horse.')
     item(f'ca-rider-{j}',name,[f'horse-{j}',f'pole-{j}'],f'ca-rider-{j}',175)
 mounted={0:'ca-platform'}
@@ -127,7 +127,7 @@ def build():
         for y in (-.039,.039):
             box('guard','integral locating foot',(x,y,.017),(.008,.008,.010),'teal')
             cut_box(base,(x,y,.014),(.0084,.0084,.0044))
-    battery=box('battery','battery and controller case',(.037,-.068,.029),(.071,.041,.028),'teal')
+    battery=box('battery','battery and controller case',(.037,-.068,.029),(.071,.041,.028),'battery')
     cyl('battery','speed dial',(.050,-.068,.047),.009,.008,'orange')
     box('battery','power switch',(.018,-.068,.046),(.012,.014,.006),'ink')
     a.line('battery','connected controller lead',[(.0015,-.068,.027),(-.007,-.068,.024),(-.013,-.053,.023)],.0013,'ink')
@@ -180,7 +180,9 @@ def stage(model,identity):
     from middle.views import stage_view
     if identity not in PLAN:raise KeyError(identity)
     set_rotation(model,0)
-    return stage_view(model,PLAN,identity,direction=(.8,-1,.65))
+    # Align the view with one horse's broad face. The other two then retain
+    # half-width profiles instead of making the red horse almost edge-on.
+    return stage_view(model,PLAN,identity,direction=(.77,-.64,.65))
 
 
 if __name__=='__main__':R.write(__file__)

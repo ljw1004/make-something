@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to flip the deck, so I’ll do that first.",
+    "choice": 5,
+    "expectation": "I expect to see the underside of the deck, ready for fittings.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A wheel can be fitted to a motor, but flipping follows the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flipped deck shows a bare face, and the next goal is to fit a wheel to the left motor.",
+    "reaction": "The change of face is clear, though the bare board is not especially distinctive.",
+    "step": 2,
+    "reason": "I’ll follow the stated goal and fit a wheel to the left motor.",
+    "choice": 1,
+    "expectation": "I expect the wheel to attach to the left motor’s shaft.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other wheel also appears suitable; I chose the first one arbitrarily."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left wheel is attached, and the next goal is to prepare the right motor.",
+    "reaction": "The wheel and projecting lead make the new drive easy to distinguish.",
+    "step": 3,
+    "reason": "I’ll follow the goal and fit the remaining wheel to the right motor.",
+    "choice": 1,
+    "expectation": "I expect a right drive with the wheel on its motor shaft.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could mount the left drive now, but the goal calls for preparing the right one first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both wheel-and-motor drives are assembled; the next goal is to mount the left one.",
+    "reaction": "The right drive's screws and lead give a clear picture of the assembly.",
+    "step": 4,
+    "reason": "I’ll follow the goal and mount the left drive on the deck.",
+    "choice": 1,
+    "expectation": "I expect the left motor and wheel to attach to one side of the deck.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The right drive can also be mounted, but the goal specifies the left first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left drive is mounted, and the next goal is to fit the right drive.",
+    "reaction": "The added wheel and motor make the deck look more like a vehicle.",
+    "step": 5,
+    "reason": "I’ll follow the goal and mount the right drive.",
+    "choice": 1,
+    "expectation": "I expect the second motor and wheel to attach to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both drives are mounted, and the next goal is to fit the caster.",
+    "reaction": "The second wheel makes the vehicle layout clearer.",
+    "step": 6,
+    "reason": "I’ll follow the goal and add the caster to support the rover.",
+    "choice": 1,
+    "expectation": "I expect the caster to attach beneath the deck as another point of support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, and the next goal is to add the battery pack.",
+    "reaction": "The round foot is a distinct addition, though its support role is not obvious from this view.",
+    "step": 7,
+    "reason": "I’ll follow the goal and fit the battery pack to power the rover.",
+    "choice": 1,
+    "expectation": "I expect the blue battery case to attach to the board; its electrical connection may come later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The receiver also needs mounting, but the goal specifies the battery first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is fitted; the receiver is the next goal.",
+    "reaction": "The dark-topped box is a visible addition, although it is described as green rather than the expected blue.",
+    "step": 8,
+    "reason": "I’ll fit the receiver, following the goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the receiver box to attach to the rover; I’m unsure whether its wiring will also be connected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is fitted and the rover chapter is complete; the final picture distinguishes the blue case from the closed green box, but does not clarify wiring.",
+    "reaction": "The completed layout is recognizable, though there is no motion shown as a final payoff.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the second drive made the two-wheel vehicle layout clear and gave the construction a recognizable form.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the battery was less clear: the result described a dark-topped green box rather than the expected blue case.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The battery fitting produced a green-box description, while the completed rover described both a blue case and a closed green box.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Choosing between the two wheels for the left motor was arbitrary because both were offered and appeared interchangeable.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I probably would not continue immediately: the instructions were clear and the physical additions mostly distinct, but the repetitive fittings and lack of a motion payoff made this chapter less compelling.",
+        "steps": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

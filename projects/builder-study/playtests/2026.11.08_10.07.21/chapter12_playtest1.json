@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for fitting a pulley into the side fork, so I’ll use the first pulley.",
+    "choice": 1,
+    "expectation": "I expect the pulley to fit into the side fork and advance the goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other pulley also appears suitable, but there is no stated reason to prefer it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The side-fork pulley is assembled, and the next goal is to fit the remaining pulley into its fork.",
+    "reaction": "The result is straightforward and matches the instruction.",
+    "step": 2,
+    "reason": "The remaining pulley and drop fork match the current goal.",
+    "choice": 1,
+    "expectation": "I expect another pulley unit to be assembled and the goal to advance.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mounting the completed unit is available, but the current goal points to the other pulley first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second pulley unit is assembled; the next goal is to mount the side pulley.",
+    "reaction": "The assembly is straightforward, though the numbered unit names require remembering which fork was used first.",
+    "step": 3,
+    "reason": "Unit #1 came from the side fork, so it matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the side pulley to mount on the gantry and advance the goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other unit can also be mounted, but it came from the drop fork."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The side pulley is mounted, leaving the drop pulley as the next goal.",
+    "reaction": "The sequence is clear, though the result itself gives little fitting detail.",
+    "step": 4,
+    "reason": "The remaining pulley unit matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the drop pulley to mount on the gantry and advance the goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pawl is available, but mounting the pulley is the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both pulley units are mounted, and the next goal is to fit the pawl.",
+    "reaction": "The mounting sequence is clear, though the result gives little detail.",
+    "step": 5,
+    "reason": "The pawl and gantry match the current goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the pawl to fit onto the gantry and advance the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl is fitted, and the next goal is to thread the rope over both pulleys.",
+    "reaction": "The sequence remains clear, though the result does not explain how the pawl works.",
+    "step": 6,
+    "reason": "The rope and hook match the current goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the rope to be threaded over both pulleys and the goal to advance.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rope is threaded, creating a hoist; the remaining goal is to hang the basket.",
+    "reaction": "The hoist coming together is satisfying, although the text does not show the rope's path.",
+    "step": 7,
+    "reason": "Basket plus hoist matches the goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the basket to hang from the hook and complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket completed the gantry hoist and the chapter.",
+    "reaction": "Finishing the assembly is satisfying, though the text gives little detail about the completed mechanism.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Threading the rope brought the pulleys and gantry together as a hoist, giving the assembly a clear purpose.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the two pulley units felt repetitive in text: both results simply said a gantry was created.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The two completed pulley units became numbered rather than retaining their fork names, so identifying the side pulley required remembering the order.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The instructions did not explain the pawl's function, making its fitting feel less purposeful than the pulley and rope steps.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue on text alone: the assembly sequence is clear, but mostly follows stated goals and gives little mechanical explanation. I cannot assess what artwork or animation might add.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

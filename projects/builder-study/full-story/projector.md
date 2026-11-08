@@ -1,13 +1,15 @@
 ## `c-projector-box` A box of stars
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/pj-wheel-box.webp)
+reference: ![Projector](assets/items/pj-wheel-box.webp)
 
 **Goals**
 - Fit the reflector inside the box -- `pj-lined`
 - next: Punch stars around the disc -- `pj-stars`
 - next: Slide the disc onto the spindle -- `pj-disc-shaft`
 - next: Fit the disc collar -- `pj-wheel`
+- next: Turn the star wheel to its loading side -- `pj-wheel-loading`
 - next: Lower the star wheel into the bearings -- `pj-loaded`
+- next: Turn the box toward the lamp seat -- `pj-lamp-facing`
 - next: Fit the lamp -- `pj-lamped`
 - next: Connect the battery pack -- `pj-wheel-box`
 
@@ -15,6 +17,9 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
 - `pj-punch` (center 130px, 216px)
   - icon: ![Punch](assets/actions/punch.svg)
   - hitbox: (center 130px, 216px) (size 236px, 248px)
+- `pj-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `pj-box` Box
@@ -63,6 +68,8 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
   - icon: ![Projector](assets/items/pj-lined.webp)
 - `pj-loaded` Projector
   - icon: ![Projector](assets/items/pj-loaded.webp)
+- `pj-lamp-facing` Projector
+  - icon: ![Projector](assets/items/pj-lamp-facing.webp)
 - `pj-lamped` Projector
   - icon: ![Projector](assets/items/pj-lamped.webp)
 - `pj-stars` Star disc
@@ -71,30 +78,41 @@ reference: ![Build reference](assets/items/pj-wheel-box.webp)
   - icon: ![Star wheel](assets/items/pj-disc-shaft.webp)
 - `pj-wheel` Star wheel
   - icon: ![Star wheel](assets/items/pj-wheel.webp)
+- `pj-wheel-loading` Star wheel
+  - icon: ![Star wheel](assets/items/pj-wheel-loading.webp)
 - `pj-wheel-box` Projector
   - icon: ![Projector](assets/items/pj-wheel-box.webp)
 - `pj-punch` Punch
+- `pj-flip` Flip
 
 **Combinations**
 - `pj-card` [transform] @ `pj-punch` -> `pj-stars`
 - `pj-stars` [consume] + `pj-spindle` [transform] -> `pj-disc-shaft`
 - `pj-collar` [consume] + `pj-disc-shaft` [transform] -> `pj-wheel`
+- `pj-wheel` [transform] @ `pj-flip` -> `pj-wheel-loading`
+- `pj-loaded` [transform] @ `pj-flip` -> `pj-lamp-facing`
 - `pj-liner` [consume] + `pj-box` [transform] -> `pj-lined`
-- `pj-wheel` [consume] + `pj-lined` [transform] -> `pj-loaded`
-- `pj-lamp` [consume] + `pj-loaded` [transform] -> `pj-lamped`
+- `pj-wheel-loading` [consume] + `pj-lined` [transform] -> `pj-loaded`
+- `pj-lamp` [consume] + `pj-lamp-facing` [transform] -> `pj-lamped`
 - `pj-battery` [consume] + `pj-lamped` [transform] -> `pj-wheel-box`
 
 
 ## `c-projector-lens` Bring the stars into focus
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Build reference](assets/items/star-projector.webp)
+reference: ![Star projector](assets/items/star-projector.webp)
 
 **Goals**
 - Close the box with its lid -- `pj-closed`
+- next: Turn the box toward the lens opening -- `pj-front-closed`
 - next: Fit the lens into its holder -- `pj-focus`
 - next: Fit the holder to the box -- `pj-focused`
 - next: Fit the hood around the lens -- `pj-hooded`
 - next: Fit the handle to the spindle -- `star-projector`
+
+**Hotspots**
+- `pj-flip` (center 390px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
 - `pj-lens` Lens
@@ -129,6 +147,8 @@ reference: ![Build reference](assets/items/star-projector.webp)
   One connected lid with locating tabs, shaft retainers and two downward tongues. The inner tongue carries the real projection window. Fit the lid before the external lens rails, which pass through its prepared openings.
 - `pj-closed` Projector
   - icon: ![Projector](assets/items/pj-closed.webp)
+- `pj-front-closed` Projector
+  - icon: ![Projector](assets/items/pj-front-closed.webp)
 - `pj-focus` Lens holder
   - icon: ![Lens holder](assets/items/pj-focus.webp)
 - `pj-focused` Projector
@@ -145,6 +165,7 @@ reference: ![Build reference](assets/items/star-projector.webp)
 **Combinations**
 - `pj-lens` [consume] + `pj-holder` [transform] -> `pj-focus`
 - `pj-lid` [consume] + `pj-wheel-box` [transform] -> `pj-closed`
-- `pj-focus` [consume] + `pj-closed` [transform] -> `pj-focused`
+- `pj-closed` [transform] @ `pj-flip` -> `pj-front-closed`
+- `pj-focus` [consume] + `pj-front-closed` [transform] -> `pj-focused`
 - `pj-hood` [consume] + `pj-focused` [transform] -> `pj-hooded`
 - `pj-handle` [consume] + `pj-hooded` [transform] -> `star-projector`

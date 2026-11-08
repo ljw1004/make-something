@@ -23,26 +23,34 @@ for identity,name,key,note in [
     ('pj-lid','Lid','lid','One connected lid with locating tabs, shaft retainers and two downward tongues. The inner tongue carries the real projection window. Fit the lid before the external lens rails, which pass through its prepared openings.'),
 ]: I(identity,name,[key],css=210 if key=='box' else 115,group='projector-open' if key=='box' else 'projector-loose',note=note)
 A.plan['pj-card'].update(group='projector-disc',css=155)
-I('pj-stars','Star disc',['stars'],'projector-disc',155)
+A.plan['pj-spindle'].update(group='projector-wheel',css=185)
+I('pj-stars','Star disc',['stars'],'projector-wheel',185)
 A.process('pj-card','pj-punch','pj-stars')
 I('pj-disc-shaft','Star wheel',['stars','spindle'],'projector-wheel',185)
 A.add('pj-stars','pj-spindle','pj-disc-shaft')
 I('pj-wheel','Star wheel',['stars','spindle','collar'],'projector-wheel',185)
 A.add('pj-collar','pj-disc-shaft','pj-wheel')
+I('pj-wheel-loading','Star wheel',['stars','spindle','collar'],'projector-wheel-loading',185)
+A.process('pj-wheel','pj-flip','pj-wheel-loading')
 states=[('pj-lined','pj-box','pj-liner',['box','liner']),
-        ('pj-loaded','pj-lined','pj-wheel',['box','liner','stars','spindle','collar']),
-        ('pj-lamped','pj-loaded','pj-lamp',['box','liner','stars','spindle','collar','lamp']),
+        ('pj-loaded','pj-lined','pj-wheel-loading',['box','liner','stars','spindle','collar']),
+        ('pj-lamped','pj-lamp-facing','pj-lamp',['box','liner','stars','spindle','collar','lamp']),
         ('pj-wheel-box','pj-lamped','pj-battery',['box','liner','stars','spindle','collar','lamp','battery'])]
+I('pj-lamp-facing','Projector',['box','liner','stars','spindle','collar'],'projector-open-front',210)
+A.process('pj-loaded','pj-flip','pj-lamp-facing')
 for identity,owner,part,keys in states:
-    I(identity,'Projector',keys,'projector-open',210);A.add(part,owner,identity)
+    I(identity,'Projector',keys,'projector-open-front' if identity in {'pj-lamped','pj-wheel-box'} else 'projector-open',210);A.add(part,owner,identity)
 I('pj-focus','Lens holder',['lens','holder'],'projector-lens',150)
+A.plan['pj-holder'].update(group='projector-lens',css=150)
 A.add('pj-lens','pj-holder','pj-focus')
 base=A.plan['pj-wheel-box']['parts']
-I('pj-closed','Projector',base+['lid'],'projector-work',210)
+I('pj-closed','Projector',base+['lid'],'projector-open-front',210)
 A.add('pj-lid','pj-wheel-box','pj-closed')
+I('pj-front-closed','Projector',base+['lid'],'projector-work',210)
+A.process('pj-closed','pj-flip','pj-front-closed')
 base=base+['lid']
 for identity,owner,part,keys in [
-    ('pj-focused','pj-closed','pj-focus',base+['lens','holder']),
+    ('pj-focused','pj-front-closed','pj-focus',base+['lens','holder']),
     ('pj-hooded','pj-focused','pj-hood',base+['lens','holder','hood']),
     ('star-projector','pj-hooded','pj-handle',base+['lens','holder','hood','handle']),
 ]:
@@ -52,18 +60,19 @@ for identity,owner,part,keys in [
     A.add(part,owner,identity)
 A.page('c-projector-box','A box of stars','pj-wheel-box',
        ['pj-box','pj-liner','pj-lamp','pj-battery','pj-card','pj-spindle','pj-collar'],
-       ['pj-lined','pj-loaded','pj-lamped','pj-stars','pj-disc-shaft','pj-wheel','pj-wheel-box'],
+       ['pj-lined','pj-loaded','pj-lamp-facing','pj-lamped','pj-stars','pj-disc-shaft','pj-wheel','pj-wheel-loading','pj-wheel-box'],
        [('Fit the reflector inside the box','pj-lined'),('Punch stars around the disc','pj-stars'),
         ('Slide the disc onto the spindle','pj-disc-shaft'),('Fit the disc collar','pj-wheel'),
-        ('Lower the star wheel into the bearings','pj-loaded'),('Fit the lamp','pj-lamped'),
+        ('Turn the star wheel to its loading side','pj-wheel-loading'),
+        ('Lower the star wheel into the bearings','pj-loaded'),('Turn the box toward the lamp seat','pj-lamp-facing'),('Fit the lamp','pj-lamped'),
         ('Connect the battery pack','pj-wheel-box')],
-       [('pj-punch','Punch','punch')])
+       [('pj-punch','Punch','punch'),('pj-flip','Flip','flip')])
 A.page('c-projector-lens','Bring the stars into focus','star-projector',
        ['pj-lens','pj-holder','pj-hood','pj-handle','pj-lid'],
-       ['pj-closed','pj-focus','pj-focused','pj-hooded','star-projector'],
-       [('Close the box with its lid','pj-closed'),('Fit the lens into its holder','pj-focus'),
+       ['pj-closed','pj-front-closed','pj-focus','pj-focused','pj-hooded','star-projector'],
+       [('Close the box with its lid','pj-closed'),('Turn the box toward the lens opening','pj-front-closed'),('Fit the lens into its holder','pj-focus'),
         ('Fit the holder to the box','pj-focused'),('Fit the hood around the lens','pj-hooded'),
-        ('Fit the handle to the spindle','star-projector')])
+        ('Fit the handle to the spindle','star-projector')],[('pj-flip','Flip','flip')])
 PLAN=A.plan
 
 
@@ -87,14 +96,17 @@ def build():
     output=nodes.new('ShaderNodeOutputMaterial');mix=nodes.new('ShaderNodeMixShader')
     transparent=nodes.new('ShaderNodeBsdfTransparent')
     surface=nodes.new('ShaderNodeBsdfPrincipled')
-    surface.inputs['Base Color'].default_value=(.48,.72,.78,1)
+    surface.inputs['Base Color'].default_value=(.30,.65,.82,1)
     surface.inputs['Roughness'].default_value=.16
     surface.inputs['IOR'].default_value=1.49
     fresnel=nodes.new('ShaderNodeFresnel');fresnel.inputs['IOR'].default_value=1.49
-    opacity=nodes.new('ShaderNodeMath');opacity.operation='MULTIPLY_ADD';opacity.inputs[1].default_value=.55;opacity.inputs[2].default_value=.10
+    # The transparent face must still be visible when the empty holder's
+    # aperture and the page behind it are both white. Preserve transmission,
+    # but give the real lens face enough pale blue coverage to read as fitted.
+    opacity=nodes.new('ShaderNodeMath');opacity.operation='MULTIPLY_ADD';opacity.inputs[1].default_value=.55;opacity.inputs[2].default_value=.35
     links.new(fresnel.outputs['Fac'],opacity.inputs[0]);links.new(opacity.outputs[0],mix.inputs[0])
     links.new(transparent.outputs[0],mix.inputs[1]);links.new(surface.outputs[0],mix.inputs[2]);links.new(mix.outputs[0],output.inputs[0])
-    lens_material.diffuse_color=(.48,.72,.78,.22)
+    lens_material.diffuse_color=(.30,.65,.82,.35)
     model['lens'].data.materials.clear();model['lens'].data.materials.append(lens_material)
     def cut(obj,cutter):
         bpy.context.view_layer.objects.active=obj
@@ -138,6 +150,8 @@ def build():
     cut(baffle,S.box('battery compartment clearance',(.079,.020,.027),(.050,.012,.058)))
     for x in [-.010,.010]:S.bore(rear,(x,.064,T.DIMS.led_z),.0021,.012,'Y')
     for obj in parts['battery']:
+        if obj.name.startswith('removable compatible lamp battery pack'):
+            obj.data.materials.clear();obj.data.materials.append(S.material('battery'))
         if obj.name.startswith('retained connector floor support') and abs(obj.location.x-.064)<.0001:obj.location.x=.068
     for y in [-.059,.050]:
         clip=S.annulus('upward opening shaft bearing',(0,0,0),.0052,.0033,.008,'teal',gap=2.4)
@@ -230,13 +244,21 @@ def stage(model,identity):
     pose(model);visible(model,info['parts'])
     if info['group']=='projector-open':
         return dict(location=(.10,.18,1.10),target=(0,-.025,.065),scale=.36)
+    if info['group']=='projector-open-front':
+        return dict(location=(.10,-.305,1.165),target=(0,-.025,.065),scale=.36)
     if info['group'] in {'projector-work','projector-finished'}:
         return dict(location=(.38,-.60,.39),target=(0,-.045,.065),scale=.36)
-    if identity in {'pj-card','pj-stars'}:
+    if identity=='pj-card':
         return dict(location=(.10,-.875,.258),target=(0,.025,.058),scale=.174)
-    if identity in {'pj-disc-shaft','pj-wheel'}:return inspection(model,(.10,-.9,.20))
-    if identity=='pj-lens':return inspection(model,(.15,-.9,.25),minimum=.04)
-    return inspection(model)
+    if info['group']=='projector-wheel':
+        return dict(location=(.10,-.945,.258),target=(0,-.045,.058),scale=.30)
+    if identity in {'pj-spindle','pj-collar'}:return inspection(model,(.10,-.9,.20))
+    if identity in {'pj-liner','pj-wheel-loading'}:return inspection(model,(.10,.205,1.035))
+    if identity in {'pj-lamp','pj-battery','pj-lid'}:return inspection(model,(.10,-.28,1.10))
+    if info['group']=='projector-lens':
+        visible(model,['lens','holder']);view=inspection(model,(.38,-.555,.325));visible(model,info['parts'])
+        return view
+    return inspection(model,(.38,-.555,.325))
 
 
 if __name__=='__main__':

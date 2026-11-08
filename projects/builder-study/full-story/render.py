@@ -18,6 +18,9 @@ bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=Fals
 scene=core.S.configure_render(args.resolution);scene.view_settings.exposure=-2.75
 scene.render.threads_mode='FIXED';scene.render.threads=2;scene.cycles.samples=args.samples
 model=module.build();done=set();records=[];group_views={}
+def source_hashes():
+    return {str(Path(m.__file__).resolve().relative_to(core.ROOT)):hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest() for m in list(sys.modules.values()) if getattr(m,'__file__',None) and str(Path(m.__file__).resolve()).startswith(str(core.ROOT)) and str(m.__file__).endswith('.py')}
+initial_sources=source_hashes()
 owned={obj for objects in model['parts'].values() for obj in objects}
 unowned=[obj.name for obj in scene.objects if obj.type in {'MESH','CURVE'} and obj not in owned and not obj.hide_render]
 if unowned:raise ValueError('Unowned visible model geometry: '+str(unowned))
@@ -39,5 +42,7 @@ for identity,info in module.PLAN.items():
     bpy.context.view_layer.update();scene.render.filepath=str(out/(filename+'.png'));bpy.ops.render.render(write_still=True)
     records.append(dict(id=identity,image=filename,group=info['group'],css=info['css'],parts=info['parts'],view=view,sha256=hashlib.sha256((out/(filename+'.png')).read_bytes()).hexdigest()))
     bpy.data.objects.remove(camera,do_unlink=True)
-sources={str(Path(m.__file__).resolve().relative_to(core.ROOT)):hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest() for m in list(sys.modules.values()) if getattr(m,'__file__',None) and str(Path(m.__file__).resolve()).startswith(str(core.ROOT)) and str(m.__file__).endswith('.py')}
-(out/(args.family+'-manifest.json')).write_text(json.dumps(dict(family=args.family,sources=sources,images=records),indent=2)+'\n')
+sources=source_hashes()
+changed=[path for path,digest in initial_sources.items() if sources.get(path)!=digest]
+(out/(args.family+'-manifest.json')).write_text(json.dumps(dict(family=args.family,sources=sources,changedSources=changed,selectedIds=args.ids,images=records),indent=2)+'\n')
+if changed:raise RuntimeError('Sources changed during render: '+str(changed))

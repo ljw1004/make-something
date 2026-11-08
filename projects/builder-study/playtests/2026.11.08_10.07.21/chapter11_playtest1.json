@@ -1,0 +1,125 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit a side frame to the base, matching the current goal.",
+    "choice": 1,
+    "expectation": "I expect the first side frame to attach to the base and advance the goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other side frame appears equally suitable, but I chose the first listed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first side frame made a Frame, and the next goal is to fit the other one.",
+    "reaction": "A straightforward start; the goal makes the next fitting clear.",
+    "step": 2,
+    "reason": "Attach the remaining side frame to complete the current goal.",
+    "choice": 1,
+    "expectation": "I expect the second side frame to attach and reveal the next assembly step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both side frames are fitted, and the beam is now needed to join them.",
+    "reaction": "The assembly sequence is clear, though straightforward.",
+    "step": 3,
+    "reason": "The beam fitting directly matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the beam to join the side frames and reveal the next goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beam joined the side frames, and the next goal is to fit the ratchet to the winch.",
+    "reaction": "The next step is clear, though the frame result gives little detail about the fitting.",
+    "step": 4,
+    "reason": "The ratchet and winch combination directly matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the ratchet to attach to the winch and reveal the next assembly goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ratchet is fitted, and the winch needs turning toward its crank end.",
+    "reaction": "The direction is clear, though the result gives little detail about the ratchet fitting.",
+    "step": 5,
+    "reason": "Flip the winch to address the current goal; it's the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the winch to turn toward its crank end and reveal the next goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is turned toward its crank end, ready for the crank.",
+    "reaction": "The sequence is clear, though the result gives little detail about the turn.",
+    "step": 6,
+    "reason": "Fit the crank as instructed; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the crank to attach to the winch and reveal the next goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank is fitted, and the winch now needs to turn back toward the ratchet.",
+    "reaction": "The sequence is clear, though flipping back feels repetitive.",
+    "step": 7,
+    "reason": "Flip the winch to meet the current goal; it's the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the winch to turn toward the ratchet and reveal the next goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is turned back toward the ratchet and is ready to mount.",
+    "reaction": "The flip was clear but repetitive, with little descriptive detail.",
+    "step": 8,
+    "reason": "Mount the winch on the frame as instructed; it's the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect the winch to attach to the frame, possibly completing the gantry.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the winch completed the gantry and all chapter goals.",
+    "reaction": "It was satisfying to see the parts become a gantry, though the text gives little detail about the finished mechanism.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the winch brought the two assemblies together into the completed gantry.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Turning the winch back after fitting the crank felt repetitive, especially with minimal result detail.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the goals made the sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "The turn back toward the ratchet had a stated direction, but its practical purpose was not clear from the text alone.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Probably not on this text-only evidence: the assembly was clear but offered few meaningful decisions. Artwork and animation might change that impression, but I cannot assess them here.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

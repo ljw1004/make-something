@@ -33,7 +33,9 @@ states share a camera and scale, as do underside chassis states. Loose parts
 have inspection views, often diagonal. The Flip and completed-racer views expose
 the newly relevant structure. `export.py` uses `display-settings.json` for loose
 part caps, assembly scales and the smaller carried sail. It preserves a common
-crop and scale within each additive family. Labels and touch targets remain
+physical scale within each additive family while cropping each current state tightly.
+Three through-holes in each connected wheel make its rotation visible in the
+completed toy's loop. Labels and touch targets remain
 engine-owned; visible materials are opaque and actual openings transparent.
 
 Run from the repository root with a Pillow-enabled Python:

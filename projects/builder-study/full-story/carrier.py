@@ -1,6 +1,7 @@
 """Compact whale carrier: 400 × 300 mm deck and the unchanged star projector.
 
-The violet tile supplies the sole invented force, vertically upward at z=.220.
+The pink tile supplies a controlled fictional force at z=.220, supporting the
+load and moving it gently. This is the module's specified impossible function.
 Two rigid side arches and the upper cradle carry that force to the deck. Low
 batteries and an accessible trim rail keep the assumed centre of mass below it.
 No crane, external frame, service hatch or garden infrastructure is an ingredient.
@@ -18,6 +19,7 @@ BIG_RADIUS=.023
 SMALL_RADIUS=.010
 BELT_RADIUS=.001
 TILE_HEIGHT=.220
+PINWHEEL_MOUNT=(.205,.015,.200)
 A=Author()
 I=lambda identity,name,parts,group='carrier-loose',css=115,**kw:A.item(identity,name,parts,group,css,**kw)
 notes={
@@ -25,31 +27,37 @@ notes={
     'arch-a':'One connected rigid arch with two feet and captive bolts.',
     'arch-b':'A second identical connected arch. Either arch fits either side of the deck.',
     'cradle':'One connected top cradle. Four integral saddles clip over the arches; its padded rails receive the tile.',
-    'tile':'This powered lift tile is explicitly fictional. Its limited force points upward while current flows. It makes no energy and carries no person.',
+    'tile':'A flat pink tile with a keyed power socket and retaining holes.',
     'battery':'A compatible enclosed battery in its integral retained bracket. It mounts below the deck, keeping weight low.',
     'control':'A prepared controller and latching stop button in one pod with a connected fused harness. Keep power off while fitting it.',
     'dock':'One connected projector dock. Four feet bear on the deck and two recessed captive screws fasten it down. Four split snap studs pass through the original mounting holes; their flexible heads spring out above the box collars to retain the unchanged projector.',
     'motor':'An enclosed slow gearmotor with its integral pedestal and lead. The shaft is parallel to the projector spindle.',
     'pulley':'One small pulley with a captive screw that clamps onto the motor shaft flat.',
     'belt':'One continuous soft belt. Its small pulley drives the larger grooved handwheel more slowly.',
-    'motor-pack':'An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply; the lift has a separate circuit.',
+    'motor-pack':'An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply.',
     'side-a':'One cut whale side panel with its mounting tabs. Its top edge stays below the projector beam.',
     'side-b':'A second whale side panel, fitted separately.',
-    'tail':'One continuous fixed tail with its prepared root fitting. It does not steer or provide lift.',
-    'fin-a':'One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips. It gives the whale its shape, not lift.',
+    'tail':'One continuous fixed tail with its prepared root fitting.',
+    'fin-a':'One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips.',
     'fin-b':'The other fixed fin.',
     'skid-a':'One connected landing skid with two upright legs and captive deck bolts.',
     'skid-b':'A second landing skid. Their feet reach below the batteries and trim weight.',
     'rail':'One slotted rail with integral mounting ears, closed travel ends and a wide keyhole entry near the right end. The weight shoe enters through that opening from below.',
     'weight':'A single sliding weight with a captive shoe, vertical clamp screw and washer. Raise the shoe through the wide rail entry, slide into the narrow track, then tighten the screw to clamp the rail between shoe and pad.',
     'guard':'One hollow clear hood, open underneath and at the rear. Lower it over the drive, then tighten the captive screws on its exposed side feet. It encloses the belt and hand grip without covering the lens.',
+    'cargo':'A connected socket and open saddle. The open saddle sits over the arch and a captive side screw clamps it; the deep socket receives the wooden pinwheel handle. Soft side pads hold the handle by friction, with a small clearance above the socket floor.',
 }
-names={'deck':'Deck','arch-a':'Arch','arch-b':'Arch','cradle':'Tile cradle','tile':'Lift tile','battery':'Battery pack',
-       'control':'Lift control','dock':'Projector dock','motor':'Gearmotor','pulley':'Small pulley','belt':'Belt',
-       'motor-pack':'Motor supply','side-a':'Front side','side-b':'Back side','tail':'Tail','fin-a':'Front fin','fin-b':'Back fin',
-       'skid-a':'Landing skid','skid-b':'Landing skid','rail':'Weight rail','weight':'Counterweight','guard':'Guard'}
+names={'deck':'Deck','arch-a':'Arch','arch-b':'Arch','cradle':'Tile cradle','tile':'Tile','battery':'Battery pack',
+       'control':'Control','dock':'Projector dock','motor':'Gearmotor','pulley':'Small pulley','belt':'Belt',
+       'motor-pack':'Battery pack','side-a':'Front side','side-b':'Back side','tail':'Tail','fin-a':'Front fin','fin-b':'Back fin',
+       'skid-a':'Landing skid','skid-b':'Landing skid','rail':'Weight rail','weight':'Counterweight','guard':'Guard','cargo':'Clip'}
 for key in names:
     I('fc-'+key,names[key],[key],group='carrier-work' if key=='deck' else 'carrier-loose',css=230 if key=='deck' else 125,note=notes[key])
+# Present fittings in the exposed face's orientation before they are dragged.
+for key in ('battery','motor-pack','skid-a','skid-b','rail','weight'):
+    A.plan['fc-'+key]['upside']=True
+for key in ('side-b','fin-b'):
+    A.plan['fc-'+key]['rear']=True
 # The two literal arches are interchangeable; whichever is fitted first occupies
 # the near mounting pair. Each supply still contributes exactly one rigid arch.
 I('fc-one-arch','Frame',['deck','arch-a'],'carrier-work',230)
@@ -86,12 +94,12 @@ A.process('fc-supply-under','fc-flip-drive','fc-powered-show')
 shell_base=list(frame)
 # Opposite faces are exposed explicitly. The handed panels and fins have short
 # distinct labels, so the instruction does not ask for an invisible identity.
-frame=transition('fc-near-side','fc-powered-show','fc-side-a',shell_base+['side-a'],name='Whale')
+frame=transition('fc-tailed','fc-powered-show','fc-tail',shell_base+['tail'],name='Whale')
+frame=transition('fc-near-side','fc-tailed','fc-side-a',frame+['side-a'],name='Whale')
 I('fc-side-rear','Whale',frame,'carrier-rear',230,rear=True)
 A.process('fc-near-side','fc-flip-shell','fc-side-rear')
 frame=transition('fc-sided','fc-side-rear','fc-side-b',frame+['side-b'],'carrier-rear',rear=True,name='Whale')
-frame=transition('fc-tailed','fc-sided','fc-tail',frame+['tail'],'carrier-rear',rear=True,name='Whale')
-frame=transition('fc-one-fin-b','fc-tailed','fc-fin-b',frame+['fin-b'],'carrier-rear',rear=True,name='Whale')
+frame=transition('fc-one-fin-b','fc-sided','fc-fin-b',frame+['fin-b'],'carrier-rear',rear=True,name='Whale')
 I('fc-fin-front','Whale',frame,'carrier-work',230)
 A.process('fc-one-fin-b','fc-flip-shell','fc-fin-front')
 frame=transition('fc-whale','fc-fin-front','fc-fin-a',frame+['fin-a'],name='Whale')
@@ -107,39 +115,46 @@ frame=transition('fc-railed','fc-skids','fc-rail',frame+['rail'],'carrier-under'
 frame=transition('fc-weighted','fc-railed','fc-weight',frame+['weight'],'carrier-under',upside=True,name='Whale')
 I('fc-standing','Whale',frame,'carrier-work',230)
 A.process('fc-weighted','fc-flip-feet','fc-standing')
-frame=transition('flying-whale','fc-standing','fc-guard',frame+['guard'],'carrier-finished',350,name='Whale',
-                 note='The real projector, motor, belt, batteries, arches and counterweight retain their ordinary jobs. Only the violet lift tile is fictional. The exposed rail lets the weight move opposite a heavier end while the machine is supported and disconnected. This is a dimensioned story model, not a manufactured flying toy.')
+frame=transition('fc-guarded','fc-standing','fc-guard',frame+['guard'],'carrier-work',230,name='Whale',
+                 note='The sliding weight balances a heavier end. Adjust it with the machine resting on its skids and the power off.')
+frame=transition('fc-clipped','fc-guarded','fc-cargo',frame+['cargo'],'carrier-cargo',290,name='Whale')
+pinwheel_parts=['pinwheel:'+key for key in ('pw-paper','pw-hub','pw-axle','pw-handle')]
+I('fc-pinwheel-carried','Pinwheel',pinwheel_parts,'carrier-pinwheel',175)
+I('fc-cargo-ready','Whale',A.plan['fc-guarded']['parts'],'carrier-cargo',290)
+frame=transition('flying-whale','fc-clipped','pinwheel',frame+pinwheel_parts,'carrier-finished',350,name='Whale')
 
-A.page('c-lift-frame','The impossible part','fc-lift-frame',
+A.page('c-lift-frame','A wide frame','fc-lift-frame',
        ['fc-deck','fc-arch-a','fc-arch-b','fc-cradle','fc-tile','fc-battery','fc-control'],
        ['fc-one-arch','fc-arches','fc-top','fc-tiled','fc-inverted','fc-powered','fc-upright','fc-lift-frame'],
        [('Fit an arch to the deck','fc-one-arch'),('Fit the second arch','fc-arches'),
-        ('Clip the cradle across the arches','fc-top'),('Seat the lift tile','fc-tiled'),
+        ('Clip the cradle across the arches','fc-top'),('Seat the Tile','fc-tiled'),
         ('Flip the frame over','fc-inverted'),('Fit the battery underneath','fc-powered'),
-        ('Flip the frame upright','fc-upright'),('Fit the lift control','fc-lift-frame')],
-       [('fc-flip-lift','Flip','flip')],prose='Jo sets down a violet tile. “This part is invented: power makes it lift.”')
+        ('Flip the frame upright','fc-upright'),('Fit the Control','fc-lift-frame')],
+       [('fc-flip-lift','Flip','flip')])
 A.page('c-lift-projector','Stars aboard','fc-powered-show',
        ['fc-dock','fc-motor','fc-pulley','fc-belt','fc-motor-pack'],
        ['fc-docked','fc-projector-aboard','fc-drive','fc-motor-mounted','fc-belted','fc-drive-under','fc-supply-under','fc-powered-show'],
        [('Fit the projector dock','fc-docked'),('Press your projector onto the dock','fc-projector-aboard'),
         ('Fit the small pulley to the motor','fc-drive'),('Mount the drive motor','fc-motor-mounted'),
         ('Loop the belt around both pulleys','fc-belted'),('Flip to the underside','fc-drive-under'),
-        ('Fit the Motor supply','fc-supply-under'),('Flip the Frame upright','fc-powered-show')],
+        ('Fit the Battery pack','fc-supply-under'),('Flip the Frame upright','fc-powered-show')],
        [('fc-flip-drive','Flip','flip')])
 A.page('c-whale-shape','A whale takes shape','fc-whale',
-       ['fc-side-a','fc-side-b','fc-tail','fc-fin-a','fc-fin-b'],
-       ['fc-near-side','fc-side-rear','fc-sided','fc-tailed','fc-one-fin-b','fc-fin-front','fc-whale'],
-       [('Fit the Front side','fc-near-side'),('Turn to the back','fc-side-rear'),
-        ('Fit the Back side','fc-sided'),('Fit the Tail','fc-tailed'),('Fit the Back fin','fc-one-fin-b'),
+       ['fc-tail','fc-side-a','fc-side-b','fc-fin-a','fc-fin-b'],
+       ['fc-tailed','fc-near-side','fc-side-rear','fc-sided','fc-one-fin-b','fc-fin-front','fc-whale'],
+       [('Fit the Tail','fc-tailed'),('Fit the Front side','fc-near-side'),('Turn to the back','fc-side-rear'),
+        ('Fit the Back side','fc-sided'),('Fit the Back fin','fc-one-fin-b'),
         ('Turn to the front','fc-fin-front'),('Fit the Front fin','fc-whale')],
        [('fc-flip-shell','Flip','flip')])
-A.page('c-whale-finish','Ready for the fair','flying-whale',
+A.page('c-whale-finish','Landing feet','fc-guarded',
        ['fc-skid-a','fc-skid-b','fc-rail','fc-weight','fc-guard'],
-       ['fc-whale-under','fc-one-skid-a','fc-one-skid-b','fc-skids','fc-railed','fc-weighted','fc-standing','flying-whale'],
+       ['fc-whale-under','fc-one-skid-a','fc-one-skid-b','fc-skids','fc-railed','fc-weighted','fc-standing','fc-guarded'],
        [('Flip the whale over','fc-whale-under'),('Fit a landing skid',['fc-one-skid-a','fc-one-skid-b','fc-skids']),('Fit the other skid','fc-skids'),
         ('Fit the weight rail','fc-railed'),('Fit the weight through the wide slot','fc-weighted'),
-        ('Flip the whale upright','fc-standing'),('Fit the clear drive guard','flying-whale')],
+        ('Flip the whale upright','fc-standing'),('Fit the clear drive guard','fc-guarded')],
        [('fc-flip-feet','Flip','flip')])
+A.page('c-whale-cargo','One more thing','flying-whale',['fc-cargo'],['fc-clipped','flying-whale'],
+       [('Fit the Clip onto the arch','fc-clipped'),('Slide the Pinwheel into the Clip','flying-whale')])
 PLAN=A.plan
 
 
@@ -195,17 +210,15 @@ def build():
             # The opening faces down; the arch passes along the Y axis.
             clip.rotation_euler.y=math.pi/2;clip.location=(x,y,.200);a.add('cradle',clip)
     for x in [-.100,.100]:box('cradle','connected cradle side rail',(x,0,.208),(.012,.182,.008),'teal')
-    tile=box('tile','fictional lift tile',(0,0,TILE_HEIGHT),(.170,.170,.016),'teal')
+    tile=box('tile','pink lift tile',(0,0,TILE_HEIGHT),(.170,.170,.016),'future')
     cut(tile,(.085,.085,TILE_HEIGHT),(.0086,.0086,.0086))
-    violet=special_material('explicitly fictional lift tile',(.42,.27,.56))
-    tile.data.materials.clear();tile.data.materials.append(violet)
     for x in [-.075,.075]:
         for y in [-.085,.085]:
             sign=1 if y>0 else -1
             box('cradle','integral tile clip upright',(x,sign*.092,.218),(.018,.004,.020),'teal')
             box('cradle','tile retaining lip',(x,sign*.087,.230),(.018,.014,.004),'teal')
     # One supplied battery assembly: case, connected mounting bracket and lead.
-    box('battery','low lift battery',(.060,.035,-.025),(.110,.060,.040),'ink')
+    box('battery','low lift battery',(.060,.035,-.025),(.110,.060,.040),'battery')
     flange=box('battery','battery integral mounting flange',(.060,.035,-.004),(.134,.074,.008),'teal')
     for x in [-.001,.121]:
         bore(deck,(x,.035,.004),.0014,.025);bore(flange,(x,.035,-.004),.00165,.020);underside_screw('battery',x,.035)
@@ -260,7 +273,7 @@ def build():
     ob=S.annulus('small pulley groove core',(.125,BELT_Y,.086),SMALL_RADIUS,.0032,.006,'orange');a.add('pulley',ob)
     cyl('pulley','pulley captive retaining screw',(.1307,BELT_Y,.086),.001,.0066,'ink','X')
     a.line('belt','continuous external-tangent belt',belt_points(),BELT_RADIUS,'ink')
-    box('motor-pack','enclosed motor battery',(-.080,.055,-.025),(.100,.050,.040),'ink')
+    box('motor-pack','enclosed motor battery',(-.080,.055,-.025),(.100,.050,.040),'battery')
     flange=box('motor-pack','motor battery connected mounting flange',(-.080,.055,-.004),(.120,.064,.008),'teal')
     for x in [-.132,-.028]:
         bore(deck,(x,.055,.004),.0014,.025);bore(flange,(x,.055,-.004),.00165,.020);underside_screw('motor-pack',x,.055)
@@ -346,7 +359,38 @@ def build():
         foot=box('guard','exposed guard screw foot',(x,y,.012),(.018,.012,.008),'teal')
         bore(foot,(x,y,.012),.00165,.020);bore(deck,(x,y,.004),.0014,.024)
         bolt('guard',x,y,.009,.016)
-    return a.result(projector=pj,slider=slider,deck=deck,guard=guard,dock_fingers=dock_fingers)
+    # One connected clamp fits the exposed right arch, away from the tile.
+    # The original pinwheel's handle slides into a blind rectangular socket.
+    saddle=S.annulus('cargo open arch saddle',(0,0,0),.0055,.0042,.030,'teal',gap=math.pi+.05)
+    saddle.rotation_euler.y=math.pi/2;saddle.location=(.175,.015,.200)
+    a.add('cargo',saddle)
+    support=box('cargo','cargo socket support',(.190,.030,.200),(.058,.040,.028),'teal')
+    cut(support,(.205,.039,.211),(.0156,.0096,.048))
+    cut(support,(.175,.030,.194),(.0086,.050,.0208))
+    bore(support,(.200,.017,.200),.0016,.060,'X')
+    bore(saddle,(.190,.017,.200),.0016,.026,'X')
+    # The clamp tip contacts the arch at x=.179. Its thumb wheel and exposed
+    # shaft stand beyond the support's x=.219 face, clear of the handle socket.
+    cyl('cargo','captive arch clamp screw',(.204,.017,.200),.0015,.050,'ink','X')
+    cyl('cargo','arch clamp thumb wheel',(.225,.017,.200),.006,.009,'orange','X')
+    socket=box('cargo','cargo handle socket',(.205,.039,.205),(.031,.025,.038),'teal')
+    cut(socket,(.205,.039,.211),(.0156,.0096,.048))
+    # The socket's bottom is 1 mm below the original handle's -12 mm tip.
+    for side in (-1,1):
+        box('cargo','soft handle grip pad',(.205+side*.0078,.039,.205),(.0006,.0096,.026),'ink')
+    # Pads are shown at their nominal seated surface. They do not latch: a hand
+    # can lift the handle straight out without an unseen screw-release action.
+    import importlib.util
+    import sys
+    spec=importlib.util.spec_from_file_location('builder_cargo_pinwheel',Path(__file__).parents[1]/'chapter-one-art/pinwheel.py')
+    pinwheel=importlib.util.module_from_spec(spec);sys.modules[spec.name]=pinwheel;spec.loader.exec_module(pinwheel)
+    pw=pinwheel.make();pinwheel.set_state(pw,'pinwheel')
+    pw['root'].parent=a.root;pw['root'].location=PINWHEEL_MOUNT
+    for key,objects in pw['parts'].items():
+        for obj in objects:
+            if obj.type in {'MESH','CURVE'} and not obj.hide_render:
+                a.parts.setdefault('pinwheel:'+key,[]).append(obj)
+    return a.result(projector=pj,pinwheel=pw,slider=slider,deck=deck,guard=guard,dock_fingers=dock_fingers)
 
 
 def stage(model,identity):
@@ -357,12 +401,16 @@ def stage(model,identity):
     pose_dock_studs(model)
     projector.pose(model['projector'])
     visible(model,info['parts'])
-    if info['group'] in {'carrier-work','carrier-finished'}:
+    if info['group'] in {'carrier-work','carrier-cargo'}:
         return dict(location=(.65,-.85,.62),target=(.025,0,.075),scale=.64)
+    if info['group']=='carrier-finished':
+        return dict(location=(.70,-.95,.72),target=(.025,0,.230),scale=.78)
     if info['group']=='carrier-rear':
         return dict(location=(.65,-.85,.62),target=(-.025,0,.075),scale=.64)
     if info['group']=='carrier-under':
         return dict(location=(.65,-.85,.85),target=(.025,0,.16),scale=.64)
+    if info.get('upside'): return inspection(model,(.625,-.85,.69))
+    if info.get('rear'): return inspection(model,(.625,-.85,.545))
     return inspection(model)
 
 
@@ -384,11 +432,16 @@ def pose_dock_studs(model,compression=0.):
 
 def geometry_check():
     """Explicit layout assumptions, not physical strength or flight validation."""
-    masses=[(.30,.004),(.16,.12),(.13,TILE_HEIGHT),(.28,PROJECTOR_MOUNT[2]+.065),(.25,-.025),(.10,-.025),(.06,-.043),(.08,.055)]
-    cg=sum(m*z for m,z in masses)/sum(m for m,z in masses)
+    masses={'deck':(.30,.004),'frame':(.16,.12),'tile':(.13,TILE_HEIGHT),
+            'projector':(.28,PROJECTOR_MOUNT[2]+.065),'lift battery':(.25,-.025),
+            'motor battery':(.10,-.025),'counterweight':(.06,-.043),
+            'drive and shell':(.08,.055),'cargo clip':(.04,.200),
+            'carried pinwheel':(.03,PINWHEEL_MOUNT[2]+.180)}
+    cg=sum(m*z for m,z in masses.values())/sum(m for m,z in masses.values())
     return dict(deck_m=[.4,.3],projector_dimensions_m=[.18,.13,.13],
                 projector_top_m=PROJECTOR_MOUNT[2]+.132, # includes the connected lid return
                 cradle_bottom_m=.204,tile_force_height_m=TILE_HEIGHT,assumed_cg_m=cg,
+                assumed_masses_kg_and_height_m=masses,
                 lift_above_assumed_cg_m=TILE_HEIGHT-cg,
                 shaft_height_error_m=DRIVEN[1]-DRIVER[1],
                 speed_ratio=(SMALL_RADIUS+BELT_RADIUS)/(BIG_RADIUS+BELT_RADIUS),
@@ -405,6 +458,10 @@ if __name__=='__main__':
     marker='**Items**\n'
     start=text.index('## `c-lift-projector`')
     at=text.index(marker,start)+len(marker)
-    text=text[:at]+'- `star-projector` Star projector\n  - from chapter `c-lift-projector` icon: ![Star projector](assets/items/fc-projector-carried.webp)\n'+text[at:]
+    text=text[:at]+'- `star-projector` Star projector\n  - from chapter `c-lift-projector` icon: ![Star projector](assets/items/fc-projector-carried.webp)\n  - from chapter `c-lift-projector` animation: none\n'+text[at:]
+    start=text.index('## `c-whale-cargo`');at=text.index(marker,start)+len(marker)
+    carried='- `fc-guarded` Whale\n  - from chapter `c-whale-cargo` icon: ![Whale](assets/items/fc-cargo-ready.webp)\n'
+    carried+='- `pinwheel` Pinwheel\n  - from chapter `c-whale-cargo` icon: ![Pinwheel](assets/items/fc-pinwheel-carried.webp)\n  - from chapter `c-whale-cargo` animation: none\n'
+    text=text[:at]+carried+text[at:]
     Path(__file__).with_suffix('.md').write_text(text)
-    print(f'Carrier: {len(PLAN)} images; {len(A.recipes)} recipes; four chapters.')
+    print(f'Carrier: {len(PLAN)} images; {len(A.recipes)} recipes; five chapters.')

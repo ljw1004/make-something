@@ -8,7 +8,7 @@ import {detailedTurn,hasDetailedActions} from './detailed.ts';
 import {detailedCommand,isLook} from './commands.ts';
 import type {PlayStyle,PlayerChoice} from './commands.ts';
 import {itemName} from './names.ts';
-import {itemPictureDescription,referencePictureDescription} from './picture-descriptions.ts';
+import {itemArtworkDescription,referencePictureDescription,sceneMotionDescription} from './picture-descriptions.ts';
 export {itemName} from './names.ts';
 
 export interface Message { kind: 'story'|'chapter'|'goals'|'board'|'result'|'wonder'|'goal-changes'|'chapter-completed'|'ending'; text: string }
@@ -72,16 +72,16 @@ export function board(story: Story, state: State): string {
   const observation = chapterSurface(story, state);
   const items = observation.items.map(item => {
     const slots = item.slots.filter(s => !s.filled && s.name).map(s => s.name);
-    const picture=itemPictureDescription(story,state,item.id);
-    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${itemName(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}${picture ? `\n  Picture: ${picture}` : ''}`;
+    const artwork=itemArtworkDescription(story,state,item.id);
+    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${itemName(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}${artwork ? `\n  ${artwork.replaceAll('\n','\n  ')}` : ''}`;
   });
   const hotspots = observation.hotspots.map(h => {
     const token=state.tokens[h.id], slots=story.items[h.id].slots.filter(slot=>slot.name&&!token.slots.includes(slot.accepts)).map(slot=>slot.name);
-    const picture=itemPictureDescription(story,state,h.id);
-    return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}${picture ? `\n  Picture: ${picture}` : ''}`;
+    const artwork=itemArtworkDescription(story,state,h.id);
+    return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}${artwork ? `\n  ${artwork.replaceAll('\n','\n  ')}` : ''}`;
   });
-  const reference=referencePictureDescription(story,state);
-  return `${goalsText(story,state)}${reference ? `\n\nBuild reference: ${reference}` : ''}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
+  const reference=referencePictureDescription(story,state),sceneMotion=sceneMotionDescription(story,state);
+  return `${goalsText(story,state)}${sceneMotion ? `\n\nScene motion: ${sceneMotion}` : ''}${reference ? `\n\nBuild reference: ${reference}` : ''}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
 }
 function wonderText(markdown:string):string {return `  ${markdown.replace(/\s+/g,' ').trim()}`;}
 function wonderMessages(before: State, after: State): Message[] {
@@ -108,7 +108,8 @@ function completedHistory(story: Story, target: State): Message[] {
     const group = chapters.get(before.chapter)!, events = group.messages, step = group.step++;
     if (action.type === 'combine') {
       const recipe = recipeFor(story,before,action)!;
-      events.push({kind:'result',text:`Step ${step} combination: ${optionText(story,before,action)} -> ${itemName(story,state,recipe.result.id)}`},...wonderMessages(before,state));
+      const artwork=!before.tokens[recipe.result.id] ? itemArtworkDescription(story,state,recipe.result.id) : '';
+      events.push({kind:'result',text:`Step ${step} combination: ${optionText(story,before,action)} -> ${itemName(story,state,recipe.result.id)}${artwork ? `\n  ${artwork.replaceAll('\n','\n  ')}` : ''}`},...wonderMessages(before,state));
     } else events.push({kind:'result',text:`Step ${step} preparation: ${optionText(story,before,action)}`});
     events.push(...goalChanges(story,before,state));
   }
@@ -177,7 +178,8 @@ function changes(story: Story, before: State, after: State): string[] {
     const old = before.tokens[token.id], name = itemName(story, after, token.id);
     if (!old) {
       const empty = story.items[token.id].slots.filter(s => !token.slots.includes(s.accepts) && s.name).map(s => s.name);
-      result.push(`Created: ${name}.${empty.length ? ` Empty slots: ${empty.join(', ')}.` : ''}`);
+      const artwork=itemArtworkDescription(story,after,token.id);
+      result.push(`Created: ${name}.${empty.length ? ` Empty slots: ${empty.join(', ')}.` : ''}${artwork ? `\n  ${artwork.replaceAll('\n','\n  ')}` : ''}`);
     }
     else {
       const added = token.slots.filter(id => !old.slots.includes(id));

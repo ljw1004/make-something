@@ -1,20 +1,30 @@
-import type {Hotspot, Icon, Ref, Story} from '../story/types.ts';
+import type {HeadingImage, Hotspot, Icon, Ref, Story} from '../story/types.ts';
 import type {State} from './types.ts';
 import {chapterIndex} from '../story/chapters.ts';
 import {hotspotDefinition} from './fixed-items.ts';
 
+/** Inherit motion only with its poster; a fresh static background resets it. */
+export function backgroundAnimation(story: Story, chapter: number): HeadingImage | undefined {
+  for (let index = chapter; index >= 0; index--) {
+    const scene = story.chapters[index];
+    if (scene.backgroundAnimation !== undefined) return scene.backgroundAnimation ?? undefined;
+    if (scene.image) return;
+  }
+}
+
 /** Names and icons advance independently, by story order rather than declaration order. */
-export function itemPresentation(story: Story, chapter: number, id: string): {name: string; icon?: Icon} {
+export function itemPresentation(story: Story, chapter: number, id: string): {name: string; icon?: Icon; animation?: HeadingImage} {
   const item = story.items[id];
   if (!item) return {name: story.hotspots[id]?.name ?? id};
-  let name = item.name, icon = item.icon, nameChapter = -1, iconChapter = -1;
+  let name = item.name, icon = item.icon, animation = item.animation, nameChapter = -1, iconChapter = -1, animationChapter = -1;
   for (const change of item.presentations) {
     const index = chapterIndex(story, change.chapter);
     if (index < 0 || index > chapter) continue;
     if (change.name !== undefined && index > nameChapter) { name = change.name; nameChapter = index; }
     if (change.icon && index > iconChapter) { icon = change.icon; iconChapter = index; }
+    if (change.animation !== undefined && index > animationChapter) { animation = change.animation ?? undefined; animationChapter = index; }
   }
-  return {name, icon};
+  return {name, icon, ...(animation ? {animation} : {})};
 }
 
 /** Token records and their fitted contents survive consumption and transformation. */

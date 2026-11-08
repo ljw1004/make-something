@@ -17,7 +17,9 @@ item('cl-base','Palm',['base'],'cl-mechanism',240,e='A broad prepared palm with 
 parts=[(1,'jaw-1','Left jaw'),(2,'jaw-2','Right jaw'),(4,'slider','Slider'),(8,'link-1','Link'),(16,'link-2','Link'),(32,'pad-1','Pad'),(64,'pad-2','Pad')]
 for bit,part,name in parts:
     e={'jaw-1':'A single jaw with captive pivot and link pins. Its left-facing shape matches the left side of the palm.', 'jaw-2':'The reflected right jaw has its own captive pins.', 'slider':'One retained sliding shoe inside its guide, including travel stops and the moving return-band hook.', 'link-1':'A rigid 52 mm link with split eyes that snap sideways onto the captive pins. Either link fits either side.', 'link-2':'A rigid 52 mm link with split eyes. Either link fits either side.', 'pad-1':'One soft pad for the inside face of a jaw. Either pad fits either jaw.', 'pad-2':'One soft pad. Either pad fits either jaw.'}[part]
-    item('cl-'+part,name,[part if part not in ('link-2','pad-2') else part[:-1]+'1'],s=160 if part.startswith('jaw') else 120,e=e)
+    # Show both interchangeable copies in their guided fitting poses. Their
+    # IDs still do not select a seat: either copy can turn into either mounting.
+    item('cl-'+part,name,[part],s=160 if part.startswith('jaw') else 120,e=e)
 def valid(mask):
     return (not mask&8 or mask&5==5) and (not mask&16 or mask&6==6) and (not mask&32 or mask&1) and (not mask&64 or mask&2)
 states={mask:('cl-base' if not mask else 'cl-mechanical' if mask==127 else 'cl-mech-'+str(mask)) for mask in range(128) if valid(mask)}
@@ -64,7 +66,11 @@ for mask,i in mounted.items():
 item('cl-controller','Hand syringe',['input','tube'],'cl-control',190)
 item('pneumatic-claw','Pneumatic claw',R.plan[mounted[7]]['parts']+['input','tube'],'cl-finished',345,e='Pushing the hand syringe moves air through the hose into the output syringe. The output plunger moves the slider; the two rigid links turn the jaws. The elastic loop opens them as the plunger returns. The drawings show the available mechanism travel, not a measured grip force.')
 recipes += [('cl-input','cl-tube','cl-controller'),(mounted[7],'cl-controller','pneumatic-claw')]
-R.page('c-claw-air','Syringes and a hose','pneumatic-claw',[i for i in R.items if i not in first],[('Slide either cup to the farther seat',['cl-front-supported','cl-supported-output']),('Fit the other cup behind it','cl-supported-output'),('Fit the plunger clip',[mounted[m] for m in mounted if m&1]),('Fit the syringe into the claw',[mounted[m] for m in mounted if m&2]),('Loop the return band over its hooks',[mounted[m] for m in mounted if m&4]),('Push the hose onto the hand syringe','cl-controller'),('Connect the hose to the claw','pneumatic-claw')],recipes)
+R.page('c-claw-air','Syringes and a hose','pneumatic-claw',[i for i in R.items if i not in first],[('Slide a Cup onto the Syringe',['cl-front-supported','cl-supported-output']),('Slide the other Cup onto the Syringe','cl-supported-output'),('Fit the Plunger clip to the Claw',[mounted[m] for m in mounted if m&1]),('Fit the syringe into the claw',[mounted[m] for m in mounted if m&2]),('Loop the return band over its hooks',[mounted[m] for m in mounted if m&4]),('Push the hose onto the hand syringe','cl-controller'),('Connect the hose to the claw','pneumatic-claw')],recipes)
+R.plan['cl-output'].update(group='cl-syringe',css=200)
+R.plan['cl-input'].update(group='cl-control',css=190)
+for entry in R.plan.values():
+    if entry['group'] in {'cl-mechanism','cl-powered'}:entry.update(group='cl-work',css=300)
 PLAN=R.plan
 
 
@@ -77,7 +83,9 @@ def legacy():
 
 
 def dimensions():
-    return legacy().Dimensions(beam_back=-.195,beam_front=.035,beam_width=.140,control_barrel_back=-.175,control_y=-.095)
+    return legacy().Dimensions(beam_back=-.195,beam_front=.035,beam_width=.140,
+                               control_barrel_back=-.175,control_y=-.095,
+                               band_y=.050,band_loop_radius=.0055)
 
 
 def tube_path(d):
@@ -181,6 +189,34 @@ def build():
         ('moving return hook outside bridge',(0,d.band_y,.047),(.018,.006,.004)),
     ]:
         obj=S.box(name,center,size,color='teal');obj.parent=m['slider'];assign(obj,'slider');m['objects'].append(obj)
+    # The return loop occupies a clear outboard lane of the broad palm. Real
+    # 9.4 mm hook posts spread its two strands 11 mm apart; the original
+    # 1.5 mm rubber section wraps against those posts without floating around
+    # undersized pins. Their caps retain the loop above its working plane.
+    # The fixed foot and moving bracket are prepared parts from the outset.
+    fixed_foot=next(o for o in owned['base'] if o.name=='fixed return anchor support')
+    # Keep the original narrow edge beside the syringe cup; widen the foot
+    # only beyond that cup's installation corridor.
+    foot_plan=((- .155,-.008),(-.141,-.008),(-.141,.010),(-.133,.010),
+               (-.133,.038),(-.128,.038),(-.128,.058),(-.154,.058),
+               (-.154,.014),(-.155,.014))
+    replacement=old._prism_xy(S,'outboard return anchor foot',foot_plan,.0034,.0163,'teal','base')
+    fixed_foot.data=replacement.data;bpy.data.objects.remove(replacement,do_unlink=True)
+    # A 0.05 mm radial allowance also clears the faceted curve between samples.
+    hook_radius=d.band_loop_radius-.00075-.00005
+    for key in ('base','slider'):
+        for obj in owned[key]:
+            if not obj.name.startswith('return anchor hook'):continue
+            radius=.0065 if 'cap' in obj.name else hook_radius
+            for vertex in obj.data.vertices:
+                radial=math.hypot(vertex.co.x,vertex.co.y)
+                if radial:
+                    vertex.co.x*=radius/radial;vertex.co.y*=radius/radial
+            obj.data.update()
+    for index,(member,receiver,point,radius) in enumerate(m['factory_embeds']):
+        try:is_fixed_hook=member.name=='return anchor hook False'
+        except ReferenceError:continue  # Earlier replacement parts have no live receiver.
+        if is_fixed_hook:m['factory_embeds'][index]=(member,receiver,point,hook_radius)
     # Prepared jaw pockets receive the full pad thickness without burying soft
     # material in wood. They remain open toward each jaw's gripping face.
     for sign,jaw in zip((1,-1),m['jaws']):
@@ -221,9 +257,10 @@ def build():
                 bpy.context.view_layer.objects.active=obj;mod=obj.modifiers.new('open flexible snap prongs','BOOLEAN');mod.object=cutter;mod.operation='DIFFERENCE';bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
     from middle.views import curve_points
     hose=next(o for o in owned['tube'] if o.type=='CURVE');curve_points(hose,tube_path(d))
-    # Dark rubber separates the actual return loop from the pale wooden palm
-    # and the orange linkage/straps at the powered workpiece's display size.
-    core.surface(m['band'],S.material('ink'))
+    # Cream rubber keeps the narrow return loop distinct from its charcoal
+    # hooks and green support bracket at the powered workpiece's display size.
+    # The wider hook route exposes both strands with the original wire section.
+    core.surface(m['band'],S.material('paper'))
     model={**m,'root':root,'parts':owned,'tube':hose}
     apply_pose(model,0)
     bpy.context.view_layer.update();return model
@@ -238,11 +275,13 @@ def stage(model,identity):
     from middle.views import stage_view
     if identity not in PLAN:raise KeyError(identity)
     apply_pose(model,0)
-    if PLAN[identity]['group']=='cl-powered':
-        # The return loop lies on +Y. View that side so fitting the real loop
-        # remains visible beside the opaque thumb plate and return bracket.
+    # Preserve the accepted finished camera. The
+    # construction camera looks between the jaw tips to expose both inner pad
+    # faces; its slight +Y offset also keeps the return band visible. Every loose
+    # part and additive workpiece uses that same direction and roll.
+    if identity=='pneumatic-claw':
         return stage_view(model,PLAN,identity,direction=(.70,.9,1.75),roll=.3)
-    return stage_view(model,PLAN,identity,direction=(.70,-.9,1.25),roll=-.3)
+    return stage_view(model,PLAN,identity,direction=(1.5,.12,.8),roll=1.0)
 
 
 if __name__=='__main__':R.write(__file__)

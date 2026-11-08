@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to flip the table, and this is the only available action.",
+    "choice": 1,
+    "expectation": "The table should turn over, exposing its underside for the flipper fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The underside is exposed, and the next goal is to fit the pivot plate.",
+    "reaction": "The visible slots make the change of orientation clear.",
+    "step": 2,
+    "reason": "The goal calls for the pivot plate, and it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The pivot plate should attach to the underside, positioning its pins for the flippers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pivot plate is now across the underside, and the next goal is to fit the support.",
+    "reaction": "The pins and side fittings make the added mechanism distinct.",
+    "step": 3,
+    "reason": "The goal calls for the support, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The support should attach to the table, probably raising or bracing it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support now surrounds the underside, and the table is ready to be flipped upright.",
+    "reaction": "The stand is a clear addition, though its support function is not yet visible.",
+    "step": 4,
+    "reason": "The goal calls for flipping the table upright, and this is the only offered action.",
+    "choice": 1,
+    "expectation": "The table should turn upright on its support, exposing the playing surface again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table is upright and tilted, with pins visible for the paddles.",
+    "reaction": "The tilt makes the support's purpose clearer.",
+    "step": 5,
+    "reason": "The goal calls for the left paddle, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The left paddle should snap onto one of the pins on the playing surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left paddle is fitted, and the next goal is to add the right paddle.",
+    "reaction": "The contrasting paddle is a clear addition to the playing surface.",
+    "step": 6,
+    "reason": "The goal calls for the right paddle, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The right paddle should snap onto the other pin beside the opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second paddle is fitted, completing the chapter's goals.",
+    "reaction": "The two differently angled paddles make the finished pair distinct, though no motion is shown.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Flipping the supported table upright made the stand's purpose clearer and revealed the pins for the paddles.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the second paddle was predictable after the first, though the instruction was clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The upright table was tilted, clarifying how the support positions the playing surface.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless; each instruction contributed to the table, although each decision offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the rest of the pinball table assembled, though the single-option sequence leaves little room for decisions.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

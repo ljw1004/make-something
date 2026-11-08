@@ -1864,3 +1864,52 @@ replay after the label correction. Regeneration matches the frozen candidate
 exactly; all 454 selected published assets and 47 current source hashes match the
 production record. Temporary static preview servers were stopped, preserving the
 existing development server.
+
+## 8 November 2026 — Builder working toys and a silent exchange
+
+The user authorized the complete revision and push: centered lone processes,
+chapter and goal-picture titles, crops based on current geometry, visible fitting
+sites, matching loose/fitted orientations, usable thin-part targets and blue battery
+cases. These are adopted in the [UX contract](docs/ux.md) and
+[single story brief](stories/builder/design-brief.md).
+
+[The Next Box](stories/builder/builder.md) now has 216 construction actions,
+521 recipes, 32 playable chapters and an ending. Periscope and kaleidoscope give
+way to three final constructions with unremarked pink components: Window, String
+spinner and Whale. Three blind concept rounds developed the quiet connection;
+actual-film reviews then refined the final exchange without explanatory text.
+Thirteen completed toys have working WebP loops, while intermediate assemblies
+remain still. The ten-second ending plays once and holds its final pose.
+
+The engine uses each static icon's authored dimensions for its optional animation,
+so reduced-resolution movies need no separate scale field. It retains a poster on
+decode failure or reduced motion, preserves playback through ordinary redraws,
+and supports an animated chapter background. Literal Picture/Motion descriptions
+let text players observe the current artwork without showing hidden hints or
+future stages. The [format specification](docs/story-format-spec.md) owns the
+syntax; current authoring and icon guidance own the visual review requirements.
+
+The [revision record](projects/builder-study/next-phase.md#final-acceptance--8-november-2026)
+retains concise review outcomes, corrections, exact playtest versions and limits.
+All 32 fast chapter trials completed; selected detailed tests used three fresh
+players across seven chapters, with replacements after caption/instruction fixes.
+Players valued recognizable joins and working finishes, while the deliberate
+guided steps scored no meaningful decisions under the Fun rubric. Independent
+movie readers followed the exchange; neither AI reports nor nominal mechanical
+sweeps establish child enjoyment or real material performance.
+
+Full 216-action pointer routes passed on two phone viewports and desktop. All
+521 recipes were witnessed in exhaustive graph traversal. Application tests,
+TypeScript, production build and compiled smoke checks passed after the documented
+snapshot-wait corrections. Standard story lint retains only the existing Claw
+opportunity-analysis bound; it is not described as a clean lint pass. Native 3D
+delivery and human trials remain in the backlog.
+
+The promoted [v48](projects/builder-study/builder-v48.md) has SHA256
+`85e5fe34fd590fb351b9af8f5ee8a3ebd8b4e2940a7af2953e070a346cdf5ae3`.
+Its only post-playtest change removes an ambiguous color adjective from a hidden
+picture description. [Production provenance](projects/builder-study/runtime-art.json)
+binds all 521 selected assets to canonical sources and render passes. Selected
+runtime art has one home; obsolete assets and disposable verification output are
+removed. Source and generated publication files accompany the authorized commit
+and push; private access settings and the existing development server are preserved.

@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "Flipping the deck follows the current goal and should expose the mounting side.",
+    "choice": 5,
+    "expectation": "The underside of the deck will be visible, ready for the next fitting.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A wheel and motor could be assembled, but the stated goal comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flip exposed the bare side of the deck, and the next goal is to fit a wheel to the left motor.",
+    "reaction": "The change of face is clear, though the bare board is not especially surprising.",
+    "step": 2,
+    "reason": "This directly follows the goal; either numbered wheel appears suitable.",
+    "choice": 1,
+    "expectation": "The black wheel will attach to the left motor's projecting shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel is attached to the left motor, and the next goal is to build the right drive.",
+    "reaction": "The wheel-on-shaft change is clear.",
+    "step": 3,
+    "reason": "This follows the current goal and completes the matching drive.",
+    "choice": 1,
+    "expectation": "The remaining wheel will fit onto the right motor's shaft.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could mount the left drive now, but the goal calls for assembling the right one first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both wheel-and-motor drives are assembled; the next goal is to mount the left one.",
+    "reaction": "The matching assembly is clear, though repetitive.",
+    "step": 4,
+    "reason": "Mounting the left drive follows the current goal.",
+    "choice": 1,
+    "expectation": "The left motor and wheel will attach to the exposed side of the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left drive is mounted, and the next goal is to fit the right drive.",
+    "reaction": "The added wheel and motor are a clear physical change.",
+    "step": 5,
+    "reason": "The right drive matches the current goal.",
+    "choice": 1,
+    "expectation": "The second motor and wheel will attach to the rover deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both drives are mounted, and the next goal is to fit the caster.",
+    "reaction": "The second wheel makes the paired drive arrangement clear.",
+    "step": 6,
+    "reason": "The caster matches the current goal and should provide another point of support.",
+    "choice": 1,
+    "expectation": "The caster will attach beneath the rover deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, and the next goal is to add the battery pack.",
+    "reaction": "The round-topped foot is a distinct addition, though its underside attachment isn't clear from this view.",
+    "step": 7,
+    "reason": "The battery pack matches the current goal and should provide power.",
+    "choice": 1,
+    "expectation": "The blue battery pack will mount on the rover deck; I don't yet know whether it will be connected electrically.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is mounted; the receiver is the next goal. Its electrical connection is not shown clearly.",
+    "reaction": "The blue box is a distinct addition.",
+    "step": 8,
+    "reason": "Fitting the receiver follows the goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "The receiver will mount on the rover, though I don't know whether its wiring will be connected yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is fitted and the rover chapter is complete, though the picture does not clarify its wiring or show it moving.",
+    "reaction": "The completed collection of components is clear, but I would have liked to see the rover in motion.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the second drive made the paired wheel-and-motor arrangement clear and brought the rover together.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Assembling the second wheel and motor repeated the first assembly, although the instructions were clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Completion came after fitting the receiver without a described wiring step or motion.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but the battery and receiver fittings did not make their electrical connections clear.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see the rover operate, but this chapter's straightforward, repetitive fittings alone were not a strong hook.",
+        "steps": [
+          2,
+          3,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

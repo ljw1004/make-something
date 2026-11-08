@@ -266,13 +266,21 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (target.icon && (target.icon.url !== value.url || target.icon.circular !== value.circular || target.icon.position?.x !== value.position?.x || target.icon.position?.y !== value.position?.y)) error('conflicting-icon', `${target.name} already has a different icon; the first declaration is used.`, node.line, node.text);
     else target.icon ??= value;
   }
+  function animation(raw: string, node: Bullet): Item['animation'] {
+    const match = /^!\[([^\]]*)\]\(([^)]+)\)$/.exec(raw);
+    if (!match?.[2].trim() || node.children.length || node.prose.some(part => part.text.trim())) {
+      error('animation-syntax', 'Use animation: ![description](path) with exactly one image and no nested content.', node.line, node.text);
+      return;
+    }
+    return {alt: match[1], url: match[2].trim(), source: source(node.line, node.text)};
+  }
   function presentation(item: Item, node: Bullet) {
-    const invalid = () => error('from-chapter-syntax', 'Use from chapter `id`: Name or from chapter "Title" icon: ![icon](path). Titles may also use quotes, italics or bold; bare numbers and names are invalid.', node.line, node.text);
+    const invalid = () => error('from-chapter-syntax', 'Use from chapter `id`: Name, from chapter "Title" icon: ![icon](path), or from chapter `id` animation: ![description](path) / none. Titles may also use quotes, italics or bold; bare numbers and names are invalid.', node.line, node.text);
     if (!node.text.startsWith('from chapter ') || node.children.length || node.prose.some(part => part.text.trim())) { invalid(); return; }
     const rest = node.text.slice('from chapter '.length), parts = splitLocated(rest, ':');
     if (parts.length < 2) { invalid(); return; }
-    const hasIcon = /\s+icon$/.test(parts[0].text);
-    const raw = hasIcon ? parts[0].text.replace(/\s+icon$/, '') : parts[0].text;
+    const property = /\s+(icon|animation)$/.exec(parts[0].text)?.[1];
+    const raw = property ? parts[0].text.replace(/\s+(icon|animation)$/, '') : parts[0].text;
     const value = unquote(raw), identifier = /^`([^`]+)`$/.exec(value);
     if (!value.trim() || (identifier ? !identifier[1].trim() : value === raw || value.startsWith('`'))) { invalid(); return; }
     const from = startOf(node.text, node.line) + 'from chapter '.length + parts[0].from;
@@ -281,9 +289,12 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const body = rest.slice(rest.indexOf(':', parts[0].to) + 1).trim();
     if (!body) { invalid(); return; }
     if (!item.id.startsWith('id:')) error('from-chapter-item-id', 'An item with from chapter metadata must have a backtick identifier, used by every authored reference.', node.line, node.text);
-    if (hasIcon) {
+    if (property === 'icon') {
       const value = icon(`icon: ${body}`, node.line);
       if (value) { value.source = source(node.line, node.text); item.presentations.push({chapter, icon: value, source: source(node.line, node.text)}); }
+    } else if (property === 'animation') {
+      const value = body === 'none' ? null : animation(body, node);
+      if (value !== undefined) item.presentations.push({chapter, animation: value, source: source(node.line, node.text)});
     } else {
       const name = unquote(body);
       if (!name.trim()) { invalid(); return; }
@@ -291,6 +302,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     }
   }
   function itemNode(node: Bullet, parent?: Ref, at?: string, topLevelItem = false): Ref | undefined {
+    if (/^animation\s*:/.test(node.text)) {
+      error('animation-placement', 'An animation belongs directly beneath a standalone top-level Items declaration.', node.line, node.text);
+      return;
+    }
     if (/^icon\s+after\b/.test(node.text)) {
       error('conditional-icon-context', 'icon after creating belongs directly beneath a Hotspots declaration.', node.line, node.text);
       return;
@@ -319,6 +334,16 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (!result) return;
     const item = story.items[result.id]; wonder(item, node.prose, node.line);
     for (const child of node.children) {
+      if (/^animation\s*:/.test(child.text)) {
+        if (!topLevelItem || isRule || result.slots.length) error('animation-placement', 'An animation belongs directly beneath a standalone top-level Items declaration without fitted-slot qualifiers.', child.line, child.text);
+        else if (!child.text.startsWith('animation:')) error('animation-syntax', 'Use animation: ![description](path) with exactly one image and no nested content.', child.line, child.text);
+        else {
+          const value = animation(child.text.slice(child.text.indexOf(':') + 1).trim(), child);
+          if (value && item.animation && item.animation.url !== value.url) error('conflicting-animation', `${item.name} already has a different animation; the first declaration is used.`, child.line, child.text);
+          else if (value) item.animation ??= value;
+        }
+        continue;
+      }
       if (/^(?:from|after)\s+chapter\b/.test(child.text)) {
         if (isRule || result.slots.length) error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration without fitted-slot qualifiers.', child.line, child.text);
         else presentation(item, child);
@@ -350,6 +375,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     return { text, operator: op, next };
   }
   function condition(raw: string, line: number, from: number): Condition | undefined {
+    if (/^animation\s*:/.test(raw)) {
+      error('animation-placement', 'An animation belongs directly beneath a standalone top-level Items declaration.', line, raw);
+      return;
+    }
     if (/^hitbox\s*:/.test(raw)) {
       error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', line, raw);
       return;
@@ -383,16 +412,35 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     });
     return {image, content};
   }
-  function extractReference(body: Line[], heading?: Line, background?: string): {reference?: Chapter['reference']; content: Line[]} {
+  function extractBackgroundAnimation(body: Line[], heading?: Line, background?: string): {animation?: Chapter['backgroundAnimation']; line?: number; content: Line[]} {
     const firstLine = heading ? originalLines.findIndex((text, index) => index >= heading.line && text.trim()) + 1 : 0;
-    const expectedLine = background
-      ? originalLines.findIndex((text, index) => index >= firstLine && text.trim()) + 1 : firstLine;
+    const expectedLine = background ? originalLines.findIndex((text, index) => index >= firstLine && text.trim()) + 1 : firstLine;
+    let animation: Chapter['backgroundAnimation'], declarationLine: number | undefined;
+    const content = body.filter(line => {
+      if (!/^[\t ]*background\s+animation\s*:/.test(line.text)) return true;
+      const first = line.line === expectedLine;
+      if (!heading) error('background-animation-context', 'background animation: belongs to a chapter, not the cover.', line.line);
+      else if (!first) error('background-animation-position', 'background animation: must immediately follow the chapter background, or be the first nonblank line after an inheriting chapter heading; only one is allowed.', line.line);
+      const match = /^[\t ]*background animation:[\t ]+(?:(!\[([^\]]*)\]\(([^)]+)\))|(none))[\t ]*$/.exec(line.text);
+      if (!match || !match[4] && !match[3]?.trim()) error('background-animation-syntax', 'Use background animation: ![description](nonempty-path) or background animation: none on its own line.', line.line);
+      else if (heading && first) {
+        animation = match[4] ? null : {alt: match[2], url: match[3].trim(), source: source(line.line)};
+        declarationLine = line.line;
+      }
+      return false;
+    });
+    return {animation, line: declarationLine, content};
+  }
+  function extractReference(body: Line[], heading?: Line, background?: string, animationLine?: number): {reference?: Chapter['reference']; content: Line[]} {
+    const firstLine = heading ? originalLines.findIndex((text, index) => index >= heading.line && text.trim()) + 1 : 0;
+    const expectedLine = animationLine || background
+      ? originalLines.findIndex((text, index) => index >= (animationLine ?? firstLine) && text.trim()) + 1 : firstLine;
     let reference: Chapter['reference'];
     const content = body.filter(line => {
       if (!/^[\t ]*reference\s*:/.test(line.text)) return true;
       const first = line.line === expectedLine;
       if (!heading) error('reference-context', 'reference: belongs after a chapter heading, not on the cover.', line.line);
-      else if (!first) error('reference-position', 'reference: must be the first nonblank line after the chapter background, or after the chapter heading when no background is declared; only one reference is allowed.', line.line);
+      else if (!first) error('reference-position', 'reference: must immediately follow the chapter background and optional background animation, or the chapter heading when neither is declared; only one reference is allowed.', line.line);
       const match = /^[\t ]*reference:[\t ]+!\[([^\]]*)\]\(([^)]+)\)[\t ]*$/.exec(line.text);
       if (!match?.[1].trim() || !match[2].trim()) error('reference-syntax', 'Use reference: ![nonempty caption](nonempty-path) on a line of its own.', line.line);
       else if (heading && first) reference = {alt: match[1].trim(), url: match[2].trim(), source: source(line.line)};
@@ -416,7 +464,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   if (title) story.source = source(title.line);
   if (!title) error('missing-title', 'A story needs a # title.', 1);
   const cover = extractBackground(preamble.filter(l => l !== title), title);
-  story.description = extractReference(cover.content).content.map(l => l.text).join('\n').trim();
+  story.description = extractReference(extractBackgroundAnimation(cover.content).content).content.map(l => l.text).join('\n').trim();
   if (cover.image) story.cover = cover.image;
   for (const block of chapterLines) {
     const heading = chapterHeading(block.heading.text.slice(3));
@@ -427,7 +475,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
     const background = extractBackground(block.lines, block.heading);
     if (background.image) chapter.image = background.image;
-    const reference = extractReference(background.content, block.heading, background.image);
+    const animation = extractBackgroundAnimation(background.content, block.heading, background.image);
+    if (animation.animation !== undefined) chapter.backgroundAnimation = animation.animation;
+    const reference = extractReference(animation.content, block.heading, background.image, animation.line);
     if (reference.reference) chapter.reference = reference.reference;
     for (const line of reference.content) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
@@ -514,6 +564,7 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
         error('hotspot-acknowledgment-syntax', 'Use the exact three-hotspot acknowledgment wording and a top-level hyphen bullet.', node.line);continue;
       }
       if (/^place\s*:/.test(node.text)) { error('place-context', 'place: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
+      if (/^animation\s*:/.test(node.text)) { error('animation-placement', 'An animation belongs directly beneath a standalone top-level Items declaration.', node.line, node.text); continue; }
       if (/^hitbox\s*:/.test(node.text)) { error('hitbox-context', 'hitbox: belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^icon\s+after\b/.test(node.text)) { error('conditional-icon-context', 'icon after creating belongs directly beneath a Hotspots declaration.', node.line, node.text); continue; }
       if (/^(?:from|after)\s+chapter\b/.test(node.text)) { error('from-chapter-context', 'from chapter belongs directly beneath a standalone item declaration.', node.line, node.text); continue; }

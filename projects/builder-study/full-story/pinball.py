@@ -16,6 +16,8 @@ supplies = [('tray','Tray'),('left-rail','Left rail'),('right-rail','Right rail'
             ('barrel','Launcher cradle'),('rod','Plunger rod'),('tip','Plunger tip'),('cover','Launcher cover'),('spring','Spring'),('arch-low','Lower arch'),('arch-mid','Middle arch'),
             ('arch-high','Upper arch'),('score','Score wheel'),('marble','Marble')]
 for key, name in supplies: item('bf-pb-'+key, name, [key], css=220 if key=='tray' else 105)
+PLAN['bf-pb-tray'].update(group='pb-rails',css=245,pose='top')
+PLAN['bf-pb-rod'].update(group='pb-launcher-build',css=190)
 
 CHAPTERS=[]
 state=['tray']; current='bf-pb-tray'
@@ -60,12 +62,20 @@ CHAPTERS.append(dict(id='bf-pb-launcher-build',title='A spring launcher',steps=t
 third=[]
 for key,result,goal in [('arch-low','bf-pb-target-1','Fit the Lower arch'),
                        ('arch-mid','bf-pb-target-2','Fit the Middle arch'),('arch-high','bf-pb-target-3','Fit the Upper arch'),
-                       ('score','bf-pb-scored','Fit the Score wheel'),('marble','pinball-table','Put the Marble in its cup')]:
+                       ('score','bf-pb-scored','Fit the Score wheel'),('marble','pinball-table','Set the Marble on the Table')]:
+    if key=='score':
+        item('bf-pb-score-facing','Table',state,group='pb-score-work',css=245,pose='top')
+        third.append((current,'bf-pb-score-flip','bf-pb-score-facing','Turn the Table toward the Score wheel'))
+        current='bf-pb-score-facing'
     reagent='bf-pb-'+key
     state += [key]
-    item(result,'Pinball table' if result=='pinball-table' else 'Table',state,group='pb-targets' if result!='pinball-table' else result,css=350 if result=='pinball-table' else 245,pose='top')
+    item(result,'Pinball table' if result=='pinball-table' else 'Table',state,group=('pb-score-work' if key=='score' else 'pb-targets') if result!='pinball-table' else result,css=350 if result=='pinball-table' else 245,pose='top')
     third.append((current,reagent,result,goal));current=result
-CHAPTERS.append(dict(id='bf-pb-targets',title='One more go',steps=third,reference='pinball-table'))
+CHAPTERS.append(dict(id='bf-pb-targets',title='One more go',steps=third,reference='pinball-table',processes={'bf-pb-score-flip':'flip'}))
+# The existing upright Flip starts a high working view. Keep its scale and
+# direction through both paddles, launcher and arches, until the score Flip.
+for info in PLAN.values():
+    if info['group'] in {'pb-top','pb-targets'}:info['css']=300
 DESCRIPTIONS={
  'bf-pb-tray':'Prepared plywood with rail slots, flipper holes and integral carrying handles.',
  'bf-pb-plate':'A plate with retained spindles, finger buttons and return loops. The shoulders pass through the prepared tray clearances. Captive screws enter the tray’s threaded receivers from beneath.',
@@ -236,17 +246,37 @@ def build():
 def stage(m,identity):
     info=PLAN[identity];parts=info['parts'];source=m['source']
     m['root'].rotation_euler=(0,0,0);m['root'].location=(0,0,0)
-    supported='support' in parts
+    # Adding the support must not tilt the tray already being worked on.
+    # Its final resting slope appears only at the deliberate upright Flip.
+    under=info.get('pose')=='under' or identity in {'bf-pb-plate','bf-pb-support'}
+    later_parts={'left-paddle','right-paddle','rod','spring','tip','barrel','cover','arch-low','arch-mid','arch-high','score','marble'}
+    supported=not under and ('support' in parts or bool(set(parts)&later_parts))
     m['table'].rotation_euler=(m['dimensions'].slope if supported else 0,0,0)
     m['table'].location.z=.074+.300*math.sin(m['dimensions'].slope) if supported else .074
     source.apply_pose(m,pull=0,flippers=(0,0),long=False)
     m['marble'].location=(0,-.327,-.0015)
-    if info.get('pose')=='under':m['root'].rotation_euler.x=math.pi
+    m['marble'].rotation_euler=(0,0,0)
+    if identity=='pinball-table':
+        # Match frame zero of the existing working loop without adding an
+        # operation step or changing its rally/impact timing.
+        q=7/48;low=-.0938254;x=.040
+        y=low+(.255-low)*4*q*(1-q)
+        m['marble'].location=(x,y,source.marble_support_height(m,x,y))
+        m['marble'].rotation_euler.x=-(y-low)/m['dimensions'].marble_radius
+    if under:m['root'].rotation_euler.x=math.pi
     show(m,parts)
     if info['group']=='pb-launcher-build':
-        return {'location':(.55,-.75,.45),'target':(.175,-.285,.090),'scale':.22}
+        return {'location':(.475,-.735,1.640),'target':(.175,-.285,.090),'scale':.22}
+    if info['group'] in {'pb-top','pb-targets'}:
+        return {'location':(.30,-.465,1.635),'target':(0,-.015,.085),'scale':.83}
+    if info['group']=='pb-score-work' or identity=='pinball-table':
+        return {'location':(-.78,-1.05,.95),'target':(0,-.015,.085),'scale':.83}
     if info['group'].startswith('pb-'):
         return {'location':(.78,-1.05,.95 if info.get('pose')!='under' else .85),'target':(0,-.015,.085 if info.get('pose')!='under' else -.085),'scale':.83}
-    if identity=='bf-pb-score':return inspection(m,parts,direction=(-.7,-1.,.65),margin=1.2)
+    if identity in {'bf-pb-plate','bf-pb-support'}:
+        return inspection(m,parts,direction=(.78,-1.035,.935),margin=1.2)
+    if identity=='bf-pb-score':return inspection(m,parts,direction=(-.78,-1.035,.865),margin=1.2)
+    if identity in {'bf-pb-left-paddle','bf-pb-right-paddle','bf-pb-spring','bf-pb-tip','bf-pb-barrel','bf-pb-cover','bf-pb-arch-low','bf-pb-arch-mid','bf-pb-arch-high'}:
+        return inspection(m,parts,direction=(.30,-.45,1.55),margin=1.2)
     # The asymmetric T handle extends beyond a world-box-centred tight view.
-    return inspection(m,parts,margin=1.65 if identity=='bf-pb-rod' else 1.2)
+    return inspection(m,parts,direction=(.78,-1.035,.865),margin=1.65 if identity=='bf-pb-rod' else 1.2)
