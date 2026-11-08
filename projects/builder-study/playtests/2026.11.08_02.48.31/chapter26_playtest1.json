@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "Closing the box follows the current goal.",
+    "choice": 2,
+    "expectation": "The lid will close over the projector, leaving access for the remaining parts.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The lens and holder belong together, but the current goal asks for the lid first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lid is closed, and the next goal is to assemble the lens and holder.",
+    "reaction": "The exposed opening and shaft make the remaining assembly clear.",
+    "step": 2,
+    "reason": "The only offered combination directly matches the current goal.",
+    "choice": 1,
+    "expectation": "The lens will fit into the holder's green ring.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens is in its holder, ready to fit to the box.",
+    "reaction": "The result matches the expected fitting.",
+    "step": 3,
+    "reason": "The only offered combination follows the current goal.",
+    "choice": 1,
+    "expectation": "The lens holder will attach at the box's front opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens holder is attached, so the hood is next.",
+    "reaction": "The fitting matches the expected front opening.",
+    "step": 4,
+    "reason": "The only offered combination follows the current goal.",
+    "choice": 1,
+    "expectation": "The black hood will fit around the lens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood is fitted, leaving the handle to attach to the spindle.",
+    "reaction": "The projecting tube matches the expected fitting.",
+    "step": 5,
+    "reason": "The only offered combination follows the current goal.",
+    "choice": 1,
+    "expectation": "The handle will attach to the projecting spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handle completes the star projector and the chapter.",
+    "reaction": "The finished shaft and grip make the handle's placement clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the lens holder to the box brought the optical parts together at the front opening.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the hood was straightforward but offered little beyond following the stated goal.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Nothing in this chapter was particularly surprising; the fittings matched their stated goals.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary; each fitted a named part toward the reference.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably stop here: the construction was clear, but the mostly single-option steps offered little choice in the text interface.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

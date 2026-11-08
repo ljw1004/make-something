@@ -3,14 +3,14 @@
 `build.py` is the canonical dimensioned model for the two racer chapters. It
 uses metre coordinates, Z up, with the front axle at positive X. All stages
 select parts of that model. Turning the chassis over applies a rigid half-turn;
-no fitting rescales or bends an existing part. The flat material palette lives
+no fitting rescales or bends an existing part. The chassis starts upright, turns over for the bearings and wheel units, then turns upright for the sail. Flat printed locating marks distinguish its two faces. The flat material palette lives
 in `../materials.py`; there are no texture maps.
 
 `author.py` produces the c02 sail chapter and c-racer-body chassis chapter in
-`../builder-v36.md`, plus the component map `construction-plan.json`. The pinwheel
-stays independent. Thirteen sail recipes and thirty chassis recipes support
+an explicitly named draft, plus the component map `construction-plan.json`. The pinwheel
+stays independent. Thirteen sail recipes and thirty-one chassis recipes support
 independent fitting orders and interchangeable wheels; completion takes four
-and ten actions respectively. `../tools/verify-racer-graph.mjs` exhausts their
+and eleven actions respectively. `../tools/verify-racer-graph.mjs` exhausts their
 legal assembly orders using the shared engine, including terminal leftovers.
 
 Each of the two straws receives two individual wheels. The wheel sockets have
@@ -39,14 +39,14 @@ engine-owned; visible materials are opaque and actual openings transparent.
 Run from the repository root with a Pillow-enabled Python:
 
 ```sh
-python3 projects/builder-study/racer-art/author.py
+python3 projects/builder-study/racer-art/author.py --output runs/builder-racer/opening-draft.md
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
   --python projects/builder-study/racer-art/render.py -- \
   --output runs/builder-racer/masters
 runs/builder-racer/venv/bin/python projects/builder-study/racer-art/export.py \
   --masters runs/builder-racer/masters --output runs/builder-racer/assets/items
 node projects/builder-study/tools/verify-racer-graph.mjs \
-  projects/builder-study/builder-v36.md
+  runs/builder-racer/opening-draft.md
 ```
 
 Inspect exports in the real browser before promotion. Selected artwork lives

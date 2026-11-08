@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit an arch to the deck as the current goal asks; the two offered arches appear equivalent.",
+    "choice": 1,
+    "expectation": "I expect one arch to stand on the deck, leaving the other to be fitted later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other arch appears equally suitable, so I chose the first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first arch is standing, and the next goal is to fit the second.",
+    "reaction": "The visible change makes the fitting clear.",
+    "step": 2,
+    "reason": "The only combination fits the remaining arch and follows the current goal.",
+    "choice": 1,
+    "expectation": "I expect the second arch to stand on the frame alongside the first.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both arches are in place, ready for the cradle to bridge them.",
+    "reaction": "The matching supports make the next fitting clear.",
+    "step": 3,
+    "reason": "The only combination follows the goal to clip the cradle across the arches.",
+    "choice": 1,
+    "expectation": "I expect the cradle to span the two arches and hold the lift tile later.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradle now spans the arches, ready for the lift tile.",
+    "reaction": "The result makes the frame's construction clear.",
+    "step": 4,
+    "reason": "The only combination seats the tile, as the current goal asks.",
+    "choice": 1,
+    "expectation": "I expect the purple tile to sit in the cradle above the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tile is seated, and the next goal is to turn the frame over.",
+    "reaction": "The tile's position is clear.",
+    "step": 5,
+    "reason": "Flipping the frame is the only offered combination and follows the goal.",
+    "choice": 1,
+    "expectation": "I expect to see the underside of the frame, perhaps ready for the remaining electrical parts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upside down, exposing the underside for the battery.",
+    "reaction": "The flip makes the battery placement easier to understand.",
+    "step": 6,
+    "reason": "The only combination fits the battery underneath, as the current goal asks.",
+    "choice": 1,
+    "expectation": "I expect the battery pack to attach to the underside of the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is attached beneath the board; the frame can now be turned upright.",
+    "reaction": "The underside placement is clear.",
+    "step": 7,
+    "reason": "Flipping is the only offered combination and follows the current goal.",
+    "choice": 1,
+    "expectation": "I expect the board to return upright with the battery underneath and the tile above.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upright again, and the lift control is the next fitting.",
+    "reaction": "The flip was straightforward.",
+    "step": 8,
+    "reason": "The only offered combination fits the control, as the goal asks.",
+    "choice": 1,
+    "expectation": "I expect the control box to attach to the deck and connect to the lift mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control box is fitted and all chapter goals are complete; the result does not show the lift operating.",
+    "reaction": "The completed frame is clear, though I am curious what the invented tile will lift.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clipping the cradle across the arches was the most worthwhile fitting: it visibly joined the supports and gave the tile a place to sit.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two flips were straightforward but less interesting than fitting parts, although they made the battery placement understandable.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The tile was explicitly described as invented, but the completed chapter did not show it lifting anything.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No fitting felt purposeless; the battery and control support the stated invented lift, even though its operation was not demonstrated.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue to see what the lift does, though this chapter's mostly single-option assembly offered limited decisions.",
+        "steps": [
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "Cutting the drum wall follows the current goal and prepares its viewing slits.",
+    "choice": 1,
+    "expectation": "I expect the marked slits to be cut into the drum wall.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base look useful for the mechanism, but the slits are the current instruction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slits are cut, and the next instruction is to roll the drum wall.",
+    "reaction": "The result is straightforward, though it doesn't describe the cut slits.",
+    "step": 2,
+    "reason": "Rolling the drum wall follows the next construction instruction.",
+    "choice": 1,
+    "expectation": "I expect the wall to form a cylinder, perhaps needing tape to hold it closed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The turntable and base will likely be useful later, but rolling the wall is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wall is now a drum, and the next goal is to tape its seam.",
+    "reaction": "The cylindrical form makes the tape step clear.",
+    "step": 3,
+    "reason": "Tape should hold the rolled drum together, as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the drum's seam to be secured with tape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seam is taped, and the next instruction is to fit the floor into the drum's tabs.",
+    "reaction": "The next fitting is clear, though the result gives no detail about the taped seam.",
+    "step": 4,
+    "reason": "Fitting the floor follows the current construction goal.",
+    "choice": 1,
+    "expectation": "I expect the floor to attach inside the drum using its tabs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The floor is fitted, and the next goal is to assemble the turntable and base.",
+    "reaction": "The sequence is clear, though the result does not describe the fitting.",
+    "step": 5,
+    "reason": "Combining the turntable and base follows the current instruction.",
+    "choice": 1,
+    "expectation": "I expect the turntable to fit onto the base and provide a rotating support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turntable is fitted to the base, and the drum can now be mounted on it.",
+    "reaction": "The assembly order is clear, though the result gives no fitting detail.",
+    "step": 6,
+    "reason": "Combining the base and drum follows the current goal.",
+    "choice": 1,
+    "expectation": "I expect the drum to attach to the turntable so it can rotate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum is mounted on the turntable, and the picture strip is ready to roll.",
+    "reaction": "The next step is clear, although the mounting result gives little detail.",
+    "step": 7,
+    "reason": "Rolling the picture strip follows the current goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the picture strip to curl into a shape that fits inside the drum.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The picture strip is now a ring, ready to fit inside the drum.",
+    "reaction": "The ring shape makes its placement clear.",
+    "step": 8,
+    "reason": "Fitting the ring follows the current goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the picture ring to fit inside the drum, with its pictures visible through the slits as it turns.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The picture ring completed the animation drum and all chapter goals.",
+    "reaction": "Finishing the assembled drum is satisfying, though the result does not explain how the pictures animate.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the picture ring completed the drum and brought the separate parts together.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The tape and floor fittings were clear but their results gave little detail beyond the unchanged item name.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprising; the picture strip becoming a ring fit the expected assembly.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each followed a clear construction goal, though some results lacked physical detail.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Probably not: the assembly sequence was clear, but the text results were sparse and offered little sense of the finished toy in motion.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

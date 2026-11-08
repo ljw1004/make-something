@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for turning the deck over.",
+    "choice": {
+      "combine": "Deck",
+      "with": "Flip"
+    },
+    "expectation": "The deck should turn over to expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck is flipped, and the next goal is to fit a wheel to the left motor.",
+    "reaction": "The exposed underside makes the orientation change clear.",
+    "step": 2,
+    "reason": "The goal directly identifies the wheel and left motor as the next parts to assemble.",
+    "choice": {
+      "combine": "Wheel (#5)",
+      "with": "Left motor"
+    },
+    "expectation": "The wheel should fit onto the left motor's shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left wheel and motor are now a drive unit; the next goal is the matching right-side assembly.",
+    "reaction": "The wheel fitted onto the shaft as expected.",
+    "step": 3,
+    "reason": "The remaining wheel and right motor are the parts named by the current goal.",
+    "choice": {
+      "combine": "Wheel (#6)",
+      "with": "Right motor"
+    },
+    "expectation": "The wheel should fit onto the right motor to make the other drive unit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right wheel and motor now form a drive unit; the left drive is ready to mount.",
+    "reaction": "The matching assembly worked as expected.",
+    "step": 4,
+    "reason": "The current goal calls for fitting the left drive to the deck.",
+    "choice": {
+      "combine": "Left drive",
+      "with": "Deck"
+    },
+    "expectation": "The left drive should mount onto the underside of the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left drive is mounted, and the deck is now called Rover; the right drive is next.",
+    "reaction": "The first wheel unit is visibly in place.",
+    "step": 5,
+    "reason": "The goal calls for mounting the remaining right drive on the rover.",
+    "choice": {
+      "combine": "Right drive",
+      "with": "Rover"
+    },
+    "expectation": "The right drive should attach to the other side of the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both drive units are mounted; the caster is next.",
+    "reaction": "The matching wheel units are now visibly in place.",
+    "step": 6,
+    "reason": "The current goal calls for fitting the caster to the rover.",
+    "choice": {
+      "combine": "Caster",
+      "with": "Rover"
+    },
+    "expectation": "The caster should attach to the board as a supporting foot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, and the battery pack is next.",
+    "reaction": "The supporting foot is visibly in place.",
+    "step": 7,
+    "reason": "The current goal calls for fitting the battery pack to the rover.",
+    "choice": {
+      "combine": "Battery pack",
+      "with": "Rover"
+    },
+    "expectation": "The battery pack should mount onto the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is mounted, and the receiver is next.",
+    "reaction": "The new box is visible on the board.",
+    "step": 8,
+    "reason": "The current goal calls for fitting the receiver to the rover.",
+    "choice": {
+      "combine": "Receiver",
+      "with": "Rover"
+    },
+    "expectation": "The receiver should mount onto the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is fitted, completing the rover's current construction goals.",
+    "reaction": "The final description makes the completed arrangement clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the two drive units was most worthwhile: the separate motor-and-wheel assemblies became a recognizable wheeled base.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the battery pack and receiver felt somewhat repetitive in text, though their separate placements were clear.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The deck changed its name to Rover as soon as the first drive was mounted, before the other components were fitted.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each followed an explicit goal and involved a recognizable part.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue to see how the rover works, though this chapter's straightforward text fittings alone gave me limited reason to do so. This trial cannot establish how the pictures or physical handling feel.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

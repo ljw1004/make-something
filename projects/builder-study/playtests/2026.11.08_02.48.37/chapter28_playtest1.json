@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for fitting the projector dock to the carrier.",
+    "choice": {
+      "combine": "Projector dock",
+      "with": "Whale carrier"
+    },
+    "expectation": "The dock should attach to the carrier's deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dock is fitted to the carrier, and the next goal is to mount the projector.",
+    "reaction": "The dock's position beside the controls is clear.",
+    "step": 2,
+    "reason": "The goal explicitly calls for pressing the projector onto the dock.",
+    "choice": {
+      "combine": "Star projector",
+      "with": "Whale carrier"
+    },
+    "expectation": "The projector should attach to the dock on the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projector is mounted; the next task is to assemble the motor pulley.",
+    "reaction": "The projector now sits visibly beneath the lift tile.",
+    "step": 3,
+    "reason": "The goal explicitly calls for fitting the small pulley to the motor.",
+    "choice": {
+      "combine": "Small pulley",
+      "with": "Gearmotor"
+    },
+    "expectation": "The pulley should fit onto the motor's projecting shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small pulley is fitted to the gearmotor, creating a drive motor ready to mount.",
+    "reaction": "The pulley on the motor shaft makes the next assembly step clear.",
+    "step": 4,
+    "reason": "The goal calls for mounting the drive motor on the carrier.",
+    "choice": {
+      "combine": "Drive motor",
+      "with": "Whale carrier"
+    },
+    "expectation": "The drive motor should attach to the carrier beside the projector.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive motor is mounted beside the projector, ready for the belt.",
+    "reaction": "The outward-facing pulley makes the belt connection clear.",
+    "step": 5,
+    "reason": "The goal calls for looping the belt around the mounted pulleys.",
+    "choice": {
+      "combine": "Belt",
+      "with": "Whale carrier"
+    },
+    "expectation": "The belt should connect the motor pulley to the projector's wheel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt now connects the motor and projector wheels; the next goal is to expose the underside.",
+    "reaction": "The connection between the two wheels is clear.",
+    "step": 6,
+    "reason": "The goal explicitly calls for flipping the carrier to its underside.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier should turn over to expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is upside down, exposing the underside for the motor supply.",
+    "reaction": "The flip makes the next fitting location clear.",
+    "step": 7,
+    "reason": "The current goal calls for fitting the motor supply to the carrier.",
+    "choice": {
+      "combine": "Motor supply",
+      "with": "Whale carrier"
+    },
+    "expectation": "The motor supply should attach underneath the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor supply is fitted underneath, alongside the other box; the carrier now needs turning upright.",
+    "reaction": "The two separate power boxes are visible together.",
+    "step": 8,
+    "reason": "The current goal explicitly calls for flipping the carrier upright.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier should turn upright with the projector and controls accessible again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is upright again, completing the chapter with the projector drive and its supply installed.",
+    "reaction": "The final view makes the belt drive and controls easy to identify.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the belt was most worthwhile: it visibly linked the motor to the projector's wheel.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two flips were straightforward but felt less involving in the text interface, although they made the underside fitting clear.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The projector's existing wheel became part of a motor-driven belt connection.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the goals named the parts and operations. The flips had a clear purpose for fitting the supply underneath.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting a completed projector to a motor was a satisfying construction step, and I would be curious to see it used.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

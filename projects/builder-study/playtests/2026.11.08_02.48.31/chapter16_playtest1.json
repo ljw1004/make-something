@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the spindle, so I’ll attach it to the base.",
+    "choice": 1,
+    "expectation": "I expect the spindle to sit in the base’s central hole, ready for the turning deck.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The motor will likely be needed too, but the spindle is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is in place, and the next goal is to fit the motor.",
+    "reaction": "The central pulley makes the turning mechanism a little clearer.",
+    "step": 2,
+    "reason": "The motor is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the motor to attach to the base near the spindle pulley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor and its pulley are beside the spindle pulley, ready for the belt.",
+    "reaction": "Their arrangement makes the belt’s purpose clear.",
+    "step": 3,
+    "reason": "Looping the belt around both pulleys is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the belt to connect the motor pulley to the spindle pulley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt now connects the two pulleys, and the next goal is to cover the drive.",
+    "reaction": "The visible belt connection makes the drive mechanism easy to follow.",
+    "step": 4,
+    "reason": "The guard is the current goal and should cover the belt and pulleys.",
+    "choice": 1,
+    "expectation": "I expect the guard to sit over the drive while leaving the spindle accessible.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The battery and dial will likely power the motor, but the guard is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guard now covers the drive, and the next goal is to plug in the battery.",
+    "reaction": "The translucent cover keeps the mechanism visible, which is helpful.",
+    "step": 5,
+    "reason": "The battery is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the battery and dial to connect to the motor and attach to the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control box is in place outside the guard, and the deck is the next goal.",
+    "reaction": "Its position at the front makes the controls easy to identify.",
+    "step": 6,
+    "reason": "Fitting the deck is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the deck to sit on the spindle above the covered drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck completes the carousel above the guarded drive, matching the build reference.",
+    "reaction": "It is satisfying to see the mechanism become a finished turning deck.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the belt was most worthwhile: the two pulleys made the motor-to-spindle drive easy to follow.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the battery and dial was less informative: the result shows the control box but not the connection itself.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The translucent guard leaves the drive visible rather than hiding it.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each fitted a named part toward the stated build.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see what goes on the turning deck, although this chapter offered little choice beyond following the construction goals.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

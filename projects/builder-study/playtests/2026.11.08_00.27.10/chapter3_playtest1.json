@@ -1,0 +1,187 @@
+[
+  {
+    "step": 1,
+    "reason": "Flipping the chassis follows the current construction goal.",
+    "choice": 1,
+    "expectation": "The chassis will turn over, likely revealing where the wheel parts fit.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A wheel and straw could start an axle assembly, but the current goal comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chassis is flipped, and the next instruction is to put a wheel on the front straw.",
+    "reaction": "The next physical addition is clear.",
+    "step": 2,
+    "reason": "This directly follows the current construction goal.",
+    "choice": 1,
+    "expectation": "Wheel #1 will fit onto the front straw.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Another wheel also appears suitable, but I chose the first one."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first wheel and front straw formed a front axle; the next goal is to add another wheel.",
+    "reaction": "The naming makes the assembly progress clear.",
+    "step": 3,
+    "reason": "Adding another wheel follows the current instruction.",
+    "choice": 1,
+    "expectation": "Wheel #2 will attach to the front axle.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Wheel #3 also appears suitable, but I chose the first available wheel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front wheels are assembled, and the next goal is to start the rear axle.",
+    "reaction": "The repeated wheel assembly is straightforward.",
+    "step": 4,
+    "reason": "Adding a wheel to the rear straw follows the current goal.",
+    "choice": 1,
+    "expectation": "Wheel #3 will attach to the rear straw, forming a rear axle.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Wheel #4 also appears suitable, but I chose the first available wheel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first rear wheel and straw formed the rear axle; it now needs its second wheel.",
+    "reaction": "This repeats the clear front-wheel assembly.",
+    "step": 5,
+    "reason": "Adding the remaining wheel follows the current goal.",
+    "choice": 1,
+    "expectation": "The wheel will attach to the rear axle, forming the rear wheels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear wheels are assembled, and the next goal is to fit a bearing to the chassis.",
+    "reaction": "The repeated wheel assembly was straightforward.",
+    "step": 6,
+    "reason": "Fitting a bearing follows the current construction goal.",
+    "choice": 1,
+    "expectation": "Bearing #1 will attach to the chassis.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other bearing also appears suitable, but I chose the first one."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first bearing is fitted, and the next goal is to fit the other one.",
+    "reaction": "The next addition is clear.",
+    "step": 7,
+    "reason": "The remaining bearing follows the current construction goal.",
+    "choice": 2,
+    "expectation": "The other bearing will attach to the chassis.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The front wheels could be fitted, but the bearing is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both bearings are fitted, and the next goal is to snap wheels into one.",
+    "reaction": "The assembly is progressing clearly.",
+    "step": 8,
+    "reason": "The front wheels are a compatible choice for the current goal.",
+    "choice": 1,
+    "expectation": "The front wheels will snap into a bearing on the chassis.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The rear wheels also appear suitable, but I chose the front wheels first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front wheels are attached; the remaining wheels are next.",
+    "reaction": "The next fitting is clear.",
+    "step": 9,
+    "reason": "The rear wheels are the only offered combination and follow the current goal.",
+    "choice": 1,
+    "expectation": "The rear wheels will snap into the other bearing on the chassis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both sets of wheels are attached, and the chassis now needs to be turned upright.",
+    "reaction": "The next step is clear.",
+    "step": 10,
+    "reason": "Flipping the chassis follows the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "The wheeled chassis will turn upright.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheeled chassis is upright, ready for the sail.",
+    "reaction": "The final fitting is clear.",
+    "step": 11,
+    "reason": "Fitting the sail follows the goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "The sail will attach to the chassis, completing the wheeled sail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail and chassis became a wind racer, completing the chapter.",
+    "reaction": "The final assembly was a satisfying payoff to the separate wheel and sail builds.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the sail brought the separate constructions together into a wind racer.",
+        "steps": [
+          11
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Assembling the rear wheels repeated the front-wheel process; it was clear, but less engaging in text.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the results followed the construction goals.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. The bearings and wheels had clear roles in the chassis assembly.",
+        "steps": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see what the wind racer does, though the repeated text-only fittings were not very engaging.",
+        "steps": [
+          4,
+          5,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

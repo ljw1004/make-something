@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to flip the table, and this is the only offered action.",
+    "choice": 1,
+    "expectation": "The table will turn over, likely exposing where the flipper parts attach.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table is flipped, and the next goal is to fit the pivot plate.",
+    "reaction": "The flip was straightforward, though the result gives no visual detail.",
+    "step": 2,
+    "reason": "The pivot plate is the stated next part and the only offered combination.",
+    "choice": 1,
+    "expectation": "The pivot plate will attach to the table, probably providing a mounting point for the flippers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pivot plate is fitted, and the support is next.",
+    "reaction": "The step was clear, though the result gives no detail about the fitting.",
+    "step": 3,
+    "reason": "The support is the stated next part and the only offered combination.",
+    "choice": 1,
+    "expectation": "The support will attach to the table, perhaps helping hold the flipper mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support is fitted, and the table needs to be flipped upright.",
+    "reaction": "The instruction is clear, though the fitting itself isn't described.",
+    "step": 4,
+    "reason": "Flipping the table is the stated goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "The table will turn upright, ready for the paddles to be fitted.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table is upright, and the left paddle is next.",
+    "reaction": "The flip was clear, although the result gives no visual detail.",
+    "step": 5,
+    "reason": "Fitting the left paddle is the stated goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "The left paddle will attach to the table, likely at the pivot mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left paddle is fitted, and the right paddle is next.",
+    "reaction": "The sequence is clear, though the fitting has no descriptive detail.",
+    "step": 6,
+    "reason": "The right paddle is the stated goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "The right paddle will attach to the table alongside the left one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right paddle is fitted, completing the two-flipper table.",
+    "reaction": "The sequence was clear, but the final result gave no detail about the finished mechanism.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the left paddle was the most worthwhile step: it added a recognizable working part after the preparation.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated “Created: Table” results made the support and pivot fittings feel less distinct, even though they are separate physical parts.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprising happened; the goals clearly indicated each next step.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary, although the text did not explain exactly how the support fits or functions.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the instructions were easy to follow, but the text-only results gave too little sense of the construction taking shape.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

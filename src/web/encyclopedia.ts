@@ -1,6 +1,7 @@
 import type { Story } from '../story/types.ts';
 import type { State } from '../engine/types.ts';
-import { label, readings } from '../engine/game.ts';
+import { label } from '../engine/game.ts';
+import {browserReadings} from './item-readings.ts';
 
 export interface EncyclopediaHistory { wonder?: string; selected?: string }
 
@@ -25,7 +26,7 @@ export function remapEncyclopediaHistory(history: EncyclopediaHistory, items: Ma
 export function encyclopediaEntries(story: Story, state: State): { id: string; name: string; chapter: number | null }[] {
   const entries = new Map<string, { id: string; name: string; chapter: number | null; order: number }>();
   Object.values(state.tokens).forEach((token, index) => {
-    if (entries.has(token.id) || !readings(story, state, token.id).some(reading => reading.encyclopedia.trim())) return;
+    if (entries.has(token.id) || !browserReadings(story, state, token.id).some(reading => reading.encyclopedia.trim())) return;
     entries.set(token.id, {
       id: token.id, name: label(story, state, token.id),
       chapter: token.firstSeen?.chapter ?? null, order: token.firstSeen?.order ?? index,

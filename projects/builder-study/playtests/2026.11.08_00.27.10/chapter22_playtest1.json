@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the reflector inside the box, so I’ll follow that construction step.",
+    "choice": 2,
+    "expectation": "I expect the reflector to be fitted inside the box and the next instruction to appear.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Punching the card disc may be needed later, but it does not match the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflector is fitted, and the next goal is to add the lamp.",
+    "reaction": "The new name, Projector, makes the box’s purpose clearer.",
+    "step": 2,
+    "reason": "The lamp combination directly follows the current construction goal.",
+    "choice": 2,
+    "expectation": "I expect the lamp to be fitted to the projector and another instruction to appear.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Punching the disc may be useful later, but the lamp is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lamp is fitted, and the next goal is to connect its battery pack.",
+    "reaction": "The power connection is a clear next step.",
+    "step": 3,
+    "reason": "The battery pack combination matches the current goal.",
+    "choice": 2,
+    "expectation": "I expect the battery pack to connect to the projector and the next instruction to appear.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The card disc may need punching later, but connecting the battery is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is connected, and the next goal is to punch stars in the disc.",
+    "reaction": "The disc's purpose is becoming clearer.",
+    "step": 4,
+    "reason": "Punching the card disc matches the goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect stars to be punched around the disc, followed by another instruction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The punched card is now a star disc, ready to fit to the spindle.",
+    "reaction": "The star shapes make the projector's intended effect clearer.",
+    "step": 5,
+    "reason": "Fitting the disc to the spindle matches the goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the star disc to be attached to the spindle, with another instruction afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disc and spindle now form a star wheel, which is ready to mount in the projector.",
+    "reaction": "The separate wheel assembly makes the next fitting clear.",
+    "step": 6,
+    "reason": "Mounting the star wheel matches the goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the star wheel to fit inside the projector, possibly completing it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The star wheel is mounted, and the projector chapter is complete.",
+    "reaction": "It is satisfying to finish the separate wheel assembly and add it to the projector.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Punching the card into a star disc was the most worthwhile step: it made the projector's intended effect clearer.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the lamp and battery was clear but felt like routine assembly in the text-only presentation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The box became a projector as soon as the reflector was fitted, revealing its purpose earlier than I expected.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; each followed a clear construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would be mildly curious to continue and see what is built next, though these straightforward fittings offered little decision-making.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

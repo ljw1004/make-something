@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for fitting the reflector inside the box.",
+    "choice": {
+      "combine": "Reflector",
+      "with": "Box"
+    },
+    "expectation": "The liner should sit inside the box.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reflector is installed, and the next goal is to punch stars in the disc.",
+    "reaction": "The liner’s placement is clear.",
+    "step": 2,
+    "reason": "The goal names the disc and the Punch process.",
+    "choice": {
+      "combine": "Card disc",
+      "with": "Punch"
+    },
+    "expectation": "Stars should be punched around the disc.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The punched card is now a star disc, ready to slide onto the spindle.",
+    "reaction": "The holes make the change clear.",
+    "step": 3,
+    "reason": "The current goal explicitly names the disc and spindle.",
+    "choice": {
+      "combine": "Star disc",
+      "with": "Spindle"
+    },
+    "expectation": "The star disc should slide onto the spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The star disc is on the spindle, forming a star wheel; the collar is next.",
+    "reaction": "The projecting shaft makes the fitting clear.",
+    "step": 4,
+    "reason": "The collar should fit onto the star wheel's shaft to secure the disc.",
+    "choice": {
+      "combine": "Disc collar",
+      "with": "Star wheel"
+    },
+    "expectation": "The collar should fit onto the shaft beside the disc.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collar now surrounds the shaft, and the star wheel is ready to be fitted into the projector.",
+    "reaction": "The ring makes the collar’s position clear.",
+    "step": 5,
+    "reason": "The goal calls for lowering the star wheel into the bearings in the box assembly.",
+    "choice": {
+      "combine": "Star wheel",
+      "with": "Projector"
+    },
+    "expectation": "The star wheel should sit in the projector’s bearings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The star wheel is installed in the projector, and the lamp is next.",
+    "reaction": "The projecting shaft makes the wheel's placement clear.",
+    "step": 6,
+    "reason": "The goal calls for fitting the lamp to the projector assembly.",
+    "choice": {
+      "combine": "Lamp",
+      "with": "Projector"
+    },
+    "expectation": "The lamp should fit inside the projector.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lamp is fitted beside the disc, and the battery pack is next.",
+    "reaction": "Its position beside the disc is clear.",
+    "step": 7,
+    "reason": "The current goal calls for connecting the battery pack to the projector.",
+    "choice": {
+      "combine": "Battery pack",
+      "with": "Projector"
+    },
+    "expectation": "The battery pack should connect to the projector.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is connected, completing the projector and the chapter’s goals.",
+    "reaction": "The final placement is clear, though I would have liked to see the projector in use.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Punching the star disc and fitting it onto the spindle made the projector’s moving part take shape clearly.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the battery was straightforward, but the resulting view did not make the connection itself very visible.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The flat card became a perforated star disc, then a wheel with a projecting shaft; that made its role clearer.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: each action followed an explicit construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue to see the projector work, but the text interface made this chapter mostly a sequence of clearly directed fittings rather than choices.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for fitting a pulley into the side fork.",
+    "choice": {
+      "combine": "Pulley (#1)",
+      "with": "Side fork"
+    },
+    "expectation": "The pulley should fit onto the fork’s pin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first pulley is fitted, and the next goal calls for assembling the other fork.",
+    "reaction": "The result makes the bracket-and-wheel connection clear.",
+    "step": 2,
+    "reason": "The remaining pulley and drop fork match the new goal.",
+    "choice": {
+      "combine": "Pulley (#2)",
+      "with": "Drop fork"
+    },
+    "expectation": "The second pulley should fit onto the drop fork’s pin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both pulley units are assembled; the next goal is to mount the side pulley.",
+    "reaction": "The second fitting was straightforward and repeated the first.",
+    "step": 3,
+    "reason": "The first pulley unit was made from the side fork, so it should mount on the gantry.",
+    "choice": {
+      "combine": "Pulley unit (#1)",
+      "with": "Gantry"
+    },
+    "expectation": "The side pulley unit should attach to the gantry.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The side pulley is mounted above the winch; the remaining pulley unit is for the drop position.",
+    "reaction": "Its position makes the intended rope route easier to picture.",
+    "step": 4,
+    "reason": "The remaining pulley unit matches the goal to mount the drop pulley.",
+    "choice": {
+      "combine": "Pulley unit",
+      "with": "Gantry"
+    },
+    "expectation": "The drop pulley should attach to the gantry beam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both pulleys are mounted, and the next goal is to fit the pawl.",
+    "reaction": "The two pulley positions make the hoist layout clearer.",
+    "step": 5,
+    "reason": "The pawl is the named part for the current goal and should fit the gantry's winch.",
+    "choice": {
+      "combine": "Pawl",
+      "with": "Gantry"
+    },
+    "expectation": "The pawl should attach near the winch ratchet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl is fitted beside the winch, and the rope is next.",
+    "reaction": "Its position beside the winch is clear.",
+    "step": 6,
+    "reason": "The rope and hook are the named assembly for threading over the gantry's pulleys.",
+    "choice": {
+      "combine": "Rope and hook",
+      "with": "Gantry"
+    },
+    "expectation": "The rope should run over both pulleys, leaving the hook hanging down.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rope now runs from the winch over both pulleys to a hanging hook; the basket is next.",
+    "reaction": "The described rope route makes the hoist assembly clear.",
+    "step": 7,
+    "reason": "The current goal calls for hanging the basket on the hoist's hook.",
+    "choice": {
+      "combine": "Basket",
+      "with": "Hoist"
+    },
+    "expectation": "The basket should hang from the hook.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket is attached and the gantry hoist is complete.",
+    "reaction": "The hanging basket gives the pulley assembly a clear purpose.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Threading the rope was most worthwhile: it connected the winch and both pulleys to the hook, making the hoist layout understandable.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second pulley repeated the first fitting, though the separate physical assembly was clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; mounting the side pulley above the winch clarified the likely rope route.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each followed an explicit construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue for another clear mechanical construction, though the text interface makes the repeated fittings fairly predictable. This trial does not show how the pictures or handling feel.",
+        "steps": [
+          1,
+          2,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

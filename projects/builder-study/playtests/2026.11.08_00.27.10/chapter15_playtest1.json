@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to fit the spindle, so I’ll attach it to the base first.",
+    "choice": 1,
+    "expectation": "The spindle should fit onto the base and advance the construction.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The motor also fits the base, but the spindle is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is fitted, and the next goal is to fit the motor.",
+    "reaction": "The result was straightforward, though the base's name did not change.",
+    "step": 2,
+    "reason": "The motor is the current goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The motor should attach to the base and advance the build.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is fitted; the belt is next.",
+    "reaction": "The sequence is clear, though the unchanged base name gives little visible feedback.",
+    "step": 3,
+    "reason": "The belt is the current goal and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The belt should loop around the two pulleys on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt is in place, and the next goal is to cover the drive.",
+    "reaction": "The pulley connection makes sense, though the unchanged base name gives little feedback.",
+    "step": 4,
+    "reason": "The guard matches the current instruction to cover the drive.",
+    "choice": 1,
+    "expectation": "The guard should clip over the belt drive.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The battery and dial also fit, but the guard is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guard is fitted, and plugging in the battery is next.",
+    "reaction": "The instruction is clear, though the base name still gives little feedback.",
+    "step": 5,
+    "reason": "The battery and dial match the current goal and are the only offered combination.",
+    "choice": 1,
+    "expectation": "The battery and dial should connect to the base, powering the drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is connected, and the deck is the next part to fit.",
+    "reaction": "The sequence remains clear, although the unchanged base name gives little feedback.",
+    "step": 6,
+    "reason": "The deck matches the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "The deck should fit onto the spindle, completing or advancing the turning deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck completed the carousel and all chapter goals.",
+    "reaction": "Seeing the build become a carousel was satisfying after the repeated Base results.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the deck was most worthwhile because it completed the carousel.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated “Created: Base” results gave little feedback about the additions, although the goals clarified them.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final assembly was named Carousel; the earlier results had kept the Base name.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each followed a clear construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue to see what the carousel does, though the repetitive text feedback makes me less eager.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

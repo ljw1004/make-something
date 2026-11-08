@@ -8,6 +8,7 @@ import {detailedTurn,hasDetailedActions} from './detailed.ts';
 import {detailedCommand,isLook} from './commands.ts';
 import type {PlayStyle,PlayerChoice} from './commands.ts';
 import {itemName} from './names.ts';
+import {itemPictureDescription,referencePictureDescription} from './picture-descriptions.ts';
 export {itemName} from './names.ts';
 
 export interface Message { kind: 'story'|'chapter'|'goals'|'board'|'result'|'wonder'|'goal-changes'|'chapter-completed'|'ending'; text: string }
@@ -71,13 +72,16 @@ export function board(story: Story, state: State): string {
   const observation = chapterSurface(story, state);
   const items = observation.items.map(item => {
     const slots = item.slots.filter(s => !s.filled && s.name).map(s => s.name);
-    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${itemName(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}`;
+    const picture=itemPictureDescription(story,state,item.id);
+    return `- ${itemName(story,state,item.id)}${item.hotspot ? ` @ ${itemName(story,state,item.hotspot)}` : ''}${slots.length ? `; empty slots: ${slots.join(', ')}` : ''}${picture ? `\n  Picture: ${picture}` : ''}`;
   });
   const hotspots = observation.hotspots.map(h => {
     const token=state.tokens[h.id], slots=story.items[h.id].slots.filter(slot=>slot.name&&!token.slots.includes(slot.accepts)).map(slot=>slot.name);
-    return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}`;
+    const picture=itemPictureDescription(story,state,h.id);
+    return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}${picture ? `\n  Picture: ${picture}` : ''}`;
   });
-  return `${goalsText(story,state)}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
+  const reference=referencePictureDescription(story,state);
+  return `${goalsText(story,state)}${reference ? `\n\nBuild reference: ${reference}` : ''}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
 }
 function wonderText(markdown:string):string {return `  ${markdown.replace(/\s+/g,' ').trim()}`;}
 function wonderMessages(before: State, after: State): Message[] {

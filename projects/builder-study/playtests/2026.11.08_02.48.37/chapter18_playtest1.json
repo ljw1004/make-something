@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for fitting the left jaw, and the palm is the board it attaches to.",
+    "choice": {
+      "combine": "Left jaw",
+      "with": "Palm"
+    },
+    "expectation": "The left jaw should attach to the palm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left jaw is attached, and the next goal is to fit the right jaw to the claw.",
+    "reaction": "The visible change makes the first fitting clear.",
+    "step": 2,
+    "reason": "The right jaw is the named next part, and the claw is the current assembly.",
+    "choice": {
+      "combine": "Right jaw",
+      "with": "Claw"
+    },
+    "expectation": "The right jaw should attach to the other side of the claw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both jaws are attached; the next goal is to fit the slider.",
+    "reaction": "The paired jaws make the assembly's shape clear.",
+    "step": 3,
+    "reason": "The slider is the named next part and belongs on the claw assembly.",
+    "choice": {
+      "combine": "Slider",
+      "with": "Claw"
+    },
+    "expectation": "The slider should fit onto the claw's board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slider is fitted, and a link now needs to connect to the left pins.",
+    "reaction": "The raised bracket makes the linkage's position clearer.",
+    "step": 4,
+    "reason": "The goal calls for a link on the claw's left pins.",
+    "choice": {
+      "combine": "Link (#1)",
+      "with": "Claw"
+    },
+    "expectation": "The link should connect the left jaw to the central bracket.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first link joins the bracket to one jaw; the other link is next.",
+    "reaction": "The linkage is now easier to see.",
+    "step": 5,
+    "reason": "The remaining link should connect the other jaw to the bracket.",
+    "choice": {
+      "combine": "Link",
+      "with": "Claw"
+    },
+    "expectation": "The second link will join the central bracket to the other jaw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both links now connect the central bracket to the jaws; a jaw pad is next.",
+    "reaction": "The paired links make the mechanism clearer.",
+    "step": 6,
+    "reason": "The goal calls for a pad on the left jaw of the claw.",
+    "choice": {
+      "combine": "Pad (#1)",
+      "with": "Claw"
+    },
+    "expectation": "The pad should cover the left jaw tip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first pad covers one jaw tip; the remaining pad is next.",
+    "reaction": "The covered tip makes the fitting clear.",
+    "step": 7,
+    "reason": "The goal calls for the other pad on the remaining jaw.",
+    "choice": {
+      "combine": "Pad",
+      "with": "Claw"
+    },
+    "expectation": "The remaining pad should cover the other jaw tip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second pad covers the remaining jaw tip, completing the claw and all chapter goals.",
+    "reaction": "The matching padded tips make the finished construction clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the two links was most worthwhile: they made the connection between the central bracket and both jaws visible.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate pad fittings were clear but felt somewhat repetitive in the text interface.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The first link showed how the central bracket connects to a jaw, making the mechanism clearer.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the fittings felt particularly arbitrary; each followed an explicit goal and produced a visible change.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how the claw is used, though these straightforward fittings alone were not especially engaging in text.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -19,7 +19,7 @@ expect(state.pending).toHaveLength(0);
 for(const action of checkpoint(story,3).actions){const recipe=action.type==='combine'?recipeFor(story,state,action):null;state=act(story,state,action);if(recipe)route.push({action,result:recipe.result.id,chapter:state.chapter});}
 expect(route.filter(step=>step.chapter===0)).toHaveLength(9);
 expect(route.filter(step=>step.chapter===1)).toHaveLength(4);
-expect(route.filter(step=>step.chapter===2)).toHaveLength(10);
+expect(route.filter(step=>step.chapter===2)).toHaveLength(11);
 const browser=await chromium.launch(),outcomes=[];
 try {
  for(const viewport of [{width:390,height:844},{width:390,height:664},{width:320,height:568},{width:1280,height:900}]){
@@ -104,7 +104,7 @@ try {
    const final=await saved();await page.reload();await expect(item('id:wind-racer')).toBeVisible();expect((await saved()).actions).toEqual(final.actions);
    await page.getByRole('button',{name:'Continue story',exact:true}).click();
    await expect.poll(async()=>(await saved()).chapter).toBe(3);await dismissReadings();
-   await page.screenshot({path:path.join(dir,'24-next-chapter.png')});
+   await page.screenshot({path:path.join(dir,'25-next-chapter.png')});
    expect(errors).toEqual([]);expect(failed).toEqual([]);outcomes.push({viewport,passed:true,measured});
   } catch(e) {await page.screenshot({path:path.join(dir,'failure.png')});fs.writeFileSync(path.join(dir,'failure.json'),JSON.stringify({error:String(e),state:await saved(),measured,errors,failed},null,2));throw e;}
   finally {await page.close();}

@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for the left rail, and its feet appear to fit the tray.",
+    "choice": {
+      "combine": "Left rail",
+      "with": "Tray"
+    },
+    "expectation": "The left rail will attach to the tray.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left rail is fitted, and the tray is now called Table. The next goal is the right rail.",
+    "reaction": "The visible change makes the fitting clear.",
+    "step": 2,
+    "reason": "The current goal calls for fitting the right rail to the table.",
+    "choice": {
+      "combine": "Right rail",
+      "with": "Table"
+    },
+    "expectation": "The right rail will attach along the other side of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both side rails are fitted; the next goal is the top rail.",
+    "reaction": "The matching rails make the progress clear.",
+    "step": 3,
+    "reason": "The goal specifies the top rail, which belongs on the table.",
+    "choice": {
+      "combine": "Top rail",
+      "with": "Table"
+    },
+    "expectation": "The curved top rail will attach across the end of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The curved top rail now joins the side rails, and the next goal is to fit the lane rail.",
+    "reaction": "The enclosed far end makes the table's shape clearer.",
+    "step": 4,
+    "reason": "The current goal calls for fitting the lane rail to the table.",
+    "choice": {
+      "combine": "Lane rail",
+      "with": "Table"
+    },
+    "expectation": "The lane rail will attach to the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lane rail forms a narrow lane along the right edge; the next goal is the left return.",
+    "reaction": "The lane's purpose is becoming clearer.",
+    "step": 5,
+    "reason": "The current goal calls for fitting the left return to the table.",
+    "choice": {
+      "combine": "Left return",
+      "with": "Table"
+    },
+    "expectation": "The left return will attach to the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left return now curves inward at the front; the next goal is to fit the right return.",
+    "reaction": "The return's placement is clear from the description.",
+    "step": 6,
+    "reason": "The current goal specifies fitting the right return to the table.",
+    "choice": {
+      "combine": "Right return",
+      "with": "Table"
+    },
+    "expectation": "The right return will attach near the front of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both returns are fitted, leaving a front gap; the next goal is the marble cup.",
+    "reaction": "The gap makes the cup's likely placement clearer.",
+    "step": 7,
+    "reason": "The goal calls for fitting the marble cup to the table.",
+    "choice": {
+      "combine": "Marble cup",
+      "with": "Table"
+    },
+    "expectation": "The marble cup will attach at the front of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marble cup fits into the front gap, completing the chapter's goals.",
+    "reaction": "The final fitting neatly explains the gap left by the returns.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the returns and cup was most worthwhile: the descriptions showed how the front gap became a place for the cup.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate side-rail fittings felt repetitive in the text interface, though each produced a clear physical change.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The lane rail formed a long inner lane rather than another outer edge.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the fittings felt arbitrary; each followed the current goal and visibly changed the table.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the launcher and paddles added, though the repeated text commands were less engaging than the emerging construction.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

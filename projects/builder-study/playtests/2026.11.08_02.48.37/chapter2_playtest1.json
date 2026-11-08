@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for fitting the connector to the mast.",
+    "choice": {
+      "combine": "Connector",
+      "with": "Mast"
+    },
+    "expectation": "The connector will attach to the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connector is fitted to the mast, and its visible side opening suggests where the crossbar goes.",
+    "reaction": "The remaining opening makes the next fitting clear.",
+    "step": 2,
+    "reason": "The current goal explicitly calls for fitting the crossbar into the connector.",
+    "choice": {
+      "combine": "Crossbar",
+      "with": "Mast"
+    },
+    "expectation": "The crossbar will fit into the connector on the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar is fitted, forming a frame; the next goal is to attach the foot.",
+    "reaction": "The frame is taking shape clearly.",
+    "step": 3,
+    "reason": "The goal explicitly says to push the foot onto the mast.",
+    "choice": {
+      "combine": "Foot",
+      "with": "Mast"
+    },
+    "expectation": "The foot will attach to the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The foot is attached to the long rod, leaving the sail to be clipped onto the frame.",
+    "reaction": "The split fitting matches the build reference.",
+    "step": 4,
+    "reason": "The current goal explicitly calls for clipping the sail onto the mast.",
+    "choice": {
+      "combine": "Sail",
+      "with": "Mast"
+    },
+    "expectation": "The sail's corner clips will attach to the mast frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail clipped onto the frame, completing the build and matching the reference.",
+    "reaction": "It was satisfying to see the separate parts become the pictured sail.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the crossbar was worthwhile because it visibly turned the mast into a frame.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the foot was straightforward, but less interesting than seeing the frame and sail come together.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprising happened; the explicit goals made each fitting predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each goal named a part and where it belonged.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another short construction, although the text alone cannot convey how the pictures or hands-on fittings feel.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

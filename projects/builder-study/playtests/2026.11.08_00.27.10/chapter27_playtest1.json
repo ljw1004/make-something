@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "Flip the whale over to follow the first construction step; it's the only offered action.",
+    "choice": 1,
+    "expectation": "The whale will turn over, likely exposing its underside for fitting parts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The whale is flipped, and the next goal is to fit a landing skid.",
+    "reaction": "The result is straightforward, though it doesn't describe the underside.",
+    "step": 2,
+    "reason": "I'll fit the first skid to follow the current construction goal.",
+    "choice": 1,
+    "expectation": "The first landing skid will attach to the whale; I expect the other skid will be fitted later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other skid also fits, but the first is an equally clear choice."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first skid is fitted, and the goal now calls for the other.",
+    "reaction": "A straightforward repeat for the second physical part.",
+    "step": 3,
+    "reason": "Fit the remaining skid; it's the only offered construction action and matches the goal.",
+    "choice": 1,
+    "expectation": "The second landing skid will attach to the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both landing skids are fitted; the next goal is the weight rail.",
+    "reaction": "The repeated fitting was clear, though the result gives little physical detail.",
+    "step": 4,
+    "reason": "Fit the weight rail as instructed; it's the only offered construction action.",
+    "choice": 1,
+    "expectation": "The weight rail will attach to the whale, likely providing a place for the counterweight.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weight rail is fitted, and the next goal is to slide in the weight.",
+    "reaction": "The carrier name change is a little confusing, but the next fitting is clear.",
+    "step": 5,
+    "reason": "Fit the counterweight into the rail, following the goal and the only offered construction action.",
+    "choice": 1,
+    "expectation": "The counterweight will slide into the fitted rail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight is in the rail, and the whale needs to be flipped upright.",
+    "reaction": "The fitting was clear, though the result gave no further physical detail.",
+    "step": 6,
+    "reason": "Flip the carrier upright to follow the goal; it's the only offered construction action.",
+    "choice": 1,
+    "expectation": "The whale carrier will turn upright, ready for the next fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The whale is upright, and the next goal is to fit the clear drive guard.",
+    "reaction": "The name change back to Whale makes sense for the upright assembly, though the result gives little detail.",
+    "step": 7,
+    "reason": "Fit the guard as instructed; it's the only offered construction action.",
+    "choice": 1,
+    "expectation": "The clear guard will attach over the drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clear drive guard is fitted, and all chapter goals are complete.",
+    "reaction": "The final fitting was clear, but the change back to Whale carrier is a little confusing.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the weight rail and counterweight was most worthwhile: the two steps made a clear, connected physical assembly.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated results simply saying an item was created gave little sense of what had physically changed.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The assembly changed names from Whale to Whale carrier when the weight rail was fitted, which was a little confusing.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No fitting felt purposeless, though the changing assembly names made progress harder to follow.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Probably not immediately: the construction steps were clear, but the sparse text results made the finished build less engaging.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

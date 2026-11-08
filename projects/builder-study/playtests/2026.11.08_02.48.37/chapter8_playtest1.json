@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for sliding the cam onto the shaft.",
+    "choice": {
+      "combine": "Cam",
+      "with": "Shaft"
+    },
+    "expectation": "The cam should fit onto the shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cam is on the shaft, now called the Frame; the next goal is to fit the front bearing.",
+    "reaction": "The off-centre socket makes the cam's placement clear.",
+    "step": 2,
+    "reason": "The current goal explicitly names the front bearing, and the frame holds the shaft it fits around.",
+    "choice": {
+      "combine": "Front bearing",
+      "with": "Frame"
+    },
+    "expectation": "The front bearing should fit onto the shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front bearing is fitted, and the next goal is to fit the rear bearing.",
+    "reaction": "The bearing's position in front of the disc is clear.",
+    "step": 3,
+    "reason": "The goal names the rear bearing, which should fit onto the same shaft.",
+    "choice": {
+      "combine": "Rear bearing",
+      "with": "Frame"
+    },
+    "expectation": "The rear bearing should fit onto the shaft behind the disc.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear bearing is fitted, leaving the front collar as the next named part.",
+    "reaction": "The disc is now clearly supported between the two bearings.",
+    "step": 4,
+    "reason": "The goal calls for fitting the front collar to the shaft assembly.",
+    "choice": {
+      "combine": "Front collar",
+      "with": "Frame"
+    },
+    "expectation": "The front collar should fit onto the shaft at the front bearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front collar is fitted outside the nearer bearing; the assembly now needs to be flipped.",
+    "reaction": "The collar's position is clear.",
+    "step": 5,
+    "reason": "The current goal explicitly calls for flipping to the back of the bearings.",
+    "choice": {
+      "combine": "Frame",
+      "with": "Flip"
+    },
+    "expectation": "The frame should turn over to show the back of the bearings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is flipped, exposing the bare shaft for the rear collar.",
+    "reaction": "The exposed shaft makes the next fitting clear.",
+    "step": 6,
+    "reason": "The current goal names the rear collar, and the shaft is exposed.",
+    "choice": {
+      "combine": "Rear collar",
+      "with": "Frame"
+    },
+    "expectation": "The rear collar should fit onto the exposed shaft outside the bearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear collar is fitted, and the next goal is to return the frame to its front.",
+    "reaction": "The second collar completes the visible pair of shaft fittings.",
+    "step": 7,
+    "reason": "The current goal explicitly calls for flipping back to the front.",
+    "choice": {
+      "combine": "Frame",
+      "with": "Flip"
+    },
+    "expectation": "The frame should turn back to show the front of the bearings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is front-facing again, and the next goal is to fit the crank.",
+    "reaction": "The exposed front shaft makes the next fitting clear.",
+    "step": 8,
+    "reason": "The goal names the crank, which should attach to the frame's exposed shaft.",
+    "choice": {
+      "combine": "Crank",
+      "with": "Frame"
+    },
+    "expectation": "The crank should fit onto the front of the shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank is fitted to the frame, and the next goal is to secure it.",
+    "reaction": "The clip gives the crank a clear final fastening step.",
+    "step": 9,
+    "reason": "The current goal explicitly calls for securing the crank with its clip.",
+    "choice": {
+      "combine": "Crank clip",
+      "with": "Frame"
+    },
+    "expectation": "The clip should secure the crank to the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clip secured the crank; the next goal is to mount the bearing assembly on the base.",
+    "reaction": "The visible wire loop makes the fastening clear.",
+    "step": 10,
+    "reason": "The goal calls for mounting the bearings, which are part of the frame, on the base.",
+    "choice": {
+      "combine": "Frame",
+      "with": "Base"
+    },
+    "expectation": "The bearing feet should mount on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bearings are mounted on the base, completing the chapter's goals.",
+    "reaction": "The supported crank assembly is a satisfying result, though the dragon is not yet present.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the bearings on the base brought the crank assembly together into a supported construction.",
+        "steps": [
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Flipping back to the front was straightforward but less engaging on its own; it was needed to continue fitting parts.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The cam fitted onto the shaft through an off-centre socket, making its placement clearer.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the goals named each part or orientation, and the fittings followed the visible assembly.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the crank connects to the dragon, although the repeated explicit fittings were more procedural than challenging.",
+        "steps": [
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

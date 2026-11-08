@@ -9,7 +9,7 @@ import {act,legalActions,recipeFor,chapterComplete,availableTokens} from '../../
 const file=process.argv[2];if(!file)throw new Error('Expected manuscript path');
 const story=parseStory(fs.readFileSync(file,'utf8'),{id:file,file});
 const outcomes=[];
-for(const [chapter,expected,final] of [[1,4,'id:wr-sail'],[2,10,'id:wind-racer']]){
+for(const [chapter,expected,final] of [[1,4,'id:wr-sail'],[2,11,'id:wind-racer']]){
  const start=checkpoint(story,chapter),queue=[[start,0]],visited=new Set(),recipesSeen=new Set();let finishes=0,edges=0;
  while(queue.length){
   const [state,count]=queue.pop();

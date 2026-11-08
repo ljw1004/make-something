@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit a side frame to the base, following the current goal.",
+    "choice": 1,
+    "expectation": "The first triangular frame should stand on the base; I expect the other frame will be fitted later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other side frame appears equivalent, so either could start the build."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first side frame is mounted, and the next goal is to fit the other one.",
+    "reaction": "The visible change makes the progress clear.",
+    "step": 2,
+    "reason": "Fit the remaining side frame to complete the pair of supports.",
+    "choice": 1,
+    "expectation": "The second triangular frame should stand at the other end of the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both side frames are standing, and the beam is needed to join their tops.",
+    "reaction": "The unjoined tops make the next fitting clear.",
+    "step": 3,
+    "reason": "Join the supports with the beam as the current goal directs.",
+    "choice": 1,
+    "expectation": "The beam should span the tops of the two frames.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beam now joins the supports, and the next goal moves to the winch.",
+    "reaction": "The frame's shape is clear now.",
+    "step": 4,
+    "reason": "Fit the ratchet to the winch as the current goal directs.",
+    "choice": 1,
+    "expectation": "The toothed ratchet should fit onto a winch shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ratchet is fitted, and the crank is the next part to add.",
+    "reaction": "The toothed disc's position is clear.",
+    "step": 5,
+    "reason": "Fit the crank as directed; it is the only available combination.",
+    "choice": 1,
+    "expectation": "The crank should attach to the winch shaft so the spool can be turned.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank is fitted, and the winch is ready to mount on the frame.",
+    "reaction": "The crank and ratchet now make the winch assembly recognizable.",
+    "step": 6,
+    "reason": "Mount the winch as directed; this is the only available combination.",
+    "choice": 1,
+    "expectation": "The winch should attach to the left side of the frame's base, as shown in the build reference.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The winch is mounted on the base, completing the gantry as shown in the reference.",
+    "reaction": "It is satisfying to see the separate frame and winch come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the winch brought the two assemblies together into a recognizable gantry.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second side frame was clear but repetitive after the first.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the results followed the goals and build reference.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each fitted a visible part, though the ratchet’s function was not explained.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue and see how the gantry lifts something, though this chapter’s guided fittings alone were fairly predictable.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

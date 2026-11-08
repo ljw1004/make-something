@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for fitting the front bearing, and this is the only offered action.",
+    "choice": 1,
+    "expectation": "The front bearing should attach to the base, revealing the next construction step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front bearing made a frame, and the next goal is to fit the rear bearing.",
+    "reaction": "The bearing fitting is straightforward progress.",
+    "step": 2,
+    "reason": "The rear bearing is the next instructed part, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The rear bearing should attach to the frame and reveal the next step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both bearings are fitted, so the shaft is next.",
+    "reaction": "The sequence is clear and practical.",
+    "step": 3,
+    "reason": "The goal calls for sliding the shaft through the bearings, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The shaft should slide through both bearings and reveal the next construction step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shaft is fitted through the bearings, and the cam is next.",
+    "reaction": "The assembly sequence remains clear.",
+    "step": 4,
+    "reason": "The goal calls for fitting the cam, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The cam should attach to the shaft, revealing the next step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cam is fitted to the shaft, leaving the crank as the next goal.",
+    "reaction": "The sequence remains straightforward.",
+    "step": 5,
+    "reason": "The crank is the instructed next part, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The crank should attach to the frame, possibly completing the mechanism.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank completed the frame and all chapter goals, though the result did not explain how the mechanism moves.",
+    "reaction": "Finishing the assembly was straightforward, but I was curious to see it operate.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Sliding the shaft through the bearings was the clearest physical assembly moment: it connected the two supports into a mechanism.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two bearings felt repetitive in text, although separate bearings make sense as real parts.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the crank completed the chapter without showing the mechanism in motion.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The cam's attachment was instructed clearly, but its purpose in the mechanism was not explained.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue if the next chapter shows what the crank and cam do; this chapter alone offered little beyond following a linear assembly sequence.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

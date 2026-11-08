@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for turning the drum over.",
+    "choice": {
+      "combine": "Drum",
+      "with": "Flip"
+    },
+    "expectation": "The drum should turn over to expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inverted drum exposes its tabs, and the next goal is to fold them inward.",
+    "reaction": "The change in orientation makes the next step clear.",
+    "step": 2,
+    "reason": "The goal explicitly calls for folding the exposed tabs.",
+    "choice": {
+      "combine": "Drum",
+      "with": "Fold"
+    },
+    "expectation": "The tabs should fold inward toward the centre of the drum.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tabs are folded and the next goal is to fit the floor over their tips.",
+    "reaction": "The successive physical changes make the construction easy to follow.",
+    "step": 3,
+    "reason": "The current goal identifies the floor and the folded drum as the parts to join.",
+    "choice": {
+      "combine": "Floor",
+      "with": "Drum"
+    },
+    "expectation": "The floor should slide over the tab tips on the inverted drum.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The floor is fitted over the tabs; folding them should secure it.",
+    "reaction": "The protruding tips make the next step clear.",
+    "step": 4,
+    "reason": "The goal calls for folding the tabs under the fitted floor.",
+    "choice": {
+      "combine": "Drum",
+      "with": "Fold"
+    },
+    "expectation": "The projecting tabs should fold against the floor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tabs now hold the floor in place, and the goal has moved to the turntable and base.",
+    "reaction": "The folded tabs make the fastening clear.",
+    "step": 5,
+    "reason": "The current goal explicitly identifies the two parts to fit together.",
+    "choice": {
+      "combine": "Turntable",
+      "with": "Base"
+    },
+    "expectation": "The turntable should fit onto the base at its central hole.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turntable is mounted on the base, ready to support the drum.",
+    "reaction": "The central mounting is straightforward.",
+    "step": 6,
+    "reason": "The current goal explicitly calls for fitting the base beneath the drum.",
+    "choice": {
+      "combine": "Base",
+      "with": "Drum"
+    },
+    "expectation": "The drum should attach above the turntable and base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The base is fitted to the inverted drum, and the next goal is to turn it upright.",
+    "reaction": "The exposed underside makes the orientation clear.",
+    "step": 7,
+    "reason": "The current goal explicitly calls for flipping the drum upright.",
+    "choice": {
+      "combine": "Drum",
+      "with": "Flip"
+    },
+    "expectation": "The drum should stand upright on its base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drum now stands upright on its base, completing the chapter’s goals.",
+    "reaction": "Seeing the assembled drum upright is a satisfying conclusion to the construction.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the floor over the tabs and folding them flat was worthwhile: the successive descriptions made the fastening process clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the turntable to the base was straightforward but less informative than the tab fastening; its description did not show much about how the parts connect.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The base appeared above the drum while it was upside down, making the final flip important for understanding its orientation.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the goals and visible parts gave each action a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the drum becomes an animation toy. The construction was clear in text, though this cannot tell me how its pictures or handling feel.",
+        "steps": [
+          3,
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

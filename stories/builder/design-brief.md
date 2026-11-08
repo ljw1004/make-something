@@ -2,85 +2,185 @@
 
 ## Intent
 
-A making story for a curious ten-year-old. Build toys that invite somebody else to have a go: a wind racer, marble game, crank dragon, optical toys, lifting crane, musical machine, pneumatic grabber, animation drum, drawing rover and shadow theatre. Learn what the parts contribute, predict what will happen, test, and make a purposeful adjustment. The toys should be worth building even without the larger plot. The revised opening has an independent pinwheel, followed by separate sail-building and chassis/wheel-building chapters. Recipe counts include interchangeable-part and independent assembly orders; the authored graph and verified route supply the current counts. The approximate 200-combination target is subordinate to worthwhile work.
+A making story for a curious ten-year-old. Build appealing toys from understandable
+parts, with enough physical truth that the player can see what each fitting does.
+The finished construction is usually its own reward. The user enjoyed the large,
+movable opening creations and their short step instructions; extend that experience
+through the whole story. An approximate 200-combination ambition is subordinate to
+worthwhile construction. Branch recipes for interchangeable parts are not extra
+work required of the player.
 
-The player is a child working in Aunt Jo's garden workshop during the days before the neighbourhood's bring-a-thing fair. Jo is a companion with dry humour. Keep the larger narrative mostly implicit: a rare short remark or concrete detail can suggest it. Construction supplies the experience and the finished object is usually its own reward. Routine chapter introductions and step popups should be absent. The opening chapters establish this quieter direction. Later chapters still need migration to these story-wide rules; their retained treatment is unfinished work, not an exception. No grades, badges, generic praise or pretend scarcity.
+The player works with Aunt Jo before a neighbourhood bring-a-thing fair. Keep that
+narrative in the author's mind, expressed through the choice of objects and very
+rare remarks. No routine chapter introductions, result popups, badges or generic
+praise. Most pages should read as quiet illustrated instructions. Optional mechanical
+explanation belongs after the encyclopedia divider, not in the working sequence.
 
-## Arc and hook
+## Progression and implicit story
 
-The invitation says: **Bring something that makes somebody ask, “Can I have a go?”** The early creations are small and individually delightful. Their shared mounting holes and usefulness outside the bench are practical details, not a mystery vocabulary. Jo has a battered unfinished drawing headed “A fair in the air”; its apparent impossibility becomes understandable near the end.
+- An independent pinwheel establishes four visible folds, an attached hub, axle and
+  handle, and deliberate views of both faces.
+- Build a sail separately, then two literal straw-and-two-wheel units and a racer.
+  The chassis arrives upright, is flipped for underside fittings, then flipped back
+  for its sail. The pinwheel stays on its own page.
+- A marble table adds rails, returns, launcher, independently fitted flippers and
+  targets. Fit the under-table pivot plate before adding the blades from above.
+- A crank dragon reveals an eccentric cam, guided follower, return spring, two
+  separately fitted wings and their links. One cam suffices; avoid a forced service
+  exercise merely to demonstrate another profile. Turn the shaft assembly to fit
+  its rear collar visibly, then return to the front for its crank.
+- The periscope and kaleidoscope make mirrors, folded enclosures and a literal
+  three-piece colour cell understandable through their construction. The periscope
+  turns to expose each mirror opening while that end is being assembled.
+- A broad-based gantry replaces the long cantilever crane. Two pulley blocks route
+  a continuous rope around a clear lifting bay to its own basket. It has no
+  manufactured dependency on the later fictional machine.
+- A compact electric carousel replaces the long string-wave apparatus. Motor,
+  pulley, belt, deck and three separately assembled horse/pole units make a toy
+  whose structure is satisfying even before the deferred animation phase.
+- A tabletop pneumatic claw replaces the long grabber. Its short structural palm
+  anchors the jaws, slider, links and actuator. A real tube joins its hand syringe.
+- A picture drum uses a real slit wall, roll/seam operations, turntable and a
+  prepared picture strip. Do not disguise drawing or colouring as component fitting.
+- A drawing rover has separate wheels, drives and guards; wiring, turning over and
+  attaching its pen are distinct operations. Its compact body should dominate.
+- A projector combines a connected reflector liner, lamp, punched disc, spindle,
+  lens, holder, hood, grooved handle and separate lid. Preserve those actual parts
+  when the completed projector returns later.
+- The last machine is a compact whale-shaped flying lantern, built around the
+  unchanged projector. A roughly 400×300 mm deck, two connected support arches,
+  powered lift tile above the load, low batteries, projector dock and belt drive,
+  separate whale panels/fins/tail, skids, balance weight and guard make an actual
+  connected machine. Turn it over to fit each underside battery, and turn between
+  the front and back faces for the handed panels and fins. Its broad body replaces
+  the former metre-scale ribbed frame.
 
-After the real mechanisms are established, Jo brings out an experimental **lift tile**. This is the one fictional technology: a powered tile provides a limited upward force, carries no person, and stops lifting when its current is interrupted. It needs an ordinary battery, support, balance and control. It does not supply energy or fix other mechanisms. Testing reveals limits through observable outcomes. All motors, gearing, optics, steering, circuits and structures remain recognizable real mechanisms.
+The escalation is from simple paper to moving mechanisms, light and an impossible
+final lift. Only the **lift tile** is fictional: when powered it supplies a limited
+upward force, carries no person, and stops lifting when current is interrupted.
+Make its fictional status explicit in one short remark at its first appearance.
+It supplies neither energy nor solutions to ordinary mechanical problems. Keep
+real power, supports, balance, accessible controls and a stop function. The lift
+force must act above the loaded centre of mass. The final invitation can be as
+small as “Can I have a go?”
 
-The final invention is a tethered, approximately metre-long flying whale carrying the original crank dragon and star projector above the garden. The rover draws the welcome banner on the ground; the other toys remain garden stalls. Earlier completed objects return in their original identities and contribute actual functions, without being silently miniaturized. The tile applies upward force above the suspended deck and low battery; three separated garden tethers constrain drift and turning at full height. Jo guides the handling lines while the player lowers current for a landing. Emergency power cutoff is tested only over the low padded cradle and is distinct from controlled descent. The ending earns a change of scene, an invitation to play, and a view of what the player made.
+Earlier independent toys need not become ingredients of the finale. A returning
+object must contribute its actual function at its unchanged physical dimensions.
+Do not use a pinwheel, spirit level, test block, paper sheet, screen, gate or garden
+fixture as a nominal ingredient merely to force operation or connect chapters.
+Any rare use illustration is a genuine use context and introduces no fake recipes.
 
-The whimsical reward is a machine that could only fly in this computer game, assembled from enough honest mechanisms that the player can explain most of it. Fiction begins explicitly with the lift tile, not with covertly impossible early toys.
+## Construction and instructions
 
-## Chapter progression
+Every workpiece is a movable item, including intermediate and finished stages.
+Hotspots are actual processes, shown as outlined drawings. Adding a part visibly
+incorporates that part; changing the existing workpiece's shape or orientation is
+an explicit process such as Fold, Roll, Cut, Punch or Flip. Installing a flexible
+cord or cable can show its real fitted route, but cannot silently alter unrelated
+existing parts. Never hide an automatic flip or lid closure inside an attachment.
 
-1. Pinwheel: four corner folds, visible hub/axle/handle fittings and deliberate front/back views; finish it and leave it on its own page.
-2–3. Independent wind racer: build a mast from wooden rods, a gripping connector and a foot, then fit the sail. On the next page build two wheel units, each from its own straw and two individual wheels; fit open bearings and wheel units to the movable chassis, flip it upright and fit the completed sail. Completion is the final real attachment. No pinwheel aiming, gate or race is required.
-4–5. Marble pinball: slope, a recoverable pocket, a launcher, flippers and a playable stall.
-6–7. Crank dragon: eccentric cam, guided follower, spring contact and two different waves.
-8–9. Periscope and kaleidoscope: two reflections over a barrier, then repeated reflections of three coloured pieces.
-10–11. Lifting crane: bracing, winch and rope, supported low-load tipping, ballast and ratchet.
-12–13. String-wave machine: motor and belt, tension, visible modes and sound.
-14–15. Pneumatic grabber: rigid jaw links, needleless syringes, air, compliant pads and a fruit game.
-16–17. Animation drum: a sequence of fish drawings, slits, rotation and a shared picture show.
-18–19. Drawing rover: independently fitted wheel/drive modules, remote control, wiring, trim and deliberately imperfect lettering.
-20–21. Star projector: aperture, lamp, lens, focus and a slowly turning punched disc.
-22–23. Fictional lift tile: load, support, power control and balance; the crane helps move the finished module.
-24–25. Whale frame and skin: real load paths, accessible service opening and unchanged lift module with supplied extensions.
-26–27. Original attractions and drive: mounted dragon/projector, two speeds, retained couplings and a clear guard.
-28–29. Low supported flight and garden preparation: trim, separate controls, stop, cradle, screen and tethers.
-30. The guests arrive: the rover draws a banner; the whale rises and its moving stars reach the high screen. Kit asks for a turn.
-31. Ending: the invitation has become an invitation from the player to somebody else.
+Each draggable picture depicts one connected physical part or retained mechanism.
+Repeated components are separate supplies and additions. Identical pieces may have
+the same short name and different internal IDs; physically interchangeable copies
+must not require an invisible matching puzzle. Factory modules are allowed when
+ordinary and clearly modelled: a gearmotor, connected bearing fitting, or battery
+holder with attached leads. A label must not turn a scattered pile into one part.
+Loose lids, pairs of wings, mirror strips, coloured chips, wheels and guards must
+be handled honestly. A prepared pole/horse unit becomes one part only after the
+player has joined it.
 
-Variation comes from assembly, observation and consequential physical changes. Literal repeated parts are assembled individually when each fitting is visible; repetition is part of making. The combined final flight belongs to the guests; the earlier ten-centimetre test has a distinct mechanical purpose.
+Use coherent subassembly chapters, usually with 4–8 starting pieces. A bounded
+larger set is acceptable when literal construction needs it and the real browser
+remains usable; the racer chassis has ten movable pieces plus Flip. Short everyday
+labels are visual anchors, not miniature descriptions. Goals repeat those nouns
+and show one concrete next step through `next:` chains. Preserve sensible alternate
+assembly orders, rather than treating the instruction's suggested order as a new
+physical constraint. Goal dependencies must not preserve obsolete intermediates
+and duplicate unique components.
 
-## Authoring and physical rules
+Every operation needs a visible contribution. Assemble real repeated parts when
+each addition is clear, but do not pad the story with individual identical screws.
+Completion is the final useful fitting. Remove weak tests, staged failures, scenery
+placement and compulsory operation sequences that only rename an existing object.
+The purpose is satisfying guided making, not guessing which hidden recipe the
+writer intended.
 
-- Use short chapters with about 4–8 initial pieces where practical. Split a crowded build into coherent subassemblies. The chassis page has ten movable pieces, including its carried sail and two literal three-piece wheel kits, plus its Flip process; verify this bounded exception on short phones. Use short everyday item labels as anchors for the artwork, and repeat those nouns in the goals. Separate identical fittings can have distinct internal IDs and the same player-facing name; the racer supplies two Bearings, a Front straw and a Rear straw, and four Wheels. Any Wheel fits either Straw; there is no hidden matching by identical-looking internal IDs. Subassemblies, fitting and testing should vary the action. Do not pad chains with fastening each identical screw separately.
-- Every assembly remains a movable item through construction, including intermediate and finished stages. Hotspots represent genuine processes or fixed working contexts. Dragging a part onto it incorporates that part visibly. Dragging the workpiece onto a clearly drawn process hotspot changes its shape or orientation. Parts add; actions reshape. Model folds and flips as deliberate operations. This is a story-wide default. Existing fixed-workpiece passages must be converted as they are revised.
-- Legacy fixed equipment follows the format: its successor is fixed in the same chapter until deliberately released. Never require dragging a fixed item. A later chapter explicitly re-presents any fixed object it needs. Physical tools remain tools; incorporated material is consumed. Avoid story-wide reusable process tokens when a real tool or testing context says what happens.
-- Goals are the construction instructions: name the concrete next operation and the part or tool needed, then advance through a `next:` chain as it is completed. Keep each instruction short enough to read during play. Preserve valid alternative assembly orders and independent fittings; guidance must not turn an optional order into a new requirement. The artwork must make each effect perceptible. Keep optional explanations in encyclopedia-only text; ordinary fittings do not open popups. Omit an introduction when the goal picture and current instruction suffice.
-- Each construction chapter has a framed picture of what the player is building toward. Related chapters can share their finished-object picture; a temporary test stand gets its own destination. Keep this reference visually distinct from draggable parts and use only the picture, without a visible caption. Reserve the right-hand third of the top instruction row for it; up to two outline process drawings occupy the first two thirds. Let players enlarge the picture. The picture explains the overall shape while the current goal names the next operation.
-- Every required combination must make a convincing physical contribution. Do not manufacture a dependency between independent toys to connect the narrative. Completing an object needs no arbitrary aiming, gate or testing combination. A later use scene must clearly be use, in a plausible setting, and earn its place.
-- Every supplied pre-made component states its included hardware when relevant. A motor, battery holder or receiver may be an ordinary ready-made module; no unexplained drive, bearings, electrical supply or fasteners appear halfway through.
-- No human riders, mains electricity, pressurized launchers, exposed high-speed blades or hazardous construction instructions. Ordinary compatible low-voltage modules, enclosed mechanisms and prepared parts suit the fiction.
-- A finished toy needs a legible, satisfying completed view. Do not routinely interrupt with a garden reward popup. Reserve use scenes and rare short quotes for an actual change in the work or an essential story hint; animation remains deferred.
-- Names and descriptions are original. Research general mechanisms from primary educational sources. No copied kit text, page compositions, branding or characters.
+Physical tools remain tools; incorporated material is consumed. Current story
+semantics come from the shared specification. No human riders, mains wiring,
+pressurised launchers or exposed fast blades. This is a computer construction toy,
+not a manufacturing specification or an instruction to build the fictional tile.
 
-## Mechanical models and visual direction
+## Presentation and handling
 
-The user identified physical authenticity and range of motion as the central artwork risk and suggested the installed Blender. Use canonical dimensioned 3D assemblies as the source of truth for all mechanically connected parts. Their shared geometry supplies loose-part views, partial assemblies, completed toys and later installed appearances. Metres and a consistent world coordinate convention govern dimensions; presentation may vary camera framing without silently resizing fitted parts. The retained authoring models and rendering scripts document the production method.
+Instruction pages are white. Use simple geometry and flat material colours:
+honey wood, **lighter** forest green and brick red, cream and charcoal hardware.
+Colour should suggest material or function rather than reproduce a kit brand's
+combined palette. The central production palette lives in the study's
+`materials.py`. No woodgrain, cloth maps or decorative texture noise. Preserve real
+openings and real material transparency; do not make solid wood translucent to
+help the interface. Keep source models suitable for a later compact 3D renderer.
 
-Prototype difficult mechanics before final art production. Model and review motion through the full range, including cam contact, follower travel, link lengths, pivot clearance, wing sweep, flipper travel, pulley/rope paths, syringe travel and jaw closure. Use fresh reviewers with the actual geometry and several viewpoints; distinguish analytic constraints, sampled clearance checks and visual inspection from physical validation of a manufactured toy. Never conceal a rigid-part deformation or an unmodelled actuator with an attractive still image. Source models, motion definitions and selected production renders are retained authoring deliverables; raw verification output remains scratch.
+Each chapter has a picture of its actual construction target. The reference is
+visibly distinct from loose parts: a very pale framed panel high in the right-hand
+third, picture only. Its enlarged view remains available. The [UX guide](../../docs/ux.md#construction-reference-pictures)
+owns dimensions and placement; debug controls do not constrain its gameplay layout.
+Up to two process drawings occupy the other thirds. In chapter one, **Flip is on
+the left and Fold in the middle**, so the large initial paper has a central target.
+Enlarged receiving areas around process art make drops forgiving without enlarging
+the drawings or overlapping the reference.
 
-This release uses still renders. Animation belongs to a separate phase; direct rendering of the simple models is a possible future approach. Retain simple reusable geometry and motion controls; do not add video, animated images or a new rendering engine in this phase.
+Size is essential. Loose parts, intermediate work and finished toys have different
+scale families, with caps on very large and very small pieces. Broad opaque
+workpieces are normally around half the page width; compact open assemblies may
+be larger. Finished toys stay generously sized. A carried subassembly becomes
+secondary until fitted; unrelated completed toys stay behind. Show slender parts
+diagonally where helpful and retain at least the ordinary 44px touch area.
 
-White instruction pages, with no decorative frame or background grid. Use a restrained vintage school-workshop palette: honey-coloured wood, forest-green fittings, brick-red moving parts, and cream/charcoal hardware. Let colour suggest material or function; avoid reproducing a kit brand's combined palette. Models use simple geometry and flat material colours, without woodgrain, cloth texture maps or decorative surface noise. This direction applies throughout Builder; the rebuilt opening adopts it first, with older artwork awaiting migration. Keep the meshes and materials compact enough for a possible later Three.js renderer.
+Use a stable camera and scale within an additive group. Explicit flips, a new
+working face, or the completed-object view may change perspective to expose the
+relevant structure. Magnification may change between roles; fitted physical
+proportions never do. Actual tops and undersides must be distinguishable—for
+example, flat fitting marks can identify the mast socket and bearing seats without
+texture maps. Test the whole sequence at short-phone sizes, with readable current
+goals and exposed pickup points. Some recoverable tabletop overlap is acceptable;
+it must not make the next step impossible or require knowing an invisible target.
 
-Use orthographic or shallow three-quarter views that reveal joins. Loose parts, intermediate assemblies and finished toys can use different display scales. Scale follows the current job: the main assembly dominates; current parts are large enough to identify and handle; completed earlier toys stay on their own pages unless genuinely needed. A carried subassembly is secondary until it is fitted. Broad opaque workpieces are normally about half the page width, with flexibility for low, open chassis shapes. Finished toys retain a generous independent scale. Keep fitted physical dimensions unchanged. Reveal real openings and preserve material opacity. Show long loose rods diagonally where helpful; the minimum touch area and transparent image margins must keep slender parts selectable. Preserve the camera and scale within additive assembly groups; explicit flips and a deliberate whole-machine view can expose newly relevant structure.
+Prefer substantial central bodies: trays, palms, decks, enclosed optical toys and
+compact mechanisms. Reject or rethink inherently spindly constructions before
+rendering them. Do not invent irrelevant backing plates merely to make a bad shape
+fit. Held items follow the finger beyond the page and fit back on ordinary release,
+according to the shared dragging contract.
 
-Prefer inventions with a substantial central body and a clear place to grab: compact hovercraft, robots and spinning machines are useful structural examples. A hand mechanism should remain visually anchored by its palm. Long spindly builds are less suited to this interface; the mast-and-chassis racer and periscope are near the acceptable limit. This is a selection and composition preference for future revisions, not a requirement to invent bulky backing pieces or distort the existing physical model.
+## Physical models and evaluation
 
-Every draggable icon depicts one connected part or machine. A small set of repeated fittings gets separate identities, supplies and visible additions. One wheel, bearing or axle token must not silently represent two. Prepared modules may include clearly modeled integral hardware. Do not scatter several separated pieces inside one draggable icon. Heterogeneous supplies need an actual connected prepared component or explicit separate construction steps; an unrelated carrier, bag or decorative backing must not disguise a pile of parts. Installed assemblies and fixed workbench views retain all actual fitted components; standalone finished-toy icons omit detached test paper, fixtures or scenery that belong in the use scene.
+Canonical dimensioned Blender assemblies are the source of truth for loose parts,
+partial constructions, completed toys and later installations. Use metres and a
+consistent coordinate convention. Retain part ownership and useful motion controls.
+A shared model must preserve actual holes, pivots, shaft axes, clearances, cable
+lengths, insertion routes and component identity. An attractive camera cannot
+conceal a missing drive or an impossible fitting.
 
-The opening's detailed export dimensions live with its production settings in the active study. Evaluate the entire build in motion at phone sizes: clear current instructions, exposed pickup points, visible additions and meaningful flip targets. Large finished objects may overlap, but unrelated props must not dominate the active workpiece. The first pinwheel stays independent; the mast/sail carries only into its own racer construction.
+Prototype mechanics before final rendering. Check complete motion ranges for cams,
+followers, links, flippers, pulleys, syringes, jaws and rotating assemblies. Review
+actual evaluated geometry and several views with fresh participants. Distinguish
+nominal geometric checks and prescribed flex envelopes from material simulation,
+retention forces, manufactured reliability or child-safe operating loads. Fix rigid
+intersections and blocked assembly paths; describe evidence limits candidly.
 
-The projector's loose disc, lens and lens-holder stages use inspection views that make the perforations and transparent optic legible within their display-scale families. Their fitted dimensions remain unchanged. Its actual removable lid rests inside-up beside the box during construction, then closes before testing. The fitted baffle honestly obscures most of the disc face; the loose view supplies that detail.
+This phase produces still artwork. Animation, video and a Three.js runtime remain
+separate work. A static finished object must already be worth constructing.
 
-The whale's service-side construction views pair the whole machine with a labeled actual close view of its stop-button fittings or under-deck dock. Keep one camera and scale per view across the chapter. The story explicitly opens the hatch after the projector is secured, keeps it open through the dock and power fittings, and closes it before work on the drive. The final flight diagram also shows the actual projected stars from the front of the cloth; the whole-setup view sees its back.
+Follow the standing authoring and evaluation guides. Use informed necessity and
+mechanical reviews, fresh visual/continuity reviews, actual source-unexposed
+`--fast` and `--detailed` playtests, and real browser pointer/touch-emulation checks.
+Text tests assess instructions and combinations, not the visual satisfaction the
+user enjoyed in the opening. Preserve that human evidence without treating it as
+proof for the new later chapters. Test major changed families, sensible alternative
+orders, complete routes, reload and chapter transitions. Revise weak passages
+before expensive artwork; do not add narrative or guessing merely to inflate a
+text-only deliberation score.
 
-The retained later-chapter celebrations use a more expansive illustrated garden at changing times of day, while preserving the toy's shape, materials, colours and fitted parts. Backgrounds carry atmosphere and setting; interactable drawings are self-contained and do not depend on invisible seams into painted scenery. The periscope and kaleidoscope rewards include actual rendered eye views through their mirrors. The projector's stars use its actual punched mask and an explicit ideal thin-lens diagram on the receiving cloth, without implying a photometric measurement. No parts-list panel: the available game objects already serve that purpose.
-
-## Evaluation
-
-Apply the standing authoring and evaluation guides. Fresh informed reviewers assess necessity, engineering and narrative; source-unexposed players use the actual CLI interfaces. Begin with a full `--fast` screen, revise, repeat affected passages with new players, and conduct a full `--detailed` screen plus multi-player checks of the risky passages. Explicit one-player screening designs allow broad iteration; final selected passages use three independent players and independent grading/synthesis. AI evidence does not establish enjoyment by children.
-
-Falsifiers include: a project with no reason to make it outside this plot; more attention to named intermediate states than useful principles; a late fictional component that makes earlier learning irrelevant; players repeatedly finding a sequence prescribed and unrewarding; or assembly artwork that silently changes or adds unrelated parts.
-
-The live manuscript and runtime artwork belong in `stories/builder`. This is the single active brief for that story and its later study iterations. Retained development sources, research and evaluation outcomes document how the accepted work was reached; they do not replace this intent.
-
-The low-flight, garden-preparation and final-flight chapters reserve their full diagram canvases for the large whale detail, whole setup and applicable labeled views of the actual nose dip and open service hatch. These are additional cameras on the same unchanged assembly. Workbench chapters use receiving bounds around the visible workpiece, keeping loose supplies clear of goals while preserving the full artwork and its registration.
+The live manuscript and accepted artwork belong in `stories/builder`; ongoing
+source models, drafts, actual playtests and concise outcomes belong in
+`projects/builder-study`. This is their single active design brief. Remove temporary
+renders, captures and detailed verification packets after recording outcomes.

@@ -1,5 +1,6 @@
 """Generate the independent sail and racer draft from explicit construction states."""
 from pathlib import Path
+import argparse
 import json
 
 ROOT = next(p for p in Path(__file__).resolve().parents if (p/'src/story/parser.ts').is_file())
@@ -66,7 +67,7 @@ mast += '\n**Items**\n'+''.join(mast_items)+'\n**Combinations**\n'+''.join(mast_
 body_ids = {(0,0):'wr-chassis',(1,0):'wr-front-bearing-chassis',(0,1):'wr-rear-bearing-chassis',
             (1,1):'wr-bearing-chassis',(2,0):'wr-front-rolling-chassis',(0,2):'wr-rear-rolling-chassis',
             (2,1):'wr-front-wheel-chassis',(1,2):'wr-rear-wheel-chassis',(2,2):'wr-rolling-chassis'}
-body_items = []
+body_items = [item('wr-chassis-top','Chassis',['chassis'],'upright')]
 for (front,rear),identity in body_ids.items():
     parts = ['chassis']
     for side,level in [('front',front),('rear',rear)]:
@@ -84,7 +85,7 @@ for side in ('front','rear'):
     body_items.append(item('wr-'+side+'-wheels',side.title()+' wheels',[side+'-axle',side+'-wheel-near',side+'-wheel-far'],'axle','wr-wheels'))
 for n in range(1,5):
     body_items.append(item(f'wr-wheel-{n}','Wheel',['front-wheel-near'],'loose','wr-wheel','The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.'))
-body_recipes = []
+body_recipes = [recipe('wr-chassis-top','wr-flip','wr-chassis',True)]
 for side in ('front','rear'):
     for n in range(1,5):
         body_recipes += [recipe('wr-'+side+'-axle',f'wr-wheel-{n}','wr-'+side+'-one-wheel'),
@@ -97,7 +98,8 @@ for front in range(3):
             body_recipes.append(recipe(body_ids[front,rear],'wr-'+side+('-bearing' if value==0 else '-wheels'),body_ids[dest]))
 body_recipes += [recipe('wr-rolling-chassis','wr-flip','wr-upright',True),recipe('wr-upright','wr-sail','wind-racer')]
 body = '## `c-racer-body` Wheels for the sail\nbackground: ![White instruction page](assets/backgrounds/white.svg)\nreference: ![Wind racer](assets/items/wind-racer.webp)\n\n**Goals**\n'
-body += goal('Push a wheel onto the front straw',['wr-front-one-wheel'])
+body += goal('Flip the chassis over',['wr-chassis'])
+body += goal('Push a wheel onto the front straw',['wr-front-one-wheel'],True)
 body += goal('Push another wheel onto the front axle',['wr-front-wheels'],True)
 body += goal('Push a wheel onto the rear straw',['wr-rear-one-wheel'],True)
 body += goal('Push another wheel onto the rear axle',['wr-rear-wheels'],True)
@@ -107,13 +109,20 @@ body += goal('Snap wheels into a bearing',[identity for key,identity in body_ids
 body += goal('Snap on the other wheels',['wr-rolling-chassis'],True)
 body += goal('Flip the chassis upright',['wr-upright'],True)
 body += goal('Fit the sail to the chassis',['wind-racer'],True)
-body += '\n**Hotspots**\n- `wr-flip` (center 390px, 216px)\n  - icon: ![Turn the chassis over](assets/actions/flip.svg)\n\n**Items**\n'+''.join(body_items)+'\n**Combinations**\n'+''.join(body_recipes)
+body += '\n**Hotspots**\n- `wr-flip` (center 390px, 216px)\n  - icon: ![Turn the chassis over](assets/actions/flip.svg)\n  - hitbox: (center 390px, 216px) (size 236px, 248px)\n\n**Items**\n'+''.join(body_items)+'\n**Combinations**\n'+''.join(body_recipes)
 source=(ROOT/'stories/builder/builder.md').read_text()
-start=source.index('## `c02`');end=source.index('## `c03`',start)
+start=source.index('## `c02`');end=source.index('\n## ',source.index('## `c-racer-body`',start)+3)+1
 source=source[:start]+mast+'\n\n'+body+'\n\n'+source[end:]
+source=source.replace('- `pw-fold` (center 130px, 216px)','- `pw-fold` (center 390px, 216px)').replace('- `pw-flip` (center 390px, 216px)','- `pw-flip` (center 130px, 216px)')
+import re
+for action, x in [('fold',390),('flip',130)]:
+    pattern=r'(  - icon: !\[[^\n]+\]\(assets/actions/'+action+r'\.svg\)\n)(?:  - hitbox:[^\n]+\n)*'
+    opening_end=source.index('## `c02`')
+    source=re.sub(pattern,lambda m:m.group(1)+f'  - hitbox: (center {x}px, 216px) (size 236px, 248px)\n',source[:opening_end])+source[opening_end:]
 source=source.replace('  - from chapter `c02` icon: ![Pinwheel](assets/items/pinwheel-carried.webp)\n','')
 source=source.replace('An orange paper pinwheel','A brick-red paper pinwheel').replace('The orange sheet','The paper sheet').replace('background: ![An invitation on the garden workbench](assets/cover.webp)','background: ![White instruction page](assets/backgrounds/white.svg)')
 draft=source.replace('(assets/','(../../stories/builder/assets/').replace('(icon.png)','(../../stories/builder/icon.png)')
-(ROOT/'projects/builder-study/builder-v36.md').write_text(draft)
+parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);args=parser.parse_args()
+output=ROOT/args.output;output.parent.mkdir(parents=True,exist_ok=True);output.write_text(draft)
 (HERE/'construction-plan.json').write_text(json.dumps(plan,indent=2)+'\n')
 print(f'{len(mast_recipes)} sail recipes, {len(body_recipes)} body recipes; {len(plan)} illustrated identities')

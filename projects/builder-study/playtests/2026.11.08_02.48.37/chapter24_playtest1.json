@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for connecting the switch harness to the rover.",
+    "choice": {
+      "combine": "Switch harness",
+      "with": "Rover"
+    },
+    "expectation": "The switch harness should connect to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The harness connected the components, and the next goal is to fit a guard.",
+    "reaction": "The visible leads make the connection clearer.",
+    "step": 2,
+    "reason": "The goal calls for a guard; I’ll try the first available one on the rover.",
+    "choice": {
+      "combine": "Guard (#2)",
+      "with": "Rover"
+    },
+    "expectation": "The guard should fit over part of the rover’s underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first guard covers one wheel's green box; the other guard is now needed.",
+    "reaction": "The exposed box makes the next fitting clear.",
+    "step": 3,
+    "reason": "The goal explicitly calls for the remaining guard on the rover.",
+    "choice": {
+      "combine": "Guard (#3)",
+      "with": "Rover"
+    },
+    "expectation": "The remaining guard should cover the other wheel's green box.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both wheel boxes are covered, and the next goal is to turn the rover upright.",
+    "reaction": "The paired covers make the finished underside clear.",
+    "step": 4,
+    "reason": "The goal explicitly calls for flipping the rover upright.",
+    "choice": {
+      "combine": "Rover",
+      "with": "Flip"
+    },
+    "expectation": "The rover should turn upright, exposing its top side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rover is upright, exposing the guide rods and fittings; the pen now needs its carriage.",
+    "reaction": "The next fitting is clear.",
+    "step": 5,
+    "reason": "The goal explicitly says to clip the pen into its carriage.",
+    "choice": {
+      "combine": "Pen",
+      "with": "Pen carriage"
+    },
+    "expectation": "The pen should clip into the carriage's red circular fitting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen is clipped into the carriage, which is ready to slide onto the rover's guides.",
+    "reaction": "The bracket and guide rods make the next fitting clear.",
+    "step": 6,
+    "reason": "The goal calls for sliding the carriage onto the guides on the rover.",
+    "choice": {
+      "combine": "Pen carriage",
+      "with": "Rover"
+    },
+    "expectation": "The pen carriage should fit onto the rover's guide rods.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pen carriage is on the guide rods, and the return spring is next.",
+    "reaction": "The upright pen makes the assembly's progress clear.",
+    "step": 7,
+    "reason": "The goal calls for sliding the return spring onto the rover assembly.",
+    "choice": {
+      "combine": "Return spring",
+      "with": "Rover"
+    },
+    "expectation": "The return spring should slide onto the carriage or its guide.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return spring is fitted around a guide rod; the guide cap is next.",
+    "reaction": "The spring’s position is clear.",
+    "step": 8,
+    "reason": "The goal calls for pressing the guide cap onto the rover.",
+    "choice": {
+      "combine": "Guide cap",
+      "with": "Rover"
+    },
+    "expectation": "The cap should bridge the tops of the guide rods.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guide cap bridged the rods and completed the drawing rover and all chapter goals.",
+    "reaction": "The finished top bar makes the pen assembly feel complete.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the pen carriage onto the guides was the most worthwhile step: it brought the pen and rover together into a recognizable drawing mechanism.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two separate guard fittings felt somewhat repetitive in the text interface, although each visibly covered a different wheel box.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The return spring surrounded a guide rod beside the pen; I had not been certain exactly where it would go.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the current goals identified each fitting and the results showed where it went.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue for another construction, though the predictable individual fittings were less engaging in text. This experience does not establish how the pictures or physical handling would feel.",
+        "steps": [
+          2,
+          3,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

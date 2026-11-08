@@ -1,0 +1,125 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly asks to flip the table.",
+    "choice": {
+      "combine": "Table",
+      "with": "Flip"
+    },
+    "expectation": "The table should turn over, exposing its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The underside is exposed, and the next goal is to fit the pivot plate.",
+    "reaction": "The underside view makes the next fitting clear.",
+    "step": 2,
+    "reason": "The current goal calls for fitting the pivot plate to the table.",
+    "choice": {
+      "combine": "Pivot plate",
+      "with": "Table"
+    },
+    "expectation": "The pivot plate should attach to the underside of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pivot plate is attached underneath, and the next goal is to fit the support.",
+    "reaction": "The visible plate makes the construction progress clear.",
+    "step": 3,
+    "reason": "The current goal calls for fitting the support to the table.",
+    "choice": {
+      "combine": "Support",
+      "with": "Table"
+    },
+    "expectation": "The support should attach to the underside of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support is fitted underneath, and the next goal is to turn the table upright.",
+    "reaction": "The stand visibly advances the construction.",
+    "step": 4,
+    "reason": "The current goal explicitly calls for flipping the table upright.",
+    "choice": {
+      "combine": "Table",
+      "with": "Flip"
+    },
+    "expectation": "The table should turn upright on its support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table is upright on its support, exposing the pivot pins for the paddles.",
+    "reaction": "The exposed pins make the next fitting clear.",
+    "step": 5,
+    "reason": "The goal calls for snapping the left paddle onto the table.",
+    "choice": {
+      "combine": "Left paddle",
+      "with": "Table"
+    },
+    "expectation": "The left paddle should snap onto its pivot pin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left paddle is fitted, leaving the right pivot bare.",
+    "reaction": "The separate fitting clearly shows the progress.",
+    "step": 6,
+    "reason": "The current goal calls for snapping on the right paddle.",
+    "choice": {
+      "combine": "Right paddle",
+      "with": "Table"
+    },
+    "expectation": "The right paddle should snap onto the bare pivot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both paddles are fitted, and the chapter is complete.",
+    "reaction": "The two inward-facing paddles make the completed assembly easy to recognize.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the pivot plate and then turning the supported table upright was worthwhile: the underside assembly led to visible pivot pins for the paddles.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second paddle was predictable, although the separate fitting clearly showed the physical change.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the exposed pivot pins clarified where the paddles belonged.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each followed a clear construction goal.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the remaining table parts fitted, though the text interface makes the process quite predictable. This trial cannot tell me how the pictures or handling feel.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

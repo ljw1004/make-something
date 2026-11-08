@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for attaching an arch to the deck.",
+    "choice": {
+      "combine": "Arch (#1)",
+      "with": "Deck"
+    },
+    "expectation": "One arch should stand on the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first arch is fitted, and the next goal is to fit the second.",
+    "reaction": "The visible change makes the progress clear.",
+    "step": 2,
+    "reason": "The remaining arch should fit onto the frame as the goal directs.",
+    "choice": {
+      "combine": "Arch (#2)",
+      "with": "Frame"
+    },
+    "expectation": "The second arch should stand on the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both arches are fitted, and the cradle is next.",
+    "reaction": "The two arches make a clear support for the cradle.",
+    "step": 3,
+    "reason": "The goal directs me to clip the tile cradle across the arches.",
+    "choice": {
+      "combine": "Tile cradle",
+      "with": "Frame"
+    },
+    "expectation": "The cradle should bridge the tops of the arches.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cradle bridges the arches, and the lift tile is ready to be seated.",
+    "reaction": "The support structure is clear, though the name Whale carrier is unexpected.",
+    "step": 4,
+    "reason": "The goal directs me to seat the lift tile in the cradle.",
+    "choice": {
+      "combine": "Lift tile",
+      "with": "Whale carrier"
+    },
+    "expectation": "The purple tile should sit in the cradle atop the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift tile is seated, and the frame needs to be flipped next.",
+    "reaction": "The purple tile's position is clear.",
+    "step": 5,
+    "reason": "The current goal explicitly calls for flipping the frame.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier should turn over to expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upside down, exposing where the battery can be fitted.",
+    "reaction": "The change in orientation is clear.",
+    "step": 6,
+    "reason": "The goal calls for fitting the battery underneath the frame.",
+    "choice": {
+      "combine": "Battery pack",
+      "with": "Frame"
+    },
+    "expectation": "The battery pack should attach to the underside of the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery is fitted underneath, and the frame must be turned upright.",
+    "reaction": "The upside-down view makes the battery placement clear.",
+    "step": 7,
+    "reason": "The current goal explicitly calls for flipping the frame upright.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The board should return upright with the battery underneath.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upright again, and the lift control is the next fitting.",
+    "reaction": "The orientation change is clear.",
+    "step": 8,
+    "reason": "The current goal calls for fitting the lift control to the frame.",
+    "choice": {
+      "combine": "Lift control",
+      "with": "Frame"
+    },
+    "expectation": "The control box should attach to the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lift control is fitted, completing the chapter's goals.",
+    "reaction": "The finished control box makes the final fitting clear, though the fictional lift itself was not demonstrated.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the cradle across the two arches was most worthwhile: it made the purpose of the supports clear and created a place for the tile.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Flipping the frame over and upright was straightforward, but the changing names made the text interface slightly harder to follow.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The construction becoming a Whale carrier after fitting the cradle was unexpected; the visible result showed a frame rather than explaining the name.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The name Whale carrier felt unexplained, although the actual cradle fitting had a clear purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably stop here: the short construction goals were clear, but I would have liked to see the completed mechanism do something.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

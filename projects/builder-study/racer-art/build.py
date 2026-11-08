@@ -49,6 +49,8 @@ def build():
     a = Assembly('independent wind racer')
     chassis = a.box('chassis','honey wood chassis',(0,0,.045),(.220,.110,.008),'birch')
     S.bore(chassis,(0,0,.045),.0042,.020,'Z')
+    # Flat printed fitting marks distinguish top and underside without textures.
+    ring(a,'chassis','printed mast socket ring',(0,0,.049005),.009,.007,.00001,'teal','Z')
     for side,x in [('front',.075),('rear',-.075)]:
         part = side+'-bearing'
         ring(a,part,'open axle bearing',(x,0,.030),.006,BEARING_INNER,.130,'teal',gap=BEARING_GAP,mouth='bottom')
@@ -56,6 +58,9 @@ def build():
             ring(a,part,'bearing saddle',(x,y,.030),.009,.006,.016,'teal',gap=1.3,mouth='bottom')
             a.box(part,'saddle shoulder',(x,y,.0395),(.013,.016,.003),'teal')
             cut_box(chassis,(x,y,.045),(.0084,.0104,.020))
+            for sign in (-1,1):
+                a.box('chassis','printed bearing guide',(x+sign*.010,y,.040995),(.0008,.022,.00001),'teal')
+                a.box('chassis','printed bearing guide',(x,y+sign*.011,.040995),(.0208,.0008,.00001),'teal')
             for sign in (-1,1):
                 a.box(part,'saddle snap leg',(x+sign*.003,y,.046),(.002,.009,.012),'teal')
                 profile=[(x+sign*px,z) for px,z in [(.0027,.0495),(.0057,.0495),(.0057,.0500),(.0037,.0530),(.0027,.0530)]]

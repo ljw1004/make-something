@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal says to fit the connector to the mast.",
+    "choice": 2,
+    "expectation": "I expect the connector to attach to the mast, ready for another part.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The foot likely supports the mast, but the connector is the stated first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connector is fitted, and the next goal is to add the crossbar.",
+    "reaction": "The sequence is clear, though the result simply says Mast.",
+    "step": 2,
+    "reason": "Crossbar + Mast matches the current goal.",
+    "choice": 2,
+    "expectation": "I expect the crossbar to fit into the connector on the mast.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The foot may support the mast, but the crossbar is the stated next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar is fitted, and the next goal is to add the foot.",
+    "reaction": "The sequence remains clear, though the result still just says Mast.",
+    "step": 3,
+    "reason": "Foot + Mast matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the foot to attach to the mast and support it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sail is probably needed later, but the foot is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The foot is attached, and the remaining goal is to clip on the sail.",
+    "reaction": "The instructions are clear, though the result still only says Mast.",
+    "step": 4,
+    "reason": "Sail + Mast is the only offered combination and matches the goal.",
+    "choice": 1,
+    "expectation": "I expect the sail to clip onto the mast, completing the assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is clipped on, completing the chapter.",
+    "reaction": "The assembly was straightforward, though the final result gives little physical detail.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the sail was the most worthwhile step because it completed the assembly.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated “Created: Mast” results made the individual additions less vivid in text, despite the clear goals.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the goals made the sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary: each addition matched a stated construction goal.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see what the completed sail does, but this chapter alone was too straightforward to strongly draw me onward.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

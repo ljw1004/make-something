@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll follow the current goal and flip the deck so its underside is accessible.",
+    "choice": 5,
+    "expectation": "I expect the deck to turn over, revealing where the motor units fit.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I considered attaching a wheel first, but flipping the deck is the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck is flipped, and the next goal is to fit a wheel to the left motor.",
+    "reaction": "The bare underside is clear, though the mounting positions aren't explained yet.",
+    "step": 2,
+    "reason": "I'll follow the current goal and attach a wheel to the left motor.",
+    "choice": 1,
+    "expectation": "I expect the wheel to fit onto the motor's projecting shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left wheel is fitted to its motor; the next goal is to make the right drive.",
+    "reaction": "The wheel on the shaft makes the assembly clear.",
+    "step": 3,
+    "reason": "I'll fit the remaining wheel to the right motor, following the current goal.",
+    "choice": 1,
+    "expectation": "I expect a matching right drive with the wheel on the motor shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both wheel-and-motor drives are assembled; the next goal is to mount the left one.",
+    "reaction": "The matching drive is straightforward.",
+    "step": 4,
+    "reason": "I'll fit the left drive to the deck as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the left motor and wheel assembly to attach to the underside of the deck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left drive is mounted, and the next goal is to fit the right drive.",
+    "reaction": "The first mounted wheel makes the rover's layout clearer.",
+    "step": 5,
+    "reason": "I'll follow the goal and mount the right drive.",
+    "choice": 1,
+    "expectation": "I expect the second wheel and motor unit to attach to the rover.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both drive units are mounted, and the next goal is to fit the caster.",
+    "reaction": "The paired wheel units make the layout clearer.",
+    "step": 6,
+    "reason": "I'll fit the caster as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the caster to attach to the deck and provide another point of support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, and the next goal is to add the battery pack.",
+    "reaction": "The extra support makes the rover's layout clearer.",
+    "step": 7,
+    "reason": "I'll fit the battery pack as the current goal directs.",
+    "choice": 1,
+    "expectation": "I expect the battery pack to mount on the rover, though its wiring may need a later step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is mounted, and the remaining goal is to fit the receiver.",
+    "reaction": "The box's position is clear, though the wiring isn't shown.",
+    "step": 8,
+    "reason": "I'll fit the receiver, following the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the receiver to mount on the rover; I'm unsure whether its connections will be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is mounted and all chapter goals are complete; the result does not show its electrical connections.",
+    "reaction": "The finished layout is clear, but I am curious how the motors and receiver connect.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the two drive units made the rover's wheel layout visible and connected the motor assemblies to the deck.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the battery and receiver was less informative because their wiring was not shown.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The chapter finished with the receiver mounted but without showing the electrical connections.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the mounting positions and wiring were not fully explained.",
+        "steps": [
+          1,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the rover is connected and used, though the guided fittings themselves were fairly predictable.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

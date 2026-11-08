@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to slide the follower into the guide, and this is the only offered action.",
+    "choice": 1,
+    "expectation": "The follower should fit into the guide, perhaps forming an assembly for the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The follower is in the guide; the next goal is to snap on the cover.",
+    "reaction": "The result is straightforward, though the assembly keeping the name Follower is slightly unclear.",
+    "step": 2,
+    "reason": "The only offered combination matches the new goal.",
+    "choice": 1,
+    "expectation": "The cover will snap onto the follower assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cover is fitted, and the follower is ready to mount above the cam.",
+    "reaction": "The next physical connection is clear, although the result still uses the name Follower.",
+    "step": 3,
+    "reason": "The only offered combination matches the mounting goal.",
+    "choice": 1,
+    "expectation": "The follower assembly will mount on the frame above the cam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the follower created a lifter; the spring is the next part to add.",
+    "reaction": "The new name makes the assembly's purpose clearer.",
+    "step": 4,
+    "reason": "The only offered combination matches the spring goal.",
+    "choice": 1,
+    "expectation": "The spring will hook onto the lifter, though its exact attachment point is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring is attached and all chapter goals are complete; its exact attachment point remains unclear.",
+    "reaction": "The final fitting was straightforward, though the result did not show where the spring went.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the follower above the cam was most worthwhile: it joined the assemblies and named the result a lifter, making its purpose clearer.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the cover was less informative because the result still just said Follower, without showing the physical addition in the text.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The new Lifter name clarified what the follower and frame together were becoming.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The spring's exact attachment point was unclear, though the goal made the intended action clear.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see the lifter work, though these steps were mostly straightforward instructions rather than meaningful choices.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

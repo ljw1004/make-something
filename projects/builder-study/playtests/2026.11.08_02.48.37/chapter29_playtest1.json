@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for fitting the front side to the carrier.",
+    "choice": {
+      "combine": "Front side",
+      "with": "Whale carrier"
+    },
+    "expectation": "The front green side panel should attach to the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front panel is fitted, and the next goal is to turn the carrier to its back.",
+    "reaction": "The panel placement was clear.",
+    "step": 2,
+    "reason": "The Flip hotspot directly matches the new goal.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier should turn to show its back side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is turned around, exposing the back for its side panel.",
+    "reaction": "The new view makes the next fitting clear.",
+    "step": 3,
+    "reason": "The current goal calls for fitting the back side to the whale.",
+    "choice": {
+      "combine": "Back side",
+      "with": "Whale"
+    },
+    "expectation": "The green back panel should attach to the opposite edge of the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both side panels are fitted, and the tail is the next part.",
+    "reaction": "The two-sided assembly is straightforward.",
+    "step": 4,
+    "reason": "The current goal explicitly calls for fitting the tail to the carrier.",
+    "choice": {
+      "combine": "Tail",
+      "with": "Whale carrier"
+    },
+    "expectation": "The red forked tail should attach to the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tail is attached, and the back fin is next.",
+    "reaction": "The tail's position is clear from the back view.",
+    "step": 5,
+    "reason": "The current goal calls for fitting the back fin to the carrier.",
+    "choice": {
+      "combine": "Back fin",
+      "with": "Whale carrier"
+    },
+    "expectation": "The red back fin should attach to the back side panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The back fin is fitted; the carrier now needs turning to the front.",
+    "reaction": "The fin's placement is clear in the back view.",
+    "step": 6,
+    "reason": "The Flip hotspot matches the goal to turn to the front.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier should turn to show its front side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is front-facing again, ready for the remaining fin.",
+    "reaction": "The exposed openings make its placement clear.",
+    "step": 7,
+    "reason": "The current goal calls for fitting the front fin to the whale.",
+    "choice": {
+      "combine": "Front fin",
+      "with": "Whale"
+    },
+    "expectation": "The red front fin should attach to the near green panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front fin completed the whale carrier’s visible side assembly and the chapter’s goals.",
+    "reaction": "Seeing the final fin and tail in place was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the front fin completed the visible whale shape, bringing the panels, tail and fins together.",
+        "steps": [
+          1,
+          4,
+          5,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Turning back to the front was clear but less engaging as a separate text command.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Flipping changed the displayed object name from Whale carrier to Whale, then fittings changed it back.",
+        "steps": [
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the flips exposed the sides needed for their fittings.",
+        "steps": [
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the completed whale is used, though the repetitive text commands make that a tentative choice.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

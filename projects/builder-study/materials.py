@@ -3,11 +3,11 @@
 No image textures, procedural grain or external material dependencies.
 """
 PALETTE = {
-    'paper_reverse': (.55,.16,.10,1),
+    'paper_reverse': (.64,.23,.15,1),
     'birch': (.58, .34, .14, 1),
     'card': (.62, .43, .22, 1),
-    'teal': (.045, .15, .075, 1),
-    'orange': (.38, .075, .04, 1),
+    'teal': (.085, .24, .13, 1),
+    'orange': (.52, .13, .08, 1),
     'ink': (.035, .035, .030, 1),
     'paper': (.78, .73, .60, 1),
 }

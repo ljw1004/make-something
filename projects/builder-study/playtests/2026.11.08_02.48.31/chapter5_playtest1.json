@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Flip the table to follow the current goal; it is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the table’s underside to be exposed for fitting the flipper parts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The underside is exposed, and the next goal is to fit the pivot plate.",
+    "reaction": "The visible slots make the next fitting clear.",
+    "step": 2,
+    "reason": "Fit the pivot plate as the current goal directs; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the pivot plate to attach to the underside of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pivot plate is fitted underneath, and the next goal is to add the support.",
+    "reaction": "The plate’s pins and side fittings make the flipper mechanism easier to picture.",
+    "step": 3,
+    "reason": "Fit the support as directed; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the support to attach beneath the table and hold it up.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support is fitted, and the table is ready to be flipped upright.",
+    "reaction": "The stand’s position beside the plate makes the assembly clearer.",
+    "step": 4,
+    "reason": "Flip the table upright as directed; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the table to stand upright with its playing surface accessible.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table is upright, exposing the pivot pins for the paddles.",
+    "reaction": "The exposed pins make the next fitting clear.",
+    "step": 5,
+    "reason": "Snap on the left paddle as directed; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the left paddle’s socket to fit onto a pivot pin near the front.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left paddle is fitted, leaving the right pivot bare.",
+    "reaction": "The matching second fitting is straightforward.",
+    "step": 6,
+    "reason": "Fit the right paddle as directed; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the right paddle to snap onto the remaining pivot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right paddle is fitted, completing the chapter’s goals.",
+    "reaction": "The two inward-facing paddles make the flipper arrangement clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Flipping the supported table upright revealed the pivot pins and connected the underside mechanism to the playing surface.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second paddle was predictable after the first, though it visibly completed the pair.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The pivot plate’s pins became visible on the playing surface after the table was flipped upright, clarifying how the parts connect.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary; each fitting followed a clear goal and had a visible place in the assembly.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see the remaining pinball parts fitted, although this chapter’s choices were all straightforward.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

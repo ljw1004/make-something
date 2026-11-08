@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a side frame, whose pins appear suited to the holes in the base.",
+    "choice": {
+      "combine": "Side frame (#1)",
+      "with": "Base"
+    },
+    "expectation": "The side frame should attach upright to the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first side frame is fitted, and the next goal calls for the remaining one.",
+    "reaction": "The upright frame makes the construction progress clear.",
+    "step": 2,
+    "reason": "The remaining side frame should fit onto the other end of the base.",
+    "choice": {
+      "combine": "Side frame (#2)",
+      "with": "Frame"
+    },
+    "expectation": "The second side frame should stand at the opposite end of the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both side frames are upright, and the beam is needed to join their tops.",
+    "reaction": "The unjoined tops make the next fitting clear.",
+    "step": 3,
+    "reason": "The goal explicitly calls for the beam to join the frames.",
+    "choice": {
+      "combine": "Beam",
+      "with": "Frame"
+    },
+    "expectation": "The beam should span the tops of the two frames.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beam now joins the side frames; the next goal moves to assembling the winch.",
+    "reaction": "The completed frame is easy to picture.",
+    "step": 4,
+    "reason": "The ratchet’s square hole appears to fit a square-ended winch shaft, as the goal directs.",
+    "choice": {
+      "combine": "Ratchet",
+      "with": "Winch"
+    },
+    "expectation": "The ratchet should fit onto the winch shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ratchet is fitted to the winch, leaving the crank as the next part.",
+    "reaction": "The toothed disc makes the winch assembly clearer.",
+    "step": 5,
+    "reason": "The crank has a square hole that should fit the winch shaft, as the goal directs.",
+    "choice": {
+      "combine": "Crank",
+      "with": "Winch"
+    },
+    "expectation": "The crank should attach to the winch shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crank is fitted to the winch, which is now ready to mount.",
+    "reaction": "The assembled winch is clear to picture.",
+    "step": 6,
+    "reason": "The goal calls for mounting the winch, and the frame is the available structure.",
+    "choice": {
+      "combine": "Winch",
+      "with": "Frame"
+    },
+    "expectation": "The winch should mount on the frame’s base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mounting the winch completed the gantry and all chapter goals.",
+    "reaction": "The winch in place makes the finished construction clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the two side frames with the beam was most worthwhile because it made the separate supports into a recognizable lifting frame.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two side frames was somewhat repetitive in the text interface, though each fitting visibly changed the structure.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the goals and part shapes made the sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: each fitting had a clear place in the construction.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue for another build: the explicit fittings and visible progress were satisfying, although this text trial cannot convey the pictures or handling.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

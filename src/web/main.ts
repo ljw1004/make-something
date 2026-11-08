@@ -7,7 +7,7 @@ import './item-artwork.css';
 import './chapter-reference.css';
 import { parseStory } from '../story/parser.ts';
 import type { Story } from '../story/types.ts';
-import { newGame, act, availableTokens, label, chapterComplete, readings, matches, recipeFor } from '../engine/game.ts';
+import { newGame, act, availableTokens, label, chapterComplete, matches, recipeFor } from '../engine/game.ts';
 import {isFixed, presentHotspots} from '../engine/fixed-items.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
@@ -22,6 +22,8 @@ import { EncyclopediaSwipe } from './encyclopedia-swipe.ts';
 import { encyclopediaEntries, openBook, restoreEncyclopediaHistory, remapEncyclopediaHistory, type EncyclopediaHistory } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
 import { restoreItemOrder } from './item-order.ts';
+import {browserItemText} from '../story/text-only.ts';
+import {browserReadings, dismissTextOnlyWonders} from './item-readings.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, hasChapterCombination, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset } from './story-document.ts';
@@ -470,10 +472,11 @@ async function start() {
 }
 function closeDialog() {
   bookSwipe.cancel();
+  const editing = document.activeElement?.closest('.story-editor');
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   bookResize.disconnect();
   dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
-  if (dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
+  if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
   dialogOpener = undefined;
   updateTutorial();
 }
@@ -510,7 +513,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
 }
 function pendingContent() {
   const notice = state.pending[0];
-  return notice ? `${readingBody(notice.markdown, asset)}<div class="dialog-actions"><button data-command="dismiss">${notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button></div>` : '';
+  return notice ? `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions"><button data-command="dismiss">${notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button></div>` : '';
 }
 function showPending() {
   if (!storyStarted || dialogContext || !state?.pending.length) return;
@@ -607,7 +610,7 @@ function dismissReading() {
 }
 function read(id: string) {
   flushPreview();
-  if (!readings(story, state, id).some(reading => reading.encyclopedia.trim())) return false;
+  if (!browserReadings(story, state, id).some(reading => reading.encyclopedia.trim())) return false;
   openEncyclopedia(id, true);
   return true;
 }
@@ -639,6 +642,7 @@ function jumpToCheckpoint(index: number) {
   } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
 }
 function refreshDialog() {
+  state = dismissTextOnlyWonders(story, state);
   if (dialogContext?.kind === 'pending') {
     if (state.pending.length) openPendingReading();
     else closeDialog();
@@ -854,6 +858,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   scheduleArtwork();
   inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
   if (!storyStarted) { renderLanding(); return; }
+  state = dismissTextOnlyWonders(story, state);
   itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
   const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
   const scroll=(oldHeight!==app.clientHeight?expectedScroll:app.querySelector('.viewport')?.scrollTop??0)*app.clientHeight/oldHeight;
@@ -868,7 +873,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
     const geometry=boardGeometry(chapter);
     return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${chapterReferenceHTML(story.chapters[chapter],geometry.bounds,asset)}${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
-      const item=story.items[t.id],applicable=readings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
+      const item=story.items[t.id],applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,itemPresentation(story,state.chapter,t.id).icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
   }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);

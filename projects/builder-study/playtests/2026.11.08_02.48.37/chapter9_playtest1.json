@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for sliding the follower into the guide.",
+    "choice": {
+      "combine": "Follower",
+      "with": "Guide"
+    },
+    "expectation": "The red follower should fit into the guide.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The follower is in the guide, and the next goal is to secure it with the cover.",
+    "reaction": "The visible change makes the assembly clear.",
+    "step": 2,
+    "reason": "The goal calls for snapping the cover onto the follower assembly.",
+    "choice": {
+      "combine": "Cover",
+      "with": "Follower"
+    },
+    "expectation": "The cover should snap onto the guide around the follower.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cover now encloses the follower, and the next goal is to mount the assembly above the cam.",
+    "reaction": "The closed guide makes the follower assembly easier to picture.",
+    "step": 3,
+    "reason": "The cam is part of the frame, so the follower assembly should mount to it.",
+    "choice": {
+      "combine": "Follower",
+      "with": "Frame"
+    },
+    "expectation": "The follower should mount above the cam on the frame.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The follower is mounted above the cam, and the spring is the next fitting.",
+    "reaction": "The broad foot above the disc makes their relationship clear.",
+    "step": 4,
+    "reason": "The current goal calls for hooking the spring onto the lifter assembly.",
+    "choice": {
+      "combine": "Spring",
+      "with": "Lifter"
+    },
+    "expectation": "The spring should hook onto the lifter assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring is fitted beside the follower, completing the chapter’s goals.",
+    "reaction": "The final description makes the spring’s position clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mounting the follower above the cam was most worthwhile: it brought the two assemblies together and showed how the disc relates to the follower’s foot.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Snapping on the cover was a straightforward intermediate fitting, though its visible change was clear.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The mounted follower’s broad foot sits just above the disc, making the connection between the parts clearer.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each followed an explicit construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the remaining dragon parts connect to the lifter; assembling the cam and follower was interesting in text, though this trial cannot convey the pictures or handling.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

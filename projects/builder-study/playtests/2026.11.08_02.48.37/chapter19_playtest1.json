@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for moving either cup, but it does not say what to combine it with to slide it.",
+    "choice": {
+      "inspect": "Cup (#1)"
+    },
+    "expectation": "The compatibility list should show how to move the cup to the farther seat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cup (#1)",
+          "with": "Claw"
+        },
+        "reason": "The cup may fit onto the claw board, but I am not sure how sliding is represented."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cup fitted to the output syringe automatically, so the other cup should go on the resulting syringe.",
+    "reaction": "The automatic fitting clarified what the sliding goal meant.",
+    "step": 2,
+    "reason": "The new goal calls for fitting the remaining cup behind the first.",
+    "choice": {
+      "combine": "Cup (#2)",
+      "with": "Syringe"
+    },
+    "expectation": "The second cup should fit behind the first on the syringe.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both cups now support the syringe barrel, and the next goal is to fit the plunger clip.",
+    "reaction": "The two supports make the assembly clearer.",
+    "step": 3,
+    "reason": "The goal names the plunger clip, which should fit onto the syringe assembly.",
+    "choice": {
+      "combine": "Plunger clip",
+      "with": "Syringe"
+    },
+    "expectation": "The clip should attach to the syringe plunger.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clip fits the claw's central bracket rather than the syringe; the supported syringe can now be fitted to the claw.",
+    "reaction": "The compatibility feedback clarified where the clip belongs.",
+    "step": 4,
+    "reason": "The current goal explicitly calls for fitting the syringe into the claw.",
+    "choice": {
+      "combine": "Syringe",
+      "with": "Claw"
+    },
+    "expectation": "The supported syringe should attach to the claw and its plunger clip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supported syringe is now mounted on the claw; the return band is the next part to fit.",
+    "reaction": "The syringe's position behind the jaws makes the assembly clearer.",
+    "step": 5,
+    "reason": "The goal calls for looping the return band onto the assembled claw.",
+    "choice": {
+      "combine": "Return band",
+      "with": "Claw"
+    },
+    "expectation": "The band should loop over the hooks on the claw assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The return band is fitted, and the next goal is to attach the hose to the hand syringe.",
+    "reaction": "The dark loop completes another visible part of the mechanism.",
+    "step": 6,
+    "reason": "The goal explicitly names the hose and hand syringe.",
+    "choice": {
+      "combine": "Air hose",
+      "with": "Hand syringe"
+    },
+    "expectation": "The hose should push onto the hand syringe.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hose is attached to the hand syringe, leaving its other end to connect to the claw.",
+    "reaction": "The curved hose makes the remaining connection clear.",
+    "step": 7,
+    "reason": "The current goal calls for connecting the hose to the claw, and the hose is now part of the hand syringe.",
+    "choice": {
+      "combine": "Hand syringe",
+      "with": "Claw"
+    },
+    "expectation": "The free end of the hose should connect to the claw's mounted syringe.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the hand syringe completed the pneumatic claw and all chapter goals.",
+    "reaction": "The finished connection makes the relationship between the two syringes clear, though the text does not show the claw operating.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the hand syringe to the claw was most worthwhile: it brought the separate assemblies together into the finished mechanism.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two cups was somewhat repetitive, although the separate results showed how they support opposite ends of the barrel.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected the plunger clip to fit the syringe, but the compatibility feedback showed that it fits the claw's bracket instead.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The first goal's instruction to slide a cup to the farther seat did not make its connection to the syringe clear until inspection.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue if another chapter showed the mechanism working; the construction was clear overall, but the text alone leaves its motion to the imagination.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

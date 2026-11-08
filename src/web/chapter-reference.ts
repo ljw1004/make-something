@@ -2,10 +2,10 @@ import type {Chapter} from '../story/types.ts';
 import type {BoardRect} from './board-geometry.ts';
 import {escape} from './markdown.ts';
 
-/** The right-hand third of the instruction row, below the navigation controls. */
+/** The right-hand third of the instruction row, near the top of the visible board. */
 export function chapterReferenceRect(bounds: BoardRect): BoardRect {
   const width = Math.min(130, Math.max(44, bounds.width / 3));
-  return {x: bounds.x + bounds.width - width - 6, y: bounds.y + 52, width, height: 112};
+  return {x: bounds.x + bounds.width - width - 6, y: bounds.y + 12, width, height: 112};
 }
 
 export function chapterReferenceHTML(chapter: Chapter, bounds: BoardRect, asset: (path: string) => string): string {

@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the left jaw to the palm.",
+    "choice": 1,
+    "expectation": "I expect the left jaw to attach to the palm, leaving the other parts to be fitted.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left jaw is fitted, and the next goal is to fit the right jaw.",
+    "reaction": "The visible first jaw makes the assembly progress clear.",
+    "step": 2,
+    "reason": "The right jaw matches the current goal and completes the pair.",
+    "choice": 1,
+    "expectation": "I expect the right jaw to attach opposite the first jaw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both jaws are fitted; the next goal is to add the slider.",
+    "reaction": "The paired jaws make the claw's shape clear.",
+    "step": 3,
+    "reason": "The slider is the current goal and should provide the central moving fitting.",
+    "choice": 1,
+    "expectation": "I expect the slider to attach to the palm between the jaws.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slider is fitted, and the next goal is to connect a link on the left.",
+    "reaction": "The raised bracket makes the central fitting visible.",
+    "step": 4,
+    "reason": "A link matches the current goal and should connect the slider to the left jaw.",
+    "choice": 1,
+    "expectation": "I expect the link to snap onto the left pins between the bracket and jaw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first link connects the bracket to one jaw; the other link is next.",
+    "reaction": "The visible connection makes the linkage clearer.",
+    "step": 5,
+    "reason": "The remaining link matches the current goal and should connect the other jaw.",
+    "choice": 1,
+    "expectation": "I expect a second red bar to join the bracket to the other jaw.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both links now connect the central bracket to the jaws; the next goal is to fit a pad.",
+    "reaction": "The paired links make the mechanism easier to picture.",
+    "step": 6,
+    "reason": "A pad matches the current goal and should cover the left jaw tip.",
+    "choice": 1,
+    "expectation": "I expect the pad to attach to the left jaw tip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first pad covers one jaw tip; the remaining pad is next.",
+    "reaction": "The padded tip makes the change clear.",
+    "step": 7,
+    "reason": "The only offered combination fits the remaining pad, matching the goal.",
+    "choice": 1,
+    "expectation": "I expect the pad to cover the other jaw tip.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second pad completes the claw and all chapter goals.",
+    "reaction": "The matching padded tips make the finished assembly clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the two links was most worthwhile: the visible bars clarified how the central bracket connects to both jaws.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second pad was the least engaging because it repeated the first fitting, although it visibly completed the pair.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the results followed the stated goals.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each part had a visible place in the finished claw.",
+        "steps": [
+          1,
+          3,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another construction if it showed a different mechanism; this one was clear but offered few meaningful choices.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

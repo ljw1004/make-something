@@ -19,10 +19,12 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 - next: Flip the pinwheel to the front -- `pinwheel`
 
 **Hotspots**
-- `pw-fold` (center 130px, 216px)
+- `pw-fold` (center 390px, 216px)
   - icon: ![Dotted paper folding diagram](assets/actions/fold.svg)
-- `pw-flip` (center 390px, 216px)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
+- `pw-flip` (center 130px, 216px)
   - icon: ![Outline diagram of turning a sheet over](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
 - `pw-fold` Fold
@@ -30,11 +32,15 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 - `pw-paper` Paper
   - icon: ![Prepared paper square](assets/items/pw-paper.webp) (center 358px, 830px)
 
+  {A flat brick-red square. Fine diagonal lines run inward from its corners; round holes sit near the corners and centre.}
+
   ---
 
   The paper sheet is already cut along four diagonals, stopping short of the centre. Curl the four pierced corners inward; keep the uncut centre whole.
 - `pw-hub` Hub
   - icon: ![Teal hub](assets/items/pw-hub.webp) (center 140px, 460px)
+
+  {A green round cap with four small dark holes on its face and a slotted stem behind it.}
 
   ---
 
@@ -42,33 +48,55 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 - `pw-axle` Axle
   - icon: ![Axle and spacer](assets/items/pw-axle.webp) (center 470px, 460px)
 
+  {A thin black pin extends from a cream ring and green stepped stem ending in a round cap.}
+
   ---
 
   A blunt axle with a built-in spacer and retaining tip. The hub turns around the axle; the spacer keeps the paper clear of the handle.
 - `pw-handle` Handle
   - icon: ![Wooden handle with an open axle clip](assets/items/pw-handle.webp) (center 690px, 820px)
 
+  {A long narrow wooden handle with a green open hook at one end and small dark holes near each end.}
+
   ---
 
   The prepared clip snaps over the axle's rear post. Two small mounting holes remain near the foot of the handle.
 - `pw-one-blade` Paper
   - icon: ![Paper with one folded corner](assets/items/pw-one-blade.webp)
+
+  {One red corner curls inward, leaving an open notch at the upper right and a holed tip near the centre.}
 - `pw-two-blades` Paper
   - icon: ![Paper with two folded corners](assets/items/pw-two-blades.webp)
+
+  {Two curled red folds meet near the centre. The lower half still has two flat corners.}
 - `pw-three-blades` Paper
   - icon: ![Paper with three folded corners](assets/items/pw-three-blades.webp)
+
+  {Three curled folds meet near the centre; one flat lower-right corner with a round hole remains.}
 - `pw-loose-rotor` Blades
   - icon: ![Folded paper](assets/items/pw-loose-rotor.webp)
+
+  {Four curled red blades surround a small dark hole at the centre.}
 - `pw-folded-rotor` Blades
   - icon: ![Blades with hub](assets/items/pw-folded-rotor.webp)
+
+  {Four curled red blades meet beneath a small green round cap.}
 - `pw-rear-rotor` Blades
   - icon: ![Back of the blades](assets/items/pw-rear-rotor.webp)
+
+  {The pale-red back of the four blades, with a short green tip at the centre.}
 - `pw-bearing-rotor` Blades
   - icon: ![Blades on their axle](assets/items/pw-bearing-rotor.webp)
+
+  {On the back of the red blades, a cream ring and short green stem project from the centre.}
 - `pw-mounted` Pinwheel
   - icon: ![Back of the pinwheel](assets/items/pw-mounted.webp)
+
+  {The wooden handle extends down from the back of the red blades, beneath the green centre fitting.}
 - `pinwheel` Pinwheel
   - icon: ![Pinwheel](assets/items/pinwheel.webp)
+
+  {Four curled red blades surround a green centre cap. A long wooden handle extends below.}
 
   ---
 
@@ -113,23 +141,41 @@ reference: ![Completed sail](assets/items/wr-sail.webp)
 **Items**
 - `wr-mast-wood` Mast
   - icon: ![Mast](assets/items/wr-mast-wood.webp)
+
+  {A long, slim tan rod lying diagonally.}
 - `wr-mast-foot` Mast
   - icon: ![Mast](assets/items/wr-mast-foot.webp)
+
+  {A long tan rod ends in a green socket with split legs.}
 - `wr-mast-joint` Mast
   - icon: ![Mast](assets/items/wr-mast-joint.webp)
+
+  {A long tan rod passes through a green block. A round side opening remains visible in the block.}
 - `wr-mast-joint-foot` Mast
   - icon: ![Mast](assets/items/wr-mast-joint-foot.webp)
+
+  {The long tan rod has a green block partway along it and a green split fitting at its lower end.}
 - `wr-frame` Mast
   - icon: ![Mast](assets/items/wr-frame.webp)
+
+  {A long tan rod and shorter crosspiece meet at a green block.}
 - `wr-ready` Mast
   - icon: ![Mast](assets/items/wr-ready.webp)
+
+  {The crossed tan rods meet at a green block. A green split fitting sits at the end of the longer rod.}
 - `wr-frame-sail` Sail
   - icon: ![Sail](assets/items/wr-frame-sail.webp)
+
+  {A cream triangular sail spans the tan frame, with a long bare rod extending below it.}
 - `wr-sail` Sail
   - icon: ![Sail](assets/items/wr-sail.webp)
   - from chapter `c-racer-body` icon: ![Sail](assets/items/wr-sail-carried.webp)
+
+  {A cream triangular sail sits on a tan frame, above a long tan rod ending in a green split fitting.}
 - `wr-connector` Connector
   - icon: ![Connector](assets/items/wr-connector.webp)
+
+  {A green block with round openings on two different faces.}
 
   ---
 
@@ -137,11 +183,15 @@ reference: ![Completed sail](assets/items/wr-sail.webp)
 - `wr-crossbar` Crossbar
   - icon: ![Crossbar](assets/items/wr-crossbar.webp)
 
+  {A short tan rod with a round end, lying diagonally.}
+
   ---
 
   A short wooden rod that supports the bottom of the sail.
 - `wr-foot` Foot
   - icon: ![Foot](assets/items/wr-foot.webp)
+
+  {A green round socket with a pale inner rim and two long split legs below.}
 
   ---
 
@@ -149,11 +199,15 @@ reference: ![Completed sail](assets/items/wr-sail.webp)
 - `wr-sailcloth` Sail
   - icon: ![Sail](assets/items/wr-sailcloth.webp)
 
+  {A cream triangular sail edged in green, with small open green clips at its corners.}
+
   ---
 
   Three small open clips are attached to the cloth. They press onto the mast and crossbar.
 - `wr-crossbar-joint` Crossbar
   - icon: ![Crossbar](assets/items/wr-crossbar-joint.webp)
+
+  {A short tan rod passes through a green block; a round opening faces upward.}
 
 **Combinations**
 - `wr-foot` [consume] + `wr-mast-wood` [transform] -> `wr-mast-foot`
@@ -176,7 +230,8 @@ background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Wind racer](assets/items/wind-racer.webp)
 
 **Goals**
-- Push a wheel onto the front straw -- `wr-front-one-wheel`
+- Flip the chassis over -- `wr-chassis`
+- next: Push a wheel onto the front straw -- `wr-front-one-wheel`
 - next: Push another wheel onto the front axle -- `wr-front-wheels`
 - next: Push a wheel onto the rear straw -- `wr-rear-one-wheel`
 - next: Push another wheel onto the rear axle -- `wr-rear-wheels`
@@ -207,30 +262,57 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 **Hotspots**
 - `wr-flip` (center 390px, 216px)
   - icon: ![Turn the chassis over](assets/actions/flip.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
+- `wr-chassis-top` Chassis
+  - icon: ![Chassis](assets/items/wr-chassis-top.webp)
+
+  {A flat tan rectangular board with four small rectangular holes and a green ring around its central round hole.}
 - `wr-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-chassis.webp)
+
+  {The other face of the tan board has green square outlines around its four rectangular holes and a plain central round hole.}
 - `wr-front-bearing-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-front-bearing-chassis.webp)
+
+  {A green channel lies across the right-hand end of the tan board. The other end still shows two square outlines.}
 - `wr-rear-bearing-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-rear-bearing-chassis.webp)
+
+  {A green channel lies across the left-hand end of the tan board. The other end still shows two square outlines.}
 - `wr-bearing-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-bearing-chassis.webp)
+
+  {Two green channels lie across opposite ends of the tan board.}
 - `wr-front-rolling-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-front-rolling-chassis.webp)
+
+  {A pair of red wheels and a green channel cross the right-hand end of the tan board; the opposite end is bare.}
 - `wr-rear-rolling-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-rear-rolling-chassis.webp)
+
+  {A pair of red wheels and a green channel cross the left-hand end of the tan board; the opposite end is bare.}
 - `wr-front-wheel-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-front-wheel-chassis.webp)
+
+  {The tan board has two green channels; a red wheel sits at each end of the right-hand channel.}
 - `wr-rear-wheel-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-rear-wheel-chassis.webp)
+
+  {The tan board has two green channels; a red wheel sits at each end of the left-hand channel.}
 - `wr-rolling-chassis` Chassis
   - icon: ![Chassis](assets/items/wr-rolling-chassis.webp)
+
+  {Four red wheels sit beside two green channels across the exposed underside of the tan board.}
 - `wr-upright` Chassis
   - icon: ![Chassis](assets/items/wr-upright.webp)
+
+  {The tan board sits above four red wheels. Small green fittings and the green ring around the centre hole are visible on top.}
 - `wind-racer` Wind racer
   - icon: ![Wind racer](assets/items/wind-racer.webp)
+
+  {A cream triangular sail rises above a tan rectangular chassis with four red wheels.}
 
   ---
 
@@ -239,21 +321,31 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 - `wr-front-bearing` Bearing
   - icon: ![Bearing](assets/items/wr-bearing.webp)
 
+  {A long green open channel with two raised clip fittings.}
+
   ---
 
   An open bearing clips beneath the chassis. Its spring lips let the axle snap into the channel.
 - `wr-front-axle` Front straw
   - icon: ![Front straw](assets/items/wr-straw.webp)
 
+  {A thin dark tube lying diagonally, with a round opening at its nearer end.}
+
   ---
 
   A stiff hollow plastic axle. Push one wheel onto each end.
 - `wr-front-one-wheel` Front axle
   - icon: ![Front axle](assets/items/wr-one-wheel.webp)
+
+  {One red wheel sits on the end of a long dark axle; its other end is bare.}
 - `wr-front-wheels` Front wheels
   - icon: ![Front wheels](assets/items/wr-wheels.webp)
+
+  {Two red wheels sit at opposite ends of one dark axle.}
 - `wr-rear-bearing` Bearing
   - icon: ![Bearing](assets/items/wr-bearing.webp)
+
+  {A long green open channel with two raised clip fittings.}
 
   ---
 
@@ -261,15 +353,23 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 - `wr-rear-axle` Rear straw
   - icon: ![Rear straw](assets/items/wr-straw.webp)
 
+  {A thin dark tube lying diagonally, with a round opening at its nearer end.}
+
   ---
 
   A stiff hollow plastic axle. Push one wheel onto each end.
 - `wr-rear-one-wheel` Rear axle
   - icon: ![Rear axle](assets/items/wr-one-wheel.webp)
+
+  {One red wheel sits on the end of a long dark axle; its other end is bare.}
 - `wr-rear-wheels` Rear wheels
   - icon: ![Rear wheels](assets/items/wr-wheels.webp)
+
+  {Two red wheels sit at opposite ends of one dark axle.}
 - `wr-wheel-1` Wheel
   - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  {A thick brick-red wheel with a pale round centre.}
 
   ---
 
@@ -277,11 +377,15 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 - `wr-wheel-2` Wheel
   - icon: ![Wheel](assets/items/wr-wheel.webp)
 
+  {A thick brick-red wheel with a pale round centre.}
+
   ---
 
   The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
 - `wr-wheel-3` Wheel
   - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  {A thick brick-red wheel with a pale round centre.}
 
   ---
 
@@ -289,11 +393,14 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 - `wr-wheel-4` Wheel
   - icon: ![Wheel](assets/items/wr-wheel.webp)
 
+  {A thick brick-red wheel with a pale round centre.}
+
   ---
 
   The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
 
 **Combinations**
+- `wr-chassis-top` [transform] @ `wr-flip` -> `wr-chassis`
 - `wr-wheel-1` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
 - `wr-wheel-1` [consume] + `wr-front-one-wheel` [transform] -> `wr-front-wheels`
 - `wr-wheel-2` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
@@ -325,2410 +432,3402 @@ reference: ![Wind racer](assets/items/wind-racer.webp)
 - `wr-rolling-chassis` [transform] @ `wr-flip` -> `wr-upright`
 - `wr-sail` [consume] + `wr-upright` [transform] -> `wind-racer`
 
-
-## `c03` A hill for a marble
+## `bf-pb-rails` A marble table
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Pinball table](assets/items/pinball-table.webp)
 
-“Something for a windless day?” says Jo. The shallow tray on the bench could become a marble game—if the marble will come back instead of escaping beneath the shed.
-
 **Goals**
-- Fit the rails around the tray -- `pb-rail-frame`
-- next: Fit the marble cup to the tray -- `pb-railed`
-- next: Clip the tray support underneath the tray -- `pb-sloped`
-- next: Fit the spring inside the plunger tube -- `pb-launcher`
-- next: Attach the launcher to the tray -- `pb-launcher-table`
-- next: Try a marble in the launch lane -- `pb-deadspot`
-- next: Add the shim to free the trapped marble -- `pb-return-table`
-
-**Hotspots**
-- `pb-tray` (center 390px, 500px)
-  - icon: ![Flat game tray](assets/hotspots/c03--pb-tray.webp)
-- `pb-rail-frame` (center 390px, 500px)
-  - icon: ![Tray with side and lane rails](assets/hotspots/c03--pb-rail-frame.webp)
-- `pb-railed` (center 390px, 500px)
-  - icon: ![Tray with retaining rails](assets/hotspots/c03--pb-railed.webp)
-- `pb-sloped` (center 390px, 500px)
-  - icon: ![Sloping game tray](assets/hotspots/c03--pb-sloped.webp)
-- `pb-launcher-table` (center 390px, 500px)
-  - icon: ![Table with a launch lane](assets/hotspots/c03--pb-launcher-table.webp)
-- `pb-deadspot` (center 390px, 500px)
-  - icon: ![Table with a corner trap](assets/hotspots/c03--pb-deadspot.webp)
-- `pb-return-table` (center 390px, 500px)
-  - icon: ![Marble-return table](assets/hotspots/c03--pb-return-table.webp)
+- Fit the Left rail -- `bf-pb-rail-1`
+- next: Fit the Right rail -- `bf-pb-rail-2`
+- next: Fit the Top rail -- `bf-pb-rail-3`
+- next: Fit the Lane rail -- `bf-pb-rail-4`
+- next: Fit the Left return -- `bf-pb-rail-5`
+- next: Fit the Right return -- `bf-pb-rail-6`
+- next: Fit the Marble cup -- `bf-pb-rimmed`
 
 **Items**
-- `pb-tray` Tray
-  - icon: ![Flat game tray](assets/items/pb-tray.webp)
+- `bf-pb-tray` Tray
+  - icon: ![Tray](assets/items/bf-pb-tray.webp)
 
-  A light plywood tray with prepared rail slots, launcher holes, two flipper holes and carrying handles cut into its sides. Bench clips hold it while you build.
-- `pb-rails` Rails
-  - icon: ![Shaped retaining rails](assets/items/pb-rails.webp)
+  {A long flat tan board with small holes, slots and a shallow notch across its nearer end.}
 
-  Six shaped rails are supplied; one is shown: two side rails, a curved top rail, a launch-lane divider and two inward return lips, all with push-fit feet. The lips guide the marble toward the catch apron. A slight low spot behind the left return lip can trap a marble if the tray leans sideways.
-- `pb-catch-cup` Marble cup
-  - icon: ![Catch apron with marble cup](assets/items/pb-catch-cup.webp)
+  ---
 
-  One connected front apron with side rims, a marble cup and locating bridges. It fits the player’s end of the tray, where the rails return the marble.
-- `pb-rail-frame` Tray
-  - icon: ![Tray with side and lane rails](assets/items/pb-rail-frame.webp)
-- `pb-wedge` Tray support
-  - icon: ![Sloping tray support](assets/items/pb-wedge.webp)
+  Prepared plywood with rail slots, flipper holes and integral carrying handles.
+- `bf-pb-left-rail` Left rail
+  - icon: ![Left rail](assets/items/bf-pb-left-rail.webp)
 
-  A broad U-shaped support with locating tongues and two spring clips that hook over the tray’s rear edge. Its side runners and rising far crosspiece hold a gentle slope toward the player; openings leave the carrying handles and finger buttons accessible.
-- `pb-plunger-tube` Plunger tube
-  - icon: ![Launcher tube and plunger](assets/items/pb-plunger-tube.webp)
+  {A long straight green rail with small projecting feet along its lower edge.}
+- `bf-pb-rail-1` Table
+  - icon: ![Table](assets/items/bf-pb-rail-1.webp)
 
-  A launcher tube with a removable rear bearing cap and pull handle for fitting the spring, and a soft-tipped plunger retained in use. Its open end fits the table’s side lane. A clamp screw and captive sliding nut secure the adjustable travel stop within its marked limits; it begins at the gentle setting.
-- `pb-spring` Spring
-  - icon: ![Gentle launcher spring](assets/items/pb-spring.webp)
+  {One straight green rail runs along the left side of the tan board.}
+- `bf-pb-right-rail` Right rail
+  - icon: ![Right rail](assets/items/bf-pb-right-rail.webp)
 
-  A short, low-force spring that fits inside the tube around its captive plunger. The tube encloses it in use.
-- `pb-marble` Marble
-  - icon: ![Game marble](assets/items/pb-marble.webp)
+  {A long straight green rail with small projecting feet along its lower edge.}
+- `bf-pb-rail-2` Table
+  - icon: ![Table](assets/items/bf-pb-rail-2.webp)
 
-  A large marble for the enclosed table. After each test it returns to the catch apron or to your hand.
-- `pb-shim` Shim
-  - icon: ![Thin levelling shim](assets/items/pb-shim.webp)
+  {Straight green rails run along both long sides of the tan board.}
+- `bf-pb-top-rail` Top rail
+  - icon: ![Top rail](assets/items/bf-pb-top-rail.webp)
 
-  A broad thin shim for the low corner under the table, with a clip to hold it in place.
-- `pb-railed` Tray
-  - icon: ![Tray with retaining rails](assets/items/pb-railed.webp)
-- `pb-sloped` Tray
-  - icon: ![Sloping game tray](assets/items/pb-sloped.webp)
-- `pb-launcher` Launcher
-  - icon: ![Enclosed marble launcher](assets/items/pb-launcher.webp)
+  {A broad curved green rail with small feet beneath it.}
+- `bf-pb-rail-3` Table
+  - icon: ![Table](assets/items/bf-pb-rail-3.webp)
 
-  Pulling the handle squeezes the spring. Letting go makes it push the plunger forward. Its stop limits the push, and the spring stays inside the tube.
-- `pb-launcher-table` Table
-  - icon: ![Table with a launch lane](assets/items/pb-launcher-table.webp)
-- `pb-deadspot` Table
-  - icon: ![Table with a corner trap](assets/items/pb-deadspot.webp)
+  {A curved green rail joins the two side rails around the far end of the tan board.}
+- `bf-pb-lane` Lane rail
+  - icon: ![Lane rail](assets/items/bf-pb-lane.webp)
 
-  The marble travels up the divided side lane and rolls back, but settles in the low pocket behind the left return lip. The tray leans sideways as well as downhill; the small dip is now lower than its way out.
-- `pb-return-table` Table
-  - icon: ![Marble-return table](assets/items/pb-return-table.webp)
+  {A long thin green rail with a short bent tip and small feet underneath.}
+- `bf-pb-rail-4` Table
+  - icon: ![Table](assets/items/bf-pb-rail-4.webp)
 
-  The shim lifts the low corner until the pocket slopes toward the apron. You roll the marble again: it passes the return lip and drops into the catch cup. Jo tries the launcher and gets the same result.
+  {A second narrow green rail forms a long lane inside the board’s right-hand edge.}
+- `bf-pb-left-lip` Left return
+  - icon: ![Left return](assets/items/bf-pb-left-lip.webp)
 
-  “A good machine for giving you back your own marble,” she says. “Can we persuade it to do anything on the way?”
+  {A short green rail bends through a broad curve, with small feet beneath it.}
+- `bf-pb-rail-5` Table
+  - icon: ![Table](assets/items/bf-pb-rail-5.webp)
+
+  {The left rail curves inward near the front of the board.}
+- `bf-pb-right-lip` Right return
+  - icon: ![Right return](assets/items/bf-pb-right-lip.webp)
+
+  {A short green rail has one angled end and small feet underneath.}
+- `bf-pb-rail-6` Table
+  - icon: ![Table](assets/items/bf-pb-rail-6.webp)
+
+  {Both front rail ends turn inward, leaving a gap between them.}
+- `bf-pb-cup` Marble cup
+  - icon: ![Marble cup](assets/items/bf-pb-cup.webp)
+
+  {A green shallow tray has raised edge rails and a round recessed cup near its centre.}
+- `bf-pb-rimmed` Table
+  - icon: ![Table](assets/items/bf-pb-rimmed.webp)
+
+  {A small green tray and round cup extend from the gap at the front of the railed board.}
 
 **Combinations**
-- `pb-rails` [consume] + `pb-tray` [transform] -> `pb-rail-frame`
-- `pb-catch-cup` [consume] + `pb-rail-frame` [transform] -> `pb-railed`
-- `pb-wedge` [consume] + `pb-railed` [transform] -> `pb-sloped`
-- `pb-spring` [consume] + `pb-plunger-tube` [transform] -> `pb-launcher`
-- `pb-launcher` [consume] + `pb-sloped` [transform] -> `pb-launcher-table`
-- `pb-marble` [preserve] + `pb-launcher-table` [transform] -> `pb-deadspot`
-- `pb-shim` [consume] + `pb-deadspot` [transform] -> `pb-return-table`
+- `bf-pb-left-rail` [consume] + `bf-pb-tray` [transform] -> `bf-pb-rail-1`
+- `bf-pb-right-rail` [consume] + `bf-pb-rail-1` [transform] -> `bf-pb-rail-2`
+- `bf-pb-top-rail` [consume] + `bf-pb-rail-2` [transform] -> `bf-pb-rail-3`
+- `bf-pb-lane` [consume] + `bf-pb-rail-3` [transform] -> `bf-pb-rail-4`
+- `bf-pb-left-lip` [consume] + `bf-pb-rail-4` [transform] -> `bf-pb-rail-5`
+- `bf-pb-right-lip` [consume] + `bf-pb-rail-5` [transform] -> `bf-pb-rail-6`
+- `bf-pb-cup` [consume] + `bf-pb-rail-6` [transform] -> `bf-pb-rimmed`
 
 
-## `c04` One more go
+## `bf-pb-flippers` Two flippers
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Pinball table](assets/items/pinball-table.webp)
 
-You leave the marble table in its clips and bring over the flipper parts. Jo puts a chair at the player’s end. “Testing equipment,” she says, sitting down.
-
 **Goals**
-- Fit the flipper blades to the pivot plate -- `pb-flippers`
-- next: Mount the flippers on the table -- `pb-flipper-table`
-- next: Add the target arches to the table -- `pb-arched-table`
-- next: Clip on the score wheel -- `pb-target-table`
-- next: Launch the marble at the targets -- `pb-short-launch`
-- next: Use the screwdriver to adjust the launcher stop -- `pb-tuned`
-- next: Launch the marble again and play -- `pinball-table`
+- Flip the Table -- `bf-pb-under`
+- next: Fit the Pivot plate -- `bf-pb-plated-under`
+- next: Fit the Support -- `bf-pb-supported-under`
+- next: Flip the Table upright -- `bf-pb-upright`
+- next: Snap on the Left paddle -- `bf-pb-left`
+- next: Snap on the Right paddle -- `bf-pb-flipped`
 
 **Hotspots**
-- `pb-return-table` (center 390px, 500px)
-  - icon: ![Marble-return table](assets/hotspots/c04--pb-return-table.webp)
-- `pb-flipper-table` (center 390px, 500px)
-  - icon: ![Table with working flippers](assets/hotspots/c04--pb-flipper-table.webp)
-- `pb-arched-table` (center 390px, 500px)
-  - icon: ![Table with three target arches](assets/hotspots/c04--pb-arched-table.webp)
-- `pb-target-table` (center 390px, 500px)
-  - icon: ![Pinball table with three targets](assets/hotspots/c04--pb-target-table.webp)
-- `pb-short-launch` (center 390px, 500px)
-  - icon: ![Pinball table on its gentle setting](assets/hotspots/c04--pb-short-launch.webp)
-- `pb-tuned` (center 390px, 500px)
-  - icon: ![Pinball table with a longer launch](assets/hotspots/c04--pb-tuned.webp)
+- `bf-pb-flip` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `work-screwdriver` Screwdriver
-  - icon: ![Stubby screwdriver](assets/items/work-screwdriver.webp)
+- `bf-pb-rimmed` Table
+  - icon: ![Table](assets/items/bf-pb-rimmed.webp)
 
-  Fits the captive screws on the workshop clamps and prepared toy fittings. It stays a tool.
-- `pb-pivot-plate` Pivot plate
-  - icon: ![Flipper pivot plate](assets/items/pb-pivot-plate.webp)
+  {A small green tray and round cup extend from the gap at the front of the railed board.}
+- `bf-pb-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-pb-under` Table
+  - icon: ![Table](assets/items/bf-pb-under.webp)
 
-  An under-table plate with two captive pivot posts, finger buttons and soft return loops. The posts fit the prepared flipper holes.
-- `pb-flipper-blades` Flipper blades
-  - icon: ![Two flipper blades](assets/items/pb-flipper-blades.webp)
+  {The underside of the tan board faces up, showing slots, small holes and two narrow wooden strips; the green cup projects behind its far edge.}
+- `bf-pb-plate` Pivot plate
+  - icon: ![Pivot plate](assets/items/bf-pb-plate.webp)
 
-  One blade represents the mirrored pair. A left and right paddle, each with a socket for its pivot post. The short end connects to the finger button; the long end bats the marble.
-- `pb-targets` Target arches
-  - icon: ![Three target arches](assets/items/pb-targets.webp)
+  {A flat green rectangular plate carries black upright pins and small red paddles at its sides.}
 
-  Three matching arches are supplied; one is shown. Wide clip-in arches with different markings. A marble can roll through each arch without leaving the table.
-- `pb-score-wheel` Score wheel
-  - icon: ![Manual score wheel on its rail](assets/items/pb-score-wheel.webp)
+  ---
 
-  A numbered wheel already pivoted on a short edge rail. Clip the rail onto the table, then turn the wheel by hand after a successful shot.
-- `pb-arched-table` Table
-  - icon: ![Table with three target arches](assets/items/pb-arched-table.webp)
-- `pb-flippers` Flippers
-  - icon: ![Button-operated flippers](assets/items/pb-flippers.webp)
+  A plate with retained spindles, finger buttons and return loops. The shoulders pass through the prepared tray clearances. Captive screws enter the tray’s threaded receivers from beneath.
+- `bf-pb-plated-under` Table
+  - icon: ![Table](assets/items/bf-pb-plated-under.webp)
 
-  Pressing a short button end swings a longer paddle across the table. The soft loop brings each paddle back when you let go.
-- `pb-flipper-table` Table
-  - icon: ![Table with working flippers](assets/items/pb-flipper-table.webp)
-- `pb-target-table` Table
-  - icon: ![Pinball table with three targets](assets/items/pb-target-table.webp)
-- `pb-short-launch` Table
-  - icon: ![Pinball table on its gentle setting](assets/items/pb-short-launch.webp)
+  {A green rectangular plate with black pins and red side fittings lies across the exposed underside of the board.}
+- `bf-pb-support` Support
+  - icon: ![Support](assets/items/bf-pb-support.webp)
 
-  The gentle launch sends the marble back to your flippers for shots at the lower arches. You try for the top arch too. The launcher’s adjustable stop offers a longer launch for that shot.
-- `pb-tuned` Table
-  - icon: ![Pinball table with a longer launch](assets/items/pb-tuned.webp)
+  {A tan U-shaped stand has two long slotted arms and a taller connecting back.}
 
-  You move the captive stop within its marked range. The spring can compress a little farther, while the plunger stays enclosed and its push remains gentle.
+  ---
 
+  One connected U-shaped support with locating tongues and retaining clips. It slopes the table towards its marble cup without tilting sideways.
+- `bf-pb-supported-under` Table
+  - icon: ![Table](assets/items/bf-pb-supported-under.webp)
+
+  {A tan U-shaped stand surrounds the underside of the board, beside the fitted green plate.}
+- `bf-pb-upright` Table
+  - icon: ![Table](assets/items/bf-pb-upright.webp)
+
+  {The railed table stands upright on its tan support, with two exposed dark pivot pins near the front.}
+- `bf-pb-left-paddle` Left paddle
+  - icon: ![Left paddle](assets/items/bf-pb-left-paddle.webp)
+
+  {A long flat red paddle narrows toward one end and has a socket near its broad rounded end.}
+
+  ---
+
+  One polymer paddle with an open keyed snap socket. Its flexible mouth clips sideways around the spindle neck between the retaining shoulders.
+- `bf-pb-left` Table
+  - icon: ![Table](assets/items/bf-pb-left.webp)
+
+  {One red paddle sits on the left front pivot; the right pivot remains bare.}
+- `bf-pb-right-paddle` Right paddle
+  - icon: ![Right paddle](assets/items/bf-pb-right-paddle.webp)
+
+  {A long flat red paddle narrows toward one end and has a socket near its broad rounded end.}
+
+  ---
+
+  One polymer paddle with an open keyed snap socket. Its flexible mouth clips sideways around the spindle neck between the retaining shoulders.
+- `bf-pb-flipped` Table
+  - icon: ![Table](assets/items/bf-pb-flipped.webp)
+
+  {Two red paddles angle inward near the front gap of the railed table.}
+
+**Combinations**
+- `bf-pb-rimmed` [transform] @ `bf-pb-flip` -> `bf-pb-under`
+- `bf-pb-plate` [consume] + `bf-pb-under` [transform] -> `bf-pb-plated-under`
+- `bf-pb-support` [consume] + `bf-pb-plated-under` [transform] -> `bf-pb-supported-under`
+- `bf-pb-supported-under` [transform] @ `bf-pb-flip` -> `bf-pb-upright`
+- `bf-pb-left-paddle` [consume] + `bf-pb-upright` [transform] -> `bf-pb-left`
+- `bf-pb-right-paddle` [consume] + `bf-pb-left` [transform] -> `bf-pb-flipped`
+
+
+## `bf-pb-launcher-build` A spring launcher
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Pinball table](assets/items/pinball-table.webp)
+
+**Goals**
+- Slide the Spring onto the Plunger rod -- `bf-pb-sprung-rod`
+- next: Fit the Plunger tip -- `bf-pb-tipped`
+- next: Lower the Plunger into the Launcher cradle -- `bf-pb-open-launcher`
+- next: Clip on the Launcher cover -- `bf-pb-launcher`
+- next: Fit the Launcher to the Table -- `bf-pb-launched`
+
+**Items**
+- `bf-pb-rod` Plunger rod
+  - icon: ![Plunger rod](assets/items/bf-pb-rod.webp)
+
+  {A long charcoal rod ends in a red crosspiece forming a T handle.}
+
+  ---
+
+  A six-millimetre plunger rod with a fitted pull handle and an open front end for threading the spring.
+- `bf-pb-spring` Spring
+  - icon: ![Spring](assets/items/bf-pb-spring.webp)
+
+  {A thick black coil with open ends, lying diagonally.}
+- `bf-pb-sprung-rod` Plunger
+  - icon: ![Plunger](assets/items/bf-pb-sprung-rod.webp)
+
+  {A black coil surrounds the far end of the charcoal rod; its red T handle remains exposed.}
+- `bf-pb-tip` Plunger tip
+  - icon: ![Plunger tip](assets/items/bf-pb-tip.webp)
+
+  {A stepped red round cap with a central round hole.}
+
+  ---
+
+  A soft striking tip and piston with a blind gripping socket for the rod.
+- `bf-pb-tipped` Plunger
+  - icon: ![Plunger](assets/items/bf-pb-tipped.webp)
+
+  {A red round cap sits beyond the coil at the far end of the charcoal rod and T handle.}
+- `bf-pb-barrel` Launcher cradle
+  - icon: ![Launcher cradle](assets/items/bf-pb-barrel.webp)
+
+  {An open grey half-tube sits at one end of a long green rail, with a red upright fitting at the other end.}
+
+  ---
+
+  An open-topped cradle with half-round end guides, mounting feet and a travel stop. The assembled plunger lowers through its open top.
+- `bf-pb-open-launcher` Launcher
+  - icon: ![Launcher](assets/items/bf-pb-open-launcher.webp)
+
+  {The coil and capped rod lie inside the open grey half-tube on the green rail; the T handle extends from the front.}
+- `bf-pb-cover` Launcher cover
+  - icon: ![Launcher cover](assets/items/bf-pb-cover.webp)
+
+  {A grey half-cylinder has black end rims and green clips hanging from its sides.}
+
+  ---
+
+  A clear upper shell with matching half-guides and flexible retaining clips. Closing it captures the plunger and encloses the spring.
+- `bf-pb-launcher` Launcher
+  - icon: ![Launcher](assets/items/bf-pb-launcher.webp)
+
+  {A grey cylindrical cover surrounds the coil, with green side clips; the charcoal rod and red T handle extend from its front.}
+- `bf-pb-flipped` Table
+  - icon: ![Table](assets/items/bf-pb-flipped.webp)
+
+  {Two red paddles angle inward near the front gap of the railed table.}
+- `bf-pb-launched` Table
+  - icon: ![Table](assets/items/bf-pb-launched.webp)
+
+  {The covered launcher sits beside the table’s right-hand lane, with its red T handle projecting from the front.}
+
+**Combinations**
+- `bf-pb-spring` [consume] + `bf-pb-rod` [transform] -> `bf-pb-sprung-rod`
+- `bf-pb-tip` [consume] + `bf-pb-sprung-rod` [transform] -> `bf-pb-tipped`
+- `bf-pb-barrel` [consume] + `bf-pb-tipped` [transform] -> `bf-pb-open-launcher`
+- `bf-pb-cover` [consume] + `bf-pb-open-launcher` [transform] -> `bf-pb-launcher`
+- `bf-pb-launcher` [consume] + `bf-pb-flipped` [transform] -> `bf-pb-launched`
+
+
+## `bf-pb-targets` One more go
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Pinball table](assets/items/pinball-table.webp)
+
+**Goals**
+- Fit the Lower arch -- `bf-pb-target-1`
+- next: Fit the Middle arch -- `bf-pb-target-2`
+- next: Fit the Upper arch -- `bf-pb-target-3`
+- next: Fit the Score wheel -- `bf-pb-scored`
+- next: Put the Marble in its cup -- `pinball-table`
+
+**Items**
+- `bf-pb-launched` Table
+  - icon: ![Table](assets/items/bf-pb-launched.webp)
+
+  {The covered launcher sits beside the table’s right-hand lane, with its red T handle projecting from the front.}
+- `bf-pb-arch-low` Lower arch
+  - icon: ![Lower arch](assets/items/bf-pb-arch-low.webp)
+
+  {A green rectangular arch with one red dot on its top bar and round pegs below its two legs.}
+- `bf-pb-target-1` Table
+  - icon: ![Table](assets/items/bf-pb-target-1.webp)
+
+  {One small green arch stands on the board above the two red paddles.}
+- `bf-pb-arch-mid` Middle arch
+  - icon: ![Middle arch](assets/items/bf-pb-arch-mid.webp)
+
+  {A green rectangular arch with two red dots on its top bar and round pegs below its two legs.}
+- `bf-pb-target-2` Table
+  - icon: ![Table](assets/items/bf-pb-target-2.webp)
+
+  {Two small green arches stand at different positions on the board above the red paddles.}
+- `bf-pb-arch-high` Upper arch
+  - icon: ![Upper arch](assets/items/bf-pb-arch-high.webp)
+
+  {A green rectangular arch with three red dots on its top bar and round pegs below its two legs.}
+- `bf-pb-target-3` Table
+  - icon: ![Table](assets/items/bf-pb-target-3.webp)
+
+  {Three small green arches stand in a staggered line along the board.}
+- `bf-pb-score` Score wheel
+  - icon: ![Score wheel](assets/items/bf-pb-score.webp)
+
+  {A red wheel sits on a green support above a tan rail with green clips underneath.}
+- `bf-pb-scored` Table
+  - icon: ![Table](assets/items/bf-pb-scored.webp)
+
+  {A red wheel on a tan rail rises outside the table’s left edge, beside the three green arches.}
+- `bf-pb-marble` Marble
+  - icon: ![Marble](assets/items/bf-pb-marble.webp)
+
+  {One red ball.}
 - `pinball-table` Pinball table
   - icon: ![Pinball table](assets/items/pinball-table.webp)
 
-  ![Pinball table in the garden](assets/rewards/pinball-table.webp)
-
-  The marble reaches the top arch, rolls back and takes a flipper shot through the middle. Jo gets the bottom arch on her turn. You have not made the marble stronger; you have given its push somewhere useful to go. You turn the score wheel one place for each arch. Jo tries to count the watering can as a bonus target. It is nowhere near the table.
-
-  You put the marble in its catch cup, release the bench clips and lift the table by its built-in handles onto the garden trestle. Jo carries the chair. The first stall already has a queue of one.
+  {The railed table has two red paddles, three green arches, a side launcher and red wheel. A small red ball sits in the green cup at the front.}
 
 **Combinations**
-- `pb-flipper-blades` [consume] + `pb-pivot-plate` [transform] -> `pb-flippers`
-- `pb-flippers` [consume] + `pb-return-table` [transform] -> `pb-flipper-table`
-- `pb-targets` [consume] + `pb-flipper-table` [transform] -> `pb-arched-table`
-- `pb-score-wheel` [consume] + `pb-arched-table` [transform] -> `pb-target-table`
-- `pb-marble` [preserve] + `pb-target-table` [transform] -> `pb-short-launch`
-- `work-screwdriver` [preserve] + `pb-short-launch` [transform] -> `pb-tuned`
-- `pb-marble` [preserve] + `pb-tuned` [transform] -> `pinball-table`
+- `bf-pb-arch-low` [consume] + `bf-pb-launched` [transform] -> `bf-pb-target-1`
+- `bf-pb-arch-mid` [consume] + `bf-pb-target-1` [transform] -> `bf-pb-target-2`
+- `bf-pb-arch-high` [consume] + `bf-pb-target-2` [transform] -> `bf-pb-target-3`
+- `bf-pb-score` [consume] + `bf-pb-target-3` [transform] -> `bf-pb-scored`
+- `bf-pb-marble` [consume] + `bf-pb-scored` [transform] -> `pinball-table`
 
-
-## `c05` Round and up
+## `bf-cd-crank` Round and round
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Crank dragon](assets/items/crank-dragon.webp)
 
-A paper dragon would make a good fairground announcer. A dragon that waved would be better; first you need a machine that turns going round into going up and down.
-
 **Goals**
-- Fit the bearing frames to the base -- `cd-bearings`
-- next: Slide the crankshaft through the bearing frames -- `cd-crank-frame`
-- next: Fit the cam to the crankshaft -- `cd-cam-frame`
-- next: Fit the follower into the guide and close its cover -- `cd-guided-follower`
-- next: Mount the follower above the cam -- `cd-lifter`
-- next: Add the spring to keep the follower on the cam
-  - either: `cd-sprung-lifter`
-  - or: `cd-working-lifter`
-- next: Turn the crank handle and watch the follower rise and fall -- `cd-working-lifter`
+- Slide the Cam onto the Shaft -- `bf-cd-cammed`
+- next: Fit the Front bearing -- `bf-cd-bearing-1`
+- next: Fit the Rear bearing -- `bf-cd-bearings`
+- next: Fit the Front collar -- `bf-cd-front-retained`
+- next: Flip to the back of the bearings -- `bf-cd-rear-facing`
+- next: Fit the Rear collar -- `bf-cd-retained-rear`
+- next: Flip back to the front -- `bf-cd-retained`
+- next: Fit the Crank -- `bf-cd-cranked`
+- next: Secure the Crank with its clip -- `bf-cd-clipped`
+- next: Mount the bearings on the Base -- `bf-cd-frame`
 
 **Hotspots**
-- `cd-base` (center 390px, 500px)
-  - icon: ![Dragon mechanism base](assets/hotspots/c05--cd-base.webp)
-- `cd-bearings` (center 390px, 500px)
-  - icon: ![Base with shaft bearings](assets/hotspots/c05--cd-bearings.webp)
-- `cd-crank-frame` (center 390px, 500px)
-  - icon: ![Frame with a turning crankshaft](assets/hotspots/c05--cd-crank-frame.webp)
-- `cd-cam-frame` (center 390px, 500px)
-  - icon: ![Crankshaft with an off-centre cam](assets/hotspots/c05--cd-cam-frame.webp)
-- `cd-lifter` (center 390px, 500px)
-  - icon: ![Cam beneath a guided follower](assets/hotspots/c05--cd-lifter.webp)
-- `cd-lost-contact` (center 390px, 500px)
-  - icon: ![Follower losing the cam](assets/hotspots/c05--cd-lost-contact.webp)
-- `cd-sprung-lifter` (center 390px, 500px)
-  - icon: ![Lifter with its spring fitted](assets/hotspots/c05--cd-sprung-lifter.webp)
-- `cd-working-lifter` (center 390px, 500px)
-  - icon: ![Reliable cam lifter](assets/hotspots/c05--cd-working-lifter.webp)
+- `bf-cd-flip` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `cd-base` Base
-  - icon: ![Dragon mechanism base](assets/items/cd-base.webp)
+- `bf-cd-shaft` Shaft
+  - icon: ![Shaft](assets/items/bf-cd-shaft.webp)
 
-  A small wooden base held in the bench clips, with prepared holes for bearing frames, a guide and the dragon’s body, plus a parking clip for the removable crank handle. The later cam-change kit includes its own spare-cam clip.
-- `cd-bearing-frames` Bearing frames
-  - icon: ![Two bearing frames](assets/items/cd-bearing-frames.webp)
+  {A long thin charcoal rod lying diagonally.}
 
-  Two matching frames are supplied; one is shown. Upright frames with smooth shaft holes and captive mounting screws. Both holes sit at the same height.
-- `cd-shaft` Crankshaft
-  - icon: ![Crankshaft](assets/items/cd-shaft.webp)
+  ---
 
-  A straight shaft with a flat-sided crank fitting, collars and a capped end. The collars keep it from sliding sideways in its bearings.
-- `cd-cam` Cam
-  - icon: ![Off-centre cam](assets/items/cd-cam.webp)
+  A plain six-millimetre shaft, supplied without its collars. The cam and bearings slide on before the separate collars retain the shaft.
+- `bf-cd-cam` Cam
+  - icon: ![Cam](assets/items/bf-cd-cam.webp)
 
-  A smooth round disc whose axle hole sits away from its centre. A split hub fixes it to the crankshaft.
-- `cd-follower` Follower
-  - icon: ![Follower rod](assets/items/cd-follower.webp)
+  {A red circular disc with a short split socket below the centre of its face.}
 
-  A light rod with a broad, smooth foot and a short crosshead with a prepared hole for two independently pivoting wing rods.
-- `cd-guide` Guide
-  - icon: ![Open follower guide and cover](assets/items/cd-guide.webp)
+  ---
 
-  A short guide with a mounting foot and removable snap-on front cover. Fit the follower through the open front, then snap the cover into the side-wall pockets before fixing the guide foot to the base. The square passage lets the rod slide up and down while keeping it over the cam. A keeper pin fits the follower’s service hole at maximum lift, supporting it while the shaft is removed; the pin normally parks in its clip on the base.
-- `cd-return-spring` Spring
-  - icon: ![Light follower spring](assets/items/cd-return-spring.webp)
+  The shaft hole sits off centre. Turning the round disc raises and lowers the broad follower foot.
+- `bf-cd-cammed` Frame
+  - icon: ![Frame](assets/items/bf-cd-cammed.webp)
 
-  A soft tension spring with hooks for the guide bracket and follower collar. It pulls the follower foot gently toward the cam.
-- `cd-crank-key` Crank handle
-  - icon: ![Removable crank handle](assets/items/cd-crank-key.webp)
+  {A charcoal shaft passes through the off-centre socket of a red disc.}
+- `bf-cd-front-bearing` Front bearing
+  - icon: ![Front bearing](assets/items/bf-cd-front-bearing.webp)
 
-  A broad hand crank with a matching flat-sided socket and releasable retaining clip. It can be taken off the shaft and used again.
-- `cd-bearings` Base
-  - icon: ![Base with shaft bearings](assets/items/cd-bearings.webp)
-- `cd-crank-frame` Frame
-  - icon: ![Frame with a turning crankshaft](assets/items/cd-crank-frame.webp)
-- `cd-cam-frame` Frame
-  - icon: ![Crankshaft with an off-centre cam](assets/items/cd-cam-frame.webp)
+  {A green rectangular frame with two legs, a round hole through its top bar and two black pins beneath its foot.}
+- `bf-cd-bearing-1` Frame
+  - icon: ![Frame](assets/items/bf-cd-bearing-1.webp)
 
-  As the shaft turns, the far edge of the off-centre disc rises and falls. A centred disc would turn without making that change of height.
-- `cd-guided-follower` Follower
-  - icon: ![Follower in its guide](assets/items/cd-guided-follower.webp)
-- `cd-lifter` Lifter
-  - icon: ![Cam beneath a guided follower](assets/items/cd-lifter.webp)
-- `cd-lost-contact` Lifter
-  - icon: ![Follower losing the cam](assets/items/cd-lost-contact.webp)
+  {The charcoal shaft passes through one green frame in front of the red disc.}
+- `bf-cd-rear-bearing` Rear bearing
+  - icon: ![Rear bearing](assets/items/bf-cd-rear-bearing.webp)
 
-  You turn the crank. The cam lifts the rod, but the light rod sometimes hangs in its guide as the cam drops away. Its foot loses contact.
-- `cd-sprung-lifter` Lifter
-  - icon: ![Lifter with its spring fitted](assets/items/cd-sprung-lifter.webp)
+  {A green rectangular frame with two legs, a round hole through its top bar and two black pins beneath its foot.}
+- `bf-cd-bearings` Frame
+  - icon: ![Frame](assets/items/bf-cd-bearings.webp)
 
-  The spring can be fitted before testing. Turn the crank to compare its light pull with a brief unhooked run.
-- `cd-working-lifter` Lifter
-  - icon: ![Reliable cam lifter](assets/items/cd-working-lifter.webp)
+  {A red disc sits on a charcoal shaft between two green frames; the near end of the shaft is bare.}
+- `bf-cd-front-collar` Front collar
+  - icon: ![Front collar](assets/items/bf-cd-front-collar.webp)
 
-  You compare the follower with and without the spring’s pull, stopping before unhooking or rehooking it. Without the pull, the light follower sometimes hangs; with it, the foot follows every fall. The spring keeps the foot gently against the cam. You turn the crank again: round becomes up, down, up, down, without the rod wandering off sideways.
+  {A thick green ring with a split side and small holes around its rim.}
+- `bf-cd-front-retained` Frame
+  - icon: ![Frame](assets/items/bf-cd-front-retained.webp)
+
+  {A green ring surrounds the shaft just outside the nearer green frame. The red disc sits between the two frames.}
+- `bf-cd-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-cd-rear-facing` Frame
+  - icon: ![Frame](assets/items/bf-cd-rear-facing.webp)
+
+  {From the other side, the plain back of the red disc faces us between two green frames. A bare charcoal shaft projects from the nearer frame.}
+- `bf-cd-rear-collar` Rear collar
+  - icon: ![Rear collar](assets/items/bf-cd-rear-collar.webp)
+
+  {A thick green ring with a split side and small holes around its rim.}
+- `bf-cd-retained-rear` Frame
+  - icon: ![Frame](assets/items/bf-cd-retained-rear.webp)
+
+  {From the back, a green ring now surrounds the projecting shaft beside the nearer frame.}
+- `bf-cd-retained` Frame
+  - icon: ![Frame](assets/items/bf-cd-retained.webp)
+
+  {From the front again, a red disc sits between two green frames. A green ring surrounds the exposed front shaft.}
+- `bf-cd-handle` Crank
+  - icon: ![Crank](assets/items/bf-cd-handle.webp)
+
+  {A green cylindrical grip attached to a short red arm.}
+
+  ---
+
+  A D-shaped socket fits the matching shaft end. Its separate retaining clip enters the aligned cross holes after the crank is fitted.
+- `bf-cd-cranked` Frame
+  - icon: ![Frame](assets/items/bf-cd-cranked.webp)
+
+  {A green cylindrical grip and short red arm extend from the front of the two green frames and red disc.}
+- `bf-cd-crank-clip` Crank clip
+  - icon: ![Crank clip](assets/items/bf-cd-crank-clip.webp)
+
+  {One thin black wire bent into a narrow open loop with two unequal ends.}
+
+  ---
+
+  One spring-wire clip. Its straight leg passes through the aligned crank and shaft holes; the curved leg grips outside the socket.
+- `bf-cd-clipped` Frame
+  - icon: ![Frame](assets/items/bf-cd-clipped.webp)
+
+  {The green grip and red arm remain on the shaft; a small dark wire loop is visible beside the red socket.}
+- `bf-cd-base` Base
+  - icon: ![Base](assets/items/bf-cd-base.webp)
+
+  {A flat tan rectangular board with small round holes.}
+- `bf-cd-frame` Frame
+  - icon: ![Frame](assets/items/bf-cd-frame.webp)
+
+  {Two green frames hold a red disc and green crank above a broad tan board.}
 
 **Combinations**
-- `cd-bearing-frames` [consume] + `cd-base` [transform] -> `cd-bearings`
-- `cd-shaft` [consume] + `cd-bearings` [transform] -> `cd-crank-frame`
-- `cd-cam` [consume] + `cd-crank-frame` [transform] -> `cd-cam-frame`
-- `cd-follower` [transform] + `cd-guide` [consume] -> `cd-guided-follower`
-- `cd-guided-follower` [consume] + `cd-cam-frame` [transform] -> `cd-lifter`
-- `cd-crank-key` [preserve] + `cd-lifter` [transform] -> `cd-lost-contact`
-- `cd-return-spring` [consume] + `cd-lost-contact` [transform] -> `cd-working-lifter`
-- `cd-return-spring` [consume] + `cd-lifter` [transform] -> `cd-sprung-lifter`
-- `cd-crank-key` [preserve] + `cd-sprung-lifter` [transform] -> `cd-working-lifter`
+- `bf-cd-cam` [consume] + `bf-cd-shaft` [transform] -> `bf-cd-cammed`
+- `bf-cd-front-bearing` [consume] + `bf-cd-cammed` [transform] -> `bf-cd-bearing-1`
+- `bf-cd-rear-bearing` [consume] + `bf-cd-bearing-1` [transform] -> `bf-cd-bearings`
+- `bf-cd-front-collar` [consume] + `bf-cd-bearings` [transform] -> `bf-cd-front-retained`
+- `bf-cd-front-retained` [transform] @ `bf-cd-flip` -> `bf-cd-rear-facing`
+- `bf-cd-rear-collar` [consume] + `bf-cd-rear-facing` [transform] -> `bf-cd-retained-rear`
+- `bf-cd-retained-rear` [transform] @ `bf-cd-flip` -> `bf-cd-retained`
+- `bf-cd-handle` [consume] + `bf-cd-retained` [transform] -> `bf-cd-cranked`
+- `bf-cd-crank-clip` [consume] + `bf-cd-cranked` [transform] -> `bf-cd-clipped`
+- `bf-cd-base` [consume] + `bf-cd-clipped` [transform] -> `bf-cd-frame`
 
 
-## `c06` The dragon says hello
+## `bf-cd-lift` Round becomes up
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Crank dragon](assets/items/crank-dragon.webp)
 
-First give the dragon one wave with the original cam, then exchange cams and compare its greeting. Jo brings the dragon’s cut-out pieces, including a very small pair of spectacles. “No lenses,” she says. “But it looks as though it has strong opinions about turnips.”
-
 **Goals**
-- Fit the hinge pins to the wings -- `cd-hinged-wings`
-- next: Attach the wings to the body -- `cd-winged-dragon`
-- next: Attach the tail to the body -- `cd-jointed-dragon`
-- next: Mount the dragon on the lifter -- `cd-mounted-dragon`
-- next: Fit the wing links to the follower -- `cd-linked-dragon`
-- next: Turn the crank handle to make the dragon wave -- `cd-first-wave`
-- next: Try the two-humped cam -- `cd-double-wave`
-- next: Turn the crank handle for the dragon’s new wave -- `crank-dragon`
-
-**Hotspots**
-- `cd-working-lifter` (center 390px, 500px)
-  - icon: ![Reliable cam lifter](assets/hotspots/c06--cd-working-lifter.webp)
-- `cd-mounted-dragon` (center 390px, 500px)
-  - icon: ![Dragon body on the mechanism](assets/hotspots/c06--cd-mounted-dragon.webp)
-- `cd-linked-dragon` (center 390px, 500px)
-  - icon: ![Dragon linked to its follower](assets/hotspots/c06--cd-linked-dragon.webp)
-- `cd-first-wave` (center 390px, 500px)
-  - icon: ![Dragon giving one wave](assets/hotspots/c06--cd-first-wave.webp)
-- `cd-double-wave` (center 390px, 500px)
-  - icon: ![Dragon with a second greeting](assets/hotspots/c06--cd-double-wave.webp)
+- Slide the Follower into the Guide -- `bf-cd-open-follower`
+- next: Snap on the Cover -- `bf-cd-guided`
+- next: Mount the Follower above the Cam -- `bf-cd-mounted`
+- next: Hook on the Spring -- `bf-cd-lifter`
 
 **Items**
-- `cd-cutouts` Body
-  - icon: ![Dragon body cut-out](assets/items/cd-cutouts.webp)
+- `bf-cd-guide` Guide
+  - icon: ![Guide](assets/items/bf-cd-guide.webp)
 
-  A stiff card body with its lightweight paper back scales already attached, prepared shoulder and tail holes, and folded base tabs. The scales leave the linkage clear; spectacles are already drawn on the body.
-- `cd-hinge-pins` Hinge pins
-  - icon: ![Soft wing-hinge pins](assets/items/cd-hinge-pins.webp)
+  {A tall tan post on a small foot, with an open green frame at the top.}
 
-  One complete hinge fitting represents the pair. Two broad-headed split pins for the wing pivots. Each carries its spacing collar and smooth washer, which keep the card clear of the body and let it turn freely.
-- `cd-wings` Wings
-  - icon: ![Two wing cut-outs](assets/items/cd-wings.webp)
+  ---
 
-  One wing represents the mirrored pair. A mirrored pair of light card wings, each with a prepared shoulder hole and an integral drive tab near its root.
-- `cd-tail` Tail
-  - icon: ![Dragon tail with captive pin](assets/items/cd-tail.webp)
+  An open square channel with a mounting foot and spring anchor. The separate cover closes around the follower; its broad foot never has to pass through the narrow channel.
+- `bf-cd-follower` Follower
+  - icon: ![Follower](assets/items/bf-cd-follower.webp)
 
-  A decorative card tail with its own broad-headed pin and washer retained in the attachment hole.
-- `cd-hinged-wings` Wings
-  - icon: ![Wings with their hinge pins](assets/items/cd-hinged-wings.webp)
+  {A thin red upright with a broad flat foot, a small crosspiece near its top and a black pin across its upper end.}
 
-  Both wings are prepared; one is shown. Each wing has a pin, collar and washer in its shoulder hole. The retainers can be opened again to pass the pins through the body.
-- `cd-winged-dragon` Dragon
-  - icon: ![Dragon body with hinged wings](assets/items/cd-winged-dragon.webp)
+  ---
 
-  The two wings turn freely on the body’s shoulder holes. Their roots remain clear for the follower links.
-- `cd-linkage` Wing links
-  - icon: ![Wing-to-follower links](assets/items/cd-linkage.webp)
+  A sliding rod with a broad cam foot, spring collar and retained crosshead pin for two independently pivoting links.
+- `bf-cd-open-follower` Follower
+  - icon: ![Follower](assets/items/bf-cd-open-follower.webp)
 
-  One link represents the pair. Two separate short rods with pivot holes at both ends, a shared crosshead pin, spacers and a retainer. Fit this connection after mounting the dragon: its two ends need the wing roots and the follower’s crosshead in their final positions. Each rod can then change its angle as its wing turns.
-- `cd-double-cam` Two-humped cam
-  - icon: ![Two-humped greeting cam](assets/items/cd-double-cam.webp)
+  {A red upright runs beside a tall tan post, through an open green frame; its broad red foot projects sideways.}
+- `bf-cd-cover` Cover
+  - icon: ![Cover](assets/items/bf-cd-cover.webp)
 
-  An exchangeable cam with two rounded rises and falls around its edge, the same shaft fitting and the same maximum lift as the first cam. Its package includes a clip for parking the original cam. To exchange them, stop the mechanism, open the hub and end collar, and withdraw the shaft through its bearings.
-- `cd-first-wave` Dragon
-  - icon: ![Dragon giving one wave](assets/items/cd-first-wave.webp)
+  {A flat green rectangular plate with short projecting tabs behind it.}
+- `bf-cd-guided` Follower
+  - icon: ![Follower](assets/items/bf-cd-guided.webp)
 
-  One turn gives one rise and fall of the wings. Jo answers with one slow wave. Behind her you notice an old drawing labelled **A fair in the air**, with tiny stalls balanced on an empty outline.
+  {A green plate closes the front of the frame around the red upright on the tan post.}
+- `bf-cd-frame` Frame
+  - icon: ![Frame](assets/items/bf-cd-frame.webp)
 
-  “I drew that when I was about your age,” she says. “I could make the stalls. I never worked out where to put them.”
-- `cd-double-wave` Dragon
-  - icon: ![Dragon with a second greeting](assets/items/cd-double-wave.webp)
+  {Two green frames hold a red disc and green crank above a broad tan board.}
+- `bf-cd-mounted` Lifter
+  - icon: ![Lifter](assets/items/bf-cd-mounted.webp)
 
-  You stop with the follower raised and fit its keeper pin. Loosen the hub and collar, park the end cap, and withdraw the shaft to exchange the cams. Slide the shaft back, secure the fittings and remove the keeper before turning again. The original cam parks in its clip. Two rounded rises now wait under the follower. Everything is secure for the comparison test.
-- `cd-jointed-dragon` Dragon
-  - icon: ![Jointed card dragon](assets/items/cd-jointed-dragon.webp)
-- `cd-mounted-dragon` Dragon
-  - icon: ![Dragon body on the mechanism](assets/items/cd-mounted-dragon.webp)
-- `cd-linked-dragon` Dragon
-  - icon: ![Dragon linked to its follower](assets/items/cd-linked-dragon.webp)
+  {The tan post rises behind the red disc, with the broad red foot just above the disc and a cross-pin at the top.}
+- `bf-cd-spring` Spring
+  - icon: ![Spring](assets/items/bf-cd-spring.webp)
 
-  The body stays still on its base. When the follower rises, the two rods push the wing roots. Each rod pivots independently while its wing turns about the shoulder hinge.
+  {A black coil with an open curved hook at each end.}
+- `bf-cd-lifter` Lifter
+  - icon: ![Lifter](assets/items/bf-cd-lifter.webp)
+
+  {A thin black coil runs beside the red upright between its upper crosspiece and the green guide frame.}
+
+**Combinations**
+- `bf-cd-follower` [consume] + `bf-cd-guide` [transform] -> `bf-cd-open-follower`
+- `bf-cd-cover` [consume] + `bf-cd-open-follower` [transform] -> `bf-cd-guided`
+- `bf-cd-guided` [consume] + `bf-cd-frame` [transform] -> `bf-cd-mounted`
+- `bf-cd-spring` [consume] + `bf-cd-mounted` [transform] -> `bf-cd-lifter`
+
+
+## `bf-cd-dragon` The dragon
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Crank dragon](assets/items/crank-dragon.webp)
+
+**Goals**
+- Attach the Left wing -- `bf-cd-body-left`
+- next: Attach the Right wing -- `bf-cd-winged`
+- next: Attach the Tail -- `bf-cd-bodied`
+- next: Mount the Dragon on the Lifter -- `bf-cd-mounted-body`
+- next: Fit the Left link -- `bf-cd-linked-left`
+- next: Fit the Right link -- `crank-dragon`
+
+**Items**
+- `bf-cd-body` Body
+  - icon: ![Body](assets/items/bf-cd-body.webp)
+
+  {A flat green dragon with a smiling face, red neck spikes and two long legs ending in small feet.}
+- `bf-cd-left-wing` Left wing
+  - icon: ![Left wing](assets/items/bf-cd-left-wing.webp)
+
+  {A pointed red wing with dark ribs and a short tan peg across its lower end.}
+
+  ---
+
+  One card wing with a prepared split snap pin and spacer. The two tapered tips compress through the body hole and reopen behind it.
+- `bf-cd-body-left` Body
+  - icon: ![Body](assets/items/bf-cd-body-left.webp)
+
+  {The flat green dragon has one raised red wing; its other shoulder remains bare.}
+- `bf-cd-right-wing` Right wing
+  - icon: ![Right wing](assets/items/bf-cd-right-wing.webp)
+
+  {A pointed red wing with dark ribs and a short tan peg across its lower end.}
+
+  ---
+
+  One card wing with a prepared split snap pin and spacer. The two tapered tips compress through the body hole and reopen behind it.
+- `bf-cd-winged` Body
+  - icon: ![Body](assets/items/bf-cd-winged.webp)
+
+  {Two pointed red wings rise from the green dragon’s shoulders.}
+- `bf-cd-tail` Tail
+  - icon: ![Tail](assets/items/bf-cd-tail.webp)
+
+  {A flat green tail with an upturned tip and a small round fitting at its other end.}
+
+  ---
+
+  The tail carries a split snap pin. Its tapered tip passes through the body hole before its flexible barbs reopen.
+- `bf-cd-bodied` Dragon
+  - icon: ![Dragon](assets/items/bf-cd-bodied.webp)
+
+  {The green dragon has two raised red wings and an upturned green tail.}
+- `bf-cd-lifter` Lifter
+  - icon: ![Lifter](assets/items/bf-cd-lifter.webp)
+
+  {A thin black coil runs beside the red upright between its upper crosspiece and the green guide frame.}
+- `bf-cd-mounted-body` Dragon
+  - icon: ![Dragon](assets/items/bf-cd-mounted-body.webp)
+
+  {The green dragon stands on the tan board around the upright mechanism and red disc. Its two wings have bare lower pins.}
+- `bf-cd-left-link` Left link
+  - icon: ![Left link](assets/items/bf-cd-left-link.webp)
+
+  {A narrow green bar with an open circular eye at each end.}
+
+  ---
+
+  One rigid 55 mm polymer link with two open snap eyes. Fit both eyes sideways over the exposed pin necks; their heads stay in place.
+- `bf-cd-linked-left` Dragon
+  - icon: ![Dragon](assets/items/bf-cd-linked-left.webp)
+
+  {One green bar runs from the left wing’s lower pin to the central red upright; the right wing’s lower pin remains bare.}
+- `bf-cd-right-link` Right link
+  - icon: ![Right link](assets/items/bf-cd-right-link.webp)
+
+  {A narrow green bar with an open circular eye at each end.}
+
+  ---
+
+  One rigid 55 mm polymer link with two open snap eyes. It pivots independently beside the other link.
 - `crank-dragon` Crank dragon
   - icon: ![Crank dragon](assets/items/crank-dragon.webp)
 
-  ![Crank dragon in the garden](assets/rewards/crank-dragon.webp)
-
-  You turn the handle: wave-wave, pause, wave-wave. “That one’s for Kit,” you say. The first cam stays in its clip, ready for another workshop afternoon.
-
-  You release the base and lift the dragon from the bench, with the spare cam and removable handle parked in their clips. It can perform on any flat table; its little mounting holes remain clear.
+  {The green dragon stands above a red disc and green crank on a tan board. Two short green bars connect its red wings to the central upright.}
 
 **Combinations**
-- `cd-hinge-pins` [consume] + `cd-wings` [transform] -> `cd-hinged-wings`
-- `cd-hinged-wings` [consume] + `cd-cutouts` [transform] -> `cd-winged-dragon`
-- `cd-tail` [consume] + `cd-winged-dragon` [transform] -> `cd-jointed-dragon`
-- `cd-jointed-dragon` [consume] + `cd-working-lifter` [transform] -> `cd-mounted-dragon`
-- `cd-linkage` [consume] + `cd-mounted-dragon` [transform] -> `cd-linked-dragon`
-- `cd-crank-key` [preserve] + `cd-linked-dragon` [transform] -> `cd-first-wave`
-- `cd-double-cam` [consume] + `cd-first-wave` [transform] -> `cd-double-wave`
-- `cd-crank-key` [preserve] + `cd-double-wave` [transform] -> `crank-dragon`
+- `bf-cd-left-wing` [consume] + `bf-cd-body` [transform] -> `bf-cd-body-left`
+- `bf-cd-right-wing` [consume] + `bf-cd-body-left` [transform] -> `bf-cd-winged`
+- `bf-cd-tail` [consume] + `bf-cd-winged` [transform] -> `bf-cd-bodied`
+- `bf-cd-bodied` [consume] + `bf-cd-lifter` [transform] -> `bf-cd-mounted-body`
+- `bf-cd-left-link` [consume] + `bf-cd-mounted-body` [transform] -> `bf-cd-linked-left`
+- `bf-cd-right-link` [consume] + `bf-cd-linked-left` [transform] -> `crank-dragon`
 
-
-## `c07` A look over the hedge
+## `bf-pe-build` A look over the hedge
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Periscope](assets/items/periscope.webp)
 
-Jo’s hat vanishes behind the tall garden screen. Her voice remains. “Can your next invention find out whether I am still in it?”
-
 **Goals**
-- Stick the lining inside the tube net -- `pe-lined`
-- next: Fold the tube net with the folding tool -- `pe-tube`
-- next: Fit the upper mirror -- `pe-upper`
-- next: Fit the lower mirror -- `pe-both`
-- next: Fit the window shades -- `pe-baffled`
-- next: Use the periscope to spot Jo’s hat -- `periscope`
+- Fold the first side -- `bf-pe-fold-1`
+- next: Fold the second side -- `bf-pe-fold-2`
+- next: Fold and close the long seam -- `bf-pe-tube`
+- next: Flip to the upper opening -- `bf-pe-rear`
+- next: Fit the Upper mirror -- `bf-pe-upper-fit`
+- next: Fold the top closed -- `bf-pe-top-closed`
+- next: Fit the Top shade -- `bf-pe-shaded`
+- next: Flip to the lower opening -- `bf-pe-front`
+- next: Fit the Lower mirror -- `bf-pe-mirrored`
+- next: Fold the bottom closed -- `bf-pe-closed`
+- next: Fit the Eye shade -- `periscope`
 
 **Hotspots**
-- `pe-net` (center 390px, 500px)
-  - icon: ![Periscope tube net](assets/hotspots/c07--pe-net.webp)
-- `pe-lined` (center 390px, 500px)
-  - icon: ![Periscope net with a dark lining](assets/hotspots/c07--pe-lined.webp)
-- `pe-tube` (center 390px, 500px)
-  - icon: ![Folded periscope tube](assets/hotspots/c07--pe-tube.webp)
-- `pe-upper` (center 390px, 500px)
-  - icon: ![Tube with an upper mirror](assets/hotspots/c07--pe-upper.webp)
-- `pe-both` (center 390px, 500px)
-  - icon: ![Tube with two facing mirrors](assets/hotspots/c07--pe-both.webp)
-- `pe-baffled` (center 390px, 500px)
-  - icon: ![Periscope with shaded windows](assets/hotspots/c07--pe-baffled.webp)
+- `bf-pe-flip` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
+- `bf-pe-fold` (center 390px, 216px)
+  - icon: ![Fold](assets/actions/fold.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
-- `pe-net` Tube net
-  - icon: ![Periscope tube net](assets/items/pe-net.webp)
+- `bf-pe-net` Tube net
+  - icon: ![Tube net](assets/items/bf-pe-net.webp)
 
-  A stiff card net held flat in the bench clips. It has scored folds, prepared peel-and-stick fastening tabs, opposite end windows and prepared mirror ledges at forty-five degrees.
-- `pe-lining` Lining
-  - icon: ![Dark inner lining](assets/items/pe-lining.webp)
+  {A flat tan sheet divided into four long panels, with square openings and longer end flaps.}
 
-  Four lining panels are supplied, two shorter to leave the windows clear; one panel is shown. Self-adhesive dark paper cut to the inside faces. It absorbs stray light instead of reflecting it around the tube.
-- `pe-folder` Folding tool
-  - icon: ![Smooth folding tool](assets/items/pe-folder.webp)
+  ---
 
-  A blunt tool for pressing the prepared card creases and fastening tabs.
-- `pe-upper-mirror` Upper mirror
-  - icon: ![Upper mirror and clip](assets/items/pe-upper-mirror.webp)
+  One scored card net with dark inner faces, two end flaps, mirror ledges and prepared adhesive seam tabs. The end flaps stay open while you fit the mirrors.
+- `bf-pe-fold` Fold
+  - icon: ![Fold](assets/actions/fold.svg)
+- `bf-pe-fold-1` Tube
+  - icon: ![Tube](assets/items/bf-pe-fold-1.webp)
 
-  A small unbreakable mirror on a clip that fits the top ledge. Its reflecting face looks down the tube and out of the upper window.
-- `pe-lower-mirror` Lower mirror
-  - icon: ![Lower mirror and clip](assets/items/pe-lower-mirror.webp)
+  {One long side panel of the tan sheet folds away from the others; the lower square opening remains visible.}
+- `bf-pe-fold-2` Tube
+  - icon: ![Tube](assets/items/bf-pe-fold-2.webp)
 
-  A matching mirror for the lower ledge. Its reflecting face looks up the tube and toward the eyepiece; the two mirror surfaces will be parallel.
-- `pe-baffles` Window shades
-  - icon: ![Two window shades](assets/items/pe-baffles.webp)
+  {The folded tan panels surround a dark narrow channel, with a long open side and projecting end flaps.}
+- `bf-pe-tube` Tube
+  - icon: ![Tube](assets/items/bf-pe-tube.webp)
 
-  Two matching dark window shades are supplied; one is shown. Their short sleeves frame the two openings without blocking the mirrors.
-- `pe-hat` Jo’s hat
-  - icon: ![Jo’s striped hat](assets/items/pe-hat.webp)
+  {A tall tan square tube with a dark lower opening and flat flaps projecting above and below.}
+- `bf-pe-flip` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-pe-rear` Tube
+  - icon: ![Tube](assets/items/bf-pe-rear.webp)
 
-  A large floppy hat with a bright stripe. Jo will hold it above the screen while you look through the lower window.
-- `pe-lined` Tube net
-  - icon: ![Periscope net with a dark lining](assets/items/pe-lined.webp)
-- `pe-tube` Tube
-  - icon: ![Folded periscope tube](assets/items/pe-tube.webp)
-- `pe-upper` Tube
-  - icon: ![Tube with an upper mirror](assets/items/pe-upper.webp)
-- `pe-both` Tube
-  - icon: ![Tube with two facing mirrors](assets/items/pe-both.webp)
+  {The other face of the tan tube has its dark square opening at the upper end. Its top flap still stands upright.}
+- `bf-pe-upper` Upper mirror
+  - icon: ![Upper mirror](assets/items/bf-pe-upper.webp)
 
-  Light from the upper window reflects down the tube, then off the lower mirror toward your eye. The pair lets you look from a different height.
-- `pe-baffled` Periscope
-  - icon: ![Periscope with shaded windows](assets/items/pe-baffled.webp)
+  {A silver rectangular plate held along two opposite edges by green strips.}
+
+  ---
+
+  An unbreakable mirror with retained edge clips. It seats on the upper forty-five-degree ledges.
+- `bf-pe-upper-fit` Tube
+  - icon: ![Tube](assets/items/bf-pe-upper-fit.webp)
+
+  {A pale angled edge and green side strips appear inside the upper opening; the top flap still stands upright.}
+- `bf-pe-top-closed` Tube
+  - icon: ![Tube](assets/items/bf-pe-top-closed.webp)
+
+  {The top of the tan tube is now closed flat above the dark upper opening.}
+- `bf-pe-top-shade` Top shade
+  - icon: ![Top shade](assets/items/bf-pe-top-shade.webp)
+
+  {A thick black square frame with a stepped edge around its open centre.}
+
+  ---
+
+  One stepped window hood. Its narrow neck enters the opening while its prepared adhesive flange rests on the card outside.
+- `bf-pe-shaded` Tube
+  - icon: ![Tube](assets/items/bf-pe-shaded.webp)
+
+  {A thick black square rim projects around the upper opening of the tan tube.}
+- `bf-pe-front` Tube
+  - icon: ![Tube](assets/items/bf-pe-front.webp)
+
+  {The tan tube is turned to its lower opening again. A black rim peeks from behind the top, and the bottom flap hangs down.}
+- `bf-pe-lower` Lower mirror
+  - icon: ![Lower mirror](assets/items/bf-pe-lower.webp)
+
+  {A silver rectangular plate held along two opposite edges by green strips.}
+
+  ---
+
+  A matching mirror in retained clips. Its reflecting face remains parallel to the upper mirror, redirecting the light towards your eye.
+- `bf-pe-mirrored` Tube
+  - icon: ![Tube](assets/items/bf-pe-mirrored.webp)
+
+  {A bright angled plate fills the lower opening, with a green strip along its side; the bottom flap still hangs down.}
+- `bf-pe-closed` Tube
+  - icon: ![Tube](assets/items/bf-pe-closed.webp)
+
+  {The bottom flap is folded flat beneath the bright angled plate in the lower opening.}
+- `bf-pe-eye-shade` Eye shade
+  - icon: ![Eye shade](assets/items/bf-pe-eye-shade.webp)
+
+  {A thick black square frame with a stepped edge around its open centre.}
+
+  ---
+
+  A matching stepped hood for the lower window, with prepared adhesive on its outer flange.
 - `periscope` Periscope
   - icon: ![Periscope](assets/items/periscope.webp)
 
-  ![Periscope in the garden](assets/rewards/periscope.webp)
-
-  You release the bench clips and lift the tube to the screen. Jo’s hat appears in the lower window; when she moves it left, you see it move left. The hat dips, and her eyes replace it.
-
-  “You found the person too.” You turn toward the pinball stall and see that over the screen as well, with both feet still on the ground.
+  {A tall tan square tube has a black rim around its lower silver opening, with a small black edge peeking out behind its upper end.}
 
 **Combinations**
-- `pe-lining` [consume] + `pe-net` [transform] -> `pe-lined`
-- `pe-folder` [preserve] + `pe-lined` [transform] -> `pe-tube`
-- `pe-upper-mirror` [consume] + `pe-tube` [transform] -> `pe-upper`
-- `pe-lower-mirror` [consume] + `pe-upper` [transform] -> `pe-both`
-- `pe-baffles` [consume] + `pe-both` [transform] -> `pe-baffled`
-- `pe-hat` [preserve] + `pe-baffled` [transform] -> `periscope`
+- `bf-pe-net` [transform] @ `bf-pe-fold` -> `bf-pe-fold-1`
+- `bf-pe-fold-1` [transform] @ `bf-pe-fold` -> `bf-pe-fold-2`
+- `bf-pe-fold-2` [transform] @ `bf-pe-fold` -> `bf-pe-tube`
+- `bf-pe-tube` [transform] @ `bf-pe-flip` -> `bf-pe-rear`
+- `bf-pe-upper` [consume] + `bf-pe-rear` [transform] -> `bf-pe-upper-fit`
+- `bf-pe-upper-fit` [transform] @ `bf-pe-fold` -> `bf-pe-top-closed`
+- `bf-pe-top-shade` [consume] + `bf-pe-top-closed` [transform] -> `bf-pe-shaded`
+- `bf-pe-shaded` [transform] @ `bf-pe-flip` -> `bf-pe-front`
+- `bf-pe-lower` [consume] + `bf-pe-front` [transform] -> `bf-pe-mirrored`
+- `bf-pe-mirrored` [transform] @ `bf-pe-fold` -> `bf-pe-closed`
+- `bf-pe-eye-shade` [consume] + `bf-pe-closed` [transform] -> `periscope`
 
-
-## `c08` A pocket full of fireworks
+## `bf-ka-mirrors` Three mirrors
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Kaleidoscope](assets/items/kaleidoscope.webp)
 
-Two mirrors let you look round a corner. Three long mirrors might do something stranger; Jo spreads a few coloured pieces beside a little turning drum.
-
 **Goals**
-- Arrange the mirror strips around the triangle former -- `ka-triangle`
-- next: Tape the mirror triangle together -- `ka-prism`
-- next: Slide the mirror triangle into the viewing tube -- `ka-eye`
-- next: Put the coloured pieces into the colour cell -- `ka-colour-drum`
-- next: Fit the colour cell to the viewing tube -- `ka-drum-scope`
-- next: Fit the light cover over the colour cell -- `ka-sealed`
-- next: Hold it toward the lantern and turn -- `kaleidoscope`
+- Fit a Mirror to the Backing
+  - either: `bf-ka-mirrors-1`
+  - or: `bf-ka-only-2`
+  - or: `bf-ka-only-3`
+- next: Fit another Mirror
+  - either: `bf-ka-mirrors-2`
+  - or: `bf-ka-pair-13`
+  - or: `bf-ka-pair-23`
+- next: Fit the last Mirror -- `bf-ka-mirrors-3`
+- next: Fold the mirrors into a triangle -- `bf-ka-prism`
+- next: Slide the triangle into the Viewing tube -- `bf-ka-viewer`
 
 **Hotspots**
-- `ka-strips` (center 390px, 500px)
-  - icon: ![Three long mirror strips](assets/hotspots/c08--ka-strips.webp)
-- `ka-triangle` (center 390px, 500px)
-  - icon: ![Three mirrors in a triangle](assets/hotspots/c08--ka-triangle.webp)
-- `ka-prism` (center 390px, 500px)
-  - icon: ![Bound mirror triangle](assets/hotspots/c08--ka-prism.webp)
-- `ka-eye` (center 390px, 500px)
-  - icon: ![Mirror tube with an eyepiece](assets/hotspots/c08--ka-eye.webp)
-- `ka-drum-scope` (center 390px, 500px)
-  - icon: ![Mirror tube with a rotating colour drum](assets/hotspots/c08--ka-drum-scope.webp)
-- `ka-sealed` (center 390px, 500px)
-  - icon: ![Kaleidoscope ready for light](assets/hotspots/c08--ka-sealed.webp)
+- `bf-ka-fold` (center 130px, 216px)
+  - icon: ![Fold](assets/actions/fold.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `ka-strips` Mirror strips
-  - icon: ![Three long mirror strips](assets/items/ka-strips.webp)
+- `bf-ka-backing` Backing
+  - icon: ![Backing](assets/items/bf-ka-backing.webp)
 
-  Three equal unbreakable mirror strips held in the bench’s folding cradle, reflecting faces upward.
-- `ka-former` Triangle former
-  - icon: ![Triangular folding former](assets/items/ka-former.webp)
+  {A flat tan rectangular sheet.}
 
-  A smooth triangular tool with three equal sides. It holds the mirrors with their reflecting faces inward while you close their long edges.
-- `ka-tape` Tape
-  - icon: ![Flexible binding tape](assets/items/ka-tape.webp)
+  ---
 
-  A prepared strip of tough tape for the outside seams of the mirror triangle. Nothing covers the reflecting faces.
-- `ka-tube` Viewing tube
-  - icon: ![Protective outer tube](assets/items/ka-tube.webp)
+  One continuous scored binding sheet. Its three adhesive panels hold the mirror backs; the flexible seams become hinges.
+- `bf-ka-mirror-1` Mirror
+  - icon: ![Mirror](assets/items/bf-ka-mirror-1.webp)
 
-  A light tube with padded mirror supports, a rotating front collar and a fitted dark eyecap with a small central viewing hole.
-- `ka-chips` Coloured pieces
-  - icon: ![Coloured translucent shapes](assets/items/ka-chips.webp)
+  {One long thin silver rectangular strip.}
+- `bf-ka-mirrors-1` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-mirrors-1.webp)
 
-  Three translucent pieces: a green triangle, an amber crescent and a blue disc. The triangle represents the supplied set. Leave room in the cell for all three to tumble.
-- `ka-cell` Colour cell
-  - icon: ![Clear lidded colour cell](assets/items/ka-cell.webp)
+  {One silver strip covers the left part of the tan backing; the rest is bare.}
+- `bf-ka-mirror-2` Mirror
+  - icon: ![Mirror](assets/items/bf-ka-mirror-2.webp)
 
-  A shallow clear cell with a snap lid and a rim that fits the tube’s rotating collar. Its depth leaves space for the coloured pieces to move.
-- `ka-diffuser` Light cover
-  - icon: ![Milky light cover](assets/items/ka-diffuser.webp)
+  {One long thin silver rectangular strip.}
+- `bf-ka-mirrors-2` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-mirrors-2.webp)
 
-  A translucent cover for the front of the colour cell. It spreads light behind the loose pieces.
-- `work-lantern` Lantern
-  - icon: ![Diffused battery lantern](assets/items/work-lantern.webp)
+  {Two silver strips lie side by side on the tan backing, with a bare tan panel at the right.}
+- `bf-ka-mirror-3` Mirror
+  - icon: ![Mirror](assets/items/bf-ka-mirror-3.webp)
 
-  A small enclosed low-voltage lantern with its battery fitted and a broad milky light face. Its light is gentle enough for viewing the toys.
-- `ka-triangle` Mirror triangle
-  - icon: ![Three mirrors in a triangle](assets/items/ka-triangle.webp)
+  {One long thin silver rectangular strip.}
+- `bf-ka-mirrors-3` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-mirrors-3.webp)
 
-  Each mirror reflects the other mirrors as well as what is at the end. Those reflections can repeat a small view into a much larger pattern.
-- `ka-prism` Mirror triangle
-  - icon: ![Bound mirror triangle](assets/items/ka-prism.webp)
-- `ka-eye` Viewing tube
-  - icon: ![Mirror tube with an eyepiece](assets/items/ka-eye.webp)
-- `ka-colour-drum` Colour cell
-  - icon: ![Colour drum with loose shapes](assets/items/ka-colour-drum.webp)
+  {Three silver strips cover the tan backing, separated by narrow tan lines.}
+- `bf-ka-fold` Fold
+  - icon: ![Fold](assets/actions/fold.svg)
+- `bf-ka-prism` Mirror triangle
+  - icon: ![Mirror triangle](assets/items/bf-ka-prism.webp)
 
-  You close the lid with space around the shapes. Tilt the drum and they slide; packing it full would stop the changing pattern.
-- `ka-drum-scope` Kaleidoscope
-  - icon: ![Mirror tube with a rotating colour drum](assets/items/ka-drum-scope.webp)
-- `ka-sealed` Kaleidoscope
-  - icon: ![Kaleidoscope ready for light](assets/items/ka-sealed.webp)
+  {The tan sheet forms a long triangular tube with a triangular opening at its nearer end.}
+- `bf-ka-tube` Viewing tube
+  - icon: ![Viewing tube](assets/items/bf-ka-tube.webp)
+
+  {A tan cylindrical tube with a green rim around its open nearer end.}
+
+  ---
+
+  A prepared protective tube with a dark eyecap, padded mirror supports and a retained turning collar.
+- `bf-ka-viewer` Viewing tube
+  - icon: ![Viewing tube](assets/items/bf-ka-viewer.webp)
+
+  {A triangular opening is visible inside the green-rimmed end of the tan tube.}
+- `bf-ka-only-2` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-only-2.webp)
+
+  {One silver strip runs down the middle of the tan backing, with bare tan panels on both sides.}
+- `bf-ka-only-3` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-only-3.webp)
+
+  {One silver strip covers the right part of the tan backing; the left two panels are bare.}
+- `bf-ka-pair-13` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-pair-13.webp)
+
+  {Two silver strips flank one bare tan panel in the middle of the backing.}
+- `bf-ka-pair-23` Mirrors
+  - icon: ![Mirrors](assets/items/bf-ka-pair-23.webp)
+
+  {Two silver strips cover the middle and right panels of the backing; the left panel is bare.}
+
+**Combinations**
+- `bf-ka-mirror-1` [consume] + `bf-ka-backing` [transform] -> `bf-ka-mirrors-1`
+- `bf-ka-mirror-2` [consume] + `bf-ka-mirrors-1` [transform] -> `bf-ka-mirrors-2`
+- `bf-ka-mirror-3` [consume] + `bf-ka-mirrors-2` [transform] -> `bf-ka-mirrors-3`
+- `bf-ka-mirrors-3` [transform] @ `bf-ka-fold` -> `bf-ka-prism`
+- `bf-ka-tube` [consume] + `bf-ka-prism` [transform] -> `bf-ka-viewer`
+- `bf-ka-mirror-2` [consume] + `bf-ka-backing` [transform] -> `bf-ka-only-2`
+- `bf-ka-mirror-3` [consume] + `bf-ka-backing` [transform] -> `bf-ka-only-3`
+- `bf-ka-mirror-3` [consume] + `bf-ka-mirrors-1` [transform] -> `bf-ka-pair-13`
+- `bf-ka-mirror-1` [consume] + `bf-ka-only-2` [transform] -> `bf-ka-mirrors-2`
+- `bf-ka-mirror-3` [consume] + `bf-ka-only-2` [transform] -> `bf-ka-pair-23`
+- `bf-ka-mirror-1` [consume] + `bf-ka-only-3` [transform] -> `bf-ka-pair-13`
+- `bf-ka-mirror-2` [consume] + `bf-ka-only-3` [transform] -> `bf-ka-pair-23`
+- `bf-ka-mirror-2` [consume] + `bf-ka-pair-13` [transform] -> `bf-ka-mirrors-3`
+- `bf-ka-mirror-1` [consume] + `bf-ka-pair-23` [transform] -> `bf-ka-mirrors-3`
+
+
+## `bf-ka-colours` A pocket full of colours
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Kaleidoscope](assets/items/kaleidoscope.webp)
+
+**Goals**
+- Put the Triangle in the Colour cell -- `bf-ka-colour-1`
+- next: Add the Crescent -- `bf-ka-colour-2`
+- next: Add the Disc -- `bf-ka-colour-3`
+- next: Snap on the Clear lid -- `bf-ka-lidded`
+- next: Fit the Light cover -- `bf-ka-covered`
+- next: Fit the Colour cell to the Viewing tube -- `kaleidoscope`
+
+**Items**
+- `bf-ka-cell` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-cell.webp)
+
+  {A broad red circular rim around a dark grey bottom.}
+
+  ---
+
+  A connected clear-bottomed cell with a rotating collar fitting. Its separate snap lid leaves space for the coloured pieces to tumble.
+- `bf-ka-triangle` Triangle
+  - icon: ![Triangle](assets/items/bf-ka-triangle.webp)
+
+  {One thick green triangle.}
+- `bf-ka-colour-1` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-colour-1.webp)
+
+  {One small green triangle lies inside the red-rimmed round cell.}
+- `bf-ka-crescent` Crescent
+  - icon: ![Crescent](assets/items/bf-ka-crescent.webp)
+
+  {One thick yellow crescent.}
+- `bf-ka-colour-2` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-colour-2.webp)
+
+  {A green triangle and yellow crescent lie inside the red-rimmed round cell.}
+- `bf-ka-disc` Disc
+  - icon: ![Disc](assets/items/bf-ka-disc.webp)
+
+  {One thick blue disc.}
+- `bf-ka-colour-3` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-colour-3.webp)
+
+  {A green triangle, yellow crescent and blue disc lie inside the red-rimmed round cell.}
+- `bf-ka-lid` Clear lid
+  - icon: ![Clear lid](assets/items/bf-ka-lid.webp)
+
+  {A grey circular plate with three small red tabs around its edge.}
+- `bf-ka-lidded` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-lidded.webp)
+
+  {The three coloured shapes appear faintly beneath a grey circular lid with three small red edge tabs.}
+- `bf-ka-diffuser` Light cover
+  - icon: ![Light cover](assets/items/bf-ka-diffuser.webp)
+
+  {A pale round plate with a cream edge.}
+- `bf-ka-covered` Colour cell
+  - icon: ![Colour cell](assets/items/bf-ka-covered.webp)
+
+  {A pale circular cover fills the front of the red-rimmed cell.}
+- `bf-ka-viewer` Viewing tube
+  - icon: ![Viewing tube](assets/items/bf-ka-viewer.webp)
+
+  {A triangular opening is visible inside the green-rimmed end of the tan tube.}
 - `kaleidoscope` Kaleidoscope
   - icon: ![Kaleidoscope](assets/items/kaleidoscope.webp)
 
-  ![Kaleidoscope in the garden](assets/rewards/kaleidoscope.webp)
-
-  You lift the finished tube from the cradle and aim its covered end toward the lantern. Three little shapes become a crowd of green triangles, amber curls and blue dots. Turn the drum, and the whole pattern tumbles into a new arrangement.
-
-  Jo takes a turn. For once, she says nothing at all.
+  {A long tan tube ends in green and red rings around a pale circular cover.}
 
 **Combinations**
-- `ka-former` [preserve] + `ka-strips` [transform] -> `ka-triangle`
-- `ka-tape` [consume] + `ka-triangle` [transform] -> `ka-prism`
-- `ka-tube` [consume] + `ka-prism` [transform] -> `ka-eye`
-- `ka-chips` [consume] + `ka-cell` [transform] -> `ka-colour-drum`
-- `ka-colour-drum` [consume] + `ka-eye` [transform] -> `ka-drum-scope`
-- `ka-diffuser` [consume] + `ka-drum-scope` [transform] -> `ka-sealed`
-- `work-lantern` [preserve] + `ka-sealed` [transform] -> `kaleidoscope`
+- `bf-ka-triangle` [consume] + `bf-ka-cell` [transform] -> `bf-ka-colour-1`
+- `bf-ka-crescent` [consume] + `bf-ka-colour-1` [transform] -> `bf-ka-colour-2`
+- `bf-ka-disc` [consume] + `bf-ka-colour-2` [transform] -> `bf-ka-colour-3`
+- `bf-ka-lid` [consume] + `bf-ka-colour-3` [transform] -> `bf-ka-lidded`
+- `bf-ka-diffuser` [consume] + `bf-ka-lidded` [transform] -> `bf-ka-covered`
+- `bf-ka-covered` [consume] + `bf-ka-viewer` [transform] -> `kaleidoscope`
 
-
-## `c09` The tall thing that must not wobble
+## `c-gantry-frame` A lifting frame
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Lifting crane](assets/items/lifting-crane.webp)
-
-Jo lifts a basket onto the fair’s little stage. “A crane could do this,” you say. She lowers the basket again. “Then it can have my job. Start with somewhere solid to stand.”
+reference: ![Gantry](assets/items/gh-mounted.webp)
 
 **Goals**
-- Fix the uprights to the base -- `lc-mast`
-- next: Fit the braces to the uprights -- `lc-braced`
-- next: Fit the boom to the mast -- `lc-boom-frame`
-- next: Add the stay to support the boom -- `lc-stayed`
-- next: Fit the pulley wheel into the pulley fork -- `lc-pulley-block`
-- next: Mount the pulley block at the boom tip -- `lc-pulley-frame`
-- next: Fit the feet to the base -- `lc-wide-frame`
-
-**Hotspots**
-- `lc-base` (center 390px, 500px)
-  - icon: ![Crane base board](assets/hotspots/c09--lc-base.webp)
-- `lc-mast` (center 390px, 500px)
-  - icon: ![Base with an upright mast](assets/hotspots/c09--lc-mast.webp)
-- `lc-braced` (center 390px, 500px)
-  - icon: ![Mast with triangular braces](assets/hotspots/c09--lc-braced.webp)
-- `lc-boom-frame` (center 390px, 500px)
-  - icon: ![Crane frame with a hinged boom](assets/hotspots/c09--lc-boom-frame.webp)
-- `lc-stayed` (center 390px, 500px)
-  - icon: ![Crane boom held by its stay](assets/hotspots/c09--lc-stayed.webp)
-- `lc-pulley-frame` (center 390px, 500px)
-  - icon: ![Crane frame with a tip pulley](assets/hotspots/c09--lc-pulley-frame.webp)
-- `lc-wide-frame` (center 390px, 500px)
-  - icon: ![Braced crane with spreading feet](assets/hotspots/c09--lc-wide-frame.webp)
+- Fit a side frame -- `gh-one-side`
+- next: Fit the other side frame -- `gh-two-sides`
+- next: Join the frames with the beam -- `gh-frame`
+- next: Fit the ratchet to the winch
+  - either: `gh-ratchet-winch`
+  - or: `gh-winch`
+- next: Fit the crank -- `gh-winch`
+- next: Mount the winch -- `gh-mounted`
 
 **Items**
-- `lc-base` Base
-  - icon: ![Crane base board](assets/items/lc-base.webp)
+- `gh-base` Base
+  - icon: ![Base](assets/items/gh-base.webp)
 
-  A wide base board held in the bench clips. It has prepared mast sockets, winch holes and sockets for spreading feet.
-- `lc-uprights` Uprights
-  - icon: ![Mast uprights and crosspiece](assets/items/lc-uprights.webp)
+  {A flat tan rectangular board with small round holes.}
+- `gh-side-1` Side frame
+  - icon: ![Side frame](assets/items/gh-side-1.webp)
 
-  Two upright beams joined by a crosspiece, with captive mounting screws and a prepared top hinge.
-- `lc-braces` Braces
-  - icon: ![Diagonal mast braces](assets/items/lc-braces.webp)
+  {A tall triangular tan frame with a crossbar near its feet and short black pins projecting from its corners.}
 
-  One complete brace represents the matching pair. Two stiff diagonal struts with captive end fasteners. They join the mast to the base to make triangles.
-- `lc-boom` Boom
-  - icon: ![Light crane boom](assets/items/lc-boom.webp)
+  ---
 
-  A hollow beam with a root hinge, a captive broad-headed hinge pin and soft retaining cap, a tip clevis socket and an eye for its support stay.
-- `lc-stay` Stay
-  - icon: ![Boom support stay](assets/items/lc-stay.webp)
+  A prepared triangular frame with joined braces and captive foot pegs. Either frame fits either side of the base.
 
-  A fixed-length cord with captive hooks for the mast top and boom eye. It holds the boom above the work area.
-- `lc-pulley-wheel` Pulley wheel
-  - icon: ![Grooved pulley wheel](assets/items/lc-pulley-wheel.webp)
+- `gh-side-2` Side frame
+  - icon: ![Side frame](assets/items/gh-side-2.webp)
 
-  A smooth wheel with a deep rope groove and a prepared axle hole.
-- `lc-clevis` Pulley fork
-  - icon: ![Pulley fork and axle](assets/items/lc-clevis.webp)
+  {A tall triangular tan frame with a crossbar near its feet and short black pins projecting from its corners.}
 
-  A small fork with a captive blunt axle, retaining cap and a mounting foot for the boom tip.
-- `lc-feet` Feet
-  - icon: ![Spreading crane feet](assets/items/lc-feet.webp)
+  ---
 
-  One outrigger represents the matching pair. Two broad folding feet with locking clips. They widen the base in the direction the boom reaches.
-- `lc-mast` Mast
-  - icon: ![Base with an upright mast](assets/items/lc-mast.webp)
-- `lc-braced` Mast
-  - icon: ![Mast with triangular braces](assets/items/lc-braced.webp)
+  A prepared triangular frame with joined braces and captive foot pegs. Either frame fits either side of the base.
 
-  A rectangular frame can lean into a diamond. The diagonal braces hold the corners apart, so sideways force cannot change the angles so easily.
-- `lc-boom-frame` Crane
-  - icon: ![Crane frame with a hinged boom](assets/items/lc-boom-frame.webp)
-- `lc-stayed` Crane
-  - icon: ![Crane boom held by its stay](assets/items/lc-stayed.webp)
-- `lc-pulley-block` Pulley block
-  - icon: ![Pulley in its fork](assets/items/lc-pulley-block.webp)
+- `gh-crossbeam` Beam
+  - icon: ![Beam](assets/items/gh-crossbeam.webp)
 
-  The rope will run over the wheel instead of scraping around the end of the boom. This single fixed pulley changes the pull’s direction; it does not halve the weight.
-- `lc-pulley-frame` Crane
-  - icon: ![Crane frame with a tip pulley](assets/items/lc-pulley-frame.webp)
-- `lc-wide-frame` Crane
-  - icon: ![Braced crane with spreading feet](assets/items/lc-wide-frame.webp)
+  {A long square tan beam with small round holes along one face.}
 
-  The feet make a wider patch of ground to stand on. Jo nudges the mast gently; its triangles hold their shape.
+  ---
 
-  “The basket is being patient,” she says. “I am nearly as good at it.”
+  The beam has two end sockets and separate sockets underneath for the pulley forks.
+
+- `gh-one-side` Frame
+  - icon: ![Frame](assets/items/gh-one-side.webp)
+
+  {One triangular tan frame stands at the left end of the rectangular base.}
+- `gh-two-sides` Frame
+  - icon: ![Frame](assets/items/gh-two-sides.webp)
+
+  {Two triangular tan frames stand at opposite ends of the rectangular base; their tops are unjoined.}
+- `gh-frame` Frame
+  - icon: ![Frame](assets/items/gh-frame.webp)
+
+  {A long tan beam joins the tops of the two triangular frames above the rectangular base.}
+- `gh-drum` Winch
+  - icon: ![Winch](assets/items/gh-drum.webp)
+
+  {A tan spool with red end discs sits in a green stand, with black square-ended shafts projecting from both sides.}
+
+  ---
+
+  The winch drum comes with its axle, two bearing cheeks, captive base fasteners and a sprung cord clamp.
+
+- `gh-ratchet` Ratchet
+  - icon: ![Ratchet](assets/items/gh-ratchet.webp)
+
+  {A red toothed disc with a square centre hole.}
+- `gh-crank` Crank
+  - icon: ![Crank](assets/items/gh-crank.webp)
+
+  {A straight red arm with a square hole near one end and a green cylindrical grip at the other.}
+- `gh-ratchet-winch` Winch
+  - icon: ![Winch](assets/items/gh-ratchet-winch.webp)
+
+  {A red toothed disc sits outside the near green support of the tan spool.}
+- `gh-crank-winch` Winch
+  - icon: ![Winch](assets/items/gh-crank-winch.webp)
+
+  {A tall red arm and green grip rise behind the tan spool; the nearer shaft remains bare.}
+- `gh-winch` Winch
+  - icon: ![Winch](assets/items/gh-winch.webp)
+
+  {The tan spool has a red toothed disc on its near side and a tall red crank with green grip behind it.}
+- `gh-mounted` Gantry
+  - icon: ![Gantry](assets/items/gh-mounted.webp)
+
+  {The red-and-green winch sits on the left side of the broad tan frame’s base.}
 
 **Combinations**
-- `lc-uprights` [consume] + `lc-base` [transform] -> `lc-mast`
-- `lc-braces` [consume] + `lc-mast` [transform] -> `lc-braced`
-- `lc-boom` [consume] + `lc-braced` [transform] -> `lc-boom-frame`
-- `lc-stay` [consume] + `lc-boom-frame` [transform] -> `lc-stayed`
-- `lc-pulley-wheel` [transform] + `lc-clevis` [consume] -> `lc-pulley-block`
-- `lc-pulley-block` [consume] + `lc-stayed` [transform] -> `lc-pulley-frame`
-- `lc-feet` [consume] + `lc-pulley-frame` [transform] -> `lc-wide-frame`
+- `gh-side-1` [consume] + `gh-base` [transform] -> `gh-one-side`
+- `gh-side-2` [consume] + `gh-base` [transform] -> `gh-one-side`
+- `gh-side-1` [consume] + `gh-one-side` [transform] -> `gh-two-sides`
+- `gh-side-2` [consume] + `gh-one-side` [transform] -> `gh-two-sides`
+- `gh-crossbeam` [consume] + `gh-two-sides` [transform] -> `gh-frame`
+- `gh-ratchet` [consume] + `gh-drum` [transform] -> `gh-ratchet-winch`
+- `gh-crank` [consume] + `gh-drum` [transform] -> `gh-crank-winch`
+- `gh-crank` [consume] + `gh-ratchet-winch` [transform] -> `gh-winch`
+- `gh-ratchet` [consume] + `gh-crank-winch` [transform] -> `gh-winch`
+- `gh-winch` [consume] + `gh-frame` [transform] -> `gh-mounted`
 
-
-## `c10` Please hold
+## `c-gantry-rope` Over the beam
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Lifting crane](assets/items/lifting-crane.webp)
-
-The frame can stand up. Now the crane must lift a load, keep it there, and bring it down without flinging it into Jo’s tomatoes.
+reference: ![Gantry hoist](assets/items/gantry-hoist.webp)
 
 **Goals**
-- Fit the crank to the winch drum -- `lc-winch`
-- next: Mount the winch on the crane -- `lc-winch-frame`
-- next: Thread the rope over the pulley -- `lc-rigged`
-- next: Add ballast to steady the crane
-  - either: `lc-ballasted-unproven`
-  - or: `lc-pawl-ballasted-unproven`
-  - or: `lc-balanced`
-  - or: `lc-ratchet-frame`
-- next: Lift the test weight a little above the bench
-  - either: `lc-tipping`
-  - or: `lc-pawl-tipping`
-  - or: `lc-balanced`
-  - or: `lc-ratchet-frame`
-- next: Fit the pawl to stop the drum unwinding
-  - either: `lc-pawl-rigged`
-  - or: `lc-pawl-tipping`
-  - or: `lc-pawl-ballasted-unproven`
-  - or: `lc-ratchet-frame`
-- next: Lift the basket, hold it, then lower it gently -- `lifting-crane`
-
-**Hotspots**
-- `lc-wide-frame` (center 390px, 500px)
-  - icon: ![Braced crane with spreading feet](assets/hotspots/c10--lc-wide-frame.webp)
-- `lc-winch-frame` (center 390px, 500px)
-  - icon: ![Crane with a hand winch](assets/hotspots/c10--lc-winch-frame.webp)
-- `lc-rigged` (center 390px, 500px)
-  - icon: ![Crane with a lifting line](assets/hotspots/c10--lc-rigged.webp)
-- `lc-tipping` (center 390px, 500px)
-  - icon: ![Crane lifting at its back feet](assets/hotspots/c10--lc-tipping.webp)
-- `lc-balanced` (center 390px, 500px)
-  - icon: ![Crane with rear ballast](assets/hotspots/c10--lc-balanced.webp)
-- `lc-ratchet-frame` (center 390px, 500px)
-  - icon: ![Crane with a holding pawl](assets/hotspots/c10--lc-ratchet-frame.webp)
-- `lc-pawl-rigged` (center 390px, 500px)
-  - icon: ![Rigged crane with holding pawl](assets/hotspots/c10--lc-pawl-rigged.webp)
-- `lc-pawl-tipping` (center 390px, 500px)
-  - icon: ![Stiff crane beginning to tip](assets/hotspots/c10--lc-pawl-tipping.webp)
-- `lc-ballasted-unproven` (center 390px, 500px)
-  - icon: ![Ballasted crane ready for a test](assets/hotspots/c10--lc-ballasted-unproven.webp)
-- `lc-pawl-ballasted-unproven` (center 390px, 500px)
-  - icon: ![Ballasted holding crane ready for a test](assets/hotspots/c10--lc-pawl-ballasted-unproven.webp)
+- Fit a pulley into the side fork -- `gh-side-pulley`
+- next: Fit the other pulley into its fork -- `gh-drop-pulley`
+- next: Mount the side pulley
+  - either: `gh-fitted-1`
+  - or: `gh-fitted-3`
+  - or: `gh-fitted-5`
+  - or: `gh-fitted-7`
+- next: Mount the drop pulley
+  - either: `gh-fitted-2`
+  - or: `gh-fitted-3`
+  - or: `gh-fitted-6`
+  - or: `gh-fitted-7`
+- next: Fit the pawl
+  - either: `gh-fitted-4`
+  - or: `gh-fitted-5`
+  - or: `gh-fitted-6`
+  - or: `gh-fitted-7`
+- next: Thread the rope over both pulleys -- `gh-roped`
+- next: Hang the basket on the hook -- `gantry-hoist`
 
 **Items**
-- `lc-drum` Winch drum
-  - icon: ![Winding drum and bearing bracket](assets/items/lc-drum.webp)
+- `gh-side-fork` Side fork
+  - icon: ![Side fork](assets/items/gh-side-fork.webp)
 
-  A small drum on a shaft with two bearing brackets, rope anchor and captive mounting screws.
-- `lc-crank-wheel` Crank
-  - icon: ![Crank and toothed ratchet wheel](assets/items/lc-crank-wheel.webp)
+  {A green right-angled bracket has a short horizontal green pin and a long black split pin above.}
 
-  A long hand crank and toothed wheel with a spacer, washer and end screw. Their matching sockets fit the drum shaft; the end screw keeps the stack in place. The wheel can later accept a holding pawl.
-- `lc-rope` Rope
-  - icon: ![Lifting cord and closed hook](assets/items/lc-rope.webp)
+  ---
 
-  A soft cord with a closed snap hook at one end and an anchor loop at the other. It fits the drum and pulley groove.
-- `lc-test-load` Test weight
-  - icon: ![Small padded test weight](assets/items/lc-test-load.webp)
+  An open pulley bracket with a split snap axle and a barbed mounting stem. Press a pulley over the axle tip, then push the stem through the beam until its head opens above the wood.
 
-  A light, soft-edged weight with a lifting loop. Jo keeps a hand beside it during the first low lift; it returns to the bench after the test.
-- `lc-ballast` Ballast
-  - icon: ![Rear ballast block](assets/items/lc-ballast.webp)
+- `gh-side-pulley` Pulley unit
+  - icon: ![Pulley unit](assets/items/gh-side-pulley.webp)
 
-  A low block with a captive clip for the back of the crane base. Its weight opposes the forward turning effect of the load.
-- `lc-pawl` Pawl
-  - icon: ![Holding pawl and release lever](assets/items/lc-pawl.webp)
+  {A red grooved wheel sits on the green bracket’s horizontal pin, below its long black top pin.}
+- `gh-drop-fork` Drop fork
+  - icon: ![Drop fork](assets/items/gh-drop-fork.webp)
 
-  A pivoted pawl, light spring and hand lever on a foot with captive screws and nuts that attach beside the toothed wheel. It lets the drum turn while lifting and catches when it tries to unwind.
-- `lc-basket` Basket
-  - icon: ![Small cargo basket](assets/items/lc-basket.webp)
+  {A green right-angled bracket has a short horizontal green pin and a long black split pin above.}
 
-  A shallow basket with a lifting loop and a handful of light wooden play blocks already inside.
-- `lc-winch` Winch
-  - icon: ![Hand winch](assets/items/lc-winch.webp)
+  ---
 
-  The crank turns the drum, winding in cord. A longer crank gives your hand more turning effect, although your hand travels farther for each drum turn.
-- `lc-winch-frame` Crane
-  - icon: ![Crane with a hand winch](assets/items/lc-winch-frame.webp)
-- `lc-rigged` Crane
-  - icon: ![Crane with a lifting line](assets/items/lc-rigged.webp)
-- `lc-tipping` Crane
-  - icon: ![Crane lifting at its back feet](assets/items/lc-tipping.webp)
+  An open pulley bracket with a split snap axle and a barbed mounting stem. Press a pulley over the axle tip, then push the stem through the beam until its head opens above the wood.
 
-  You loosen the bench clips for a low test, keeping a hand beside the load. As the weight rises, the back feet begin to lift. You lower it immediately and secure the base again.
+- `gh-drop-pulley` Pulley unit
+  - icon: ![Pulley unit](assets/items/gh-drop-pulley.webp)
 
-  The frame has stayed stiff. The whole crane is trying to tip.
-- `lc-balanced` Crane
-  - icon: ![Crane with rear ballast](assets/items/lc-balanced.webp)
+  {A red grooved wheel sits on the green bracket’s horizontal pin, below its long black top pin.}
+- `gh-pulley-1` Pulley
+  - icon: ![Pulley](assets/items/gh-pulley-1.webp)
 
-  The block sits low behind the mast. You loosen the clips again and repeat the supported low lift, then lower the test weight: this time all the feet stay on the bench.
-- `lc-pawl-rigged` Crane
-  - icon: ![Rigged crane with holding pawl](assets/items/lc-pawl-rigged.webp)
+  {A thick red wheel with a groove around its rim and a round centre hole.}
 
-  The holding pawl fits beside the drum before the test. It can stop the rope unwinding, but it cannot stop the whole crane tipping.
-- `lc-ballasted-unproven` Crane
-  - icon: ![Ballasted crane ready for a test](assets/items/lc-ballasted-unproven.webp)
+  ---
 
-  You put the block behind the mast before lifting anything. A sensible prediction: the rear weight should oppose the load's forward turning effect. Now try the padded weight to check it.
-- `lc-pawl-ballasted-unproven` Crane
-  - icon: ![Ballasted holding crane ready for a test](assets/items/lc-pawl-ballasted-unproven.webp)
+  A grooved pulley that turns on either fork axle. The split axle tip retains it.
 
-  Rear ballast and holding pawl are both fitted. One balances the whole crane; the other catches the drum. The low test will check them together.
-- `lc-pawl-tipping` Crane
-  - icon: ![Stiff crane beginning to tip](assets/items/lc-pawl-tipping.webp)
+- `gh-pulley-2` Pulley
+  - icon: ![Pulley](assets/items/gh-pulley-2.webp)
 
-  You release the bench clips and make the supported low test. The drum holds its rope, but the rear feet start to lift. You lower the weight at once: holding a load and balancing it are different jobs.
-- `lc-ratchet-frame` Crane
-  - icon: ![Crane with a holding pawl](assets/items/lc-ratchet-frame.webp)
+  {A thick red wheel with a groove around its rim and a round centre hole.}
 
-  With the rear ballast fitted and the clips released, the supported low lift leaves every foot down. The pawl clicks over the teeth while you wind in. If you stop turning, it catches a tooth instead of letting the drum unwind. To lower, hold the crank before easing the release lever.
-- `lifting-crane` Crane
-  - icon: ![Lifting crane](assets/items/lifting-crane.webp)
+  ---
 
-  ![Lifting crane in the garden](assets/rewards/lifting-crane.webp)
+  A grooved pulley that turns on either fork axle. The split axle tip retains it.
 
-  You hook the basket, raise it just above the miniature stage and stop cranking. The pawl holds. Jo slides the small stage underneath the hanging basket. With the crank in your hand, you ease the lever and lower the basket onto it.
+- `gh-pawl` Pawl
+  - icon: ![Pawl](assets/items/gh-pawl.webp)
 
-  “A delivery service,” says Jo, moving one play block into place. You bring the basket back to the base and lift the complete crane to its garden stall.
+  {A bent black lever rises from a green block and ends in a broad angled tip.}
+
+  ---
+
+  A spring pawl and its connected mounting foot. Its tooth rests in the ratchet so the drum cannot freely unwind.
+
+- `gh-rope` Rope and hook
+  - icon: ![Rope and hook](assets/items/gh-rope.webp)
+
+  {A black cord lies in a loose spiral, with a curved hook joined at its outer end.}
+
+  ---
+
+  One continuous cord, already tied to its hook. Push its free end under the drum’s prepared spring clamp, wind one turn, then thread it over the two pulleys.
+
+- `gh-basket` Basket
+  - icon: ![Basket](assets/items/gh-basket.webp)
+
+  {A square green open box has a tan floor, dark lower band and a tall black handle.}
+
+  ---
+
+  A small rigid basket with a connected lifting handle. It hangs directly on the hook.
+
+- `gh-fitted-1` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-1.webp)
+
+  {One red pulley hangs beneath the left end of the tan top beam, above the winch.}
+- `gh-fitted-2` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-2.webp)
+
+  {One red pulley hangs near the middle of the tan top beam; the winch sits below at the left.}
+- `gh-fitted-3` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-3.webp)
+
+  {Two red pulleys hang beneath the tan top beam, one at its left end and one near the middle.}
+- `gh-fitted-4` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-4.webp)
+
+  {A small green block and dark lever stand beside the winch’s red toothed disc; the top beam is bare.}
+- `gh-fitted-5` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-5.webp)
+
+  {A dark lever stands beside the winch, and one red pulley hangs beneath the left end of the top beam.}
+- `gh-fitted-6` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-6.webp)
+
+  {A dark lever stands beside the winch, and one red pulley hangs near the middle of the top beam.}
+- `gh-fitted-7` Gantry
+  - icon: ![Gantry](assets/items/gh-fitted-7.webp)
+
+  {A dark lever stands beside the winch, below two red pulleys on the top beam.}
+- `gh-roped` Hoist
+  - icon: ![Hoist](assets/items/gh-roped.webp)
+
+  {A thin black cord rises from the winch, crosses the two overhead red pulleys and hangs down to a hook.}
+- `gantry-hoist` Gantry hoist
+  - icon: ![Gantry hoist](assets/items/gantry-hoist.webp)
+
+  {A green basket hangs from the black hook and cord between the tan frame’s legs, beneath two red pulleys.}
+
+  ---
+
+  Two fixed pulleys guide the cord; they change its direction without multiplying the lifting force. Turning the crank winds the drum. The pawl holds the drum between turns.
+
 
 **Combinations**
-- `lc-crank-wheel` [consume] + `lc-drum` [transform] -> `lc-winch`
-- `lc-winch` [consume] + `lc-wide-frame` [transform] -> `lc-winch-frame`
-- `lc-rope` [consume] + `lc-winch-frame` [transform] -> `lc-rigged`
-- `lc-test-load` [preserve] + `lc-rigged` [transform] -> `lc-tipping`
-- `lc-ballast` [consume] + `lc-tipping` [transform] -> `lc-balanced`
-- `lc-pawl` [consume] + `lc-balanced` [transform] -> `lc-ratchet-frame`
-- `lc-pawl` [consume] + `lc-rigged` [transform] -> `lc-pawl-rigged`
-- `lc-test-load` [preserve] + `lc-pawl-rigged` [transform] -> `lc-pawl-tipping`
-- `lc-ballast` [consume] + `lc-pawl-tipping` [transform] -> `lc-ratchet-frame`
-- `lc-ballast` [consume] + `lc-rigged` [transform] -> `lc-ballasted-unproven`
-- `lc-test-load` [preserve] + `lc-ballasted-unproven` [transform] -> `lc-balanced`
-- `lc-ballast` [consume] + `lc-pawl-rigged` [transform] -> `lc-pawl-ballasted-unproven`
-- `lc-test-load` [preserve] + `lc-pawl-ballasted-unproven` [transform] -> `lc-ratchet-frame`
-- `lc-basket` [consume] + `lc-ratchet-frame` [transform] -> `lifting-crane`
+- `gh-pulley-1` [consume] + `gh-side-fork` [transform] -> `gh-side-pulley`
+- `gh-pulley-2` [consume] + `gh-side-fork` [transform] -> `gh-side-pulley`
+- `gh-pulley-1` [consume] + `gh-drop-fork` [transform] -> `gh-drop-pulley`
+- `gh-pulley-2` [consume] + `gh-drop-fork` [transform] -> `gh-drop-pulley`
+- `gh-side-pulley` [consume] + `gh-mounted` [transform] -> `gh-fitted-1`
+- `gh-drop-pulley` [consume] + `gh-mounted` [transform] -> `gh-fitted-2`
+- `gh-pawl` [consume] + `gh-mounted` [transform] -> `gh-fitted-4`
+- `gh-drop-pulley` [consume] + `gh-fitted-1` [transform] -> `gh-fitted-3`
+- `gh-pawl` [consume] + `gh-fitted-1` [transform] -> `gh-fitted-5`
+- `gh-side-pulley` [consume] + `gh-fitted-2` [transform] -> `gh-fitted-3`
+- `gh-pawl` [consume] + `gh-fitted-2` [transform] -> `gh-fitted-6`
+- `gh-pawl` [consume] + `gh-fitted-3` [transform] -> `gh-fitted-7`
+- `gh-side-pulley` [consume] + `gh-fitted-4` [transform] -> `gh-fitted-5`
+- `gh-drop-pulley` [consume] + `gh-fitted-4` [transform] -> `gh-fitted-6`
+- `gh-drop-pulley` [consume] + `gh-fitted-5` [transform] -> `gh-fitted-7`
+- `gh-side-pulley` [consume] + `gh-fitted-6` [transform] -> `gh-fitted-7`
+- `gh-rope` [consume] + `gh-fitted-7` [transform] -> `gh-roped`
+- `gh-basket` [consume] + `gh-roped` [transform] -> `gantry-hoist`
 
-
-## `c11` A motor makes a wiggle
+## `c-carousel-drive` A turning deck
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![String-wave machine](assets/items/wave-machine.webp)
-
-On the third afternoon, the dragon waves because you keep turning its handle. Jo sets a little motor on the bench. “This one will keep turning for us. What could we make that is interesting to watch?” You stretch a bright cord between your hands.
+reference: ![Carousel](assets/items/ca-platform.webp)
 
 **Goals**
-- Mount the motor on the base -- `wm-motor-frame`
-- next: Fit the cord driver beside the motor -- `wm-driver-frame`
-- next: Loop the belt over the pulleys -- `wm-belt-frame`
-- next: Attach the cord to the cord driver -- `wm-cord-frame`
-- next: Add the spring to tension the cord -- `wm-tensioned`
-- next: Fit the guard over the moving drive -- `wm-guarded`
-- next: Connect the speed controller and watch the cord -- `wm-running`
-
-**Hotspots**
-- `wm-base` (center 390px, 500px)
-  - icon: ![Long wave-machine base](assets/hotspots/c11--wm-base.webp)
-- `wm-motor-frame` (center 390px, 500px)
-  - icon: ![Wave frame with a motor](assets/hotspots/c11--wm-motor-frame.webp)
-- `wm-driver-frame` (center 390px, 500px)
-  - icon: ![Wave frame with an eccentric driver](assets/hotspots/c11--wm-driver-frame.webp)
-- `wm-belt-frame` (center 390px, 500px)
-  - icon: ![Wave frame with a belt drive](assets/hotspots/c11--wm-belt-frame.webp)
-- `wm-cord-frame` (center 390px, 500px)
-  - icon: ![Wave frame with a loose cord](assets/hotspots/c11--wm-cord-frame.webp)
-- `wm-tensioned` (center 390px, 500px)
-  - icon: ![Wave frame with a tensioned cord](assets/hotspots/c11--wm-tensioned.webp)
-- `wm-guarded` (center 390px, 500px)
-  - icon: ![Guarded string-wave machine](assets/hotspots/c11--wm-guarded.webp)
-- `wm-running` (center 390px, 500px)
-  - icon: ![Cord with a travelling wiggle](assets/hotspots/c11--wm-running.webp)
+- Fit the spindle
+  - either: `ca-spindle-base`
+  - or: `ca-drive-base`
+- next: Fit the motor -- `ca-drive-base`
+- next: Loop the belt around both pulleys -- `ca-belted`
+- next: Set the guard over the drive
+  - either: `ca-guarded`
+  - or: `ca-ready`
+- next: Plug in the battery -- `ca-ready`
+- next: Fit the deck onto the spindle -- `ca-platform`
 
 **Items**
-- `wm-controller` Speed controller
-  - icon: ![Battery and speed controller](assets/items/wm-controller.webp)
+- `ca-base` Base
+  - icon: ![Base](assets/items/ca-base.webp)
 
-  A compatible enclosed low-voltage battery holder with cells fitted, an on-off switch, speed dial and keyed plug. Its clips fit the base; start with the switch off.
-- `wm-running` Wave machine
-  - icon: ![Cord with a travelling wiggle](assets/items/wm-running.webp)
+  {A thick tan circular base with a central hole, small round holes and square recesses.}
 
-  You plug in the controller, turn it on and slowly increase the speed. The peg keeps shaking one end; a disturbance travels along the cord and reflects from the far end.
-- `wm-base` Base
-  - icon: ![Long wave-machine base](assets/items/wm-base.webp)
+  ---
 
-  A light base with two fitted end posts, held in the bench clips. One post carries a cord anchor and tension screw; the other supports the driver bearing. A hollow wooden soundbox with a thin top is already clipped to the base, and soft isolation pads are fitted beneath its feet. Prepared holes take the motor cradle; small clips park the removable bridge and pick.
-- `wm-mounted-motor` Motor
-  - icon: ![Motor secured in its cradle](assets/items/wm-mounted-motor.webp)
+  A broad prepared base with sockets for the bearing, motor and battery. The motor and controller are matching low-voltage modules.
 
-  An ordinary compatible low-voltage motor with a capped drive pulley and insulated plug lead. Its fitted cradle has a retaining strap, captive screws and soft isolation mounts, holding the motor clear of the wooden base. No battery is connected.
-- `wm-driver` Cord driver
-  - icon: ![Eccentric cord driver](assets/items/wm-driver.webp)
+- `ca-spindle` Spindle
+  - icon: ![Spindle](assets/items/ca-spindle.webp)
 
-  A small pulley wheel on its own bearing, with a captive swivel peg a little off centre. The swivel lets the cord move without twisting up.
-- `wm-belt` Belt
-  - icon: ![Soft drive belt](assets/items/wm-belt.webp)
+  {A broad green grooved disc sits above a square green support; a short black shaft projects from its centre.}
 
-  A short rubber belt sized for the motor pulley and driver pulley. It will run behind a cover.
-- `wm-cord` Cord
-  - icon: ![Bright flexible cord](assets/items/wm-cord.webp)
+  ---
 
-  A long, light nylon cord with prepared end loops. One loop fits the driver swivel, the other the tension spring.
-- `wm-spring` Spring
-  - icon: ![Cord tension spring](assets/items/wm-spring.webp)
+  A vertical spindle and pulley retained inside a bearing block. The square upper end drives the deck; a shoulder supports its hub above the guard.
 
-  A small extension spring with closed end hooks. It links the cord to the adjustable post and keeps a steady pull on it.
-- `wm-guard` Guard
-  - icon: ![Clear drive guard](assets/items/wm-guard.webp)
+- `ca-motor` Motor
+  - icon: ![Motor](assets/items/ca-motor.webp)
 
-  A transparent snap-on cover for the motor pulleys and belt, with a smooth opening for the moving cord and a slot for the electrical plug.
-- `wm-motor-frame` Wave machine
-  - icon: ![Wave frame with a motor](assets/items/wm-motor-frame.webp)
-- `wm-driver-frame` Wave machine
-  - icon: ![Wave frame with an eccentric driver](assets/items/wm-driver-frame.webp)
+  {A black cylindrical motor sits on a green foot, with a red pulley above and a short black lead ending in a green plug.}
 
-  The swivel peg follows a small circle instead of sitting at the axle centre. It will keep disturbing one end of the cord while the far end stays anchored.
-- `wm-belt-frame` Wave machine
-  - icon: ![Wave frame with a belt drive](assets/items/wm-belt-frame.webp)
-- `wm-cord-frame` Wave machine
-  - icon: ![Wave frame with a loose cord](assets/items/wm-cord-frame.webp)
-- `wm-tensioned` Wave machine
-  - icon: ![Wave frame with a tensioned cord](assets/items/wm-tensioned.webp)
-- `wm-guarded` Wave machine
-  - icon: ![Guarded string-wave machine](assets/items/wm-guarded.webp)
+  ---
 
-  The clear cover keeps fingers away from the belt and pulleys. Through it you can still trace the movement: motor, belt, off-centre peg, cord. The motor remains disconnected until its controller arrives.
+  A small enclosed geared motor, its pulley, retaining strap, mounting foot and plugged lead form one supplied module.
+
+- `ca-belt` Belt
+  - icon: ![Belt](assets/items/ca-belt.webp)
+
+  {One thin black loop with a broad rounded end and a narrower end.}
+- `ca-guard` Guard
+  - icon: ![Guard](assets/items/ca-guard.webp)
+
+  {A dark translucent box-shaped cover has a small top hole, green corner feet and an opening at its lower edge.}
+
+  ---
+
+  A clear cover with a real shaft opening, cable opening and attached locating feet.
+
+- `ca-battery` Battery and dial
+  - icon: ![Battery and dial](assets/items/ca-battery.webp)
+
+  {A green rectangular box has a black switch and red round knob on top.}
+
+  ---
+
+  The battery holder, switch and speed dial share one case. Its connected lead plugs into the motor.
+
+- `ca-deck` Deck
+  - icon: ![Deck](assets/items/ca-deck.webp)
+
+  {A thin tan circular disc with a central hole and three smaller holes around it.}
+
+  ---
+
+  A round deck with a central drive socket and three prepared pole sockets.
+
+- `ca-spindle-base` Base
+  - icon: ![Base](assets/items/ca-spindle-base.webp)
+
+  {The green pulley and square support stand in the middle of the tan circular base.}
+- `ca-motor-base` Base
+  - icon: ![Base](assets/items/ca-motor-base.webp)
+
+  {The black motor with its red pulley stands near the left edge of the tan base; its lead and green plug lie beside it.}
+- `ca-drive-base` Base
+  - icon: ![Base](assets/items/ca-drive-base.webp)
+
+  {The black motor and red pulley stand beside the broad green pulley on the tan base.}
+- `ca-belted` Base
+  - icon: ![Base](assets/items/ca-belted.webp)
+
+  {A thin black belt spans the small red pulley and the large green pulley.}
+- `ca-guarded` Base
+  - icon: ![Base](assets/items/ca-guarded.webp)
+
+  {A dark translucent cover surrounds the motor and green pulley; their outlines remain visible through its sides.}
+- `ca-wired` Base
+  - icon: ![Base](assets/items/ca-wired.webp)
+
+  {A green box with a black switch and red knob sits in front of the two pulleys and their black belt.}
+- `ca-ready` Base
+  - icon: ![Base](assets/items/ca-ready.webp)
+
+  {The dark translucent cover encloses the pulleys, with the green control box outside at the front.}
+- `ca-platform` Carousel
+  - icon: ![Carousel](assets/items/ca-platform.webp)
+
+  {A tan circular deck sits above the covered pulleys and lower round base; the green control box projects at the front.}
 
 **Combinations**
-- `wm-mounted-motor` [consume] + `wm-base` [transform] -> `wm-motor-frame`
-- `wm-driver` [consume] + `wm-motor-frame` [transform] -> `wm-driver-frame`
-- `wm-belt` [consume] + `wm-driver-frame` [transform] -> `wm-belt-frame`
-- `wm-cord` [consume] + `wm-belt-frame` [transform] -> `wm-cord-frame`
-- `wm-spring` [consume] + `wm-cord-frame` [transform] -> `wm-tensioned`
-- `wm-guard` [consume] + `wm-tensioned` [transform] -> `wm-guarded`
+- `ca-spindle` [consume] + `ca-base` [transform] -> `ca-spindle-base`
+- `ca-motor` [consume] + `ca-base` [transform] -> `ca-motor-base`
+- `ca-motor` [consume] + `ca-spindle-base` [transform] -> `ca-drive-base`
+- `ca-spindle` [consume] + `ca-motor-base` [transform] -> `ca-drive-base`
+- `ca-belt` [consume] + `ca-drive-base` [transform] -> `ca-belted`
+- `ca-guard` [consume] + `ca-belted` [transform] -> `ca-guarded`
+- `ca-battery` [consume] + `ca-belted` [transform] -> `ca-wired`
+- `ca-battery` [consume] + `ca-guarded` [transform] -> `ca-ready`
+- `ca-guard` [consume] + `ca-wired` [transform] -> `ca-ready`
+- `ca-deck` [consume] + `ca-ready` [transform] -> `ca-platform`
 
-
-
-- `wm-controller` [consume] + `wm-guarded` [transform] -> `wm-running`
-
-## `c12` Watch it. Hear it.
+## `c-carousel-horses` Three horses
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![String-wave machine](assets/items/wave-machine.webp)
-
-The cord is already dancing. Jo folds a tiny paper rider. “Does the cord travel with the wiggle?” You stop the motor before fitting anything to the cord or base, and restart it for each observation.
+reference: ![Electric carousel](assets/items/electric-carousel.webp)
 
 **Goals**
-- Clip the paper rider onto the cord -- `wm-marked`
-- next: Use the tension key to find a standing wave -- `wm-looping`
-- next: Slide the bridge under the stopped cord -- `wm-bridged`
-- next: Pluck the cord with the pick -- `wave-machine`
-
-**Hotspots**
-- `wm-running` (center 390px, 500px)
-  - icon: ![Cord with a travelling wiggle](assets/hotspots/c12--wm-running.webp)
-- `wm-marked` (center 390px, 500px)
-  - icon: ![Wave cord with a paper rider](assets/hotspots/c12--wm-marked.webp)
-- `wm-looping` (center 390px, 500px)
-  - icon: ![Cord making two broad loops](assets/hotspots/c12--wm-looping.webp)
-- `wm-bridged` (center 390px, 500px)
-  - icon: ![Cord resting on a movable bridge](assets/hotspots/c12--wm-bridged.webp)
+- Fit a pole through the red horse -- `ca-rider-1`
+- next: Fit the red horse onto the deck
+  - either: `ca-horses-1`
+  - or: `ca-horses-3`
+  - or: `ca-horses-5`
+  - or: `ca-horses-7`
+- next: Fit a pole through the green horse -- `ca-rider-2`
+- next: Fit the green horse onto the deck
+  - either: `ca-horses-2`
+  - or: `ca-horses-3`
+  - or: `ca-horses-6`
+  - or: `ca-horses-7`
+- next: Fit a pole through the cream horse -- `ca-rider-3`
+- next: Fit the cream horse onto the deck
+  - either: `ca-horses-4`
+  - or: `ca-horses-5`
+  - or: `ca-horses-6`
+  - or: `ca-horses-7`
+- next: Fit the roof post -- `ca-posted`
+- next: Fit the canopy -- `electric-carousel`
 
 **Items**
-- `wm-rider` Paper rider
-  - icon: ![Light paper rider](assets/items/wm-rider.webp)
+- `ca-horse-1` Red horse
+  - icon: ![Red horse](assets/items/ca-horse-1.webp)
 
-  A tiny folded paper flag with a loose soft clip. It can mark one place on the cord without holding it still.
-- `wm-tension-key` Tension key
-  - icon: ![Tension-adjusting key](assets/items/wm-tension-key.webp)
+  {A small blocky red horse has a round hole in its back.}
 
-  A blunt key for the post’s captive adjustment screw. Small turns change the cord’s tension; the marked limits keep the spring within its working stretch.
-- `wm-bridge` Bridge
-  - icon: ![Movable string bridge](assets/items/wm-bridge.webp)
+  ---
 
-  A smooth, low wooden bridge with a shallow cord notch. It rests on the soundbox and can slide along the cord to change the length free to vibrate. First tune the unobstructed cord into two broad loops; this extra contact will interrupt that pattern.
-- `wm-pick` Pick
-  - icon: ![Soft plectrum](assets/items/wm-pick.webp)
+  A single connected horse with a through socket in its back. Any of the three poles fits it.
 
-  A broad flexible pick for plucking the cord with the motor switched off.
-- `wm-marked` Wave machine
-  - icon: ![Wave cord with a paper rider](assets/items/wm-marked.webp)
+- `ca-pole-1` Pole
+  - icon: ![Pole](assets/items/ca-pole-1.webp)
 
-  With the drive running again, the rider bobs around its own place while the disturbance travels past it. A wave can move along the cord without carrying that piece of cord all the way to the other end.
-- `wm-looping` Wave machine
-  - icon: ![Cord making two broad loops](assets/items/wm-looping.webp)
+  {A thin black upright rod has two small green rings around its lower half.}
 
-  You adjust the tension a little at a time and tune the speed. At one setting, two broad loops keep their places, separated by a nearly still point. Disturbances travelling in opposite directions are meeting in a repeating pattern.
-- `wm-bridged` Wave machine
-  - icon: ![Cord resting on a movable bridge](assets/items/wm-bridged.webp)
+  ---
 
-  With the drive stopped, you release the bench clips and set the machine freely on its soft feet. Fit the bridge to give the cord another firm contact point: moving it changes the vibrating length and the wave pattern. The bridge passes vibration into the soundbox; the soft feet reduce buzz transmitted to the table.
+  A straight pole with a lower mounting peg and a shoulder that supports the horse. Any pole fits any horse.
 
-- `wave-machine` Wave machine
-  - icon: ![String-wave machine](assets/items/wave-machine.webp)
+- `ca-rider-1` Red horse
+  - icon: ![Red horse](assets/items/ca-rider-1.webp)
 
-  ![String-wave machine in the garden](assets/rewards/wave-machine.webp)
+  {A black pole passes through the red horse, with a green ring below it.}
+- `ca-horse-2` Green horse
+  - icon: ![Green horse](assets/items/ca-horse-2.webp)
 
-  With the drive off, you tighten the cord within its marked range and pluck it. The soundbox makes the twang easier to hear. Slide the bridge to leave a shorter vibrating length and pluck again: the note rises.
+  {A small blocky green horse has a round hole in its back.}
 
-  You lift the complete machine into the garden, with its pick in the parking clip. Restore the earlier tension and speed, park the bridge, and the broad dancing loops return. Jo listens from the pinball chair while you switch the motor off and try a two-note tune.
+  ---
+
+  A single connected horse with a through socket in its back. Any of the three poles fits it.
+
+- `ca-pole-2` Pole
+  - icon: ![Pole](assets/items/ca-pole-2.webp)
+
+  {A thin black upright rod has two small green rings around its lower half.}
+
+  ---
+
+  A straight pole with a lower mounting peg and a shoulder that supports the horse. Any pole fits any horse.
+
+- `ca-rider-2` Green horse
+  - icon: ![Green horse](assets/items/ca-rider-2.webp)
+
+  {A black pole passes through the green horse, with a green ring below it.}
+- `ca-horse-3` Cream horse
+  - icon: ![Cream horse](assets/items/ca-horse-3.webp)
+
+  {A small blocky cream horse has a round hole in its back.}
+
+  ---
+
+  A single connected horse with a through socket in its back. Any of the three poles fits it.
+
+- `ca-pole-3` Pole
+  - icon: ![Pole](assets/items/ca-pole-3.webp)
+
+  {A thin black upright rod has two small green rings around its lower half.}
+
+  ---
+
+  A straight pole with a lower mounting peg and a shoulder that supports the horse. Any pole fits any horse.
+
+- `ca-rider-3` Cream horse
+  - icon: ![Cream horse](assets/items/ca-rider-3.webp)
+
+  {A black pole passes through the cream horse, with a green ring below it.}
+- `ca-horses-1` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-1.webp)
+
+  {One red horse stands on a black pole at the right side of the tan upper deck.}
+- `ca-horses-2` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-2.webp)
+
+  {One green horse stands on a black pole near the back of the tan upper deck.}
+- `ca-horses-3` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-3.webp)
+
+  {A red horse at the right and a green horse at the back stand on black poles above the deck.}
+- `ca-horses-4` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-4.webp)
+
+  {One cream horse stands on a black pole at the left front of the tan upper deck.}
+- `ca-horses-5` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-5.webp)
+
+  {Cream and red horses stand on black poles at opposite sides of the tan upper deck.}
+- `ca-horses-6` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-6.webp)
+
+  {Cream and green horses stand on black poles at the left front and back of the upper deck.}
+- `ca-horses-7` Carousel
+  - icon: ![Carousel](assets/items/ca-horses-7.webp)
+
+  {Cream, green and red horses stand on three black poles around the tan upper deck.}
+- `ca-roofpost` Roof post
+  - icon: ![Roof post](assets/items/ca-roofpost.webp)
+
+  {A long tan upright rod has a short green fitting around its lower end.}
+- `ca-canopy` Canopy
+  - icon: ![Canopy](assets/items/ca-canopy.webp)
+
+  {A shallow red circular canopy has a small green cap at its centre.}
+
+  ---
+
+  A small moulded canopy with a centre socket. It sits high enough to leave the horses visible.
+
+- `ca-posted` Carousel
+  - icon: ![Carousel](assets/items/ca-posted.webp)
+
+  {A tall tan post rises from the centre of the deck between the three horses.}
+- `electric-carousel` Electric carousel
+  - icon: ![Electric carousel](assets/items/electric-carousel.webp)
+
+  {A broad red canopy on a tan central post shelters three coloured horses on black poles, above two tan circular levels and a green control box.}
+
+  ---
+
+  The small motor pulley drives the larger spindle pulley through the belt. All three horses turn with the deck. The roof, poles and horses keep their actual sizes throughout the build.
+
 
 **Combinations**
-- `wm-rider` [consume] + `wm-running` [transform] -> `wm-marked`
-- `wm-tension-key` [preserve] + `wm-marked` [transform] -> `wm-looping`
-- `wm-bridge` [consume] + `wm-looping` [transform] -> `wm-bridged`
-- `wm-pick` [preserve] + `wm-bridged` [transform] -> `wave-machine`
+- `ca-pole-1` [consume] + `ca-horse-1` [transform] -> `ca-rider-1`
+- `ca-pole-2` [consume] + `ca-horse-1` [transform] -> `ca-rider-1`
+- `ca-pole-3` [consume] + `ca-horse-1` [transform] -> `ca-rider-1`
+- `ca-pole-1` [consume] + `ca-horse-2` [transform] -> `ca-rider-2`
+- `ca-pole-2` [consume] + `ca-horse-2` [transform] -> `ca-rider-2`
+- `ca-pole-3` [consume] + `ca-horse-2` [transform] -> `ca-rider-2`
+- `ca-pole-1` [consume] + `ca-horse-3` [transform] -> `ca-rider-3`
+- `ca-pole-2` [consume] + `ca-horse-3` [transform] -> `ca-rider-3`
+- `ca-pole-3` [consume] + `ca-horse-3` [transform] -> `ca-rider-3`
+- `ca-rider-1` [consume] + `ca-platform` [transform] -> `ca-horses-1`
+- `ca-rider-2` [consume] + `ca-platform` [transform] -> `ca-horses-2`
+- `ca-rider-3` [consume] + `ca-platform` [transform] -> `ca-horses-4`
+- `ca-rider-2` [consume] + `ca-horses-1` [transform] -> `ca-horses-3`
+- `ca-rider-3` [consume] + `ca-horses-1` [transform] -> `ca-horses-5`
+- `ca-rider-1` [consume] + `ca-horses-2` [transform] -> `ca-horses-3`
+- `ca-rider-3` [consume] + `ca-horses-2` [transform] -> `ca-horses-6`
+- `ca-rider-3` [consume] + `ca-horses-3` [transform] -> `ca-horses-7`
+- `ca-rider-1` [consume] + `ca-horses-4` [transform] -> `ca-horses-5`
+- `ca-rider-2` [consume] + `ca-horses-4` [transform] -> `ca-horses-6`
+- `ca-rider-2` [consume] + `ca-horses-5` [transform] -> `ca-horses-7`
+- `ca-rider-1` [consume] + `ca-horses-6` [transform] -> `ca-horses-7`
+- `ca-roofpost` [consume] + `ca-horses-7` [transform] -> `ca-posted`
+- `ca-canopy` [consume] + `ca-posted` [transform] -> `electric-carousel`
 
-
-## `c-air-1` A hand at the far end
+## `c-claw-jaws` A small claw
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Pneumatic grabber](assets/items/pneumatic-grabber.webp)
-
-Kit has left a note through the fence: **Can there be a game where you pick things up without touching them?** You set a long light handle on the bench. Jo supplies two wooden jaws. “We could borrow a crab’s idea.”
+reference: ![Claw](assets/items/cl-mechanical.webp)
 
 **Goals**
-- Pivot the jaws onto the beam -- `air-jawed`
-- next: Fit the slider to the beam -- `air-guided`
-- next: Fit the jaw links between the jaws and slider -- `air-linked`
-- next: Seat the output syringe in the syringe cradle -- `air-mounted-syringe`
-- next: Fit the plunger clip to the slider -- `air-clip-ready`
-- next: Mount the output syringe and connect its plunger -- `air-actuated`
-- next: Add the return band to open the jaws -- `air-sprung`
-- next: Close the jaws around the test block -- `air-hand-grabber`
-
-**Hotspots**
-- `air-beam` (center 390px, 500px)
-  - icon: ![Grabber beam](assets/hotspots/c-air-1--air-beam.webp)
-- `air-jawed` (center 390px, 500px)
-  - icon: ![Beam with hinged jaws](assets/hotspots/c-air-1--air-jawed.webp)
-- `air-guided` (center 390px, 500px)
-  - icon: ![Grabber with a guided slider](assets/hotspots/c-air-1--air-guided.webp)
-- `air-linked` (center 390px, 500px)
-  - icon: ![Grabber with linked jaws](assets/hotspots/c-air-1--air-linked.webp)
-- `air-clip-ready` (center 390px, 500px)
-  - icon: ![Grabber with plunger-end clip](assets/hotspots/c-air-1--air-clip-ready.webp)
-- `air-actuated` (center 390px, 500px)
-  - icon: ![Grabber with an output syringe](assets/hotspots/c-air-1--air-actuated.webp)
-- `air-sprung` (center 390px, 500px)
-  - icon: ![Grabber with a return band](assets/hotspots/c-air-1--air-sprung.webp)
-- `air-hand-grabber` (center 390px, 500px)
-  - icon: ![Grabber working by hand](assets/hotspots/c-air-1--air-hand-grabber.webp)
+- Fit the left jaw
+  - either: `cl-mech-1`
+  - or: `cl-mech-3`
+  - or: `cl-mech-5`
+  - or: `cl-mech-7`
+  - or: `cl-mech-13`
+  - or: `cl-mech-15`
+  - or: `cl-mech-23`
+  - or: `cl-mech-31`
+  - or: `cl-mech-33`
+  - or: `cl-mech-35`
+  - or: `cl-mech-37`
+  - or: `cl-mech-39`
+  - or: `cl-mech-45`
+  - or: `cl-mech-47`
+  - or: `cl-mech-55`
+  - or: `cl-mech-63`
+  - or: `cl-mech-67`
+  - or: `cl-mech-71`
+  - or: `cl-mech-79`
+  - or: `cl-mech-87`
+  - or: `cl-mech-95`
+  - or: `cl-mech-99`
+  - or: `cl-mech-103`
+  - or: `cl-mech-111`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
+- next: Fit the right jaw
+  - either: `cl-mech-2`
+  - or: `cl-mech-3`
+  - or: `cl-mech-6`
+  - or: `cl-mech-7`
+  - or: `cl-mech-15`
+  - or: `cl-mech-22`
+  - or: `cl-mech-23`
+  - or: `cl-mech-31`
+  - or: `cl-mech-35`
+  - or: `cl-mech-39`
+  - or: `cl-mech-47`
+  - or: `cl-mech-55`
+  - or: `cl-mech-63`
+  - or: `cl-mech-66`
+  - or: `cl-mech-67`
+  - or: `cl-mech-70`
+  - or: `cl-mech-71`
+  - or: `cl-mech-79`
+  - or: `cl-mech-86`
+  - or: `cl-mech-87`
+  - or: `cl-mech-95`
+  - or: `cl-mech-99`
+  - or: `cl-mech-103`
+  - or: `cl-mech-111`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
+- next: Fit the slider
+  - either: `cl-mech-4`
+  - or: `cl-mech-5`
+  - or: `cl-mech-6`
+  - or: `cl-mech-7`
+  - or: `cl-mech-13`
+  - or: `cl-mech-15`
+  - or: `cl-mech-22`
+  - or: `cl-mech-23`
+  - or: `cl-mech-31`
+  - or: `cl-mech-37`
+  - or: `cl-mech-39`
+  - or: `cl-mech-45`
+  - or: `cl-mech-47`
+  - or: `cl-mech-55`
+  - or: `cl-mech-63`
+  - or: `cl-mech-70`
+  - or: `cl-mech-71`
+  - or: `cl-mech-79`
+  - or: `cl-mech-86`
+  - or: `cl-mech-87`
+  - or: `cl-mech-95`
+  - or: `cl-mech-103`
+  - or: `cl-mech-111`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
+- next: Snap a link onto the left pins
+  - either: `cl-mech-13`
+  - or: `cl-mech-15`
+  - or: `cl-mech-31`
+  - or: `cl-mech-45`
+  - or: `cl-mech-47`
+  - or: `cl-mech-63`
+  - or: `cl-mech-79`
+  - or: `cl-mech-95`
+  - or: `cl-mech-111`
+  - or: `cl-mechanical`
+- next: Fit the other link
+  - either: `cl-mech-22`
+  - or: `cl-mech-23`
+  - or: `cl-mech-31`
+  - or: `cl-mech-55`
+  - or: `cl-mech-63`
+  - or: `cl-mech-86`
+  - or: `cl-mech-87`
+  - or: `cl-mech-95`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
+- next: Fit a pad to the left jaw
+  - either: `cl-mech-33`
+  - or: `cl-mech-35`
+  - or: `cl-mech-37`
+  - or: `cl-mech-39`
+  - or: `cl-mech-45`
+  - or: `cl-mech-47`
+  - or: `cl-mech-55`
+  - or: `cl-mech-63`
+  - or: `cl-mech-99`
+  - or: `cl-mech-103`
+  - or: `cl-mech-111`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
+- next: Fit the other pad
+  - either: `cl-mech-66`
+  - or: `cl-mech-67`
+  - or: `cl-mech-70`
+  - or: `cl-mech-71`
+  - or: `cl-mech-79`
+  - or: `cl-mech-86`
+  - or: `cl-mech-87`
+  - or: `cl-mech-95`
+  - or: `cl-mech-99`
+  - or: `cl-mech-103`
+  - or: `cl-mech-111`
+  - or: `cl-mech-119`
+  - or: `cl-mechanical`
 
 **Items**
-- `air-beam` Beam
-  - icon: ![Grabber beam](assets/items/air-beam.webp)
+- `cl-base` Palm
+  - icon: ![Palm](assets/items/cl-base.webp)
 
-  A light wooden beam with a handgrip, prepared jaw pivots at its far end and holes for a slider guide and syringe cradle. Bench clips hold it while you build.
-- `air-jaws` Jaws
-  - icon: ![Two crab-shaped jaws](assets/items/air-jaws.webp)
+  {A tan rectangular board has a small green fitting near one end, a raised tan strip near the other and several small holes.}
 
-  One jaw represents the mirrored pair. Two short wooden levers with rounded gripping ends, hinge washers and captive pivot pins. Their short rear arms will connect to a sliding crosshead.
-- `air-slider` Slider
-  - icon: ![Slider and straight guide](assets/items/air-slider.webp)
+  ---
 
-  A smooth crosshead with two link holes, a straight guide rail and captive mounting clips. It moves along the beam without twisting sideways.
-- `air-links` Jaw links
-  - icon: ![Two separate jaw links](assets/items/air-links.webp)
+  A broad prepared palm with pivot holes and a fixed return-band hook. The jaws reach just beyond its front edge.
 
-  One complete link represents the pair. Two short rods with a pivot at each end. They connect the crosshead to the short rear arms of the jaws. Moving the slider forward spreads those rear arms and brings the gripping ends together.
-- `air-output-syringe` Output syringe
-  - icon: ![Needleless output syringe](assets/items/air-output-syringe.webp)
+- `cl-jaw-1` Left jaw
+  - icon: ![Left jaw](assets/items/cl-jaw-1.webp)
 
-  A smooth-moving toy syringe with no needle and no liquid. Its plunger starts almost fully in; air entering its nozzle can push the plunger out.
-- `air-cradle` Syringe cradle
-  - icon: ![Paired syringe-barrel cups](assets/items/air-cradle.webp)
+  {A long bent tan jaw has a hooked tip, a red-rimmed middle hole and a short green-and-black pin near its other end.}
 
-  The strapped rear cup represents the two supplied cups. Two shaped barrel cups with matching captive mounting fasteners. The rear cup has a soft retaining strap bonded to it. Together they support the syringe with its nozzle toward the handle and its plunger toward the jaws.
-- `air-plunger-clip` Plunger clip
-  - icon: ![Plunger-end clip](assets/items/air-plunger-clip.webp)
+  ---
 
-  A connected pair of C-shaped jaws on a bridge and central support. It fits the sliding crosshead and captures the broad thumb pad of the output plunger.
-- `air-clip-ready` Grabber
-  - icon: ![Grabber with plunger-end clip](assets/items/air-clip-ready.webp)
-- `air-return-band` Return band
-  - icon: ![Light return band](assets/items/air-return-band.webp)
+  A single jaw with captive pivot and link pins. Its left-facing shape matches the left side of the palm.
 
-  A soft elastic loop with prepared anchor hooks and a broad peel-and-stick foot for the fixed hook. It pulls the slider back, opening the jaws and returning the output plunger into its barrel.
-- `air-test-block` Test block
-  - icon: ![Light wooden test block](assets/items/air-test-block.webp)
+- `cl-jaw-2` Right jaw
+  - icon: ![Right jaw](assets/items/cl-jaw-2.webp)
 
-  A small smooth block to grip and release. It returns to the table after each test.
-- `air-jawed` Grabber
-  - icon: ![Beam with hinged jaws](assets/items/air-jawed.webp)
-- `air-guided` Grabber
-  - icon: ![Grabber with a guided slider](assets/items/air-guided.webp)
-- `air-linked` Grabber
-  - icon: ![Grabber with linked jaws](assets/items/air-linked.webp)
+  {A long bent tan jaw has a hooked tip, a red-rimmed middle hole and a short green-and-black pin near its other end.}
 
-  Slide the crosshead forward and the two links change their angles separately. The short arms spread; the long jaw tips close. As the jaws turn, each link swings on both its pivots.
-- `air-mounted-syringe` Output syringe
-  - icon: ![Output syringe in its cradle](assets/items/air-mounted-syringe.webp)
-- `air-actuated` Grabber
-  - icon: ![Grabber with an output syringe](assets/items/air-actuated.webp)
-- `air-sprung` Grabber
-  - icon: ![Grabber with a return band](assets/items/air-sprung.webp)
-- `air-hand-grabber` Grabber
-  - icon: ![Grabber working by hand](assets/items/air-hand-grabber.webp)
+  ---
 
-  You move the crosshead forward with a fingertip. The jaws close around the block. Let go, and the band draws the slider back: the jaws open and the block drops gently onto the bench.
+  The reflected right jaw has its own captive pins.
 
-  “Good crab,” says Jo. “Now we need to tell it what to do from the other end.”
+- `cl-slider` Slider
+  - icon: ![Slider](assets/items/cl-slider.webp)
+
+  {A green rectangular frame surrounds a red sliding piece and supports a tall green bracket.}
+
+  ---
+
+  One retained sliding shoe inside its guide, including travel stops and the moving return-band hook.
+
+- `cl-link-1` Link
+  - icon: ![Link](assets/items/cl-link-1.webp)
+
+  {A slim red bar ends in two open circular eyes.}
+
+  ---
+
+  A rigid 52 mm link with split eyes that snap sideways onto the captive pins. Either link fits either side.
+
+- `cl-link-2` Link
+  - icon: ![Link](assets/items/cl-link-2.webp)
+
+  {A slim red bar ends in two open circular eyes.}
+
+  ---
+
+  A rigid 52 mm link with split eyes. Either link fits either side.
+
+- `cl-pad-1` Pad
+  - icon: ![Pad](assets/items/cl-pad-1.webp)
+
+  {A thick black rectangular block with a green top.}
+
+  ---
+
+  One soft pad for the inside face of a jaw. Either pad fits either jaw.
+
+- `cl-pad-2` Pad
+  - icon: ![Pad](assets/items/cl-pad-2.webp)
+
+  {A thick black rectangular block with a green top.}
+
+  ---
+
+  One soft pad. Either pad fits either jaw.
+
+- `cl-mech-1` Claw
+  - icon: ![Claw](assets/items/cl-mech-1.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board.}
+- `cl-mech-2` Claw
+  - icon: ![Claw](assets/items/cl-mech-2.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board.}
+- `cl-mech-3` Claw
+  - icon: ![Claw](assets/items/cl-mech-3.webp)
+
+  {Two tan hooked jaws spread to the right of the board.}
+- `cl-mech-4` Claw
+  - icon: ![Claw](assets/items/cl-mech-4.webp)
+
+  {A raised green bracket sits near the middle.}
+- `cl-mech-5` Claw
+  - icon: ![Claw](assets/items/cl-mech-5.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board. A raised green bracket sits near the middle.}
+- `cl-mech-6` Claw
+  - icon: ![Claw](assets/items/cl-mech-6.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board. A raised green bracket sits near the middle.}
+- `cl-mech-7` Claw
+  - icon: ![Claw](assets/items/cl-mech-7.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle.}
+- `cl-mech-13` Claw
+  - icon: ![Claw](assets/items/cl-mech-13.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board. One red bar joins the central green bracket to the upper jaw.}
+- `cl-mech-15` Claw
+  - icon: ![Claw](assets/items/cl-mech-15.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw.}
+- `cl-mech-22` Claw
+  - icon: ![Claw](assets/items/cl-mech-22.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board. One red bar joins the central green bracket to the lower jaw.}
+- `cl-mech-23` Claw
+  - icon: ![Claw](assets/items/cl-mech-23.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw.}
+- `cl-mech-31` Claw
+  - icon: ![Claw](assets/items/cl-mech-31.webp)
+
+  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws.}
+- `cl-mech-33` Claw
+  - icon: ![Claw](assets/items/cl-mech-33.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-35` Claw
+  - icon: ![Claw](assets/items/cl-mech-35.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-37` Claw
+  - icon: ![Claw](assets/items/cl-mech-37.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-39` Claw
+  - icon: ![Claw](assets/items/cl-mech-39.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-45` Claw
+  - icon: ![Claw](assets/items/cl-mech-45.webp)
+
+  {One tan hooked jaw extends from the upper right side of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-47` Claw
+  - icon: ![Claw](assets/items/cl-mech-47.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-55` Claw
+  - icon: ![Claw](assets/items/cl-mech-55.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-63` Claw
+  - icon: ![Claw](assets/items/cl-mech-63.webp)
+
+  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. A dark green-topped pad covers the upper jaw tip.}
+- `cl-mech-66` Claw
+  - icon: ![Claw](assets/items/cl-mech-66.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-67` Claw
+  - icon: ![Claw](assets/items/cl-mech-67.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-70` Claw
+  - icon: ![Claw](assets/items/cl-mech-70.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-71` Claw
+  - icon: ![Claw](assets/items/cl-mech-71.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-79` Claw
+  - icon: ![Claw](assets/items/cl-mech-79.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-86` Claw
+  - icon: ![Claw](assets/items/cl-mech-86.webp)
+
+  {One tan hooked jaw extends from the lower right side of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-87` Claw
+  - icon: ![Claw](assets/items/cl-mech-87.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-95` Claw
+  - icon: ![Claw](assets/items/cl-mech-95.webp)
+
+  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. A dark green-topped pad covers the lower jaw tip.}
+- `cl-mech-99` Claw
+  - icon: ![Claw](assets/items/cl-mech-99.webp)
+
+  {Two tan hooked jaws spread to the right of the board. Dark green-topped pads cover both jaw tips.}
+- `cl-mech-103` Claw
+  - icon: ![Claw](assets/items/cl-mech-103.webp)
+
+  {Two tan hooked jaws spread to the right of the board. A raised green bracket sits near the middle. Dark green-topped pads cover both jaw tips.}
+- `cl-mech-111` Claw
+  - icon: ![Claw](assets/items/cl-mech-111.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the upper jaw. Dark green-topped pads cover both jaw tips.}
+- `cl-mech-119` Claw
+  - icon: ![Claw](assets/items/cl-mech-119.webp)
+
+  {Two tan hooked jaws spread to the right of the board. One red bar joins the central green bracket to the lower jaw. Dark green-topped pads cover both jaw tips.}
+- `cl-mechanical` Claw
+  - icon: ![Claw](assets/items/cl-mechanical.webp)
+
+  {Two tan hooked jaws spread to the right of the board. Two red bars join the central green bracket to the jaws. Dark green-topped pads cover both jaw tips.}
 
 **Combinations**
-- `air-jaws` [consume] + `air-beam` [transform] -> `air-jawed`
-- `air-slider` [consume] + `air-jawed` [transform] -> `air-guided`
-- `air-links` [consume] + `air-guided` [transform] -> `air-linked`
-- `air-output-syringe` [transform] + `air-cradle` [consume] -> `air-mounted-syringe`
-- `air-plunger-clip` [consume] + `air-linked` [transform] -> `air-clip-ready`
-- `air-mounted-syringe` [consume] + `air-clip-ready` [transform] -> `air-actuated`
-- `air-return-band` [consume] + `air-actuated` [transform] -> `air-sprung`
-- `air-test-block` [preserve] + `air-sprung` [transform] -> `air-hand-grabber`
+- `cl-jaw-1` [consume] + `cl-base` [transform] -> `cl-mech-1`
+- `cl-jaw-2` [consume] + `cl-base` [transform] -> `cl-mech-2`
+- `cl-slider` [consume] + `cl-base` [transform] -> `cl-mech-4`
+- `cl-jaw-2` [consume] + `cl-mech-1` [transform] -> `cl-mech-3`
+- `cl-slider` [consume] + `cl-mech-1` [transform] -> `cl-mech-5`
+- `cl-pad-1` [consume] + `cl-mech-1` [transform] -> `cl-mech-33`
+- `cl-pad-2` [consume] + `cl-mech-1` [transform] -> `cl-mech-33`
+- `cl-jaw-1` [consume] + `cl-mech-2` [transform] -> `cl-mech-3`
+- `cl-slider` [consume] + `cl-mech-2` [transform] -> `cl-mech-6`
+- `cl-pad-1` [consume] + `cl-mech-2` [transform] -> `cl-mech-66`
+- `cl-pad-2` [consume] + `cl-mech-2` [transform] -> `cl-mech-66`
+- `cl-slider` [consume] + `cl-mech-3` [transform] -> `cl-mech-7`
+- `cl-pad-1` [consume] + `cl-mech-3` [transform] -> `cl-mech-35`
+- `cl-pad-2` [consume] + `cl-mech-3` [transform] -> `cl-mech-35`
+- `cl-jaw-1` [consume] + `cl-mech-4` [transform] -> `cl-mech-5`
+- `cl-jaw-2` [consume] + `cl-mech-4` [transform] -> `cl-mech-6`
+- `cl-jaw-2` [consume] + `cl-mech-5` [transform] -> `cl-mech-7`
+- `cl-link-1` [consume] + `cl-mech-5` [transform] -> `cl-mech-13`
+- `cl-link-2` [consume] + `cl-mech-5` [transform] -> `cl-mech-13`
+- `cl-pad-1` [consume] + `cl-mech-5` [transform] -> `cl-mech-37`
+- `cl-pad-2` [consume] + `cl-mech-5` [transform] -> `cl-mech-37`
+- `cl-jaw-1` [consume] + `cl-mech-6` [transform] -> `cl-mech-7`
+- `cl-link-1` [consume] + `cl-mech-6` [transform] -> `cl-mech-22`
+- `cl-link-2` [consume] + `cl-mech-6` [transform] -> `cl-mech-22`
+- `cl-pad-1` [consume] + `cl-mech-6` [transform] -> `cl-mech-70`
+- `cl-pad-2` [consume] + `cl-mech-6` [transform] -> `cl-mech-70`
+- `cl-link-1` [consume] + `cl-mech-7` [transform] -> `cl-mech-15`
+- `cl-link-2` [consume] + `cl-mech-7` [transform] -> `cl-mech-15`
+- `cl-pad-1` [consume] + `cl-mech-7` [transform] -> `cl-mech-39`
+- `cl-pad-2` [consume] + `cl-mech-7` [transform] -> `cl-mech-39`
+- `cl-jaw-2` [consume] + `cl-mech-13` [transform] -> `cl-mech-15`
+- `cl-pad-1` [consume] + `cl-mech-13` [transform] -> `cl-mech-45`
+- `cl-pad-2` [consume] + `cl-mech-13` [transform] -> `cl-mech-45`
+- `cl-link-1` [consume] + `cl-mech-15` [transform] -> `cl-mech-31`
+- `cl-link-2` [consume] + `cl-mech-15` [transform] -> `cl-mech-31`
+- `cl-pad-1` [consume] + `cl-mech-15` [transform] -> `cl-mech-47`
+- `cl-pad-2` [consume] + `cl-mech-15` [transform] -> `cl-mech-47`
+- `cl-jaw-1` [consume] + `cl-mech-22` [transform] -> `cl-mech-23`
+- `cl-pad-1` [consume] + `cl-mech-22` [transform] -> `cl-mech-86`
+- `cl-pad-2` [consume] + `cl-mech-22` [transform] -> `cl-mech-86`
+- `cl-link-1` [consume] + `cl-mech-23` [transform] -> `cl-mech-31`
+- `cl-link-2` [consume] + `cl-mech-23` [transform] -> `cl-mech-31`
+- `cl-pad-1` [consume] + `cl-mech-23` [transform] -> `cl-mech-55`
+- `cl-pad-2` [consume] + `cl-mech-23` [transform] -> `cl-mech-55`
+- `cl-pad-1` [consume] + `cl-mech-31` [transform] -> `cl-mech-63`
+- `cl-pad-2` [consume] + `cl-mech-31` [transform] -> `cl-mech-63`
+- `cl-jaw-2` [consume] + `cl-mech-33` [transform] -> `cl-mech-35`
+- `cl-slider` [consume] + `cl-mech-33` [transform] -> `cl-mech-37`
+- `cl-slider` [consume] + `cl-mech-35` [transform] -> `cl-mech-39`
+- `cl-pad-1` [consume] + `cl-mech-35` [transform] -> `cl-mech-99`
+- `cl-pad-2` [consume] + `cl-mech-35` [transform] -> `cl-mech-99`
+- `cl-jaw-2` [consume] + `cl-mech-37` [transform] -> `cl-mech-39`
+- `cl-link-1` [consume] + `cl-mech-37` [transform] -> `cl-mech-45`
+- `cl-link-2` [consume] + `cl-mech-37` [transform] -> `cl-mech-45`
+- `cl-link-1` [consume] + `cl-mech-39` [transform] -> `cl-mech-47`
+- `cl-link-2` [consume] + `cl-mech-39` [transform] -> `cl-mech-47`
+- `cl-pad-1` [consume] + `cl-mech-39` [transform] -> `cl-mech-103`
+- `cl-pad-2` [consume] + `cl-mech-39` [transform] -> `cl-mech-103`
+- `cl-jaw-2` [consume] + `cl-mech-45` [transform] -> `cl-mech-47`
+- `cl-link-1` [consume] + `cl-mech-47` [transform] -> `cl-mech-63`
+- `cl-link-2` [consume] + `cl-mech-47` [transform] -> `cl-mech-63`
+- `cl-pad-1` [consume] + `cl-mech-47` [transform] -> `cl-mech-111`
+- `cl-pad-2` [consume] + `cl-mech-47` [transform] -> `cl-mech-111`
+- `cl-link-1` [consume] + `cl-mech-55` [transform] -> `cl-mech-63`
+- `cl-link-2` [consume] + `cl-mech-55` [transform] -> `cl-mech-63`
+- `cl-pad-1` [consume] + `cl-mech-55` [transform] -> `cl-mech-119`
+- `cl-pad-2` [consume] + `cl-mech-55` [transform] -> `cl-mech-119`
+- `cl-pad-1` [consume] + `cl-mech-63` [transform] -> `cl-mechanical`
+- `cl-pad-2` [consume] + `cl-mech-63` [transform] -> `cl-mechanical`
+- `cl-jaw-1` [consume] + `cl-mech-66` [transform] -> `cl-mech-67`
+- `cl-slider` [consume] + `cl-mech-66` [transform] -> `cl-mech-70`
+- `cl-slider` [consume] + `cl-mech-67` [transform] -> `cl-mech-71`
+- `cl-pad-1` [consume] + `cl-mech-67` [transform] -> `cl-mech-99`
+- `cl-pad-2` [consume] + `cl-mech-67` [transform] -> `cl-mech-99`
+- `cl-jaw-1` [consume] + `cl-mech-70` [transform] -> `cl-mech-71`
+- `cl-link-1` [consume] + `cl-mech-70` [transform] -> `cl-mech-86`
+- `cl-link-2` [consume] + `cl-mech-70` [transform] -> `cl-mech-86`
+- `cl-link-1` [consume] + `cl-mech-71` [transform] -> `cl-mech-79`
+- `cl-link-2` [consume] + `cl-mech-71` [transform] -> `cl-mech-79`
+- `cl-pad-1` [consume] + `cl-mech-71` [transform] -> `cl-mech-103`
+- `cl-pad-2` [consume] + `cl-mech-71` [transform] -> `cl-mech-103`
+- `cl-link-1` [consume] + `cl-mech-79` [transform] -> `cl-mech-95`
+- `cl-link-2` [consume] + `cl-mech-79` [transform] -> `cl-mech-95`
+- `cl-pad-1` [consume] + `cl-mech-79` [transform] -> `cl-mech-111`
+- `cl-pad-2` [consume] + `cl-mech-79` [transform] -> `cl-mech-111`
+- `cl-jaw-1` [consume] + `cl-mech-86` [transform] -> `cl-mech-87`
+- `cl-link-1` [consume] + `cl-mech-87` [transform] -> `cl-mech-95`
+- `cl-link-2` [consume] + `cl-mech-87` [transform] -> `cl-mech-95`
+- `cl-pad-1` [consume] + `cl-mech-87` [transform] -> `cl-mech-119`
+- `cl-pad-2` [consume] + `cl-mech-87` [transform] -> `cl-mech-119`
+- `cl-pad-1` [consume] + `cl-mech-95` [transform] -> `cl-mechanical`
+- `cl-pad-2` [consume] + `cl-mech-95` [transform] -> `cl-mechanical`
+- `cl-slider` [consume] + `cl-mech-99` [transform] -> `cl-mech-103`
+- `cl-link-1` [consume] + `cl-mech-103` [transform] -> `cl-mech-111`
+- `cl-link-2` [consume] + `cl-mech-103` [transform] -> `cl-mech-111`
+- `cl-link-1` [consume] + `cl-mech-111` [transform] -> `cl-mechanical`
+- `cl-link-2` [consume] + `cl-mech-111` [transform] -> `cl-mechanical`
+- `cl-link-1` [consume] + `cl-mech-119` [transform] -> `cl-mechanical`
+- `cl-link-2` [consume] + `cl-mech-119` [transform] -> `cl-mechanical`
 
-## `c-air-2` A squeeze travels
+## `c-claw-air` Syringes and a hose
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Pneumatic grabber](assets/items/pneumatic-grabber.webp)
-
-The jaws wait at the far end of their beam. Jo holds up a length of clear tube. “There will be something inside this,” she says. “Even when it looks empty.”
+reference: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
 
 **Goals**
-- Connect the tube to the hand syringe -- `air-control-line`
-- next: Connect the tube’s other end to the grabber -- `air-connected`
-- next: Squeeze the hand syringe to grip the test block -- `air-squeezing`
-- next: Stick the grip pads onto the jaws -- `air-padded`
-- next: Fit the syringe holders around the hand syringe -- `air-held`
-- next: Fit the tube clips along the beam -- `air-routed`
-- next: Pick up the pear with a squeeze -- `pneumatic-grabber`
-
-**Hotspots**
-- `air-hand-grabber` (center 390px, 500px)
-  - icon: ![Grabber working by hand](assets/hotspots/c-air-2--air-hand-grabber.webp)
-- `air-connected` (center 390px, 500px)
-  - icon: ![Grabber with an air line](assets/hotspots/c-air-2--air-connected.webp)
-- `air-squeezing` (center 390px, 500px)
-  - icon: ![Grabber closing from a distance](assets/hotspots/c-air-2--air-squeezing.webp)
-- `air-padded` (center 390px, 500px)
-  - icon: ![Grabber with soft gripping pads](assets/hotspots/c-air-2--air-padded.webp)
-- `air-held` (center 390px, 500px)
-  - icon: ![Grabber with supported hand syringe](assets/hotspots/c-air-2--air-held.webp)
-- `air-routed` (center 390px, 500px)
-  - icon: ![Grabber with a secured air line](assets/hotspots/c-air-2--air-routed.webp)
+- Slide either cup to the farther seat
+  - either: `cl-front-supported`
+  - or: `cl-supported-output`
+- next: Fit the other cup behind it -- `cl-supported-output`
+- next: Fit the plunger clip
+  - either: `cl-air-1`
+  - or: `cl-air-3`
+  - or: `cl-air-5`
+  - or: `cl-air-7`
+- next: Fit the syringe into the claw
+  - either: `cl-air-3`
+  - or: `cl-air-7`
+- next: Loop the return band over its hooks
+  - either: `cl-air-4`
+  - or: `cl-air-5`
+  - or: `cl-air-7`
+- next: Push the hose onto the hand syringe -- `cl-controller`
+- next: Connect the hose to the claw -- `pneumatic-claw`
 
 **Items**
-- `air-control-syringe` Hand syringe
-  - icon: ![Needleless hand syringe](assets/items/air-control-syringe.webp)
+- `cl-output` Output syringe
+  - icon: ![Output syringe](assets/items/cl-output.webp)
 
-  A matching smooth-moving toy syringe with a broad thumb pad. Its plunger is drawn out to the marked starting line, holding air ready to push through the tube.
-- `air-tube` Tube
-  - icon: ![Flexible air tube](assets/items/air-tube.webp)
+  {A transparent blue-grey syringe has a green rim, red plunger and round red thumb plate.}
 
-  A clear tube long enough to run from the jaws to the handgrip. Its snug push-fit ends match the two syringe nozzles; it contains air, not water.
-- `air-grip-pads` Grip pads
-  - icon: ![Soft jaw pads](assets/items/air-grip-pads.webp)
+  ---
 
-  One pad represents the matching pair. Two thin rubbery pads with peel-off backs. Their surfaces grip a light object without needing a hard squeeze.
-- `air-tube-clips` Tube clips
-  - icon: ![Air-tube clips](assets/items/air-tube-clips.webp)
+  A prepared needleless syringe. Its rigid piston and stem move inside a real hollow barrel.
 
-  One clip represents the pair. Two gentle C-clips on peel-and-stick feet hold the tube along the beam without flattening it. Leave a loose loop beside the hand syringe.
-- `air-hand-holders` Syringe holders
-  - icon: ![Hand-syringe holders](assets/items/air-hand-holders.webp)
+- `cl-rear-cup` Cup
+  - icon: ![Cup](assets/items/cl-rear-cup.webp)
 
-  One holder represents the supplied pair. A pair of strapped holders with feet shaped for the beam and handgrip. They support the hand syringe while leaving its plunger free for your thumb.
-- `air-held` Grabber
-  - icon: ![Grabber with supported hand syringe](assets/items/air-held.webp)
-- `air-fruit-game` Pear
-  - icon: ![Sponge pear](assets/items/air-fruit-game.webp)
+  {A green upright has a semicircular recess, red curved retaining band and two black pins below.}
 
-  A soft, light pretend pear. Put it beyond easy finger reach, then bring it back with the grabber. Jo has a collecting cup ready in the garden.
-- `air-control-line` Hand syringe
-  - icon: ![Hand syringe with an air tube](assets/items/air-control-line.webp)
-- `air-connected` Grabber
-  - icon: ![Grabber with an air line](assets/items/air-connected.webp)
+  ---
 
-  You fit the tube to the output syringe’s nozzle. Both connections are snug, and the air is enclosed between the two plungers.
-- `air-squeezing` Grabber
-  - icon: ![Grabber closing from a distance](assets/items/air-squeezing.webp)
+  Either identical cup fits either barrel seat. Slide the first over the nozzle to the farther seat, then slide the other onto the nearer seat. Each has a soft retaining strap and captive mounting pins.
 
-  You press the hand syringe. The trapped air compresses a little, then pushes the far plunger out against the return band. The jaws close around the block. The squeeze feels springy; the two plungers do not copy each other’s travel exactly.
+- `cl-front-cup` Cup
+  - icon: ![Cup](assets/items/cl-front-cup.webp)
 
-  Ease your thumb and let the hand plunger move back: the band opens the jaws. Your hand supplied the push; the air carried it along the tube.
-- `air-padded` Grabber
-  - icon: ![Grabber with soft gripping pads](assets/items/air-padded.webp)
+  {A green upright has a semicircular recess, red curved retaining band and two black pins below.}
 
-  The pads spread the contact and add grip. You try the block again: the jaws can hold it with a gentler squeeze, then let it go cleanly.
-- `air-routed` Grabber
-  - icon: ![Grabber with a secured air line](assets/items/air-routed.webp)
-- `pneumatic-grabber` Grabber
-  - icon: ![Pneumatic grabber](assets/items/pneumatic-grabber.webp)
+  ---
 
-  ![Pneumatic grabber in the garden](assets/rewards/pneumatic-grabber.webp)
+  Either identical cup fits either barrel seat. Slide the first over the nozzle to the farther seat, then slide the other onto the nearer seat. Each has a soft retaining strap and captive mounting pins.
 
-  You release the beam from its bench clips and lift it by the handgrip. Reach out, squeeze, bring back the sponge pear, ease your thumb: it drops into Jo’s cup. All the syringe parts and tubing travel with the grabber.
+- `cl-clip` Plunger clip
+  - icon: ![Plunger clip](assets/items/cl-clip.webp)
 
-  Jo places the pear a little farther away. “The crab requests a longer lunch break.” You put Kit’s note beside the game. This one has its first player waiting already.
+  {A green clip has two open rectangular end fittings joined by a flat middle strip.}
+
+  ---
+
+  A connected clip that plugs into the slider and captures the syringe thumb flange.
+
+- `cl-band` Return band
+  - icon: ![Return band](assets/items/cl-band.webp)
+
+  {One long narrow dark loop with rounded ends.}
+
+  ---
+
+  One soft elastic loop. Its two hook brackets are already attached to the palm and slider.
+
+- `cl-input` Hand syringe
+  - icon: ![Hand syringe](assets/items/cl-input.webp)
+
+  {A transparent blue-grey syringe has a red band around its barrel, a green rim and an extended red plunger.}
+
+  ---
+
+  A second prepared needleless syringe. It stays beside the claw, joined by the flexible hose.
+
+- `cl-tube` Air hose
+  - icon: ![Air hose](assets/items/cl-tube.webp)
+
+  {A short blue-green tube curves into a broad U.}
+
+  ---
+
+  One continuous flexible hose with an open end for each syringe nozzle.
+
+- `cl-front-supported` Syringe
+  - icon: ![Syringe](assets/items/cl-front-supported.webp)
+
+  {A green upright stands beside the syringe barrel, with a red band around it near the plunger end.}
+- `cl-supported-output` Syringe
+  - icon: ![Syringe](assets/items/cl-supported-output.webp)
+
+  {Two green uprights and red bands hold opposite ends of the syringe barrel.}
+- `cl-air-1` Claw
+  - icon: ![Claw](assets/items/cl-air-1.webp)
+
+  {The two-jawed mechanism has a small upright green clip on its central bracket; both jaw tips have dark pads.}
+- `cl-air-3` Claw
+  - icon: ![Claw](assets/items/cl-air-3.webp)
+
+  {A syringe on two green supports lies along the right end of the board, behind the central bracket and two padded jaws.}
+- `cl-air-4` Claw
+  - icon: ![Claw](assets/items/cl-air-4.webp)
+
+  {A dark loop stretches from the small right green fitting to the central bracket, beside the two padded jaws.}
+- `cl-air-5` Claw
+  - icon: ![Claw](assets/items/cl-air-5.webp)
+
+  {The central bracket has an upright green clip and a dark loop extending right; two padded jaws spread to the left.}
+- `cl-air-7` Claw
+  - icon: ![Claw](assets/items/cl-air-7.webp)
+
+  {A supported syringe, upright green clip and dark loop sit behind the two padded jaws on the tan board.}
+- `cl-controller` Hand syringe
+  - icon: ![Hand syringe](assets/items/cl-controller.webp)
+
+  {A blue-green hose curves from the small end of the syringe; its red plunger extends from the other end.}
+- `pneumatic-claw` Pneumatic claw
+  - icon: ![Pneumatic claw](assets/items/pneumatic-claw.webp)
+
+  {Two padded wooden jaws and red links sit on a tan board. A supported syringe connects by a curved blue-green hose to a second syringe beside the board.}
+
+  ---
+
+  Pushing the hand syringe moves air through the hose into the output syringe. The output plunger moves the slider; the two rigid links turn the jaws. The elastic loop opens them as the plunger returns. The drawings show the available mechanism travel, not a measured grip force.
+
 
 **Combinations**
-- `air-tube` [consume] + `air-control-syringe` [transform] -> `air-control-line`
-- `air-control-line` [consume] + `air-hand-grabber` [transform] -> `air-connected`
-- `air-test-block` [preserve] + `air-connected` [transform] -> `air-squeezing`
-- `air-grip-pads` [consume] + `air-squeezing` [transform] -> `air-padded`
-- `air-hand-holders` [consume] + `air-padded` [transform] -> `air-held`
-- `air-tube-clips` [consume] + `air-held` [transform] -> `air-routed`
-- `air-fruit-game` [preserve] + `air-routed` [transform] -> `pneumatic-grabber`
+- `cl-front-cup` [consume] + `cl-output` [transform] -> `cl-front-supported`
+- `cl-rear-cup` [consume] + `cl-output` [transform] -> `cl-front-supported`
+- `cl-front-cup` [consume] + `cl-front-supported` [transform] -> `cl-supported-output`
+- `cl-rear-cup` [consume] + `cl-front-supported` [transform] -> `cl-supported-output`
+- `cl-clip` [consume] + `cl-mechanical` [transform] -> `cl-air-1`
+- `cl-band` [consume] + `cl-mechanical` [transform] -> `cl-air-4`
+- `cl-supported-output` [consume] + `cl-air-1` [transform] -> `cl-air-3`
+- `cl-band` [consume] + `cl-air-1` [transform] -> `cl-air-5`
+- `cl-band` [consume] + `cl-air-3` [transform] -> `cl-air-7`
+- `cl-clip` [consume] + `cl-air-4` [transform] -> `cl-air-5`
+- `cl-supported-output` [consume] + `cl-air-5` [transform] -> `cl-air-7`
+- `cl-tube` [consume] + `cl-input` [transform] -> `cl-controller`
+- `cl-controller` [consume] + `cl-air-7` [transform] -> `pneumatic-claw`
 
-## `c-film-1` A drum for a tiny picture show
+## `bf-film-build` A slit drum
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Animation drum](assets/items/animation-drum.webp)
 
-Jo finds a strip of blank picture frames while clearing the bench. You draw a fish in the air with your finger: up, over, splash. “Could we make that happen inside a drum?”
-
 **Goals**
-- Cut the viewing slits in the drum wall -- `film-slotted`
-- next: Tape the drum wall into a cylinder -- `film-cylinder`
-- next: Fit the floor inside the drum -- `film-shell`
-- next: Fit the turntable onto the base -- `film-turntable`
-- next: Set the drum on the base -- `film-turning-drum`
+- Cut the marked viewing slits -- `bf-film-cut`
+- next: Roll the Drum wall -- `bf-film-rolled`
+- next: Tape the seam -- `bf-film-seamed`
 
 **Hotspots**
-- `film-wall` (center 390px, 500px)
-  - icon: ![Marked drum-wall strip](assets/hotspots/c-film-1--film-wall.webp)
-- `film-slotted` (center 390px, 500px)
-  - icon: ![Drum wall with viewing slits](assets/hotspots/c-film-1--film-slotted.webp)
-- `film-cylinder` (center 390px, 500px)
-  - icon: ![Dark slotted cylinder](assets/hotspots/c-film-1--film-cylinder.webp)
-- `film-shell` (center 390px, 500px)
-  - icon: ![Drum with a round floor](assets/hotspots/c-film-1--film-shell.webp)
-- `film-turning-drum` (center 390px, 500px)
-  - icon: ![Turning picture drum](assets/hotspots/c-film-1--film-turning-drum.webp)
+- `bf-film-cut-process` (center 130px, 216px)
+  - icon: ![Cut](assets/actions/cut.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
+- `bf-film-roll-process` (center 390px, 216px)
+  - icon: ![Roll](assets/actions/roll.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
-- `work-scissors` Scissors
-  - icon: ![Round-ended scissors](assets/items/work-scissors.webp)
+- `bf-film-wall` Drum wall
+  - icon: ![Drum wall](assets/items/bf-film-wall.webp)
 
-  The scissors cut paper and thin card. They remain a tool after cutting.
-- `film-wall` Drum wall
-  - icon: ![Marked drum-wall strip](assets/items/film-wall.webp)
+  {A long black card strip with fine pale vertical marks, a horizontal line and small tabs along its lower edge.}
 
-  A stiff dark card strip held flat in the bench clips. Twelve evenly spaced slit outlines start at its top edge; a stopping line keeps their lower ends above the picture area. Its lower edge has prepared floor tabs.
-- `film-joining-tape` Tape
-  - icon: ![Drum seam tape](assets/items/film-joining-tape.webp)
+  ---
 
-  A strong self-adhesive strip for joining the wall into a cylinder at its marked seam. It leaves all twelve viewing slits clear.
-- `film-floor` Floor
-  - icon: ![Round drum floor](assets/items/film-floor.webp)
+  One card strip with twelve marked slots and scored floor tabs. Their tips stay straight until the floor is seated. Cut down to the stopping line; the lower band stays continuous.
+- `bf-film-cut-process` Cut
+  - icon: ![Cut](assets/actions/cut.svg)
+- `bf-film-cut` Drum wall
+  - icon: ![Drum wall](assets/items/bf-film-cut.webp)
 
-  A light prepared disc with a centred mounting socket and twelve matching tab slots. It keeps the wall round.
-- `film-base` Base
-  - icon: ![Broad picture-drum base](assets/items/film-base.webp)
+  {The black strip has narrow open slits descending from its upper edge; its lower band remains joined.}
+- `bf-film-roll-process` Roll
+  - icon: ![Roll](assets/actions/roll.svg)
+- `bf-film-rolled` Drum
+  - icon: ![Drum](assets/items/bf-film-rolled.webp)
 
-  A stable wooden foot with a prepared upright-axle socket and soft pads beneath it.
-- `film-bearing` Turntable
-  - icon: ![Spindle and turning platform](assets/items/film-bearing.webp)
+  {The black strip forms an open cylinder with narrow upper slits and small tabs pointing down from its bottom.}
+- `bf-film-tape` Tape
+  - icon: ![Tape](assets/items/bf-film-tape.webp)
 
-  A blunt upright axle, sleeve bearing, spacing washers, retaining cap and a small rotating platform. The axle fixes into the base; the platform turns around it and fits the drum floor’s central socket.
-- `film-slotted` Drum wall
-  - icon: ![Drum wall with viewing slits](assets/items/film-slotted.webp)
-- `film-cylinder` Drum
-  - icon: ![Dark slotted cylinder](assets/items/film-cylinder.webp)
-- `film-shell` Drum
-  - icon: ![Drum with a round floor](assets/items/film-shell.webp)
-- `film-turntable` Base
-  - icon: ![Picture-drum turntable](assets/items/film-turntable.webp)
-- `film-turning-drum` Drum
-  - icon: ![Turning picture drum](assets/items/film-turning-drum.webp)
+  {One narrow flat green strip.}
+- `bf-film-seamed` Drum
+  - icon: ![Drum](assets/items/bf-film-seamed.webp)
 
-  You seat the floor on the platform and give the rim a gentle push. The drum turns around its upright axle while the broad base stays still. Twelve narrow windows pass your eye, one after another.
-
-  Jo peers through a slit. “An excellent picture show about an empty drum.”
+  {A green strip covers the lower part of the black cylinder’s front seam.}
 
 **Combinations**
-- `work-scissors` [preserve] + `film-wall` [transform] -> `film-slotted`
-- `film-joining-tape` [consume] + `film-slotted` [transform] -> `film-cylinder`
-- `film-floor` [consume] + `film-cylinder` [transform] -> `film-shell`
-- `film-bearing` [consume] + `film-base` [transform] -> `film-turntable`
-- `film-turntable` [consume] + `film-shell` [transform] -> `film-turning-drum`
+- `bf-film-wall` [transform] @ `bf-film-cut-process` -> `bf-film-cut`
+- `bf-film-cut` [transform] @ `bf-film-roll-process` -> `bf-film-rolled`
+- `bf-film-tape` [consume] + `bf-film-rolled` [transform] -> `bf-film-seamed`
 
-## `c-film-2` A fish that never gets wet
+
+## `bf-film-floor-build` A turning drum
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Animation drum](assets/items/animation-drum.webp)
 
-The drum is ready for a picture show of its own. Your fish will have a crooked tail, a determined nose and twelve chances to get back into the water.
-
 **Goals**
-- Use the pencil to draw four fish poses on the picture strip -- `film-key-poses`
-- next: Use the fish stencil to fill the in-between frames -- `film-drawn-strip`
-- next: Use the colouring pencils to colour the fish and water -- `film-coloured-strip`
-- next: Fit the picture strip inside the drum -- `film-loaded-drum`
-- next: Set it by the lantern and watch through the slits -- `animation-drum`
+- Flip the Drum over -- `bf-film-under`
+- next: Fold the scored tabs inward -- `bf-film-prepared`
+- next: Slide the Floor over the straight tips -- `bf-film-seated`
+- next: Fold the tabs under the Floor -- `bf-film-shell`
+- next: Fit the Turntable to the Base -- `bf-film-turntable`
+- next: Fit the Base beneath the Drum -- `bf-film-mounted-under`
+- next: Flip the Drum upright -- `bf-film-standing`
 
 **Hotspots**
-- `film-turning-drum` (center 390px, 500px)
-  - icon: ![Turning picture drum](assets/hotspots/c-film-2--film-turning-drum.webp)
-- `film-loaded-drum` (center 390px, 500px)
-  - icon: ![Drum with a leaping-fish strip](assets/hotspots/c-film-2--film-loaded-drum.webp)
+- `bf-film-flip-process` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
+- `bf-film-fold-process` (center 390px, 216px)
+  - icon: ![Fold](assets/actions/fold.svg)
+  - hitbox: (center 390px, 216px) (size 236px, 248px)
 
 **Items**
-- `film-blank-strip` Picture strip
-  - icon: ![Twelve-frame picture strip](assets/items/film-blank-strip.webp)
+- `bf-film-seamed` Drum
+  - icon: ![Drum](assets/items/bf-film-seamed.webp)
 
-  A blank strip divided into twelve equal frames, with a waterline across them and a marked overlap tab. It fits inside the drum below the slits, with one frame per slit interval and pictures facing inward.
-- `film-pencil` Pencil
-  - icon: ![Drawing pencil](assets/items/film-pencil.webp)
+  {A green strip covers the lower part of the black cylinder’s front seam.}
+- `bf-film-flip-process` Flip
+  - icon: ![Flip](assets/actions/flip.svg)
+- `bf-film-under` Drum
+  - icon: ![Drum](assets/items/bf-film-under.webp)
 
-  A soft pencil with an eraser for planning the fish’s positions and adjusting the joining frames.
-- `film-fish-stencil` Fish stencil
-  - icon: ![Crooked-tail fish stencil](assets/items/film-fish-stencil.webp)
+  {The black cylinder is upside down: its small tabs point upward and the long slits reach the lower edge.}
+- `bf-film-fold-process` Fold
+  - icon: ![Fold](assets/actions/fold.svg)
+- `bf-film-prepared` Drum
+  - icon: ![Drum](assets/items/bf-film-prepared.webp)
 
-  Your original little fish outline cut into a thin reusable stencil. Move it, turn it and trace it with the pencil so the same fish keeps its shape through the jump.
-- `film-colours` Colouring pencils
-  - icon: ![Bright colouring pencils](assets/items/film-colours.webp)
+  {Short dark tabs project around the open upper rim of the upside-down black cylinder.}
+- `bf-film-floor` Floor
+  - icon: ![Floor](assets/items/bf-film-floor.webp)
 
-  Three colouring pencils are supplied; one is shown. Orange for the fish, blue for the water and yellow for one small fin. The same colours will help each pose look like the same creature.
-- `film-key-poses` Picture strip
-  - icon: ![Strip with four main fish poses](assets/items/film-key-poses.webp)
+  {A thin tan circular disc with small slots around its edge.}
 
-  In frame one the nose breaks the water. Frame four catches the fish at the top of its leap; frame seven sends it diving down; frame ten holds the spreading ripples. The empty frames are space for the movements between.
-- `film-drawn-strip` Picture strip
-  - icon: ![Twelve drawings of one fish](assets/items/film-drawn-strip.webp)
+  ---
 
-  You trace the in-between poses, changing the fish’s position and angle a little at a time. In the last frame its nose waits just below the waterline, ready to meet the first frame again.
-- `film-coloured-strip` Picture strip
-  - icon: ![Coloured leaping-fish strip](assets/items/film-coloured-strip.webp)
-- `film-loaded-drum` Drum
-  - icon: ![Drum with a leaping-fish strip](assets/items/film-loaded-drum.webp)
+  A 178.8 mm disc, smaller than the wall opening, with twelve slots for the straight tabs. Fold the tips underneath only after inserting it.
+- `bf-film-seated` Drum
+  - icon: ![Drum](assets/items/bf-film-seated.webp)
+
+  {A tan circular floor fills the upper opening of the upside-down cylinder; small black tab tips project through its edge slots.}
+- `bf-film-shell` Drum
+  - icon: ![Drum](assets/items/bf-film-shell.webp)
+
+  {The tan circular floor has small black tabs folded flat around its rim.}
+- `bf-film-base` Base
+  - icon: ![Base](assets/items/bf-film-base.webp)
+
+  {A thick tan circular disc with a small hole at its centre.}
+- `bf-film-bearing` Turntable
+  - icon: ![Turntable](assets/items/bf-film-bearing.webp)
+
+  {A broad green disc sits above a narrow green stem, cream ring and projecting black pin.}
+
+  ---
+
+  One retained spindle, sleeve bearing and platform. The spindle stays fixed in the base while the platform turns.
+- `bf-film-turntable` Base
+  - icon: ![Base](assets/items/bf-film-turntable.webp)
+
+  {The green turntable sits on a narrow stem in the middle of the thick tan circular base.}
+- `bf-film-mounted-under` Drum
+  - icon: ![Drum](assets/items/bf-film-mounted-under.webp)
+
+  {A smaller tan base sits above the upside-down drum’s floor, with three green pads and a central hole on its exposed face.}
+- `bf-film-standing` Drum
+  - icon: ![Drum](assets/items/bf-film-standing.webp)
+
+  {The black slit drum stands upright on a round tan base, with green tape along its front seam.}
+
+**Combinations**
+- `bf-film-seamed` [transform] @ `bf-film-flip-process` -> `bf-film-under`
+- `bf-film-under` [transform] @ `bf-film-fold-process` -> `bf-film-prepared`
+- `bf-film-floor` [consume] + `bf-film-prepared` [transform] -> `bf-film-seated`
+- `bf-film-seated` [transform] @ `bf-film-fold-process` -> `bf-film-shell`
+- `bf-film-bearing` [consume] + `bf-film-base` [transform] -> `bf-film-turntable`
+- `bf-film-turntable` [consume] + `bf-film-shell` [transform] -> `bf-film-mounted-under`
+- `bf-film-mounted-under` [transform] @ `bf-film-flip-process` -> `bf-film-standing`
+
+
+## `bf-film-pictures` A tiny picture show
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Animation drum](assets/items/animation-drum.webp)
+
+**Goals**
+- Roll the Picture strip -- `bf-film-loop`
+- next: Fit the Picture ring inside the Drum -- `animation-drum`
+
+**Hotspots**
+- `bf-film-picture-roll` (center 130px, 216px)
+  - icon: ![Roll](assets/actions/roll.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
+
+**Items**
+- `bf-film-strip` Picture strip
+  - icon: ![Picture strip](assets/items/bf-film-strip.webp)
+
+  {A long pale strip divided into panels, with small red outlined fish in different positions and a green line near one edge.}
+
+  ---
+
+  A printed sequence of twelve fish pictures, one per viewing slit, with a prepared adhesive overlap. The pictures face inward when rolled.
+- `bf-film-picture-roll` Roll
+  - icon: ![Roll](assets/actions/roll.svg)
+- `bf-film-loop` Picture ring
+  - icon: ![Picture ring](assets/items/bf-film-loop.webp)
+
+  {The pale picture strip forms an open ring with red outlined fish and a green line around its inner face.}
+- `bf-film-standing` Drum
+  - icon: ![Drum](assets/items/bf-film-standing.webp)
+
+  {The black slit drum stands upright on a round tan base, with green tape along its front seam.}
 - `animation-drum` Animation drum
   - icon: ![Animation drum](assets/items/animation-drum.webp)
 
-  ![Animation drum in the garden](assets/rewards/animation-drum.webp)
+  {A pale ring of red outlined fish sits inside the black slit drum, above its round tan base.}
 
-  You lift the finished base from the bench clips and set it beside the lantern. Look over the rim while it turns: the pictures smear past. Lower your eye to the slits, and the orange fish leaps—splash!—then leaps again.
+  ---
 
-  Each slit gives a brief glimpse of the next drawing, with darkness between. Those separate views let you see a sequence of poses as movement instead of a continuous blur. Turn the drum the other way and the splash gathers itself into a fish.
-
-  You draw the fish once more with a much wider back. “A whale could carry the little stalls on your old plan.” Jo brings the unfinished drawing down from its shelf and makes room beside it for yours.
+  Looking through the slits gives brief separated glimpses of successive pictures, with darkness between them.
 
 **Combinations**
-- `film-pencil` [preserve] + `film-blank-strip` [transform] -> `film-key-poses`
-- `film-fish-stencil` [preserve] + `film-key-poses` [transform] -> `film-drawn-strip`
-- `film-colours` [preserve] + `film-drawn-strip` [transform] -> `film-coloured-strip`
-- `film-coloured-strip` [consume] + `film-turning-drum` [transform] -> `film-loaded-drum`
-- `work-lantern` [preserve] + `film-loaded-drum` [transform] -> `animation-drum`
+- `bf-film-strip` [transform] @ `bf-film-picture-roll` -> `bf-film-loop`
+- `bf-film-loop` [consume] + `bf-film-standing` [transform] -> `animation-drum`
 
-## `c13` A robot with somewhere to go
+## `c-rover-drive` Two wheels, two motors
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Drawing rover](assets/items/drawing-rover.webp)
-
-On the fourth afternoon, the fair needs invitations. You could draw every one. Or you could make something that draws and then drives over to deliver it.
-
-Jo produces two small gearmotors. “These turn slowly enough to be useful. A very fast motor would mostly deliver itself into a chair.”
+reference: ![Build reference](assets/items/rv-mounted.webp)
 
 **Goals**
-- Fit the wheels to the gearmotors -- `rover-drive-pair`
-- next: Mount the wheel drives on the deck -- `rover-deck`[`rover-drive-pair`]
-- next: Fit the caster to the deck -- `rover-deck`[`rover-caster`]
-- next: Mount the battery pack on the deck -- `rover-deck`[`rover-pack`]
-- next: Fit the switch harness to the deck -- `rover-deck`[`rover-switch`]
-- next: Mount the receiver on the deck -- `rover-deck`[`rover-radio`]
-- next: With power off, connect the leads and fit the gear guards -- `guarded-rover`
-- next: Put the batteries into the remote -- `rover-powered-remote`
-- next: Use the remote to test the wheels -- `rover-tested`
+- Flip the deck over -- `rv-under`
+- next: Fit a wheel to the left motor -- `rv-drive-a`
+- next: Fit a wheel to the right motor -- `rv-drive-b`
+- next: Fit the left drive to the deck
+  - either: `rv-deck-01`
+  - or: `rv-deck-03`
+  - or: `rv-deck-05`
+  - or: `rv-deck-07`
+  - or: `rv-deck-09`
+  - or: `rv-deck-11`
+  - or: `rv-deck-13`
+  - or: `rv-deck-15`
+  - or: `rv-deck-17`
+  - or: `rv-deck-19`
+  - or: `rv-deck-21`
+  - or: `rv-deck-23`
+  - or: `rv-deck-25`
+  - or: `rv-deck-27`
+  - or: `rv-deck-29`
+  - or: `rv-mounted`
+- next: Fit the right drive
+  - either: `rv-deck-03`
+  - or: `rv-deck-07`
+  - or: `rv-deck-11`
+  - or: `rv-deck-15`
+  - or: `rv-deck-19`
+  - or: `rv-deck-23`
+  - or: `rv-deck-27`
+  - or: `rv-mounted`
+- next: Fit the caster
+  - either: `rv-deck-04`
+  - or: `rv-deck-05`
+  - or: `rv-deck-06`
+  - or: `rv-deck-07`
+  - or: `rv-deck-12`
+  - or: `rv-deck-13`
+  - or: `rv-deck-14`
+  - or: `rv-deck-15`
+  - or: `rv-deck-20`
+  - or: `rv-deck-21`
+  - or: `rv-deck-22`
+  - or: `rv-deck-23`
+  - or: `rv-deck-28`
+  - or: `rv-deck-29`
+  - or: `rv-deck-30`
+  - or: `rv-mounted`
+- next: Fit the battery pack
+  - either: `rv-deck-08`
+  - or: `rv-deck-09`
+  - or: `rv-deck-10`
+  - or: `rv-deck-11`
+  - or: `rv-deck-12`
+  - or: `rv-deck-13`
+  - or: `rv-deck-14`
+  - or: `rv-deck-15`
+  - or: `rv-deck-24`
+  - or: `rv-deck-25`
+  - or: `rv-deck-26`
+  - or: `rv-deck-27`
+  - or: `rv-deck-28`
+  - or: `rv-deck-29`
+  - or: `rv-deck-30`
+  - or: `rv-mounted`
+- next: Fit the receiver -- `rv-mounted`
 
 **Hotspots**
-- `rover-deck` (center 390px, 500px)
-  - icon: ![Rover deck](assets/hotspots/c13--rover-deck.webp)
-- `guarded-rover` (center 390px, 500px)
-  - icon: ![Guarded rover](assets/hotspots/c13--guarded-rover.webp)
-- `rover-tested` (center 390px, 500px)
-  - icon: ![Rover with tested wheel drives](assets/hotspots/c13--rover-tested.webp)
+- `rv-flip-build` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `rover-tested` Rover
-  - icon: ![Rover with tested wheel drives](assets/items/rover-tested.webp)
+- `rv-deck` Deck
+  - icon: ![Deck](assets/items/rv-deck.webp)
 
-  With its wheels raised in the jig, the rover answers the remote: both wheels forward, one wheel faster, both stopped. The batteries provide the energy; radio carries the instructions. You stop the wheels and leave it on the test stops while fitting the pen.
-- `rover-remote` Remote
-  - icon: ![Matching remote](assets/items/rover-remote.webp)
-- `rover-remote-cells` Batteries
-  - icon: ![Remote batteries](assets/items/rover-remote-cells.webp)
+  {A tan rectangular board has two tall dark rods, small green fittings and a short red lever near its centre.}
 
-  Two matching cells are supplied; one is shown. Fit both into the remote’s marked battery compartment.
-- `rover-powered-remote` Remote
-  - icon: ![Working remote](assets/items/rover-powered-remote.webp)
-- `rover-deck` Rover deck (compound)
-  - icon: ![Rover deck](assets/items/rover-deck.webp)
-  - slot: Caster, accepts `rover-caster`, icon: ![Ball caster](assets/overlays/rover-deck--rover-caster.webp)
-  - slot: Wheel drives, accepts `rover-drive-pair`, icon: ![Wheel drives](assets/overlays/rover-deck--rover-drive-pair.webp)
-  - slot: Battery, accepts `rover-pack`, icon: ![Rover battery pack](assets/overlays/rover-deck--rover-pack.webp)
-  - slot: Switch harness, accepts `rover-switch`, icon: ![Switch harness](assets/overlays/rover-deck--rover-switch.webp)
-  - slot: Receiver, accepts `rover-radio`, icon: ![Receiver and motor driver](assets/overlays/rover-deck--rover-radio.webp)
+  ---
 
-  A little birch platform held upside down in a bench jig. Its upper face already carries the pen’s guide rods, captive top caps, return spring, and its hand-operated lift lever and cam with their brackets and stops. Separate accessible mounting positions accept the caster, drives and electrical modules in any order. Park each connector beside its module, with the spare lead in a loose coil. Keep the switch off until the complete assembly is ready.
-- `rover-deck`[`rover-caster`,`rover-drive-pair`]
+  The prepared deck includes two bare pen guide rods and a hand-operated lift cam. Fit the carriage, then its return spring and connected guide cap.
+- `rv-motor-a` Left motor
+  - icon: ![Left motor](assets/items/rv-motor-a.webp)
 
-  Two driven wheels and a free-turning ball will support the deck. Different wheel speeds will turn it; no steering axle is needed.
-- `rover-deck`[`rover-radio`]
+  {A green box has a flat mounting plate, two black screws, a projecting dark shaft and a red lead ending in a dark plug.}
 
-  The receiver has two separate motor outputs. Once connected, it will control one wheel independently of the other.
-- `rover-caster` Caster
-  - icon: ![Ball caster](assets/items/rover-caster.webp)
-- `rover-gearmotors` Gearmotors
-  - icon: ![Matched gearmotors](assets/items/rover-gearmotors.webp)
+  ---
 
-  One complete geared motor represents the matching left-and-right pair. Two low-voltage motors, reduction gears, brackets and short leads. One drives each side.
-- `rover-wheels` Wheels
-  - icon: ![Rubber wheels](assets/items/rover-wheels.webp)
+  An enclosed slow gearmotor, mounting flange and attached lead. Its output shaft drives one wheel.
+- `rv-motor-b` Right motor
+  - icon: ![Right motor](assets/items/rv-motor-b.webp)
 
-  Two matching rubber wheels with their hubs and retained fasteners; one is shown. Fit one to each gearbox output.
-- `rover-drive-pair` Wheel drives
-  - icon: ![Wheel drives](assets/items/rover-drive-pair.webp)
+  {A green box has a flat mounting plate and two black screws; a short red lead and dark plug run along its side.}
 
-  Both geared motors now have wheels fitted; one complete drive represents the pair. Each wheel locks to a gearbox output. Inside the supplied gearboxes, fast motor rotation becomes slower wheel rotation with more turning force.
-- `rover-pack` Battery pack
-  - icon: ![Rover battery pack](assets/items/rover-pack.webp)
+  ---
 
-  An enclosed low-voltage holder with matching cells already fitted. Its plug matches the fused switch harness.
-- `rover-switch` Switch harness
-  - icon: ![Switch harness](assets/items/rover-switch.webp)
+  An enclosed slow gearmotor, mounting flange and attached lead. Its output shaft drives one wheel.
+- `rv-wheel-a` Wheel
+  - icon: ![Wheel](assets/items/rv-wheel.webp)
 
-  A ready-made fused low-voltage harness with an off switch and matching plugs. Keep it off while connecting the battery, receiver and motor leads; switch on only for the guarded drive test.
-- `rover-radio` Receiver
-  - icon: ![Receiver and motor driver](assets/items/rover-radio.webp)
+  {A thick black wheel has eight red spokes and a green centre cap.}
 
-  The receiver listens to the matching remote. Its motor driver sends the battery's power to the two motors separately.
-- `rover-covers` Gear guards
-  - icon: ![Gear guards](assets/items/rover-covers.webp)
+  ---
 
-  Two matching guards are supplied, one for each side; one is shown. Clip-on covers with open shaft slots, split soft cable grommets and tapered split snap pins. They fit around the installed wheel shafts and connected leads.
-- `guarded-rover` Rover
-  - icon: ![Guarded rover](assets/items/guarded-rover.webp)
+  Either wheel fits either geared motor. Its retained centre fastener locks the hub to the flat-sided shaft.
+- `rv-wheel-b` Wheel
+  - icon: ![Wheel](assets/items/rv-wheel.webp)
 
-  With power off, you connect the supplied harness, battery and two motor leads, then fit the gear covers. Turn the complete rover upright onto its test stops, with both drive wheels clear. Now it is ready for the remote.
+  {A thick black wheel has eight red spokes and a green centre cap.}
+
+  ---
+
+  Either wheel fits either geared motor. Its retained centre fastener locks the hub to the flat-sided shaft.
+- `rv-caster` Caster
+  - icon: ![Caster](assets/items/rv-caster.webp)
+
+  {A green rounded foot hangs below a short stem and square mounting plate with two black screws.}
+
+  ---
+
+  The free-turning ball supports the third corner.
+- `rv-pack` Battery pack
+  - icon: ![Battery pack](assets/items/rv-pack.webp)
+
+  {A flat green box has two black mounting screws and a long red lead ending in a dark plug.}
+
+  ---
+
+  An enclosed compatible low-voltage pack with cells already fitted.
+- `rv-receiver` Receiver
+  - icon: ![Receiver](assets/items/rv-receiver.webp)
+
+  {A green rectangular box has two black mounting screws and a small red mark on its top plate.}
+
+  ---
+
+  The supplied receiver and motor driver control the wheels independently. Its matching ready-to-use remote needs no construction here.
+- `rv-under` Deck
+  - icon: ![Deck](assets/items/rv-under.webp)
+
+  {A bare tan rectangular board has several round holes and a narrow rectangular slot.}
+- `rv-drive-a` Left drive
+  - icon: ![Left drive](assets/items/rv-drive-a.webp)
+
+  {A black wheel with red spokes sits on the green box’s shaft; its red lead extends from the other side.}
+- `rv-drive-b` Right drive
+  - icon: ![Right drive](assets/items/rv-drive-b.webp)
+
+  {A black wheel stands behind a green box with two mounting screws and a red side lead.}
+- `rv-deck-01` Rover
+  - icon: ![Rover](assets/items/rv-deck-01.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge.}
+- `rv-deck-02` Rover
+  - icon: ![Rover](assets/items/rv-deck-02.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge.}
+- `rv-deck-03` Rover
+  - icon: ![Rover](assets/items/rv-deck-03.webp)
+
+  {The tan board carries two black wheel units on green mounts.}
+- `rv-deck-04` Rover
+  - icon: ![Rover](assets/items/rv-deck-04.webp)
+
+  {The tan board carries a green round-topped foot at the right.}
+- `rv-deck-05` Rover
+  - icon: ![Rover](assets/items/rv-deck-05.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge and a green round-topped foot at the right.}
+- `rv-deck-06` Rover
+  - icon: ![Rover](assets/items/rv-deck-06.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge and a green round-topped foot at the right.}
+- `rv-deck-07` Rover
+  - icon: ![Rover](assets/items/rv-deck-07.webp)
+
+  {The tan board carries two black wheel units on green mounts and a green round-topped foot at the right.}
+- `rv-deck-08` Rover
+  - icon: ![Rover](assets/items/rv-deck-08.webp)
+
+  {The tan board carries a dark-topped green box near the back.}
+- `rv-deck-09` Rover
+  - icon: ![Rover](assets/items/rv-deck-09.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge and a dark-topped green box near the back.}
+- `rv-deck-10` Rover
+  - icon: ![Rover](assets/items/rv-deck-10.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge and a dark-topped green box near the back.}
+- `rv-deck-11` Rover
+  - icon: ![Rover](assets/items/rv-deck-11.webp)
+
+  {The tan board carries two black wheel units on green mounts and a dark-topped green box near the back.}
+- `rv-deck-12` Rover
+  - icon: ![Rover](assets/items/rv-deck-12.webp)
+
+  {The tan board carries a green round-topped foot at the right and a dark-topped green box near the back.}
+- `rv-deck-13` Rover
+  - icon: ![Rover](assets/items/rv-deck-13.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right and a dark-topped green box near the back.}
+- `rv-deck-14` Rover
+  - icon: ![Rover](assets/items/rv-deck-14.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right and a dark-topped green box near the back.}
+- `rv-deck-15` Rover
+  - icon: ![Rover](assets/items/rv-deck-15.webp)
+
+  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right and a dark-topped green box near the back.}
+- `rv-deck-16` Rover
+  - icon: ![Rover](assets/items/rv-deck-16.webp)
+
+  {The tan board carries a closed green box near the front.}
+- `rv-deck-17` Rover
+  - icon: ![Rover](assets/items/rv-deck-17.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge and a closed green box near the front.}
+- `rv-deck-18` Rover
+  - icon: ![Rover](assets/items/rv-deck-18.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge and a closed green box near the front.}
+- `rv-deck-19` Rover
+  - icon: ![Rover](assets/items/rv-deck-19.webp)
+
+  {The tan board carries two black wheel units on green mounts and a closed green box near the front.}
+- `rv-deck-20` Rover
+  - icon: ![Rover](assets/items/rv-deck-20.webp)
+
+  {The tan board carries a green round-topped foot at the right and a closed green box near the front.}
+- `rv-deck-21` Rover
+  - icon: ![Rover](assets/items/rv-deck-21.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right and a closed green box near the front.}
+- `rv-deck-22` Rover
+  - icon: ![Rover](assets/items/rv-deck-22.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right and a closed green box near the front.}
+- `rv-deck-23` Rover
+  - icon: ![Rover](assets/items/rv-deck-23.webp)
+
+  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right and a closed green box near the front.}
+- `rv-deck-24` Rover
+  - icon: ![Rover](assets/items/rv-deck-24.webp)
+
+  {The tan board carries a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-25` Rover
+  - icon: ![Rover](assets/items/rv-deck-25.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-26` Rover
+  - icon: ![Rover](assets/items/rv-deck-26.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-27` Rover
+  - icon: ![Rover](assets/items/rv-deck-27.webp)
+
+  {The tan board carries two black wheel units on green mounts, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-28` Rover
+  - icon: ![Rover](assets/items/rv-deck-28.webp)
+
+  {The tan board carries a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-29` Rover
+  - icon: ![Rover](assets/items/rv-deck-29.webp)
+
+  {The tan board carries one black wheel unit on a green mount at its far edge, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-deck-30` Rover
+  - icon: ![Rover](assets/items/rv-deck-30.webp)
+
+  {The tan board carries one red-spoked black wheel unit on a green mount at its near edge, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-mounted` Rover
+  - icon: ![Rover](assets/items/rv-mounted.webp)
+
+  {The tan board carries two black wheel units on green mounts, a green round-topped foot at the right, a dark-topped green box near the back and a closed green box near the front.}
+- `rv-flip-build` Flip
 
 **Combinations**
-- `rover-wheels` [consume] + `rover-gearmotors` [transform] -> `rover-drive-pair`
-- `rover-covers` [consume] @ `rover-deck`[`rover-caster`,`rover-drive-pair`,`rover-pack`,`rover-switch`,`rover-radio`] [transform] -> `guarded-rover`
+- `rv-wheel-a` [consume] + `rv-motor-a` [transform] -> `rv-drive-a`
+- `rv-wheel-b` [consume] + `rv-motor-a` [transform] -> `rv-drive-a`
+- `rv-wheel-a` [consume] + `rv-motor-b` [transform] -> `rv-drive-b`
+- `rv-wheel-b` [consume] + `rv-motor-b` [transform] -> `rv-drive-b`
+- `rv-drive-a` [consume] + `rv-under` [transform] -> `rv-deck-01`
+- `rv-drive-b` [consume] + `rv-under` [transform] -> `rv-deck-02`
+- `rv-caster` [consume] + `rv-under` [transform] -> `rv-deck-04`
+- `rv-pack` [consume] + `rv-under` [transform] -> `rv-deck-08`
+- `rv-receiver` [consume] + `rv-under` [transform] -> `rv-deck-16`
+- `rv-drive-b` [consume] + `rv-deck-01` [transform] -> `rv-deck-03`
+- `rv-caster` [consume] + `rv-deck-01` [transform] -> `rv-deck-05`
+- `rv-pack` [consume] + `rv-deck-01` [transform] -> `rv-deck-09`
+- `rv-receiver` [consume] + `rv-deck-01` [transform] -> `rv-deck-17`
+- `rv-drive-a` [consume] + `rv-deck-02` [transform] -> `rv-deck-03`
+- `rv-caster` [consume] + `rv-deck-02` [transform] -> `rv-deck-06`
+- `rv-pack` [consume] + `rv-deck-02` [transform] -> `rv-deck-10`
+- `rv-receiver` [consume] + `rv-deck-02` [transform] -> `rv-deck-18`
+- `rv-caster` [consume] + `rv-deck-03` [transform] -> `rv-deck-07`
+- `rv-pack` [consume] + `rv-deck-03` [transform] -> `rv-deck-11`
+- `rv-receiver` [consume] + `rv-deck-03` [transform] -> `rv-deck-19`
+- `rv-drive-a` [consume] + `rv-deck-04` [transform] -> `rv-deck-05`
+- `rv-drive-b` [consume] + `rv-deck-04` [transform] -> `rv-deck-06`
+- `rv-pack` [consume] + `rv-deck-04` [transform] -> `rv-deck-12`
+- `rv-receiver` [consume] + `rv-deck-04` [transform] -> `rv-deck-20`
+- `rv-drive-b` [consume] + `rv-deck-05` [transform] -> `rv-deck-07`
+- `rv-pack` [consume] + `rv-deck-05` [transform] -> `rv-deck-13`
+- `rv-receiver` [consume] + `rv-deck-05` [transform] -> `rv-deck-21`
+- `rv-drive-a` [consume] + `rv-deck-06` [transform] -> `rv-deck-07`
+- `rv-pack` [consume] + `rv-deck-06` [transform] -> `rv-deck-14`
+- `rv-receiver` [consume] + `rv-deck-06` [transform] -> `rv-deck-22`
+- `rv-pack` [consume] + `rv-deck-07` [transform] -> `rv-deck-15`
+- `rv-receiver` [consume] + `rv-deck-07` [transform] -> `rv-deck-23`
+- `rv-drive-a` [consume] + `rv-deck-08` [transform] -> `rv-deck-09`
+- `rv-drive-b` [consume] + `rv-deck-08` [transform] -> `rv-deck-10`
+- `rv-caster` [consume] + `rv-deck-08` [transform] -> `rv-deck-12`
+- `rv-receiver` [consume] + `rv-deck-08` [transform] -> `rv-deck-24`
+- `rv-drive-b` [consume] + `rv-deck-09` [transform] -> `rv-deck-11`
+- `rv-caster` [consume] + `rv-deck-09` [transform] -> `rv-deck-13`
+- `rv-receiver` [consume] + `rv-deck-09` [transform] -> `rv-deck-25`
+- `rv-drive-a` [consume] + `rv-deck-10` [transform] -> `rv-deck-11`
+- `rv-caster` [consume] + `rv-deck-10` [transform] -> `rv-deck-14`
+- `rv-receiver` [consume] + `rv-deck-10` [transform] -> `rv-deck-26`
+- `rv-caster` [consume] + `rv-deck-11` [transform] -> `rv-deck-15`
+- `rv-receiver` [consume] + `rv-deck-11` [transform] -> `rv-deck-27`
+- `rv-drive-a` [consume] + `rv-deck-12` [transform] -> `rv-deck-13`
+- `rv-drive-b` [consume] + `rv-deck-12` [transform] -> `rv-deck-14`
+- `rv-receiver` [consume] + `rv-deck-12` [transform] -> `rv-deck-28`
+- `rv-drive-b` [consume] + `rv-deck-13` [transform] -> `rv-deck-15`
+- `rv-receiver` [consume] + `rv-deck-13` [transform] -> `rv-deck-29`
+- `rv-drive-a` [consume] + `rv-deck-14` [transform] -> `rv-deck-15`
+- `rv-receiver` [consume] + `rv-deck-14` [transform] -> `rv-deck-30`
+- `rv-receiver` [consume] + `rv-deck-15` [transform] -> `rv-mounted`
+- `rv-drive-a` [consume] + `rv-deck-16` [transform] -> `rv-deck-17`
+- `rv-drive-b` [consume] + `rv-deck-16` [transform] -> `rv-deck-18`
+- `rv-caster` [consume] + `rv-deck-16` [transform] -> `rv-deck-20`
+- `rv-pack` [consume] + `rv-deck-16` [transform] -> `rv-deck-24`
+- `rv-drive-b` [consume] + `rv-deck-17` [transform] -> `rv-deck-19`
+- `rv-caster` [consume] + `rv-deck-17` [transform] -> `rv-deck-21`
+- `rv-pack` [consume] + `rv-deck-17` [transform] -> `rv-deck-25`
+- `rv-drive-a` [consume] + `rv-deck-18` [transform] -> `rv-deck-19`
+- `rv-caster` [consume] + `rv-deck-18` [transform] -> `rv-deck-22`
+- `rv-pack` [consume] + `rv-deck-18` [transform] -> `rv-deck-26`
+- `rv-caster` [consume] + `rv-deck-19` [transform] -> `rv-deck-23`
+- `rv-pack` [consume] + `rv-deck-19` [transform] -> `rv-deck-27`
+- `rv-drive-a` [consume] + `rv-deck-20` [transform] -> `rv-deck-21`
+- `rv-drive-b` [consume] + `rv-deck-20` [transform] -> `rv-deck-22`
+- `rv-pack` [consume] + `rv-deck-20` [transform] -> `rv-deck-28`
+- `rv-drive-b` [consume] + `rv-deck-21` [transform] -> `rv-deck-23`
+- `rv-pack` [consume] + `rv-deck-21` [transform] -> `rv-deck-29`
+- `rv-drive-a` [consume] + `rv-deck-22` [transform] -> `rv-deck-23`
+- `rv-pack` [consume] + `rv-deck-22` [transform] -> `rv-deck-30`
+- `rv-pack` [consume] + `rv-deck-23` [transform] -> `rv-mounted`
+- `rv-drive-a` [consume] + `rv-deck-24` [transform] -> `rv-deck-25`
+- `rv-drive-b` [consume] + `rv-deck-24` [transform] -> `rv-deck-26`
+- `rv-caster` [consume] + `rv-deck-24` [transform] -> `rv-deck-28`
+- `rv-drive-b` [consume] + `rv-deck-25` [transform] -> `rv-deck-27`
+- `rv-caster` [consume] + `rv-deck-25` [transform] -> `rv-deck-29`
+- `rv-drive-a` [consume] + `rv-deck-26` [transform] -> `rv-deck-27`
+- `rv-caster` [consume] + `rv-deck-26` [transform] -> `rv-deck-30`
+- `rv-caster` [consume] + `rv-deck-27` [transform] -> `rv-mounted`
+- `rv-drive-a` [consume] + `rv-deck-28` [transform] -> `rv-deck-29`
+- `rv-drive-b` [consume] + `rv-deck-28` [transform] -> `rv-deck-30`
+- `rv-drive-b` [consume] + `rv-deck-29` [transform] -> `rv-mounted`
+- `rv-drive-a` [consume] + `rv-deck-30` [transform] -> `rv-mounted`
+- `rv-deck` [transform] @ `rv-flip-build` -> `rv-under`
 
-- `rover-remote-cells` [consume] + `rover-remote` [transform] -> `rover-powered-remote`
-- `rover-powered-remote` [preserve] @ `guarded-rover` [transform] -> `rover-tested`
 
-## `c14` Sign your name badly
+## `c-rover-pen` A pen for the rover
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Drawing rover](assets/items/drawing-rover.webp)
-
-A clear patch of patio is waiting for the test-paper roll. You have promised Jo a beautifully written invitation.
-
-“I will also accept a magnificent squiggle,” she says.
+reference: ![Build reference](assets/items/drawing-rover.webp)
 
 **Goals**
-- Fit the pen into the pen carriage -- `rover-pen-mount`
-- next: Slide the pen carriage onto the rover’s guides -- `rover-pen-deck`
-- next: Lay out the paper for a driving test -- `rover-looping`
-- next: Use the trim screwdriver to straighten the rover’s path -- `rover-trimmed`
-- next: Steer with the remote; lift the pen with its hand lever -- `drawing-rover`
+- Connect the switch harness -- `rv-wired`
+- next: Fit a guard
+  - either: `rv-one-guard-a`
+  - or: `rv-one-guard-b`
+  - or: `rv-guarded`
+- next: Fit the other guard -- `rv-guarded`
+- next: Flip the rover upright -- `rv-upright`
+- next: Clip the pen into its carriage -- `rv-pen-carriage`
+- next: Slide the carriage onto the guides -- `rv-pen-fitted`
+- next: Slide on the return spring -- `rv-sprung`
+- next: Press on the guide cap -- `drawing-rover`
 
 **Hotspots**
-- `rover-tested` (center 390px, 500px)
-  - icon: ![Rover with tested wheel drives](assets/hotspots/c14--rover-tested.webp)
-- `rover-pen-deck` (center 390px, 500px)
-  - icon: ![Rover with pen](assets/hotspots/c14--rover-pen-deck.webp)
-- `rover-looping` (center 390px, 500px)
-  - icon: ![Rover drawing a curve](assets/hotspots/c14--rover-looping.webp)
-- `rover-trimmed` (center 390px, 500px)
-  - icon: ![Trimmed rover](assets/hotspots/c14--rover-trimmed.webp)
+- `rv-flip-pen` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `rover-pen` Pen
-  - icon: ![Felt-tip pen](assets/items/rover-pen.webp)
-- `rover-pen-clip` Pen carriage
-  - icon: ![Sliding pen carriage](assets/items/rover-pen-clip.webp)
+- `rv-harness` Switch harness
+  - icon: ![Switch harness](assets/items/rv-harness.webp)
 
-  A connected spring clip, sliding bridge and follower shoe. The rover’s deck already carries its guide rods and lift lever; this carriage will slide up and down on the rods.
-- `rover-pen-mount` Pen carriage
-  - icon: ![Pen in its sliding carriage](assets/items/rover-pen-mount.webp)
-- `rover-trim-driver` Trim screwdriver
-  - icon: ![Small trim screwdriver](assets/items/rover-trim-driver.webp)
-- `rover-paper` Paper
-  - icon: ![Test-paper roll](assets/items/rover-paper.webp)
-- `rover-pen-deck` Rover
-  - icon: ![Rover with pen](assets/items/rover-pen-deck.webp)
+  {A small red box has two black mounting screws, a black upright switch and a bent dark lead ending in a red plug.}
 
-  With the rover stopped, you release the captive guide caps, slide the carriage onto the rods, seat its return spring and replace the caps. The deck’s hand lever turns a small cam against the follower shoe, raising the pen between drawings.
-- `rover-looping` Rover
-  - icon: ![Rover drawing a curve](assets/items/rover-looping.webp)
+  ---
 
-  You unroll a longer length of paper on the patio, release the rover from its test stops, and drive it onto the sheet. With the pen lowered, you drive a long test line. Both wheels turn, but “straight ahead” draws a gentle curve. One motor is a little quicker. You lift the pen and steer aside to inspect the whole trail. The receiver has a trim adjustment for just this problem.
-- `rover-trimmed` Rover
-  - icon: ![Trimmed rover](assets/items/rover-trimmed.webp)
+  A connected fused harness and switch. Fit with the power off and connect the parked battery and motor plugs to their matching sockets.
+- `rv-guard-a` Guard
+  - icon: ![Guard](assets/items/rv-guard-a.webp)
 
-  With the rover stopped and its pen raised, you give the trim screw a small turn. You steer to a fresh strip of paper, lower the pen, and drive another long line. Then you lift the pen and park beside the marks. The straighter second line shows how the adjustment has brought the wheel speeds together.
-- `drawing-rover` Rover
+  {An open cream box-shaped cover has a rounded side opening, a smaller rimmed opening and two red fittings at the top.}
+
+  ---
+
+  One hollow snap-on guard. Its open shaft slot and split cable channel fit around the already attached wheel and lead.
+- `rv-guard-b` Guard
+  - icon: ![Guard](assets/items/rv-guard-b.webp)
+
+  {An open cream box-shaped cover has rounded and rectangular edge cutouts, with two red fittings at the top.}
+
+  ---
+
+  One hollow snap-on guard, fitted independently on the other drive.
+- `rv-pen` Pen
+  - icon: ![Pen](assets/items/rv-pen.webp)
+
+  {A long green pen has a dark cap and pointed tip.}
+
+  ---
+
+  A felt-tip pen with its cap removed.
+- `rv-clip` Pen carriage
+  - icon: ![Pen carriage](assets/items/rv-clip.webp)
+
+  {A green bracket carries a split red circular clip and has a long flat arm projecting sideways.}
+
+  ---
+
+  One connected bridge, spring clip and follower shoe. The deck already carries the guides and lift lever.
+- `rv-spring` Return spring
+  - icon: ![Return spring](assets/items/rv-spring.webp)
+
+  {A short red coil with open ends.}
+
+  ---
+
+  One compression spring slides down the near guide rod after the carriage. The guide cap retains its upper end.
+- `rv-cap` Guide cap
+  - icon: ![Guide cap](assets/items/rv-cap.webp)
+
+  {A green rectangular bar has two rounded fittings underneath.}
+
+  ---
+
+  One connected bridge with two soft lined sockets. Press it onto the two bare guide ends to retain the carriage and compress its return spring.
+- `rv-wired` Rover
+  - icon: ![Rover](assets/items/rv-wired.webp)
+
+  {Two wheel units, a round green caster and two green boxes sit on the tan deck, joined by thin leads and a small red switch box.}
+- `rv-one-guard-a` Rover
+  - icon: ![Rover](assets/items/rv-one-guard-a.webp)
+
+  {A cream cover surrounds the far wheel’s green box; the nearer wheel’s green box remains exposed.}
+- `rv-one-guard-b` Rover
+  - icon: ![Rover](assets/items/rv-one-guard-b.webp)
+
+  {A cream cover surrounds the nearer wheel’s green box; the far wheel’s green box remains exposed.}
+- `rv-guarded` Rover
+  - icon: ![Rover](assets/items/rv-guarded.webp)
+
+  {Cream covers surround both wheel boxes; the green caster, two green boxes and red switch box remain visible between them.}
+- `rv-upright` Rover
+  - icon: ![Rover](assets/items/rv-upright.webp)
+
+  {The tan board sits above the wheels and green rounded foot. Two dark guide rods, green fittings and a short red lever rise from its top.}
+- `rv-pen-carriage` Pen carriage
+  - icon: ![Pen carriage](assets/items/rv-pen-carriage.webp)
+
+  {A green pen passes through the red ring of a green bracket, with the bracket’s flat arm projecting sideways.}
+- `rv-pen-fitted` Rover
+  - icon: ![Rover](assets/items/rv-pen-fitted.webp)
+
+  {The green pen and its bracket stand between the dark guide rods above the wheeled tan board.}
+- `rv-sprung` Rover
+  - icon: ![Rover](assets/items/rv-sprung.webp)
+
+  {A short red coil surrounds the guide rod beside the green pen.}
+- `drawing-rover` Drawing rover
   - icon: ![Drawing rover](assets/items/drawing-rover.webp)
 
-  ![Drawing rover in the garden](assets/rewards/drawing-rover.webp)
+  {A green top bar bridges the two guide rods beside the upright pen, above a tan board on two black wheels and a rounded green foot.}
 
-  The two test lines stay on the paper. You stop the rover and raise its pen with the hand lever, then use the remote to steer to a fresh patch. Stop, lower the lever, and drive a ridiculous looping whale. You stop once more, raise the pen by hand, and park beside the paper. Jo writes **YOU ARE INVITED** inside the whale.
+  ---
+
+  Different wheel speeds steer the rover. The hand lever lifts the pen between strokes. A slight motor mismatch makes a curve; the receiver has a trim screw. These are ordinary mechanisms, not a promise of precise handwriting.
+- `rv-flip-pen` Flip
 
 **Combinations**
-- `rover-pen` [consume] + `rover-pen-clip` [transform] -> `rover-pen-mount`
-- `rover-pen-mount` [consume] @ `rover-tested` [transform] -> `rover-pen-deck`
-- `rover-paper` [consume] @ `rover-pen-deck` [transform] -> `rover-looping`
-- `rover-trim-driver` [preserve] @ `rover-looping` [transform] -> `rover-trimmed`
-- `rover-powered-remote` [preserve] @ `rover-trimmed` [transform] -> `drawing-rover`
+- `rv-harness` [consume] + `rv-mounted` [transform] -> `rv-wired`
+- `rv-guard-a` [consume] + `rv-wired` [transform] -> `rv-one-guard-a`
+- `rv-guard-b` [consume] + `rv-one-guard-a` [transform] -> `rv-guarded`
+- `rv-guard-b` [consume] + `rv-wired` [transform] -> `rv-one-guard-b`
+- `rv-guard-a` [consume] + `rv-one-guard-b` [transform] -> `rv-guarded`
+- `rv-guarded` [transform] @ `rv-flip-pen` -> `rv-upright`
+- `rv-pen` [consume] + `rv-clip` [transform] -> `rv-pen-carriage`
+- `rv-pen-carriage` [consume] + `rv-upright` [transform] -> `rv-pen-fitted`
+- `rv-spring` [consume] + `rv-pen-fitted` [transform] -> `rv-sprung`
+- `rv-cap` [consume] + `rv-sprung` [transform] -> `drawing-rover`
 
-## `c15` Put the night in a box
+## `c-projector-box` A box of stars
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Star theatre](assets/items/shadow-theatre.webp)
-
-Your paper whale needs stars. Real ones are inconveniently far away.
-
-The next box has a low-power lamp, a turning handle and room for a miniature night sky. First, you need to find out what its shadows actually look like.
+reference: ![Build reference](assets/items/pj-wheel-box.webp)
 
 **Goals**
-- Line the box with the reflector foil -- `theatre-lined`
-- next: Fit the lamp inside the box -- `theatre-lit-box`
-- next: Connect the battery pack to the lamp -- `theatre-powered-box`
-- next: Use the star punch on the card disc -- `theatre-stars`
-- next: Fit the star disc onto the disc spindle -- `theatre-shadow-wheel`
-- next: Mount the star wheel inside the box -- `theatre-wheel-box`
+- Fit the reflector inside the box -- `pj-lined`
+- next: Punch stars around the disc -- `pj-stars`
+- next: Slide the disc onto the spindle -- `pj-disc-shaft`
+- next: Fit the disc collar -- `pj-wheel`
+- next: Lower the star wheel into the bearings -- `pj-loaded`
+- next: Fit the lamp -- `pj-lamped`
+- next: Connect the battery pack -- `pj-wheel-box`
 
 **Hotspots**
-- `theatre-box` (center 390px, 500px)
-  - icon: ![Theatre box](assets/hotspots/c15--theatre-box.webp)
-- `theatre-lined` (center 390px, 500px)
-  - icon: ![Reflective theatre box](assets/hotspots/c15--theatre-lined.webp)
-- `theatre-lit-box` (center 390px, 500px)
-  - icon: ![Theatre with lamp](assets/hotspots/c15--theatre-lit-box.webp)
-- `theatre-powered-box` (center 390px, 500px)
-  - icon: ![Powered theatre](assets/hotspots/c15--theatre-powered-box.webp)
-- `theatre-wheel-box` (center 390px, 500px)
-  - icon: ![Theatre with star wheel](assets/hotspots/c15--theatre-wheel-box.webp)
-- `theatre-blurry` (center 390px, 500px)
-  - icon: ![Blurry star theatre](assets/hotspots/c15--theatre-blurry.webp)
+- `pj-punch` (center 130px, 216px)
+  - icon: ![Punch](assets/actions/punch.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `theatre-box` Box
-  - icon: ![Theatre box](assets/items/theatre-box.webp)
+- `pj-box` Box
+  - icon: ![Box](assets/items/pj-box.webp)
 
-  A prepared box with a removable lid, a projection opening and a fixed internal window. You lay the lid beside it, inside face up, while fitting the parts.
-- `theatre-foil` Reflector foil
-  - icon: ![Reflective lining](assets/items/theatre-foil.webp)
-- `theatre-lamp` Lamp
-  - icon: ![LED lamp module](assets/items/theatre-lamp.webp)
+  {An open tan box has a dark upright panel across its interior, several round floor holes and shaped slots in its walls.}
 
-  A small cool-running diffused LED module in a holder, with its current-limiting resistor already fitted. It matches the supplied low-voltage battery and later accessory outlet.
-- `theatre-power` Battery pack
-  - icon: ![Switched lamp supply](assets/items/theatre-power.webp)
+  ---
 
-  A compatible enclosed low-voltage battery pack with its fused lead and on-off switch already fitted. A pad, side keeper and strap hold the pack. Connect to the lamp with the switch off; turn on for the projection test. Its lead unplugs when the theatre moves onto the whale.
-- `theatre-card` Card disc
-  - icon: ![Black card disc](assets/items/theatre-card.webp)
+  An open prepared box with two upward-opening bearing cradles. Prepared loading slots let the complete star wheel lower into them; the lid closes those slots and retains the shaft.
+- `pj-liner` Reflector
+  - icon: ![Reflector](assets/items/pj-liner.webp)
 
-  A prepared black card disc with a matching flat-sided central hole.
-- `theatre-punch` Star punch
-  - icon: ![Star hole punch](assets/items/theatre-punch.webp)
+  {A pale U-shaped liner has a flat bottom, two tall sides and a small round hole.}
 
-  Slide the card edge into its narrow mouth and press the star-marked button. Each press cuts a little window for the light.
-- `theatre-stars` Star disc
-  - icon: ![Star disc](assets/items/theatre-stars.webp)
-- `theatre-spindle` Disc spindle
-  - icon: ![Disc spindle](assets/items/theatre-spindle.webp)
+  ---
 
-  A six-millimetre spindle with two bushed supports, two flat-sided disc clamping collars with captive locking screws, mounting screws and an exposed shaft end for a detachable handwheel or drive pulley.
-- `theatre-shadow-wheel` Star wheel
-  - icon: ![Shadow wheel](assets/items/theatre-shadow-wheel.webp)
-- `theatre-lined` Box
-  - icon: ![Reflective theatre box](assets/items/theatre-lined.webp)
+  One folded U-shaped reflector joins its floor and side faces. It leaves the electrical contacts clear.
+- `pj-lamp` Lamp
+  - icon: ![Lamp](assets/items/pj-lamp.webp)
 
-  The bright lining sends some otherwise lost light back toward the star disc. Its foil is kept clear of the electrical contacts. One strip lines the lid; the other two stay along the sides.
-- `theatre-lit-box` Box
-  - icon: ![Theatre with lamp](assets/items/theatre-lit-box.webp)
-- `theatre-powered-box` Box
-  - icon: ![Powered theatre](assets/items/theatre-powered-box.webp)
-- `theatre-wheel-box` Star box
-  - icon: ![Theatre with star wheel](assets/items/theatre-wheel-box.webp)
+  {A small green rectangular fitting holds a pale panel and a long thin black lead.}
 
-  The spindle holds the disc between the lamp and the front opening. Light passes through its little holes; turning the disc will move those patches of light.
-- `theatre-blurry` Projector
-  - icon: ![Blurry star theatre](assets/items/theatre-blurry.webp)
+  ---
 
-  You replace the lid and switch on the lamp. Pale blobs of light spread across the screen. They are not yet stars.
+  A cool-running diffused LED module, holder, current-limiting resistor and attached lead.
+- `pj-battery` Battery pack
+  - icon: ![Battery pack](assets/items/pj-battery.webp)
+
+  {A green-sided pack holds two dark rectangular blocks, with a small red button near one top corner.}
+
+  ---
+
+  An enclosed compatible switched low-voltage pack with its connected holder and fused lead. Connect with the switch off.
+- `pj-card` Card disc
+  - icon: ![Card disc](assets/items/pj-card.webp)
+
+  {A flat dark circular disc with one small centre hole.}
+
+  ---
+
+  The flat-sided centre hole matches the spindle.
+- `pj-spindle` Spindle
+  - icon: ![Spindle](assets/items/pj-spindle.webp)
+
+  {A long narrow dark shaft has small green and red fittings near one end.}
+
+  ---
+
+  The flat continues from the free front end to the disc seat. Slide the disc along it until it reaches the fixed rear shoulder. The two rear flanges locate the shaft in its bearing.
+- `pj-collar` Disc collar
+  - icon: ![Disc collar](assets/items/pj-collar.webp)
+
+  {A thick green ring has a large central opening and a smaller hole through its side.}
+
+  ---
+
+  Slide this flat-sided collar along the same free end, then tighten its captive screw against the shaft flat. It holds the disc against the fixed shoulder.
+- `pj-lined` Projector
+  - icon: ![Projector](assets/items/pj-lined.webp)
+
+  {A broad pale liner covers part of the open tan box’s interior, beside a dark upright panel.}
+- `pj-loaded` Projector
+  - icon: ![Projector](assets/items/pj-loaded.webp)
+
+  {A long dark shaft projects from the open tan box. A dark circular disc stands across the nearer compartment.}
+- `pj-lamped` Projector
+  - icon: ![Projector](assets/items/pj-lamped.webp)
+
+  {A small pale rectangle in a green fitting sits beside the disc near the edge of the open box; the long shaft projects above it.}
+- `pj-stars` Star disc
+  - icon: ![Star disc](assets/items/pj-stars.webp)
+
+  {Many tiny holes circle the outer part of the dark disc, around its small central hole.}
+- `pj-disc-shaft` Star wheel
+  - icon: ![Star wheel](assets/items/pj-disc-shaft.webp)
+
+  {A dark shaft projects diagonally from the centre of the perforated disc.}
+- `pj-wheel` Star wheel
+  - icon: ![Star wheel](assets/items/pj-wheel.webp)
+
+  {A small green ring surrounds the shaft where it enters the perforated disc.}
+- `pj-wheel-box` Projector
+  - icon: ![Projector](assets/items/pj-wheel-box.webp)
+
+  {A dark block with a green edge is visible in the left-hand compartment of the open box, beside the disc and projecting shaft.}
+- `pj-punch` Punch
 
 **Combinations**
-- `theatre-foil` [consume] @ `theatre-box` [transform] -> `theatre-lined`
-- `theatre-lamp` [consume] @ `theatre-lined` [transform] -> `theatre-lit-box`
-- `theatre-power` [consume] @ `theatre-lit-box` [transform] -> `theatre-powered-box`
-- `theatre-card` [transform] + `theatre-punch` [preserve] -> `theatre-stars`
-- `theatre-stars` [consume] + `theatre-spindle` [transform] -> `theatre-shadow-wheel`
-- `theatre-shadow-wheel` [consume] @ `theatre-powered-box` [transform] -> `theatre-wheel-box`
+- `pj-card` [transform] @ `pj-punch` -> `pj-stars`
+- `pj-stars` [consume] + `pj-spindle` [transform] -> `pj-disc-shaft`
+- `pj-collar` [consume] + `pj-disc-shaft` [transform] -> `pj-wheel`
+- `pj-liner` [consume] + `pj-box` [transform] -> `pj-lined`
+- `pj-wheel` [consume] + `pj-lined` [transform] -> `pj-loaded`
+- `pj-lamp` [consume] + `pj-loaded` [transform] -> `pj-lamped`
+- `pj-battery` [consume] + `pj-lamped` [transform] -> `pj-wheel-box`
 
-## `c16` The stars come out early
+
+## `c-projector-lens` Bring the stars into focus
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Star theatre](assets/items/shadow-theatre.webp)
-
-At dusk, you hang a white cloth between the apple trees. Your stars ought to be big enough for everyone to see.
-
-Jo holds the box while you look for a sharp image. “A blurry universe has its charms. Let's try a focused one.”
+reference: ![Build reference](assets/items/star-projector.webp)
 
 **Goals**
-- Fit the lens into the lens holder -- `theatre-focus`
-- next: Mount the lens holder on the star box
-  - either: `theatre-focus-ready`
-  - or: `theatre-focus-box`
-- next: Try the projector on the screen
-  - either: `theatre-blurry`
-  - or: `theatre-focus-box`
-- next: Fit the hood to block stray light -- `theatre-hooded`
-- next: Fit and turn the star-wheel handle -- `shadow-theatre`
+- Close the box with its lid -- `pj-closed`
+- next: Fit the lens into its holder -- `pj-focus`
+- next: Fit the holder to the box -- `pj-focused`
+- next: Fit the hood around the lens -- `pj-hooded`
+- next: Fit the handle to the spindle -- `star-projector`
 
-**Hotspots**
-- `theatre-wheel-box` (center 390px, 500px)
-  - icon: ![Theatre with star wheel](assets/hotspots/c16--theatre-wheel-box.webp)
-- `theatre-blurry` (center 390px, 500px)
-  - icon: ![Blurry star theatre](assets/hotspots/c16--theatre-blurry.webp)
-- `theatre-focus-box` (center 390px, 500px)
-  - icon: ![Projector with focusing lens](assets/hotspots/c16--theatre-focus-box.webp)
-- `theatre-focus-ready` (center 390px, 500px)
-  - icon: ![Projector ready for its screen](assets/hotspots/c16--theatre-focus-ready.webp)
-- `theatre-hooded` (center 390px, 500px)
-  - icon: ![Hooded star projector](assets/hotspots/c16--theatre-hooded.webp)
 **Items**
-- `theatre-lens` Lens
-  - icon: ![Convex projection lens](assets/items/theatre-lens.webp)
-- `theatre-slider` Lens holder
-  - icon: ![Sliding lens holder](assets/items/theatre-slider.webp)
+- `pj-lens` Lens
+  - icon: ![Lens](assets/items/pj-lens.webp)
 
-  Its grooved carriage runs on two fixed rails through prepared wall openings. Sliding it a little forward or back brings the image into focus.
-- `theatre-focus` Lens holder
-  - icon: ![Adjustable lens assembly](assets/items/theatre-focus.webp)
-- `theatre-hood` Hood
-  - icon: ![Dark lens hood](assets/items/theatre-hood.webp)
-- `theatre-handwheel` Star-wheel handle
-  - icon: ![Star-wheel handle](assets/items/theatre-handwheel.webp)
+  {A pale blue-grey circular lens with a thin darker rim.}
 
-  A detachable handwheel with a matching flat-sided socket and retaining clip. Remove it before fitting the belt pulley.
-- `theatre-cloth` Screen
-  - icon: ![Hanging projection cloth](assets/items/theatre-cloth.webp)
-- `theatre-focus-ready` Projector
-  - icon: ![Projector ready for its screen](assets/items/theatre-focus-ready.webp)
+  ---
 
-  With the lens carriage fitted, you replace the lid before trying the screen. Its slider will let you compare a blurry setting with a sharp one.
-- `theatre-focus-box` Projector
-  - icon: ![Projector with focusing lens](assets/items/theatre-focus-box.webp)
+  A single convex lens forms an inverted image of the lit holes.
+- `pj-holder` Lens holder
+  - icon: ![Lens holder](assets/items/pj-holder.webp)
 
-  With the cloth in place, you slide the lens from a blurry setting to a sharp one. Sliding the lens changes where the star disc forms a sharp image. This is a projector: the light passes through the holes, then the lens forms their image on the cloth.
-- `theatre-hooded` Projector
-  - icon: ![Hooded star projector](assets/items/theatre-hooded.webp)
+  {A green ring stands on a small green frame between two red blocks.}
 
-  The hood catches stray light around the lens. The projected dark spaces become darker, so the stars stand out.
-- `shadow-theatre` Projector
-  - icon: ![Star theatre](assets/items/shadow-theatre.webp)
+  ---
 
-  ![Star theatre in the garden](assets/rewards/shadow-theatre.webp)
+  A connected sliding carriage retained on its rails. Move it along the rails to focus.
+- `pj-hood` Hood
+  - icon: ![Hood](assets/items/pj-hood.webp)
 
-  You turn the handle. Stars drift across the cloth as new holes move through the light. The image is upside down; for your invented constellations, that is entirely acceptable.
+  {A short black hollow tube has a stepped outer rim.}
 
-  You put the projector beside the drawing Jo has kept for years. “Your dragon could ride here,” you say, pointing to the front deck. “And this could put stars over everyone.”
+  ---
 
-  Jo lays the rover’s wobbly whale beside your animation drawing. “Your fish has grown into its new job.”
+  The dark tube surrounds the lens without covering its clear aperture.
+- `pj-handle` Handle
+  - icon: ![Handle](assets/items/pj-handle.webp)
+
+  {A red wheel has a centre hole, a groove around its rim and a short green grip on its face.}
+
+  ---
+
+  The handwheel has a real belt groove behind its grip. It can be turned by hand now and driven by a belt later.
+- `pj-lid` Lid
+  - icon: ![Lid](assets/items/pj-lid.webp)
+
+  {A flat tan lid has a narrow top slot and a shaped vertical tab hanging underneath.}
+
+  ---
+
+  One connected lid with locating tabs, shaft retainers and two downward tongues. The inner tongue carries the real projection window. Fit the lid before the external lens rails, which pass through its prepared openings.
+- `pj-closed` Projector
+  - icon: ![Projector](assets/items/pj-closed.webp)
+
+  {A flat tan lid closes the box; its shaped front opening and projecting shaft remain exposed.}
+- `pj-focus` Lens holder
+  - icon: ![Lens holder](assets/items/pj-focus.webp)
+
+  {A pale circular lens fills the green ring on the small green-and-red frame.}
+- `pj-focused` Projector
+  - icon: ![Projector](assets/items/pj-focused.webp)
+
+  {The green-and-red lens frame sits around the front opening of the closed tan box.}
+- `pj-hooded` Projector
+  - icon: ![Projector](assets/items/pj-hooded.webp)
+
+  {A short black tube projects from the green lens frame on the front of the box.}
+- `star-projector` Star projector
+  - icon: ![Star projector](assets/items/star-projector.webp)
+
+  {A tan box has a black lens hood in a green-and-red frame. Below it, a long shaft ends in a red wheel with a small green grip.}
+
+  ---
+
+  Turning the disc brings new holes past the fixed aperture. Sliding the lens brings their projected image into focus. The optical model uses one ideal thin lens; brightness and real component tolerances are not measured.
 
 **Combinations**
-- `theatre-cloth` [preserve] @ `theatre-wheel-box` [transform] -> `theatre-blurry`
-- `theatre-lens` [consume] + `theatre-slider` [transform] -> `theatre-focus`
-- `theatre-focus` [consume] @ `theatre-blurry` [transform] -> `theatre-focus-box`
-- `theatre-focus` [consume] @ `theatre-wheel-box` [transform] -> `theatre-focus-ready`
-- `theatre-cloth` [preserve] @ `theatre-focus-ready` [transform] -> `theatre-focus-box`
-- `theatre-hood` [consume] @ `theatre-focus-box` [transform] -> `theatre-hooded`
-- `theatre-handwheel` [consume] @ `theatre-hooded` [transform] -> `shadow-theatre`
+- `pj-lens` [consume] + `pj-holder` [transform] -> `pj-focus`
+- `pj-lid` [consume] + `pj-wheel-box` [transform] -> `pj-closed`
+- `pj-focus` [consume] + `pj-closed` [transform] -> `pj-focused`
+- `pj-hood` [consume] + `pj-focused` [transform] -> `pj-hooded`
+- `pj-handle` [consume] + `pj-hooded` [transform] -> `star-projector`
 
-## `c17` The thing that should not happen
+## `c-lift-frame` The impossible part
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Lift test stand](assets/items/lift-ready.webp)
+reference: ![Build reference](assets/items/fc-lift-frame.webp)
 
-“I could build every part except the flying,” Jo says. “Then my friend sent this.”
-
-Inside a padded tin is a violet tile. **Experimental lift tile. Apply power to lift. Disconnect to stop.**
-
-This part is invented science. Real batteries cannot make a tile ignore gravity. In this workshop, this one can. You still have to find out how much it lifts—and keep hold of it.
+Jo sets down a violet tile. “This part is invented: power makes it lift.”
 
 **Goals**
-- Attach the tether to the test base -- `lift-tethered-base`
-- next: Fit the guide posts to the test base -- `lift-guided-base`
-- next: Fit the crossbars to the cradle -- `lift-guided-cradle`
-- next: Seat the lift tile in its cradle -- `lift-cradled-tile`
-- next: Connect the test switch to the battery pack -- `lift-switched-pack`
-- next: Slide the lift tile down the guide posts -- `lift-seated`
-- next: Fit the top nuts to retain the cradle -- `lift-ready`
-- next: Connect the battery pack and test the lift -- `lift-rising`
-- next: Add the test weight and compare the lift -- `lift-load-tested`
+- Fit an arch to the deck -- `fc-one-arch`
+- next: Fit the second arch -- `fc-arches`
+- next: Clip the cradle across the arches -- `fc-top`
+- next: Seat the lift tile -- `fc-tiled`
+- next: Flip the frame over -- `fc-inverted`
+- next: Fit the battery underneath -- `fc-powered`
+- next: Flip the frame upright -- `fc-upright`
+- next: Fit the lift control -- `fc-lift-frame`
 
 **Hotspots**
-- `lift-base` (center 390px, 500px)
-  - icon: ![Test-stand base](assets/hotspots/c17--lift-base.webp)
-- `lift-tethered-base` (center 390px, 500px)
-  - icon: ![Tethered test base](assets/hotspots/c17--lift-tethered-base.webp)
-- `lift-guided-base` (center 390px, 500px)
-  - icon: ![Stand with bare guide posts](assets/hotspots/c17--lift-guided-base.webp)
-- `lift-seated` (center 390px, 500px)
-  - icon: ![Cradled tile on the guide posts](assets/hotspots/c17--lift-seated.webp)
-- `lift-ready` (center 390px, 500px)
-  - icon: ![Tile in test stand](assets/hotspots/c17--lift-ready.webp)
-- `lift-rising` (center 390px, 500px)
-  - icon: ![Rising tile stand](assets/hotspots/c17--lift-rising.webp)
-- `lift-load-tested` (center 390px, 500px)
-  - icon: ![Loaded lift test](assets/hotspots/c17--lift-load-tested.webp)
+- `fc-flip-lift` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `lift-base` Test base
-  - icon: ![Test-stand base](assets/items/lift-base.webp)
-- `lift-posts` Guide posts
-  - icon: ![Four bare guide posts](assets/items/lift-posts.webp)
+- `fc-deck` Deck
+  - icon: ![Deck](assets/items/fc-deck.webp)
 
-  Four matching guide posts are supplied; one is shown. Fit their lower ends to the test base. Their top threads remain bare until the cradle is on the stand.
-- `lift-tether` Tether
-  - icon: ![Short safety tether](assets/items/lift-tether.webp)
-- `lift-tile` Lift tile
-  - icon: ![Experimental lift tile](assets/items/lift-tile.webp)
+  {A broad flat tan rectangular board with small holes and a rectangular opening near one corner.}
 
-  A violet tile in a protective rim. In this invented technology its force points upward, even if the tile tilts. The force is limited and lasts only while powered; the tile does not make electricity.
-- `lift-pack` Battery pack
-  - icon: ![Tile battery pack](assets/items/lift-pack.webp)
-- `lift-switch` Test switch
-  - icon: ![Spring-return test switch](assets/items/lift-switch.webp)
-- `lift-switched-pack` Battery pack
-  - icon: ![Hold-to-lift supply](assets/items/lift-switched-pack.webp)
-- `lift-cradle` Cradle
-  - icon: ![Tile cradle with hanging supports](assets/items/lift-cradle.webp)
+  ---
 
-  The tile sits in a padded upper frame. Four short rigid supports join it to a lower frame with a battery shelf; the slotted tray fits onto that frame. The weight hangs below the point providing lift. Closed lifting eyes leave room for the crane sling.
-- `lift-guide-crossbars` Crossbars
-  - icon: ![Two guide crossbars](assets/items/lift-guide-crossbars.webp)
+  A 400 × 300 mm prepared plywood deck. The mounting holes and wire passages are already cut.
+- `fc-arch-a` Arch
+  - icon: ![Arch](assets/items/fc-arch-a.webp)
 
-  Two matching crossbars are supplied; one is shown. Each connects its two guide rings and frame clamps. Clamp them to the cradle’s lower frame before sliding the rings onto the posts.
-- `lift-post-nuts` Top nuts
-  - icon: ![Four guide-post top nuts](assets/items/lift-post-nuts.webp)
+  {Two slim tan uprights joined by a tan crossbar, with green feet at their lower ends.}
 
-  Four matching top nuts are supplied; one is shown. After seating the cradle, fit one to each post to keep its guide rings from sliding off the top.
-- `lift-guided-cradle` Cradle
-  - icon: ![Cradle with guide crossbars](assets/items/lift-guided-cradle.webp)
-- `lift-seated` Lift stand
-  - icon: ![Cradled tile on the guide posts](assets/items/lift-seated.webp)
-- `lift-cradled-tile` Lift tile
-  - icon: ![Cradled lift tile](assets/items/lift-cradled-tile.webp)
-- `lift-weight` Test weight
-  - icon: ![Test weight](assets/items/lift-weight.webp)
-- `lift-tethered-base` Test base
-  - icon: ![Tethered test base](assets/items/lift-tethered-base.webp)
-- `lift-guided-base` Test stand
-  - icon: ![Stand with bare guide posts](assets/items/lift-guided-base.webp)
+  ---
 
-  The four guide posts are fixed to the tethered base. Keep their tops clear so the cradle’s guide rings can slide down them.
-- `lift-ready` Lift stand
-  - icon: ![Tile in test stand](assets/items/lift-ready.webp)
-- `lift-rising` Lift stand
-  - icon: ![Rising tile stand](assets/items/lift-rising.webp)
+  One connected rigid arch with two feet and captive bolts.
+- `fc-arch-b` Arch
+  - icon: ![Arch](assets/items/fc-arch-b.webp)
 
-  You hold the switch. The tile rises until the short tether catches it. Let go, and it settles back onto the padded base. It has no propeller and no balloon. Jo laughs once, very loudly.
-- `lift-load-tested` Lift stand
-  - icon: ![Loaded lift test](assets/items/lift-load-tested.webp)
+  {Two slim tan uprights joined by a tan crossbar, with green feet at their lower ends.}
 
-  With the weight clipped beneath it, the tile rises more slowly. The battery must now support the tile, the cradle and the extra weight. The test is small; the grin is not.
+  ---
+
+  A second identical connected arch. Either arch fits either side of the deck.
+- `fc-cradle` Tile cradle
+  - icon: ![Tile cradle](assets/items/fc-cradle.webp)
+
+  {An open green rectangular frame with projecting ends and small raised tabs.}
+
+  ---
+
+  One connected top cradle. Four integral saddles clip over the arches; its padded rails receive the tile.
+- `fc-tile` Lift tile
+  - icon: ![Lift tile](assets/items/fc-tile.webp)
+
+  {A thick flat purple square.}
+
+  ---
+
+  This powered lift tile is explicitly fictional. Its limited force points upward while current flows. It makes no energy and carries no person.
+- `fc-battery` Battery pack
+  - icon: ![Battery pack](assets/items/fc-battery.webp)
+
+  {A black rectangular box beneath a flat green top, with a thin dark lead beside it.}
+
+  ---
+
+  A compatible enclosed battery in its integral retained bracket. It mounts below the deck, keeping weight low.
+- `fc-control` Lift control
+  - icon: ![Lift control](assets/items/fc-control.webp)
+
+  {A green box with two red buttons and thin dark leads; one lead rises far above the box.}
+
+  ---
+
+  A prepared controller and latching stop button in one pod with a connected fused harness. Keep power off while fitting it.
+- `fc-one-arch` Frame
+  - icon: ![Frame](assets/items/fc-one-arch.webp)
+
+  {One tall tan arch stands along the far edge of a broad tan board, on two green feet.}
+- `fc-arches` Frame
+  - icon: ![Frame](assets/items/fc-arches.webp)
+
+  {Two tall tan arches stand at opposite ends of a broad tan board, on four green feet.}
+- `fc-top` Frame
+  - icon: ![Frame](assets/items/fc-top.webp)
+
+  {A green rectangular frame spans the tops of two tan arches above a broad tan board.}
+- `fc-tiled` Frame
+  - icon: ![Frame](assets/items/fc-tiled.webp)
+
+  {A purple square rests in the green frame at the top of the tan arches.}
+- `fc-inverted` Frame
+  - icon: ![Frame](assets/items/fc-inverted.webp)
+
+  {The construction is upside down: the broad tan board is on top and the purple square is below the arches.}
+- `fc-powered` Frame
+  - icon: ![Frame](assets/items/fc-powered.webp)
+
+  {A black box on a green plate sits on the upward-facing tan board. The purple square is below.}
+- `fc-upright` Frame
+  - icon: ![Frame](assets/items/fc-upright.webp)
+
+  {The tan board is below the arches again, with a purple square in the green frame above.}
+- `fc-lift-frame` Frame
+  - icon: ![Frame](assets/items/fc-lift-frame.webp)
+
+  {A green box with two red buttons sits at the right of the tan board, beneath the purple-topped frame.}
+- `fc-flip-lift` Flip
 
 **Combinations**
-- `lift-tether` [consume] @ `lift-base` [transform] -> `lift-tethered-base`
-- `lift-posts` [consume] @ `lift-tethered-base` [transform] -> `lift-guided-base`
-- `lift-guide-crossbars` [consume] + `lift-cradle` [transform] -> `lift-guided-cradle`
-- `lift-tile` [consume] + `lift-guided-cradle` [transform] -> `lift-cradled-tile`
-- `lift-switch` [consume] + `lift-pack` [transform] -> `lift-switched-pack`
-- `lift-cradled-tile` [consume] @ `lift-guided-base` [transform] -> `lift-seated`
-- `lift-post-nuts` [consume] @ `lift-seated` [transform] -> `lift-ready`
-- `lift-switched-pack` [consume] @ `lift-ready` [transform] -> `lift-rising`
-- `lift-weight` [consume] @ `lift-rising` [transform] -> `lift-load-tested`
+- `fc-arch-a` [consume] + `fc-deck` [transform] -> `fc-one-arch`
+- `fc-arch-a` [consume] + `fc-one-arch` [transform] -> `fc-arches`
+- `fc-arch-b` [consume] + `fc-deck` [transform] -> `fc-one-arch`
+- `fc-arch-b` [consume] + `fc-one-arch` [transform] -> `fc-arches`
+- `fc-cradle` [consume] + `fc-arches` [transform] -> `fc-top`
+- `fc-tile` [consume] + `fc-top` [transform] -> `fc-tiled`
+- `fc-tiled` [transform] @ `fc-flip-lift` -> `fc-inverted`
+- `fc-battery` [consume] + `fc-inverted` [transform] -> `fc-powered`
+- `fc-powered` [transform] @ `fc-flip-lift` -> `fc-upright`
+- `fc-control` [consume] + `fc-upright` [transform] -> `fc-lift-frame`
 
-## `c18` Up is the easy part
+
+## `c-lift-projector` Stars aboard
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Balanced lift module](assets/items/balanced-lift.webp)
-
-The tile lifts. A fair also needs to come down where you want it.
-
-You set out a tray, a sliding weight and a control unit that can vary the current. The tile stays on its short tether throughout the experiment.
+reference: ![Build reference](assets/items/fc-powered-show.webp)
 
 **Goals**
-- Fit the tray to the lift module -- `lift-tray-test`
-- next: Put the test load off-centre on the tray -- `lift-tilting-test`
-- next: Fit and adjust the counterweight -- `lift-balanced-test`
-- next: Connect the lift control -- `lift-variable-test`
-- next: Fit and test the emergency stop -- `lift-stop-test`
-- next: Fit the lifting sling to the crane -- `lift-supported-module`
-- next: Use the crane to lift out the lift module -- `balanced-lift`
+- Fit the projector dock -- `fc-docked`
+- next: Press your projector onto the dock -- `fc-projector-aboard`
+- next: Fit the small pulley to the motor -- `fc-drive`
+- next: Mount the drive motor -- `fc-motor-mounted`
+- next: Loop the belt around both pulleys -- `fc-belted`
+- next: Flip to the underside -- `fc-drive-under`
+- next: Fit the Motor supply -- `fc-supply-under`
+- next: Flip the Frame upright -- `fc-powered-show`
 
 **Hotspots**
-- `lift-load-tested` (center 390px, 500px)
-  - icon: ![Loaded lift test](assets/hotspots/c18--lift-load-tested.webp)
-- `lift-tray-test` (center 390px, 500px)
-  - icon: ![Tile with load tray](assets/hotspots/c18--lift-tray-test.webp)
-- `lift-tilting-test` (center 390px, 500px)
-  - icon: ![Tilting lift tray](assets/hotspots/c18--lift-tilting-test.webp)
-- `lift-balanced-test` (center 390px, 500px)
-  - icon: ![Level lift tray](assets/hotspots/c18--lift-balanced-test.webp)
-- `lift-variable-test` (center 390px, 500px)
-  - icon: ![Adjustable lift module](assets/hotspots/c18--lift-variable-test.webp)
-- `lift-stop-test` (center 390px, 500px)
-  - icon: ![Stopped lift module](assets/hotspots/c18--lift-stop-test.webp)
+- `fc-flip-drive` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `lift-tray` Tray
-  - icon: ![Slotted load tray](assets/items/lift-tray.webp)
+- `star-projector` Star projector
+  - from chapter `c-lift-projector` icon: ![Star projector](assets/items/fc-projector-carried.webp)
+- `fc-dock` Projector dock
+  - icon: ![Projector dock](assets/items/fc-dock.webp)
 
-  The tray has front and rear counterweight slots, clear passages for the battery holder and four support holes.
-- `lift-offset-load` Test load
-  - icon: ![Off-centre test block](assets/items/lift-offset-load.webp)
-- `lift-slider` Counterweight
-  - icon: ![Sliding counterweight](assets/items/lift-slider.webp)
+  {An open green rectangular frame with black corner fittings and small dark pins on top.}
 
-  A shoe runs beneath the slot. Loosen the finger screw to slide the weight, then tighten it to hold the new position. A matching socket accepts the temporary adjustment handle.
-- `lift-control` Lift control
-  - icon: ![Current controller and replacement harness](assets/items/lift-control.webp)
+  ---
 
-  The new harness replaces the hold-to-lift test switch. Its dial varies the lift smoothly and its plug accepts a long control lead. Disconnect the battery before changing harnesses.
-- `lift-stop` Emergency stop
-  - icon: ![Latching power-cut switch](assets/items/lift-stop.webp)
-- `lift-crane-sling` Lifting sling
-  - icon: ![Short lifting sling](assets/items/lift-crane-sling.webp)
-- `lift-tray-test` Lift module
-  - icon: ![Tile with load tray](assets/items/lift-tray-test.webp)
-- `lift-tilting-test` Lift module
-  - icon: ![Tilting lift tray](assets/items/lift-tilting-test.webp)
+  One connected projector dock. Four feet bear on the deck and two recessed captive screws fasten it down. Four split snap studs pass through the original mounting holes; their flexible heads spring out above the box collars to retain the unchanged projector.
+- `fc-motor` Gearmotor
+  - icon: ![Gearmotor](assets/items/fc-motor.webp)
 
-  The tray's loaded end dips. Upward force alone does not keep a lopsided load level.
-- `lift-balanced-test` Lift module
-  - icon: ![Level lift tray](assets/items/lift-balanced-test.webp)
+  {A black cylinder sits on a tall green pedestal. A dark shaft projects from its front and a thin lead extends behind.}
 
-  The counterweight slides away from the heavy end until the tray hangs level. The total load is greater, so it now needs a little more lift.
-- `lift-variable-test` Lift module
-  - icon: ![Adjustable lift module](assets/items/lift-variable-test.webp)
-- `lift-stop-test` Lift module
-  - icon: ![Stopped lift module](assets/items/lift-stop-test.webp)
+  ---
 
-  The big switch cuts the tile's power even while the controller asks for lift. The short tether and padded base keep this a gentle test. With the controller at zero, you disconnect the battery and reset the latched stop before moving the module.
-- `lift-supported-module` Crane
-  - icon: ![Crane with lifting sling](assets/items/lift-supported-module.webp)
+  An enclosed slow gearmotor with its integral pedestal and lead. The shaft is parallel to the projector spindle.
+- `fc-pulley` Small pulley
+  - icon: ![Small pulley](assets/items/fc-pulley.webp)
 
-  You unhook its cargo basket and leave that on the bench, then clip the sling to the crane's closed hook.
-- `balanced-lift` Lift module
-  - icon: ![Balanced lift module](assets/items/balanced-lift.webp)
+  {A thick red wheel with a groove around its edge and a round hole through its centre.}
 
-  ![Balanced lift module in the garden](assets/rewards/balanced-lift.webp)
+  ---
 
-  The crane takes the weight while you undo the stand's wingnuts. You unclip the guide crossbars and leave them with the stand. The two test blocks stay on the bench, and you centre the counterweight in the front slot for the empty tray. You release the stand tether and lift out one complete module: tile above, tray and battery below, with counterweight, controller and stop switch. The old test switch stays with the stand.
+  One small pulley with a captive screw that clamps onto the motor shaft flat.
+- `fc-belt` Belt
+  - icon: ![Belt](assets/items/fc-belt.webp)
+
+  {One thin black loop, long and narrow with rounded ends.}
+
+  ---
+
+  One continuous soft belt. Its small pulley drives the larger grooved handwheel more slowly.
+- `fc-motor-pack` Motor supply
+  - icon: ![Motor supply](assets/items/fc-motor-pack.webp)
+
+  {A small black rectangular box beneath a green top, with a fine dark lead extending beside it.}
+
+  ---
+
+  An enclosed low-voltage motor supply with its own switch, lead and integral mounting bracket. The lamp keeps its original supply; the lift has a separate circuit.
+- `fc-docked` Frame
+  - icon: ![Frame](assets/items/fc-docked.webp)
+
+  {An open green rectangular frame sits on the tan board beside the green two-button box.}
+- `fc-projector-aboard` Frame
+  - icon: ![Frame](assets/items/fc-projector-aboard.webp)
+
+  {A tan box stands in the frame beneath the purple square. Its front has a round dark lens fitting and a projecting red wheel.}
+- `fc-drive` Drive motor
+  - icon: ![Drive motor](assets/items/fc-drive.webp)
+
+  {A small red grooved wheel surrounds the projecting shaft of a black cylinder on a green pedestal.}
+- `fc-motor-mounted` Frame
+  - icon: ![Frame](assets/items/fc-motor-mounted.webp)
+
+  {The black cylinder on its green pedestal stands at the front right of the tan box, with its small red wheel facing outward.}
+- `fc-belted` Frame
+  - icon: ![Frame](assets/items/fc-belted.webp)
+
+  {A thin dark belt stretches between the large red wheel on the tan box and the smaller wheel on the green pedestal.}
+- `fc-drive-under` Frame
+  - icon: ![Frame](assets/items/fc-drive-under.webp)
+
+  {The construction is upside down. A black box on a green plate sits on the upward-facing board; the tan box and purple square are below.}
+- `fc-supply-under` Frame
+  - icon: ![Frame](assets/items/fc-supply-under.webp)
+
+  {Two black boxes on green plates sit beside one another on the upward-facing board. The smaller box has a small coloured button on top.}
+- `fc-powered-show` Frame
+  - icon: ![Frame](assets/items/fc-powered-show.webp)
+
+  {The tan box, two red wheels and dark belt sit beneath the purple-topped frame. A fine dark lead lies beside the right-hand controls.}
+- `fc-flip-drive` Flip
 
 **Combinations**
-- `lift-tray` [consume] @ `lift-load-tested` [transform] -> `lift-tray-test`
-- `lift-offset-load` [consume] @ `lift-tray-test` [transform] -> `lift-tilting-test`
-- `lift-slider` [consume] @ `lift-tilting-test` [transform] -> `lift-balanced-test`
-- `lift-control` [consume] @ `lift-balanced-test` [transform] -> `lift-variable-test`
-- `lift-stop` [consume] @ `lift-variable-test` [transform] -> `lift-stop-test`
-- `lift-crane-sling` [consume] + `lifting-crane` [transform] -> `lift-supported-module`
-- `lift-supported-module` [preserve] @ `lift-stop-test` [transform] -> `balanced-lift`
+- `fc-dock` [consume] + `fc-lift-frame` [transform] -> `fc-docked`
+- `star-projector` [consume] + `fc-docked` [transform] -> `fc-projector-aboard`
+- `fc-pulley` [consume] + `fc-motor` [transform] -> `fc-drive`
+- `fc-drive` [consume] + `fc-projector-aboard` [transform] -> `fc-motor-mounted`
+- `fc-belt` [consume] + `fc-motor-mounted` [transform] -> `fc-belted`
+- `fc-belted` [transform] @ `fc-flip-drive` -> `fc-drive-under`
+- `fc-motor-pack` [consume] + `fc-drive-under` [transform] -> `fc-supply-under`
+- `fc-supply-under` [transform] @ `fc-flip-drive` -> `fc-powered-show`
 
-**Items**
-**Hotspots**
-## `c19` A whale without a sea
+
+## `c-whale-shape` A whale takes shape
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Whale with its lift module](assets/items/whale-lift-fitted.webp)
-
-You put your rover's whale drawing beside Jo's old plan. Hers has more measurements. Yours has a much better smile.
-
-The flying fair will be the size of a large model boat. No passengers. Plenty of room for a dragon.
+reference: ![Build reference](assets/items/fc-whale.webp)
 
 **Goals**
-- Fit the ribs along the keel -- `whale-ribbed`
-- next: Fit the top spar through the ribs -- `whale-spined`
-- next: Attach the tail to the back of the whale frame -- `whale-tailed`
-- next: Fit the deck across the ribs -- `whale-decked`
-- next: Join the brace cords with the tensioners -- `whale-braces`
-- next: Tension the braces across the whale frame -- `whale-braced-frame`
+- Fit the Front side -- `fc-near-side`
+- next: Turn to the back -- `fc-side-rear`
+- next: Fit the Back side -- `fc-sided`
+- next: Fit the Tail -- `fc-tailed`
+- next: Fit the Back fin -- `fc-one-fin-b`
+- next: Turn to the front -- `fc-fin-front`
+- next: Fit the Front fin -- `fc-whale`
 
 **Hotspots**
-- `whale-keel` (center 390px, 500px)
-  - icon: ![Whale keel](assets/hotspots/c19--whale-keel.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-ribbed` (center 390px, 500px)
-  - icon: ![Ribbed whale frame](assets/hotspots/c19--whale-ribbed.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-spined` (center 390px, 500px)
-  - icon: ![Whale frame with upper spar](assets/hotspots/c19--whale-spined.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-tailed` (center 390px, 500px)
-  - icon: ![Tailed whale frame](assets/hotspots/c19--whale-tailed.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-decked` (center 390px, 500px)
-  - icon: ![Whale frame with deck](assets/hotspots/c19--whale-decked.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-braced-frame` (center 390px, 500px)
-  - icon: ![Braced whale frame](assets/hotspots/c19--whale-braced-frame.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
+- `fc-flip-shell` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `whale-keel` Keel
-  - icon: ![Whale keel](assets/items/whale-keel.webp)
+- `fc-side-a` Front side
+  - icon: ![Front side](assets/items/fc-side-a.webp)
 
-  A long light wooden spine, clamped flat in the building jig.
-- `whale-ribs` Ribs
-  - icon: ![Slotted ribs](assets/items/whale-ribs.webp)
+  {A long green panel with pointed ends, two keyhole-shaped openings and small fittings near its upper edge.}
 
-  Eight numbered ribs are shaped for their places along the keel; the drawing shows one central rib. One rib takes a stiff detour around the service opening. A strong frame should still leave room to reach its workings.
-- `whale-top-spar` Top spar
-  - icon: ![Upper spar](assets/items/whale-top-spar.webp)
-- `whale-tail` Tail
-  - icon: ![Light whale tail](assets/items/whale-tail.webp)
+  ---
 
-  Two light panels joined to a rigid root that slots into the keel. It is a fixed tail, not a steering mechanism.
-- `whale-deck` Deck
-  - icon: ![Slatted fair deck](assets/items/whale-deck.webp)
+  One cut whale side panel with its mounting tabs. Its top edge stays below the projector beam.
+- `fc-side-b` Back side
+  - icon: ![Back side](assets/items/fc-side-b.webp)
 
-  A light prepared deck on two crosspieces, with mounting holes for the attractions.
-- `whale-brace-cord` Brace cords
-  - icon: ![Measured brace cords](assets/items/whale-brace-cord.webp)
+  {A long green panel with pointed ends, two keyhole-shaped openings and small projecting fittings near its upper edge.}
 
-  Sixteen measured cord lengths form eight short-and-long pairs; one length is shown. Each pair will join through a tensioner to make a diagonal brace.
-- `whale-tensioners` Tensioners
-  - icon: ![Brace tensioners](assets/items/whale-tensioners.webp)
+  ---
 
-  Eight matching tensioners are supplied; one is shown. Each joins a pair of cord lengths and adjusts the finished brace.
-- `whale-braces` Braces
-  - icon: ![Adjustable diagonal braces](assets/items/whale-braces.webp)
+  A second whale side panel, fitted separately.
+- `fc-tail` Tail
+  - icon: ![Tail](assets/items/fc-tail.webp)
 
-  Eight complete diagonal braces are ready; one is shown. Each has two cord runs joined by its tensioner and end loops for the ribs. Fit the full set across the frame’s two sides.
-- `whale-ribbed` Whale frame
-  - icon: ![Ribbed whale frame](assets/items/whale-ribbed.webp)
-- `whale-spined` Whale frame
-  - icon: ![Whale frame with upper spar](assets/items/whale-spined.webp)
-- `whale-tailed` Whale frame
-  - icon: ![Tailed whale frame](assets/items/whale-tailed.webp)
-- `whale-decked` Whale frame
-  - icon: ![Whale frame with deck](assets/items/whale-decked.webp)
+  {A flat red forked tail joined to a green rectangular socket.}
 
-  The deck spreads each attraction’s weight across several ribs. It is a platform with a route for forces to reach the frame, not a loose floor resting on paper.
-- `whale-braced-frame` Whale frame
-  - icon: ![Braced whale frame](assets/items/whale-braced-frame.webp)
+  ---
 
-  The diagonal cords stop the rectangles leaning into diamonds. You can see straight through the whale and still recognize it.
+  One continuous fixed tail with its prepared root fitting. It does not steer or provide lift.
+- `fc-fin-a` Front fin
+  - icon: ![Front fin](assets/items/fc-fin-a.webp)
+
+  {A broad red fin with a thick upper edge and two small green round fittings behind it.}
+
+  ---
+
+  One fixed fin with two integral mushroom studs and a captive centre screw. The keyhole entries sit below the deck. With the screw retracted, pass the heads through the wide openings and lower the fin into the narrow slots. Tighten the screw to retain it during flips. It gives the whale its shape, not lift.
+- `fc-fin-b` Back fin
+  - icon: ![Back fin](assets/items/fc-fin-b.webp)
+
+  {A thin red fin seen almost edge-on, with two green round fittings along one edge.}
+
+  ---
+
+  The other fixed fin.
+- `fc-near-side` Whale
+  - icon: ![Whale](assets/items/fc-near-side.webp)
+
+  {A long green panel with two keyhole-shaped openings covers the near edge of the tan board, below the wheels and belt.}
+- `fc-side-rear` Whale
+  - icon: ![Whale](assets/items/fc-side-rear.webp)
+
+  {The plain tan back of the box faces us beneath the purple square. The two-button green control is at the left, and a green panel runs along the far board edge.}
+- `fc-sided` Whale
+  - icon: ![Whale](assets/items/fc-sided.webp)
+
+  {Green panels line both long edges of the tan board; the near panel has two keyhole-shaped openings.}
+- `fc-tailed` Whale
+  - icon: ![Whale](assets/items/fc-tailed.webp)
+
+  {From the back, a red forked tail projects to the left of the green-sided construction. The plain tan box face is visible beneath the purple square.}
+- `fc-one-fin-b` Whale
+  - icon: ![Whale](assets/items/fc-one-fin-b.webp)
+
+  {A red fin projects from the nearer green panel, below the plain back of the tan box. The red forked tail extends to the left.}
+- `fc-fin-front` Whale
+  - icon: ![Whale](assets/items/fc-fin-front.webp)
+
+  {The tan box’s lens fitting, red wheels and belt face us. The near green panel has two pale openings; a red forked tail extends to the right.}
+- `fc-whale` Whale
+  - icon: ![Whale](assets/items/fc-whale.webp)
+
+  {A red fin projects from the near green side panel, below the wheels and belt. A red forked tail extends from the right end.}
+- `fc-flip-shell` Flip
 
 **Combinations**
-- `whale-ribs` [consume] @ `whale-keel` [transform] -> `whale-ribbed`
-- `whale-top-spar` [consume] @ `whale-ribbed` [transform] -> `whale-spined`
-- `whale-tail` [consume] @ `whale-spined` [transform] -> `whale-tailed`
-- `whale-deck` [consume] @ `whale-tailed` [transform] -> `whale-decked`
-- `whale-brace-cord` [consume] + `whale-tensioners` [transform] -> `whale-braces`
-- `whale-braces` [consume] @ `whale-decked` [transform] -> `whale-braced-frame`
+- `fc-side-a` [consume] + `fc-powered-show` [transform] -> `fc-near-side`
+- `fc-near-side` [transform] @ `fc-flip-shell` -> `fc-side-rear`
+- `fc-side-b` [consume] + `fc-side-rear` [transform] -> `fc-sided`
+- `fc-tail` [consume] + `fc-sided` [transform] -> `fc-tailed`
+- `fc-fin-b` [consume] + `fc-tailed` [transform] -> `fc-one-fin-b`
+- `fc-one-fin-b` [transform] @ `fc-flip-shell` -> `fc-fin-front`
+- `fc-fin-a` [consume] + `fc-fin-front` [transform] -> `fc-whale`
 
-## `c20` Leave room for the workings
+
+## `c-whale-finish` Ready for the fair
 background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Whale with its lift module](assets/items/whale-lift-fitted.webp)
-
-You could wrap the whole whale beautifully and discover afterwards that its switch was inside.
-
-Work from the hatch side. Fit the lift module while the ribs are open, then add the skin and service hatch. The useful bits will stay reachable. The small detail view shows where the outside stop button fits.
+reference: ![Build reference](assets/items/flying-whale.webp)
 
 **Goals**
-- Fit the extension struts to the lift module -- `lift-extended`
-- next: Reconnect the lift module with the harness extension -- `lift-reconnected`
-- next: Fit the fork saddles against the top spar -- `whale-mounted`
-- next: Seat the lift module beneath the fork saddles -- `whale-lift-resting`
-- next: Secure the lift module with the retaining straps -- `whale-lift-inside`
-- next: Fit the skin around the whale frame -- `whale-skinned`
-- next: Fit the hatch -- `whale-hatched`
-- next: Fit the button guide -- `whale-stop-guided`
-- next: Slide the stop button’s pushrod through the button guide -- `whale-lift-fitted`
+- Flip the whale over -- `fc-whale-under`
+- next: Fit a landing skid
+  - either: `fc-one-skid-a`
+  - or: `fc-one-skid-b`
+  - or: `fc-skids`
+- next: Fit the other skid -- `fc-skids`
+- next: Fit the weight rail -- `fc-railed`
+- next: Fit the weight through the wide slot -- `fc-weighted`
+- next: Flip the whale upright -- `fc-standing`
+- next: Fit the clear drive guard -- `flying-whale`
 
 **Hotspots**
-- `whale-braced-frame` (center 390px, 500px)
-  - icon: ![Braced whale frame](assets/hotspots/c20--whale-braced-frame.webp)
-- `whale-skinned` (center 390px, 500px)
-  - icon: ![Paper-skinned whale](assets/hotspots/c20--whale-skinned.webp)
-- `whale-hatched` (center 390px, 500px)
-  - icon: ![Whale with service hatch](assets/hotspots/c20--whale-hatched.webp)
-- `whale-lift-resting` (center 390px, 500px)
-  - icon: ![Lift module seated beneath the whale forks](assets/hotspots/c20--whale-lift-resting.webp)
-- `whale-mounted` (center 390px, 500px)
-  - icon: ![Whale with supporting forks](assets/hotspots/c20--whale-mounted.webp)
-- `whale-stop-guided` (center 390px, 500px)
-  - icon: ![Whale with stop-button guide](assets/hotspots/c20--whale-stop-guided.webp)
-- `whale-lift-fitted` (center 390px, 500px)
-  - icon: ![Whale with outside stop button](assets/hotspots/c20--whale-lift-fitted.webp)
+- `fc-flip-feet` (center 130px, 216px)
+  - icon: ![Flip](assets/actions/flip.svg)
+  - hitbox: (center 130px, 216px) (size 236px, 248px)
 
 **Items**
-- `whale-skin` Skin
-  - icon: ![Cut translucent paper skin](assets/items/whale-skin.webp)
+- `fc-skid-a` Landing skid
+  - icon: ![Landing skid](assets/items/fc-skid-a.webp)
 
-  Light blue panels with two stiffened fins already attached and an opening over the service bay. The fin rods and panel tabs clip directly to the ribs. The fins give the whale its silhouette; they make no lift. A prepared cable grommet beside the service opening lets the two insulated ground leads leave without catching in the closed hatch.
-- `whale-hatch` Hatch
-  - icon: ![Hinged service hatch](assets/items/whale-hatch.webp)
+  {A long tan bar joined to two short green uprights with flat green ends.}
 
-  A light surround with its hinged paper door, rib brackets and latch already attached. It opens over the controller and counterweight; the outside stop guide fits beside it.
-- `whale-module-mount` Extension struts
-  - icon: ![Four lift-extension struts](assets/items/whale-module-mount.webp)
+  ---
 
-  Four complete extension struts are supplied; one is shown. Each extension strut has a locking sleeve and captive cross-pins. With the complete lift module supported and disconnected, fit them between its original short supports and lower frame. Move the same counterweight to the marked rear tray slot; Jo keeps the module supported while you work.
-- `whale-stop-extension` Stop button
-  - icon: ![Outside stop button and pushrod](assets/items/whale-stop-extension.webp)
+  One connected landing skid with two upright legs and captive deck bolts.
+- `fc-skid-b` Landing skid
+  - icon: ![Landing skid](assets/items/fc-skid-b.webp)
 
-  A red exterior button joined to its pushrod. Slide the rod through the fitted guide to meet the lift module’s stop switch.
-- `whale-harness-extension` Harness extension
-  - icon: ![Lift-module harness extension](assets/items/whale-harness-extension.webp)
+  {A long tan bar joined to two short green uprights with flat green ends.}
 
-  A measured insulated lead with two inline connectors. It bridges the gap between the original controller lead and tile lead without stretching either. Keep the battery disconnected while fitting it.
-- `whale-forks` Fork saddles
-  - icon: ![Paired supporting forks](assets/items/whale-forks.webp)
+  ---
 
-  One complete fork represents the pair. Two rigid U-shaped fork saddles, each with two legs and a crosshead. The crossheads bear against the whale’s upper spar while their feet receive the lift cradle.
-- `whale-retaining-straps` Retaining straps
-  - icon: ![Module retaining straps](assets/items/whale-retaining-straps.webp)
+  A second landing skid. Their feet reach below the batteries and trim weight.
+- `fc-rail` Weight rail
+  - icon: ![Weight rail](assets/items/fc-rail.webp)
 
-  One strap represents the pair. Two prepared retaining straps, each one continuous piece. They retain the original upper cradle against the fork saddles after the module is seated.
-- `whale-stop-guide` Button guide
-  - icon: ![Stop-button guide bracket](assets/items/whale-stop-guide.webp)
+  {A long green channel with an upright fitting at each end and a small red end piece.}
 
-  A pushrod guide with its support flange and rib bracket. It mounts beside the hatch, keeping the button’s pushrod lined up with the module’s stop switch.
-- `lift-extended` Lift module
-  - icon: ![Lift module with extended supports](assets/items/lift-extended.webp)
+  ---
 
-  The original supports keep their lengths; the four extra struts bridge the gap to the lower frame. The same battery and counterweight remain on the lower tray, with the counterweight in its marked rear slot. The short electrical leads now need their extension.
-- `lift-reconnected` Lift module
-  - icon: ![Extended lift module with connected harness](assets/items/lift-reconnected.webp)
+  One slotted rail with integral mounting ears, closed travel ends and a wide keyhole entry near the right end. The weight shoe enters through that opening from below.
+- `fc-weight` Counterweight
+  - icon: ![Counterweight](assets/items/fc-weight.webp)
 
-  The added lead joins both original connectors without pulling on either. The complete module remains supported and disconnected while Jo helps fit it beneath the fork saddles.
-- `whale-lift-resting` Whale
-  - icon: ![Lift module seated beneath the whale forks](assets/items/whale-lift-resting.webp)
+  {A black rectangular block with a cream top and a raised green fitting.}
 
-  The tile cradle meets the forks beneath the upper spar; the battery and counterweight hang low. Jo keeps the assembly supported while you fit the retaining straps.
-- `whale-stop-guided` Whale
-  - icon: ![Whale with stop-button guide](assets/items/whale-stop-guided.webp)
-- `whale-skinned` Whale
-  - icon: ![Paper-skinned whale](assets/items/whale-skinned.webp)
+  ---
 
-  The blue panels bow into a belly. Light shines through the two fins. A frame for carrying things has become a whale.
+  A single sliding weight with a captive shoe, vertical clamp screw and washer. Raise the shoe through the wide rail entry, slide into the narrow track, then tighten the screw to clamp the rail between shoe and pad.
+- `fc-guard` Guard
+  - icon: ![Guard](assets/items/fc-guard.webp)
 
-  “It looks as if it is waiting for the sea,” says Jo. You point upward.
-- `whale-hatched` Whale
-  - icon: ![Whale with service hatch](assets/items/whale-hatched.webp)
+  {A long grey translucent cover with an open lower edge and green feet at its ends.}
 
-  The hatch opens over the controller and counterweight. Closing it finishes the shape without sealing away the things you will need to adjust.
-- `whale-mounted` Whale frame
-  - icon: ![Whale with supporting forks](assets/items/whale-mounted.webp)
+  ---
 
-  The two fork crossheads bear against the upper spar. Jo supports them while the prepared lift cradle is seated beneath their feet.
-- `whale-lift-inside` Whale
-  - icon: ![Whale carrying lift module](assets/items/whale-lift-inside.webp)
-- `whale-lift-fitted` Whale
-  - icon: ![Whale with outside stop button](assets/items/whale-lift-fitted.webp)
+  One hollow clear hood, open underneath and at the rear. Lower it over the drive, then tighten the captive screws on its exposed side feet. It encloses the belt and hand grip without covering the lens.
+- `fc-whale-under` Whale
+  - icon: ![Whale](assets/items/fc-whale-under.webp)
 
-  The violet tile is secured beneath the upper spar, above the fair deck. Its battery and counterweight sit low in the service bay, so the whale's weight hangs below the lift. A pushrod links the red exterior button to the module's stop switch.
+  {The whale-shaped construction is upside down. Black boxes and thin leads are visible on the upward-facing tan board; the purple square is below.}
+- `fc-one-skid-a` Whale
+  - icon: ![Whale](assets/items/fc-one-skid-a.webp)
 
-**Hotspots**
-- `whale-lift-inside` (center 390px, 500px)
-  - icon: ![Whale carrying lift module](assets/hotspots/c20--whale-lift-inside.webp)
+  {On the upside-down construction, a long tan bar stands on two short green supports along the far side of the board.}
+- `fc-one-skid-b` Whale
+  - icon: ![Whale](assets/items/fc-one-skid-b.webp)
+
+  {On the upside-down construction, a long tan bar stands on two short green supports along the near side of the board.}
+- `fc-skids` Whale
+  - icon: ![Whale](assets/items/fc-skids.webp)
+
+  {Two long tan bars stand on green supports along opposite sides of the upward-facing board.}
+- `fc-railed` Whale
+  - icon: ![Whale](assets/items/fc-railed.webp)
+
+  {A long green channel crosses the upward-facing board between the two raised tan bars.}
+- `fc-weighted` Whale
+  - icon: ![Whale](assets/items/fc-weighted.webp)
+
+  {A small dark block with a red round fitting sits on the green channel between the raised tan bars.}
+- `fc-standing` Whale
+  - icon: ![Whale](assets/items/fc-standing.webp)
+
+  {The whale-shaped construction stands upright on two tan bars. The purple square is above the tan box, wheels and belt.}
+- `flying-whale` Whale
+  - icon: ![Whale](assets/items/flying-whale.webp)
+
+  {A grey translucent cover encloses the front wheels and belt. The green-sided machine has a red fin and forked tail, tan skids and a purple square above.}
+
+  ---
+
+  The real projector, motor, belt, batteries, arches and counterweight retain their ordinary jobs. Only the violet lift tile is fictional. The exposed rail lets the weight move opposite a heavier end while the machine is supported and disconnected. This is a dimensioned story model, not a manufactured flying toy.
+- `fc-flip-feet` Flip
 
 **Combinations**
-- `whale-module-mount` [consume] + `balanced-lift` [transform] -> `lift-extended`
-- `whale-harness-extension` [consume] + `lift-extended` [transform] -> `lift-reconnected`
-- `whale-forks` [consume] @ `whale-braced-frame` [transform] -> `whale-mounted`
-- `lift-reconnected` [consume] @ `whale-mounted` [transform] -> `whale-lift-resting`
-- `whale-retaining-straps` [consume] @ `whale-lift-resting` [transform] -> `whale-lift-inside`
-- `whale-skin` [consume] @ `whale-lift-inside` [transform] -> `whale-skinned`
-- `whale-hatch` [consume] @ `whale-skinned` [transform] -> `whale-hatched`
-- `whale-stop-guide` [consume] @ `whale-hatched` [transform] -> `whale-stop-guided`
-- `whale-stop-extension` [consume] @ `whale-stop-guided` [transform] -> `whale-lift-fitted`
-
-## `c21` The dragon gets a ticket
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Working fair whale](assets/items/whale-running-fair.webp)
-
-The dragon fits the front deck. It has been practising its wave all afternoon.
-
-The star theatre will ride behind it. Every ordinary part still has a job; the strange tile only holds the whole thing up.
-
-**Goals**
-- Fit the dragon bracket to the deck -- `whale-dragon-seat`
-- next: Secure the crank dragon on the dragon bracket -- `whale-dragon-aboard`
-- next: Fit the projector bracket to the deck -- `whale-theatre-seat`
-- next: Secure the projector on the projector bracket -- `whale-theatre-aboard`
-- next: Fit the switch dock beneath the deck -- `whale-switch-docked`
-- next: Fit the accessory supply and connect the projector’s lamp -- `whale-loaded`
-
-**Hotspots**
-- `whale-lift-fitted` (center 390px, 500px)
-  - icon: ![Whale with outside stop button](assets/hotspots/c21--whale-lift-fitted.webp)
-- `whale-dragon-seat` (center 390px, 500px)
-  - icon: ![Whale with dragon mount](assets/hotspots/c21--whale-dragon-seat.webp)
-- `whale-dragon-aboard` (center 390px, 500px)
-  - icon: ![Whale with dragon aboard](assets/hotspots/c21--whale-dragon-aboard.webp)
-- `whale-theatre-seat` (center 390px, 500px)
-  - icon: ![Whale with theatre mount](assets/hotspots/c21--whale-theatre-seat.webp)
-- `whale-theatre-aboard` (center 390px, 500px)
-  - icon: ![Whale with both attractions](assets/hotspots/c21--whale-theatre-aboard.webp)
-- `whale-switch-docked` (center 390px, 500px)
-  - icon: ![Whale with an accessory-switch dock](assets/hotspots/c21--whale-switch-docked.webp)
-- `whale-loaded` (center 390px, 500px)
-  - icon: ![Loaded fair whale](assets/hotspots/c21--whale-loaded.webp)
-
-**Items**
-- `fair-dragon-bracket` Dragon bracket
-  - icon: ![Dragon mounting sections](assets/items/fair-dragon-bracket.webp)
-
-  Four shaped mounting sections with four captive pins form two matching pairs. One long section is shown. The long and short sections leave room for the crosspiece; their cable clips leave the flat-sided crank fitting clear.
-- `fair-theatre-bracket` Projector bracket
-  - icon: ![Theatre mounting spreaders](assets/items/fair-theatre-bracket.webp)
-
-  Two matching mounting spreaders are supplied; one is shown. Their captive locking pins and cable clips hold the theatre level, with its spindle parallel to the motor shaft. Aim by placing the screen across the light path.
-- `fair-switch-dock` Switch dock
-  - icon: ![Accessory-switch parking dock](assets/items/fair-switch-dock.webp)
-
-  A small teal parking plate on a short support arm. It mounts under the deck to hold the wired accessory switch.
-- `fair-power-divider` Accessory supply
-  - icon: ![Fused accessory supply](assets/items/fair-power-divider.webp)
-
-  A separate compatible battery pack with two fused, switched low-voltage outlets and matching lamp and motor connectors. With both supplies off, disconnect and remove the theatre’s old battery before connecting its lamp here. Its shelf and straps hold the new pack, and its clipped lamp cable passes through the prepared deck and theatre-floor openings. The lift tile keeps its own supply.
-- `whale-dragon-seat` Whale
-  - icon: ![Whale with dragon mount](assets/items/whale-dragon-seat.webp)
-- `whale-dragon-aboard` Whale
-  - icon: ![Whale with dragon aboard](assets/items/whale-dragon-aboard.webp)
-
-  The same mounting holes from the little bench toy fit the deck bracket. Its follower, both pivoting links and the spare cam all come aboard with it. Jo checks that the wings can still complete their sweep.
-- `whale-theatre-seat` Whale
-  - icon: ![Whale with theatre mount](assets/items/whale-theatre-seat.webp)
-- `whale-theatre-aboard` Whale
-  - icon: ![Whale with both attractions](assets/items/whale-theatre-aboard.webp)
-
-  The projector sits behind the dragon, with its lens pointing clear of the wings. The two attractions need their own space to work, not just enough space to fit. With both supplies off, Jo opens the service hatch. Keep it open while you fit the parking dock and connect the accessory supply underneath the deck.
-- `whale-switch-docked` Whale
-  - icon: ![Whale with an accessory-switch dock](assets/items/whale-switch-docked.webp)
-- `whale-loaded` Whale
-  - icon: ![Loaded fair whale](assets/items/whale-loaded.webp)
-
-  The dragon's crank fitting and the theatre's spindle still turn freely. Their hand handles are parked in the workshop. The bracket clips hold wires away from both; a motor will need an actual connection to each shaft.
-
-**Hotspots**
-**Combinations**
-- `fair-dragon-bracket` [consume] @ `whale-lift-fitted` [transform] -> `whale-dragon-seat`
-- `crank-dragon` [consume] @ `whale-dragon-seat` [transform] -> `whale-dragon-aboard`
-- `fair-theatre-bracket` [consume] @ `whale-dragon-aboard` [transform] -> `whale-theatre-seat`
-- `shadow-theatre` [consume] @ `whale-theatre-seat` [transform] -> `whale-theatre-aboard`
-- `fair-switch-dock` [consume] @ `whale-theatre-aboard` [transform] -> `whale-switch-docked`
-- `fair-power-divider` [consume] @ `whale-switch-docked` [transform] -> `whale-loaded`
-
-## `c22` Who turns the handles?
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Working fair whale](assets/items/whale-running-fair.webp)
-
-Jo closes the service hatch. You hold up a hand underneath the whale.
-
-“Excellent,” says Jo. “Now imagine it another metre higher.”
-
-The handles need a slow motor. The dragon and the stars want different speeds.
-
-**Goals**
-- Mount the drive motor -- `whale-motor-fitted`
-- next: Fit the crank coupler between the motor and dragon -- `whale-dragon-driven`
-- next: Fit the reduction drive for the projector -- `whale-theatre-driven`
-- next: Fit the drive guard -- `whale-drive-guarded`
-- next: Use the accessory switch to run the attractions -- `whale-running-fair`
-
-**Hotspots**
-- `whale-loaded` (center 390px, 500px)
-  - icon: ![Loaded fair whale](assets/hotspots/c22--whale-loaded.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-motor-fitted` (center 390px, 500px)
-  - icon: ![Whale with accessory motor](assets/hotspots/c22--whale-motor-fitted.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-dragon-driven` (center 390px, 500px)
-  - icon: ![Motor-driven dragon whale](assets/hotspots/c22--whale-dragon-driven.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-theatre-driven` (center 390px, 500px)
-  - icon: ![Whale with slower star wheel](assets/hotspots/c22--whale-theatre-driven.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-- `whale-drive-guarded` (center 390px, 500px)
-  - icon: ![Guarded fair drive](assets/hotspots/c22--whale-drive-guarded.webp)
-  - hitbox: (center 390.000px, 500.264px) (size 518.138px, 384.782px)
-
-**Items**
-- `fair-mounted-motor` Drive motor
-  - icon: ![Clutched motor assembly](assets/items/fair-mounted-motor.webp)
-
-  A slow gearmotor in a bracket, with a slip clutch and an extended keyed output. The small belt pulley fits behind the flexible dragon coupler on the same shaft. The prepared saddle has an open channel for its attached lead: lower the motor and lead into place together. Its plug matches the accessory supply; connect with both switches off.
-- `fair-dragon-coupler` Crank coupler
-  - icon: ![Flexible crank coupler](assets/items/fair-dragon-coupler.webp)
-
-  A short flexible coupling with flat pressure shoes and captive clamp screws at both ends. Tightened against the shaft flats, the shoes carry the turning force and hold the coupling in place. Release the screws to draw the shoes clear and slide the coupling along the round shaft.
-- `fair-reduction` Reduction drive
-  - icon: ![Reducing belt-drive set](assets/items/fair-reduction.webp)
-
-  A small pulley for the motor shaft, a larger pulley for the theatre spindle, and their matching soft belt. With power off, release both coupling shoes, slide the coupler off the motor shaft and park it farther along the dragon’s shaft. Fit the small keyed pulley and tighten its retaining screw, then restore the coupler and tighten both shoes. The large flat-sided pulley, spacers and cross-pin replace the theatre handwheel. The mounted shafts stay parallel; the larger pulley turns more slowly.
-- `fair-guard` Drive guard
-  - icon: ![Clear drive cover](assets/items/fair-guard.webp)
-
-  A prepared clear hood with open rear channels for the ribs, braces and supports, two deck lugs, and guided captive screws. With power off, draw both screws back to their stops. Slide the hood rearward until its guide tubes seat against the deck lugs, then tighten the screws. The hood encloses the belt and turning shafts while fitting around the stationary motor case.
-- `fair-accessory-switch` Accessory switch
-  - icon: ![Wired accessory master switch](assets/items/fair-accessory-switch.webp)
-
-  A removable low-voltage wired switch with a matching plug. It docks below the deck for the bench test, then plugs into the garden panel’s extension lead. It controls only the accessory supply.
-- `whale-motor-fitted` Whale
-  - icon: ![Whale with accessory motor](assets/items/whale-motor-fitted.webp)
-- `whale-dragon-driven` Whale
-  - icon: ![Motor-driven dragon whale](assets/items/whale-dragon-driven.webp)
-- `whale-theatre-driven` Whale
-  - icon: ![Whale with slower star wheel](assets/items/whale-theatre-driven.webp)
-
-  The small pulley pulls the belt past the large pulley. The large pulley takes longer to go round, so the stars drift while the dragon waves briskly.
-- `whale-drive-guarded` Whale
-  - icon: ![Guarded fair drive](assets/items/whale-drive-guarded.webp)
-- `whale-running-fair` Whale
-  - icon: ![Working fair whale](assets/items/whale-running-fair.webp)
-
-  One switch: the dragon gives two wing-waves per turn, and stars crawl over the workshop wall. The clutch slips gently if you hold the dragon still. You switch everything off before the lifting test.
-
-**Combinations**
-- `fair-mounted-motor` [consume] @ `whale-loaded` [transform] -> `whale-motor-fitted`
-- `fair-dragon-coupler` [consume] @ `whale-motor-fitted` [transform] -> `whale-dragon-driven`
-- `fair-reduction` [consume] @ `whale-dragon-driven` [transform] -> `whale-theatre-driven`
-- `fair-guard` [consume] @ `whale-theatre-driven` [transform] -> `whale-drive-guarded`
-- `fair-accessory-switch` [preserve] @ `whale-drive-guarded` [transform] -> `whale-running-fair`
-
-**Items**
-## `c23` The first flight is ten centimetres
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Tethered flying fair](assets/items/whale-garden-ready.webp)
-
-The whale is complete enough to be dangerous to its own paper nose. So its first flight will stay within ten centimetres of a padded landing cradle.
-
-The two attractions have moved the weight. The balance that worked for an empty tray will not do.
-
-**Goals**
-- Clip on the test tether -- `whale-short-tethered`
-- next: Set the whale in the landing cradle -- `whale-ready-low`
-- next: Connect the lift lead for a low test -- `whale-nose-down`
-- next: Land and adjust the counterweight with the counterweight handle -- `whale-trimmed`
-- next: Use the bubble level to test a level hover -- `whale-hovering-low`
-- next: Land, fit the stop cord’s lever, then hover and pull the cord -- `whale-low-tested`
-
-**Hotspots**
-- `whale-running-fair` (center 390px, 480px)
-  - icon: ![Working fair whale](assets/hotspots/c23--whale-running-fair.webp)
-- `whale-short-tethered` (center 390px, 480px)
-  - icon: ![Whale on low tether](assets/hotspots/c23--whale-short-tethered.webp)
-- `whale-ready-low` (center 390px, 480px)
-  - icon: ![Whale resting in its cradle](assets/hotspots/c23--whale-ready-low.webp)
-- `whale-nose-down` (center 390px, 480px)
-  - icon: ![Nose-heavy hovering whale](assets/hotspots/c23--whale-nose-down.webp)
-- `whale-trimmed` (center 390px, 480px)
-  - icon: ![Rebalanced fair whale](assets/hotspots/c23--whale-trimmed.webp)
-- `whale-hovering-low` (center 390px, 480px)
-  - icon: ![Level low-hovering whale](assets/hotspots/c23--whale-hovering-low.webp)
-
-**Items**
-- `flight-short-tether` Test tether
-  - icon: ![Low test tether](assets/items/flight-short-tether.webp)
-
-  A short line with a frame clip and weighted anchor, limiting this first lift to ten centimetres.
-- `flight-mat` Landing cradle
-  - icon: ![Padded landing cradle](assets/items/flight-mat.webp)
-
-  A broad padded tray with two crossbars, thick felt where the keel rests and side braces that splay out clear of the hull. The tray catches the short emergency-stop test.
-- `flight-control-lead` Lift lead
-  - icon: ![Long lift-control lead](assets/items/flight-control-lead.webp)
-
-  Jo lays its spare length in a broad loose loop on the ground, clear of the landing cradle. The same lead will reach the whale at full height.
-- `flight-trim-handle` Counterweight handle
-  - icon: ![Counterweight adjustment handle](assets/items/flight-trim-handle.webp)
-
-  First lower the whale into its cradle, turn the lift control to zero and disconnect the battery. Then open the hatch to reach the counterweight. Fit the handle, make the loaded whale’s adjustment, then withdraw it before closing the hatch. For the full tray adjustment or a change between its slots, remove the handle and move the weight by hand with the supported module outside the skin.
-- `flight-level` Bubble level
-  - icon: ![Bubble level](assets/items/flight-level.webp)
-- `flight-stop-cord` Stop cord
-  - icon: ![Stop cord with pivoted lever](assets/items/flight-stop-cord.webp)
-
-  A bracket and right-angle lever fit beside the exterior stop button. Pulling the cord turns the lever and presses the button. A return spring brings the lever back when released.
-- `whale-short-tethered` Whale
-  - icon: ![Whale on low tether](assets/items/whale-short-tethered.webp)
-- `whale-ready-low` Whale
-  - icon: ![Whale resting in its cradle](assets/items/whale-ready-low.webp)
-
-  The keel settles into the felt-lined cradle while the fins and tail stay clear. Even an impossible flying machine needs somewhere ordinary to land.
-- `whale-nose-down` Whale
-  - icon: ![Nose-heavy hovering whale](assets/items/whale-nose-down.webp)
-
-  Just clear of the cradle, the dragon end dips. The lift works, but the fair's weight is uneven. Jo steadies the line while you reach for the dial.
-- `whale-trimmed` Whale
-  - icon: ![Rebalanced fair whale](assets/items/whale-trimmed.webp)
-
-  Back in the cradle, with the power off, you use the handle to slide the counterweight away from the dragon end. Jo watches through the open hatch. “Let’s ask it again.”
-- `whale-hovering-low` Whale
-  - icon: ![Level low-hovering whale](assets/items/whale-hovering-low.webp)
-
-  Handle out; hatch shut. You reconnect the battery and raise the current. The bubble sits between its marks. The whale lifts evenly, its short tether taut. The ordinary counterweight has solved a problem the extraordinary tile could not.
-- `whale-low-tested` Whale
-  - icon: ![Low-tested whale](assets/items/whale-low-tested.webp)
-
-  You lower the whale into the cradle, set the controller to zero and disconnect the battery. With Jo supporting the hull, you fit the stop-cord bracket beside the exterior button and check that its pivoted lever presses it freely. You reconnect the battery and repeat the low hover above the cradle. Pulling the cord presses the exterior stop button and cuts lift immediately. The whale drops the short test distance into the padded cradle. This emergency stop is different from a landing: to land gently, you turn the current down gradually. With the controller at zero and the battery disconnected, you reset the latched stop for the next flight.
-
-**Combinations**
-- `flight-short-tether` [consume] @ `whale-running-fair` [transform] -> `whale-short-tethered`
-- `flight-mat` [consume] @ `whale-short-tethered` [transform] -> `whale-ready-low`
-- `flight-control-lead` [consume] @ `whale-ready-low` [transform] -> `whale-nose-down`
-- `flight-trim-handle` [preserve] @ `whale-nose-down` [transform] -> `whale-trimmed`
-- `flight-level` [preserve] @ `whale-trimmed` [transform] -> `whale-hovering-low`
-- `flight-stop-cord` [consume] @ `whale-hovering-low` [transform] -> `whale-low-tested`
-
-## `c24` A place to come home
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Tethered flying fair](assets/items/whale-garden-ready.webp)
-
-The garden has a tree, a fence and a great many places where you do not want a paper whale.
-
-You choose the clear patch beside the cloth screen. Three separate tether lines will limit height and stop the whale turning away from its audience. Jo will handle the lines while you lower it into its cradle.
-
-**Goals**
-- Fit the garden tethers -- `whale-garden-tethered`
-- next: Set the screen stand in the projector’s light path -- `whale-aimed`
-- next: Connect the control panel -- `whale-garden-ready`
-
-**Hotspots**
-- `whale-low-tested` (center 390px, 480px)
-  - icon: ![Low-tested whale](assets/hotspots/c24--whale-low-tested.webp)
-- `whale-garden-tethered` (center 390px, 480px)
-  - icon: ![Whale on garden tether](assets/hotspots/c24--whale-garden-tethered.webp)
-- `whale-aimed` (center 390px, 480px)
-  - icon: ![Whale aimed at garden screen](assets/hotspots/c24--whale-aimed.webp)
-
-**Items**
-- `flight-long-tether` Garden tethers
-  - icon: ![Three-line garden tether rig](assets/items/flight-long-tether.webp)
-
-  Three complete tether units are supplied; one is shown. Each measured line joins a weighted ground anchor to a frame clip. Replace the short test line with all three. At full height they are taut: they limit drift and turning as well as height, and stay below the branches.
-- `flight-screen-stand` Screen stand
-  - icon: ![Adjustable garden-screen stand](assets/items/flight-screen-stand.webp)
-
-  A broad-footed stand for the existing cloth screen. Its telescoping posts and captive clips let you place the cloth squarely across the projector’s sideways light path without tilting the belt-driven theatre.
-- `flight-rehearsal-remote` Control panel
-  - icon: ![Tether-side control panel](assets/items/flight-rehearsal-remote.webp)
-
-  The panel includes a long low-voltage accessory extension lead and a socket for the same wired accessory master switch, plus the lift-control connection. The two supplies remain electrically separate. Jo lays the two leads and the separate stop cord in their own loose loops, leaving enough length for the rise and keeping the controls within reach.
-- `whale-garden-tethered` Whale
-  - icon: ![Whale on garden tether](assets/items/whale-garden-tethered.webp)
-
-  Three separate lines run from the frame to broad weighted anchors around the landing place. They limit both its height and its wanderings; none crosses the projector’s light path. You leave the whale resting in its cradle while fitting the screen.
-- `whale-aimed` Whale
-  - icon: ![Whale aimed at garden screen](assets/items/whale-aimed.webp)
-
-  You fit the cloth to its stand beside the clear flight space. Jo measures the projector’s height at full tether length, and you raise the screen to meet it. The theatre stays level with its motor, so the belt remains straight.
-- `whale-garden-ready` Whale
-  - icon: ![Garden-ready flying fair](assets/items/whale-garden-ready.webp)
-
-  With the whale still in its cradle, you find the lift dial with one hand and the accessory switch with the other. The separate red stop cord stays within reach. You check the three lines and the clear path to the cloth. Jo takes the handling lines. The complete airborne show can wait until the guests are here.
-
-**Combinations**
-- `flight-long-tether` [consume] @ `whale-low-tested` [transform] -> `whale-garden-tethered`
-- `flight-screen-stand` [consume] @ `whale-garden-tethered` [transform] -> `whale-aimed`
-- `flight-rehearsal-remote` [consume] @ `whale-aimed` [transform] -> `whale-garden-ready`
-
-## `c25` Can I have a go?
-background: ![White instruction page](assets/backgrounds/white.svg)
-reference: ![Tethered flying fair](assets/items/whale-garden-ready.webp)
-
-The gate clicks. Kit has brought biscuits and the very serious cardboard hat.
-
-Kit takes the promised first turn with the wind racer, then uses the crab grabber to fetch a sponge pear. “This is exactly the ridiculous game I wanted.”
-
-The pinball marble clicks past its arches. Somebody looks through the periscope; somebody else is still turning the kaleidoscope. A paper rider dances on the wave machine. Fish leap round and round inside the animation drum.
-
-“One last invitation,” you tell the rover. Jo stands at the whale's control panel, trying to look as if this happens every Saturday.
-
-**Goals**
-- Have the rover draw on the banner -- `fair-written-banner`
-- next: Hang the banner on the landing cradle -- `fair-bannered`
-- next: Use the accessory switch to start the dragon and projector -- `fair-whale-alight`
-- next: Use the lift key and open the flying fair -- `fair-in-the-air`
-
-**Hotspots**
-- `whale-garden-ready` (center 390px, 480px)
-  - icon: ![Garden-ready flying fair](assets/hotspots/c25--whale-garden-ready.webp)
-- `fair-bannered` (center 390px, 480px)
-  - icon: ![Whale with welcome banner](assets/hotspots/c25--fair-bannered.webp)
-- `fair-whale-alight` (center 390px, 480px)
-  - icon: ![Whale with its attractions running](assets/hotspots/c25--fair-whale-alight.webp)
-- `fair-in-the-air` (center 390px, 480px)
-  - icon: ![A fair in the air](assets/hotspots/c25--fair-in-the-air.webp)
-
-**Items**
-- `fair-bannered` Whale
-  - icon: ![Whale with welcome banner](assets/items/fair-bannered.webp)
-
-  You hang the banner along the front of the grounded cradle, clear of the fins and tether lines. The two controls are ready beside it.
-- `fair-rover-paper` Banner
-  - icon: ![Long welcome banner](assets/items/fair-rover-paper.webp)
-- `fair-written-banner` Banner
-  - icon: ![Rover-drawn welcome banner](assets/items/fair-written-banner.webp)
-
-  The rover makes the border in glorious loops. You write WELCOME in the middle. Kit adds a whale with a cardboard hat.
-- `fair-start-key` Lift key
-  - icon: ![Lift-control key](assets/items/fair-start-key.webp)
-
-  The removable key enables the ground controller. Turn its dial up gradually; the separate red stop cord remains reachable.
-- `fair-whale-alight` Whale
-  - icon: ![Whale with its attractions running](assets/items/fair-whale-alight.webp)
-
-  You turn on the accessory supply. The dragon waves; the star disc turns inside its lamp-lit box. Now for the part of Jo's drawing that never worked.
-- `fair-in-the-air` Flying fair
-  - icon: ![A fair in the air](assets/items/fair-in-the-air.webp)
-
-  ![A fair in the air in the garden](assets/rewards/fair-in-the-air.webp)
-
-  The whale lifts clear of its cradle. Stars climb onto the waiting cloth. Its three tethers tighten. The little dragon waves above the garden, beneath a sky it has brought along itself.
-
-  Kit looks up. Then at the control panel.
-
-  “Can I have a go?”
-
-  You make room beside you. “Start with the dragon.” Jo is laughing, looking from the whale to her old drawing and back again. “Mine never got off the paper.”
-
-**Combinations**
-- `drawing-rover` [preserve] + `fair-rover-paper` [transform] -> `fair-written-banner`
-- `fair-written-banner` [consume] @ `whale-garden-ready` [transform] -> `fair-bannered`
-- `fair-accessory-switch` [preserve] @ `fair-bannered` [transform] -> `fair-whale-alight`
-- `fair-start-key` [preserve] @ `fair-whale-alight` [transform] -> `fair-in-the-air`
-
-## `c26` Yours to make
+- `fc-whale` [transform] @ `fc-flip-feet` -> `fc-whale-under`
+- `fc-skid-a` [consume] + `fc-whale-under` [transform] -> `fc-one-skid-a`
+- `fc-skid-b` [consume] + `fc-one-skid-a` [transform] -> `fc-skids`
+- `fc-skid-b` [consume] + `fc-whale-under` [transform] -> `fc-one-skid-b`
+- `fc-skid-a` [consume] + `fc-one-skid-b` [transform] -> `fc-skids`
+- `fc-rail` [consume] + `fc-skids` [transform] -> `fc-railed`
+- `fc-weight` [consume] + `fc-railed` [transform] -> `fc-weighted`
+- `fc-weighted` [transform] @ `fc-flip-feet` -> `fc-standing`
+- `fc-guard` [consume] + `fc-standing` [transform] -> `flying-whale`
+
+## `c-end` The End
 background: ![White instruction page](assets/backgrounds/white.svg)
 
-The fair runs until the last biscuit disappears. Then you turn down the lift while Jo guides the lines, switch off both supplies, and leave the whale sleeping in its cradle.
-
-The rover is parked beside its very bad whale drawing. The dragon has stopped mid-wave. Inside its frame, you can still follow every link back to the cam.
-
-The lift tile belongs to this story. The other mechanisms are real ideas to explore—with suitable materials, tools and help.
-
-On the bench is an empty box. You have already started looking at it differently.
+“Can I have a go?”

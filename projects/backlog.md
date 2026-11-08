@@ -6,7 +6,7 @@ Ideas are options to test, not obligations to implement. The current engine rema
 
 | Story | Direction |
 |---|---|
-| Builder | Extend the revised opening's movable workpieces, literal repeated parts, compositional steps and vintage material palette through the remaining chapters. See the [live brief](../stories/builder/design-brief.md) and [active study](builder-study/README.md). Animation remains a separate phase; test visual construction satisfaction with children. |
+| Builder | Develop the separately requested animation/compact 3D phase when authorized, using the retained dimensioned models. Test the full revised story's visual construction satisfaction and native touch handling with children. Its claw exceeds the standard opportunity analyzer's 100-alternative bound; retain the separate exhaustive validation while assessing whether the shared analysis can cover these assembly orders efficiently. See the [live brief](../stories/builder/design-brief.md) and [active study](builder-study/README.md). |
 | Mars | Preserve the accepted solo survival/discovery arc and austere materials in the [live brief](../stories/mars/design-brief.md). Future changes belong in `stories/mars`; the study is complete, with no remaining artwork assignment. |
 | Settlement | A storybook elemental world, not literal chemistry. Keep its tangible home/craft/community arc and useful continuity. Review internal fabrication-stage consistency without expanding it into a detailed manufacturing simulation. |
 | Cookbook | Preserve the enjoyed cooking core and familiar equipment. Alternative dishes should feed a meaningful purpose. Earn the conclusion through earlier preparations and an actual meal, without forcing a branded destination. |

@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for fitting a pulley into the side fork; either numbered pulley appears suitable.",
+    "choice": 1,
+    "expectation": "I expect the pulley to fit onto the side fork’s pin, forming a pulley assembly.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other pulley appears identical, so I have no reason to prefer it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The side pulley is assembled; the next goal is to fit the remaining pulley into the drop fork.",
+    "reaction": "The wheel on its bracket is a clear physical change.",
+    "step": 2,
+    "reason": "This is the combination named by the current goal.",
+    "choice": 1,
+    "expectation": "I expect the remaining pulley to fit onto the drop fork’s pin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both pulley units are assembled; the side pulley is next to mount.",
+    "reaction": "The second fitting is clear, though it repeats the first.",
+    "step": 3,
+    "reason": "Unit #1 was made with the side fork, matching the current goal.",
+    "choice": 1,
+    "expectation": "I expect the side pulley to mount on the gantry.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The side pulley is mounted above the winch; the remaining pulley unit is next.",
+    "reaction": "Its position above the winch makes the rope route easier to picture.",
+    "step": 4,
+    "reason": "The remaining pulley unit matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the drop pulley to mount on the beam, positioned to guide the hanging cord.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both pulleys are mounted, and the next goal is to fit the pawl.",
+    "reaction": "The two pulley positions make the intended cord path clearer.",
+    "step": 5,
+    "reason": "Fitting the pawl is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the pawl to fit near the winch’s ratchet, possibly to prevent it turning backward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pawl is fitted beside the winch; the next goal is to thread the rope over the pulleys.",
+    "reaction": "Its position supports my guess that it works with the ratchet, though its function isn't shown.",
+    "step": 6,
+    "reason": "The rope combination matches the current goal and is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the cord to run over both pulleys, with the hook hanging beneath the beam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cord now runs from the winch over both pulleys to the hook; the basket is ready to hang.",
+    "reaction": "Seeing the full cord route makes the hoist's construction clearer.",
+    "step": 7,
+    "reason": "Hanging the basket is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the basket's handle to hang from the hook beneath the beam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basket is hanging from the hook, completing the gantry hoist and all chapter goals.",
+    "reaction": "The completed hanging basket is a satisfying finish to the visible cord route.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Threading the rope was most worthwhile: it connected the winch, pulleys and hook into a comprehensible hoist.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the second pulley repeated the first fitting, although both were needed for the construction.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The mounted pulley positions made the cord route easier to picture before it was threaded.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the pawl's position suggested a role with the ratchet without showing how it works.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter: seeing the separate parts become a working-looking mechanism was engaging, even though the guided choices left little to decide.",
+        "steps": [
+          3,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

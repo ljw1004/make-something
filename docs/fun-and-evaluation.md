@@ -177,7 +177,7 @@ Further provenance: [fun theory revision 9](<../archive/2026.10.30 initial exper
 
 The command-line game and AI harness use the same adventure runner over the browser's game engine. Require `--fast` or `--detailed` when starting a game or session. Fast mode retains numbered compatible combinations, fittings, useful hotspot preparations and clearing. Detailed mode exposes inspect/combine commands, with hotspot setup and cleanup internal to one command and no future outputs revealed by inspection.
 
-The text interface tests combinations and prose, not dragging, scrolling, artwork or native touch. [UX](ux.md#text-adventure-and-logical-playtesting) owns behavior; [mode selection](#choose-the-playstyle-for-the-question) owns experiment choice, and the [rubrics](#player-and-grader-rubrics) own recording and scoring.
+The text interface tests combinations and prose, not dragging, scrolling, artwork or native touch. Authored `{...}` picture descriptions can supply a verbal proxy for visible artwork. Audit them against the actual rendered pictures with a fresh reviewer before relying on them, and identify that proxy in the run guidance. They must not add hidden mechanics, future instructions or persuasive narrative. Such tests still do not measure visual recognition, spatial handling or the satisfaction of the actual artwork. [UX](ux.md#text-adventure-and-logical-playtesting) owns behavior; [mode selection](#choose-the-playstyle-for-the-question) owns experiment choice, and the [rubrics](#player-and-grader-rubrics) own recording and scoring.
 
 ### Play at the command line
 

@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for fitting a mirror to the backing.",
+    "choice": {
+      "combine": "Mirror (#1)",
+      "with": "Backing"
+    },
+    "expectation": "The first mirror should attach to the backing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first mirror is fitted, and the next goal calls for another.",
+    "reaction": "The visible progress is clear.",
+    "step": 2,
+    "reason": "The remaining mirrors match the new goal and the partly covered backing.",
+    "choice": {
+      "combine": "Mirror (#2)",
+      "with": "Mirrors"
+    },
+    "expectation": "A second mirror will fit beside the first.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two mirrors are fitted, leaving one bare panel for the last mirror.",
+    "reaction": "The remaining placement is clear.",
+    "step": 3,
+    "reason": "The goal calls for the last mirror on the partly covered backing.",
+    "choice": {
+      "combine": "Mirror (#3)",
+      "with": "Mirrors"
+    },
+    "expectation": "The last mirror will cover the remaining panel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "All three mirrors now cover the backing, ready to be folded.",
+    "reaction": "The separate fittings made the progress clear.",
+    "step": 4,
+    "reason": "The new goal explicitly calls for folding the mirrors.",
+    "choice": {
+      "combine": "Mirrors",
+      "with": "Fold"
+    },
+    "expectation": "The mirrored backing will fold into a triangular shape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mirrors are folded into a triangular tube, ready to go into the viewing tube.",
+    "reaction": "The fold makes the assembly's shape clear.",
+    "step": 5,
+    "reason": "The current goal explicitly says to slide the triangle into the viewing tube.",
+    "choice": {
+      "combine": "Mirror triangle",
+      "with": "Viewing tube"
+    },
+    "expectation": "The mirror triangle will fit inside the viewing tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mirror triangle is inside the viewing tube, and the chapter is complete.",
+    "reaction": "The visible triangular opening makes the final placement clear, though the result differs from the build reference's covered end.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Folding the fitted mirrors into a triangle was the most worthwhile step: it turned separate strips into a recognizable assembly.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated mirror fittings were predictable in the text interface, although each showed a distinct physical change.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The chapter ended after the triangle entered the tube, without showing the pale circular cover in the build reference.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt arbitrary; the goals clearly named each part and process.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see another construction, though these steps were straightforward and the text alone cannot convey the pictures or hands-on handling.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

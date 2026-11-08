@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for turning the whale over.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The carrier will turn over, exposing its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The underside is exposed, and the next goal is to fit a landing skid.",
+    "reaction": "The flip clearly shows where the underside fittings belong.",
+    "step": 2,
+    "reason": "The goal calls for a landing skid on the overturned whale.",
+    "choice": {
+      "combine": "Landing skid (#1)",
+      "with": "Whale"
+    },
+    "expectation": "One skid will attach to the underside of the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first skid is attached, and the goal now calls for the other one.",
+    "reaction": "The visible first skid makes the next fitting clear.",
+    "step": 3,
+    "reason": "The remaining landing skid belongs on the overturned whale.",
+    "choice": {
+      "combine": "Landing skid",
+      "with": "Whale"
+    },
+    "expectation": "The second skid will attach alongside the other side of the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both skids are fitted, and the next goal is to attach the weight rail.",
+    "reaction": "The two matching skids make the underside assembly clear.",
+    "step": 4,
+    "reason": "The current goal specifies fitting the weight rail to the whale.",
+    "choice": {
+      "combine": "Weight rail",
+      "with": "Whale"
+    },
+    "expectation": "The weight rail will attach to the underside of the whale.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weight rail is fitted between the skids, and the weight can now be added.",
+    "reaction": "The channel makes the next fitting understandable.",
+    "step": 5,
+    "reason": "The goal calls for fitting the counterweight through the slot in the rail.",
+    "choice": {
+      "combine": "Counterweight",
+      "with": "Whale carrier"
+    },
+    "expectation": "The counterweight will fit into the weight rail.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The counterweight is seated on the rail, and the next goal is to turn the whale upright.",
+    "reaction": "The fitted block makes the underside assembly feel complete.",
+    "step": 6,
+    "reason": "The current goal explicitly calls for flipping the whale upright.",
+    "choice": {
+      "combine": "Whale carrier",
+      "with": "Flip"
+    },
+    "expectation": "The whale will turn upright on its skids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The whale is upright on its skids, ready for the drive guard.",
+    "reaction": "The skids are now visibly supporting the construction.",
+    "step": 7,
+    "reason": "The current goal calls for fitting the guard over the drive.",
+    "choice": {
+      "combine": "Guard",
+      "with": "Whale"
+    },
+    "expectation": "The translucent guard will cover the wheels and belt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guard covers the drive, completing the whale and all chapter goals.",
+    "reaction": "Seeing the drive covered was a clear finishing step.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting both skids and turning the whale upright was worthwhile because their purpose became visible when they supported the construction.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second skid was predictable, though the separate fitting showed the physical change clearly.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The weight rail crossed between the skids, clarifying where the counterweight belonged.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the goals named each fitting and the results showed its placement.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing for another distinct construction, though this chapter's straightforward fittings alone did not leave a strong need to continue.",
+        "steps": [
+          2,
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

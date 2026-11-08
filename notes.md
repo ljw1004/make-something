@@ -1794,3 +1794,73 @@ development server remains available and private access is unchanged.
 The user reported that moving overlapping items away from goals made story restart unavailable, and chose successful combinations in the current chapter as the sole trigger for chapter restart. The reopened goals popup now follows that rule and labels the other action **Restart this story**. The [UX contract](docs/ux.md#minimal-chapter-flow) owns the adopted behavior. Saved sessions retain a combination flag across reload and live edits; legacy movement flags are ignored in favor of recorded combinations since chapter entry. Legacy edited snapshots can only infer combinations still present in their retained action history.
 
 Validation: all six chapter-session unit checks pass. The focused browser run passed 78 of 79 checks initially; the viewport reload check exposed a missing wait for its native scroll event to save. After synchronizing that check with saved scroll position, all 12 viewport checks pass. Coverage includes moving cards away from goals, later chapters, successful combinations, chapter reset, draft edits, reload, story-restart confirmation and tutorial reset. TypeScript and the production build pass with the existing root-output and bundle-size warnings. Repeat with `node --test tests/chapter-session.test.ts`, `npx playwright test tests/{browser,landing,tutorial,hotspot-tutorial,encyclopedia,drag-order,viewport,editor}.spec.ts` and `npm run build`. Temporary browser output was discarded; generated publication files accompany the source. The user requested commit and push; access settings remain unchanged.
+
+## 8 November 2026 — Builder throughout and text-only picture descriptions
+
+The user authorized extending the revised opening's construction principles through
+the entire story, with lighter green/red, an initially upright chassis, Flip then
+Fold across the opening's top row, larger process receivers and a higher pale
+reference panel. The [single brief](stories/builder/design-brief.md) owns that
+intent. The [active study](projects/builder-study/README.md) retains the ongoing
+source work; animation and a compact 3D runtime remain a separate phase.
+
+The [promoted story](stories/builder/builder.md) now has 200 construction actions,
+453 recipes for legal alternative orders, 30 playable chapters and an ending.
+Its 447 original item pictures come from shared dimensioned Blender geometry.
+The broad gantry, electric carousel, tabletop claw and compact flying lantern
+replace less suitable constructions. Explicit access turns expose every battery,
+handed panel and fin during fitting. The returning projector preserves its actual
+geometry; only the lift tile is fictional. Instruction pages stay white and
+routine result narration is absent. The selected assets occupy about 18 MB;
+obsolete runtime stages and scenes were removed.
+
+The user chose braces rather than brackets for picture descriptions. Complete
+`{...}` passages in item readings remain available to text players and are omitted
+from browser readings, badges and entry presence. Hidden-only notices are
+acknowledged through real engine dismiss actions. Escapes and Markdown literals
+stay literal; unfinished passages remain visible while editing. Board descriptions
+and reference-picture proxies expose only currently visible information. The
+[specification](docs/story-format-spec.md), [UX](docs/ux.md), authoring and evaluation
+guides own the adopted behavior and audit requirement.
+
+Fresh inexpensive image-only reviewers checked the captions against actual images,
+including carried variants; overclaims were reduced before the final playtests.
+Separate final reviewers with no inherited history accepted the complete artwork
+and scoped current-model geometry checks. The
+[full evaluation record](projects/builder-study/full-story-evaluation.md) preserves
+instructions, rejected candidates, repairs, exact coverage and limits. Physical
+checks are nominal geometry and prescribed flex, without material-force,
+manufacturing, optical-output or flight-performance claims. AI text players do not
+establish child enjoyment or native touch comfort.
+
+The final candidate is [v40](projects/builder-study/builder-v40.md), hash
+`e7ee9f6ba9df0e12811b097acf7878a9036ac8af5476e0a7e4f5c4baea055fcb`.
+The live manuscript differs only in its relative artwork paths. Source hashes,
+render-pass provenance and selected asset hashes are recorded in
+[runtime-art.json](projects/builder-study/runtime-art.json). Current construction
+sources and selected runtime art are retained; transient renders, probes, captures
+and reviewer packets are disposable.
+
+The full captioned v39 fast and detailed screens each completed all 30 playable
+chapters with fresh chapter players and independent grading. A naming inconsistency
+in the final workpiece led to v40: Frame stays Frame during turns, then becomes
+Whale when the first whale panel is fitted. Both modes reran all four affected
+chapters with new participants; all eight completed without technical interruption.
+Chapters 1–26, recipes, geometry, cameras and artwork are unchanged. Reports retain
+modest hooks and minimal deliberation, including the wish to see mechanisms
+operate; neither successful execution nor the picture descriptions prove fun.
+
+Exhaustive within-chapter verification covers 2,025 states and all 453 recipes,
+with a 200-action route to the ending and no stranded or duplicated components.
+Full browser replays passed at 390×664, 320×568 and 1280×900, plus the compiled
+production route. Standard lint reaches its existing 100-alternative opportunity
+bound in the claw, after 291 construction sets, and therefore exits with that
+analysis-limit error; no other diagnostic is returned. This limitation is retained
+explicitly, with the separate exhaustive result, rather than described as a lint
+pass. Type checking and the production build pass; existing build advisories remain.
+
+The final v40 compiled game also passed its own complete 200-action short-phone
+replay after the label correction. Regeneration matches the frozen candidate
+exactly; all 454 selected published assets and 47 current source hashes match the
+production record. Temporary static preview servers were stopped, preserving the
+existing development server.

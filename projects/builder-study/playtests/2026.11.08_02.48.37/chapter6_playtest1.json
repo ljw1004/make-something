@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for sliding the spring onto the plunger rod.",
+    "choice": {
+      "combine": "Spring",
+      "with": "Plunger rod"
+    },
+    "expectation": "The spring will fit around the plunger rod.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spring is on the rod, and the next goal is to fit the plunger tip.",
+    "reaction": "The visible coil makes the first fitting clear.",
+    "step": 2,
+    "reason": "The tip belongs on the assembled plunger, as the current goal directs.",
+    "choice": {
+      "combine": "Plunger tip",
+      "with": "Plunger"
+    },
+    "expectation": "The tip will attach to the plunger rod.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capped plunger is ready to go into the launcher cradle.",
+    "reaction": "The added cap makes the assembly's progress clear.",
+    "step": 3,
+    "reason": "The current goal explicitly directs me to lower the plunger into the cradle.",
+    "choice": {
+      "combine": "Plunger",
+      "with": "Launcher cradle"
+    },
+    "expectation": "The plunger will sit in the launcher cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plunger is seated in the cradle, making the launcher ready for its cover.",
+    "reaction": "The exposed coil and handle make the placement clear.",
+    "step": 4,
+    "reason": "The current goal calls for clipping the cover onto the launcher.",
+    "choice": {
+      "combine": "Launcher cover",
+      "with": "Launcher"
+    },
+    "expectation": "The cover will clip over the open launcher cradle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The launcher is covered and ready to fit to the table.",
+    "reaction": "The covered coil and exposed handle make the assembly clear.",
+    "step": 5,
+    "reason": "The current goal explicitly calls for fitting the launcher to the table.",
+    "choice": {
+      "combine": "Launcher",
+      "with": "Table"
+    },
+    "expectation": "The launcher will attach to the side of the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The launcher is attached beside the table’s right-hand lane, completing the chapter.",
+    "reaction": "The final placement makes the launcher’s purpose clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Lowering the plunger into the cradle was most worthwhile: it showed how the spring-loaded parts sit inside the launcher.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the plunger tip was the least engaging individual step, although its purpose was clear.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the assembly followed the stated goals.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: each fitted a named part into the developing launcher.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see the table finished; the short goals made the construction easy to follow in text.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

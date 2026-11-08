@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the projector dock to the frame.",
+    "choice": 1,
+    "expectation": "I expect the dock to attach to the frame, ready to hold the projector.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor also need assembly, but the dock matches the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dock is in place, and the next goal is to mount the projector.",
+    "reaction": "The placement is clear and matches the goal.",
+    "step": 2,
+    "reason": "The projector and frame match the new goal.",
+    "choice": 1,
+    "expectation": "I expect the projector to sit on the dock.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor can also be assembled, but mounting the projector follows the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projector is mounted, and the next goal is to fit the pulley to the motor.",
+    "reaction": "The box’s placement beneath the purple tile is clear.",
+    "step": 3,
+    "reason": "This is the only offered combination and matches the current goal.",
+    "choice": 1,
+    "expectation": "I expect the small pulley to fit onto the motor shaft.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulley is on the motor shaft; the drive motor is ready to mount.",
+    "reaction": "The shaft-and-pulley fitting is clear.",
+    "step": 4,
+    "reason": "Mounting the drive motor matches the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the drive motor to attach to the frame near the projector wheel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive motor is mounted beside the projector, ready for the belt.",
+    "reaction": "Its position makes the next connection clear.",
+    "step": 5,
+    "reason": "The only offered combination matches the goal of linking the pulleys.",
+    "choice": 1,
+    "expectation": "I expect the belt to loop around the motor pulley and projector wheel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt now links the motor and projector wheels; the next goal is to access the underside.",
+    "reaction": "The belt connection is clear.",
+    "step": 6,
+    "reason": "Flipping the frame matches the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the frame to turn over and expose its underside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The underside is exposed, and the motor supply is the next fitting.",
+    "reaction": "The flip makes the underside placement clear.",
+    "step": 7,
+    "reason": "Fitting the motor supply matches the goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the motor supply to attach underneath the board.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor supply is fitted alongside the other box; the frame now needs to be turned upright.",
+    "reaction": "The separate supplies are visible, though their connections aren't shown.",
+    "step": 8,
+    "reason": "Flipping the frame follows the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the board to return upright with the projector and drive above it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The frame is upright again, completing the chapter with the projector and belt drive in place.",
+    "reaction": "The finished assembly is clear, though I would have liked to see the drive in action.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the belt was the most worthwhile step: it visibly linked the motor to the projector wheel.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Flipping the frame back upright was necessary but less engaging than fitting the drive parts.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The separate motor supply appeared beside the existing box, although the text did not show its connections.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary; the fittings and flips followed the stated construction goals.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would be curious to see the assembled projector and lift used together, though this chapter's mostly prescribed fittings offered few meaningful choices.",
+        "steps": [
+          2,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

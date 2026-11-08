@@ -1,0 +1,186 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for folding a side of the tube net.",
+    "choice": {
+      "combine": "Tube net",
+      "with": "Fold"
+    },
+    "expectation": "The first side of the net will fold inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first fold formed a Tube, and the next goal is to fold its second side.",
+    "reaction": "The visible change makes the repeated fold clear.",
+    "step": 2,
+    "reason": "The current goal calls for another fold in the tube.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Fold"
+    },
+    "expectation": "A second side panel will fold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second fold formed a channel; the remaining long seam now needs closing.",
+    "reaction": "The description makes the next fold clear.",
+    "step": 3,
+    "reason": "The goal explicitly calls for folding the remaining seam closed.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Fold"
+    },
+    "expectation": "The long seam will close to form the tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The long seam is closed, and the tube needs turning to expose its upper opening.",
+    "reaction": "The progression from flat sheet to tube is clear.",
+    "step": 4,
+    "reason": "The current goal explicitly calls for flipping the tube.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Flip"
+    },
+    "expectation": "The tube will turn to show its upper opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The upper opening is now exposed, ready for the upper mirror.",
+    "reaction": "The flip makes the fitting location clear.",
+    "step": 5,
+    "reason": "The goal identifies the upper mirror as the next part to fit into the tube.",
+    "choice": {
+      "combine": "Upper mirror",
+      "with": "Tube"
+    },
+    "expectation": "The upper mirror will fit into the tube's upper opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The upper mirror is fitted inside the opening, and the top flap is ready to close.",
+    "reaction": "The angled edge makes the mirror placement visible.",
+    "step": 6,
+    "reason": "The goal calls for folding the top closed.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Fold"
+    },
+    "expectation": "The top flap will fold shut over the upper mirror.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The top flap is closed, and the upper opening is ready for its shade.",
+    "reaction": "The sequence of fitting the mirror and closing the flap is clear.",
+    "step": 7,
+    "reason": "The current goal names the Top shade as the next fitting for the tube.",
+    "choice": {
+      "combine": "Top shade",
+      "with": "Tube"
+    },
+    "expectation": "The black shade will fit around the upper opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The top shade now rims the upper opening, and the next goal is to expose the lower opening.",
+    "reaction": "The rim makes the upper fitting easy to picture.",
+    "step": 8,
+    "reason": "The current goal calls for flipping the tube to the lower opening.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Flip"
+    },
+    "expectation": "The tube will turn to show its lower opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower opening is exposed, ready for its mirror.",
+    "reaction": "The hanging flap makes the next fitting easy to picture.",
+    "step": 9,
+    "reason": "The goal identifies the lower mirror as the next part to fit.",
+    "choice": {
+      "combine": "Lower mirror",
+      "with": "Tube"
+    },
+    "expectation": "The lower mirror will fit inside the tube's lower opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower mirror is fitted, and the bottom flap remains open.",
+    "reaction": "The visible angled plate makes the placement clear.",
+    "step": 10,
+    "reason": "The current goal calls for closing the bottom flap.",
+    "choice": {
+      "combine": "Tube",
+      "with": "Fold"
+    },
+    "expectation": "The bottom flap will fold closed around the lower mirror.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bottom flap is closed, leaving the eye shade to fit around the lower opening.",
+    "reaction": "The lower assembly mirrors the clear sequence at the top.",
+    "step": 11,
+    "reason": "The current goal names the Eye shade as the next fitting.",
+    "choice": {
+      "combine": "Eye shade",
+      "with": "Tube"
+    },
+    "expectation": "The eye shade will fit around the lower opening.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye shade completed the lower opening and finished the periscope.",
+    "reaction": "It was satisfying to see the separate folds and fittings become a recognizable periscope.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the two angled mirrors was the most worthwhile part: their placement made the periscope's construction easier to understand.",
+        "steps": [
+          5,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated closing folds were clear but felt somewhat repetitive in the text interface.",
+        "steps": [
+          6,
+          10
+        ]
+      },
+      "surprise": {
+        "text": "The flat net became a recognizable tube through three distinct folds, with each description showing its progress.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the goals identified each part or process and the descriptions showed the changes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would try another chapter for the clear, incremental construction, though this text-only experience cannot tell me how satisfying the pictures or physical handling would be.",
+        "steps": [
+          1,
+          5,
+          9,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

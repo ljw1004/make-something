@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for cutting the marked slits in the drum wall.",
+    "choice": {
+      "combine": "Drum wall",
+      "with": "Cut"
+    },
+    "expectation": "The marked viewing slits will be cut into the wall.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The slits are cut, and the next goal is to roll the wall.",
+    "reaction": "The joined lower band makes the slit strip's construction clear.",
+    "step": 2,
+    "reason": "The new goal explicitly calls for rolling the drum wall.",
+    "choice": {
+      "combine": "Drum wall",
+      "with": "Roll"
+    },
+    "expectation": "The slit strip will curl into a drum shape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wall is now a cylinder, and its seam needs securing.",
+    "reaction": "The downward tabs make the next stage of the construction visible.",
+    "step": 3,
+    "reason": "The goal calls for taping the drum's seam, and Tape is available.",
+    "choice": {
+      "combine": "Tape",
+      "with": "Drum"
+    },
+    "expectation": "The tape will secure the cylindrical drum's seam.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tape secured the seam, completing this chapter's goals.",
+    "reaction": "The visible green strip makes the fastening clear, though I was surprised the chapter ended before the referenced drum was complete.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Rolling the slit wall into a cylinder was the most worthwhile transformation: it made the drum shape clear.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Taping the seam was straightforward but less interesting than forming the cylinder.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The chapter ended after taping the seam, although the build reference also showed a base and fish.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each followed a clear construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the slits and drum become an animation toy; the construction so far was clear, if brief.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-for (const [region, centre] of [['fixed receiving area', '160px, 150px'], ['chapter reference', '210px, 92px']] as const) {
+for (const [region, centre] of [['fixed receiving area', '160px, 150px'], ['chapter reference', '180px, 52px']] as const) {
   test(`a result beside a preserved receiver avoids the ${region}`, async ({page}) => {
     await page.emulateMedia({reducedMotion:'reduce'});
     const manuscript=`# A clear place for the result

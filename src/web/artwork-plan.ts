@@ -5,6 +5,7 @@ import {availableTokens, chapterComplete, legalActions, recipeFor} from '../engi
 import {hotspotIconVariants, hotspotPresentation, itemPresentation} from '../engine/presentation.ts';
 import {markdown} from './markdown.ts';
 import {hotspotDefinition, presentHotspots} from '../engine/fixed-items.ts';
+import {browserItemText} from '../story/text-only.ts';
 
 function itemImages(story: Story, chapter: number, ref: Ref): string[] {
   const item = story.items[ref.id];
@@ -27,9 +28,10 @@ export function coverArtwork(story: Story): string[] {
 
 /** Only the chapter being laid out and the reading about to appear can block entry. */
 export function currentArtwork(story: Story, state: State): string[] {
+  const notice=state.pending.find(n=>n.kind==='chapter'||browserItemText(n.markdown));
   return [...sceneImages(story, state.chapter, state),
     ...availableTokens(state).filter(token => token.chapter === state.chapter).flatMap(token => itemImages(story, state.chapter, token)),
-    ...readingImages(state.pending[0]?.markdown ?? '')];
+    ...readingImages(notice?.kind==='wonder'?browserItemText(notice.markdown):notice?.markdown??'')];
 }
 
 /** A discovery or newly supplied primitive can change an earlier board too. */
@@ -76,7 +78,7 @@ export function resultArtwork(story: Story, state: State, action: Action): strin
   const changed = changedHotspotArtwork(story,state,after);
   return [...changed, ...(fixedIcon?[fixedIcon]:[]), ...itemImages(story, state.chapter, ref), ...story.items[ref.id].wonders
     .filter(wonder => wonder.requires.every(slot => ref.slots.includes(slot)) && !state.seen.includes(`wonder:${ref.id}:${wonder.source.line}`))
-    .flatMap(wonder => readingImages(wonder.popup))];
+    .flatMap(wonder => readingImages(browserItemText(wonder.popup)))];
 }
 
 /** Restored scrollback sizes are filled in after the current chapter is usable. */

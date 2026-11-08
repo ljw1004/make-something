@@ -59,4 +59,4 @@ for identity in args.ids.split(','):
     bpy.ops.render.render(write_still=True)
     records.append({'id':identity,'family':family,'view':view,'renderSha256':hashlib.sha256((out/(identity+'.png')).read_bytes()).hexdigest()})
     bpy.data.objects.remove(camera,do_unlink=True)
-(out/'render-manifest.json').write_text(json.dumps({'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'render.py',P.BASE/'wind_toys.py',P.BASE/'scene_parts.py']},'images':records,'checks':P.checks()},indent=2)+'\n')
+(out/'render-manifest.json').write_text(json.dumps({'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'render.py',HERE.parent/'materials.py',P.BASE/'wind_toys.py',P.BASE/'scene_parts.py']},'images':records,'checks':P.checks()},indent=2)+'\n')

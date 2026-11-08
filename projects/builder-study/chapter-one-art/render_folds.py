@@ -50,4 +50,4 @@ for identity,count in F.FOLDS.items():
     scene.render.filepath=str(out/(identity+'.png'))
     bpy.ops.render.render(write_still=True)
     records.append({'id':identity,'completedBlades':count,'view':view,'sha256':hashlib.sha256((out/(identity+'.png')).read_bytes()).hexdigest()})
-(out/'render-manifest.json').write_text(json.dumps({'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'fold_stages.py',HERE/'render_folds.py',HERE/'production-settings.json']},'images':records},indent=2)+'\n')
+(out/'render-manifest.json').write_text(json.dumps({'sources':{str(p.relative_to(P.ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [HERE/'pinwheel.py',HERE/'fold_stages.py',HERE/'render_folds.py',HERE/'production-settings.json',HERE.parent/'materials.py',P.BASE/'wind_toys.py',P.BASE/'scene_parts.py']},'images':records},indent=2)+'\n')

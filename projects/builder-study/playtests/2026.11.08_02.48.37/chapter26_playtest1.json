@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal explicitly calls for closing the projector box with its lid.",
+    "choice": {
+      "combine": "Lid",
+      "with": "Projector"
+    },
+    "expectation": "The lid should close the box.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The box is closed, and the next goal is to assemble the lens and holder.",
+    "reaction": "The exposed opening makes the next fitting clear.",
+    "step": 2,
+    "reason": "The goal explicitly identifies the lens and its holder.",
+    "choice": {
+      "combine": "Lens",
+      "with": "Lens holder"
+    },
+    "expectation": "The lens should fit into the holder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens is fitted in its holder, ready to attach to the box.",
+    "reaction": "The next fitting is clear.",
+    "step": 3,
+    "reason": "The goal calls for fitting the assembled holder to the projector box.",
+    "choice": {
+      "combine": "Lens holder",
+      "with": "Projector"
+    },
+    "expectation": "The lens holder should attach to the box.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens holder is attached to the box, leaving the hood as the next fitting.",
+    "reaction": "The next step is clear.",
+    "step": 4,
+    "reason": "The goal explicitly calls for fitting the hood around the lens.",
+    "choice": {
+      "combine": "Hood",
+      "with": "Projector"
+    },
+    "expectation": "The hood should fit around the lens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hood is fitted, and the remaining goal is to attach the handle to the spindle.",
+    "reaction": "The projecting hood makes the lens assembly look complete.",
+    "step": 5,
+    "reason": "The handle fits the spindle projecting from the projector, as the goal specifies.",
+    "choice": {
+      "combine": "Handle",
+      "with": "Projector"
+    },
+    "expectation": "The handle should attach to the spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The handle attached to the spindle, completing the star projector and all chapter goals.",
+    "reaction": "The final wheel and grip make the projecting shaft’s purpose clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the lens holder to the box was worthwhile because it brought the separately assembled lens into the projector’s front opening.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Closing the lid was straightforward but less informative than the lens assembly; the text showed the box closed without explaining the lid’s shaped tab.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; each new goal followed clearly from the preceding fitting.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each fitting had a named part and a clear current goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue for another construction, though this chapter’s predictable text commands alone did not offer much opportunity to explore how the projector works. I cannot assess the pictures or hands-on handling from this text trial.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

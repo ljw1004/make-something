@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for fitting the spindle to the base.",
+    "choice": {
+      "combine": "Spindle",
+      "with": "Base"
+    },
+    "expectation": "The spindle will fit into the base's central hole.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is mounted, and the next goal is to fit the motor.",
+    "reaction": "The central pulley and support are now in place.",
+    "step": 2,
+    "reason": "The current goal calls for fitting the motor to the base.",
+    "choice": {
+      "combine": "Motor",
+      "with": "Base"
+    },
+    "expectation": "The motor will mount on the base beside the spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor is mounted beside the spindle, ready for the belt.",
+    "reaction": "The two pulleys make the next connection clear.",
+    "step": 3,
+    "reason": "The goal calls for looping the belt around the mounted pulleys.",
+    "choice": {
+      "combine": "Belt",
+      "with": "Base"
+    },
+    "expectation": "The belt will connect the motor pulley to the spindle pulley.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt now connects the two pulleys; the drive is ready for its guard.",
+    "reaction": "The belt makes the drive connection clear.",
+    "step": 4,
+    "reason": "The goal calls for placing the guard over the drive on the base.",
+    "choice": {
+      "combine": "Guard",
+      "with": "Base"
+    },
+    "expectation": "The guard will cover the belt and pulleys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guard covers the drive, and the next goal is to plug in the battery.",
+    "reaction": "The translucent cover still lets the mechanism show through.",
+    "step": 5,
+    "reason": "The battery and dial is the available power unit for the motor.",
+    "choice": {
+      "combine": "Battery and dial",
+      "with": "Base"
+    },
+    "expectation": "The battery unit will connect to the motor on the base.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery and control box are fitted; the deck is the remaining visible part for the current goal.",
+    "reaction": "The control box sits outside the guarded drive, as expected.",
+    "step": 6,
+    "reason": "The goal calls for fitting the deck onto the spindle mounted in the base.",
+    "choice": {
+      "combine": "Deck",
+      "with": "Base"
+    },
+    "expectation": "The deck will sit on the spindle above the covered drive.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck completed the carousel, with the guarded drive below it and the control box at the front.",
+    "reaction": "It is satisfying to see the drive assembly become a complete turning deck.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the belt between the two pulleys made the motor-to-spindle drive especially clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Plugging in the battery was less clear in the text: the result showed the control box outside the guard, but not the connection itself.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The translucent guard left the mechanism's outlines visible rather than hiding them completely.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each followed a clear construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue for another construction, because the explicit goals and visible changes made the mechanism easy to follow, though I cannot judge the pictures or hands-on experience from text.",
+        "steps": [
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to flip the deck over before fitting parts.",
+    "choice": 5,
+    "expectation": "The deck will turn over and reveal the next assembly step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A wheel could go on a motor, but flipping the deck is the stated first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deck is flipped, and the next goal is to fit a wheel to the left motor.",
+    "reaction": "The result matched the instruction, though it gave no physical detail beyond creating the deck.",
+    "step": 2,
+    "reason": "Wheel #5 and the left motor directly match the current goal.",
+    "choice": 1,
+    "expectation": "The wheel will attach to the left motor; I expect another assembly goal afterward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other wheel appears equally suitable, but I chose the first one."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first wheel and left motor formed a left drive; the next goal is the right motor.",
+    "reaction": "The named drive makes the assembly progress clear.",
+    "step": 3,
+    "reason": "The remaining wheel and right motor match the current goal.",
+    "choice": 1,
+    "expectation": "They will form a right drive, ready to fit to the deck.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could fit the left drive now, but the goal calls for assembling the right one first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right drive is assembled, and the goal now calls for mounting the left drive.",
+    "reaction": "The matching drive names make the next step clear.",
+    "step": 4,
+    "reason": "Left drive and deck directly match the current goal.",
+    "choice": 1,
+    "expectation": "The left drive will attach to the deck, likely followed by another fitting goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The right drive also needs mounting, but the goal specifies the left one first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left drive is fitted, forming a rover; the next goal is to fit the right drive.",
+    "reaction": "The rover name makes the assembly feel more recognizable.",
+    "step": 5,
+    "reason": "The right drive and rover directly match the current goal.",
+    "choice": 1,
+    "expectation": "The right drive will attach to the rover, followed by another fitting goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The caster also needs fitting, but the goal specifies the right drive first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both drives are fitted, and the next goal is to fit the caster.",
+    "reaction": "The repeated rover name confirms progress but gives little physical detail.",
+    "step": 6,
+    "reason": "The caster and rover directly match the current goal.",
+    "choice": 1,
+    "expectation": "The caster will attach to the rover, probably followed by another fitting goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The caster is fitted, and the next goal is to add the battery pack.",
+    "reaction": "The goal confirms progress, though the result gives little physical detail.",
+    "step": 7,
+    "reason": "The battery pack and rover match the current goal.",
+    "choice": 1,
+    "expectation": "The battery pack will attach to the rover, likely followed by fitting the receiver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The battery pack is fitted, and the receiver is next.",
+    "reaction": "The goal confirms progress, though the result still gives little physical detail.",
+    "step": 8,
+    "reason": "The receiver is the only offered gameplay action and matches the goal.",
+    "choice": 1,
+    "expectation": "The receiver will attach to the rover, possibly revealing another goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiver is fitted, completing the chapter’s goals.",
+    "reaction": "Completion is clear, though the result gives no physical detail about the finished rover.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the left drive was most worthwhile because the assembly became recognizable as a rover.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The later fittings felt repetitive because each result simply said “Created: Rover” without describing the addition.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The deck was named a rover as soon as the first drive was fitted, before the remaining parts were added.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the goals clearly identified each fitting, although the prescribed left-before-right order was not explained.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the clear assembly steps were easy to follow, but the repeated results gave too little physical detail to keep me curious.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

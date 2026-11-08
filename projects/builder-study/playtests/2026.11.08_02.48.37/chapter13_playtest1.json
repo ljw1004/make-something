@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly says to put the triangle in the colour cell.",
+    "choice": {
+      "combine": "Triangle",
+      "with": "Colour cell"
+    },
+    "expectation": "The green triangle should sit inside the colour cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triangle is in the cell, and the next goal is to add the crescent.",
+    "reaction": "The visible addition makes the progress clear.",
+    "step": 2,
+    "reason": "The new goal calls for adding the crescent to the colour cell.",
+    "choice": {
+      "combine": "Crescent",
+      "with": "Colour cell"
+    },
+    "expectation": "The yellow crescent should join the triangle inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crescent joined the triangle, and the next goal is to add the disc.",
+    "reaction": "The separate additions make the cell's contents easy to follow.",
+    "step": 3,
+    "reason": "The goal calls for adding the disc to the colour cell.",
+    "choice": {
+      "combine": "Disc",
+      "with": "Colour cell"
+    },
+    "expectation": "The blue disc should join the triangle and crescent inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The disc is now in the colour cell with the other shapes, and the lid is next.",
+    "reaction": "The three distinct shapes make the additions clear.",
+    "step": 4,
+    "reason": "The goal calls for snapping the clear lid onto the filled colour cell.",
+    "choice": {
+      "combine": "Clear lid",
+      "with": "Colour cell"
+    },
+    "expectation": "The clear lid should close the colour cell over the three shapes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lid closes the cell over the shapes, and the light cover is next.",
+    "reaction": "The tabbed lid makes the closure clear, though the shapes are now faint.",
+    "step": 5,
+    "reason": "The current goal calls for fitting the light cover to the colour cell.",
+    "choice": {
+      "combine": "Light cover",
+      "with": "Colour cell"
+    },
+    "expectation": "The light cover should fit over the closed colour cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The light cover is fitted, and the colour cell is ready to join the viewing tube.",
+    "reaction": "The pale cover makes the finished cell easy to distinguish.",
+    "step": 6,
+    "reason": "The current goal explicitly calls for fitting the colour cell to the viewing tube.",
+    "choice": {
+      "combine": "Colour cell",
+      "with": "Viewing tube"
+    },
+    "expectation": "The colour cell should attach to the viewing tube to complete the kaleidoscope.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colour cell joined the viewing tube, completing the kaleidoscope and all chapter goals.",
+    "reaction": "The final assembly was clear and satisfying, though I would have liked to see what the finished kaleidoscope shows.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the three shapes separately made the colour cell’s construction easy to follow; attaching it to the viewing tube then brought the parts together.",
+        "steps": [
+          1,
+          2,
+          3,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the light cover was clear, but less visually informative because it concealed the shapes already added.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The shapes appeared only faintly beneath the clear lid; I expected them to remain more visible.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each followed an explicit construction goal, although the text did not explain how the light cover works.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see another mechanism come together, though the straightforward sequence offered little choice. This text trial cannot tell me how the pictures or handling feel.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

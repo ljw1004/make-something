@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "The projector dock matches the current goal and should attach it to the carrier.",
+    "choice": 1,
+    "expectation": "I expect the dock to fit onto the whale carrier, with another assembly goal possibly following.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor also look useful, but the dock is the stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dock is fitted, and the next goal is to mount the projector.",
+    "reaction": "The straightforward attachment makes sense.",
+    "step": 2,
+    "reason": "The projector and carrier match the new goal.",
+    "choice": 1,
+    "expectation": "I expect the star projector to fit onto the dock.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pulley and motor could be assembled, but mounting the projector is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The projector is mounted, and the goal now moves to the motor assembly.",
+    "reaction": "The sequence is clear, though the attachment result is terse.",
+    "step": 3,
+    "reason": "The pulley and gearmotor are the only offered combination and match the goal.",
+    "choice": 1,
+    "expectation": "I expect the small pulley to fit onto the gearmotor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulley and gearmotor formed a drive motor, which now needs mounting.",
+    "reaction": "The resulting assembly is clearly named.",
+    "step": 4,
+    "reason": "Mounting the drive motor is the current goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the drive motor to attach to the whale carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drive motor is mounted; the belt now needs to connect the pulleys.",
+    "reaction": "The next mechanical step is clear, though the result is terse.",
+    "step": 5,
+    "reason": "The belt matches the current goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the belt to loop around both pulleys on the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The belt is fitted, and the motor supply is next.",
+    "reaction": "The drive connection makes sense, though the result remains terse.",
+    "step": 6,
+    "reason": "Connecting the motor supply matches the goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the motor supply to connect to the carrier's drive motor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor supply is connected and the chapter is complete.",
+    "reaction": "The final connection is clear, though the result gives little detail about the finished carrier.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Looping the belt around both pulleys was the most worthwhile step: it gave the motor assembly a clear mechanical purpose.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Mounting the projector felt less rewarding because the result only named the carrier, without describing the visible addition.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the goals made the assembly sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary, though the brief results made some fittings less vivid.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the construction sequence was clear, but the terse results and mostly single available choices held my interest only briefly.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

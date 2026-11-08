@@ -9,7 +9,7 @@ args=p.parse_args();src,out=Path(args.masters),Path(args.output);out.mkdir(paren
 plan=json.loads((HERE/'construction-plan.json').read_text());settings=json.loads((HERE/'display-settings.json').read_text());records=[]
 groups={}
 for identity,info in plan.items():
-    family=info['view'] if info['view'] in ['mast','underside','axle'] else info['image']
+    family=info['view'] if info['view'] in ['mast','underside','upright','axle'] else info['image']
     groups.setdefault(family,set()).add(info['image'])
 for family,ids in groups.items():
     images={id:Image.open(src/(id+'.png')).convert('RGBA') for id in sorted(ids)}
