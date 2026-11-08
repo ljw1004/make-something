@@ -916,7 +916,9 @@ function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
   const index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientY-world.top)/app.clientHeight)));
   const chapter=d.lockedChapter??state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
   const {scale:size,bounds}=boardGeometry(chapter);
-  const position=fitOnBoard((e.clientX-rect.left)/size+bounds.x-d.grabX,(e.clientY-rect.top)/size-d.grabY,d.el.offsetWidth,d.el.offsetHeight,bounds);
+  // The held drawing follows the pickup point even beyond the page edge.
+  // Targeting uses this same geometry; fitting happens only after the drop.
+  const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX,y:(e.clientY-rect.top)/size-d.grabY};
   return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
 }
 function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
@@ -1017,7 +1019,8 @@ function endDrag(e:PointerEvent,cancel=false){
   d.el.classList.remove('dragging');app.classList.remove('is-dragging');
   if(action)commit(action);
   else if(!ambiguous.length){
-    commit({type:'move',item:d.id,chapter:destination.chapter,...destination.position,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+    const position=fitOnBoard(destination.position.x,destination.position.y,d.el.offsetWidth,d.el.offsetHeight,boardGeometry(destination.chapter).bounds);
+    commit({type:'move',item:d.id,chapter:destination.chapter,...position,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
   }
   restoreGestureTile(d);
   if(inputTrace?.enabled)requestAnimationFrame(()=>{

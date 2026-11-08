@@ -27,6 +27,64 @@ ${station?'- A [transform] @ Oven -> X':'- A [transform] + B [preserve] -> X\n- 
   await page.getByRole('button',{name:'Begin',exact:true}).click();
 }
 const item=(page:Page,name:string)=>page.locator(`[data-item="name:${name}"]`);
+
+test('an oversized sheet targets its held position before fitting back inside the page',async({page})=>{
+  const text=`# Paper
+## Fold
+background: ![page](room.svg)
+**Goals**
+- Fold -- Folded
+**Hotspots**
+- Fold (center 170px, 300px)
+**Items**
+- Paper
+  - icon: ![paper](paper.svg) (center 390px, 900px)
+- Fold
+- Folded
+**Combinations**
+- Paper [transform] @ Fold -> Folded
+`;
+  await page.route('**/paper-edge/story.md',r=>r.fulfill({contentType:'text/markdown',body:text}));
+  await page.route('**/paper-edge/*.svg',r=>{
+    const paper=r.request().url().endsWith('paper.svg');
+    return r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${paper?800:780}" height="${paper?800:1688}"><rect width="100%" height="100%" fill="${paper?'orange':'white'}"/></svg>`});
+  });
+  await page.goto('/make-something.html?story=paper-edge/story.md');
+  await page.getByRole('button',{name:'Start',exact:true}).click();
+  const paper=item(page,'Paper'),fold=page.locator('[data-hotspot="name:Fold"]');
+  // Every edge keeps the same finger-to-paper offset while held, without
+  // extending the page's scroll range. Only release fits the whole sheet.
+  for(const [x,y] of [[1,500],[389,500],[250,1],[250,843]]){
+    const before=(await paper.boundingBox())!;
+    await page.mouse.move(before.x+100,before.y+100);await page.mouse.down();
+    await page.mouse.move(x,y);
+    const held=(await paper.boundingBox())!;
+    expect(held.x).toBeCloseTo(x-100,1);expect(held.y).toBeCloseTo(y-100,1);
+    expect(await page.locator('.viewport').evaluate(el=>el.scrollHeight)).toBe(844);
+    await page.mouse.up();
+    const released=(await paper.boundingBox())!;
+    expect(released.x).toBeCloseTo(Math.max(0,Math.min(190,x-100)),1);
+    expect(released.y).toBeCloseTo(Math.max(0,Math.min(644,y-100)),1);
+    await page.reload();expect(await paper.boundingBox()).toEqual(released);
+  }
+  const source=(await paper.boundingBox())!,target=(await fold.boundingBox())!;
+  await page.mouse.move(source.x+source.width/2,source.y+source.height/2);await page.mouse.down();
+  const y=target.y+target.height/2;
+  await page.mouse.move(1,y);
+  expect((await paper.boundingBox())!.x).toBeCloseTo(-99,1);
+  await expect(fold).not.toHaveClass(/will-create/);
+  await page.mouse.up();
+  await expect(item(page,'Folded')).toHaveCount(0);
+  expect((await paper.boundingBox())!.x).toBeCloseTo(0,1);
+  // A genuine drop still works while part of the sheet hangs off the page.
+  const settled=(await paper.boundingBox())!;
+  await page.mouse.move(settled.x+100,settled.y+100);await page.mouse.down();
+  await page.mouse.move(target.x+target.width/2,y);
+  expect((await paper.boundingBox())!.x).toBeLessThan(0);
+  await expect(fold).toHaveClass(/will-create/);
+  await page.mouse.up();await expect(item(page,'Folded')).toBeVisible();
+});
+
 async function pickup(page:Page,tile:Locator) {
   const box=(await tile.boundingBox())!;
   await page.mouse.move(box.x+7,box.y+11);await page.mouse.down();

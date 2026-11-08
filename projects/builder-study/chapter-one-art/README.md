@@ -95,3 +95,11 @@ that remained unchanged for that batch, not a stronger claim about prior
 candidate runs.
 
 Selected runtime artwork lives in `stories/builder/assets/`. Review scratch exports before replacing those files; the older study manuscripts preserve their historical source paths.
+
+Display sizing is read by `export.py` from `production-settings.json`. Broad
+paper and blade stages share a 184px inspection scale; hub and axle inspections
+are 96px and 112px. The 270px handle and 400px finished pinwheel remain large,
+with a 280px carried pinwheel for chapter 2. These sizes change only the export
+magnification, never the model or the consistent crop within an additive group.
+The opening browser checker (`../tools/verify-opening.mjs`) now follows both
+chapters through the completed racer using emulated touch input at phone sizes.

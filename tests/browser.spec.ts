@@ -24,7 +24,7 @@ test('touch dragging moves a card while empty-space touch scrolls the story',asy
   const before=await page.locator('.viewport').evaluate(el=>el.scrollTop);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[empty]});for(let y=320;y<=650;y+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:empty.x,y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollTop)).toBeLessThan(before);
   await context.close();
 });
-test('text cards use their full measured rectangle at every board edge, including narrow screens',async({page})=>{
+test('text cards follow the pickup point then fit their full rectangle at every board edge',async({page})=>{
   await page.route('**/text-edge-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:`# Card edges
 ## Workshop
 Fit the cabinet.
@@ -54,9 +54,10 @@ Fit the cabinet.
       await page.mouse.move(before.x+5,before.y+7);await page.mouse.down();
       await page.mouse.move(x,y,{steps:6});
       const preview=(await card.boundingBox())!;
+      // WebKit can round the pointer's fractional pickup coordinates.
+      expect(Math.abs(preview.x-(x-5))).toBeLessThan(1);expect(Math.abs(preview.y-(y-7))).toBeLessThan(1);
       await page.mouse.up();
       const placed=(await card.boundingBox())!;
-      if(edge==='right'||edge==='left')expect(placed).toEqual(preview);
       const boundary=edge==='right'?placed.x+placed.width:edge==='left'?placed.x:edge==='bottom'?placed.y+placed.height:placed.y;
       const expected=edge==='right'?width:edge==='left'?0:edge==='bottom'?board.y+board.height:board.y;
       expect(Math.abs(boundary-expected)).toBeLessThan(1);

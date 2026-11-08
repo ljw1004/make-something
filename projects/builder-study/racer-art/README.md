@@ -36,3 +36,29 @@ with the baseline. Those proofs, render manifests and contact sheets remain
 scratch. Only the selected new WebPs and these authoring sources are retained.
 
 Selected runtime artwork lives in `stories/builder/assets/`. Review scratch exports before replacing those files; the older study manuscripts preserve their historical source paths.
+
+## Finished racer display
+
+The finished racer has its own generous display scale, set in
+[finished-settings.json](finished-settings.json), independent of the registered
+workbench construction views. Its geometry, material opacity and real openings
+are unchanged. Rebuild the disposable masters from the canonical connected
+assembly, then export at four image pixels per CSS pixel:
+
+```sh
+node "archive/2026.11.07 builder study/art/catalogue.mjs" \
+  "archive/2026.11.07 builder study/builder-v27.md" runs/builder-handling/catalogue.json
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
+  --python "archive/2026.11.07 builder study/art-readability-2026.11.07/render_parts.py" -- \
+  --catalogue runs/builder-handling/catalogue.json \
+  --presentations "archive/2026.11.07 builder study/art-readability-2026.11.07/part-presentations.json" \
+  --ids wind-racer --resolution 1280 --output runs/builder-handling/racer-masters
+runs/builder-handling/venv/bin/python projects/builder-study/racer-art/export_finished.py \
+  --masters runs/builder-handling/racer-masters --output runs/builder-handling/assets/items
+```
+
+Each workbench stage's receiving rectangle follows its visible geometry, with
+four CSS pixels of tolerance. `registration.json` records the corresponding
+background-pixel centres and sizes. The whole workbench is centred at (390,700) background pixels to leave room for the carried pinwheel above it. The full image canvas and camera stay
+registered, while the empty space reserved for a future mast no longer blocks
+loose-part layout or moves the chassis label away from its body.

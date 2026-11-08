@@ -84,14 +84,14 @@ async function timedField(page: Page) {
   await page.clock.pauseAt(new Date('2026-11-01T12:10:00Z'));
 }
 
-test('latest-chapter pickups stop at the top without scrolling, including a release across a chapter boundary', async ({page}) => {
+test('latest-chapter pickups follow the pointer past the top, fit on release and never change chapters', async ({page}) => {
   await timedField(page);
   const kit = page.locator('[data-item="name:Kit"]');
   await pickup(page, 'Kit');
   await page.mouse.move(150, 1, {steps: 8});
   await page.clock.runFor(1000);
   expect(await scrollTop(page)).toBe(664);
-  expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
+  expect((await kit.boundingBox())!.y).toBeCloseTo(-9, 1);
   await page.mouse.up();
   expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
 
@@ -131,7 +131,8 @@ test('older pickups scroll after an edge hold, remain free until dropped, then l
   expect(await scrollTop(page)).toBe(664);
   const frame = page.locator('[data-item="name:Frame"]');
   const atBottom = (await frame.boundingBox())!;
-  expect(atBottom.y + atBottom.height).toBeCloseTo(664, 1);
+  expect(atBottom.y).toBeCloseTo(653, 1);
+  expect(atBottom.y + atBottom.height).toBeGreaterThan(664);
   // Visiting the latest panel mid-gesture does not lock an older pickup.
   await page.mouse.move(120, 1);
   await page.clock.runFor(200);
@@ -376,8 +377,9 @@ test('phone swipes can revisit history but cannot scroll below the current chapt
     await cdp.send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:150,y:1}]});
     await page.waitForTimeout(400);
     await expectCurrentFits(page, 2);
-    expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
+    expect((await kit.boundingBox())!.y).toBeCloseTo(-9, 1);
     await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
+    expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
     await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Kit"]')).toHaveCount(1);
     await swipe(580,100); await expectCurrentFits(page, 2);
     await swipe(100,580);

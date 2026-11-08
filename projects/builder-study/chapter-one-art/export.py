@@ -8,13 +8,14 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--masters',required=True)
 parser.add_argument('--output',required=True)
 args=parser.parse_args()
+settings=json.loads((Path(__file__).parent/'production-settings.json').read_text())['export']
 src,out=Path(args.masters),Path(args.output)
 out.mkdir(parents=True,exist_ok=True)
 groups=[
-    (['pw-paper','pw-loose-rotor','pw-folded-rotor'],320),
-    (['pw-rear-rotor','pw-bearing-rotor'],320),
-    (['pw-mounted'],400),(['pinwheel'],400),
-    (['pw-hub'],132),(['pw-axle'],145),(['pw-handle'],270),
+    (['pw-paper','pw-loose-rotor','pw-folded-rotor'],settings['sharedFrontStatesLongCssPixels']),
+    (['pw-rear-rotor','pw-bearing-rotor'],settings['sharedRearStatesLongCssPixels']),
+    (['pw-mounted'],settings['completeLongCssPixels']),(['pinwheel'],settings['completeLongCssPixels']),
+    (['pw-hub'],settings['hubLongCssPixels']),(['pw-axle'],settings['axleLongCssPixels']),(['pw-handle'],settings['handleLongCssPixels']),
 ]
 records=[]
 for ids, long_css in groups:
@@ -30,7 +31,7 @@ for ids, long_css in groups:
         final.save(out/(identity+'.webp'),quality=94,method=6)
         records.append({'id':identity,'sharedCrop':ids,'crop':crop,'size':list(final.size),'visibleLongCss':long_css})
         if identity=='pinwheel':
-            ratio=184/400
+            ratio=settings['laterChapterPinwheelLongCssPixels']/long_css
             small=final.resize((round(final.width*ratio),round(final.height*ratio)),Image.Resampling.LANCZOS)
             small.save(out/'pinwheel-carried.webp',quality=94,method=6)
 (src/'export-manifest.json').write_text(json.dumps(records,indent=2)+'\n')

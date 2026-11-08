@@ -105,20 +105,27 @@ The pinwheel is very good at going round and very bad at going anywhere. Jo lays
 - next: Race from the starting gate -- `wind-racer`
 
 **Hotspots**
-- `wr-chassis` (center 390px, 500px)
+- `wr-chassis` (center 390px, 700px)
   - icon: ![Light wooden chassis](assets/hotspots/c02--wr-chassis.webp)
-- `wr-front-bearing-chassis` (center 390px, 500px)
+  - hitbox: (center 390px, 817px) (size 415px, 146.5px)
+- `wr-front-bearing-chassis` (center 390px, 700px)
   - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-front-bearing-chassis.webp)
-- `wr-rear-bearing-chassis` (center 390px, 500px)
+  - hitbox: (center 390px, 827px) (size 415px, 166.5px)
+- `wr-rear-bearing-chassis` (center 390px, 700px)
   - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-rear-bearing-chassis.webp)
-- `wr-bearing-chassis` (center 390px, 500px)
+  - hitbox: (center 390px, 817px) (size 415px, 146.5px)
+- `wr-bearing-chassis` (center 390px, 700px)
   - icon: ![Chassis with axle bearings](assets/hotspots/c02--wr-bearing-chassis.webp)
-- `wr-rolling-chassis` (center 390px, 500px)
+  - hitbox: (center 390px, 827px) (size 415px, 166.5px)
+- `wr-rolling-chassis` (center 390px, 700px)
   - icon: ![Wheeled chassis](assets/hotspots/c02--wr-rolling-chassis.webp)
-- `wr-rigged` (center 390px, 500px)
+  - hitbox: (center 390px, 838.25px) (size 441px, 227px)
+- `wr-rigged` (center 390px, 700px)
   - icon: ![Racer in the bench clips](assets/hotspots/c02--wr-rigged.webp)
-- `wr-aimed` (center 390px, 500px)
+  - hitbox: (center 390px, 700px) (size 441px, 503.5px)
+- `wr-aimed` (center 390px, 700px)
   - icon: ![Racer facing the breeze](assets/hotspots/c02--wr-aimed.webp)
+  - hitbox: (center 390px, 700px) (size 441px, 503.5px)
 
 **Items**
 - `wr-chassis` Chassis

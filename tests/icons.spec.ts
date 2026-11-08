@@ -153,16 +153,19 @@ for(const icons of [true,false])test(`quick mouse releases place ${icons?'icons'
   await expect(house.locator(icons?'.slot-icon':'.slot.filled')).toHaveCount(1);
 });
 
-test('right-edge drops use each icon width and match the drag preview through reload', async ({page}) => {
+test('right-edge drags follow the pickup point, then fit each icon on release and reload', async ({page}) => {
   await openFixture(page);
   for(const [name,y] of [['House',440],['Mat',560],['Air',680]] as const){
     const item=page.locator(`[data-item="name:${name}"]`),before=(await item.boundingBox())!;
     await page.mouse.move(before.x+7,before.y+11);await page.mouse.down();
     await page.mouse.move(388,y,{steps:6});
     const preview=(await item.boundingBox())!;
-    expect(preview.x+preview.width).toBeCloseTo(390,1);
-    await page.mouse.up();expect(await item.boundingBox()).toEqual(preview);
-    await page.reload();expect(await item.boundingBox()).toEqual(preview);
+    expect(preview.x).toBeCloseTo(381,1);
+    expect(preview.x+preview.width).toBeGreaterThan(390);
+    await page.mouse.up();const released=(await item.boundingBox())!;
+    expect(released.x+released.width).toBeCloseTo(390,1);
+    expect(released.y).toBeCloseTo(y-11,1);
+    await page.reload();expect(await item.boundingBox()).toEqual(released);
   }
 });
 
@@ -245,7 +248,8 @@ test('touches use the expanded small-icon target and cancellation keeps the orig
   await cdp.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [{x: before.x - 3, y: before.y + before.height / 2}]});
   await expect(mat.locator('.icon-name')).toBeVisible();
   await expect(house.locator('.icon-name')).toBeVisible();
-  await cdp.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: 180, y: 520}]});
+  await cdp.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: 1, y: 1}]});
+  expect((await mat.boundingBox())!.y).toBeLessThan(0);
   await cdp.send('Input.dispatchTouchEvent', {type: 'touchCancel', touchPoints: []});
   expect(await mat.boundingBox()).toEqual(before);
   await expect(house.locator('.slot-icon')).toHaveCount(0);
@@ -253,10 +257,13 @@ test('touches use the expanded small-icon target and cancellation keeps the orig
   await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:before.x+5,y:before.y+10}]});
   await cdp.send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:318,y:520}]});
   const preview=(await mat.boundingBox())!;
-  expect(preview.x+preview.width).toBeCloseTo(320,1);
+  expect(preview.x).toBeCloseTo(313,1);
+  expect(preview.x+preview.width).toBeGreaterThan(320);
   await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
-  expect(await mat.boundingBox()).toEqual(preview);
-  await page.reload();expect(await mat.boundingBox()).toEqual(preview);
+  const released=(await mat.boundingBox())!;
+  expect(released.x+released.width).toBeCloseTo(320,1);
+  expect(released.y).toBeCloseTo(preview.y,1);
+  await page.reload();expect(await mat.boundingBox()).toEqual(released);
   await context.close();
 });
 
