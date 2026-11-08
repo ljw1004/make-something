@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal explicitly calls for fitting the connector to the mast.",
+    "choice": {
+      "combine": "Connector",
+      "with": "Mast"
+    },
+    "expectation": "The connector will attach to the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connector is fitted, and the next goal is to fit the crossbar into it.",
+    "reaction": "The first fitting was straightforward.",
+    "step": 2,
+    "reason": "The new goal explicitly identifies the crossbar and connector on the mast.",
+    "choice": {
+      "combine": "Crossbar",
+      "with": "Mast"
+    },
+    "expectation": "The crossbar will fit into the connector on the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar is fitted, and the next goal is to attach the foot to the mast.",
+    "reaction": "The assembly is progressing as expected.",
+    "step": 3,
+    "reason": "The current goal identifies the foot and mast as the next parts to join.",
+    "choice": {
+      "combine": "Foot",
+      "with": "Mast"
+    },
+    "expectation": "The foot will attach to the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The foot is attached, and the sail is the next part to fit.",
+    "reaction": "The assembly is progressing as expected.",
+    "step": 4,
+    "reason": "The current goal directly identifies the sail and mast.",
+    "choice": {
+      "combine": "Sail",
+      "with": "Mast"
+    },
+    "expectation": "The sail will clip onto the mast.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail clipped onto the mast, completing the assembly and the chapter.",
+    "reaction": "It was satisfying to finish the assembly, though the final transformation was a little unclear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clipping on the sail was the most worthwhile step because it completed the assembly.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The intermediate fittings were straightforward but repetitive; each goal identified the next pair.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final result was named Sail rather than Mast, despite the sail being consumed.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each fitting followed an explicit construction goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would be curious to continue and see how the sail fits into a racer, though I would hope for more varied construction decisions.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

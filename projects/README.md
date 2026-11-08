@@ -2,7 +2,7 @@
 
 This index describes live projects only. Each project keeps its briefs, research, plans and retained supporting material together throughout its development.
 
-- [Builder study](builder-study/README.md): the opening pinwheel-and-racer construction sequence, flexible display scales, finger-following drags, clear steps and white instruction pages.
+- [Builder study](builder-study/README.md): the independent pinwheel, sail and racer construction sequence, literal repeated parts, flexible display scales and vintage material colours on white.
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
 

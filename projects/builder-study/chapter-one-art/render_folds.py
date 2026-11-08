@@ -14,6 +14,9 @@ from mathutils import Vector
 import pinwheel as P
 import fold_stages as F
 import scene_parts as S
+sys.path.insert(0,str(HERE.parent))
+import materials
+materials.apply(S)
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--output',required=True)

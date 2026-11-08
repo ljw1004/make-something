@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal is to fit the connector to the mast.",
+    "choice": 2,
+    "expectation": "The connector should attach to the mast, likely revealing the next assembly step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The foot may support the mast, but the connector is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connector is fitted, and the next goal is to attach the crossbar.",
+    "reaction": "The assembly order is clear so far.",
+    "step": 2,
+    "reason": "The crossbar needs to fit into the connector on the mast.",
+    "choice": 2,
+    "expectation": "The crossbar should attach to the mast at the connector.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The foot may be needed later, but the crossbar is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The crossbar is fitted, and the foot is next.",
+    "reaction": "The assembly is progressing clearly.",
+    "step": 3,
+    "reason": "The goal calls for pushing the foot onto the mast.",
+    "choice": 1,
+    "expectation": "The foot should attach to the mast, possibly leaving the sail for the next step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sail also fits, but the foot is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The foot is attached, leaving the sail as the next goal.",
+    "reaction": "The sequence remains straightforward.",
+    "step": 4,
+    "reason": "The sail is the only offered combination and matches the current goal.",
+    "choice": 1,
+    "expectation": "The sail should clip onto the mast, completing the sail assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clipping on the sail completed the assembly and the chapter.",
+    "reaction": "Finishing the sail was satisfying, though the steps were very predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clipping on the sail was the most worthwhile part because it finished the assembly built in the preceding steps.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the foot felt least distinctive: it was another straightforward fitting in a repeated sequence.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; each result followed the stated goal.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though I followed the stated assembly order rather than learning why that order was needed.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to see how the sail fits into the racer, although this chapter alone was too predictable to strongly hook me.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -7,6 +7,7 @@ from PIL import Image
 parser=argparse.ArgumentParser()
 parser.add_argument('--masters',required=True)
 parser.add_argument('--output',required=True)
+parser.add_argument('--icon')
 args=parser.parse_args()
 settings=json.loads((Path(__file__).parent/'production-settings.json').read_text())['export']
 src,out=Path(args.masters),Path(args.output)
@@ -29,9 +30,8 @@ for ids, long_css in groups:
         # The alpha drawing gets a modest 3 CSS px canvas margin.
         final=Image.new('RGBA',(part.width+24,part.height+24));final.alpha_composite(part,(12,12))
         final.save(out/(identity+'.webp'),quality=94,method=6)
+        if identity=='pinwheel' and args.icon:
+            drawing=final.copy();drawing.thumbnail((440,440),Image.Resampling.LANCZOS)
+            icon=Image.new('RGBA',(512,512),'white');icon.alpha_composite(drawing,((512-drawing.width)//2,(512-drawing.height)//2));icon.convert('RGB').save(args.icon)
         records.append({'id':identity,'sharedCrop':ids,'crop':crop,'size':list(final.size),'visibleLongCss':long_css})
-        if identity=='pinwheel':
-            ratio=settings['laterChapterPinwheelLongCssPixels']/long_css
-            small=final.resize((round(final.width*ratio),round(final.height*ratio)),Image.Resampling.LANCZOS)
-            small.save(out/'pinwheel-carried.webp',quality=94,method=6)
 (src/'export-manifest.json').write_text(json.dumps(records,indent=2)+'\n')

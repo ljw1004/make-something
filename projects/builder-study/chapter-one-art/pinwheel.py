@@ -16,6 +16,9 @@ import bpy
 from mathutils import Vector
 import scene_parts as S
 import wind_toys as W
+sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
+import materials
+materials.apply(S)
 
 
 STATES = {
@@ -100,10 +103,10 @@ def make():
     model['paper'] = replacement
 
     paper=S.material('orange')
-    reverse=bpy.data.materials.new('warm orange reverse of paper')
+    reverse=bpy.data.materials.new('lighter brick red reverse of paper')
     reverse.use_nodes=True
     shader=reverse.node_tree.nodes.get('Principled BSDF')
-    shader.inputs['Base Color'].default_value=(.95,.43,.12,1)
+    shader.inputs['Base Color'].default_value=S.PALETTE['paper_reverse']
     shader.inputs['Roughness'].default_value=.82
     for obj in [model['core'], *(entry[0] for entry in model['paper'])]:
         obj.data.materials.clear()

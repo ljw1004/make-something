@@ -1759,3 +1759,32 @@ The user's hands-on feedback identified two separate problems: broad paper obscu
 The [Builder study](projects/builder-study/README.md) now follows the pinwheel through its use with the racer. Broad paper/blade inspections are 184px at the reference width, with readable 96px hub and 112px axle views. The 400px finished pinwheel remains large; its carried view is 280px and the finished racer is 320px. Racer receivers follow the visible construction stages, and the registered workbench sits lower to leave room for the carried toy without covering the instructions. Geometry, actual openings, material opacity and combination logic remain unchanged. The user's preference for compact inventions with substantial central bodies and obvious places to grab is recorded in UX and the live brief; large finished objects and some recoverable tabletop overlap remain intentional.
 
 The [evaluation record](projects/builder-study/chapter-one-evaluation.md) retains concise outcomes, including a rejected intermediate receiving-box alignment and its correction. Verification passed 321 node tests, a complete 232-test browser run, four focused WebKit edge checks, and the final compiled game's 16-action opening route at four viewport sizes. Phone routes used emulated touch; the smallest phone also completed the other bearing order. Reload, continuation into chapter 3, asset hashes, receiving-coordinate consistency, type checking, production build and live lint passed. Lint retains its two existing warnings; build retains its root-output and bundle-size advisories. Native-device feel and children's enjoyment remain human evaluation. Temporary verification output is removed after recording outcomes; the pre-existing development server remains available.
+
+## 7 November 2026 — Independent racer construction and vintage materials
+
+The user rejected the pinwheel aiming dependency, starting gate and fixed racer,
+and requested separate sail and chassis construction, literal repeated wheels,
+short names, usable slim parts and a vintage school-workshop palette. The first
+three chapters now make an independent pinwheel, a mast/sail and a wheeled racer.
+Every workpiece is movable; either assembly order remains legal, and any wheel
+fits either straw. White pages, simple flat materials and no texture maps support
+the intended later 3D presentation. Animation remains deferred. The user
+reconfirmed commit and push after completion.
+
+The [live brief](stories/builder/design-brief.md) owns the direction and the
+[active study](projects/builder-study/README.md) retains its source models and
+actual playtests. The story has 235 recipes across 31 chapters, with a verified
+195-combination completion route. The [revision record](projects/builder-study/racer-evaluation.md)
+preserves rejected sail/connector overlap and square snap noses, their corrections,
+fresh nominal-geometry and visual acceptance, text-playtest limits, and compiled
+phone/desktop checks. Some recoverable overlap remains when a large completed
+pinwheel is deliberately assembled near the process row. Later chapters still
+await the revised construction and palette treatment, tracked in the backlog.
+
+Production lint has no errors, retaining the two existing warnings plus two
+pessimistic opportunity warnings for interchangeable-wheel recipes. Exhaustive
+shared-engine traversal demonstrates every new recipe, including those two.
+The compiled opening passed all 23 actions at four viewport sizes, reload and
+continuation. Temporary verification output was removed after concise outcomes;
+selected runtime assets have one home beside the live manuscript. The pre-existing
+development server remains available and private access is unchanged.

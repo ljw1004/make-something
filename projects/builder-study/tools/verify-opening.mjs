@@ -16,9 +16,10 @@ fs.mkdirSync(out,{recursive:true});
 const source=fs.readFileSync(file,'utf8'),story=parseStory(source,{id:file,file});
 let state=newGame(story);const route=[];
 expect(state.pending).toHaveLength(0);
-for(const action of checkpoint(story,2).actions){const recipe=action.type==='combine'?recipeFor(story,state,action):null;state=act(story,state,action);if(recipe)route.push({action,result:recipe.result.id,chapter:state.chapter});}
+for(const action of checkpoint(story,3).actions){const recipe=action.type==='combine'?recipeFor(story,state,action):null;state=act(story,state,action);if(recipe)route.push({action,result:recipe.result.id,chapter:state.chapter});}
 expect(route.filter(step=>step.chapter===0)).toHaveLength(9);
-expect(route.filter(step=>step.chapter===1)).toHaveLength(7);
+expect(route.filter(step=>step.chapter===1)).toHaveLength(4);
+expect(route.filter(step=>step.chapter===2)).toHaveLength(10);
 const browser=await chromium.launch(),outcomes=[];
 try {
  for(const viewport of [{width:390,height:844},{width:390,height:664},{width:320,height:568},{width:1280,height:900}]){
@@ -46,6 +47,11 @@ try {
    await expect(page.getByRole('dialog')).toHaveCount(0);
    const bad=await page.locator('img').evaluateAll(async imgs=>{await Promise.all(imgs.map(i=>i.decode().catch(()=>{})));return imgs.filter(i=>!i.naturalWidth).map(i=>i.src);});expect(bad).toEqual([]);
    measured.push({step,items:await page.locator('.chapter-panel').last().locator('[data-item],[data-hotspot]').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return{id:el.getAttribute('data-item')??el.getAttribute('data-hotspot'),fixed:el.hasAttribute('data-hotspot'),x:r.x,y:r.y,width:r.width,height:r.height};}))});
+   const hitSizes=await page.locator('.chapter-panel').last().locator('[data-item]').evaluateAll(nodes=>nodes.map(el=>{
+    const r=el.getBoundingClientRect(),style=getComputedStyle(el,'::before'),scale=r.width/parseFloat(getComputedStyle(el).width);
+    return {id:el.dataset.item,width:parseFloat(style.width)*scale,height:parseFloat(style.height)*scale};
+   }));
+   for(const hit of hitSizes){expect(hit.width,hit.id+' touch width').toBeGreaterThanOrEqual(43.5);expect(hit.height,hit.id+' touch height').toBeGreaterThanOrEqual(43.5);}
    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
    await page.screenshot({path:path.join(dir,`${step}.png`),animations:'disabled'});
   }
@@ -59,14 +65,18 @@ try {
    expect(await paper.boundingBox()).not.toEqual(before);expect((await saved()).actions.filter(a=>a.type==='combine')).toHaveLength(0);
    for(let i=0;i<route.length;i++){
     let {action,result,chapter}=route[i];
-    // Exercise the other legal bearing order on the smallest phone.
-    if(viewport.width===320&&result==='id:wr-front-bearing-chassis'){action={...action,a:'id:wr-rear-bearing'};result='id:wr-rear-bearing-chassis';}
-    else if(viewport.width===320&&result==='id:wr-bearing-chassis')action={...action,a:'id:wr-front-bearing',b:'id:wr-rear-bearing-chassis'};
+    // Swap physically interchangeable bearings on the smallest phone.
+    if(viewport.width===320&&result==='id:wr-front-bearing-chassis'){
+      action={...action,a:'id:wr-rear-bearing',b:'id:wr-chassis'};result='id:wr-rear-bearing-chassis';
+    }else if(viewport.width===320&&result==='id:wr-bearing-chassis')action={...action,a:'id:wr-front-bearing',b:'id:wr-rear-bearing-chassis'};
     if(chapter!==(await saved()).chapter){
-     await page.reload();await expect(item('id:pinwheel')).toBeVisible();
+     const completed=chapter===1?'id:pinwheel':'id:wr-sail';
+     await page.reload();await expect(item(completed)).toBeVisible();
      await page.getByRole('button',{name:'Continue story',exact:true}).click();
-     await expect.poll(async()=>(await saved()).chapter).toBe(chapter);await dismissReadings();
-     await capture('10-racer-start');
+     await expect.poll(async()=>(await saved()).chapter).toBe(chapter);
+     await expect(page.getByRole('dialog')).toHaveCount(0);
+     if(chapter===1)expect(await page.locator('.chapter-panel').last().locator('[data-item="id:pinwheel"]').count()).toBe(0);
+     await capture(`${String(i).padStart(2,'0')}-chapter-${chapter+1}-start`);
     }
     const target=action.b??action.hotspot;
     // Both assembly directions must work: move the workpiece onto its hub.
@@ -87,18 +97,18 @@ try {
     await pointerDrag(pickup,{x:to.x+to.width/2,y:to.y+to.height/2});
     await expect(item(result)).toBeVisible();
     await expect.poll(async()=>(await saved())?.actions.filter(a=>a.type==='combine').length).toBe(i+1);
-    if(chapter===0){expect((await saved()).pending).toEqual([]);expect(await page.locator(`[data-hotspot="${result}"]`).count()).toBe(0);}
+    expect((await saved()).pending).toEqual([]);expect(await page.locator(`[data-hotspot="${result}"]`).count()).toBe(0);
     await dismissReadings();
     await capture(`${String(i+1).padStart(2,'0')}-${result.slice(3)}`);
    }
    const final=await saved();await page.reload();await expect(item('id:wind-racer')).toBeVisible();expect((await saved()).actions).toEqual(final.actions);
    await page.getByRole('button',{name:'Continue story',exact:true}).click();
-   await expect.poll(async()=>(await saved()).chapter).toBe(2);await dismissReadings();
-   await page.screenshot({path:path.join(dir,'17-next-chapter.png')});
+   await expect.poll(async()=>(await saved()).chapter).toBe(3);await dismissReadings();
+   await page.screenshot({path:path.join(dir,'24-next-chapter.png')});
    expect(errors).toEqual([]);expect(failed).toEqual([]);outcomes.push({viewport,passed:true,measured});
   } catch(e) {await page.screenshot({path:path.join(dir,'failure.png')});fs.writeFileSync(path.join(dir,'failure.json'),JSON.stringify({error:String(e),state:await saved(),measured,errors,failed},null,2));throw e;}
   finally {await page.close();}
  }
  fs.writeFileSync(path.join(out,'outcome.json'),JSON.stringify({sourceSha256:createHash('sha256').update(source).digest('hex'),outcomes},null,2));
- console.log(JSON.stringify({viewports:outcomes.map(o=>o.viewport),actions:route.length,chapterOnePopups:0,mobileTouch:true,reload:true,nextChapter:true}));
+ console.log(JSON.stringify({viewports:outcomes.map(o=>o.viewport),actions:route.length,openingPopups:0,mobileTouch:true,reload:true,nextChapter:true}));
 } finally {await browser.close();}

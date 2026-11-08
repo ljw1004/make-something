@@ -65,3 +65,14 @@ An initial 320px carried view covered the first racer instruction on short phone
 Verification: 321 node tests and a final complete run of 232 browser tests passed, plus four focused WebKit edge checks. The former edge-clamping expectations were revised; WebKit's subpixel pointer rounding is allowed within one pixel. The compiled static game completed all 16 opening combinations at 390×844, 390×664, 320×568 and 1280×900, with emulated touch input on phones, reloads and continuation into chapter 3. The alternate bearing order also completed on the smallest phone. Chapter 1 still has no automatic popups. Type checking, production build, selected-asset hashes and live lint pass; lint retains the existing mixed-fates and fixed-analysis-bound warnings. Logical recipes and their instruction sequence are unchanged, so this pass uses visual/pointer evaluation rather than another text-only fun grade.
 
 A fresh review approved the corrected selected candidate with explicit limits. All folds and fittings remain distinct; the racer receivers align with the visible assembly, and goals and chapter controls stay clear. Large toys can partly overlap: the growing racer shares space with the carried pinwheel, and the deliberate desktop reverse-hub route can cover part of the process row. These remain distinguishable, movable and completable, consistent with the user's accepted tabletop crowding. An independent actual-paper probe on compiled output confirmed pointer tracking and release fitting at 320×568 and 1280×900. The reviewer also confirmed the settled rear-bearing branch; a capture of the preceding paint prompted a two-frame settling wait and disabled screenshot animations in the checker. The smallest-phone route passed again with that capture refinement. This is informed visual and browser-input evidence, not native-device touch feel or children's enjoyment. Temporary renders, captures and detailed probe output were removed after these concise outcomes were retained.
+
+## Vintage material revision
+
+The subsequent [independent racer revision](racer-evaluation.md) recolours the
+pinwheel with the shared honey/forest/brick/cream-charcoal palette. Its geometric
+operations, fitted dimensions, crop families and display sizes are unchanged.
+The reverse paper uses a lighter brick red. The same finished model supplies
+the new white-background identity image; the cover also uses the white page.
+The pinwheel no longer carries into the racer. Fresh visual review and the
+compiled 23-action opening checker cover the recoloured result; the linked
+record owns outcomes and the continuing reverse-hub crowding caveat.

@@ -4,8 +4,8 @@ This source implements the chapter-one movable-workpiece prototype. It imports
 the original Builder paper's dimensions and hole factory from
 `archive/2026.11.07 builder study/art/wind_toys.py`; the frozen source is unchanged.
 The paper is a 160mm square, 0.25mm thick, with four prepared diagonal incisions
-ending at its 24mm central web. The front is orange and the reverse a warmer
-orange. Hole positions and paper length survive folding. Each fold follows an
+ending at its 24mm central web. The front is brick red and the reverse a lighter red, from the shared
+`../materials.py` palette. Hole positions and paper length survive folding. Each fold follows an
 exact 180-degree semicircle of radius half its tip height, then continues as a
 horizontal plane. The four tip planes are separated by 0.35mm, leaving 0.10mm
 between their 0.25mm sheets. A fixed-length bend followed by sloping tips was
@@ -21,7 +21,7 @@ fully folded state.
 Only the fold changes paper geometry. Adding a part only enables that part's
 owned meshes. Flips select real cameras on the opposite side of the same model.
 
-The new front-fitting hub has a 24mm teal face and a hollow 6mm stem. Its tapered
+The new front-fitting hub has a 24mm forest-green face and a hollow 6mm stem. Its tapered
 rear lips enter the prepared 6.4mm paper holes and capture the web. A slit in the
 rear stem permits the nominal plastic tongues to flex. The rear-inserted axle
 has a continuous 3mm shaft, a bonded smooth spacer, a mounting post and a split
@@ -52,11 +52,10 @@ meshes already present.
 Loose hardware uses larger inspection magnification. Front paper states share
 one crop and scale, as do the two rear rotor states. Adding the long handle
 zooms out to a whole-object view; no part changes its physical dimensions.
-The front/rear workpiece drawings have a 320px visible long dimension at the
-390px reference viewport, completed pinwheels 400px, the handle 270px, the hub
-132px and the axle 145px. `pinwheel-carried.webp` uses the same finished geometry
-at 184px for later chapters. All sizes are set in `export.py` and include a
-separate three-pixel transparent margin.
+Exact export sizes live in `production-settings.json`: broad paper/blade stages
+184px, finished pinwheel 400px, handle 270px, hub 96px and axle 112px, plus a
+three-pixel transparent margin. The pinwheel stays on its own page. `export.py`
+also accepts `--icon PATH` to export the same finished model on a white square.
 
 The partial-fold adapter uses each blade's exact existing flat or folded mesh,
 including its actual hole cutter. `verify_folds.py` compares all evaluated blade
@@ -96,10 +95,6 @@ candidate runs.
 
 Selected runtime artwork lives in `stories/builder/assets/`. Review scratch exports before replacing those files; the older study manuscripts preserve their historical source paths.
 
-Display sizing is read by `export.py` from `production-settings.json`. Broad
-paper and blade stages share a 184px inspection scale; hub and axle inspections
-are 96px and 112px. The 270px handle and 400px finished pinwheel remain large,
-with a 280px carried pinwheel for chapter 2. These sizes change only the export
-magnification, never the model or the consistent crop within an additive group.
-The opening browser checker (`../tools/verify-opening.mjs`) now follows both
-chapters through the completed racer using emulated touch input at phone sizes.
+Display sizing changes only the export magnification, never the physical model.
+The opening checker (`../tools/verify-opening.mjs`) follows the pinwheel, sail
+and chassis chapters through completion using emulated touch input on phones.

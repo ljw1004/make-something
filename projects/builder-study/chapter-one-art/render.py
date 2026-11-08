@@ -14,6 +14,9 @@ sys.path.insert(0,str(HERE))
 import pinwheel as P
 import bpy
 import scene_parts as S
+sys.path.insert(0,str(HERE.parent))
+import materials
+materials.apply(S)
 from mathutils import Vector
 
 parser=argparse.ArgumentParser()

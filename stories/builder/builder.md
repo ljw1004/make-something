@@ -1,5 +1,5 @@
-# ![An orange paper pinwheel](icon.png) A Fair in the Air
-background: ![An invitation on the garden workbench](assets/cover.webp)
+# ![A brick-red paper pinwheel](icon.png) A Fair in the Air
+background: ![White instruction page](assets/backgrounds/white.svg)
 
 Build toys that move, draw and shine—then make a little garden fair do something impossible.
 
@@ -32,7 +32,7 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 
   ---
 
-  The orange sheet is already cut along four diagonals, stopping short of the centre. Curl the four pierced corners inward; keep the uncut centre whole.
+  The paper sheet is already cut along four diagonals, stopping short of the centre. Curl the four pierced corners inward; keep the uncut centre whole.
 - `pw-hub` Hub
   - icon: ![Teal hub](assets/items/pw-hub.webp) (center 140px, 460px)
 
@@ -69,7 +69,6 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
   - icon: ![Back of the pinwheel](assets/items/pw-mounted.webp)
 - `pinwheel` Pinwheel
   - icon: ![Pinwheel](assets/items/pinwheel.webp)
-  - from chapter `c02` icon: ![Pinwheel](assets/items/pinwheel-carried.webp)
 
   ---
 
@@ -87,118 +86,244 @@ reference: ![Pinwheel](assets/items/pinwheel.webp)
 - `pw-mounted` [transform] @ `pw-flip` -> `pinwheel`
 
 
-## `c02` The race to the watering can
+## `c02` A sail
+background: ![White instruction page](assets/backgrounds/white.svg)
+reference: ![Completed sail](assets/items/wr-sail.webp)
+
+**Goals**
+- Fit the connector to the mast
+  - either: `wr-mast-joint`
+  - or: `wr-mast-joint-foot`
+  - or: `wr-frame`
+  - or: `wr-ready`
+  - or: `wr-frame-sail`
+  - or: `wr-sail`
+- next: Fit the crossbar into the connector
+  - either: `wr-frame`
+  - or: `wr-ready`
+  - or: `wr-frame-sail`
+  - or: `wr-sail`
+- next: Push the foot onto the mast
+  - either: `wr-mast-foot`
+  - or: `wr-mast-joint-foot`
+  - or: `wr-ready`
+  - or: `wr-sail`
+- next: Clip the sail onto the mast -- `wr-sail`
+
+**Items**
+- `wr-mast-wood` Mast
+  - icon: ![Mast](assets/items/wr-mast-wood.webp)
+- `wr-mast-foot` Mast
+  - icon: ![Mast](assets/items/wr-mast-foot.webp)
+- `wr-mast-joint` Mast
+  - icon: ![Mast](assets/items/wr-mast-joint.webp)
+- `wr-mast-joint-foot` Mast
+  - icon: ![Mast](assets/items/wr-mast-joint-foot.webp)
+- `wr-frame` Mast
+  - icon: ![Mast](assets/items/wr-frame.webp)
+- `wr-ready` Mast
+  - icon: ![Mast](assets/items/wr-ready.webp)
+- `wr-frame-sail` Sail
+  - icon: ![Sail](assets/items/wr-frame-sail.webp)
+- `wr-sail` Sail
+  - icon: ![Sail](assets/items/wr-sail.webp)
+  - from chapter `c-racer-body` icon: ![Sail](assets/items/wr-sail-carried.webp)
+- `wr-connector` Connector
+  - icon: ![Connector](assets/items/wr-connector.webp)
+
+  ---
+
+  Two offset sockets keep the wooden rods from crossing through each other. Flexible ribs grip both rods.
+- `wr-crossbar` Crossbar
+  - icon: ![Crossbar](assets/items/wr-crossbar.webp)
+
+  ---
+
+  A short wooden rod that supports the bottom of the sail.
+- `wr-foot` Foot
+  - icon: ![Foot](assets/items/wr-foot.webp)
+
+  ---
+
+  The mast pushes into the top socket. The split legs underneath will snap into the chassis.
+- `wr-sailcloth` Sail
+  - icon: ![Sail](assets/items/wr-sailcloth.webp)
+
+  ---
+
+  Three small open clips are attached to the cloth. They press onto the mast and crossbar.
+- `wr-crossbar-joint` Crossbar
+  - icon: ![Crossbar](assets/items/wr-crossbar-joint.webp)
+
+**Combinations**
+- `wr-foot` [consume] + `wr-mast-wood` [transform] -> `wr-mast-foot`
+- `wr-foot` [consume] + `wr-mast-joint` [transform] -> `wr-mast-joint-foot`
+- `wr-foot` [consume] + `wr-frame` [transform] -> `wr-ready`
+- `wr-foot` [consume] + `wr-frame-sail` [transform] -> `wr-sail`
+- `wr-connector` [consume] + `wr-mast-wood` [transform] -> `wr-mast-joint`
+- `wr-connector` [consume] + `wr-mast-foot` [transform] -> `wr-mast-joint-foot`
+- `wr-crossbar` [consume] + `wr-mast-joint` [transform] -> `wr-frame`
+- `wr-crossbar` [consume] + `wr-mast-joint-foot` [transform] -> `wr-ready`
+- `wr-sailcloth` [consume] + `wr-frame` [transform] -> `wr-frame-sail`
+- `wr-sailcloth` [consume] + `wr-ready` [transform] -> `wr-sail`
+- `wr-connector` [consume] + `wr-crossbar` [transform] -> `wr-crossbar-joint`
+- `wr-crossbar-joint` [consume] + `wr-mast-wood` [transform] -> `wr-frame`
+- `wr-crossbar-joint` [consume] + `wr-mast-foot` [transform] -> `wr-ready`
+
+
+## `c-racer-body` Wheels for the sail
 background: ![White instruction page](assets/backgrounds/white.svg)
 reference: ![Wind racer](assets/items/wind-racer.webp)
 
-The pinwheel is very good at going round and very bad at going anywhere. Jo lays a little chassis in the bench clips; beyond the door, a chalk lane ends at the watering can.
-
 **Goals**
-- Fit a bearing tube to the chassis
+- Push a wheel onto the front straw -- `wr-front-one-wheel`
+- next: Push another wheel onto the front axle -- `wr-front-wheels`
+- next: Push a wheel onto the rear straw -- `wr-rear-one-wheel`
+- next: Push another wheel onto the rear axle -- `wr-rear-wheels`
+- next: Fit a bearing to the chassis
   - either: `wr-front-bearing-chassis`
   - or: `wr-rear-bearing-chassis`
-- next: Fit the other bearing tube to the chassis -- `wr-bearing-chassis`
-- next: Add the wheels to the chassis -- `wr-rolling-chassis`
-- next: Clip the sail onto the mast -- `wr-sail`
-- next: Fit the sail to the chassis -- `wr-rigged`
-- next: Aim the sail with the pinwheel -- `wr-aimed`
-- next: Race from the starting gate -- `wind-racer`
+  - or: `wr-bearing-chassis`
+  - or: `wr-front-rolling-chassis`
+  - or: `wr-rear-rolling-chassis`
+  - or: `wr-front-wheel-chassis`
+  - or: `wr-rear-wheel-chassis`
+  - or: `wr-rolling-chassis`
+- next: Fit the other bearing
+  - either: `wr-bearing-chassis`
+  - or: `wr-front-wheel-chassis`
+  - or: `wr-rear-wheel-chassis`
+  - or: `wr-rolling-chassis`
+- next: Snap wheels into a bearing
+  - either: `wr-front-rolling-chassis`
+  - or: `wr-rear-rolling-chassis`
+  - or: `wr-front-wheel-chassis`
+  - or: `wr-rear-wheel-chassis`
+  - or: `wr-rolling-chassis`
+- next: Snap on the other wheels -- `wr-rolling-chassis`
+- next: Flip the chassis upright -- `wr-upright`
+- next: Fit the sail to the chassis -- `wind-racer`
 
 **Hotspots**
-- `wr-chassis` (center 390px, 700px)
-  - icon: ![Light wooden chassis](assets/hotspots/c02--wr-chassis.webp)
-  - hitbox: (center 390px, 817px) (size 415px, 146.5px)
-- `wr-front-bearing-chassis` (center 390px, 700px)
-  - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-front-bearing-chassis.webp)
-  - hitbox: (center 390px, 827px) (size 415px, 166.5px)
-- `wr-rear-bearing-chassis` (center 390px, 700px)
-  - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-rear-bearing-chassis.webp)
-  - hitbox: (center 390px, 817px) (size 415px, 146.5px)
-- `wr-bearing-chassis` (center 390px, 700px)
-  - icon: ![Chassis with axle bearings](assets/hotspots/c02--wr-bearing-chassis.webp)
-  - hitbox: (center 390px, 827px) (size 415px, 166.5px)
-- `wr-rolling-chassis` (center 390px, 700px)
-  - icon: ![Wheeled chassis](assets/hotspots/c02--wr-rolling-chassis.webp)
-  - hitbox: (center 390px, 838.25px) (size 441px, 227px)
-- `wr-rigged` (center 390px, 700px)
-  - icon: ![Racer in the bench clips](assets/hotspots/c02--wr-rigged.webp)
-  - hitbox: (center 390px, 700px) (size 441px, 503.5px)
-- `wr-aimed` (center 390px, 700px)
-  - icon: ![Racer facing the breeze](assets/hotspots/c02--wr-aimed.webp)
-  - hitbox: (center 390px, 700px) (size 441px, 503.5px)
+- `wr-flip` (center 390px, 216px)
+  - icon: ![Turn the chassis over](assets/actions/flip.svg)
 
 **Items**
 - `wr-chassis` Chassis
-  - icon: ![Light wooden chassis](assets/items/wr-chassis.webp)
-
-  A prepared board with slots for two axle bearings, a mast socket and the same small mounting holes as the pinwheel handle. It is held in the reusable bench clips.
-- `wr-front-bearing` Bearing tube
-  - icon: ![Bearing tube](assets/items/wr-bearings.webp)
-
-  ---
-
-  A smooth tube with its connected mounting saddles. The wheel axle turns inside it.
-- `wr-rear-bearing` Bearing tube
-  - icon: ![Bearing tube](assets/items/wr-bearings.webp)
-
-  ---
-
-  A second matching bearing tube, with its connected mounting saddles.
-- `wr-wheelset` Wheels
-  - icon: ![Wheels and captive axles](assets/items/wr-wheelset.webp)
-
-  One complete wheel-and-axle unit represents the supplied pair. Two straight axles with four light wheels, spacing collars and soft push-on caps. Each wheel is fixed to its axle; the collars leave a little clearance beside the bearing tubes so both axles turn freely.
-- `wr-sailcloth` Sail
-  - icon: ![Light sailcloth](assets/items/wr-sailcloth.webp)
-
-  A small triangular sail with reinforced corner loops.
-- `wr-mast` Mast
-  - icon: ![Mast and crossbar](assets/items/wr-mast.webp)
-
-  A short mast with a crossbar, clips for the sail loops and a split foot that fits the chassis socket.
-- `wr-starting-gate` Starting gate
-  - icon: ![Portable starting gate](assets/items/wr-starting-gate.webp)
-
-  A light arch with a hand-lifted bar. Put it across the chalk lane to hold the racer still until its sail is facing the wind.
+  - icon: ![Chassis](assets/items/wr-chassis.webp)
 - `wr-front-bearing-chassis` Chassis
-  - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-front-bearing-chassis.webp)
+  - icon: ![Chassis](assets/items/wr-front-bearing-chassis.webp)
 - `wr-rear-bearing-chassis` Chassis
-  - icon: ![Chassis with one bearing tube](assets/hotspots/c02--wr-rear-bearing-chassis.webp)
+  - icon: ![Chassis](assets/items/wr-rear-bearing-chassis.webp)
 - `wr-bearing-chassis` Chassis
-  - icon: ![Chassis with axle bearings](assets/items/wr-bearing-chassis.webp)
+  - icon: ![Chassis](assets/items/wr-bearing-chassis.webp)
+- `wr-front-rolling-chassis` Chassis
+  - icon: ![Chassis](assets/items/wr-front-rolling-chassis.webp)
+- `wr-rear-rolling-chassis` Chassis
+  - icon: ![Chassis](assets/items/wr-rear-rolling-chassis.webp)
+- `wr-front-wheel-chassis` Chassis
+  - icon: ![Chassis](assets/items/wr-front-wheel-chassis.webp)
+- `wr-rear-wheel-chassis` Chassis
+  - icon: ![Chassis](assets/items/wr-rear-wheel-chassis.webp)
 - `wr-rolling-chassis` Chassis
-  - icon: ![Wheeled chassis](assets/items/wr-rolling-chassis.webp)
-- `wr-sail` Sail
-  - icon: ![Sail on its mast](assets/items/wr-sail.webp)
-
-  You clip the sail to the crossbar and mast. The broad surface catches moving air; the wheels will let that push move the whole toy.
-- `wr-rigged` Racer
-  - icon: ![Racer in the bench clips](assets/items/wr-rigged.webp)
-- `wr-aimed` Racer
-  - icon: ![Racer facing the breeze](assets/items/wr-aimed.webp)
-
-  You hold the pinwheel beside the sail and turn the racer until both catch the breeze from behind. The pinwheel stays in your hand; it has shown you where the air is going.
+  - icon: ![Chassis](assets/items/wr-rolling-chassis.webp)
+- `wr-upright` Chassis
+  - icon: ![Chassis](assets/items/wr-upright.webp)
 - `wind-racer` Wind racer
   - icon: ![Wind racer](assets/items/wind-racer.webp)
 
-  ![Wind racer in the garden](assets/rewards/wind-racer.webp)
+  ---
 
-  You release the racer from its bench clips, lift it to the garden lane and set it behind the starting bar. Up goes the bar. The racer rolls all the way to the watering can.
+  The wheels turn together with each straw axle inside the bearings. Outdoors, moving air can push against the sail.
+- `wr-flip` Flip
+- `wr-front-bearing` Bearing
+  - icon: ![Bearing](assets/items/wr-bearing.webp)
 
-  Jo crouches at the finish. “Again. I was definitely a very slow watering can.” Above the fence, your younger neighbour Kit’s fingers appear, then two curious eyes. “Can I try it at the fair?”
+  ---
 
-  “You can be the first driver,” you say. Kit promises to come back. You lift the racer from the lane for another run.
+  An open bearing clips beneath the chassis. Its spring lips let the axle snap into the channel.
+- `wr-front-axle` Front straw
+  - icon: ![Front straw](assets/items/wr-straw.webp)
+
+  ---
+
+  A stiff hollow plastic axle. Push one wheel onto each end.
+- `wr-front-one-wheel` Front axle
+  - icon: ![Front axle](assets/items/wr-one-wheel.webp)
+- `wr-front-wheels` Front wheels
+  - icon: ![Front wheels](assets/items/wr-wheels.webp)
+- `wr-rear-bearing` Bearing
+  - icon: ![Bearing](assets/items/wr-bearing.webp)
+
+  ---
+
+  An open bearing clips beneath the chassis. Its spring lips let the axle snap into the channel.
+- `wr-rear-axle` Rear straw
+  - icon: ![Rear straw](assets/items/wr-straw.webp)
+
+  ---
+
+  A stiff hollow plastic axle. Push one wheel onto each end.
+- `wr-rear-one-wheel` Rear axle
+  - icon: ![Rear axle](assets/items/wr-one-wheel.webp)
+- `wr-rear-wheels` Rear wheels
+  - icon: ![Rear wheels](assets/items/wr-wheels.webp)
+- `wr-wheel-1` Wheel
+  - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  ---
+
+  The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
+- `wr-wheel-2` Wheel
+  - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  ---
+
+  The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
+- `wr-wheel-3` Wheel
+  - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  ---
+
+  The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
+- `wr-wheel-4` Wheel
+  - icon: ![Wheel](assets/items/wr-wheel.webp)
+
+  ---
+
+  The wheel has a blind centre socket and an integral spacer. Any wheel fits either straw.
 
 **Combinations**
+- `wr-wheel-1` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
+- `wr-wheel-1` [consume] + `wr-front-one-wheel` [transform] -> `wr-front-wheels`
+- `wr-wheel-2` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
+- `wr-wheel-2` [consume] + `wr-front-one-wheel` [transform] -> `wr-front-wheels`
+- `wr-wheel-3` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
+- `wr-wheel-3` [consume] + `wr-front-one-wheel` [transform] -> `wr-front-wheels`
+- `wr-wheel-4` [consume] + `wr-front-axle` [transform] -> `wr-front-one-wheel`
+- `wr-wheel-4` [consume] + `wr-front-one-wheel` [transform] -> `wr-front-wheels`
+- `wr-wheel-1` [consume] + `wr-rear-axle` [transform] -> `wr-rear-one-wheel`
+- `wr-wheel-1` [consume] + `wr-rear-one-wheel` [transform] -> `wr-rear-wheels`
+- `wr-wheel-2` [consume] + `wr-rear-axle` [transform] -> `wr-rear-one-wheel`
+- `wr-wheel-2` [consume] + `wr-rear-one-wheel` [transform] -> `wr-rear-wheels`
+- `wr-wheel-3` [consume] + `wr-rear-axle` [transform] -> `wr-rear-one-wheel`
+- `wr-wheel-3` [consume] + `wr-rear-one-wheel` [transform] -> `wr-rear-wheels`
+- `wr-wheel-4` [consume] + `wr-rear-axle` [transform] -> `wr-rear-one-wheel`
+- `wr-wheel-4` [consume] + `wr-rear-one-wheel` [transform] -> `wr-rear-wheels`
 - `wr-front-bearing` [consume] + `wr-chassis` [transform] -> `wr-front-bearing-chassis`
 - `wr-rear-bearing` [consume] + `wr-chassis` [transform] -> `wr-rear-bearing-chassis`
-- `wr-rear-bearing` [consume] + `wr-front-bearing-chassis` [transform] -> `wr-bearing-chassis`
 - `wr-front-bearing` [consume] + `wr-rear-bearing-chassis` [transform] -> `wr-bearing-chassis`
-- `wr-wheelset` [consume] + `wr-bearing-chassis` [transform] -> `wr-rolling-chassis`
-- `wr-sailcloth` [consume] + `wr-mast` [transform] -> `wr-sail`
-- `wr-sail` [consume] + `wr-rolling-chassis` [transform] -> `wr-rigged`
-- `pinwheel` [preserve] + `wr-rigged` [transform] -> `wr-aimed`
-- `wr-starting-gate` [preserve] + `wr-aimed` [transform] -> `wind-racer`
+- `wr-rear-wheels` [consume] + `wr-rear-bearing-chassis` [transform] -> `wr-rear-rolling-chassis`
+- `wr-front-bearing` [consume] + `wr-rear-rolling-chassis` [transform] -> `wr-rear-wheel-chassis`
+- `wr-front-wheels` [consume] + `wr-front-bearing-chassis` [transform] -> `wr-front-rolling-chassis`
+- `wr-rear-bearing` [consume] + `wr-front-bearing-chassis` [transform] -> `wr-bearing-chassis`
+- `wr-front-wheels` [consume] + `wr-bearing-chassis` [transform] -> `wr-front-wheel-chassis`
+- `wr-rear-wheels` [consume] + `wr-bearing-chassis` [transform] -> `wr-rear-wheel-chassis`
+- `wr-front-wheels` [consume] + `wr-rear-wheel-chassis` [transform] -> `wr-rolling-chassis`
+- `wr-rear-bearing` [consume] + `wr-front-rolling-chassis` [transform] -> `wr-front-wheel-chassis`
+- `wr-rear-wheels` [consume] + `wr-front-wheel-chassis` [transform] -> `wr-rolling-chassis`
+- `wr-rolling-chassis` [transform] @ `wr-flip` -> `wr-upright`
+- `wr-sail` [consume] + `wr-upright` [transform] -> `wind-racer`
 
 
 ## `c03` A hill for a marble
