@@ -2,7 +2,7 @@
 
 This index describes live projects only. Each project keeps its briefs, research, plans and retained supporting material together throughout its development.
 
-- [Builder study](builder-study/README.md): guided construction, dimensioned mechanisms, working completion animations and an unspoken connection through three extraordinary final kits; current visual, mechanical and experience reviews remain together in the study.
+- [Builder study](builder-study/README.md): guided construction and working completion animations; current narrative redevelopment selects a seven-build arc with a substantial supplier motive and a city-scale consequence. The live version, canonical models and separately attributed reviews remain together in the study.
 - [Theology study](theology-study/README.md): continuing development of Theology: Disputed Questions, with two completed revision/evaluation cycles, structured player responses, graded chapter reports and current recommendations.
 - [Ideas study](ideas-study/README.md): ancient-to-modern connections, worthwhile independent discoveries, a whole-story teaching audit and successive chapter evaluations.
 

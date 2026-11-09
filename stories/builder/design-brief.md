@@ -1,91 +1,90 @@
 # The Next Box
 
+## Current development target
+
+This brief governs the next narrative revision and its study work. The live v48
+manuscript remains the preceding thirteen-toy implementation. The selected
+[seven-build story treatment](../../projects/builder-study/story-treatment.md)
+defines the new scene sequence; the [review record](../../projects/builder-study/narrative-redevelopment.md)
+keeps its evidence and limitations. This is a narrative decision, not a claim that
+replacement artwork or executable chapters have been produced.
+
 ## Intent
 
-A making story for a curious ten-year-old. Build appealing toys from understandable
-parts, with enough physical truth that the player can see what each fitting does.
-A completed whole toy rewards the work by visibly operating in a short loop. The user enjoyed the large,
-movable opening creations and their short step instructions; extend that experience
-through the whole story. An approximate 200-combination ambition is subordinate to
-worthwhile construction. Branch recipes for interchangeable parts are not extra
-work required of the player.
+A making story for a curious child around eight to ten. Build appealing toys from
+understandable parts, with enough physical truth to see what each fitting does.
+Completed whole toys visibly work. Keep movable creations, short step instructions
+and the educational value of making real mechanisms. Use three or four ordinary
+whole builds followed by three or four using pink technology. Let good construction
+determine the steps; do not pad this smaller arc to the old 200-action ambition.
 
-The kit supplier quietly connects the player to a much more advanced maker culture.
-Keep that premise in the author's mind. Three final builds introduce pink modules
-as ordinary kit contents; their working behaviour reveals the connection. Never
-announce that a component is futuristic, magical or invented. Let the player infer
-what is extraordinary. Express the story through objects and reciprocal actions. No routine chapter introductions, result popups, badges or generic
-praise. Most pages should read as quiet illustrated instructions. Optional mechanical
-explanation belongs after the encyclopedia divider, not in the working sequence.
+The childhood fantasy is that something made on an ordinary worktable acquires
+extraordinary power. Give the first impossible toy time to play in familiar
+surroundings before revealing a larger purpose. The supplier has a substantial
+agenda and the ending changes the world the player already knows. Quiet visual
+storytelling must still communicate cause, purpose and consequence. Recognition
+of moving objects alone is insufficient.
+
+The private premise is an unauthorized evacuation. A far-future industrial company,
+the Works, is preserving its entire inhabited factory-city from a failing world
+and relocating it near Earth. The kits train and equip a builder at this end.
+The company acts for its survival and continuity, having chosen our sky without
+asking. Its workers deliberately send half of a towing connection and retain the
+matching socket. The player builds the craft that brings their city here.
+
+Keep institutional details in the author's understanding. The visible story must
+show the source of the kits, an inhabited place in danger, the deliberate shipment,
+the useful work of the final machines, and the same city established beside our
+moon. A personal friendship or gift exchange is not the selected payoff. The
+lasting consequence is visible beyond the familiar bedroom roof. Do not add a
+technical explanation for why the company ships kits rather than robots.
+
+No routine chapter introductions, result popups, praise or explanations of pink
+parts. Most pages are quiet illustrated instructions. Optional mechanical detail
+belongs after the encyclopedia divider. Narrative is carried by a few legible
+working scenes, with enough time for important objects and causal actions to register.
 
 ## Progression and implicit story
 
-- An independent pinwheel establishes four visible folds, an attached hub, axle and
-  handle, and deliberate views of both faces.
-- Build a sail separately, then two literal straw-and-two-wheel units and a racer.
-  The chassis arrives upright, is flipped for underside fittings, then flipped back
-  for its sail. The pinwheel stays on its own page.
-- A marble table adds rails, returns, launcher, independently fitted flippers and
-  targets. Fit the under-table pivot plate before adding the blades from above.
-- A crank dragon reveals an eccentric cam, guided follower, return spring, two
-  separately fitted wings and their links. One cam suffices; avoid a forced service
-  exercise merely to demonstrate another profile. Turn the shaft assembly to fit
-  its rear collar visibly, then return to the front for its crank.
-- A broad-based gantry replaces the long cantilever crane. Two pulley blocks route
-  a continuous rope around a clear lifting bay to its own basket. It has no
-  manufactured dependency on the later fictional machine.
-- A compact electric carousel replaces the long string-wave apparatus. Motor,
-  pulley, belt, deck and three separately assembled horse/pole units make a toy
-  whose separate horses visibly turn when the toy is finished.
-- A tabletop pneumatic claw replaces the long grabber. Its short structural palm
-  anchors the jaws, slider, links and actuator. A real tube joins its hand syringe.
-- A picture drum uses a real slit wall, roll/seam operations, turntable and a
-  prepared picture strip. Do not disguise drawing or colouring as component fitting.
-- A drawing rover has separate wheels, drives and guards; wiring, turning over and
-  attaching its pen are distinct operations. Its compact body should dominate.
-- A projector combines a connected reflector liner, lamp, punched disc, spindle,
-  lens, holder, hood, grooved handle and separate lid. Preserve those actual parts
-  when the completed projector returns later.
-- An open tabletop Window contains a pink block among otherwise ordinary parts.
-  On completion, another maker holds up a familiar folded pinwheel beyond the
-  opening. A blade tips through the frame; there is no pane to vanish later.
-- A broad-based String spinner uses a motor, belt, two pulleys, open fork, joined
-  flexible string and a pink wheel. The circulating loop stays aloft. Contrasting
-  surface bands on the dark string make its actual travel visible. The final
-  fitting threads that loop onto the drive; every supplied part contributes to
-  this working toy.
-- The last machine is a compact whale-shaped flying lantern, built around the
-  unchanged projector. A roughly 400×300 mm deck, two connected support arches,
-  powered lift tile above the load, low batteries, projector dock and belt drive,
-  separate whale panels/fins/tail, skids, balance weight and guard make an actual
-  connected machine. Turn it over to fit each underside battery, and turn between
-  the front and back faces for the handed panels and fins. Its broad body replaces
-  the former metre-scale ribbed frame.
+The selected scope is three ordinary builds and four with pink technology:
 
-The escalation runs from simple paper and understandable mechanisms to three final
-builds using pink modules. The early crates teach actions needed later; remove two
-weaker early builds rather than merely extending the sequence. The final emotional
-payoff is a visible consequence of the player's making, not a congratulatory
-speech. The late sequence was selected through blind concept rounds in the active study:
-Window, String spinner, Whale. The whale takes the original pinwheel to the other
-maker and returns with a paper star on a wooden tongue, held by the same clip.
-Show the removal, insertion and journey. Keep the other maker's identity and the
-supplier's purpose unstated. The three-dimensional ending is a use scene, not a
-new construction recipe. No one is a draggable ingredient.
+- **Pinwheel:** a single connected pre-slit blank, four explicit corner folds,
+  hub, axle and handle. Establish the familiar worktable, bookshelf and moon.
+- **Marble lift:** a broad frame, crank, guided cord, retained cup, ratchet and
+  return track. Show lifting, holding and returning the marble.
+- **Star projector:** a real lamp, pierced wheel, drive, spindle, lens and compact
+  enclosure. The familiar room gains moving projected stars.
+- **Float sled:** a shallow tray with runners, pink plate, ordinary controls and
+  blue battery. Its first flight passes the bookshelf. Preserve this actual machine.
+- **Sky viewer:** compact optical construction with a pink lens reveals the
+  supplier's city, its factory boxes and damage from the failing world. A worker
+  separates a connector, ships the plug/reel and keeps the socket. A matched box
+  opening brings the parts onto the player's table.
+- **Tow winch:** a broad mounted mechanism with gearmotor, ratchet, brake, retained
+  rollers and a connected pink reel/lead. It deploys, holds and retrieves the line.
+  Its plug stays parked in a carrying fork; its mounting feet have a later purpose.
+- **Whale:** the intact sled becomes its keel. Hull seats/panels, fins, links and
+  a tail surround it; the complete winch mounts in a generous belly bay with a
+  positive retaining bridge. The final addition completes one connected flying tug.
 
-Only the specified pink modules may have impossible functions. They supply no
-unannounced solutions to ordinary mechanical problems. Keep real power, supports,
-retention, balance and accessible controls. The tile supplies a limited controlled force while powered: it supports the load
-and moves it gently. Its force acts above the loaded centre of mass. The Window
-block connects the open frame to another workshop; the spinner wheel supports
-the moving string loop. These are the only impossible functions. No
-player-facing disclaimer is needed: this is a fictional computer construction toy.
+The Whale delivers its plug to the city's prepared socket, takes up slack, then
+tows the city to a position beside our moon while the reel holds under its ratchet.
+Only after arrival does it retrieve the plug and return to the worktable. Workers
+repair the damaged track and the city's yellow train runs again. The final room
+view holds both moons. A distinctive white arch, train and exposed machine parts
+support continuity across changes of camera and scale.
 
-Earlier independent toys need not become ingredients of the finale. A returning
-object must contribute its actual function at its unchanged physical dimensions.
-Do not use a pinwheel, spirit level, test block, paper sheet, screen, gate or garden
-fixture as a nominal ingredient merely to force operation or connect chapters.
-Any rare use illustration is a genuine use context and introduces no fake recipes.
+The pink plate permits flight and exceptional load handling; the pink lens permits
+remote viewing; the pink reel/line permits the extraordinary connection and tow.
+These are accepted fictional capabilities. Ordinary supports, retention, clearances,
+controls and motion remain honest. Do not make an unannounced change in physical
+size to solve a camera or mounting problem.
+
+Earlier toys need not all become ingredients of the finale. A returning machine
+contributes its actual function at unchanged physical dimensions. Reuse is literal
+assembly with broad visible mounts, not adjacency to a scenery marker. Flight,
+long-line deployment, docking and towing happen in use animation; they are not
+invented construction recipes or a new tether-drag interaction.
 
 ## Construction and instructions
 
@@ -205,7 +204,7 @@ with their actual mechanism. Use the canonical models, simple materials and comp
 exports. A lower raster resolution must preserve its authored display size. Keep
 still reference pictures and a reduced-motion alternative. A static finished object
 must already be worth constructing; movement rewards completion without adding
-an arbitrary operate/test recipe. A Three.js runtime remains a separate phase.
+an arbitrary operate/test recipe. The final narrative journey may use a longer one-shot sequence with recognition holds. A Three.js runtime remains a separate phase.
 
 Follow the standing authoring and evaluation guides. Use informed necessity and
 mechanical reviews, fresh visual/continuity reviews, actual source-unexposed

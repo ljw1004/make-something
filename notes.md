@@ -1913,3 +1913,32 @@ binds all 521 selected assets to canonical sources and render passes. Selected
 runtime art has one home; obsolete assets and disposable verification output are
 removed. Source and generated publication files accompany the authorized commit
 and push; private access settings and the existing development server are preserved.
+
+## 8 November 2026 — Builder narrative redevelopment after the unreadable payoff
+
+The user did not perceive v48's intended story and requested a larger, consequential
+motive for the high-tech supplier, with roughly three or four ordinary builds and
+three or four extraordinary ones. They explicitly discouraged elaborate transport
+rationalizations and suggested *Explorers* (1985) as inspiration. Research used the
+screenwriter's account and AFI synopsis; the retained design interpretation concerns
+a child's tangible, private power in familiar surroundings, before a larger mission.
+Sources and limits are recorded in the [redevelopment record](projects/builder-study/narrative-redevelopment.md).
+
+Four fresh review rounds compared distinct motives and then rescue variants,
+followed by complete visible-sequence and informed construction reviews. The
+selected [story treatment](projects/builder-study/story-treatment.md) has seven
+builds: Pinwheel, Marble lift, Star projector, Float sled, Sky viewer, Tow winch and
+Whale. A failing factory-city deliberately sends half a towing connector. The
+child builds a tug from the actual earlier sled and winch, and brings that same
+inhabited city to a position beside our moon. The Works' private motive is its
+own survival and continuation through an unauthorized relocation. The visible
+payoff is a permanent change to the sky beyond the child's familiar room.
+
+The [single brief](stories/builder/design-brief.md) now names this as the next
+narrative target. The live v48 manuscript, artwork and prior evidence remain
+unchanged and separately attributed. Ten blind concept readers and two informed
+reviewers supported selection and prompted real revisions; their written-scene
+readings do not establish actual picture comprehension or child enjoyment. The
+next production gates are a wordless storyboard and physical/layout prototypes
+of the retained subassemblies. This pass changes story-development documents only;
+no application build, executable playtest or replacement-render claim applies.

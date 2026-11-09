@@ -4,16 +4,23 @@ Develop [The Next Box](../../stories/builder/builder.md) under its
 [single design brief](../../stories/builder/design-brief.md). Earlier work remains
 in the [Builder study archive](../../archive/2026.11.07%20builder%20study/README.md).
 
-The revised story builds independent paper and wooden toys, moving mechanisms,
+The live v48 story builds independent paper and wooden toys, moving mechanisms,
 optical toys and three final builds with quietly extraordinary pink components. All
 workpieces are movable. Literal repeated parts, explicit Fold/Flip/Roll/Punch
 processes, short current instructions and titled picture references guide the work
 without routine popups. Flat honey wood, lighter green and red, cream and charcoal
 sit on white pages; battery cases are blue. Completed whole toys receive short
 working loops, and a final silent exchange connects the first pinwheel to another
-maker. The [active revision](next-phase.md) records its blind concept rounds,
+maker. The [completed revision](next-phase.md) records its blind concept rounds,
 mechanical repairs, animation work and acceptance status. A native 3D runtime
 remains a separate phase.
+
+The current [narrative redevelopment](narrative-redevelopment.md) responds to the
+user's unreadable-story finding and request for a consequential supplier motive.
+Its selected [story treatment](story-treatment.md) has three ordinary builds and
+four high-tech builds: the final tug uses the actual sled and winch to bring an
+endangered factory-city into our sky. This is the next development target; the
+live game and its preceding evaluation remain attributed to v48.
 
 Experience hypothesis: following the goal picture and one short current instruction
 lets the player see and understand every physical change. Reject fitted parts that
