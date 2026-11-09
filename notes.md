@@ -1694,7 +1694,7 @@ The user accepted the borderless amber highlight after trying it, then authorize
 
 ## 7 November 2026 — A Fair in the Air
 
-Completed the user's autonomous Builder request: invent the premise, story and roughly 200 combinations; run repeated fast and detailed playtests with fresh reviewers; then produce original construction artwork with physically consistent reused parts, move it to `stories/builder`, commit and push. The resulting [story](stories/builder/builder.md) has 181 authored combinations across 29 playable chapters and an ending. The count was reduced during evaluation to remove repetitive fittings; one legal completion uses 170 combinations, with eleven alternate-route operations. The [single active brief](stories/builder/design-brief.md) owns its intent. The [completed study](<archive/2026.11.07 builder study/README.md>) keeps twenty numbered drafts, research, ten playtest batches, model/render sources and concise mechanical/visual outcomes together.
+Completed the user's autonomous Builder request: invent the premise, story and roughly 200 combinations; run repeated fast and detailed playtests with fresh reviewers; then produce original construction artwork with physically consistent reused parts, move it to `stories/builder`, commit and push. The resulting [story](<archive/2026.11.07 contraptions study/story/contraptions.md>) has 181 authored combinations across 29 playable chapters and an ending. The count was reduced during evaluation to remove repetitive fittings; one legal completion uses 170 combinations, with eleven alternate-route operations. The [single active brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) owns its intent. The [completed study](<archive/2026.11.07 contraptions study/README.md>) keeps twenty numbered drafts, research, ten playtest batches, model/render sources and concise mechanical/visual outcomes together.
 
 The user specifically emphasized real dimensions, joints and movement, suggested the installed Blender, allowed one explicitly fictional late technology, and deferred animation. Connected machinery uses canonical dimensioned 3D models, with actual receiving/service paths and retained pose controls. The still-art release includes 340 item icons, 148 fixed views, five fitting overlays, six page backgrounds, fourteen garden rewards, cover and icon. Broad and focused independent reviews prompted real repairs to mechanical interfaces, cable routes, supplied components, camera/readability choices and same-part scale. The late whale keeps the original dragon/projector sizes; the rover draws a ground banner. No kit illustrations, branding, instructions or page compositions were copied.
 
@@ -1719,7 +1719,7 @@ Verification: all three new touch regressions (text, artwork and a custom receiv
 
 ## 7 November 2026 — Builder instructions, readable parts and goal pictures
 
-The user's play feedback led to bounded scale families, connected draggable components, explicit representative quantities and concrete successive building goals. The later request added a framed, enlargable picture of each chapter's destination, with shared pictures across connected builds. Builder now has 194 authored combinations, a 183-combination route and 29 visual references. The [live brief](stories/builder/design-brief.md) owns the intent; the [same study archive](<archive/2026.11.07 builder study/README.md>) retains seven new drafts, two additional fast/detailed playtest batches, selected rendering settings and [concise evaluation outcomes](<archive/2026.11.07 builder study/readability-evaluation-2026.11.07.md>).
+The user's play feedback led to bounded scale families, connected draggable components, explicit representative quantities and concrete successive building goals. The later request added a framed, enlargable picture of each chapter's destination, with shared pictures across connected builds. Builder now has 194 authored combinations, a 183-combination route and 29 visual references. The [live brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) owns the intent; the [same study archive](<archive/2026.11.07 contraptions study/README.md>) retains seven new drafts, two additional fast/detailed playtest batches, selected rendering settings and [concise evaluation outcomes](<archive/2026.11.07 contraptions study/readability-evaluation-2026.11.07.md>).
 
 The reusable chapter `reference:` metadata is specified in the [format](docs/story-format-spec.md) and [UX](docs/ux.md#construction-reference-pictures). Its button reserves arrival space and opens a larger picture without a game action. A concrete banner-overlap counterexample also required automatic results beside surviving receivers to consider fixed receiving regions and reference cards; replacements and explicit placements retain their existing precedence. The [result-placement rule](docs/ux.md#result-placement) owns that behavior.
 
@@ -1742,11 +1742,11 @@ Verification: seven encyclopedia unit tests and all 40 targeted browser checks p
 
 ## 7 November 2026 — Builder movable first-chapter prototype
 
-The user authorized rebuilding chapter 1, then refined the direction during development: four separate folds, processes across the top, a picture-only reference at the right, white instruction pages, very short labels and two independently draggable bearing tubes with the same name. The [active Builder study](projects/builder-study/README.md) retains the ongoing prototype work, source iterations, editable Blender models, selected render settings and attributed playtests. The [live brief](stories/builder/design-brief.md) owns story intent; [UX](docs/ux.md) owns the top reference row and process-result placement. Earlier Builder evidence remains in its existing archive.
+The user authorized rebuilding chapter 1, then refined the direction during development: four separate folds, processes across the top, a picture-only reference at the right, white instruction pages, very short labels and two independently draggable bearing tubes with the same name. The [active Builder study](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/README.md>) retains the ongoing prototype work, source iterations, editable Blender models, selected render settings and attributed playtests. The [live brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) owns story intent; [UX](docs/ux.md) owns the top reference row and process-result placement. Earlier Builder evidence remains in its existing archive.
 
 Chapter 1 now has nine visible operations and a large movable workpiece, with no automatic introduction or result reading. A fold changes one corner; fittings add their own geometry; explicit flips show the other side. Transforming a workpiece at a preserved process target on the same chapter returns it to its previous working centre, preserving usable space for repeated operations. Chapter 2 has two literal bearing tubes and supports either fitting order. Other assembly graphs retain their prior structure, while short labels, matching goal nouns, white instruction backgrounds and picture-only references apply across Builder. The story now has 201 authored combinations and a 188-combination completion route. Animation remains deferred.
 
-Fresh geometry review rejected intersecting folded tips and a clip arm intruding into its axle post. The repaired model uses length-preserving semicircular folds with parallel layers, real receiving holes and geometrically modelled snap paths. A fresh independent review of the frozen final source checked 148 folding poses, sampled insertions and all 360 one-degree rotor positions, plus conservative intervening-angle clearances. Separate visual review accepted every fold and fitting at 320×568 and both bearing orders on narrow/short phones. These are nominal geometry and informed visual results, not manufactured-toy validation or evidence of child enjoyment. The [evaluation record](projects/builder-study/chapter-one-evaluation.md) preserves failures, adopted fixes and evidence limits.
+Fresh geometry review rejected intersecting folded tips and a clip arm intruding into its axle post. The repaired model uses length-preserving semicircular folds with parallel layers, real receiving holes and geometrically modelled snap paths. A fresh independent review of the frozen final source checked 148 folding poses, sampled insertions and all 360 one-degree rotor positions, plus conservative intervening-angle clearances. Separate visual review accepted every fold and fitting at 320×568 and both bearing orders on narrow/short phones. These are nominal geometry and informed visual results, not manufactured-toy validation or evidence of child enjoyment. The [evaluation record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/chapter-one-evaluation.md>) preserves failures, adopted fixes and evidence limits.
 
 Detailed playtesting exposed a real text-interface defect: two same-name parts were listed but could not be selected unambiguously. The interrupted trial remains explicitly ungraded for chapter 2, with actual accepted responses retained. Text play now supplies exact copy selectors such as `Bearing tube (#1)` and `(#2)` without changing browser labels or exposing future identities. Encounter ordering, remaining-copy aliases, compounds and reserved-looking literal names are covered by regression checks; old selectors cannot silently retarget a later object. A fresh detailed trial against the promoted story completed with all three players and no protocol rejections; its attributed grades and synthesis remain in the active study.
 
@@ -1756,9 +1756,9 @@ Verification includes 321 passing node tests, 231 passing browser tests, the rea
 
 The user's hands-on feedback identified two separate problems: broad paper obscured its destination, and board-edge clamping made the drawing slip away from the finger. Held items now follow the pickup point beyond page edges. On ordinary release, the drawing fits back inside the destination; target selection happens before that adjustment. Existing chapter restrictions, older-item scrolling and cancellation remain intact. The [UX guidance](docs/ux.md#work-surface-and-dragging) owns the adopted interaction.
 
-The [Builder study](projects/builder-study/README.md) now follows the pinwheel through its use with the racer. Broad paper/blade inspections are 184px at the reference width, with readable 96px hub and 112px axle views. The 400px finished pinwheel remains large; its carried view is 280px and the finished racer is 320px. Racer receivers follow the visible construction stages, and the registered workbench sits lower to leave room for the carried toy without covering the instructions. Geometry, actual openings, material opacity and combination logic remain unchanged. The user's preference for compact inventions with substantial central bodies and obvious places to grab is recorded in UX and the live brief; large finished objects and some recoverable tabletop overlap remain intentional.
+The [Builder study](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/README.md>) now follows the pinwheel through its use with the racer. Broad paper/blade inspections are 184px at the reference width, with readable 96px hub and 112px axle views. The 400px finished pinwheel remains large; its carried view is 280px and the finished racer is 320px. Racer receivers follow the visible construction stages, and the registered workbench sits lower to leave room for the carried toy without covering the instructions. Geometry, actual openings, material opacity and combination logic remain unchanged. The user's preference for compact inventions with substantial central bodies and obvious places to grab is recorded in UX and the live brief; large finished objects and some recoverable tabletop overlap remain intentional.
 
-The [evaluation record](projects/builder-study/chapter-one-evaluation.md) retains concise outcomes, including a rejected intermediate receiving-box alignment and its correction. Verification passed 321 node tests, a complete 232-test browser run, four focused WebKit edge checks, and the final compiled game's 16-action opening route at four viewport sizes. Phone routes used emulated touch; the smallest phone also completed the other bearing order. Reload, continuation into chapter 3, asset hashes, receiving-coordinate consistency, type checking, production build and live lint passed. Lint retains its two existing warnings; build retains its root-output and bundle-size advisories. Native-device feel and children's enjoyment remain human evaluation. Temporary verification output is removed after recording outcomes; the pre-existing development server remains available.
+The [evaluation record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/chapter-one-evaluation.md>) retains concise outcomes, including a rejected intermediate receiving-box alignment and its correction. Verification passed 321 node tests, a complete 232-test browser run, four focused WebKit edge checks, and the final compiled game's 16-action opening route at four viewport sizes. Phone routes used emulated touch; the smallest phone also completed the other bearing order. Reload, continuation into chapter 3, asset hashes, receiving-coordinate consistency, type checking, production build and live lint passed. Lint retains its two existing warnings; build retains its root-output and bundle-size advisories. Native-device feel and children's enjoyment remain human evaluation. Temporary verification output is removed after recording outcomes; the pre-existing development server remains available.
 
 ## 7 November 2026 — Independent racer construction and vintage materials
 
@@ -1771,10 +1771,10 @@ fits either straw. White pages, simple flat materials and no texture maps suppor
 the intended later 3D presentation. Animation remains deferred. The user
 reconfirmed commit and push after completion.
 
-The [live brief](stories/builder/design-brief.md) owns the direction and the
-[active study](projects/builder-study/README.md) retains its source models and
+The [live brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) owns the direction and the
+[active study](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/README.md>) retains its source models and
 actual playtests. The story has 235 recipes across 31 chapters, with a verified
-195-combination completion route. The [revision record](projects/builder-study/racer-evaluation.md)
+195-combination completion route. The [revision record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/racer-evaluation.md>)
 preserves rejected sail/connector overlap and square snap noses, their corrections,
 fresh nominal-geometry and visual acceptance, text-playtest limits, and compiled
 phone/desktop checks. Some recoverable overlap remains when a large completed
@@ -1800,11 +1800,11 @@ Validation: all six chapter-session unit checks pass. The focused browser run pa
 The user authorized extending the revised opening's construction principles through
 the entire story, with lighter green/red, an initially upright chassis, Flip then
 Fold across the opening's top row, larger process receivers and a higher pale
-reference panel. The [single brief](stories/builder/design-brief.md) owns that
-intent. The [active study](projects/builder-study/README.md) retains the ongoing
+reference panel. The [single brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) owns that
+intent. The [active study](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/README.md>) retains the ongoing
 source work; animation and a compact 3D runtime remain a separate phase.
 
-The [promoted story](stories/builder/builder.md) now has 200 construction actions,
+The [promoted story](<archive/2026.11.07 contraptions study/story/contraptions.md>) now has 200 construction actions,
 453 recipes for legal alternative orders, 30 playable chapters and an ending.
 Its 447 original item pictures come from shared dimensioned Blender geometry.
 The broad gantry, electric carousel, tabletop claw and compact flying lantern
@@ -1827,17 +1827,17 @@ Fresh inexpensive image-only reviewers checked the captions against actual image
 including carried variants; overclaims were reduced before the final playtests.
 Separate final reviewers with no inherited history accepted the complete artwork
 and scoped current-model geometry checks. The
-[full evaluation record](projects/builder-study/full-story-evaluation.md) preserves
+[full evaluation record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/full-story-evaluation.md>) preserves
 instructions, rejected candidates, repairs, exact coverage and limits. Physical
 checks are nominal geometry and prescribed flex, without material-force,
 manufacturing, optical-output or flight-performance claims. AI text players do not
 establish child enjoyment or native touch comfort.
 
-The final candidate is [v40](projects/builder-study/builder-v40.md), hash
+The final candidate is [v40](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/builder-v40.md>), hash
 `e7ee9f6ba9df0e12811b097acf7878a9036ac8af5476e0a7e4f5c4baea055fcb`.
 The live manuscript differs only in its relative artwork paths. Source hashes,
 render-pass provenance and selected asset hashes are recorded in
-[runtime-art.json](projects/builder-study/runtime-art.json). Current construction
+[runtime-art.json](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/runtime-art.json>). Current construction
 sources and selected runtime art are retained; transient renders, probes, captures
 and reviewer packets are disposable.
 
@@ -1871,9 +1871,9 @@ The user authorized the complete revision and push: centered lone processes,
 chapter and goal-picture titles, crops based on current geometry, visible fitting
 sites, matching loose/fitted orientations, usable thin-part targets and blue battery
 cases. These are adopted in the [UX contract](docs/ux.md) and
-[single story brief](stories/builder/design-brief.md).
+[single story brief](<archive/2026.11.07 contraptions study/story/design-brief.md>).
 
-[The Next Box](stories/builder/builder.md) now has 216 construction actions,
+[The Next Box](<archive/2026.11.07 contraptions study/story/contraptions.md>) now has 216 construction actions,
 521 recipes, 32 playable chapters and an ending. Periscope and kaleidoscope give
 way to three final constructions with unremarked pink components: Window, String
 spinner and Whale. Three blind concept rounds developed the quiet connection;
@@ -1889,7 +1889,7 @@ let text players observe the current artwork without showing hidden hints or
 future stages. The [format specification](docs/story-format-spec.md) owns the
 syntax; current authoring and icon guidance own the visual review requirements.
 
-The [revision record](projects/builder-study/next-phase.md#final-acceptance--8-november-2026)
+The [revision record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/next-phase.md#final-acceptance--8-november-2026>)
 retains concise review outcomes, corrections, exact playtest versions and limits.
 All 32 fast chapter trials completed; selected detailed tests used three fresh
 players across seven chapters, with replacements after caption/instruction fixes.
@@ -1905,10 +1905,10 @@ snapshot-wait corrections. Standard story lint retains only the existing Claw
 opportunity-analysis bound; it is not described as a clean lint pass. Native 3D
 delivery and human trials remain in the backlog.
 
-The promoted [v48](projects/builder-study/builder-v48.md) has SHA256
+The promoted [v48](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/builder-v48.md>) has SHA256
 `85e5fe34fd590fb351b9af8f5ee8a3ebd8b4e2940a7af2953e070a346cdf5ae3`.
 Its only post-playtest change removes an ambiguous color adjective from a hidden
-picture description. [Production provenance](projects/builder-study/runtime-art.json)
+picture description. [Production provenance](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/runtime-art.json>)
 binds all 521 selected assets to canonical sources and render passes. Selected
 runtime art has one home; obsolete assets and disposable verification output are
 removed. Source and generated publication files accompany the authorized commit
@@ -1922,11 +1922,11 @@ three or four extraordinary ones. They explicitly discouraged elaborate transpor
 rationalizations and suggested *Explorers* (1985) as inspiration. Research used the
 screenwriter's account and AFI synopsis; the retained design interpretation concerns
 a child's tangible, private power in familiar surroundings, before a larger mission.
-Sources and limits are recorded in the [redevelopment record](projects/builder-study/narrative-redevelopment.md).
+Sources and limits are recorded in the [redevelopment record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/narrative-redevelopment.md>).
 
 Four fresh review rounds compared distinct motives and then rescue variants,
 followed by complete visible-sequence and informed construction reviews. The
-selected [story treatment](projects/builder-study/story-treatment.md) has seven
+selected [story treatment](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/story-treatment.md>) has seven
 builds: Pinwheel, Marble lift, Star projector, Float sled, Sky viewer, Tow winch and
 Whale. A failing factory-city deliberately sends half a towing connector. The
 child builds a tug from the actual earlier sled and winch, and brings that same
@@ -1934,7 +1934,7 @@ inhabited city to a position beside our moon. The Works' private motive is its
 own survival and continuation through an unauthorized relocation. The visible
 payoff is a permanent change to the sky beyond the child's familiar room.
 
-The [single brief](stories/builder/design-brief.md) now names this as the next
+The [single brief](<archive/2026.11.07 contraptions study/story/design-brief.md>) now names this as the next
 narrative target. The live v48 manuscript, artwork and prior evidence remain
 unchanged and separately attributed. Ten blind concept readers and two informed
 reviewers supported selection and prompted real revisions; their written-scene
@@ -1950,7 +1950,7 @@ KiwiCo's genuinely functional or interesting creations, then asked for sinister 
 recklessly playful suppliers, a visceral late consequence and a final corrective
 build. During development they introduced *Psychonauts 2* as a question about
 effective revelation and resolution. Sources and attributed interpretations are
-retained in the [redevelopment record](projects/builder-study/narrative-redevelopment.md).
+retained in the [redevelopment record](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/narrative-redevelopment.md>).
 
 Nine fresh agents covered four creative assignments, four blind written-scene
 readings and one informed mechanism review. The first comparison reader preferred
@@ -1962,9 +1962,9 @@ hatch/loaded-shelf scale, load support and multi-axis drive problems; the revise
 physical outline removes those contradictions at concept level. Whole-world
 collection remains an author motive, not an established visual inference.
 
-The [current treatment](projects/builder-study/story-treatment.md), single brief and
+The [current treatment](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/story-treatment.md>), single brief and
 indexes now distinguish that proposal from live v48 and the superseded
-[city-rescue candidate](projects/builder-study/city-rescue-treatment.md). No new game
+[city-rescue candidate](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/city-rescue-treatment.md>). No new game
 chapters, renders, animations, executable playtests or observed child enjoyment are
 claimed. This is documentation-only: local links and whitespace were checked; no
 application build was needed. Existing commit-and-push authorization applies.
@@ -1974,9 +1974,9 @@ application build was needed. Existing commit-and-push authorization applies.
 
 The user set aside the supplier/future-tech narratives and asked for short ordinary
 inventions, actual iterations and candid per-step/chapter questions from casual
-instruction-following players. The [single brief](stories/builder/design-brief.md)
+instruction-following players. The [single brief](<archive/2026.11.07 contraptions study/story/design-brief.md>)
 now governs that scope; prior treatments remain attributed historical proposals.
-The [worthwhile study](projects/builder-study/worthwhile-study.md) retains candidate
+The [worthwhile study](<archive/2026.11.07 contraptions study/2026.11.07-follow-on/worthwhile-study.md>) retains candidate
 reasoning, prompt experiments, two executable prototype families and outcome tables.
 
 A nine-action Sweeper tests a real wheel/gear/brush relationship. Its revision adds
@@ -2022,3 +2022,43 @@ v2, with no blocked leaves. This does not cover physical construction or pointer
 interaction. New local links, retained report completeness and whitespace were checked. Live v48,
 engine code, catalogue and runtime artwork are unchanged; no application build was
 needed. Existing commit-and-push authorization applies to these study results.
+
+
+## 9 November 2026 — Contraptions renamed, abandoned and archived
+
+The user renamed Builder/The Next Box to **Contraptions**, requested removal from
+`stories/` and an archive/post-mortem, and gave the decisive conclusion: we did not
+find anything worthwhile, and abandoning the project was the right call. The
+[post-mortem](<archive/2026.11.07 contraptions study/2026.11.09-post-mortem.md>) records
+that outcome without leaving another narrative, drawing-machine experiment or
+story-specific 3D phase pending. The
+[authoring guide](docs/story-authoring.md#cautionary-tale-contraptions) now applies the
+lessons to enacted work, physical-kit assumptions, casual compliance, evidence
+scope and stopping. Shared UX guidance retains the useful construction conventions
+without treating the retired story's palette as an active authority.
+
+The first-date archive was renamed to
+[`archive/2026.11.07 contraptions study/`](<archive/2026.11.07 contraptions study/README.md>).
+Its old index is retained as a dated initial-study record; later development is in
+`2026.11.07-follow-on/`, and the last live manuscript, brief, icon and runtime assets
+are in `story/`. The manuscript is now `contraptions.md`, titled Contraptions.
+Earlier numbered drafts, titles, source hashes, raw commands and frozen reports
+retain their historical identity. Markdown navigation/artwork links were rebased
+where needed, and explicit closure notices supersede the latest recommendations.
+
+A pre-move SHA-256 inventory verified preservation of all 1,565 tracked files;
+789 frozen playtest files and 527 image/model assets are byte-identical. Only
+Markdown navigation, title and retirement text changed. Commit `06725dc6` preserves
+the original layout. Generated Python caches and temporary verification output
+were removed; no supplied image originals were discarded.
+
+Removed the live story directory, active project entry and story-specific backlog
+row. Rebuilt `index.html`; discovery and the generated catalogue now agree on six
+remaining stories. All 627 archived manuscript image references resolve, its 33
+chapters and 521 recipes are unchanged, and the existing archive hosting exclusion
+remains in force. TypeScript/build, four catalogue/loading unit tests and seven
+Chromium catalogue/loading/icon tests passed. New navigation was checked without
+rewriting historically broken links. The archived manuscript retains only its
+known opportunity-analysis-limit lint error; this does not reopen development.
+No hosting access settings or browser saves were changed. Existing push
+authorization applies to this retirement.

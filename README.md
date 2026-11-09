@@ -8,7 +8,7 @@ The [authoring guide's worthwhile-hook requirement](docs/story-authoring.md#requ
 
 ## Project
 
-Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars, Creation and Builder. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -32,8 +32,6 @@ Seven icon styles are retained as [reference collections](references/icon-sets/)
 
 **Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md), [three moments of play](stories/creation/design-examples.png), [supplied art references](<archive/2026.11.05 creation study/inspiration/README.md>) and [completed Creation study](<archive/2026.11.05 creation study/README.md>).
 
-**The Next Box** builds paper toys, moving mechanisms and optical toys before three quietly extraordinary final creations: `/make-something.html?story=stories/builder/builder.md`. Its 216 construction actions span 32 playable chapters and an ending; 521 authored recipes allow alternate fitting orders. Original dimensioned Blender diagrams show movable workpieces, individual repeated parts and explicit turns on white instruction pages, with short labels and titled goal pictures. Honey wood, lighter green and brick red, cream and charcoal distinguish materials; battery cases are blue. Thirteen completed toys have working animation loops, with a final silent animated scene. Audited `{...}` picture descriptions and literal motion descriptions support text playtesting while remaining outside the web game’s instructions. See the [story](stories/builder/builder.md), [design brief](stories/builder/design-brief.md), [active Builder study](projects/builder-study/README.md) and [earlier Builder study archive](<archive/2026.11.07 builder study/README.md>).
-
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
 | Player URL | Markdown fetched |
@@ -43,7 +41,6 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
 | `/make-something.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
 | `/make-something.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
-| `/make-something.html?story=stories/builder/builder.md` | `/stories/builder/builder.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
 The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.

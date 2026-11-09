@@ -30,6 +30,47 @@ Do not recast this failure as difficulty finding a valid move or simply too much
 
 The [Cosmic archive](<../archive/2026.11.05 cosmic study/README.md>) and [Cyberpunk archive](<../archive/2026.11.05 cyberpunk study/README.md>) retain both development histories and the failed works as lessons, not pending redevelopment. The [dated decision record](../notes.md#6-november-2026--worthwhile-hook-and-retirement-of-cosmic-and-cyberpunk) preserves the user's conclusion and the limits of the earlier diagnosis. Apply this bar to future proposals; do not revive these abandoned studies merely because earlier AI reviews were positive.
 
+### Cautionary tale: Contraptions
+
+**Contraptions**, formerly Builder and The Next Box, was abandoned after extensive
+construction, artwork, animation, narrative and playtesting work. Some early toys
+were enjoyable, especially a spinning wheel. That local pleasure did not become a
+worthwhile experience of assembling a succession of assigned contraptions. Better
+instructions and physical continuity, elaborate future-tech stories and a return
+to ordinary useful machines did not establish the missing hook. The user's verdict
+was that we did not find anything worthwhile, and abandoning it was the right call.
+The [post-mortem](<../archive/2026.11.07 contraptions study/2026.11.09-post-mortem.md>)
+records the development and evidence limits; the archive is not pending work.
+
+A useful finished object does not automatically make its digital assembly worth
+enacting. Being able to explain why each part belongs is weaker than showing what
+the player gets from fitting it. A physical construction kit also offers handling,
+fit problems, ownership and subsequent use or modification. Credit only the
+experiences the digital game actually provides; an instruction sequence and a
+completion animation do not inherit all the appeal of the physical kit.
+
+Test a small complete example before expanding the collection. Include the casual
+player who follows instructions and combines whatever fits. Ask what they got from
+doing the steps and reaching the result, and what felt unnecessary or arbitrary;
+necessary progress alone is not an answer. Keep routine separate from pointless,
+and the value of a completed passage separate from wanting another chapter. Do not
+remove clear goals or manufacture puzzles merely to increase deliberation counts.
+
+Treat AI responses as evidence with a scope, not as a verdict to optimize. Question
+wording can change reported worth on an unchanged passage. A player shown earlier
+chapters as checkpoint history has not experienced their effort or cumulative
+attachment; a description of motion is not observed visual pleasure. Follow the
+[evaluation guide](fun-and-evaluation.md) and preserve these limits alongside any
+positive findings. Neither local scores nor a list of repaired defects overrules
+the user's conclusion about the whole experience.
+
+When repeated small experiments fail to establish the worthwhile hook, stopping
+is a valid and necessary outcome of the [development loop](#develop-a-story).
+More elaborate motives, more objects, better rendering and additional reviewers
+are not default remedies for missing value. Preserve the failed work and its
+lessons without converting every untested alternative into an obligation to
+continue. Useful engineering from a project can survive its story's abandonment.
+
 ## Keep one active design brief
 
 For a story in `stories/<story>/`, its companion `design-brief.md` is the authority for accepted intent, including work performed in a study directory. Link to it from the active study index and production instructions. Read it at the start of each new assignment; do not infer current intent from the nearest old draft or generation prompt. Update it when a decision is adopted, alongside affected work. Refer to the applicable techniques in this guide and record the story's choices and exceptions, rather than copying the universal instructions.

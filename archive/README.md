@@ -71,6 +71,16 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 
 [`2026.11.06 app icon/`](<2026.11.06 app icon/README.md>) retains the original circular mosaic sun and the later [shared square-icon pass](<2026.11.06 app icon/2026.11.06-shared-icons/README.md>): selected teal app and Creation masters, the requested ivory comparison, exact generation requests, export commands and concise outcomes. The root [icon.png](../icon.png) is the opaque 256px favicon shared by the catalogue and player and used for the catalogue's home-screen icon; the [UX identity contract](../docs/ux.md#catalogue-and-story-identity) owns its current use.
 
-### Builder study
+### Contraptions study — abandoned
 
-[`2026.11.07 builder study/`](<2026.11.07 builder study/README.md>) preserves **A Fair in the Air** and its readability/goal-picture revision: twenty-seven manuscript iterations, mechanism research, twelve fast/detailed playtest batches, canonical Blender geometry, selected render settings and production tools, review instructions and concise independent mechanical/visual outcomes. The [live story](../stories/builder/builder.md), runtime artwork and [single active brief](../stories/builder/design-brief.md) remain outside the archive. Actual-size toys, receiving/service geometry, bounded inspection scales and later detail repairs are recorded with their evidence limits. Animations were deferred; temporary verification bundles were discarded.
+[`2026.11.07 contraptions study/`](<2026.11.07 contraptions study/README.md>) is the
+single archive for the story formerly called Builder, A Fair in the Air and The
+Next Box. The user renamed it **Contraptions** and abandoned it on 9 November 2026:
+we did not find anything worthwhile, and stopping was the right call. The
+[post-mortem](<2026.11.07 contraptions study/2026.11.09-post-mortem.md>) records the
+failure; the [authoring lessons](../docs/story-authoring.md#cautionary-tale-contraptions)
+guide future work. Its retired manuscript, runtime artwork, animations, all 48
+numbered drafts, ordinary-invention experiments, canonical models, research and
+attributed playtests remain together under the first archive date. There is no
+live story, active study or pending redevelopment. Historical titles, source hashes
+and positive assessments retain their original scope.

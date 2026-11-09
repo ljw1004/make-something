@@ -96,7 +96,13 @@ Each story's ordinary Markdown H1 contains its identifying image and title. Rend
 - Use the right-hand third of an instruction row: at most 130×112 scene units on the 390-wide reference scene, 36 units below the visible board's top and 6 units inside the right edge. This keeps the picture high on the page and leaves two spaces alongside for authored process targets such as Fold and Flip. Put those process drawings in the first two thirds when using this construction convention. The debug bug is an authoring control and does not reserve gameplay space; possible overlap with it must not push the reference down. The image fits without cropping. It is a reading button, never a draggable part, hotspot, drop target or checklist condition; clicking or tapping opens a larger contained image and caption in the existing reading dialog. Closing returns to the same arrangement and scroll position without a game action.
 - Preload the picture with chapter artwork. During automatic arrival, reserve its actual rectangle for both carried objects and new supplies, including crowded-layout retries; keep the rest of the top area usable. Existing authored starts and inherited hotspot occupants remain exact, so authors must keep those explicit positions clear of the card. A physically oversized object with no possible clear position retains the existing best-effort overlap fallback. Player-directed movement, redraw and reload do not repack the board. Each visited chapter retains its own card in scrollback; stories without references reserve only their chapter title.
 
-Builder's construction convention uses white pages and simple material-coloured geometry: honey wood, forest green, brick red and cream/charcoal hardware. Its [design brief](../stories/builder/design-brief.md) owns that palette and the migration of older art. Keep textures out of these models so the pieces remain clear and suitable for a later compact 3D presentation. Each draggable picture represents one connected part or assembly; identical separate fittings remain separate draggable items. Show slim loose parts diagonally where helpful, retaining the ordinary minimum touch area. A completed subassembly moves to the next page only when it will physically become part of that build.
+For diagrammatic construction pages, simple material-coloured geometry keeps
+parts clear and suitable for a compact 3D presentation; detailed surface textures
+can obscure the fittings. The story's design brief owns its palette. Each draggable
+picture represents one connected part or assembly; identical separate fittings
+remain separate draggable items. Show slim loose parts diagonally where helpful,
+retaining the ordinary minimum touch area. A completed subassembly moves to the
+next page only when it will physically become part of that build.
 
 ## Goals and readings
 
