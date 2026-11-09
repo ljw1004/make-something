@@ -52,14 +52,14 @@ test('hitbox errors are source-located and do not invent item identities',()=>{
   assert.equal(Object.keys(parseStory(misplaced).items).length,3);
 });
 
-test('receiving rectangle governs placements, minimum touch size and invalid-preview fallback',()=>{
+test('authored receiving rectangle governs placements and invalid-preview fallback',()=>{
   const story=parseStory(source),h=story.hotspots['name:Panels'];
   const measurement={id:h.id,chapter:0,width:78,height:101.28};
   assert.deepEqual(lintPlacementGeometry(story,[measurement]),[]);
   const outside=parseStory(source.replace('place: Charged (center 97.5px','place: Charged (center 195px'));
   assert.equal(lintPlacementGeometry(outside,[measurement])[0]?.code,'place-outside-hotspot');
   const rect=hotspotRect(h,0,{width:20,height:10});
-  assert.equal(rect.width,44);assert.equal(rect.height,44);assert.equal(rect.x+rect.width/2,97.5);
+  assert.equal(rect.width,20);assert.equal(rect.height,10);assert.equal(rect.x+rect.width/2,97.5);
   const invalid=parseStory(source.replace('(size 78px, 101.28px)','(size -3.9px, 101.28px)')).hotspots[h.id];
   assert.deepEqual(hotspotCentre(invalid,0),{x:195,y:253.2});
   assert(!hotspotHTML(invalid,0,{className:'hotspot-icon',style:'',html:''}).includes('hotspot-hitbox'));

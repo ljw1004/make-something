@@ -65,7 +65,7 @@ Fit the cabinet.
     }
   }
 });
-test('generated checkpoint has usable touch targets and loaded assets at phone width',async({page})=>{
+test('generated checkpoint has authored hit targets and loaded assets at phone width',async({page})=>{
   await page.setViewportSize({width:320,height:740});await openMars(page);
   await openDebugPanel(page);
   await expect(page.getByRole('dialog',{name:'Jump to chapter'})).toBeVisible();
@@ -80,10 +80,10 @@ test('generated checkpoint has usable touch targets and loaded assets at phone w
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   const cards=page.locator('.chapter-panel').last().locator('.thing');
   await expect(page.locator('.chapter-panel').last().locator('[data-item="id:reflector-petals"]')).toBeVisible();
-  // Small artwork may be shorter than its touch target; measure actual pointer hits.
+  // Artwork and its receiving rectangle scale together, including small icons.
   expect(await cards.evaluateAll(els=>els.every(el=>{
     const box=el.getBoundingClientRect(),x=box.x+box.width/2,y=box.y+box.height/2;
-    return el.scrollWidth<=el.clientWidth&&[[-21,0],[21,0],[0,-21],[0,21]].every(([dx,dy])=>document.elementFromPoint(x+dx,y+dy)?.closest('[data-item]')===el);
+    return el.scrollWidth<=el.clientWidth&&[[-.4,0],[.4,0],[0,-.4],[0,.4]].every(([dx,dy])=>document.elementFromPoint(x+dx*box.width,y+dy*box.height)?.closest('[data-item]')===el);
   }))).toBe(true);
 });
 

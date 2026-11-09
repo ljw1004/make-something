@@ -2,15 +2,14 @@ import type {Ref, Story} from '../story/types.ts';
 import type {Action, State} from '../engine/types.ts';
 import {activeHotspots, background, chapterNeeds, indexStory} from '../engine/analysis.ts';
 import {availableTokens, chapterComplete, legalActions, recipeFor} from '../engine/game.ts';
-import {backgroundAnimation, hotspotIconVariants, hotspotPresentation, itemPresentation} from '../engine/presentation.ts';
+import {hotspotIconVariants, hotspotPresentation, itemPresentation} from '../engine/presentation.ts';
 import {markdown} from './markdown.ts';
 import {hotspotDefinition, presentHotspots} from '../engine/fixed-items.ts';
 import {browserItemText} from '../story/text-only.ts';
 
 function itemImages(story: Story, chapter: number, ref: Ref): string[] {
   const item = story.items[ref.id];
-  const presentation = itemPresentation(story, chapter, ref.id);
-  return [presentation.icon?.url, presentation.animation?.url, ...(item?.slots.filter(slot => ref.slots.includes(slot.accepts)).map(slot => slot.icon?.url) ?? [])].filter((url): url is string => !!url);
+  return [itemPresentation(story, chapter, ref.id).icon?.url, ...(item?.slots.filter(slot => ref.slots.includes(slot.accepts)).map(slot => slot.icon?.url) ?? [])].filter((url): url is string => !!url);
 }
 function readingImages(text: string): string[] {
   const paths: string[] = [];
@@ -19,7 +18,7 @@ function readingImages(text: string): string[] {
 }
 function sceneImages(story: Story, chapter: number, state: State, declared = false): string[] {
   const ids = declared ? activeHotspots(story,chapter) : presentHotspots(story,state,chapter);
-  return [background(story, chapter), backgroundAnimation(story, chapter)?.url, story.chapters[chapter].reference?.url, ...ids.map(id => hotspotPresentation(story,state,chapter,id).icon?.url)].filter((url): url is string => !!url);
+  return [background(story, chapter), ...ids.map(id => hotspotPresentation(story,state,chapter,id).icon?.url)].filter((url): url is string => !!url);
 }
 
 export function coverArtwork(story: Story): string[] {
@@ -57,8 +56,7 @@ export function lookaheadArtwork(story: Story, state: State, started: boolean): 
         arriving.tokens[id] = {id, slots: [], chapter, status: 'available', x: 0, y: 0};
       }
       const token = state.tokens[id];
-      const before = itemPresentation(story, state.chapter, id), after = itemPresentation(story, chapter, id);
-      if (token?.status === 'available' && (after.icon?.url !== before.icon?.url || after.animation?.url !== before.animation?.url)) paths.push(...itemImages(story, chapter, token));
+      if (token?.status === 'available' && itemPresentation(story, chapter, id).icon?.url !== itemPresentation(story, state.chapter, id).icon?.url) paths.push(...itemImages(story, chapter, token));
     }
     paths.push(...sceneImages(story, chapter, arriving, true), ...readingImages(story.chapters[chapter].intro));
   }

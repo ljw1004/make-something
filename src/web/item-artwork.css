@@ -6,12 +6,6 @@
 }
 .icon-stack { display: block; position: relative; width: 100%; height: 100%; pointer-events: none; }
 .icon-stack img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; -webkit-user-drag: none; }
-.icon-stack .animated-icon { object-fit: contain; }
-/* Small authored artwork keeps its natural size and a usable touch area. */
-.icon-thing::before {
-  content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  width: max(100%, calc(44px * var(--touch-scale, 1))); height: max(100%, calc(44px * var(--touch-scale, 1)));
-}
 .icon-thing::after { content: ''; position: absolute; inset: 0; border-radius: 8px; pointer-events: none; }
 .icon-thing.icon-circular::after, .hotspot-icon.hotspot-circular::after {
   inset: auto; left: 50%; top: 50%; translate: -50% -50%; border-radius: 50%;
@@ -48,23 +42,20 @@
 /* The receiving box owns interaction and labels; connected artwork may extend
    beyond it without intercepting clicks or changing its registered scale. */
 .chapter-panel .hotspot.hotspot-hitbox {
-  width:max(var(--hit-width),calc(44px * var(--label-scale,1)));
-  height:max(var(--hit-height),calc(44px * var(--label-scale,1))); min-height:0;
+  width:var(--hit-width);
+  height:var(--hit-height); min-height:0;
 }
 .hotspot-hitbox > .icon-stack {
   position:absolute; width:var(--icon-width); height:var(--icon-height);
   left:calc(50% + var(--art-offset-x) - var(--icon-width)/2);
   top:calc(50% + var(--art-offset-y) - var(--icon-height)/2);
 }
-.hotspot-icon::before {
-  content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  width: max(100%, calc(44px * var(--label-scale, 1))); height: max(100%, calc(44px * var(--label-scale, 1)));
-}
-/* Only the circular target receives pointer hits, including the minimum touch area. */
+/* Circular targets receive pointer hits only within their authored circle. */
 .chapter-panel .hotspot.hotspot-circular { pointer-events: none; }
 .hotspot-circular::before {
-  width: max(min(var(--icon-width), var(--icon-height)), calc(44px * var(--label-scale, 1)));
-  height: max(min(var(--icon-width), var(--icon-height)), calc(44px * var(--label-scale, 1)));
+  content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: min(var(--icon-width), var(--icon-height));
+  height: min(var(--icon-width), var(--icon-height));
   border-radius: 50%; pointer-events: auto;
 }
 .hotspot-icon::after { content: ''; position: absolute; inset: 0; pointer-events: none; }

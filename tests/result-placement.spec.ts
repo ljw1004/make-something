@@ -1,12 +1,10 @@
 import {test, expect} from '@playwright/test';
 
-for (const [region, centre] of [['fixed receiving area', '160px, 150px'], ['chapter reference', '180px, 52px']] as const) {
-  test(`a result beside a preserved receiver avoids the ${region}`, async ({page}) => {
+test('a result overlaps its preserved receiver while avoiding another fixed receiving area', async ({page}) => {
     await page.emulateMedia({reducedMotion:'reduce'});
     const manuscript=`# A clear place for the result
 ## Work
 background: ![room](room.svg)
-reference: ![Finished machine](part.svg)
 Use the paper at the machine.
 **Goals**
 - Print -- Result
@@ -19,7 +17,7 @@ Use the paper at the machine.
 - Paper
   - icon: ![paper](part.svg) (center 50px, 550px)
 - Machine
-  - icon: ![machine](part.svg) (center ${centre})
+  - icon: ![machine](part.svg) (center 160px, 150px)
 - Result
   - icon: ![result](part.svg)
 **Combinations**
@@ -43,7 +41,7 @@ Use the paper at the machine.
     await expect(result).toBeVisible();
     const created=(await result.boundingBox())!;
     expect(await receiver.boundingBox()).toEqual(before);
-    for(const obstacle of [page.locator('[data-hotspot="name:Whole setup"]'),page.locator('.chapter-reference')]){
+    for(const obstacle of [page.locator('[data-hotspot="name:Whole setup"]')]){
       const box=(await obstacle.boundingBox())!;
       expect(Math.min(created.x+created.width,box.x+box.width)<=Math.max(created.x,box.x)+.1||Math.min(created.y+created.height,box.y+box.height)<=Math.max(created.y,box.y)+.1).toBe(true);
     }
@@ -54,52 +52,43 @@ Use the paper at the machine.
     expect(await result.boundingBox()).toEqual(created);
     expect(await receiver.boundingBox()).toEqual(before);
   });
-}
 
-test('repeated transformations return the workpiece below its process row', async ({page}) => {
+for (const authored of [false,true]) test(`a transformed result stays at ${authored ? 'its authored hotspot position' : 'the receiving hotspot centre'}`, async ({page}) => {
   await page.setViewportSize({width:390,height:664});
   await page.emulateMedia({reducedMotion:'reduce'});
-  const manuscript=`# Folding
+  const manuscript=`# Baking
 ## Work
 background: ![page](page.svg)
-reference: ![Finished paper](paper.svg)
 **Goals**
-- Fold once -- B
-- next: Fold again -- C
+- Bake -- Bread
 **Hotspots**
-- Fold (center 65px, 108px)
+- Oven (center 280px, 200px)
+${authored ? '  - place: Bread (center 300px, 220px)' : ''}
 **Items**
-- Fold
-- A
-  - icon: ![paper](paper.svg) (center 195px, 420px)
-- B
-  - icon: ![folded paper](paper.svg)
-- C
-  - icon: ![finished paper](larger.svg)
+- Oven
+- Dough
+  - icon: ![dough](dough.svg) (center 100px, 420px)
+- Bread
+  - icon: ![bread](bread.svg)
 **Combinations**
-- A [transform] @ Fold -> B
-- B [transform] @ Fold -> C`;
-  await page.route('**/process-return/story.md',r=>r.fulfill({contentType:'text/markdown',body:manuscript}));
-  await page.route('**/process-return/*.svg',r=>{
+- Dough [transform] @ Oven -> Bread`;
+  await page.route('**/hotspot-result/story.md',r=>r.fulfill({contentType:'text/markdown',body:manuscript}));
+  await page.route('**/hotspot-result/*.svg',r=>{
     const file=new URL(r.request().url()).pathname.split('/').at(-1);
-    const [w,h]=file==='page.svg'?[390,844]:file==='larger.svg'?[1100,1100]:[1000,1000];
+    const [w,h]=file==='page.svg'?[390,844]:file==='bread.svg'?[320,240]:[160,160];
     return r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="${file==='page.svg'?'white':'orange'}"/></svg>`});
   });
-  await page.goto('/make-something.html?story=process-return/story.md');
+  await page.goto('/make-something.html?story=hotspot-result/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
-  const initial=(await page.locator('[data-item="name:A"]').boundingBox())!;
-  for(const [from,to] of [['A','B'],['B','C']]){
-    const source=(await page.locator(`[data-item="name:${from}"]`).boundingBox())!;
-    const target=(await page.locator('[data-hotspot="name:Fold"]').boundingBox())!;
-    await page.mouse.move(source.x+source.width/2,source.y+source.height/2);await page.mouse.down();
-    await page.mouse.move(target.x+target.width/2,target.y+target.height/2,{steps:8});await page.mouse.up();
-    const result=page.locator(`[data-item="name:${to}"]`);await expect(result).toBeVisible();
-    const bounds=(await result.boundingBox())!;
-    expect(bounds.x+bounds.width/2).toBeCloseTo(initial.x+initial.width/2,1);
-    expect(bounds.y+bounds.height/2).toBeCloseTo(initial.y+initial.height/2,1);
-    expect(bounds.y).toBeGreaterThan(164);
-    await expect(page.getByRole('dialog')).toHaveCount(0);
-  }
-  const result=page.locator('[data-item="name:C"]'),before=await result.boundingBox();
-  await page.reload();await expect(result).toBeVisible();expect(await result.boundingBox()).toEqual(before);
+  const oven=page.locator('[data-hotspot="name:Oven"]'), target=(await oven.boundingBox())!;
+  await page.locator('[data-item="name:Dough"]').dragTo(oven);
+  const result=page.locator('[data-item="name:Bread"]');
+  await expect(result).toBeVisible();
+  await expect(page.locator('[data-item="name:Dough"]')).toHaveCount(0);
+  const bounds=(await result.boundingBox())!,offset=authored?20:0;
+  expect(bounds.x+bounds.width/2).toBeCloseTo(target.x+target.width/2+offset,1);
+  expect(bounds.y+bounds.height/2).toBeCloseTo(target.y+target.height/2+offset,1);
+  expect(await oven.boundingBox()).toEqual(target);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.reload();await expect(result).toBeVisible();expect(await result.boundingBox()).toEqual(bounds);
 });

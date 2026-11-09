@@ -125,9 +125,8 @@ export class StoryLanguageDocument implements StoryLanguageService {
       if (item.compound) properties.push('Compound item');
       for (const slot of item.slots) properties.push(`${slot.name ? `Slot ${slot.name}` : 'Unnamed slot'}: accepts ${name(slot.accepts)}`);
       if (item.exclusiveWith) properties.push(`Exclusive with ${name(item.exclusiveWith)}`);
-      for (const change of item.presentations) properties.push(`${change.icon ? `Icon: ${change.icon.url}` : change.animation !== undefined ? `Animation: ${change.animation?.url ?? 'none'}` : `Named ${change.name}`} from chapter ${change.chapter.kind === 'id' ? `\`${change.chapter.value}\`` : change.chapter.value}`);
+      for (const change of item.presentations) properties.push(`${change.icon ? `Icon: ${change.icon.url}` : `Named ${change.name}`} from chapter ${change.chapter.kind === 'id' ? `\`${change.chapter.value}\`` : change.chapter.value}`);
       if (item.icon) properties.push(`Icon: ${item.icon.url}`);
-      if (item.animation) properties.push(`Animation: ${item.animation.url}`);
     }
     if (hotspot) {
       if (hotspot.x !== undefined && hotspot.y !== undefined) properties.push(`Center: ${hotspot.x}px, ${hotspot.y}px (background pixels)`);

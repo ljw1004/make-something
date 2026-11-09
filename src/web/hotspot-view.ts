@@ -32,14 +32,14 @@ export function hotspotCentre(hotspot: Hotspot, index: number, bounds = referenc
     ? scenePoint(hotspot.hitbox, scene)
     : artworkCentre(hotspot,index,bounds,scene);
 }
-export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, scale = 1, bounds = referenceBounds, scene: SceneSize = referenceBounds): HotspotRegion {
+export function hotspotRect(hotspot: Hotspot, index: number, size: {width: number; height: number; circular?: boolean}, bounds = referenceBounds, scene: SceneSize = referenceBounds): HotspotRegion {
   const circular = size.circular ?? hotspot.icon?.circular;
   const centre = circular ? artworkCentre(hotspot,index,bounds,scene) : hotspotCentre(hotspot, index, bounds,scene);
   if (circular) {
-    const diameter = Math.max(Math.min(size.width, size.height), 44 / scale);
+    const diameter = Math.min(size.width, size.height);
     return {x: centre.x - diameter / 2, y: centre.y - diameter / 2, width: diameter, height: diameter, circular: true};
   }
-  const width = Math.max(size.width, 44 / scale), height = Math.max(size.height, 44 / scale);
+  const {width, height} = size;
   return {x: centre.x - width / 2, y: centre.y - height / 2, width, height};
 }
 export function containsPoint(rect: HotspotRegion, point: {x: number; y: number}) {

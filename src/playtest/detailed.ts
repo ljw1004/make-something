@@ -5,14 +5,14 @@ import {logicalPlacements,logicalReactions,performLogicalPlacement,performLogica
 import type {LogicalPlacement,LogicalReaction} from '../engine/logical-actions.ts';
 import {resolveName} from './commands.ts';
 import type {DetailedChoice,NamedObject} from './commands.ts';
-import {itemName,itemSelection} from './names.ts';
+import {itemName} from './names.ts';
 import {isFixed,presentHotspots} from '../engine/fixed-items.ts';
 import {itemArtworkDescription} from './picture-descriptions.ts';
 
 type Operation = {reaction:LogicalReaction}|{placement:LogicalPlacement};
 export function detailedObjects(story:Story,state:State):NamedObject[] {
-  return [...availableTokens(state).filter(t => t.chapter === state.chapter&&!isFixed(story,t)).map(t => ({id:t.id,...itemSelection(story,state,t.id),kind:'item' as const})),
-    ...presentHotspots(story,state,state.chapter).map(id => ({id,...itemSelection(story,state,id),kind:'hotspot' as const}))];
+  return [...availableTokens(state).filter(t => t.chapter === state.chapter&&!isFixed(story,t)).map(t => ({id:t.id,name:itemName(story,state,t.id),kind:'item' as const})),
+    ...presentHotspots(story,state,state.chapter).map(id => ({id,name:itemName(story,state,id),kind:'hotspot' as const}))];
 }
 function operations(story:Story,state:State):Operation[] {
   const reactions = logicalReactions(story,state);

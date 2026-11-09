@@ -97,8 +97,7 @@ test('standalone catalogue adds Home, survives reload and returns without losing
   expect(box?.height).toBeGreaterThanOrEqual(44);
   expect(box!.x).toBeLessThan(25);
   expect(box!.y).toBeLessThan(25);
-  const chapterTitle = (await page.getByRole('heading', {name: 'Workshop', exact: true}).boundingBox())!;
-  expect(chapterTitle.x).toBeGreaterThanOrEqual(box!.x + box!.width);
+  await expect(page.locator('.chapter-panel h2')).toHaveCount(0);
   await home.focus(); await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/index.html$/);
   await card.click();

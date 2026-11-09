@@ -8,7 +8,7 @@ import {detailedTurn,hasDetailedActions} from './detailed.ts';
 import {detailedCommand,isLook} from './commands.ts';
 import type {PlayStyle,PlayerChoice} from './commands.ts';
 import {itemName} from './names.ts';
-import {itemArtworkDescription,referencePictureDescription,sceneMotionDescription} from './picture-descriptions.ts';
+import {itemArtworkDescription} from './picture-descriptions.ts';
 export {itemName} from './names.ts';
 
 export interface Message { kind: 'story'|'chapter'|'goals'|'board'|'result'|'wonder'|'goal-changes'|'chapter-completed'|'ending'; text: string }
@@ -80,8 +80,7 @@ export function board(story: Story, state: State): string {
     const artwork=itemArtworkDescription(story,state,h.id);
     return `- ${itemName(story,state,h.id)}${slots.length?`; empty slots: ${slots.join(', ')}`:''}${artwork ? `\n  ${artwork.replaceAll('\n','\n  ')}` : ''}`;
   });
-  const reference=referencePictureDescription(story,state),sceneMotion=sceneMotionDescription(story,state);
-  return `${goalsText(story,state)}${sceneMotion ? `\n\nScene motion: ${sceneMotion}` : ''}${reference ? `\n\nBuild reference: ${reference}` : ''}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
+  return `${goalsText(story,state)}${hotspots.length ? `\n\nHotspots:\n${hotspots.join('\n')}` : ''}\n\nItems:\n${items.join('\n') || '(none)'}`;
 }
 function wonderText(markdown:string):string {return `  ${markdown.replace(/\s+/g,' ').trim()}`;}
 function wonderMessages(before: State, after: State): Message[] {

@@ -11,7 +11,7 @@ export function lintPlacementGeometry(story: Story, measurements: HotspotMeasure
   for (const size of measurements) {
     const hotspot = {...hotspotDefinition(story,size.chapter,size.id), icon: hotspotIconVariants(story,size.chapter,size.id)[size.variant ?? 0]}, chapter = story.chapters[size.chapter];
     const scene = size.scene ?? {width:390,height:844};
-    const rect = hotspotRect(hotspot, activeHotspots(story,size.chapter).indexOf(hotspot.id), size, 1, {x:0,y:0,...scene}, scene);
+    const rect = hotspotRect(hotspot, activeHotspots(story,size.chapter).indexOf(hotspot.id), size, {x:0,y:0,...scene}, scene);
     for (const place of hotspot.placements ?? []) {
       if (!validCentre(place, scene.image)) continue;
       if (containsPoint(rect, scenePoint(place,scene))) continue;

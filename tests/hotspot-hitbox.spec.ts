@@ -77,13 +77,13 @@ for(const width of [390,320])test(`receiving bounds remain independent from cabl
   expect(await art.boundingBox()).toEqual(initialArt);
 });
 
-test('small authored receivers retain a 44px target and invalid rectangles fall back to artwork',async({page})=>{
+test('small receivers retain their authored size and invalid rectangles fall back to artwork',async({page})=>{
   await openFixture(page,manuscript.replace('(size 156px, 202.56px)','(size 7.8px, 16.88px)'));
   const station=page.locator('[data-hotspot="name:Panels"]');
   const box=(await station.boundingBox())!;
-  expect(box.width).toBe(44);expect(box.height).toBe(44);
-  const expanded={x:box.x+2,y:box.y+2};
-  expect(await page.evaluate(p=>document.elementFromPoint(p.x,p.y)?.closest<HTMLElement>('[data-hotspot]')?.dataset.hotspot,expanded)).toBe('name:Panels');
+  expect(box.width).toBeCloseTo(3.9,1);expect(box.height).toBeCloseTo(8.44,1);
+  const inside={x:box.x+box.width/2,y:box.y+box.height/2};
+  expect(await page.evaluate(p=>document.elementFromPoint(p.x,p.y)?.closest<HTMLElement>('[data-hotspot]')?.dataset.hotspot,inside)).toBe('name:Panels');
   const context=await page.context().browser()!.newContext({baseURL:'http://127.0.0.1:5173',viewport:{width:390,height:844}});
   try{
     const invalid=await context.newPage();

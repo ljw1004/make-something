@@ -42,6 +42,26 @@ const start = (story=station) => startAdventure(story,{mode:'chapter',playStyle:
 const result = (a:ReturnType<typeof start>) => a.frame.messages.map(m=>m.text).join('\n');
 const redirected = "That can't be combined like that, but here's how it can:";
 
+test('identical displayed names stay unchanged and ambiguous commands cannot choose an arbitrary copy',()=>{
+  const story=parseStory(`# Copies
+## Work
+**Goals**
+- Finish -- Done
+**Items**
+- \`one\` Part
+- \`two\` Part
+- Tool
+- Done
+**Combinations**
+- \`one\` + Tool -> Done
+- \`two\` + Tool -> Done`);
+  const initial=start(story),objects=detailedObjects(story,initial.state);
+  assert.deepEqual(objects.filter(o=>o.id==='id:one'||o.id==='id:two').map(o=>o.name),['Part','Part']);
+  assert.throws(()=>resolveName('Part',objects),/Ambiguous name/);
+  assert.throws(()=>resolveName('Part (#1)',objects),/No available/);
+  assert.doesNotMatch(renderFrame(initial.frame),/\(#\d+\)/);
+});
+
 test('detailed hints reveal current partners without outputs or contextual third ingredients',()=>{
   const initial=start();assert.equal(initial.frame.options.length,0);
   assert.doesNotMatch(renderFrame(initial.frame),/\d+\. Warm dough|Salty bread|Can combine/);
@@ -240,150 +260,13 @@ test('name resolution uses full-word prefixes across objects and hotspots, and t
   assert.deepEqual(parseCommand(''),{look:true});assert.throws(()=>parseCommand('combine A'),/Use inspect/);
 });
 
-const twoBearings = `# Two bearings
-## Work
-**Goals**
-- Fit both bearing tubes -- \`finished\`
-**Items**
-- \`chassis\` Chassis
-- \`front\` Bearing tube
-- \`rear\` Bearing tube
-- \`front-fitted\` Chassis
-- \`rear-fitted\` Chassis
-- \`finished\` Racer
-**Combinations**
-- \`front\` [consume] + \`chassis\` [transform] -> \`front-fitted\`
-- \`rear\` [consume] + \`chassis\` [transform] -> \`rear-fitted\`
-- \`rear\` [consume] + \`front-fitted\` [transform] -> \`finished\`
-- \`front\` [consume] + \`rear-fitted\` [transform] -> \`finished\`
-`;
-
-test('identical copies have selectable text handles and either one can be fitted first',()=>{
-  const s=parseStory(twoBearings);
-  for(const firstNumber of [1,2]){
-    const initial=start(s),objects=detailedObjects(s,initial.state),frame=renderFrame(initial.frame);
-    assert.match(frame,/Items:\n[\s\S]*- Bearing tube \(#1\)\n- Bearing tube \(#2\)/);
-    assert.throws(()=>choose(s,initial,1,{inspect:'Bearing tube'}),/Ambiguous.*Bearing tube \(#1\).*Bearing tube \(#2\)/);
-    assert.equal(completeCommandLine('inspect Bearing tube (#',objects),'inspect Bearing tube (#');
-    assert.equal(completeCommandLine(`inspect Bearing tube (#${firstNumber}`,objects),`inspect "Bearing tube (#${firstNumber})"`);
-    const selected=resolveName(`Bearing tube (#${firstNumber})`,objects).id;
-    let a=choose(s,initial,1,{inspect:'Chassis'});
-    assert.equal(result(a),'Can combine with:\n- Bearing tube (#1)\n- Bearing tube (#2)');
-    a=choose(s,a,2,{combine:`Bearing tube (#${firstNumber})`,with:'Chassis'});
-    assert.equal(a.state.tokens[selected].status,'consume');
-    assert.match(result(a),new RegExp(`Consumed: Bearing tube \\(#${firstNumber}\\)\\.`));
-    assert.match(result(a),/Transformed into: Chassis\./,'a replacement is not presented as another simultaneous copy');
-    const remainingNumber=3-firstNumber,remaining=detailedObjects(s,a.state).find(o=>o.name==='Bearing tube')!;
-    assert(remaining);
-    assert.equal(resolveName(`Bearing tube (#${remainingNumber})`,detailedObjects(s,a.state)).id,remaining.id,'the previously shown handle stays valid');
-    const looked=choose(s,a,3,{look:true});
-    assert.match(result(looked),/- Bearing tube(?:\n|$)/);
-    a=choose(s,looked,3,{inspect:`Bearing tube (#${remainingNumber})`});
-    assert.equal(a.frame.phase,'complete');
-    assert.equal(a.state.tokens[remaining.id].status,'consume');
-    assert.deepEqual(replay(s,a.state.actions),a.state);
-  }
-  const fast=startAdventure(s,{mode:'chapter',playStyle:'fast'});
-  assert.deepEqual(fast.frame.options.map(o=>o.text),['Bearing tube (#1) + Chassis','Bearing tube (#2) + Chassis']);
-});
-
-test('copy handles cover hotspots, avoid literal numbered names, and reveal no future copies',()=>{
-  const s=parseStory(`# Stations
-## First
-**Goals**
-- Make A -- A
-**Hotspots**
-- \`one\`
-- \`two\`
-**Items**
-- \`one\` Bench
-- \`two\` Bench
-- \`literal\` Bench (1)
-- Paper
-- A
-- B
-**Combinations**
-- Paper [transform] @ \`one\` -> A
-- Paper [transform] @ \`two\` -> B
-## Later
-**Goals**
-- Finish -- Done
-**Items**
-- \`future\` Bench
-- Done
-**Combinations**
-- A [transform] + \`future\` [preserve] -> Done
-`);
-  const initial=start(s),objects=detailedObjects(s,initial.state);
-  assert.equal(resolveName('Bench (1)',objects).id,'id:literal');
-  assert.equal(resolveName('Bench (#1)',objects).kind,'hotspot');
-  assert.equal(resolveName('Bench (#2)',objects).kind,'hotspot');
-  assert.throws(()=>resolveName('Bench (#3)',objects),/No available/);
-  assert.doesNotMatch(renderFrame(initial.frame),/#3|future/);
-  const inspected=choose(s,initial,1,{inspect:'Paper'});
-  assert.match(result(inspected),/Can combine with:\n- Bench \(#1\)\n- Bench \(#2\)/);
-  const target=objects.find(o=>o.id==='id:one')!;
-  const made=choose(s,inspected,2,{combine:'Paper',with:target.name});
-  assert.equal(made.frame.phase,'complete');
-  assert.equal(s.items['id:one'].name,'Bench','the story/browser label is unchanged');
-});
-
-test('a later literal selector cannot steal a prior handle, including after that copy retires',()=>{
-  const s=parseStory(`# Literal selectors
-## Work
-**Goals**
-- Finish -- Done
-**Items**
-- \`one\` Tube
-- \`two\` Tube
-- Sheet
-- Stamp
-- \`later\` Tube (#1)
-- Done
-**Combinations**
-- Sheet [transform] + Stamp [preserve] -> \`later\`
-- \`one\` [consume] + \`later\` [preserve] -> Done
-`);
-  let a=start(s);
-  assert.match(renderFrame(a.frame),/- Tube \(#1\)\n- Tube \(#2\)/);
-  assert.doesNotMatch(renderFrame(a.frame),/Tube \(#1\) \(#1\)/,'no future literal is exposed');
-  a=choose(s,a,1,{combine:'Sheet',with:'Stamp'});
-  const objects=detailedObjects(s,a.state);
-  assert.equal(resolveName('Tube (#1)',objects).id,'id:one');
-  assert.equal(resolveName('Tube (#1) (#1)',objects).id,'id:later');
-  assert.match(result(a),/Transformed into: Tube \(#1\) \(#1\)\./);
-  a=choose(s,a,2,{combine:'Tube (#1)',with:'Tube (#1) (#1)'});
-  assert.equal(a.frame.phase,'complete');
-  assert.throws(()=>resolveName('Tube (#1)',detailedObjects(s,a.state)),/No available/,'a retired exact handle cannot become a prefix for a new literal');
-  assert.equal(resolveName('Tube (#1) (#1)',detailedObjects(s,a.state)).id,'id:later');
-});
-
-function session(story=station):ChapterSession {
-  const adventure=start(story);
+function session():ChapterSession {
+  const adventure=start();
   return {version:6,playStyle:'detailed',guidance:'',guidanceHash:digest(''),id:'fixture',story:'station',storyHash:'',runtimeHash:'',createdAt:'',chapter:1,playerRubric:rubric('player','detailed'),graderRubric:rubric('grader','detailed'),initial:adventure.frame,adventure,turns:[],pendingLook:false,requests:[]};
 }
 function reply(s:ChapterSession,choice:DetailedChoice) {
   return {...(s.turns.length ? {effect:'Fixture observation.',reaction:'Nothing notable.'} : {}),step:s.adventure.frame.step,choice,reason:'Fixture decision.',expectation:'Fixture expectation.',alternatives:[]};
 }
-
-test('copy selection survives saved-session replay and completed-chapter history',()=>{
-  const story=parseStory(twoBearings+`## Launch
-**Goals**
-- Launch -- Launched
-**Items**
-- Ramp
-- Launched
-**Combinations**
-- Racer [transform] + Ramp [preserve] -> Launched
-`),s=session(story);
-  submitReply(s,story,reply(s,{combine:'Bearing tube (#2)',with:'Chassis'}));
-  submitReply(s,story,{step:2,choice:{look:true}});
-  submitReply(s,story,reply(s,{combine:'Bearing tube (#1)',with:'Chassis'}));
-  assert(verifyChapterSession(s,story));
-  const history=renderFrame(startAdventure(story,{chapter:2,mode:'chapter',playStyle:'detailed'}).frame);
-  assert.match(history,/Step 1 combination: Bearing tube \(#1\) \+ Chassis -> Chassis/);
-  assert.match(history,/Step 2 combination: Bearing tube \+ Chassis -> Racer/);
-});
 
 test('detailed sessions count inspections and failed attempts, exclude errors and looks, and verify public and engine replay',()=>{
   const s=session(),before=JSON.stringify(s);

@@ -8,7 +8,7 @@ import {encyclopediaEntries} from '../src/web/encyclopedia.ts';
 import {encyclopediaBook} from '../src/web/encyclopedia-book.ts';
 import {readItem} from '../src/playtest/observe.ts';
 import {choose,renderFrame,startAdventure} from '../src/playtest/adventure.ts';
-import {itemPictureDescription,referencePictureDescription} from '../src/playtest/picture-descriptions.ts';
+import {itemPictureDescription} from '../src/playtest/picture-descriptions.ts';
 
 const manuscript=(description:string)=>`# Pictures
 ## Make
@@ -82,10 +82,9 @@ test('mixed and split readings keep visible prose and ordinary conditional slot 
  assert.equal(browserReadings(compound,fitted,'name:Box')[0].popup,'It runs.');
 });
 
-test('text boards describe present pictures and the explicit goal picture without exposing future prose',()=>{
+test('text boards and creation results describe present pictures without exposing future prose',()=>{
  const story=parseStory(`# Pictures
 ## Build
-reference: ![Cart](cart.svg)
 **Goals**
 - Make cart -- Cart
 **Items**
@@ -114,11 +113,13 @@ reference: ![Cart](cart.svg)
 `);
  const state=newGame(story);
  assert.equal(itemPictureDescription(story,state,'name:Wood'),'A flat brown board with four round holes.');
- assert.equal(referencePictureDescription(story,state),'Cart: A brown board above four red wheels.');
  for(const playStyle of ['fast','detailed'] as const){
-  const frame=renderFrame(startAdventure(story,{playStyle}).frame);
+  const initial=startAdventure(story,{playStyle});
+  const frame=renderFrame(initial.frame);
   assert.match(frame,/Picture: A flat brown board/);
-  assert.match(frame,/Build reference: Cart: A brown board above four red wheels/);
+  assert.doesNotMatch(frame,/A brown board above four red wheels/);
+  const after=choose(story,initial,initial.frame.step,playStyle==='fast'?1:{combine:'Wood',with:'Wheels'});
+  assert.match(renderFrame(after.frame),/Picture: A brown board above four red wheels/);
   assert.doesNotMatch(frame,/Hidden future|Unseen future/);
  }
 });

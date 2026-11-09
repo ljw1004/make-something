@@ -1,11 +1,9 @@
-import {hasCopyHandle} from './names.ts';
-
 export type PlayStyle = 'fast'|'detailed';
 export type DetailedChoice = {inspect:string}|{combine:string;with:string};
 export type DetailedCommand = DetailedChoice|{look:true};
 export type PlayerChoice = number|'L'|DetailedCommand;
 
-export interface NamedObject {id:string;name:string;kind:'item'|'hotspot';aliases?:string[]}
+export interface NamedObject {id:string;name:string;kind:'item'|'hotspot'}
 const normalized = (text:string) => text.trim().replace(/\s+/g,' ').toLocaleLowerCase('en');
 
 /** Full-word prefixes identify objects across the entire current chapter,
@@ -13,9 +11,9 @@ const normalized = (text:string) => text.trim().replace(/\s+/g,' ').toLocaleLowe
 export function resolveName(input:string,objects:NamedObject[]):NamedObject {
   const query = normalized(input);
   if (!query) throw new Error('Name an available item or hotspot.');
-  const aliases = (object:NamedObject) => [object.name,...(object.aliases??[])].flatMap(name=>[normalized(name),normalized(name.replace(/\[.*\]$/,''))]);
+  const aliases = (object:NamedObject) => [normalized(object.name),normalized(object.name.replace(/\[.*\]$/,''))];
   const exact = objects.filter(object => aliases(object).includes(query));
-  const matches = exact.length || hasCopyHandle(query) ? exact : objects.filter(object => aliases(object).some(name => name.startsWith(query) && /^\s/.test(name.slice(query.length))));
+  const matches = exact.length ? exact : objects.filter(object => aliases(object).some(name => name.startsWith(query) && /^\s/.test(name.slice(query.length))));
   if (matches.length === 1) return matches[0];
   if (!matches.length) throw new Error(`No available item or hotspot matches ${JSON.stringify(input)}.`);
   throw new Error(`Ambiguous name ${JSON.stringify(input)}. Matches: ${matches.map(o => o.name).join(', ')}.`);

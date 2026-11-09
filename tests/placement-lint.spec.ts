@@ -26,9 +26,9 @@ ${icon ? `  - icon: ![area](${icon})\n` : ''}  - place: A (center ${x*780/100}px
     // 321/4 = 80.25px wide; this point is inside its actual fractional edge.
     expect(await checker.lint(story('hit.svg',60.28))).toEqual([]);
     expect((await checker.lint(story('hit.svg',61))).map(d => d.code)).toEqual(['place-outside-hotspot']);
-    // Tiny art retains the player's 44px minimum hit area.
-    expect(await checker.lint(story('tiny.svg',55))).toEqual([]);
-    expect((await checker.lint(story('tiny.svg',56))).map(d => d.code)).toEqual(['place-outside-hotspot']);
+    // Tiny art has its authored 10px width; nearby points get no hidden expansion.
+    expect(await checker.lint(story('tiny.svg',51))).toEqual([]);
+    expect((await checker.lint(story('tiny.svg',52))).map(d => d.code)).toEqual(['place-outside-hotspot']);
     expect(await checker.lint(story('',60))).toEqual([]);
     expect((await checker.lint(story('',70))).map(d => d.code)).toEqual(['place-outside-hotspot']);
     const repeated=parseStory('# Local art\n## First\nbackground: ![room](room.svg)\n**Items**\n- H\n  - icon: ![default](hit.svg)\n- A\n**Hotspots**\n- H (center 390px, 844px)\n  - place: A (center 468px, 844px)\n## Second\nbackground: ![room](room.svg)\n**Hotspots**\n- H (center 390px, 844px)\n  - icon: ![small](tiny.svg)\n  - place: A (center 468px, 844px)',{file:join(directory,'story.md')});
@@ -50,8 +50,8 @@ ${icon ? `  - icon: ![area](${icon})\n` : ''}  - place: A (center ${x*780/100}px
     wide.chapters[0].image='wide.svg';
     wide.hotspots['name:H'].x=512;wide.hotspots['name:H'].y=384;
     wide.hotspots['name:H'].placements![0].x=512;
-    wide.hotspots['name:H'].placements![0].y=430.08;
-    expect(await checker.lint(wide)).toEqual([]); // 17.55 units below centre, inside 22.
+    wide.hotspots['name:H'].placements![0].y=394.24;
+    expect(await checker.lint(wide)).toEqual([]); // 3.9 units below centre, inside 5.
     wide.hotspots['name:H'].placements![0].y=460.8;
     expect((await checker.lint(wide)).map(d=>d.code)).toEqual(['place-outside-hotspot']);
   } finally { await checker.close(); rmSync(directory,{recursive:true,force:true}); }

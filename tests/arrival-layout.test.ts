@@ -245,7 +245,7 @@ test('an item wider than the comfort inset still respects reserved supplies',()=
   assert.equal(coveredFraction(placed[0],[placed[1]]),0);
 });
 
-test('circular hotspots use the inscribed circle, minimum touch diameter, and exact rectangle clearance',()=>{
+test('circular hotspots use their authored inscribed circle and exact rectangle clearance',()=>{
   const story=parseStory('# Circle\n## Work\nbackground: ![room](room.svg)\n**Hotspots**\n- H (center 195px, 422px)\n  - icon: ![round](round.svg) (circular)\n  - place: A (center 234px, 464.2px)\n**Items**\n- H\n- A');
   const h=story.hotspots['name:H'],circle=hotspotRect(h,0,{width:140,height:100});
   assert.equal(circle.width,100);
@@ -253,7 +253,7 @@ test('circular hotspots use the inscribed circle, minimum touch diameter, and ex
   assert(!containsPoint(circle,{x:240,y:467}));
   assert(!overlapsHotspot({x:circle.x,y:circle.y,width:10,height:10},circle));
   assert(overlapsHotspot({x:190,y:417,width:10,height:10},circle));
-  assert.equal(hotspotRect(h,0,{width:10,height:20},2).width,22);
+  assert.equal(hotspotRect(h,0,{width:10,height:20}).width,10);
   assert.equal(hotspotRect(h,0,{width:140,height:100,circular:false}).circular,undefined,'failed artwork uses the rendered text rectangle');
   assert.equal(lintPlacementGeometry(story,[{id:h.id,chapter:0,width:100,height:100}]).length,1);
   const corner=tile('corner',circle.x,circle.y,{width:10,height:10});

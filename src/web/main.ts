@@ -4,13 +4,12 @@ import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
 import './style.css';
 import './workspace.css';
 import './item-artwork.css';
-import './chapter-reference.css';
 import { parseStory } from '../story/parser.ts';
-import type { HeadingImage, Story } from '../story/types.ts';
+import type { Story } from '../story/types.ts';
 import { newGame, act, availableTokens, label, chapterComplete, matches, recipeFor } from '../engine/game.ts';
 import {isFixed, presentHotspots} from '../engine/fixed-items.ts';
 import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
-import { backgroundAnimation, hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
+import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
@@ -34,7 +33,6 @@ import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
-import {chapterReferenceHTML, chapterReferenceReading, chapterReferenceRect, chapterTitleHTML} from './chapter-reference.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
@@ -182,7 +180,7 @@ function animateGoalEntrance() {
   const current = goalView;
   goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, goalPulseDuration));
 }
-reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); itemArtwork.motion(surface, reducedMotion.matches); });
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); });
 
 function rememberInteraction() {
   if (!state) return;
@@ -354,11 +352,6 @@ function applyText(text: string) {
     itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
   };
   dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
-  if (context?.kind === 'reference') {
-    const previous = anchor.story.chapters.findIndex(chapter => chapter.id === context.chapter), next = update.chapters.get(previous);
-    dialogContext = next === undefined ? undefined : {kind: 'reference', chapter: story.chapters[next].id};
-    if (!dialogContext) closeDialog();
-  }
   encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
   authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
   render(false, false);
@@ -502,7 +495,7 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   }
   // New readings start at the top; live updates retain the reader's position.
   dialog.scrollTop = changing ? 0 : scroll;
-  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : context.kind === 'reference' ? story.chapters.find(chapter => chapter.id === context.chapter)?.reference?.alt ?? 'Reference picture' : 'Story reading');
+  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
   if (context.kind === 'encyclopedia') {
     bookResize.observe(dialog); syncBookLayout();
     const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
@@ -535,12 +528,6 @@ function chapterContent() {
   return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
-function openChapterReference(id: string, remember = true) {
-  const chapter = story.chapters.find(chapter => chapter.id === id);
-  if (!chapter?.reference) { if (dialogContext?.kind === 'reference') closeDialog(); return; }
-  modal(chapterReferenceReading(chapter, asset), 'chapter-popup reference-popup', {kind: 'reference', chapter: id});
-  if (remember) { rememberInteraction(); save(); }
-}
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
   () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
@@ -647,7 +634,6 @@ function refreshDialog() {
     if (state.pending.length) openPendingReading();
     else closeDialog();
   } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
-  else if (dialogContext?.kind === 'reference') openChapterReference(dialogContext.chapter, false);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
   if (!dialogContext) showPending();
 }
@@ -661,7 +647,7 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   if (!validCentre(place, geometry.scene.image)) return;
   const centre = scenePoint(place, geometry.scene);
   const bounds = location.getBoundingClientRect(), boardScale = geometry.scale;
-  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, 1 / geometry.labelScale, geometry.bounds, geometry.scene);
+  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, geometry.bounds, geometry.scene);
   // Invalid live drafts use ordinary placement; never attach an outside authored point.
   if (!containsPoint(rect, centre)) return;
   const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
@@ -684,15 +670,6 @@ function commit(action: Action) { try {
   }
   if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
   const before = state, previous = state.chapter, next = act(story, state, action);
-  // A same-panel process transforms the workpiece at its working position.
-  // Returning it there keeps a row of process targets clear for the next step.
-  const processRecipe = action.type === 'combine' && action.hotspot && !action.b ? recipeFor(story, before, action) : undefined;
-  const processSource = processRecipe?.a.fate === 'transform' ? before.tokens[processRecipe.a.ref.id] : undefined;
-  const sourceElement = processSource && tile(processSource.id);
-  const processOrigin = processSource && sourceElement && next.tokens[processSource.id]?.status !== 'available'
-    && next.tokens[processRecipe!.hotspot!]?.status === 'available'
-    && next.tokens[processRecipe!.result.id]?.chapter === processSource.chapter
-    ? {x:processSource.x,y:processSource.y,width:sourceElement.offsetWidth,height:sourceElement.offsetHeight} : undefined;
   withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
     const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
@@ -719,13 +696,10 @@ function commit(action: Action) { try {
         const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry(token.chapter).bounds, boardGeometry(token.chapter).scene) : undefined;
         const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
         if(receivingRect&&receiver&&state.tokens[receiver.id].status==='available'){
-          const {hotspots,reserved}=chapterObstacles(token.chapter);
-          occupied.push(...hotspots,...reserved);
+          occupied.push(...chapterObstacles(token.chapter));
         }
         const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
-        const position=preferred ?? (processOrigin
-          ?placeCreation(processOrigin,{width:element.offsetWidth,height:element.offsetHeight},true,creationBounds)
-          :receivingRect&&receiver
+        const position=preferred ?? (receivingRect&&receiver
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
           :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
         token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
@@ -751,7 +725,7 @@ function positionTile(element: HTMLElement, position: {x: number; y: number}) {
 /** One viewport per history entry, with independently fitted/cropped scene contents. */
 function panelStyle(geometry: ReturnType<typeof boardGeometry>, position: number) {
   const {scale, bounds, scene, left, top, labelScale, cardScale} = geometry;
-  return `left:${left}px;top:${position*app.clientHeight+top}px;--board-scale:${scale};--touch-scale:${1/scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
+  return `left:${left}px;top:${position*app.clientHeight+top}px;--board-scale:${scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
 }
 function frameControls(geometry: ReturnType<typeof boardGeometry>) {
   const hudScale = geometry.cover ? 1 : geometry.scale;
@@ -761,24 +735,21 @@ function frameControls(geometry: ReturnType<typeof boardGeometry>) {
     'goals-height':`${Math.min(140,geometry.height/hudScale*.2)}px`,
   })) app.style.setProperty(`--${key}`,value);
 }
-function worldHTML(scenes: {chapter: number; image?: string; animation?: HeadingImage; content: string; label: string}[]) {
+function worldHTML(scenes: {chapter: number; image?: string; content: string; label: string}[]) {
   const frames = scenes.map(scene => ({...scene,geometry:imageGeometry(scene.image)}));
   // Separate stacking contexts let the fixed goals sit between scenery and objects.
-  const scenery = frames.map(({chapter,image,animation,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" ${itemArtwork.imageSource(image,animation,asset,reducedMotion.matches).attributes} alt="">` : ''}</div>`).join('');
+  const scenery = frames.map(({chapter,image,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}</div>`).join('');
   const chapters = frames.map(({chapter,content,label,geometry},position) => `<section class="chapter-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}" aria-label="${escape(label)}">${content}</section>`).join('');
   return `<div class="world" data-panel-height="${app.clientHeight}" style="width:100%;height:${scenes.length*app.clientHeight}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
 }
 /** Use the same measured receiving regions for arrivals and adjacent creations. */
 function chapterObstacles(chapter: number) {
   const geometry=boardGeometry(chapter);
-  const hotspots=presentHotspots(story,state,chapter).map(id=>{
+  return presentHotspots(story,state,chapter).map(id=>{
     const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
     const measured=el.getBoundingClientRect();
-    return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},1/geometry.labelScale,geometry.bounds,geometry.scene);
+    return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);
   });
-  const title=panel(chapter)?.querySelector<HTMLElement>('.chapter-title');
-  const reserved=[...(title?[{x:geometry.bounds.x+title.offsetLeft,y:title.offsetTop,width:title.offsetWidth,height:title.offsetHeight}]:[]),...(story.chapters[chapter].reference?[chapterReferenceRect(geometry.bounds)]:[])];
-  return {hotspots,reserved};
 }
 function packArrival(checkpointLayout=false, source?: State){
   const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!isFixed(story,t)),fresh=new Set(state.newItems);
@@ -793,10 +764,10 @@ function packArrival(checkpointLayout=false, source?: State){
       fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
       fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
   });
-  const obstacles=chapterObstacles(state.chapter);
+  const hotspots=chapterObstacles(state.chapter);
   const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
   const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
-  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,...obstacles,checkpoint:checkpointLayout});
+  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,hotspots,checkpoint:checkpointLayout});
   state.arrivalDivider=layout.divider!==undefined;
   for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
   const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');
@@ -850,8 +821,7 @@ function fixedPresentation(chapter:number,id:string){
 }
 function fixedHTML(chapter:number,id:string){
   const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
-  const appearance=itemPresentation(story,state.chapter,id);
-  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true,h.icon===appearance.icon?appearance.animation:undefined,reducedMotion.matches);
+  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true);
   const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
   return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry(chapter).bounds,boardGeometry(chapter).scene);
 }
@@ -874,8 +844,8 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
   frameControls(geometry);
   reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
     const geometry=boardGeometry(chapter);
-    return {chapter,image:background(story,chapter),animation:backgroundAnimation(story,chapter),label:`${story.title} scene ${position+1}`,content:`${chapterTitleHTML(story.chapters[chapter],geometry.bounds)}${chapterReferenceHTML(story.chapters[chapter],geometry.bounds,asset)}${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
-      const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon,false,appearance.animation,reducedMotion.matches);
+    return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
+      const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon);
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
   }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
@@ -931,9 +901,9 @@ function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
 function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
     return [...scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
       const rect=el.getBoundingClientRect();
-      // Stations share the circle/rectangle and minimum-touch-area geometry used by lint/layout.
+      // Stations share the authored circle/rectangle geometry used by lint/layout.
       const region=el.dataset.hotspot
-        ? hotspotRect(fixedPresentation(chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')},boardGeometry(chapter).cover?1:1/boardGeometry(chapter).scale)
+        ? hotspotRect(fixedPresentation(chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
         : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
       if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
       return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
@@ -1068,7 +1038,6 @@ app.addEventListener('click',e=>{
   else if(command==='reset-story')restartStory();
   else if(command==='reset-chapter')restartChapter();
   else if(command==='story'){goalPulses.resetCounter();tutorialProgress?.finish('goalsDone');reopenChapter();}
-  else if(command==='reference')openChapterReference(target.dataset.referenceChapter!);
   else if(command==='encyclopedia')openEncyclopedia();
   else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
   else if(command==='encyclopedia-back')backToEncyclopediaIndex();
