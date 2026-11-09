@@ -4,7 +4,13 @@ Working story development under the [single brief](../../stories/builder/design-
 This pass develops the narrative and a suitable construction sequence before
 changing the live manuscript or commissioning replacement artwork.
 
-## Assignment and acceptance
+## City-rescue exploration — superseded
+
+The following rounds record an earlier recommendation subsequently rejected by the
+user. Their positive concept readings did not establish that the constructions
+were worthwhile. The current exploration follows this historical record.
+
+### Assignment and acceptance
 
 The user did not perceive the earlier story or emotional payoff. The next arc
 needs a substantial motive for the high-tech kit supplier, consequences that
@@ -142,14 +148,14 @@ The other eleven participants were fresh no-history sessions using the parent
 model; none was reused for a revision or shown earlier findings.
 
 A final blind reader correctly distinguished taking up slack from sustained towing.
-The selected treatment now shows the drum take up slack, then stop under its
+The historical treatment shows the drum take up slack, then stop under its
 ratchet while the flight plate supplies movement. Retrieval remains a separate
 visible action. This narrow clarification introduces no new story event and has
 not received another independent reading.
 
-The selected [story treatment](story-treatment.md) is the design deliverable. The
-[single brief](../../stories/builder/design-brief.md) now governs this next narrative
-target, explicitly distinguishing it from the still-live v48 game. Four rounds
+The then-selected [city-rescue treatment](city-rescue-treatment.md) was the design
+deliverable. At that time the single brief named it as the next target, distinct
+from the still-live v48 game; that target is superseded below. Four rounds
 comprised ten blind concept readers and two informed story/construction reviewers.
 These are written-scene assessments, not `--fast`/`--detailed` gameplay trials,
 rendered-image reviews, measured emotion, or physical validation. No replacement
@@ -157,3 +163,137 @@ manuscript, animation or artwork is claimed. The next evidence must be actual
 wordless storyboard recognition and a construction prototype, especially the two
 retained machines in the Whale. Raw packets, CLI output and rejected sequences
 are removed after recording these concise outcomes.
+
+## Functional appeal and the supplier reconsidered
+
+The user rejected the Whale and questioned whether many proposed constructions
+were worthwhile in themselves. They then rejected the city-rescue story and asked
+for sinister or recklessly playful motives, a concrete late consequence and a final
+build that puts it right. The city-rescue recommendation above is historical, not
+an acceptance that survived this feedback. Existing models do not protect objects
+from replacement.
+
+### KiwiCo reference research
+
+The preceding conversation retrieved twenty examples from official current and
+older product/support pages. This is inspiration about function and appeal, not a
+complete catalogue, purchasing advice, permission to reproduce designs, or evidence
+that our digital versions will be enjoyable. Selected distinctions guiding this pass:
+
+| Reference | Observable capability | Design inference |
+| --- | --- | --- |
+| [Mega Hand](https://www.kiwico.com/de/store/dp/mega-hand/7001) | Articulated fingers follow gestures. | Extending bodily agency can be the whole reward. |
+| [Domino Machine](https://www.kiwico.com/us/store/dp/domino-machine-project-kit/6911) | Sets out dominoes for a run. | A machine that makes something else has immediate purpose. |
+| [Glow String Shooter](https://education.kiwico.com/us/dp/glow-string-shooter-project-kit/3823) | A driven string loop stands in air. | Real phenomena can already supply astonishing motion. |
+| [Pendulum Art Machine](https://www.kiwico.com/us/store/dp/pendulum-art-machine/4668) | Moving platform and pen produce geometric drawings. | The output makes mechanical cause visible. |
+| [Spinning Sand Garden](https://www.kiwico.com/tr/store/dp/spinning-sand-garden/6940) | Magnetically moved balls and rakes leave changing tracks. | Watching a process can suffice without practical utility. |
+| [Programmable Music Box](https://www.kiwico.com/store/dp/programmable-music-box-project-kit/3136) | Arranged pegs produce a tune when cranked. | Physical arrangement becomes an expressive result. |
+| [Delivery Bot](https://www.kiwico.com/sg/store/dp/delivery-bot/6188) | Carries small objects under radio control. | A child's purpose gives motion a reason. |
+| [Pinball](https://www.kiwico.com/eureka/pinball) | Launcher, flippers and obstacles form a playable machine. | Each assembly belongs to an immediately understandable activity. |
+
+Manufacturer functions are distinct from these author interpretations. Physical
+control, variation and reuse cannot be counted as pleasures of a completion loop
+unless the game actually supplies them. This constraint now belongs in the brief.
+
+### Psychonauts 2 as a narrative question
+
+During this pass the user asked why its sinister forces, reveal and resolution
+worked so well. The creator explicitly links Raz's family history and the history
+of the institution; the official story setup couples the mole investigation,
+Maligula and the family curse. [Tim Schafer interview](https://news.xbox.com/en-us/2021/08/26/getting-psyched-for-psychonauts-2-with-tim-schafer/amp/),
+[Double Fine story announcement](https://www.doublefine.com/news/behold-the-psychonauts-2-story-trailer).
+Plot verification used a [spoiler account](https://www.gamerevolution.com/originals/690770-psychonauts-2-ending-explained-story-spoilers).
+
+Our interpretation: the reveal reorganizes familiar relationships and earlier
+helpful actions; the resolution addresses the resulting personal history as well
+as the immediate danger. A sinister agent's concrete desire can coexist with
+complexity in the person presented as the monster. This is narrative analysis,
+not a claim about all players or an instruction to import that game's plot.
+
+For Builder, test one recognizable agent whose earlier help takes on a second
+meaning. Let the final construction act on the relationship and machinery already
+established. A late accident and a matching cure alone do not supply that structure.
+Keep the earlier pleasure real: the player's curiosity is not the mistake.
+
+### New round one: competing motives
+
+Three fresh no-history brainstormers separately developed a possessive collector,
+cosmic stunt skaters and a water-park operator stealing a sea. They received the
+audience, approximate ordinary/pink build split, literal compact construction,
+minimal prose, intrinsic play requirement, late consequence and final repair.
+These were invention assignments, not independent approvals.
+
+The organizer also developed a paired-window collector variant. A fresh blind
+reader received neutral visible accounts of the rail collector, zipper stunt
+course and paired-window collector, without supplier briefs or desired rankings.
+It ranked stunt course first, paired-window collector second and rail collector
+third. It found the zipper cause/repair clearest, while the friendly hand becoming
+a collector's instrument gave the paired-window version a stronger personal
+reversal. It flagged unearned scale changes and the unexplained liberation of
+other rooms. Its preference for the stunt course remains contrary evidence to the
+eventual editorial recommendation.
+
+A separate fresh blind reader received only the water-park visible sequence.
+It inferred exploitative collection from the emptied bay, elevated reservoir and
+ticket gates. It found the surf toy's final wave effective as a proposed image,
+but could not firmly identify the operator as the kit supplier. The gate-lifting
+waterwheel's actual linkage and start-up needed repair; the final machine risked
+being useful mainly to the mission.
+
+### New round two: trust and possession
+
+A fourth fresh development agent generated three collector variants: helpful hand
+as acquisitive owner, endless enforced performance, and worlds folded into perfect
+storage. It received the current collector premise, construction constraints and
+the hypothesis about reinterpretation. This was an informed creative assignment,
+not a blind test. It proposed a workshop robot that physically takes over the
+earlier hand, instead of another towing machine or a magical antidote.
+
+A fresh blind reader received the organizer's complete seven-build collector
+sequence, with a display carousel as build six. It reconstructed the theft and
+counteraction, identified repairing the hand as the strongest retrospective turn,
+and distinguished collecting from the unproven motive of stealing credit. It
+rejected the carousel's independent appeal and found the robot's support/release
+mechanism underspecified. It also warned that prescribed builds and working loops
+do not establish attachment. Keep that limit; do not add a claim of player-authored
+designs or invent interactive play that the engine lacks.
+
+### New round three: worthwhile sixth build and concrete recovery
+
+Replace the carousel with a working Marble skyway. The helper steals a worthwhile
+completed collection; the construction itself does not malfunction. Another fresh
+blind reader received this revised visible sequence, excluding earlier feedback
+and the private supplier motive. It found the marked finger and careful shelving
+made the betrayal recognizable. It accepted the proposed toys' observable appeal
+as concept potential. It rejected the inference that a house diagram proves an
+actual house is next, and identified a loaded shelf that could not fit the stated
+small hatch, plus one replacement motor apparently commanding several axes.
+
+An independent informed reviewer then received corrected opening/tray envelopes,
+a continuously supported shelf, distinct service sockets, independent robot power
+and the proposed shutter closure. It accepted the physical outline conditionally,
+not as geometric validation. It removed an unnecessary wrist operation and a
+duplicated drive disconnection, and required visible ratchet release, separate
+power boundaries and a clear doorway before closure. It preferred a removable
+brace with captive pins over a long loose-pin grille assembly. These corrections
+are incorporated in the treatment; no further blind test of that exact final
+staging or rendered evidence is claimed.
+
+### Recommendation and evidence limits
+
+Recommend [The Helping Hand](story-treatment.md) for the next visual prototype:
+Pinball, Printing press, Mechanical hand, Window tunnels, Wall walker, Marble
+skyway and Workshop robot. This choice is editorial, not a unanimous review
+result. The stunt-course alternative was the first comparison reader's preference.
+The collector better supports the requested investigation of trust reinterpreted
+by a sinister reveal; its larger agenda is still not demonstrated visually.
+
+This pass used nine fresh no-history agents: four development assignments, four
+blind written-sequence readings and one informed mechanism review. None was reused
+for a different revision. No reviewer saw prior outcomes; the informed development
+assignment was explicitly supplied the current working hypothesis. The blind
+packets were literal prose descriptions, not drawings or executable game sessions.
+They do not establish child enjoyment, emotional attachment, phone recognition,
+physical fit or the outcome of `--fast`/`--detailed` playtesting. No new manuscript,
+runtime, artwork or animation is claimed. Retain these instructions and concise
+outcomes; do not preserve raw replies as a second evidence archive.

@@ -1942,3 +1942,29 @@ readings do not establish actual picture comprehension or child enjoyment. The
 next production gates are a wordless storyboard and physical/layout prototypes
 of the retained subassemblies. This pass changes story-development documents only;
 no application build, executable playtest or replacement-render claim applies.
+
+## 8 November 2026 — Builder functions, sinister motives and the helping hand
+
+The user rejected the Whale and the city-rescue narrative, requested research into
+KiwiCo's genuinely functional or interesting creations, then asked for sinister or
+recklessly playful suppliers, a visceral late consequence and a final corrective
+build. During development they introduced *Psychonauts 2* as a question about
+effective revelation and resolution. Sources and attributed interpretations are
+retained in the [redevelopment record](projects/builder-study/narrative-redevelopment.md).
+
+Nine fresh agents covered four creative assignments, four blind written-scene
+readings and one informed mechanism review. The first comparison reader preferred
+the reckless stunt course. The editorial recommendation instead develops a helpful
+red hand whose collector takes our finished work, followed by a workshop robot
+that takes physical control of the hand, reclaims the shelf and begins making new
+toys. A display carousel was rejected for weak independent appeal. Review exposed
+hatch/loaded-shelf scale, load support and multi-axis drive problems; the revised
+physical outline removes those contradictions at concept level. Whole-world
+collection remains an author motive, not an established visual inference.
+
+The [current treatment](projects/builder-study/story-treatment.md), single brief and
+indexes now distinguish that proposal from live v48 and the superseded
+[city-rescue candidate](projects/builder-study/city-rescue-treatment.md). No new game
+chapters, renders, animations, executable playtests or observed child enjoyment are
+claimed. This is documentation-only: local links and whitespace were checked; no
+application build was needed. Existing commit-and-push authorization applies.

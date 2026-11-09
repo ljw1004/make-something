@@ -15,12 +15,14 @@ maker. The [completed revision](next-phase.md) records its blind concept rounds,
 mechanical repairs, animation work and acceptance status. A native 3D runtime
 remains a separate phase.
 
-The current [narrative redevelopment](narrative-redevelopment.md) responds to the
-user's unreadable-story finding and request for a consequential supplier motive.
-Its selected [story treatment](story-treatment.md) has three ordinary builds and
-four high-tech builds: the final tug uses the actual sled and winch to bring an
-endangered factory-city into our sky. This is the next development target; the
-live game and its preceding evaluation remain attributed to v48.
+The current [narrative redevelopment](narrative-redevelopment.md) reconsiders the
+constructions themselves and the supplier's agenda. KiwiCo research supplies
+examples of intrinsic play appeal; *Psychonauts 2* supplies a hypothesis about
+reveals that reinterpret earlier trust. The [Helping Hand proposal](story-treatment.md)
+uses a collector, a stolen shelf and a final workshop robot. Fresh concept readers
+exposed a weak carousel and concrete staging problems; actual visual comprehension
+and the wider motive remain open. The [city-rescue treatment](city-rescue-treatment.md)
+is superseded. Live game and preceding evaluations remain attributed to v48.
 
 Experience hypothesis: following the goal picture and one short current instruction
 lets the player see and understand every physical change. Reject fitted parts that

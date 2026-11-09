@@ -2,89 +2,73 @@
 
 ## Current development target
 
-This brief governs the next narrative revision and its study work. The live v48
-manuscript remains the preceding thirteen-toy implementation. The selected
-[seven-build story treatment](../../projects/builder-study/story-treatment.md)
-defines the new scene sequence; the [review record](../../projects/builder-study/narrative-redevelopment.md)
-keeps its evidence and limitations. This is a narrative decision, not a claim that
-replacement artwork or executable chapters have been produced.
+This is the single brief for Builder and its study work. The live v48 game remains
+its preceding thirteen-toy implementation. Narrative development is reconsidering
+both the supplier and the constructions. The current [Helping Hand recommendation](../../projects/builder-study/story-treatment.md)
+and [review record](../../projects/builder-study/narrative-redevelopment.md) are
+concept work, not implemented chapters or proof of player enjoyment. No previous
+object, including the Whale, has a reserved place in the next story.
 
 ## Intent
 
 A making story for a curious child around eight to ten. Build appealing toys from
 understandable parts, with enough physical truth to see what each fitting does.
 Completed whole toys visibly work. Keep movable creations, short step instructions
-and the educational value of making real mechanisms. Use three or four ordinary
-whole builds followed by three or four using pink technology. Let good construction
-determine the steps; do not pad this smaller arc to the old 200-action ambition.
+and the educational value of making mechanisms. Aim for three or four ordinary
+whole builds followed by three or four with pink technology. Let meaningful work
+determine length; do not pad a smaller arc to the earlier 200-action ambition.
 
-The childhood fantasy is that something made on an ordinary worktable acquires
-extraordinary power. Give the first impossible toy time to play in familiar
-surroundings before revealing a larger purpose. The supplier has a substantial
-agenda and the ending changes the world the player already knows. Quiet visual
-storytelling must still communicate cause, purpose and consequence. Recognition
-of moving objects alone is insufficient.
+Each construction must earn its place before its contribution to the plot. Name
+its action and observable reward: gripping, launching, printing, making patterns,
+playing music, revealing an illusion, or another compelling capability. Ask what
+would remain worth making if the story disappeared. Practical utility is optional;
+beauty, surprise and satisfying motion can suffice. A new name, attractive animal
+shape, narrative assignment or spectacular camera move cannot supply missing value.
 
-The private premise is an unauthorized evacuation. A far-future industrial company,
-the Works, is preserving its entire inhabited factory-city from a failing world
-and relocating it near Earth. The kits train and equip a builder at this end.
-The company acts for its survival and continuity, having chosen our sky without
-asking. Its workers deliberately send half of a towing connection and retain the
-matching socket. The player builds the craft that brings their city here.
+Judge the actual digital experience. Completion animations can show mechanisms
+working, but do not deliver the adjustable play, control or personal authorship of
+physical kits. Do not borrow those pleasures when evaluating our fixed sequence.
+All creations need clear visible additions as well as worthwhile completed results.
 
-Keep institutional details in the author's understanding. The visible story must
-show the source of the kits, an inhabited place in danger, the deliberate shipment,
-the useful work of the final machines, and the same city established beside our
-moon. A personal friendship or gift exchange is not the selected payoff. The
-lasting consequence is visible beyond the familiar bedroom roof. Do not add a
-technical explanation for why the company ships kits rather than robots.
+The fantasy is that something made on an ordinary worktable acquires extraordinary
+power. Give the first impossible toy time to work in familiar surroundings before
+using it for a larger agenda. The sender has a concrete self-interested motive;
+possible malice, possessiveness or reckless pleasure need not be sanitized into
+philanthropy. Consequence must be experienced through familiar objects and places.
 
-No routine chapter introductions, result popups, praise or explanations of pink
-parts. Most pages are quiet illustrated instructions. Optional mechanical detail
-belongs after the encyclopedia divider. Narrative is carried by a few legible
-working scenes, with enough time for important objects and causal actions to register.
+Test a reveal that changes the meaning of earlier enjoyable work and apparent
+help. A penultimate loss can motivate a final construction, whose actual capability
+addresses that loss. Stopping the cause and repairing its result are distinct.
+Do not invent an arbitrary antidote, operation-only recipe or new magical rule for
+the ending. Keep curiosity and making valuable: the player finishes more capable,
+not chastened for following the game's required instructions.
 
-## Progression and implicit story
+No routine introductions, praise, result popups or explanations of pink parts.
+Most pages are quiet illustrated instructions. Mechanical detail belongs after the
+encyclopedia divider. A few working scenes carry the narrative. Minimal prose is
+not minimal causality: show the crucial action and its consequence clearly.
 
-The selected scope is three ordinary builds and four with pink technology:
+## Current story hypothesis
 
-- **Pinwheel:** a single connected pre-slit blank, four explicit corner folds,
-  hub, axle and handle. Establish the familiar worktable, bookshelf and moon.
-- **Marble lift:** a broad frame, crank, guided cord, retained cup, ratchet and
-  return track. Show lifting, holding and returning the marble.
-- **Star projector:** a real lamp, pierced wheel, drive, spindle, lens and compact
-  enclosure. The familiar room gains moving projected stars.
-- **Float sled:** a shallow tray with runners, pink plate, ordinary controls and
-  blue battery. Its first flight passes the bookshelf. Preserve this actual machine.
-- **Sky viewer:** compact optical construction with a pink lens reveals the
-  supplier's city, its factory boxes and damage from the failing world. A worker
-  separates a connector, ships the plug/reel and keeps the socket. A matched box
-  opening brings the parts onto the player's table.
-- **Tow winch:** a broad mounted mechanism with gearmotor, ratchet, brake, retained
-  rollers and a connected pink reel/lead. It deploys, holds and retrieves the line.
-  Its plug stays parked in a carrying fork; its mounting feet have a later purpose.
-- **Whale:** the intact sled becomes its keel. Hull seats/panels, fins, links and
-  a tail surround it; the complete winch mounts in a generous belly bay with a
-  positive retaining bridge. The final addition completes one connected flying tug.
+The project treatment tests a familiar helping hand whose owner ultimately takes
+our creations for a collection. We build a workshop robot around an earlier walker,
+use it to take physical control of the hand and reclaim the shelf, then retain a
+machine capable of making new toys. The recommended seven builds are Pinball,
+Printing press, Mechanical hand, Window tunnels, Wall walker, Marble skyway and
+Workshop robot. This remains a proposal for visual and construction prototypes.
 
-The Whale delivers its plug to the city's prepared socket, takes up slack, then
-tows the city to a position beside our moon while the reel holds under its ratchet.
-Only after arrival does it retrieve the plug and return to the worktable. Workers
-repair the damaged track and the city's yellow train runs again. The final room
-view holds both moons. A distinctive white arch, train and exposed machine parts
-support continuity across changes of camera and scale.
+The treatment owns the proposed scenes, physical envelopes and unresolved question
+of whether the collector's wider ambition can be communicated economically. The
+review record owns competing motives and outcomes. Do not turn an author-level
+motive into a claim that players inferred it. A rejected carousel demonstrated
+why plot convenience does not justify another build.
 
-The pink plate permits flight and exceptional load handling; the pink lens permits
-remote viewing; the pink reel/line permits the extraordinary connection and tow.
-These are accepted fictional capabilities. Ordinary supports, retention, clearances,
-controls and motion remain honest. Do not make an unannounced change in physical
-size to solve a camera or mounting problem.
-
-Earlier toys need not all become ingredients of the finale. A returning machine
-contributes its actual function at unchanged physical dimensions. Reuse is literal
-assembly with broad visible mounts, not adjacency to a scenery marker. Flight,
-long-line deployment, docking and towing happen in use animation; they are not
-invented construction recipes or a new tether-drag interaction.
+Earlier machines can return as literal subassemblies at unchanged dimensions,
+contributing their established functions. Fictional modules may permit impossible
+capabilities without explanation; ordinary supports, retention, clearances and
+motion remain honest. Guided instructions remain guided instructions even when
+the character is rejecting the sender's plan. Never claim the player independently
+invented the prescribed final design.
 
 ## Construction and instructions
 
@@ -149,8 +133,8 @@ Each chapter has a short visible title and a titled picture of its actual constr
 visibly distinct from loose parts: a very pale framed panel high in the right-hand
 third, with only a short object title alongside the picture. Its enlarged view remains available. The [UX guide](../../docs/ux.md#construction-reference-pictures)
 owns dimensions and placement; debug controls do not constrain its gameplay layout.
-Up to two process drawings occupy the other thirds. A single process is centered on the page. In chapter one, **Flip is on
-the left and Fold in the middle**, so the large initial paper has a central target.
+Up to two process drawings occupy the other thirds. A single process is centered on the page. When Flip and Fold share a page, **Flip is on
+the left and Fold in the middle**, giving large paper a central folding target.
 Enlarged receiving areas around process art make drops forgiving without enlarging
 the drawings or overlapping the reference.
 
@@ -198,7 +182,7 @@ intersections and blocked assembly paths; describe evidence limits candidly.
 Whole completed objects have looping working animations, normally 5–10 seconds
 at about 15 frames per second. Intermediate subassemblies remain still. The first
 frame preserves the finished still's viewpoint and fitted geometry. Camera movement
-is optional and supports understanding; the pinwheel both spins and receives a
+is optional and supports understanding; the existing pinwheel both spins and receives a
 modest camera orbit. Drive parts, followers, links and wheels must move consistently
 with their actual mechanism. Use the canonical models, simple materials and compact
 exports. A lower raster resolution must preserve its authored display size. Keep
