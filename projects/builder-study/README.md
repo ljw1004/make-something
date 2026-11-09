@@ -15,14 +15,18 @@ maker. The [completed revision](next-phase.md) records its blind concept rounds,
 mechanical repairs, animation work and acceptance status. A native 3D runtime
 remains a separate phase.
 
-The current [narrative redevelopment](narrative-redevelopment.md) reconsiders the
-constructions themselves and the supplier's agenda. KiwiCo research supplies
-examples of intrinsic play appeal; *Psychonauts 2* supplies a hypothesis about
-reveals that reinterpret earlier trust. The [Helping Hand proposal](story-treatment.md)
-uses a collector, a stolen shelf and a final workshop robot. Fresh concept readers
-exposed a weak carousel and concrete staging problems; actual visual comprehension
-and the wider motive remain open. The [city-rescue treatment](city-rescue-treatment.md)
-is superseded. Live game and preceding evaluations remain attributed to v48.
+The current [worthwhile study](worthwhile-study.md) starts from small ordinary
+inventions, with two-to-five-chapter prototypes, casual instruction-following
+players and additional questions about what the work actually gives them. It tests
+question wording and retains two executable ordinary-invention prototypes: a
+[Sweeper](worthwhile/sweeper-v2.md) and [snack Carrier](worthwhile/carrier-v2.md).
+Twenty chapter sessions, including wording pilots and a Creation control, found
+specific assembly payoffs but did not establish sustained interest. The study
+records revisions, prompt sensitivity, score tables and the untested drawing-engine
+hypothesis; no new visual production candidate has been accepted. Earlier
+[narrative redevelopment](narrative-redevelopment.md) and the
+[Helping Hand proposal](story-treatment.md) are set aside; they did not establish
+that the underlying construction experience was worth sustaining.
 
 Experience hypothesis: following the goal picture and one short current instruction
 lets the player see and understand every physical change. Reject fitted parts that

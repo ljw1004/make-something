@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to slide the axle through the brush, and this is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the axle to fit through the brush’s matching flat-sided hole.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The axle is through the brush, and the next goal is to fit the gear.",
+    "reaction": "It was a straightforward fit and felt like useful progress; nothing seemed unnecessary.",
+    "step": 2,
+    "reason": "The goal asks for the gear, and the offered combination fits it to the brush assembly.",
+    "choice": 1,
+    "expectation": "I expect the gear to attach to the axle’s flat-sided tip.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A bearing also fits the assembly, but the current goal names the gear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gear is on the axle, and the next goal is to clip on a bearing.",
+    "reaction": "Attaching the gear made progress on the brush assembly; it felt straightforward, with nothing unnecessary so far.",
+    "step": 3,
+    "reason": "The goal asks for a bearing, and both offered bearings appear identical, so I’ll use the first.",
+    "choice": 1,
+    "expectation": "I expect the bearing to clip around one of the axle’s round journals.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The other bearing appears identical, so either seems suitable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first bearing clips onto the left journal, and the goal now asks for the other bearing.",
+    "reaction": "The fit showed where the bearing goes; it was straightforward and nothing felt unnecessary.",
+    "step": 4,
+    "reason": "The goal calls for the remaining bearing, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the second bearing to clip onto the other round journal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The second bearing completed the brush assembly, and the description explained that the gear, axle and brush turn together while the bearings stay still.",
+    "reaction": "Fitting it completed the assembly and clarified the bearings' role, though repeating the fit felt a little mechanical.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The most worthwhile moment was the final description of how the gear turns the brush inside the stationary bearings. The resulting mechanism was more interesting to me than the straightforward assembly. Making this one project was of mixed worth for the time spent: that final explanation gave the fittings a purpose, though doing them was mostly mechanical.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Clipping on the second bearing was something I did because the goal required it; it felt fine but repetitive. Hypothetically, I would shorten the assembly. That would lose some hands-on practice placing both bearings, but the final description could still explain their role.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final description clarified that the brush and axle turn together while the bearing blocks stay still.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "I followed the bearing goals because the instructions required them. Their purpose became clearer at the end, so they did not feel arbitrary, although repeating the fitting felt somewhat mechanical.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would stop here. The final mechanism was useful to understand, but the fittings themselves did not make me want another chapter.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

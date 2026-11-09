@@ -1,74 +1,70 @@
-# The Next Box
+# Builder: making worth doing
 
 ## Current development target
 
-This is the single brief for Builder and its study work. The live v48 game remains
-its preceding thirteen-toy implementation. Narrative development is reconsidering
-both the supplier and the constructions. The current [Helping Hand recommendation](../../projects/builder-study/story-treatment.md)
-and [review record](../../projects/builder-study/narrative-redevelopment.md) are
-concept work, not implemented chapters or proof of player enjoyment. No previous
-object, including the Whale, has a reserved place in the next story.
+This is the single brief for Builder and its study work. Live v48 remains the
+preceding thirteen-toy game. The current [worthwhile study](../../projects/builder-study/worthwhile-study.md)
+starts over with small ordinary inventions and actual player iterations. Earlier
+alien, collector, world-rescue and future-technology treatments are set aside.
+No existing construction has a reserved place. Do not build another overarching
+story to justify a weak collection of objects.
 
-## Intent
+## Intent and research question
 
-A making story for a curious child around eight to ten. Build appealing toys from
-understandable parts, with enough physical truth to see what each fitting does.
-Completed whole toys visibly work. Keep movable creations, short step instructions
-and the educational value of making mechanisms. Aim for three or four ordinary
-whole builds followed by three or four with pink technology. Let meaningful work
-determine length; do not pad a smaller arc to the earlier 200-action ambition.
+For a casual player around ten who mechanically follows instructions and drags
+whatever fits, what makes doing these combinations worthwhile? Clear instructions,
+physical plausibility, an attractive result and completion alone do not answer it.
+The user enjoyed the spinning wheel and some early constructions, but repeated
+assigned assembly became samey and pointless. Preserve that distinction.
 
-Each construction must earn its place before its contribution to the plot. Name
-its action and observable reward: gripping, launching, printing, making patterns,
-playing music, revealing an illusion, or another compelling capability. Ask what
-would remain worth making if the story disappeared. Practical utility is optional;
-beauty, surprise and satisfying motion can suffice. A new name, attractive animal
-shape, narrative assignment or spectacular camera move cannot supply missing value.
+Start with one project of two to five chapters and at least one genuine physical
+subassembly. Test it, revise it from concrete player evidence, then try a different
+contraption and revise again. Investigate useful capabilities, recognizable causal
+understanding, anticipated material transformation, expressive output, satisfying
+motion and modest situational purpose. None is presumed effective. A whole object
+should do something the player has reason to care about beyond finishing a recipe.
 
-Judge the actual digital experience. Completion animations can show mechanisms
-working, but do not deliver the adjustable play, control or personal authorship of
-physical kits. Do not borrow those pleasures when evaluating our fixed sequence.
-All creations need clear visible additions as well as worthwhile completed results.
+Use ordinary inventions with minimal story. A room, a household request, a delivery
+across a gap or another immediate circumstance can supply a reason without a plot
+lecture. Situations and wider episodes may grow from useful work later. Do not
+introduce aliens, distant societies or pink future technology in this study.
+Commercial kit restrictions are not the limit of invention: modest idealizations
+such as a candle-heated boiler or simple model aircraft are allowed. Keep the
+assumption explicit in author notes and preserve recognizable cause and effect.
+Most pages are quiet instructions. Omit routine introductions, praise and result
+popups. A brief request or a working scene can communicate purpose; do not explain
+an overarching narrative or tell the player how to feel.
 
-The fantasy is that something made on an ordinary worktable acquires extraordinary
-power. Give the first impossible toy time to work in familiar surroundings before
-using it for a larger agenda. The sender has a concrete self-interested motive;
-possible malice, possessiveness or reckless pleasure need not be sanitized into
-philanthropy. Consequence must be experienced through familiar objects and places.
+Judge the digital experience actually offered. Fixed results and completion loops
+do not provide the adjustable play, control or authorship of a physical toy. Do not
+claim those pleasures on behalf of the player. Conversely, an obvious action may
+still be satisfying or worthwhile; do not invent puzzles merely to raise decision
+scores. Remove or combine assembly steps whose cost is not earned by experience.
 
-Test a reveal that changes the meaning of earlier enjoyable work and apparent
-help. A penultimate loss can motivate a final construction, whose actual capability
-addresses that loss. Stopping the cause and repairing its result are distinct.
-Do not invent an arbitrary antidote, operation-only recipe or new magical rule for
-the ending. Keep curiosity and making valuable: the player finishes more capable,
-not chastened for following the game's required instructions.
+## Evaluation approach
 
-No routine introductions, praise, result popups or explanations of pink parts.
-Most pages are quiet illustrated instructions. Mechanical detail belongs after the
-encyclopedia divider. A few working scenes carry the narrative. Minimal prose is
-not minimal causality: show the crucial action and its consequence clearly.
+Use real shared-engine chapter sessions with fresh participants. In addition to
+the normal questions and desire to continue, ask during steps and at chapter end
+what they got from doing the work, what felt pointless or arbitrary, and whether
+the played passage was worth doing and how the resulting project matters to them.
+Keep that answer separate from wanting another chapter. A chapter participant has
+not experienced the effort of earlier checkpoint history; do not ask or report as
+though they built the whole project. Explicitly supply a casual instruction-following
+mindset. Compare direct and ordinary-language ways of asking; choose for specificity
+and honesty, not higher scores. Keep missing and indifferent responses visible.
 
-## Current story hypothesis
+Retain the existing Worthwhile and Fun definitions, and separately record grounded
+step-value reports, arbitrary-step reports and project-level judgments. Do not
+silently redefine the standard score. A functional explanation, a reported reason
+to continue and actual enjoyment are separate findings. Low-count AI trials are
+hypothesis generators, not children or population estimates. Word-only proposed
+pictures and use scenes must be labeled as such until actual artwork is inspected.
 
-The project treatment tests a familiar helping hand whose owner ultimately takes
-our creations for a collection. We build a workshop robot around an earlier walker,
-use it to take physical control of the hand and reclaim the shelf, then retain a
-machine capable of making new toys. The recommended seven builds are Pinball,
-Printing press, Mechanical hand, Window tunnels, Wall walker, Marble skyway and
-Workshop robot. This remains a proposal for visual and construction prototypes.
-
-The treatment owns the proposed scenes, physical envelopes and unresolved question
-of whether the collector's wider ambition can be communicated economically. The
-review record owns competing motives and outcomes. Do not turn an author-level
-motive into a claim that players inferred it. A rejected carousel demonstrated
-why plot convenience does not justify another build.
-
-Earlier machines can return as literal subassemblies at unchanged dimensions,
-contributing their established functions. Fictional modules may permit impossible
-capabilities without explanation; ordinary supports, retention, clearances and
-motion remain honest. Guided instructions remain guided instructions even when
-the character is rejecting the sender's plan. Never claim the player independently
-invented the prescribed final design.
+The study owns candidate comparisons, exact additional guidance, experimental
+counts, revisions and outcome tables. Its selected playtest arrays and chapter
+reports follow the standing evaluation policy. This brief owns the adopted scope
+and continuing construction rules. No full-length story or 200-action target is
+required before a single project proves worth further development.
 
 ## Construction and instructions
 
@@ -113,16 +109,17 @@ The purpose is satisfying guided making, not guessing which hidden recipe the
 writer intended.
 
 Physical tools remain tools; incorporated material is consumed. Current story
-semantics come from the shared specification. No human riders, mains wiring,
-pressurised launchers or exposed fast blades. This is a computer construction toy,
-not a manufacturing specification or an instruction to build the fictional tile.
+semantics come from the shared specification. Treat physical scale and operation
+as part of the invention. The current study permits ordinary mechanisms outside commercial children’s kits and modest stated
+engineering idealizations; it is not restricted to the former fictional tile system.
 
 ## Presentation and handling
 
 Instruction pages are white. Use simple geometry and flat material colours:
 honey wood, **lighter** forest green and brick red, cream and charcoal hardware.
-Battery cases share a distinct blue material; pink is reserved for the advanced
-modules. Leads, cells and controls retain their ordinary material colours.
+Battery cases share a distinct blue material; the current ordinary-invention study
+does not use pink advanced modules. Leads, cells and controls retain their ordinary
+material colours.
 Colour should suggest material or function rather than reproduce a kit brand's
 combined palette. The central production palette lives in the study's
 `materials.py`. No woodgrain, cloth maps or decorative texture noise. Preserve real
@@ -186,9 +183,9 @@ is optional and supports understanding; the existing pinwheel both spins and rec
 modest camera orbit. Drive parts, followers, links and wheels must move consistently
 with their actual mechanism. Use the canonical models, simple materials and compact
 exports. A lower raster resolution must preserve its authored display size. Keep
-still reference pictures and a reduced-motion alternative. A static finished object
-must already be worth constructing; movement rewards completion without adding
-an arbitrary operate/test recipe. The final narrative journey may use a longer one-shot sequence with recognition holds. A Three.js runtime remains a separate phase.
+still reference pictures and a reduced-motion alternative. The finished
+machine's visible behavior must earn its construction; working motion can be the
+primary reward. Do not add an arbitrary operate/test recipe to reach it. The final narrative journey may use a longer one-shot sequence with recognition holds. A Three.js runtime remains a separate phase.
 
 Follow the standing authoring and evaluation guides. Use informed necessity and
 mechanical reviews, fresh visual/continuity reviews, actual source-unexposed

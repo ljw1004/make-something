@@ -1968,3 +1968,57 @@ indexes now distinguish that proposal from live v48 and the superseded
 chapters, renders, animations, executable playtests or observed child enjoyment are
 claimed. This is documentation-only: local links and whitespace were checked; no
 application build was needed. Existing commit-and-push authorization applies.
+
+
+## 9 November 2026 — Builder: worthwhile assembly experiments
+
+The user set aside the supplier/future-tech narratives and asked for short ordinary
+inventions, actual iterations and candid per-step/chapter questions from casual
+instruction-following players. The [single brief](stories/builder/design-brief.md)
+now governs that scope; prior treatments remain attributed historical proposals.
+The [worthwhile study](projects/builder-study/worthwhile-study.md) retains candidate
+reasoning, prompt experiments, two executable prototype families and outcome tables.
+
+A nine-action Sweeper tests a real wheel/gear/brush relationship. Its revision adds
+proposed incremental motion descriptions without adding steps. A twelve-action
+snack Carrier was reduced to eight actions across two chapters by supplying more
+connected manufactured fittings. Both retain a real constructed subassembly;
+neither has new rendered artwork. The wide cable span remains an unresolved visual
+and handling problem, not an accepted phone layout.
+
+Twenty shared-engine chapter sessions completed and replay-verified: nineteen
+Builder assignments, including three faulty-caption wording pilots, and one Creation
+control. Players used Terra Medium; fresh independent graders and chapter reviewers
+used Astra High. Three players covered the final fast Carrier chapter; a separate
+player covered it in detailed mode. The other conditions were explicitly small,
+one-player screens. Only player arrays, chapter reports and mechanically assembled
+run reports are retained. Disposable packets, adapters, sessions and intermediates
+were removed after review.
+
+The first Sweeper's block formatting leaked future captions; those three same-stimulus
+prompt pilots are excluded from assembly comparisons and preserved unchanged.
+Corrected captions were verified in actual public frames. A separate protocol audit
+found potentially leading wording and the overreach of asking a chapter participant
+about whole-project effort. The revised question separated chapter worth from desire
+for another chapter. On an unchanged Carrier finale it changed mixed to yes, while
+continuation stayed low; that is evidence of prompt sensitivity, not a better game.
+
+All three final fast Carrier players and its detailed player valued the delivery
+endpoint but declined another similar chapter. The fast standard Worthwhile count
+was 1.7/5; detailed was 2/5, with Fun 0/5. These text results do not establish visual
+pleasure, cumulative attachment or child enjoyment. Creation's local control returned
+medium continuation interest, centered on the Moon relationship. The editorial next
+hypothesis is a drawing mechanism whose combined motions visibly create a pattern;
+it is not an accepted or tested new story.
+
+All five study manuscripts were linted; all four corrected/revised designs analyze
+to completion. Sweepers have zero lint errors and an intentional subassembly-fate
+warning. Both Carriers hit the existing 100-element opportunity-analysis frontier;
+no other lint error was found, and their subassembly-fate warnings were reviewed.
+The limit was not raised, so that opportunity check remains incomplete. A separate
+shared-adventure enumeration executed every offered action sequence without state
+merging: 144 completed routes per corrected Sweeper, 1,152 for Carrier v1 and 60 for
+v2, with no blocked leaves. This does not cover physical construction or pointer
+interaction. New local links, retained report completeness and whitespace were checked. Live v48,
+engine code, catalogue and runtime artwork are unchanged; no application build was
+needed. Existing commit-and-push authorization applies to these study results.

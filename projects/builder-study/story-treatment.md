@@ -1,6 +1,7 @@
 # The Next Box — The Helping Hand
 
-Current narrative recommendation under the [single brief](../../stories/builder/design-brief.md),
+Superseded concept, set aside for the ordinary-invention worthwhile study.
+Historical recommendation under the [single brief](../../stories/builder/design-brief.md),
 following the [concept redevelopment](narrative-redevelopment.md). This is a written
 treatment, not an implemented revision or a finding of child enjoyment. The live
 game remains v48. The [city-rescue candidate](city-rescue-treatment.md) is superseded.
