@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "Wood and fire seem useful for smoking fish, so I’ll start there.",
+    "choice": 2,
+    "expectation": "I expect smoke or a smoking setup, though I’m unsure which.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Cider and air may help with pickling, but I’ll pursue smoking first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The smoke is ready; I need to obtain fish before I can use it.",
+    "reaction": "The result matched my expectation.",
+    "step": 2,
+    "reason": "Thread and rope may make fishing gear to obtain fish at the shore.",
+    "choice": 1,
+    "expectation": "I expect some kind of fishing gear, though the exact item is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cider and air may produce something useful for pickling, but I want to continue toward smoked fish."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The net gives me a way to obtain fish at the tidal shore.",
+    "reaction": "The fishing gear was as expected.",
+    "step": 3,
+    "reason": "Using the net at the shore should provide fish for smoking.",
+    "choice": 1,
+    "expectation": "I expect to catch fish, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cider and air may advance pickling, but I want to finish the fish first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The net produced fish, so I can now use the smoke.",
+    "reaction": "Catching fish worked as expected.",
+    "step": 4,
+    "reason": "Combining the fish with smoke directly advances the smoked fish goal.",
+    "choice": 1,
+    "expectation": "I expect to make smoked fish.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cider and air may advance pickling, but the fish is ready to smoke."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The smoked fish goal is complete, so I can turn to pickling.",
+    "reaction": "The result was expected.",
+    "step": 5,
+    "reason": "Cider and air is the only offered combination and may produce something useful for pickling.",
+    "choice": 1,
+    "expectation": "I expect vinegar, though I’m not certain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cider became vinegar, which can now be combined with fruit for pickling.",
+    "reaction": "The result matched my expectation.",
+    "step": 6,
+    "reason": "Vinegar and fruit is the only offered combination and directly advances the pickling goal.",
+    "choice": 1,
+    "expectation": "I expect pickled fruit, possibly needing a jar afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vinegar and fruit produced pickles, ready to put in the jar.",
+    "reaction": "The result matched my expectation.",
+    "step": 7,
+    "reason": "Putting the pickles in the jar is the only offered combination and should complete the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a pickle jar and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pickle jar completed the remaining goal and the chapter.",
+    "reaction": "The result matched my expectation.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and using the net was the most worthwhile sequence: it connected the shore to catching fish and then smoking them.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the pickles in the jar was straightforward but offered little decision-making.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the vinegar and fishing results matched my expectations.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary, though making smoke directly from wood and fire simplified the smoking process.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how the settlement develops, though this chapter's choices were mostly predictable.",
+        "steps": [
+          3,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

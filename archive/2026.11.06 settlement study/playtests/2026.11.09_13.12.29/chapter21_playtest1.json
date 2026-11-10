@@ -1,0 +1,143 @@
+[
+  {
+    "step": 1,
+    "reason": "Plant and rain may produce a color source for the banner, so I’ll start there.",
+    "choice": 1,
+    "expectation": "I expect some plant material useful for dyeing, though I’m unsure what it will be.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Thread and planks might make weaving equipment, but I want to pursue the color first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Flowers may provide the color source I was looking for, so I’ll try them with water.",
+    "reaction": "The result makes the dyeing route clearer.",
+    "step": 2,
+    "reason": "Flowers and water seem like a practical next step toward a dye for the banner.",
+    "choice": 1,
+    "expectation": "I expect a colored liquid or dye, though it might be an intermediate ingredient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Thread and planks may make weaving equipment, but I want to follow the flower route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flowers and water produced dye, so I can now color material for the banner.",
+    "reaction": "The result matched my expectation and makes the next step clear.",
+    "step": 3,
+    "reason": "Dyeing cloth seems like the most direct route to a coloured banner.",
+    "choice": 1,
+    "expectation": "I expect coloured cloth, possibly the banner itself.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Dyed thread could also be useful for weaving, but the goal names a cloth banner."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dye produced dyed cloth, which looks ready to become a banner.",
+    "reaction": "The result was predictable and fits the goal.",
+    "step": 4,
+    "reason": "Combining dyed cloth with wood may provide a support for the banner.",
+    "choice": 1,
+    "expectation": "I expect a cloth banner mounted on wood.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Wood and cloth may lead toward the canopy, but I want to finish the banner first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The banner goal is complete, leaving the canopy.",
+    "reaction": "The banner came together as expected.",
+    "step": 5,
+    "reason": "Wood and cloth seem suited to a supported canopy.",
+    "choice": 4,
+    "expectation": "I expect a canopy, or a frame for one.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cloth and planks might also make a canopy, but wood seems a likely support."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wood and cloth made a puppet, so I’ll try cloth with planks for the canopy instead.",
+    "reaction": "The puppet surprised me; I expected a canopy or frame.",
+    "step": 6,
+    "reason": "Cloth and planks could form a shaded structure.",
+    "choice": 2,
+    "expectation": "I expect a canopy or a component for one, though the puppet result makes me less certain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Thread and planks might make weaving equipment, but cloth and planks seem more directly related to a canopy."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloth and planks made an awning, which looks like the canopy's main component.",
+    "reaction": "The result fits the goal and makes the next step clear.",
+    "step": 7,
+    "reason": "Rope can secure the awning to make a canopy.",
+    "choice": 2,
+    "expectation": "I expect a canopy, though it may be another intermediate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The awning and rope made the canopy, completing the remaining goal.",
+    "reaction": "The result was satisfying and matched my expectation.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the awning and securing it with rope was the most worthwhile sequence: the parts had a clear purpose and completed the canopy.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the puppet was the least useful passage for the stated goals, though it was surprising.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Wood and cloth made a puppet when I expected a canopy or frame.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The puppet felt somewhat arbitrary because the menu gave no clue that wood and cloth would make one, although the materials are plausible.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the puppet was an unexpected outcome, though the main goal sequences were fairly predictable.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

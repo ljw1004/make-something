@@ -1,0 +1,175 @@
+[
+  {
+    "step": 1,
+    "reason": "Cloth and planks seem suitable for making bellows to pump air.",
+    "choice": 7,
+    "expectation": "I expect a cloth bellows or a component for one, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Brick and fire might contribute to the kiln, but I chose to start with the bellows."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and planks made an awning, so I still need to find the bellows.",
+    "reaction": "Surprised; I expected a bellows component.",
+    "step": 2,
+    "reason": "Wood and cloth could form the frame and flexible body of bellows.",
+    "choice": 8,
+    "expectation": "I expect bellows or a component for them, though it could make something else.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Cloth and air might also lead to bellows, but wood seems useful for their frame."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wood and cloth made a puppet, leaving the bellows goal unfinished.",
+    "reaction": "Surprised again; that was unrelated to the bellows I expected.",
+    "step": 3,
+    "reason": "Cloth and air directly relate to the goal of pumping air.",
+    "choice": 4,
+    "expectation": "I expect cloth bellows or a component for them, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Brick and fire might help build the kiln, but I want to try the remaining apparent bellows option first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and air produced the bellows, revealing that they must be fitted to a kiln.",
+    "reaction": "The explanation of how the bellows pump air clarified the result.",
+    "step": 4,
+    "reason": "Brick and fire seem relevant to building a kiln to contain the fire.",
+    "choice": 2,
+    "expectation": "I expect a kiln or a component for one, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 7,
+        "reason": "Stone and brick might also form a kiln, but brick and fire seem more directly connected to it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Brick and fire made the kiln, so I can now fit the bellows to it.",
+    "reaction": "The result matched my expectation.",
+    "step": 5,
+    "reason": "Combining the kiln and bellows directly addresses the remaining goal.",
+    "choice": 3,
+    "expectation": "I expect the bellows to be fitted to the kiln.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln and bellows made a forge, and the next goal is a pickaxe for breaking hard ground.",
+    "reaction": "The forge is a satisfying step toward making iron tools.",
+    "step": 6,
+    "reason": "Placing stone at the iron quarry may help obtain material for the pickaxe.",
+    "choice": 3,
+    "expectation": "I expect the stone to be placed at the quarry and enable a further action, though its role is unclear.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Wood and the kiln might produce material for the forge, but the quarry seems directly relevant to the pickaxe."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The quarry yielded iron ore, which can now be combined with the forge.",
+    "reaction": "The ore makes the route toward iron tools clearer.",
+    "step": 7,
+    "reason": "Using the ore in the forge seems like the next step toward a pickaxe.",
+    "choice": 3,
+    "expectation": "I expect iron or an iron component, though I don't know its exact form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge turned the ore into iron, giving me material for the pickaxe.",
+    "reaction": "The route from ore to usable iron makes sense.",
+    "step": 8,
+    "reason": "Iron and wood could make a pickaxe with an iron head and wooden handle.",
+    "choice": 3,
+    "expectation": "I expect a pickaxe or a component for one, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The forge might shape the iron into a tool component, but iron and wood seem closer to a finished pickaxe."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Iron and wood made the pickaxe, revealing a new goal to shape nails at the forge.",
+    "reaction": "The pickaxe matched my expectation, and the nails give the forge another purpose.",
+    "step": 9,
+    "reason": "Combining iron with the forge directly addresses the new goal.",
+    "choice": 4,
+    "expectation": "I expect nails or a heated iron component for making them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge produced nails, and the new goal is to build a wooden tool chest.",
+    "reaction": "The explanation makes the nails' purpose clear.",
+    "step": 10,
+    "reason": "The nails can fasten planks together to build the chest.",
+    "choice": 5,
+    "expectation": "I expect a wooden tool chest or a component for one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and nails made a wooden chest, completing the chapter.",
+    "reaction": "The chest was a clear, satisfying use for the nails.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the bellows was most worthwhile: the explanation clarified how their flexible sides move air into the fire.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the awning and puppet felt least worthwhile because both were unexpected detours while I was trying to make bellows.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Cloth and air produced bellows after cloth with planks and wood produced unrelated objects.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Stone at the iron quarry produced iron ore, but the stone's role in obtaining it was unclear.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the progression from forge to iron tools and a chest gave the combinations a connected purpose.",
+        "steps": [
+          5,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

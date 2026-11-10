@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "The wheel seems useful for shaping the bowls and jars needed for the pottery goal.",
+    "choice": 2,
+    "expectation": "I expect to shape clay into a pottery vessel, though I do not know which one.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and clay might contribute to pottery or glaze, but shaping vessels seems like a direct start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is formed, and the result suggests adding clay to its rim may produce another vessel.",
+    "reaction": "The description makes the next pottery step clear.",
+    "step": 2,
+    "reason": "Add clay to the workable bowl to see whether it becomes a jar.",
+    "choice": 2,
+    "expectation": "I expect a taller clay vessel, perhaps a formed jar.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The bowl could go to the kiln, but adding clay first may help make the jars."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding clay produced a jar, so I can now work toward glazing and firing the vessels.",
+    "reaction": "Building up the bowl's sides into a jar makes physical sense.",
+    "step": 3,
+    "reason": "Sand and clay may make the glaze needed for the pottery.",
+    "choice": 1,
+    "expectation": "I expect a glaze or a material used to make one, though I'm unsure.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bowl can go to the kiln, but I want to prepare glaze first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mixture provides the glaze needed for the pottery.",
+    "reaction": "The result fits the expected next step.",
+    "step": 4,
+    "reason": "Coat the clay jar with glaze toward the firing goal.",
+    "choice": 1,
+    "expectation": "I expect a glazed jar ready for firing.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bowl also needs firing, but glazing the jar is a direct next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jar was glazed and fired in one combination, so it is ready to use.",
+    "reaction": "I was surprised that firing happened without placing the jar at the kiln.",
+    "step": 5,
+    "reason": "Place the formed bowl at the kiln to work toward firing and glazing it.",
+    "choice": 5,
+    "expectation": "I expect the bowl to be positioned for glazing or firing at the kiln.",
+    "alternatives": [
+      {
+        "choice": 6,
+        "reason": "The glaze may also need to be placed at the kiln, but I will position the bowl first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is at the kiln, and glazing it there is now available.",
+    "reaction": "The placement revealed the expected next step.",
+    "step": 6,
+    "reason": "Glaze the bowl at the kiln to advance the pottery goal.",
+    "choice": 2,
+    "expectation": "I expect a fired, glazed bowl, though the result may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is fired and glazed, completing the pottery goal; the tiled table remains.",
+    "reaction": "The kiln step worked as expected.",
+    "step": 7,
+    "reason": "Clay and planks may make tiles or a base for the table.",
+    "choice": 1,
+    "expectation": "I expect a tile or a component for the tiled table, though I'm unsure.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Planks and wood may make the table frame, but I want to prepare the tiles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clay and planks made a fired tile for the table.",
+    "reaction": "The board shaping the clay slab makes sense.",
+    "step": 8,
+    "reason": "Planks and wood seem likely to make the table that will hold the tile.",
+    "choice": 1,
+    "expectation": "I expect a table or table frame that can be fitted with the tile.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and wood made the table, so the tile can now be added.",
+    "reaction": "The result was expected and makes the remaining goal straightforward.",
+    "step": 9,
+    "reason": "Combine the table and tile to complete the tiled table.",
+    "choice": 1,
+    "expectation": "I expect to make a tiled table and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table and tile made the tiled table, completing the remaining goal.",
+    "reaction": "It was a straightforward, expected finish.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building up the bowl's sides to make a jar was the most satisfying action because the result explained the physical process clearly.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the bowl at the kiln felt like an extra step after the jar had already been fired in a single combination.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The jar was glazed and fired without being placed at the kiln, while the bowl needed a kiln placement.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The different kiln requirements for the jar and bowl lacked a clear explanation.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I might continue for the practical explanations of how materials are shaped, though the predictable final table sequence was less engaging.",
+        "steps": [
+          2,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

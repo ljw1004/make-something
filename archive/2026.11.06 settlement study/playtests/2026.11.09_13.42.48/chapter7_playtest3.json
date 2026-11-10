@@ -1,0 +1,167 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to start shaping pottery; clay and a wheel suggest making a vessel.",
+    "choice": 2,
+    "expectation": "I expect a shaped clay vessel, perhaps a bowl or jar, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Planks and wood might start the table, but pottery is the first goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel made a formed clay bowl, and the result suggests adding clay to its rim before firing.",
+    "reaction": "The hint makes me curious what extending the bowl will produce.",
+    "step": 2,
+    "reason": "I want to follow the hint and see what adding clay to the bowl makes.",
+    "choice": 2,
+    "expectation": "I expect a taller vessel, perhaps a jar, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The bowl needs firing, but the hint suggests modifying it first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding clay made a jar, leaving a formed bowl available for firing.",
+    "reaction": "Building up the bowl’s sides into a jar makes physical sense.",
+    "step": 3,
+    "reason": "I’ll place the bowl at the kiln yard to prepare it for firing.",
+    "choice": 4,
+    "expectation": "I expect the bowl to be positioned for a firing or glazing step; the next requirement is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and clay might make a pottery material, but placing the bowl directly advances firing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is at the kiln yard, but no firing option is available yet.",
+    "reaction": "I’m curious what material the kiln still needs.",
+    "step": 4,
+    "reason": "I’ll combine sand and clay to make another pottery material, possibly glaze.",
+    "choice": 1,
+    "expectation": "I expect a glaze or a material used in firing, though I’m unsure which.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and planks might make tiles, but I want to pursue the pottery goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sand and clay made glaze mixture, opening options to glaze the jar or the bowl at the kiln yard.",
+    "reaction": "The mixture's purpose is clearer now.",
+    "step": 5,
+    "reason": "I'll apply glaze to the bowl already at the kiln yard to advance the pottery goal.",
+    "choice": 3,
+    "expectation": "I expect a glazed bowl, though it may still need firing.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The jar also needs glazing, but the bowl is already positioned at the kiln."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glaze and kiln-yard combination produced a fired glazed bowl in one step, so the jar is the remaining pottery item.",
+    "reaction": "I was surprised that glazing also fired the bowl.",
+    "step": 6,
+    "reason": "I'll glaze the jar to continue the pottery goal.",
+    "choice": 1,
+    "expectation": "I expect a glazed jar, possibly fired as the bowl was, though the kiln may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and planks may produce tiles, but I want to finish the pottery first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jar was glazed and fired in one combination, completing the pottery goal; the tiled table remains.",
+    "reaction": "I’m surprised the jar was fired without a separate kiln-yard placement.",
+    "step": 7,
+    "reason": "Clay and planks seem likely to make tiles for the remaining table goal.",
+    "choice": 1,
+    "expectation": "I expect tiles or a component for making them, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Planks and wood may make the table base, but I’ll pursue the tiles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clay and planks made a fired tile, so I now need a table to fit it to.",
+    "reaction": "Shaping the tile on a board makes sense.",
+    "step": 8,
+    "reason": "I'll combine planks and wood to make a likely table base.",
+    "choice": 1,
+    "expectation": "I expect a table or a component for one, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Planks and wood made a table, so the tile can now be fitted to it.",
+    "reaction": "The table provides a clear next step.",
+    "step": 9,
+    "reason": "I'll combine the table and tile to pursue the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a tiled table and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tile and table made a tiled table, completing the chapter.",
+    "reaction": "The final combination was predictable and satisfying progress.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building up the bowl into a jar was the most worthwhile action because the explanation made the physical process clear.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the bowl at the kiln felt least worthwhile because it did not immediately reveal a firing action.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The jar was glazed and fired without a separate kiln-yard placement, unlike the bowl.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The different kiln requirements for the bowl and jar felt inconsistent; I could not tell why only the bowl needed placement.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see more practical transformations, though I would hope for clearer equipment rules.",
+        "steps": [
+          2,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

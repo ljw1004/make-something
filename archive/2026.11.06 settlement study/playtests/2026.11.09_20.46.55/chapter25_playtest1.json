@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to record the wind, and cloth on a tube could make a windsock.",
+    "choice": 2,
+    "expectation": "I expect a wind indicator, though I don't know exactly what it will make.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glass and air might also produce a weather instrument, but their role is less clear to me."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloth and tube made a windsock, so I can now use it to record the wind.",
+    "reaction": "The result matched my expectation and feels practical.",
+    "step": 2,
+    "reason": "Combining the windsock with paper seems like the direct way to record the wind.",
+    "choice": 2,
+    "expectation": "I expect a written wind observation, though I don't know its exact form.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glass and air might help with the other weather goal, but I want to finish the wind observation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wind record completed the wind goal, so I can focus on rainfall.",
+    "reaction": "The result was predictable and satisfying progress.",
+    "step": 3,
+    "reason": "Glass and air is the only offered combination and may lead to a rainfall instrument.",
+    "choice": 1,
+    "expectation": "I expect a weather instrument, though its connection to rainfall is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glass and air made a bottle, which could collect rain for measurement.",
+    "reaction": "The bottle was a less obvious result than a finished weather instrument.",
+    "step": 4,
+    "reason": "The bottle and paper are the only offered combination and may help record rainfall.",
+    "choice": 1,
+    "expectation": "I expect a rain gauge or a way to mark rainfall measurements, though I am unsure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The marked collector can measure rainfall; the clock may establish a consistent collection period.",
+    "reaction": "The level marks make the bottle's purpose clearer.",
+    "step": 5,
+    "reason": "The clock is the only offered combination and could help time the rainfall observation.",
+    "choice": 1,
+    "expectation": "I expect a timed rain collector or rainfall record, though the exact result is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clock and marked collector formed a rainfall station for consistent collection periods.",
+    "reaction": "The explanation makes the clock's role clear.",
+    "step": 6,
+    "reason": "Rain is the only offered combination and should let the station record rainfall.",
+    "choice": 1,
+    "expectation": "I expect a rainfall measurement or record that completes the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The station collected a rain level, which can now be recorded on paper.",
+    "reaction": "The extra recording step is predictable.",
+    "step": 7,
+    "reason": "Paper and the collected level are the only offered combination and should complete the rainfall record.",
+    "choice": 1,
+    "expectation": "I expect a rainfall record that completes the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rain record completed the remaining goal and the chapter.",
+    "reaction": "The result was predictable after collecting the rain level.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the marked collector was most worthwhile because it explained how equal collection periods make rainfall observations comparable.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Recording the collected rain level felt like a predictable extra step.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Glass and air produced a bottle, which was less obvious to me than a finished weather instrument.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Glass and air felt unclear when I chose it; the resulting bottle made more sense as part of a rain collector.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I probably would not continue personally: the weather instruments were understandable, but most later decisions followed the only offered combination.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

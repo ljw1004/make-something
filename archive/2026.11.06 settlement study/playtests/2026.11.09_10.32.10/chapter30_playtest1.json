@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "Glass and stone may produce pieces for the mosaic, directly advancing one of the goals.",
+    "choice": 4,
+    "expectation": "I expect the stone to break or shape the glass into pieces, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Stone and brick might contribute to the gallery, but I chose to start with the mosaic."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glass and stone made mosaic pieces, so I can now try setting them in clay.",
+    "reaction": "The result matched my expectation and makes the next step clear.",
+    "step": 2,
+    "reason": "Combining the pieces with clay seems like a direct way to assemble the mosaic.",
+    "choice": 3,
+    "expectation": "I expect the clay to hold the pieces together, possibly completing the mosaic.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mosaic is complete, leaving the gallery goal.",
+    "reaction": "Setting the pieces in clay produced the expected result; the finished picture is a nice detail.",
+    "step": 3,
+    "reason": "Stone and brick seem useful for building the gallery.",
+    "choice": 2,
+    "expectation": "I expect a building or structural component for the gallery, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Dye and a bowl might help make pictures, but I chose to start with the gallery structure."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Stone and brick made an arch, which can now be combined with planks.",
+    "reaction": "The arch makes sense as a gallery structural component.",
+    "step": 4,
+    "reason": "Adding planks to the arch seems like the next step toward building the gallery.",
+    "choice": 2,
+    "expectation": "I expect a gallery or another building component, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arch and planks made an arcade, but the gallery is not yet complete.",
+    "reaction": "The structural progression is clear, though the arcade was not the final building.",
+    "step": 5,
+    "reason": "This is the only offered combination; it may prepare paint for pictures in the gallery.",
+    "choice": 1,
+    "expectation": "I expect a dye or paint mixture, though I am unsure how it will lead to the gallery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dye and bowl made paint, which can now be applied to paper.",
+    "reaction": "The result was expected and gives the gallery a clear next step.",
+    "step": 6,
+    "reason": "This is the only offered combination and should make a picture for the gallery.",
+    "choice": 1,
+    "expectation": "I expect a painting that can be displayed in the arcade.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The paint and paper made a picture that can be combined with the arcade.",
+    "reaction": "The result was expected and clearly connects to the gallery.",
+    "step": 7,
+    "reason": "This is the only offered combination and should complete the gallery.",
+    "choice": 1,
+    "expectation": "I expect the picture to be displayed in the arcade, creating a gallery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The picture completed the gallery, finishing the chapter’s remaining goal.",
+    "reaction": "The result was expected and brought the structural and painting paths together.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the mosaic was satisfying: the glass pieces became a finished picture when set in clay.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the arcade felt less conclusive than expected, and the subsequent paint-making path was initially unclear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The arch and planks made an arcade rather than the finished gallery; it still needed a picture.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining dye with a bowl had a clear result in hindsight, but its connection to the gallery was not yet clear when it was the only offered combination.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter for its material-to-object progressions, though the final sequence was fairly predictable.",
+        "steps": [
+          1,
+          2,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

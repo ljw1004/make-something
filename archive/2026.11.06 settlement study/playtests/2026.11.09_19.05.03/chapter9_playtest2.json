@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "Cloth and planks seem useful for making bellows to pump air.",
+    "choice": 7,
+    "expectation": "I expect them to make cloth bellows, though they may form an intermediate part.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Brick and fire might help build the kiln, but I chose to pursue the bellows first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and planks made an awning, so I still need to find a way to make the bellows.",
+    "reaction": "The awning was unexpected.",
+    "step": 2,
+    "reason": "Cloth and air directly suggest the airflow needed for bellows.",
+    "choice": 4,
+    "expectation": "I expect cloth bellows or a component for them, though the result could be something else.",
+    "alternatives": [
+      {
+        "choice": 8,
+        "reason": "Wood and cloth might also form bellows, but cloth and air seem more directly connected to pumping."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bellows are complete and need to be fitted to a kiln, which I still need to build.",
+    "reaction": "The explanation of the valve and nozzle made the bellows mechanism clear.",
+    "step": 3,
+    "reason": "Brick and fire seem useful for building a kiln to contain heat.",
+    "choice": 2,
+    "expectation": "I expect a kiln or a component for one, though it could produce something else.",
+    "alternatives": [
+      {
+        "choice": 8,
+        "reason": "Stone and brick could also form a kiln, but fire seems directly related to its purpose."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln is built, so I can now fit the bellows to it.",
+    "reaction": "The brick walls retaining heat make the kiln's purpose clear.",
+    "step": 4,
+    "reason": "Fitting the bellows to the kiln directly addresses the remaining goal.",
+    "choice": 3,
+    "expectation": "I expect a kiln fitted with bellows that can pump air into its fire.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln and bellows formed a forge, and the next goal is a pickaxe.",
+    "reaction": "The forge makes sense as a way to prepare iron tools.",
+    "step": 5,
+    "reason": "Placing stone at the iron quarry seems like a useful step toward obtaining material for the pickaxe.",
+    "choice": 3,
+    "expectation": "I expect the stone to be placed at the quarry, possibly preparing it for extracting iron.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Wood and fire might provide fuel for the forge, but the quarry seems more directly connected to obtaining iron."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The quarry action produced iron ore, which can now be worked in the forge.",
+    "reaction": "Getting ore directly was quicker than I expected.",
+    "step": 6,
+    "reason": "Combining the ore with the forge should advance the pickaxe goal.",
+    "choice": 3,
+    "expectation": "I expect usable iron or an intermediate for making the pickaxe.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge turned the ore into iron, giving me material for the pickaxe.",
+    "reaction": "The result makes the next stage of toolmaking clear.",
+    "step": 7,
+    "reason": "Iron and wood suggest a metal tool head with a wooden handle.",
+    "choice": 3,
+    "expectation": "I expect a pickaxe or another iron tool, though it may be an intermediate.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The iron might need further shaping in the forge, but combining it with wood seems like a direct way to make a tool."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pickaxe is complete, and the new goal is to shape iron into nails at the forge.",
+    "reaction": "The iron-and-wood combination produced the tool I expected.",
+    "step": 8,
+    "reason": "Iron and the forge directly match the new goal.",
+    "choice": 4,
+    "expectation": "I expect nails or a heated iron intermediate for making them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge produced nails, and the new goal is to build a wooden tool chest.",
+    "reaction": "The explanation makes the nails' purpose clear.",
+    "step": 9,
+    "reason": "The result says the nails will fasten the chest's planks together.",
+    "choice": 5,
+    "expectation": "I expect the planks and nails to make a wooden tool chest, possibly requiring further fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and nails made the wooden chest, completing the chapter's goals.",
+    "reaction": "The chest was a straightforward conclusion to the toolmaking sequence.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the bellows was most worthwhile because its explanation clarified how the valve and nozzle move air into the fire.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making an awning was a detour from the stated goals, though it was a plausible result for cloth and planks.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Cloth and planks made an awning instead of bellows; cloth and air then produced bellows with wooden boards.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Using stone at the quarry produced iron ore directly; I understood the aim, but how the stone extracted the ore was unclear.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the forge and bellows sequence connected the tools to understandable physical processes, although some combinations felt less clear.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

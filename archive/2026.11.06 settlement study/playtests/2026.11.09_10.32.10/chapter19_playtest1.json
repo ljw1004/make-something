@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "Collecting pond water directly advances the goal of examining a sample.",
+    "choice": 3,
+    "expectation": "The bowl will hold a pond-water sample, though preparing a slide may take more steps.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This might help make a lens, but collecting the sample seems a direct first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pond water is ready; I can now prepare the sample.",
+    "reaction": "The collection worked as expected.",
+    "step": 2,
+    "reason": "Pond water and glass seem likely to make the slide needed for examination.",
+    "choice": 3,
+    "expectation": "This will probably make a pond-water slide, though it may need further preparation.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glass and sand might help make a lens, but preparing the sample comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pond slide is ready; I still need a way to examine it.",
+    "reaction": "The sample preparation was straightforward.",
+    "step": 3,
+    "reason": "Glass and sand may produce a lens for the microscope.",
+    "choice": 1,
+    "expectation": "I expect some kind of lens or lens component, though I'm unsure how sand is used.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glass and planks might make another microscope component, but a lens seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens is ready, providing an optical component for the microscope.",
+    "reaction": "The lens was the expected result, although sand's role remains unclear.",
+    "step": 4,
+    "reason": "A lens fitted to the hollow tube could form the microscope's viewing assembly.",
+    "choice": 2,
+    "expectation": "I expect a tube with a lens, possibly an early microscope component.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Glass and planks might make another component, but the lens and tube seem a natural fit."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens and tube made a telescope rather than the microscope, so I need another approach.",
+    "reaction": "That result was plausible but surprising given the pond goal.",
+    "step": 5,
+    "reason": "A lens and wood may make a microscope frame or viewing device.",
+    "choice": 1,
+    "expectation": "I expect a microscope or a component for one, but I'm guessing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glass and planks could make a supporting component, but the lens seems more directly relevant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lens and wood made a magnifier, another optical component that may help build the microscope.",
+    "reaction": "A handheld magnifier makes sense, though its connection to the telescope is less obvious.",
+    "step": 6,
+    "reason": "Combining the two optical devices may produce the microscope needed to examine the slide.",
+    "choice": 1,
+    "expectation": "I expect a microscope or an intermediate optical assembly, but I'm unsure how the devices fit together.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glass and planks might make a support, but combining the optical devices seems more directly relevant."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microscope is ready to examine the prepared pond slide.",
+    "reaction": "Combining the magnifier and telescope worked, though their physical assembly remains unclear.",
+    "step": 7,
+    "reason": "The slide and microscope directly address the remaining goal.",
+    "choice": 2,
+    "expectation": "I expect to examine the pond water and see tiny living things.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pond life study completed the goal and showed what the prepared sample revealed.",
+    "reaction": "The drifting specks and transparent swimmer made the examination feel rewarding.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Examining the pond slide was most worthwhile: the description made the microscopic world tangible and shared the discovery with a child.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the lens was less satisfying because sand's role remained unclear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The lens and hollow tube made a telescope rather than a microscope, although the result was plausible.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining a magnifier and telescope into a microscope worked, but how they physically fit together was unclear.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes; the pond-life reveal made me curious about what another chapter might let me investigate, though I would prefer clearer explanations of some combinations.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

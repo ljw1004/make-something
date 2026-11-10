@@ -38,7 +38,7 @@ These are proposals, not existing tools or syntax:
 - Add useful exclusivity examples and investigate a proof of the specification's continuation invariant.
 - Investigate the alternate compound-constructor cleanup counterexample preserved in the [parked Creation engine handoff](<../archive/2026.11.05 creation study/engine-handoff.md>). This is separate engineering work, not a prerequisite for authoring Creation; the local WIP planner branch is not a validated fix.
 
-The retained [opportunity lint](../docs/story-format-spec.md#opportunities-for-authored-content) completes all five stories within its 100-element cap. Review Settlement's four findings (Brush, Weather book, Salt and Brine) and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. Current evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
+The retained [opportunity lint](../docs/story-format-spec.md#opportunities-for-authored-content) completed the five stories in that review within its 100-element cap. Review Settlement's remaining item findings (Brush, Salt and Brine) and Mars's Illuminated glovebox using their blocking examples and related source rules, without automatically making optional content mandatory. The Settlement narrative revision removed Weather book; its current findings are recorded in the [study outcomes](../archive/2026.11.06%20settlement%20study/outcomes.md). The original evidence and limits are in the [working notes](../notes.md#31-october-2026-retained-opportunity-linter); these are new findings, not reopened historical lint reviews.
 
 ## Authoring automation
 

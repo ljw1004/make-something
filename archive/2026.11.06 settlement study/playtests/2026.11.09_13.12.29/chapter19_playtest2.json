@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "The float and rope look like the main parts of a mooring buoy, so this may complete one goal directly.",
+    "choice": 2,
+    "expectation": "I expect a mooring buoy, though it may need another fitting.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Brick and window may start the lighthouse, but the buoy seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The buoy is complete, leaving the lighthouse as the remaining goal.",
+    "reaction": "The float and rope made a satisfying, straightforward buoy.",
+    "step": 2,
+    "reason": "Brick and window look like a useful starting point for the lighthouse structure.",
+    "choice": 1,
+    "expectation": "I expect a brick structure with a window, possibly the base of the lighthouse.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lamp will likely be needed at the headland, but the lighthouse may need a structure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brick and window made a tower, providing the lighthouse structure.",
+    "reaction": "The result fits the goal, though the window alone seemed an unusual starting point for a tower.",
+    "step": 3,
+    "reason": "The tower belongs on the headland, where the lighthouse needs to stand.",
+    "choice": 1,
+    "expectation": "I expect the tower to be placed at the harbour headland, ready for the lamp.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lamp also needs to go to the headland, but placing the tower first seems more natural."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tower is at the headland and ready for the watch lamp.",
+    "reaction": "The placement was straightforward.",
+    "step": 4,
+    "reason": "Adding the watch lamp to the tower should complete the lighthouse.",
+    "choice": 1,
+    "expectation": "I expect a lighthouse with a lamp to guide vessels into the harbour.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lamp completed the lighthouse, finishing the remaining goal.",
+    "reaction": "The final fitting was a straightforward, satisfying completion.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the lamp to the tower brought the lighthouse together in a way that matched its purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the tower was a predictable intermediate step, though it established where the lighthouse stood.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Brick and a window producing a whole tower was more of a leap than I expected.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The tower recipe felt somewhat arbitrary: a window and brick suggest building materials, but not a complete tower by themselves.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be only mildly inclined to continue: the lighthouse came together neatly, but the choices were mostly straightforward and the compatible combinations were already offered.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

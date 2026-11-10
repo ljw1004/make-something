@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available combination, and brick and iron seem useful for building the stove.",
+    "choice": 1,
+    "expectation": "I expect it to make a stove or a component for one.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The combination made the stove, so the remaining goal is to fit it with a cooking pot.",
+    "reaction": "A straightforward result, as expected.",
+    "step": 2,
+    "reason": "This is the only offered combination, and iron at the stove may make or fit the cooking pot.",
+    "choice": 1,
+    "expectation": "I expect a cooking pot to be made and fitted to the stove, though it may create an intermediate part.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron made a separate cooking pot, which is ready to fit onto the stove.",
+    "reaction": "The intermediate step makes sense, though it was predictable.",
+    "step": 3,
+    "reason": "This is the only offered combination and directly fits the pot to the stove.",
+    "choice": 1,
+    "expectation": "I expect the pot to be fitted to the stove and the current goal to be completed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pot is fitted, completing the stove goal and revealing the two dishes to cook.",
+    "reaction": "The explanation of how the pot sits securely on the stove is a nice physical detail.",
+    "step": 4,
+    "reason": "Grain in the cooking pot seems like the direct way to make the porridge.",
+    "choice": 1,
+    "expectation": "I expect to cook porridge, though it might produce an intermediate preparation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fruit should lead to the compote, but I chose to start with the grain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain made porridge, leaving fruit compote to cook.",
+    "reaction": "The result was straightforward and expected.",
+    "step": 5,
+    "reason": "The only offered combination should cook the fruit for the remaining dish.",
+    "choice": 1,
+    "expectation": "I expect to make fruit compote and complete the cooking goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit became compote, completing the cooking goal and revealing the feast table goal.",
+    "reaction": "The result was expected; I am curious how the dishes will be arranged.",
+    "step": 6,
+    "reason": "This is the only offered combination and should bring the two dishes together for the feast.",
+    "choice": 1,
+    "expectation": "I expect a combined serving of porridge and compote, possibly as an intermediate step toward laying the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two dishes became a feast, ready to place on the table.",
+    "reaction": "The combined feast was a straightforward intermediate result.",
+    "step": 7,
+    "reason": "This is the only offered combination and directly addresses the feast table goal.",
+    "choice": 1,
+    "expectation": "I expect the feast to be laid on the tiled table and the goal to be completed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feast was placed on the tiled table, completing the final goal and the chapter.",
+    "reaction": "The ending was straightforward and expected.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the pot to the stove was most worthwhile because the explanation showed how its rim keeps it steady over the fire.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining the two dishes into a feast felt like a predictable intermediate step before setting the table.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The iron and stove produced a separate cooking pot before it could be fitted; I had thought it might be made and fitted in one step.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining porridge and compote into a generic feast before placing them on the table felt somewhat arbitrary.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the physical detail was interesting, but most choices were predictable or the only offered combination.",
+        "steps": [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

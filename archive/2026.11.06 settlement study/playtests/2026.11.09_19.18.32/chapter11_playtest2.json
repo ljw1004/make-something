@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "Iron and stone seem useful for making the chisel the current goal calls for.",
+    "choice": 1,
+    "expectation": "I expect a chisel, perhaps by shaping or sharpening the iron with the stone.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The waterwheel and jar might help lift water, but the chisel is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chisel is made, and the next goal calls for cutting teeth in an iron blade.",
+    "reaction": "The chisel's ability to cut softer metal explains the next step.",
+    "step": 2,
+    "reason": "Iron and the chisel directly match the new goal.",
+    "choice": 1,
+    "expectation": "I expect to make a saw or a toothed iron blade.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw is ready, and the goal now turns to lifting stream water into a reservoir.",
+    "reaction": "The explanation of the saw teeth was informative.",
+    "step": 3,
+    "reason": "The waterwheel and jar suggest a way to lift water using the stream's current.",
+    "choice": 3,
+    "expectation": "I expect a water-lifting device, perhaps a wheel fitted with jars.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The saw may help build the reservoir, but the waterwheel and jar seem more directly connected to lifting water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jars are fitted to the waterwheel, but the reservoir goal remains open.",
+    "reaction": "The result matches the expected water-lifting mechanism.",
+    "step": 4,
+    "reason": "Clay and brick seem suited to building a basin to receive the lifted water.",
+    "choice": 2,
+    "expectation": "I expect a reservoir or a component for one, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sawing wood might make a channel or another useful part, but the reservoir seems more immediate."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir is ready to pair with the jar-equipped waterwheel.",
+    "reaction": "The basin came together as expected.",
+    "step": 5,
+    "reason": "Combining the reservoir with the waterwheel directly addresses the goal of lifting water into it.",
+    "choice": 2,
+    "expectation": "I expect a reservoir supplied by the waterwheel, completing the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir is filled, and the next goal is to carry its water to the garden.",
+    "reaction": "The water-lifting system worked as expected.",
+    "step": 6,
+    "reason": "Sawing wood could make a channel to carry water from the reservoir to the garden.",
+    "choice": 1,
+    "expectation": "I expect a wooden channel or a component for one, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 7,
+        "reason": "The chisel and planks might also make a channel, but the saw seems useful for shaping wood first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw and wood made a water pipe, which looks useful for carrying water to the garden.",
+    "reaction": "Boring out a log to make the pipe is a clear, satisfying detail.",
+    "step": 7,
+    "reason": "The pipe and planks may form a supported channel or connection for carrying the water.",
+    "choice": 1,
+    "expectation": "I expect a pipe assembly or support, though its exact form is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe and planks made a supported water channel, ready to connect to the filled reservoir.",
+    "reaction": "The explanation of how the raised trough directs water is satisfying.",
+    "step": 8,
+    "reason": "Connecting the channel to the reservoir should carry water toward the garden.",
+    "choice": 1,
+    "expectation": "I expect a water supply leading from the reservoir toward the garden, though another connection may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel is connected to the filled reservoir and can now be joined to the garden.",
+    "reaction": "The result follows the expected water route.",
+    "step": 9,
+    "reason": "Connecting the irrigation channel to the supported garden directly addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect an irrigated garden and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The irrigation channel reached the garden, completing the final goal and the chapter.",
+    "reaction": "It was satisfying to see the water system connect to the garden.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the water pipe was most worthwhile: the explanation of boring out a log made the construction easy to picture.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the reservoir to the channel was predictable and had little detail beyond the resulting name.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The chisel could cut softer metal, which explained how it could make the saw teeth.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Pairing the pipe with planks was a reasonable guess, but the exact result was unclear until the supported trough was explained.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see more practical constructions explained, though some connections were predictable.",
+        "steps": [
+          6,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

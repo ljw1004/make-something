@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "Sand and charcoal suggest a filter for the drinking water, which is part of the jar goal.",
+    "choice": 2,
+    "expectation": "I expect filter material or a water filter, though it may need another container.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bowl and table could make the washstand, but I chose to start with the drinking water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sand and charcoal made a filter bed, and the menu now offers a way to combine it with the hollow pipe.",
+    "reaction": "That fits my expectation and makes me curious how the filter will be assembled.",
+    "step": 2,
+    "reason": "Combine the filter bed with the pipe to advance the drinking-water filter.",
+    "choice": 2,
+    "expectation": "I expect a filter assembly that can be used to clean water.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bowl and table could make the washstand, but I want to continue assembling the filter."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter bed and pipe made a water filter, so I can now use it on the drinking water.",
+    "reaction": "The assembly worked as expected.",
+    "step": 3,
+    "reason": "Filtering the water advances the drinking-water goal.",
+    "choice": 2,
+    "expectation": "I expect filtered water that will still need boiling before storage.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bowl and table could advance the washstand, but I want to finish preparing the water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter produced clearer water, but the result confirms that harmful microbes may remain, so boiling is the next step.",
+    "reaction": "The reminder makes the purpose of boiling clear.",
+    "step": 4,
+    "reason": "Boil the filtered water to continue preparing the drinking supply.",
+    "choice": 2,
+    "expectation": "I expect boiled water ready for storage in the jar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filtered water is now boiled, and the menu offers a way to put it in the jar.",
+    "reaction": "That follows the intended drinking-water sequence.",
+    "step": 5,
+    "reason": "Fill the jar with boiled water to advance the storage goal.",
+    "choice": 5,
+    "expectation": "I expect a filled water jar that still needs its lid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The boiled water is now in the jar, and the menu offers a lid for it.",
+    "reaction": "The result follows the expected sequence.",
+    "step": 6,
+    "reason": "Cover the filled jar to complete the drinking-water goal.",
+    "choice": 4,
+    "expectation": "I expect a covered water jar and completion of the storage goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covered jar completed the drinking-water goal, leaving the washing-place drain.",
+    "reaction": "The lid's purpose is clear, and the sequence came together as expected.",
+    "step": 7,
+    "reason": "The bowl and table look like the basis of the shared washstand.",
+    "choice": 3,
+    "expectation": "I expect a washstand that will still need a drain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pipe and brick could form the drain, but I chose to make the washstand first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl and table made a washstand, leaving the drain to build.",
+    "reaction": "The washstand came together as expected.",
+    "step": 8,
+    "reason": "The hollow pipe and brick look useful for making the drain.",
+    "choice": 1,
+    "expectation": "I expect a drain or a component that can connect to the washstand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe and brick made a covered drain that carries washing water to a separate disposal area. It can now be combined with the washstand.",
+    "reaction": "The explanation makes the drain's purpose clear.",
+    "step": 9,
+    "reason": "Connect the drain to the washstand to finish the washing place.",
+    "choice": 1,
+    "expectation": "I expect a drained washstand and completion of the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the drain completed the washing place and the chapter. The result reinforced why the drinking and washing water are kept separate.",
+    "reaction": "It was satisfying to see the two parts of the water system come together.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the water was the most worthwhile moment because the result explained that clearer water can still contain harmful microbes, giving the boiling step a clear purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Covering the filled jar was straightforward and predictable, though it completed the storage goal.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that harmful microbes may remain after filtering clarified why the water needed another treatment.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The filter bed and hollow pipe made a water filter, but the result did not explain how the pipe housed or connected to the bed.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: assembling the separate water systems was coherent, and the filtering explanation added something useful.",
+        "steps": [
+          3,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

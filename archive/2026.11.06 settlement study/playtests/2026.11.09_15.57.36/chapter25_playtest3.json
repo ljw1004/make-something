@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "Carving the planks seems like a direct way to make the printing block.",
+    "choice": 2,
+    "expectation": "I expect a carved printing block or a part for one.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Charcoal and water might make ink, but the block seems useful to make first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printing block is ready; I can now work on the press or its ink.",
+    "reaction": "The carving result was straightforward.",
+    "step": 2,
+    "reason": "Combining the block with iron seems like the next step toward building the press.",
+    "choice": 2,
+    "expectation": "I expect a printing press or a press component.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Charcoal and water may make ink, but I want to assemble the press first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press is built, and the new goal is to print a page; the description confirms it needs ink and paper.",
+    "reaction": "The screw mechanism makes the assembly clearer.",
+    "step": 3,
+    "reason": "Charcoal and water seem likely to make the ink needed for printing.",
+    "choice": 1,
+    "expectation": "I expect ink or a material used to make it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Placing paper prepares the press, but I expect the block needs ink first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ink is ready, so I can prepare the press for printing.",
+    "reaction": "The ink recipe was predictable.",
+    "step": 4,
+    "reason": "I'll place the ink at the press to prepare the block for printing.",
+    "choice": 1,
+    "expectation": "I expect the ink to be placed at the press, ready for a printing step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Paper also needs to go at the press, but I'll place the ink first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ink is at the press, and paper can now be combined with it there.",
+    "reaction": "The preparation was straightforward.",
+    "step": 5,
+    "reason": "Combining paper with the ink at the press directly serves the goal of printing a page.",
+    "choice": 1,
+    "expectation": "I expect a printed page, perhaps with the block's illustration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printed pages complete the printing goal and show how the same illustration can be reproduced on multiple sheets.",
+    "reaction": "Seeing the finished copies was satisfying after assembling and preparing the press.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the press was most worthwhile because its description explained how the screw presses paper against the carved block.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the ink was a straightforward preparation with little to consider.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The press description clarified how the iron screw and plate work together to make repeatable prints.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The block and iron producing the whole press felt somewhat abrupt, although the description explained the resulting mechanism.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter if it offered similarly clear explanations of how its constructions work, though the compatible-choice menu made the decisions fairly predictable.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

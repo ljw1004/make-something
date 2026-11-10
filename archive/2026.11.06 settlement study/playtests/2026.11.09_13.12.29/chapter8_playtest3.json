@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "Cooking the fruit is a direct step toward the preserves goal.",
+    "choice": 1,
+    "expectation": "I expect cooked fruit or preserves that can be put in a jar.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Fermenting the juice also advances a goal, but I chose to start with the preserves."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit became jam, so I can now fill the glazed jar.",
+    "reaction": "Making jam from fruit and fire feels straightforward.",
+    "step": 2,
+    "reason": "Putting the jam in the jar advances the covered preserves goal.",
+    "choice": 2,
+    "expectation": "I expect a jar of preserves, probably still needing a lid.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Fermenting the juice also advances a goal, but I want to finish the preserves first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jam became a preserve jar; it still appears to need a cover.",
+    "reaction": "Filling the jar was straightforward.",
+    "step": 3,
+    "reason": "Planks and a glazed jar may make the lid needed for the preserves.",
+    "choice": 1,
+    "expectation": "I expect a lid that can be fitted to the preserve jar, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Starting the cider is another goal, but I want to finish the preserves first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and jar produced a lid, so I can now cover the preserves.",
+    "reaction": "The lid works as expected.",
+    "step": 4,
+    "reason": "Fitting the lid should complete the covered preserves goal.",
+    "choice": 1,
+    "expectation": "I expect a covered preserve jar and completion of the preserves goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could start the cider, but the preserves are ready to cover."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lid completed the covered preserves goal; cider remains to be packed.",
+    "reaction": "The note that the lid does not seal airtight was useful.",
+    "step": 5,
+    "reason": "The starter and juice should begin fermentation for the cider goal.",
+    "choice": 1,
+    "expectation": "I expect cider or fermenting juice, which will still need a container for carrying.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starter turned the juice into cider, which now needs a carrying container.",
+    "reaction": "The fermentation step was straightforward.",
+    "step": 6,
+    "reason": "Putting cider in the glazed jar seems like a direct step toward packing it.",
+    "choice": 1,
+    "expectation": "I expect a jar of cider that may still need a lid.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Cider and air might change the cider, but filling a container seems more directly useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Putting cider in the glazed jar completed the remaining goal without a separate lid step.",
+    "reaction": "I was mildly surprised that the cider jar counted as packed without fitting a lid.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Covering the preserves was most worthwhile: it completed the goal and explained that the lid keeps dirt out without making an airtight seal.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the preserve jar was straightforward but offered little surprise on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The cider jar completed the packing goal without a separate lid step, despite the chapter introduction mentioning lids.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Making a jar lid from planks and a glazed jar was somewhat unclear until the result showed what it produced.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter: the practical details, especially the note about the lid, made the otherwise straightforward combinations more interesting.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

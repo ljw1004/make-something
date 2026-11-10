@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "Cloth and rope seem useful for rigging a sailboat.",
+    "choice": 3,
+    "expectation": "I expect a sail or some form of rigging, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Cloth and planks might also make part of the boat, but rope seems more directly useful for a sail."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sail is ready; I still need a boat and a dock.",
+    "reaction": "The result matched my expectation and felt straightforward.",
+    "step": 2,
+    "reason": "Cloth and planks may make a boat or a useful boat component.",
+    "choice": 3,
+    "expectation": "I expect a boat component, though I am unsure exactly what it will make.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Wood and rope might make a dock or boat component, but planks seem useful for a hull."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and planks made an awning, so I still need a boat and dock.",
+    "reaction": "The awning was unexpected, and its purpose here is unclear.",
+    "step": 3,
+    "reason": "Wood and rope seem useful for assembling a dock or boat component.",
+    "choice": 2,
+    "expectation": "I expect a wooden structure or boat component, though I am unsure which.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The awning and rope might make something useful, but I do not yet see how it serves either goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The raft provides a likely base for the sailboat.",
+    "reaction": "The raft makes sense as a structure of wood held together with rope.",
+    "step": 4,
+    "reason": "Adding the sail to the raft directly serves the sailboat goal.",
+    "choice": 2,
+    "expectation": "I expect this to create a sailboat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sailboat goal is complete; the dock remains.",
+    "reaction": "The sailboat came together as expected.",
+    "step": 5,
+    "reason": "Stone and water seem relevant to building a structure at the river's edge.",
+    "choice": 1,
+    "expectation": "I expect a foundation or other dock component, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Stone and rope might also form part of the dock, but water seems more directly connected to its location."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Stone and water produced a hammer, suggesting a tool for building the dock.",
+    "reaction": "The river-worn hammer was unexpected, but its explanation makes sense.",
+    "step": 6,
+    "reason": "The hammer and planks seem useful for constructing the dock.",
+    "choice": 1,
+    "expectation": "I expect a dock or a wooden component for one, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hammer made a pier post, which looks like a support for the dock.",
+    "reaction": "The result makes sense as a step toward building the dock.",
+    "step": 7,
+    "reason": "Planks could form a deck supported by the pier post.",
+    "choice": 1,
+    "expectation": "I expect a dock or another dock component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pier post and planks completed the dock, finishing both chapter goals.",
+    "reaction": "The dock came together in a satisfying, understandable sequence.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the sail to the raft was the most worthwhile action: it brought the boat components together and completed a goal.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the awning was least worthwhile because its purpose in this chapter remained unclear.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Stone and water produced a river-worn hammer; the explanation made the unexpected result understandable.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Cloth and planks making an awning was understandable in itself, but its connection to the dock and sailboat goals was unclear.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: assembling the raft and sail, then building the dock from a post and planks, was satisfying, though the awning detour was less engaging.",
+        "steps": [
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

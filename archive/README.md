@@ -41,7 +41,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 
 ### Settlement study
 
-[`2026.11.06 settlement study/`](<2026.11.06 settlement study/README.md>) retains the completed background comparison, eight requested contact-sheet deliverables, the accepted trial manuscript and production instructions. After playing through the trial, the user selected its 22% warm cream fade for all 31 main-story backgrounds. The promoted files live in [Settlement](../stories/settlement/settlement.md); the [design brief](../stories/settlement/design-brief.md) and [UX artwork guidance](../docs/ux.md#item-artwork) own the adopted treatment. The untouched inputs remain in the recorded Git revision, and trial artwork duplicates were removed after byte-for-byte promotion.
+[`2026.11.06 settlement study/`](<2026.11.06 settlement study/README.md>) contains the completed Settlement project: the 6 November background comparison and eight requested contact-sheet deliverables, followed by the 9 November narrative revision, selected artwork and exact prompts, requested playtest reports and structured responses, and reference-reading work. The user declared Settlement finished and requested archiving and pushing on 9 November. The accepted 28-chapter story culminates in an encyclopedia assembled from seven separate contributions. The live [Settlement manuscript](../stories/settlement/settlement.md) and [design brief](../stories/settlement/design-brief.md) remain the production locations. Historical reports preserve their own versions and evidence limits; the archive index distinguishes the earlier background trial from the completed narrative.
 
 ### Cookbook study
 

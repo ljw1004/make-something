@@ -1,0 +1,83 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, so I'll use it to start making the wash station.",
+    "choice": 1,
+    "expectation": "I expect heating the charcoal to produce something useful for making soap, though I'm unsure what.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Heating charcoal produced ash, which may help make soap.",
+    "reaction": "The result makes sense as a step toward soap.",
+    "step": 2,
+    "reason": "This is the only offered combination, and mixing ash with water may prepare an alkaline solution.",
+    "choice": 1,
+    "expectation": "I expect an ash-water solution useful for soap-making, though I'm unsure what the game will call it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ash and water produced lye, giving me an ingredient for soap.",
+    "reaction": "That fits the soap-making process.",
+    "step": 3,
+    "reason": "Lye and oil are the only offered combination and are ingredients for soap.",
+    "choice": 1,
+    "expectation": "I expect this to make soap, though it may produce an intermediate mixture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lye and oil made soap, ready to add to the washstand.",
+    "reaction": "The explanation of how soap removes dirt and germs was useful.",
+    "step": 4,
+    "reason": "This is the only offered combination and should complete the wash station.",
+    "choice": 1,
+    "expectation": "I expect a wash station with soap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding soap to the washstand completed the wash station and the chapter goal.",
+    "reaction": "The finished station gives the soap a clear everyday purpose.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making soap was most worthwhile: the explanation connected it to removing grease, dirt and germs.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding soap to the washstand was straightforward but offered little decision-making.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Heating charcoal produced ash, which led to lye for soap-making; I was initially unsure what it would yield.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The charcoal-to-ash step was not obvious to me at first, though its purpose became clearer when the ash made lye.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue for more practical explanations, though this chapter's single-option choices offered little opportunity for decision-making.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

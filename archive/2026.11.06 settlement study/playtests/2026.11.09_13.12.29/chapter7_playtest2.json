@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The potter's wheel seems useful for shaping the bowls and jars needed for the first goal.",
+    "choice": 2,
+    "expectation": "I expect a shaped clay vessel or pottery component, though I don't know which.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and clay might make a pottery material or glaze, but shaping the vessels seems like a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel produced a formed bowl, so I can prepare it for firing.",
+    "reaction": "The result fits the pottery goal as expected.",
+    "step": 2,
+    "reason": "Placing the bowl at the kiln yard seems like a useful step toward firing it.",
+    "choice": 5,
+    "expectation": "I expect the formed bowl to be placed at the kiln yard, ready for a later firing step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Combining more clay with the bowl might produce another vessel, but I want to prepare the bowl first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is at the kiln yard, but no firing action is offered yet.",
+    "reaction": "I’m curious what preparation it still needs.",
+    "step": 3,
+    "reason": "Sand and clay may make a coating or material needed to finish the pottery.",
+    "choice": 1,
+    "expectation": "I expect a pottery material, possibly glaze, though I’m unsure.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "More clay with the bowl might produce another vessel, but the pottery may need a coating first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sand and clay made glaze mixture, and a kiln-yard combination with the bowl is now available.",
+    "reaction": "The coating step makes sense for the pottery goal.",
+    "step": 4,
+    "reason": "Apply the glaze to the formed bowl to advance toward finishing it.",
+    "choice": 3,
+    "expectation": "I expect a glazed bowl, though it may still need firing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glaze combination also fired the bowl, so the bowl is finished and I can work toward the jars or table.",
+    "reaction": "I was surprised firing happened in the same step as glazing.",
+    "step": 5,
+    "reason": "Combining clay with the formed bowl may produce the jars needed for the pottery goal.",
+    "choice": 1,
+    "expectation": "I expect another formed clay vessel, possibly a jar, though the connection is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and planks might make tiles for the table, but I want to finish the pottery first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clay and formed bowl produced a jar, so glazing it is the next step toward the pottery goal.",
+    "reaction": "The jar resulted as hoped, though using the bowl to make it still feels a little unclear.",
+    "step": 6,
+    "reason": "Combine the jar with glaze to finish the remaining pottery.",
+    "choice": 1,
+    "expectation": "I expect a fired glazed jar, possibly completing the pottery goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and planks may lead to tiles, but I want to finish the jar first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jar was glazed and fired, completing the pottery goal; the tiled table remains.",
+    "reaction": "The explanation of the glaze melting into a glassy surface was useful.",
+    "step": 7,
+    "reason": "Clay and planks may produce tiles or a component for the table.",
+    "choice": 1,
+    "expectation": "I expect a clay tile or another table component, though I’m unsure.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Planks and wood might make the table frame, but I’ll try making the tiles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clay and planks made a fired tile for the tabletop, so the remaining task likely needs a table base.",
+    "reaction": "The explanation of how the board shapes the tile was helpful.",
+    "step": 8,
+    "reason": "Planks and wood seem likely to make the table needed for the tile.",
+    "choice": 1,
+    "expectation": "I expect a table or table frame that can be fitted with the tile.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and wood made a table, providing the base for the tile.",
+    "reaction": "The result was as expected.",
+    "step": 9,
+    "reason": "Combining the table and tile directly advances the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a tiled table and completion of the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The table and tile made a tiled table, completing the chapter.",
+    "reaction": "The final combination was straightforward and satisfying.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the tile was worthwhile because the explanation showed how a board shapes clay and firing hardens it.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the bowl at the kiln felt like a routine preparation with no immediate firing action.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Applying glaze to the bowl also fired it in the same step.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining clay with a formed bowl to make a jar felt unclear, even though it produced the vessel I hoped for.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: the pottery and tile explanations were useful, though some combinations felt unclear.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "Cloth and air are explicitly named in the bellows goal, so this should make direct progress.",
+    "choice": 4,
+    "expectation": "I expect to make bellows, though they may need another part.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Brick and fire might help build the kiln, but the bellows recipe is clearer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bellows are complete, and the new goal confirms they need to be fitted to a kiln.",
+    "reaction": "The explanation of how the bellows move air was useful.",
+    "step": 2,
+    "reason": "Brick and fire seem like a plausible way to build the kiln needed for both remaining goals.",
+    "choice": 2,
+    "expectation": "I expect a kiln or a component for one, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 9,
+        "reason": "Stone and brick might also form the kiln, but fire seems relevant to its construction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln is complete, so I can now fit the bellows to it.",
+    "reaction": "The brick-and-fire combination matched my expectation.",
+    "step": 3,
+    "reason": "Fitting the bellows directly addresses the remaining goal.",
+    "choice": 3,
+    "expectation": "I expect a kiln fitted with bellows that can intensify its fire.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fitted kiln became a forge, and the next goal is to make a pickaxe.",
+    "reaction": "The forge makes the progression toward iron tools clear.",
+    "step": 4,
+    "reason": "The iron quarry seems like the natural place to find material for the pickaxe.",
+    "choice": 3,
+    "expectation": "I expect placing stone at the quarry to help obtain iron or reveal a way to extract it, though I am unsure how.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Wood and fire might make fuel for the forge, but obtaining material at the quarry seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The quarry yielded iron ore, which can now be used with the forge.",
+    "reaction": "Getting ore from stone at the quarry was less clear physically than the forge step.",
+    "step": 5,
+    "reason": "The forge should process the ore into material for the pickaxe.",
+    "choice": 3,
+    "expectation": "I expect iron or a workable iron component, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge turned the ore into iron, giving me material for the pickaxe.",
+    "reaction": "That result matched my expectation.",
+    "step": 6,
+    "reason": "Iron and wood seem suited to a pickaxe head and handle.",
+    "choice": 3,
+    "expectation": "I expect a pickaxe or an iron tool with a wooden handle, though it might be another tool.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The iron might need further shaping at the forge, but combining it with wood seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Iron and wood made the pickaxe, and the next goal calls for shaping iron at the forge.",
+    "reaction": "The pickaxe came together as expected.",
+    "step": 7,
+    "reason": "Iron and the forge directly match the new goal.",
+    "choice": 4,
+    "expectation": "I expect hot iron or nails, possibly with another shaping step required.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge produced nails, and their description identifies them as fasteners for the chest's planks.",
+    "reaction": "The explanation makes the next step clear.",
+    "step": 8,
+    "reason": "Planks and nails directly match the goal of building a wooden tool chest.",
+    "choice": 5,
+    "expectation": "I expect a wooden tool chest, though it may need additional fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The planks and nails made the wooden chest and completed the chapter.",
+    "reaction": "The chest came together as expected.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the bellows was the most worthwhile moment: its explanation showed how the boards, valve and nozzle move air into a fire.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the chest felt predictable after the nails description explicitly identified the next use for them.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Placing stone at the iron quarry produced iron ore; the physical connection was not clear to me.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Stone at the quarry felt somewhat arbitrary because the result did not explain how it yielded ore.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter to see more machinery explained, though this chapter's later choices felt fairly predictable.",
+        "steps": [
+          1,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

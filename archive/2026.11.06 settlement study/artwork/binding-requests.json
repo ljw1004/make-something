@@ -1,0 +1,38 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "name": "binding-boards",
+      "prompt": "Edit this transparent rustic coloured woodcut icon. It currently mistakenly looks like an open bound book. Make it clearly TWO SEPARATE FLAT WOODEN BOOK COVER BOARDS, lined with cream paper. Preserve the exact outer dimensions, nearly top-down view, wooden ochre rectangular frame shapes and rough woodcut style. REMOVE the entire brown hinge/spine/gutter connecting the two rectangles. Instead a narrow completely transparent vertical gap separates the boards from top to bottom. NO binding, NO spine, NO thread, NO raised page edges or page stacks. Each board is simply flat timber with ONE sheet of cream paper pasted on its surface; the paper stays flat inside the wood border. Do not add anything. Preserve the two boards' locations on the landscape canvas so later fitted pages still align. Transparent background.",
+      "references": [
+        "projects/settlement-study/artwork/binding/binding-reference.png"
+      ],
+      "master": "projects/settlement-study/artwork/binding/binding-boards-master.png",
+      "runtime": "stories/settlement/assets/icons/binding-boards-v2.png",
+      "reference_sha256": [
+        "9df7abc6ddf9e9f89ce4e89ff8e1504076291153d1638b4ad3fc4907f396cc8c"
+      ]
+    },
+    {
+      "name": "encyclopedia",
+      "prompt": "Use case: illustration-story. Create the FINISHED version of the referenced wooden book covers: one open handmade encyclopedia, rough rustic coloured woodcut illustration, warm ochre wooden boards and irregular cream paper edges, dark carved outlines, earthy muted greens and blue. Keep the same nearly top-down landscape view and cover proportions. Now a modest stack of paper is sewn firmly into the brown spine, a visible simple thread stitch in the gutter. Open pages show a recognisable pressed green leaf and small botanical sketch on the left, and small drawings of a water organism, rain marks and stars on the right; sparse handwritten marks but NO readable title or decorative calligraphy. This is a working settlement notebook, not a medieval illuminated bible, not a huge library tome. Single connected open book only, no surrounding objects. Transparent background, generous margin.",
+      "references": [
+        "projects/settlement-study/artwork/binding/binding-reference.png"
+      ],
+      "master": "projects/settlement-study/artwork/binding/encyclopedia-master.png",
+      "runtime": "stories/settlement/assets/icons/encyclopedia-v2.png",
+      "reference_sha256": [
+        "9df7abc6ddf9e9f89ce4e89ff8e1504076291153d1638b4ad3fc4907f396cc8c"
+      ]
+    }
+  ],
+  "reference_generation": {
+    "name": "binding-boards",
+    "prompt": "Use case: illustration-story. Asset: transparent game inventory icon in the same rough rustic coloured woodcut style as the attached painting icon, dark irregular carved outlines, warm ochre wood and cream paper, restrained flat earthy colours and coarse ink texture. Draw ONLY two loose rectangular wooden bookbinding cover boards lying open side by side like an open book viewed almost from above, linked by a narrow flexible brown spine strip. The cream-paper-lined inner surfaces of BOTH boards are completely empty, ready to receive loose sheets. No writing, no page stack, no thread, no pen, no extra objects. Strong readable silhouette, ample transparent margin. Landscape composition, book fills most of canvas. This is an unfinished physical binding, not a decorative modern binder. Transparent background.",
+    "references": [
+      "stories/settlement/assets/icons/picture.png"
+    ],
+    "master": "projects/settlement-study/artwork/binding/binding-reference.png",
+    "role": "Necessary input for final cover repair and completed encyclopedia; not runtime art"
+  }
+}

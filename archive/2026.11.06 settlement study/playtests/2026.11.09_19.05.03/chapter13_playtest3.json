@@ -1,0 +1,198 @@
+[
+  {
+    "step": 1,
+    "reason": "Sand and charcoal seem useful for filtering the drinking water described in the previous chapter.",
+    "choice": 1,
+    "expectation": "I expect a filter or filter material, though it may need another component.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "A bowl on the table could make the washstand, but I chose to start with drinking water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sand and charcoal made a filter bed; connecting it to the pipe may make it usable.",
+    "reaction": "That result fits the expected use of the materials.",
+    "step": 2,
+    "reason": "I want to put the filter bed into a water-carrying setup.",
+    "choice": 1,
+    "expectation": "I expect a filter connected to a pipe, though it may need further parts before it can prepare drinking water.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A covered jar could help store drinking water, but I want to complete the filtering setup first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe holds the filter layers, so the filter is ready to receive water.",
+    "reaction": "The description makes the arrangement easy to picture.",
+    "step": 3,
+    "reason": "Filtering water is the next step toward preparing covered drinking water.",
+    "choice": 1,
+    "expectation": "I expect filtered water, which may still need further preparation before storage.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A lidded jar could hold the water, but I want to filter it first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Filtering clarified the water, but microbes may remain, so it needs further treatment.",
+    "reaction": "The distinction between clear and safe water is useful.",
+    "step": 4,
+    "reason": "Heating the filtered water should help prepare it for drinking.",
+    "choice": 1,
+    "expectation": "I expect boiled or otherwise heat-treated water that can then be stored.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A covered jar will likely be useful for storage, but the water needs treatment first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filtered water has been boiled, so it is ready to put in a container.",
+    "reaction": "The result matches what I expected.",
+    "step": 5,
+    "reason": "The jar seems suitable for storing the drinking water before covering it.",
+    "choice": 4,
+    "expectation": "I expect a jar of boiled water that can be covered with the lid.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could fit the lid first, but filling the jar first seems practical."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The boiled water is now in a jar, ready to be covered.",
+    "reaction": "The result matches my expectation.",
+    "step": 6,
+    "reason": "Adding the lid should complete the covered drinking water goal.",
+    "choice": 3,
+    "expectation": "I expect a covered jar of drinking water and completion of that goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bowl and table could begin the washstand, but I want to finish the water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covered water jar completed the drinking water goal, leaving the washstand to plumb.",
+    "reaction": "The lid's role in keeping dirt out makes sense.",
+    "step": 7,
+    "reason": "A bowl on a table seems like the foundation for the washstand.",
+    "choice": 2,
+    "expectation": "I expect a washstand that will need a pipe or other plumbing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl and table made an unplumbed washstand, ready for a pipe.",
+    "reaction": "That matches my expectation.",
+    "step": 8,
+    "reason": "Connecting the pipe should advance the washstand goal.",
+    "choice": 1,
+    "expectation": "I expect a plumbed washstand, possibly completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe carries used water away, completing the washstand goal and revealing a soap goal.",
+    "reaction": "The separate disposal area clarifies how the plumbing works.",
+    "step": 9,
+    "reason": "Heating charcoal may produce ash for making soap with the available seed oil.",
+    "choice": 2,
+    "expectation": "I expect ash or another ingredient useful for soap, though the exact process is uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Charcoal and water might also produce a soap ingredient, but heating the charcoal seems like a plausible first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Burning charcoal produced ash, which may be processed with water for soapmaking.",
+    "reaction": "The result matches my expectation.",
+    "step": 10,
+    "reason": "Mixing ash with water is a plausible next step toward a soap ingredient.",
+    "choice": 2,
+    "expectation": "I expect an alkaline liquid that may combine with seed oil, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ash and water produced lye, which the description says reacts with oil to make soap.",
+    "reaction": "The explanation makes the soapmaking step clear.",
+    "step": 11,
+    "reason": "Combining lye with seed oil directly advances the handwashing soap goal.",
+    "choice": 2,
+    "expectation": "I expect soap or a soap mixture, possibly needing another step before use.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lye and seed oil made soap, which can now be supplied at the washstand.",
+    "reaction": "The explanation connects soapmaking to the handwashing goal.",
+    "step": 12,
+    "reason": "Putting the soap at the washstand should supply it for handwashing.",
+    "choice": 2,
+    "expectation": "I expect a washstand supplied with soap and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The soap completed the wash station and the final goal.",
+    "reaction": "The finished station brings the separate washing and drinking-water arrangements together clearly.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering and then boiling the water was the most worthwhile sequence: it explained why clear water may still contain harmful microbes.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling and covering the jar felt predictable, although it completed the drinking-water goal.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The washstand pipe carries used water to a separate disposal area; I had initially expected a more general plumbing connection.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Burning charcoal for ash was a plausible guess, but its purpose was not clear until the subsequent lye explanation.",
+        "steps": [
+          9,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: the water treatment and soapmaking explanations made the combinations informative, even when the menu made the next action obvious.",
+        "steps": [
+          4,
+          10,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -8,7 +8,7 @@ The [authoring guide's worthwhile-hook requirement](docs/story-authoring.md#requ
 
 ## Project
 
-Combination stories authored in Markdown, with complete artwork for Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Combination stories authored in Markdown, with illustrated editions of Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -24,7 +24,9 @@ Open the local address printed by Vite. Drag things together; compatible partner
 
 Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
 
-**Settlement: A River Worth Returning To** uses rustic coloured woodcuts: `/make-something.html?story=stories/settlement/settlement.md`.
+**Settlement** uses rustic coloured woodcuts: `/make-something.html?story=stories/settlement/settlement.md`.
+
+Its [completed narrative study](archive/2026.11.06%20settlement%20study/narrative-study.md) preserves early craft while arranging shared provision, culture and investigation into a cumulative progression, with motivating chapter openings and guidance for unfamiliar work. The current revision follows a harvest festival with studio work, scientific investigations and an encyclopedia, with matching production artwork.
 
 **Cookbook** teaches practical cooking through pen-and-wash illustrations, from breakfast through afternoon tea to dinner: `/make-something.html?story=stories/cookbook/cookbook.md`. See its [design examples](stories/cookbook/design-examples.png) and lasting [design brief](stories/cookbook/design-brief.md). The completed [Cookbook study](<archive/2026.11.01 cookbook study/README.md>) retains the adaptation research, artistic directions and verdicts, comparisons, production source art and all 35 completed cookbook page PNGs.
 

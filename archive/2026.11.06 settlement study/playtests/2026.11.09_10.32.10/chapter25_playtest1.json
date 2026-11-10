@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "Grain is needed for porridge, so placing it at the hearth seems like a useful start.",
+    "choice": 3,
+    "expectation": "I expect the grain to be positioned for cooking, though it may need another ingredient or vessel.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Fruit also needs cooking for compote, but I chose to start with the porridge."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain is at the hearth, but no cooking combination is offered yet.",
+    "reaction": "I’m curious what equipment the grain needs.",
+    "step": 2,
+    "reason": "Iron and a bowl may make a cooking vessel for the meal.",
+    "choice": 2,
+    "expectation": "I expect some kind of pot or cooking vessel, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Brick and iron might also make hearth equipment, but the bowl seems more directly suited to cooking."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl and iron made a cooking pot, and combining it with the grain at the hearth is now available.",
+    "reaction": "The pot makes the next step clear.",
+    "step": 3,
+    "reason": "Use the pot with the grain to work toward the porridge.",
+    "choice": 2,
+    "expectation": "I expect cooked grain or porridge, though another step might be needed.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The fruit also needs cooking, but the grain is already at the hearth."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain and pot produced porridge; fruit compote remains to be made.",
+    "reaction": "The porridge came together as expected.",
+    "step": 4,
+    "reason": "Place the fruit at the hearth to prepare it for cooking.",
+    "choice": 3,
+    "expectation": "I expect the fruit to be positioned for cooking with the pot.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pot also needs to be at the hearth, but I chose to place the fruit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit is at the hearth, and cooking it with the pot is now available.",
+    "reaction": "The next step is clear.",
+    "step": 5,
+    "reason": "Use the pot and fruit to make the remaining dish.",
+    "choice": 2,
+    "expectation": "I expect fruit compote.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The compote is ready, completing the cooking goal and revealing the feast-table goal.",
+    "reaction": "The new goal gives the two dishes a clear shared purpose.",
+    "step": 6,
+    "reason": "Combine the finished dishes as a step toward laying out the meal.",
+    "choice": 2,
+    "expectation": "I expect a combined meal or serving that can be placed on the table.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two dishes became a feast, ready to combine with the tiled table.",
+    "reaction": "That was the expected step toward serving the meal.",
+    "step": 7,
+    "reason": "Place the feast on the table to fulfill the remaining goal.",
+    "choice": 2,
+    "expectation": "I expect a laid feast table and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feast table completed the final goal and the chapter.",
+    "reaction": "A straightforward, satisfying conclusion to preparing the meal.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the cooking pot and using it for porridge gave the ingredients a clear practical connection.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the fruit at the hearth repeated the grain preparation without adding much new.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Combining iron with the glazed bowl produced an iron-handled cooking pot; I expected a vessel but wasn't sure what form it would take.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the two dishes into a single Feast before putting them on the table felt somewhat abstract, though its purpose was clear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Probably not immediately: the meal came together logically, but the repeated preparations and known-compatible choices offered little challenge.",
+        "steps": [
+          1,
+          3,
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

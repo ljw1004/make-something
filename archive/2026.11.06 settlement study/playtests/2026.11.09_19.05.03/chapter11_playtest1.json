@@ -1,0 +1,168 @@
+[
+  {
+    "step": 1,
+    "reason": "Iron and stone seem useful for making the chisel requested by the current goal.",
+    "choice": 1,
+    "expectation": "I expect a chisel, though the stone's exact role is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chisel is complete, and the next goal is to cut saw teeth into iron.",
+    "reaction": "The explanation of the hardened edge makes its role clear.",
+    "step": 2,
+    "reason": "Iron and the chisel match the new goal directly.",
+    "choice": 1,
+    "expectation": "I expect to make a toothed iron saw blade.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw is complete, and the next goal is to lift stream water into a reservoir.",
+    "reaction": "The explanation of how the teeth are set made the saw construction clear.",
+    "step": 3,
+    "reason": "A jar attached to the waterwheel could lift water as the wheel turns.",
+    "choice": 3,
+    "expectation": "I expect a water-lifting wheel or part of one.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The saw may help build the reservoir, but the wheel and jar seem more directly related to lifting water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The jars are now attached to the waterwheel, providing a likely way to lift water.",
+    "reaction": "The result matched my expectation.",
+    "step": 4,
+    "reason": "Stone and brick seem suitable for building a reservoir to receive the lifted water.",
+    "choice": 7,
+    "expectation": "I expect a stone-and-brick basin or another reservoir component.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and brick might also make a watertight basin or construction material."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Stone and brick made an arch, so I still need to find a reservoir or its components.",
+    "reaction": "The arch was unexpected; its connection to lifting water is unclear.",
+    "step": 5,
+    "reason": "Clay and brick could make a water-holding structure for the reservoir.",
+    "choice": 2,
+    "expectation": "I expect a basin or a component for holding water, though it may make something else.",
+    "alternatives": [
+      {
+        "choice": 7,
+        "reason": "The arch and planks could form a support, but clay and brick seem more promising for holding water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clay and brick made the reservoir, which can now be paired with the waterwheel and jars.",
+    "reaction": "The result matched my expectation.",
+    "step": 6,
+    "reason": "Connecting the reservoir to the jar-equipped waterwheel should accomplish the current goal.",
+    "choice": 2,
+    "expectation": "I expect a system that lifts stream water into the reservoir.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The waterwheel filled the reservoir, and the next goal is to carry water to the garden.",
+    "reaction": "The result matched my expectation.",
+    "step": 7,
+    "reason": "Sawing wood may produce a channel for carrying water to the garden.",
+    "choice": 1,
+    "expectation": "I expect a wooden channel or a component for one, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 7,
+        "reason": "A chisel and planks might also make a water channel, but the saw and wood seem like a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw and wood made a pipe for carrying water; it can now be combined with planks.",
+    "reaction": "The hollowed-log explanation makes the pipe easy to picture.",
+    "step": 8,
+    "reason": "The pipe and planks may form a supported channel toward the garden.",
+    "choice": 1,
+    "expectation": "I expect a supported pipe or another part of the irrigation system, though its exact form is unclear.",
+    "alternatives": [
+      {
+        "choice": 6,
+        "reason": "The arch and planks might also make a support, but the pipe seems closer to the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe and planks made a water channel that can connect to the filled reservoir.",
+    "reaction": "The result fits the irrigation goal, though the planks' role is unclear.",
+    "step": 9,
+    "reason": "Connecting the channel to the reservoir should move water toward the garden.",
+    "choice": 1,
+    "expectation": "I expect a water supply or connected irrigation channel, possibly needing another step to reach the garden.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filled reservoir and water channel formed an irrigation channel, which can now connect to the garden.",
+    "reaction": "The result follows naturally from the previous step.",
+    "step": 10,
+    "reason": "Connecting the irrigation channel to the supported garden directly addresses the current goal.",
+    "choice": 1,
+    "expectation": "I expect an irrigated garden and completion of the water delivery goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The irrigation channel reached the garden, completing the final goal.",
+    "reaction": "The result matched my expectation and brought the water system together.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the water pipe was most worthwhile: the hollowed-log explanation made the irrigation system easier to picture.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the arch was least worthwhile because its purpose in this chapter remained unclear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Stone and brick made an arch when I expected a reservoir component.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the water pipe with planks produced a water channel, but the planks' role was unclear.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how another practical system comes together; the waterwheel, reservoir and channel formed a satisfying sequence.",
+        "steps": [
+          3,
+          5,
+          6,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

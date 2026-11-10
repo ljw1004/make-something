@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "Binding the printed pages with thread seems like a direct way to make the picture book.",
+    "choice": 6,
+    "expectation": "I expect a bound book or an intermediate for the picture book.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Wood and cloth might make part of the puppet theatre, but the printed pages seem closer to a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Binding the printed pages completed the picture book goal, so I can focus on the puppet theatre.",
+    "reaction": "Satisfying to complete the book in one step.",
+    "step": 2,
+    "reason": "Wood and cloth seem useful for making a puppet or part of the theatre.",
+    "choice": 2,
+    "expectation": "I expect a puppet or a theatre component, though I am unsure which.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Cloth and a window might make a curtain or stage opening, but wood and cloth seem a good starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wood and cloth made a puppet, so I can work on the theatre structure.",
+    "reaction": "The puppet was a straightforward result.",
+    "step": 3,
+    "reason": "Cloth and a window suggest a curtain and stage opening for the theatre.",
+    "choice": 2,
+    "expectation": "I expect a curtained opening or another theatre component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloth and window made a curtain, which can now be combined with the platform.",
+    "reaction": "The curtain makes sense as a theatre component.",
+    "step": 4,
+    "reason": "A curtain and platform should form the theatre stage.",
+    "choice": 2,
+    "expectation": "I expect a stage or puppet theatre component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The curtain and platform made a stage, ready to combine with the puppet.",
+    "reaction": "The stage is a straightforward step toward the theatre.",
+    "step": 5,
+    "reason": "Putting the puppet on the stage seems likely to complete the theatre.",
+    "choice": 2,
+    "expectation": "I expect a puppet theatre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The puppet and stage made the puppet theatre, completing the remaining goal.",
+    "reaction": "The explanation of how the curtain hides the puppeteers was a nice detail.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the puppet theatre brought the puppet and stage together, and the explanation clarified how it works.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the stage was predictable, though it was a clear step toward the theatre.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the printed pages to need another step, so making the picture book directly was a small surprise.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Using a window to make a curtain felt somewhat arbitrary, even though a curtain is useful for the theatre.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter to see what the settlement builds next, though this chapter's combinations were fairly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "Planks and a wooden chest seem suited to making the grain bin directly.",
+    "choice": 2,
+    "expectation": "I expect a grain bin, though it may be an intermediate container.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Planks and net might help dry fruit, but the chest looks more directly relevant to a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain bin is complete; I now need the fruit crock.",
+    "reaction": "The result was straightforward and as expected.",
+    "step": 2,
+    "reason": "Planks and net may make a rack for drying the fruit before storage.",
+    "choice": 2,
+    "expectation": "I expect a drying rack or another fruit-drying preparation.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The jar and lid are relevant to covered storage, but drying the fruit seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drying rack is ready, so I can use it to prepare the fruit.",
+    "reaction": "The result matched my expectation.",
+    "step": 3,
+    "reason": "Drying the fruit advances the fruit crock goal.",
+    "choice": 2,
+    "expectation": "I expect dried fruit for storage in the crock.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The jar and lid are also needed for covered storage, but I want to dry the fruit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dried fruit is ready; I need a covered container for it.",
+    "reaction": "The drying step was straightforward.",
+    "step": 4,
+    "reason": "Combining the jar and lid is the only offered action and should prepare the covered crock.",
+    "choice": 1,
+    "expectation": "I expect a covered jar or crock that can hold the dried fruit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covered jar is ready to hold the dried fruit.",
+    "reaction": "The result was as expected.",
+    "step": 5,
+    "reason": "This is the only offered combination and directly matches the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a fruit crock and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit crock completed the remaining goal and the chapter.",
+    "reaction": "The final combination was straightforward and expected.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the drying rack and using it for fruit was the most worthwhile sequence: its purpose was clear and it made the preservation goal feel concrete.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining the jar and lid was a predictable preparation with little decision involved.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the results matched my expectations.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary, though the final two choices were the only offered actions.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the preservation sequence was coherent, but the available choices made it quite predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

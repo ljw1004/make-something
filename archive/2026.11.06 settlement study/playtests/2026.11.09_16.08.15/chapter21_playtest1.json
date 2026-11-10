@@ -1,0 +1,177 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter mentions weaving coloured thread, so I’ll start by combining thread with planks, which may make a loom.",
+    "choice": 2,
+    "expectation": "I expect some kind of loom or weaving equipment, though the result could be something else.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Plant and rain may produce a dye ingredient, but weaving equipment seems a useful starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loom confirms the weaving route; I now need a source of color or another banner component.",
+    "reaction": "A loom from thread and planks makes sense.",
+    "step": 2,
+    "reason": "Plant and rain may produce a dye ingredient for the banner.",
+    "choice": 1,
+    "expectation": "I expect a plant-based dye or something that can be used to make one, though I am unsure.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Wood and cloth might make the canopy, but I want to pursue the banner first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flowers may provide the color needed for the banner.",
+    "reaction": "Flowers are a plausible dye source, though the result was less direct than I expected.",
+    "step": 3,
+    "reason": "Combining flowers with water seems like the next step toward making dye.",
+    "choice": 1,
+    "expectation": "I expect a flower-based dye or colored liquid, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Wood and cloth might make the canopy, but I want to finish the dye route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The flowers and water produced dye, so I can now color material for the banner.",
+    "reaction": "The dye followed naturally from the flowers.",
+    "step": 4,
+    "reason": "Dyeing cloth seems like a direct route to a cloth banner.",
+    "choice": 1,
+    "expectation": "I expect dyed cloth that can be made into a banner, though it may need another step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Dyed thread could be woven into a banner, but dyeing cloth seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dyed cloth is ready to use for the banner or canopy.",
+    "reaction": "The result was as expected.",
+    "step": 5,
+    "reason": "Attaching dyed cloth to wood seems like a direct way to make the banner.",
+    "choice": 1,
+    "expectation": "I expect a cloth banner, perhaps on a wooden pole.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Dyed cloth and rope might make the canopy, but I want to finish the banner first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The banner is complete, leaving the canopy goal.",
+    "reaction": "The wooden support produced the expected banner.",
+    "step": 6,
+    "reason": "Dyed cloth and rope seem suited to a suspended canopy.",
+    "choice": 4,
+    "expectation": "I expect a canopy, though it might need a support structure.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Wood and cloth could also provide a canopy frame, but rope seems useful for suspending the fabric."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dyed cloth and rope made a curtain, so I still need to make the canopy.",
+    "reaction": "The sliding curtain is a plausible result, though I expected a canopy.",
+    "step": 7,
+    "reason": "Wood and cloth may make a supported canopy.",
+    "choice": 3,
+    "expectation": "I expect a canopy or a structure for one, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cloth and planks might also form a canopy, but wood seems a plausible support."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wood and cloth made a puppet, leaving the canopy goal unfinished.",
+    "reaction": "The puppet was unexpected; the combination did not make the support I anticipated.",
+    "step": 8,
+    "reason": "Cloth and planks are the remaining plausible materials for a canopy.",
+    "choice": 1,
+    "expectation": "I expect a canopy or a supporting structure, though the previous combinations make me uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Dyed thread could be useful for weaving, but it seems less directly related to the canopy."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cloth and planks made an awning, which may be the canopy's supporting structure.",
+    "reaction": "The awning makes sense as a step toward shelter.",
+    "step": 9,
+    "reason": "Adding rope to the awning may secure it as a canopy.",
+    "choice": 1,
+    "expectation": "I expect a canopy, though it might need another component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The awning and rope made the canopy, completing the remaining goal.",
+    "reaction": "The result matched my expectation and provided a satisfying finish.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the banner was worthwhile because the flowers-to-dye-to-cloth sequence had a clear purpose and built toward the goal.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the loom felt least worthwhile because I pursued the dyed-cloth route and never used it.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Wood and cloth produced a puppet when I expected a canopy or support.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Plant and rain producing flowers was less immediately clear to me than the later dye-making step.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the unexpected curtain and puppet made the combinations interesting, although the canopy route took some guessing.",
+        "steps": [
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

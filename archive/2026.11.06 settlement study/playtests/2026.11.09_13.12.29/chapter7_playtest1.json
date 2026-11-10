@@ -1,0 +1,176 @@
+[
+  {
+    "step": 1,
+    "reason": "The wheel seems useful for shaping the bowls and jars needed for the first goal.",
+    "choice": 2,
+    "expectation": "I expect to make a pottery form or a tool for shaping clay, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and clay might make a material for glaze, but shaping pottery seems like a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel produced a formed clay bowl, so the bowl can now be prepared for firing.",
+    "reaction": "The result was expected and feels like useful progress.",
+    "step": 2,
+    "reason": "The bowl needs firing, so placing it at the kiln yard seems like the next useful preparation.",
+    "choice": 5,
+    "expectation": "I expect the bowl to be placed at the kiln yard, ready for a firing or glazing step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay with the formed bowl might produce another pottery form, but I want to prepare the bowl first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl is at the kiln yard, but no firing action is offered yet, so I need to make another component.",
+    "reaction": "The placement was straightforward; the next requirement is still unclear.",
+    "step": 3,
+    "reason": "Planks and wood may make the kiln needed to fire the pottery.",
+    "choice": 4,
+    "expectation": "I expect a wooden structure or component useful for the kiln or table, though I am unsure which.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and clay may produce glaze, but a kiln seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Planks and wood made the table, advancing the tiled table goal rather than providing a kiln.",
+    "reaction": "The table is useful progress, though I had expected a different component.",
+    "step": 4,
+    "reason": "Sand and clay may make glaze or another pottery material needed for the first goal.",
+    "choice": 1,
+    "expectation": "I expect a material for glazing or firing pottery, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Clay and the formed bowl might produce jars, but I want to see what material sand and clay make first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glaze mixture is ready, and the offered kiln-yard combination shows it can be applied to the bowl there.",
+    "reaction": "The result makes sense and gives the bowl preparation a clear purpose.",
+    "step": 5,
+    "reason": "Apply the glaze to the bowl to advance the pottery goal.",
+    "choice": 3,
+    "expectation": "I expect a glazed bowl, possibly fired as part of the same step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This might make another pottery form, but the bowl is already positioned for glazing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln-yard combination produced a fired glazed bowl, completing the bowl portion of the pottery goal.",
+    "reaction": "It was satisfying to see glazing and firing happen together.",
+    "step": 6,
+    "reason": "Clay and planks may produce another pottery form needed for the jars or tiles.",
+    "choice": 2,
+    "expectation": "I expect a formed clay piece, possibly a tile, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This could lead to jars, but clay and planks seem more likely to produce tiles for the table."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clay and planks produced a finished tile, ready to use on the table.",
+    "reaction": "The explanation of shaping and firing the tile was useful.",
+    "step": 7,
+    "reason": "Combine the tile with the table to advance the tiled table goal.",
+    "choice": 2,
+    "expectation": "I expect this to make a tiled table.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This may lead to the jars, but the tile and table are ready to combine."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tile and table made a tiled table, completing that goal. The bowl and jars goal remains.",
+    "reaction": "The result was expected and gives a clear next focus.",
+    "step": 8,
+    "reason": "Clay and the formed bowl may lead to the jars needed for the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a formed clay jar or an intermediate for making jars, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The fired bowl and table can also be combined, but that seems less directly related to making jars."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clay and the formed bowl produced a clay jar, which can now be combined with the glaze mixture.",
+    "reaction": "The result is useful progress, though using the bowl to make a jar is not immediately intuitive.",
+    "step": 9,
+    "reason": "Glaze the jar to advance the remaining pottery goal.",
+    "choice": 1,
+    "expectation": "I expect a glazed jar, possibly fired in the same step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bowl and table can be combined, but the jar is more directly relevant to the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glaze mixture produced a fired glazed jar and completed the remaining goal.",
+    "reaction": "The explanation of glaze melting into a glassy surface was informative.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the tile was worthwhile because the explanation connected the board, clay slab and firing to the finished tabletop.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the bowl at the kiln felt premature when no firing action appeared immediately afterward.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Combining clay with a formed bowl produced a jar; that connection was not immediately intuitive.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the formed bowl to make a jar lacked a clear physical explanation.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I might continue for the concise explanations of how materials are made, although some combinations feel unintuitive.",
+        "steps": [
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a chisel, and iron and stone seem suitable for making or shaping a cutting tool.",
+    "choice": 1,
+    "expectation": "I expect an iron chisel, though the stone's exact role is uncertain.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Brick and iron might also make a tool, but stone seems more useful for shaping an edge."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chisel completed the first goal, and its hardened edge can shape the iron blade for the new goal.",
+    "reaction": "The explanation of the chisel's cutting edge makes the next step clear.",
+    "step": 2,
+    "reason": "Combining iron with the chisel directly addresses the goal of cutting saw teeth.",
+    "choice": 1,
+    "expectation": "I expect to make a saw or a toothed iron blade.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw is complete, and the next goal is to lift water into a reservoir.",
+    "reaction": "The explanation of how the saw teeth are set was interesting.",
+    "step": 3,
+    "reason": "A jar attached to a waterwheel could carry stream water upward.",
+    "choice": 3,
+    "expectation": "I expect a water-lifting wheel or a step toward one.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The new saw may help build the reservoir, but lifting water is the immediate goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The waterwheel now has jars to carry water upward; I still need a reservoir to receive it.",
+    "reaction": "The result matches what I expected.",
+    "step": 4,
+    "reason": "Clay and brick seem suitable materials for a water-holding basin.",
+    "choice": 2,
+    "expectation": "I expect a reservoir or a component for one, though I am unsure of the exact result.",
+    "alternatives": [
+      {
+        "choice": 6,
+        "reason": "Planks and brick might also form a reservoir, but clay seems more useful for holding water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reservoir is ready to receive water from the wheel with jars.",
+    "reaction": "The result matched my expectation.",
+    "step": 5,
+    "reason": "Connecting the reservoir to the jar-equipped waterwheel directly addresses the goal of lifting stream water.",
+    "choice": 2,
+    "expectation": "I expect the wheel to lift water into the reservoir and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wheel filled the reservoir, completing the lifting goal; water still needs a route to the garden.",
+    "reaction": "The result followed naturally from connecting the two parts.",
+    "step": 6,
+    "reason": "Sawing wood may produce a channel or material for carrying water to the garden.",
+    "choice": 1,
+    "expectation": "I expect a wooden component for a water channel, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 7,
+        "reason": "A chisel and planks might also shape a channel, but the newly made saw seems useful here."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The saw produced a wooden water pipe, giving me a component for carrying water to the garden.",
+    "reaction": "Boring out the log makes the pipe's construction clear.",
+    "step": 7,
+    "reason": "The pipe and planks are the only offered combination involving the new pipe, so they seem the most direct way to extend the water route.",
+    "choice": 1,
+    "expectation": "I expect a supported pipe or another part of the irrigation system, though I am unsure how the planks will be used.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pipe and planks made a supported channel to carry water toward the beds.",
+    "reaction": "The explanation makes the planks' purpose clear.",
+    "step": 8,
+    "reason": "Connecting the channel to the filled reservoir should supply the water route.",
+    "choice": 1,
+    "expectation": "I expect water to flow into the channel, possibly completing the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filled reservoir now supplies an irrigation channel; it still needs to reach the garden.",
+    "reaction": "The connection worked as expected.",
+    "step": 9,
+    "reason": "Connecting the irrigation channel to the supported garden directly addresses the goal of carrying water there.",
+    "choice": 1,
+    "expectation": "I expect the garden to receive water and the current goal to be completed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The garden now receives water, completing the final goal and the chapter.",
+    "reaction": "Connecting the channel to the garden was a satisfying finish to the water system.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the supported water channel was worthwhile because the explanation showed how the pipe, trough and supports carry water toward the beds.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the filled reservoir to the channel felt like a predictable intermediate step, though it made sense.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that sawing wood produced a pipe; the result explained that the log was also bored out.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The pipe-and-planks combination was a guess guided by the offered options; its purpose became clear once the trough and supports were explained.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: the practical explanations of the saw and water system made the construction interesting.",
+        "steps": [
+          2,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "Carving planks seems like a useful start on the press itself.",
+    "choice": 3,
+    "expectation": "I expect a carved wooden component, though its exact role is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Plant fiber and water might make paper, but I’ll start with the press."
+      },
+      {
+        "choice": 2,
+        "reason": "Charcoal and water might make ink, which can come later."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carved planks produced a printing block, which can now be combined with iron.",
+    "reaction": "The block makes sense as a carved surface for printing.",
+    "step": 2,
+    "reason": "Combining the block with iron seems like the most direct next step toward the press.",
+    "choice": 3,
+    "expectation": "I expect a more complete printing mechanism, though I’m unsure exactly what the iron adds.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Paper may be useful later, but I’ll continue building the press."
+      },
+      {
+        "choice": 2,
+        "reason": "Ink may also be needed later."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron completed the press as a screw mechanism, and printing a page is now the goal.",
+    "reaction": "The explanation of how the screw presses the paper makes the construction clearer.",
+    "step": 3,
+    "reason": "Plant fiber and water seem like a practical start on paper for the page.",
+    "choice": 1,
+    "expectation": "I expect paper or a material used to make it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Charcoal and water likely make ink, which the page may also need."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fiber and water made pulp, which can now be combined with cloth to continue making paper.",
+    "reaction": "The intermediate pulp is a sensible step toward paper.",
+    "step": 4,
+    "reason": "I’ll continue making the paper needed for the page.",
+    "choice": 1,
+    "expectation": "I expect the cloth to help form or dry the pulp into paper, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ink will likely be needed too, but I’ll finish the paper first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulp and cloth made paper, ready for printing.",
+    "reaction": "Finishing the paper is satisfying and straightforward.",
+    "step": 5,
+    "reason": "Charcoal and water likely make the ink needed to print the page.",
+    "choice": 1,
+    "expectation": "I expect ink or an intermediate ink mixture.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The paper needs to reach the press, but I expect ink will be needed first."
+      },
+      {
+        "choice": 2,
+        "reason": "Paper and planks might make something useful, but its role in printing is less clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Charcoal and water produced ink, so both ink and paper are ready for the press.",
+    "reaction": "The result was straightforward and expected.",
+    "step": 6,
+    "reason": "I’ll place the ink at the press to prepare for printing.",
+    "choice": 2,
+    "expectation": "I expect the ink to be positioned for use with the printing block; paper may also need to be placed there.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Paper also needs to reach the press, but I’ll place the ink first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ink is at the press, enabling the paper-and-ink combination there.",
+    "reaction": "The next printing step is clear.",
+    "step": 7,
+    "reason": "Combine the paper with the ink at the press to print the page.",
+    "choice": 1,
+    "expectation": "I expect a printed page using the press and its inked block.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press produced printed pages and completed the chapter’s final goal.",
+    "reaction": "Seeing the materials come together into pages was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the press was most worthwhile: the explanation of the iron screw made its operation clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the ink was a straightforward preparation rather than an especially interesting decision.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The iron became a screw in the press, clarifying how the block and paper are pressed together.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Paper and planks appeared as an option, but its purpose in printing was unclear; I did not try it.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter: the press explanation and the progression from pulp to printed pages were engaging, though some preparations were routine.",
+        "steps": [
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

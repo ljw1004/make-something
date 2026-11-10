@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "I’ll put the grain at the hearth to start cooking the porridge.",
+    "choice": 3,
+    "expectation": "I expect the grain to be ready for a cooking combination at the hearth, though it may need another ingredient or vessel.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Fruit at the hearth could start the compote, but I chose porridge first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain is at the hearth, but no cooking combination is offered yet, so I’ll prepare another item.",
+    "reaction": "The placement was straightforward, though it has not advanced the cooking yet.",
+    "step": 2,
+    "reason": "Combining iron with the bowl may provide a cooking vessel for the meal.",
+    "choice": 2,
+    "expectation": "I expect some kind of cooking vessel or utensil, though I’m unsure which.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Brick and iron might make hearth equipment, but the bowl seems more directly useful for cooking."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bowl and iron made a cooking pot, which can now be combined with the grain at the hearth.",
+    "reaction": "The handle explains the combination, and the next cooking step is clear.",
+    "step": 3,
+    "reason": "I’ll use the pot with the grain to advance the porridge goal.",
+    "choice": 2,
+    "expectation": "I expect this to cook the grain into porridge, though it may produce an intermediate preparation.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "I could place the fruit for compote, but the grain and pot are already ready to use."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain and pot made porridge, so I’ll turn to the fruit compote.",
+    "reaction": "The result was straightforward and matched my expectation.",
+    "step": 4,
+    "reason": "Placing the fruit at the hearth should prepare it for cooking.",
+    "choice": 3,
+    "expectation": "I expect the fruit to be ready for a cooking combination, likely with the pot.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Placing the pot at the hearth may also prepare it for cooking, but I chose to place the fruit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit is at the hearth, and the pot can now be used with it.",
+    "reaction": "The preparation was straightforward and followed the same pattern as the porridge.",
+    "step": 5,
+    "reason": "I’ll use the pot with the fruit to make the compote.",
+    "choice": 2,
+    "expectation": "I expect the fruit to cook into compote.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit became compote, completing the cooking goal and revealing the feast table goal.",
+    "reaction": "The result matched my expectation; I’m curious how the dishes will be arranged.",
+    "step": 6,
+    "reason": "Combining the two prepared dishes seems like the most direct way to start laying the feast table.",
+    "choice": 2,
+    "expectation": "I expect a combined meal or serving arrangement that can be placed on the table.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Brick and iron might make kitchen equipment, but the prepared dishes seem more relevant to the new goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two dishes became a feast, which can now be combined with the tiled table.",
+    "reaction": "The result was straightforward and makes the next step clear.",
+    "step": 7,
+    "reason": "I’ll put the feast on the tiled table to complete the current goal.",
+    "choice": 2,
+    "expectation": "I expect a laid feast table and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feast became a feast table, completing the final goal and the chapter.",
+    "reaction": "It was a clear, satisfying finish to the meal.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the cooking pot was the most worthwhile step: it gave the bowl and iron a clear purpose and opened the way to cook the grain.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the fruit repeated the same preparation pattern as placing the grain, with little new to consider.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was unsure what iron and the bowl would make; the iron-handled cooking pot clarified their purpose.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining porridge and compote into a single Feast felt somewhat abstract, although it led clearly to setting the table.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter to see what the settlement builds next, though this chapter's cooking sequence was fairly predictable.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

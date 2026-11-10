@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "A carved wooden design seems useful for the printing press.",
+    "choice": 2,
+    "expectation": "I expect the chisel to carve a printing block from the planks, though it may make another press component.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Charcoal and water might make ink, but I want to prepare the carved design first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carved block is ready; combining it with iron may advance the press itself.",
+    "reaction": "The result matched my expectation.",
+    "step": 2,
+    "reason": "I want to build the press around the printing block.",
+    "choice": 2,
+    "expectation": "I expect the iron to add a mechanism or frame to the block, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Charcoal and water may make ink, but building the press is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press is built, and the new goal is to print a page; its description suggests the block needs ink.",
+    "reaction": "The screw mechanism makes the combination clearer.",
+    "step": 3,
+    "reason": "Charcoal and water seem likely to make ink for printing.",
+    "choice": 1,
+    "expectation": "I expect an ink or pigment mixture, though I am not certain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The press and paper are needed for a page, but I expect ink is needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ink is ready, so I can prepare the press for printing.",
+    "reaction": "The result matched my expectation.",
+    "step": 4,
+    "reason": "The press description says the block is inked before paper is pressed against it.",
+    "choice": 2,
+    "expectation": "I expect to ink the printing block or prepare the press for printing.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Paper is needed for the page, but inking the press seems like the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The press is inked and ready for paper, so I can print the page.",
+    "reaction": "The explanation makes the next step clear.",
+    "step": 5,
+    "reason": "The only offered combination applies paper to the inked press.",
+    "choice": 1,
+    "expectation": "I expect a printed page.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The printed pages complete the goal and show how the press reproduces an illustration.",
+    "reaction": "Seeing the design copied onto multiple sheets is a satisfying payoff.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the press was most worthwhile because its description explained how the screw and plate work together.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making ink was predictable, though it served a clear purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The iron became a screw mechanism in a timber frame; I had not known the exact construction.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each contributed to making or using the press.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see another process explained through its components, though the offered combinations made the decisions fairly straightforward.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

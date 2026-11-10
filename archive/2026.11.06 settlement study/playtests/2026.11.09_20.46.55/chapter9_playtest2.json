@@ -1,0 +1,205 @@
+[
+  {
+    "step": 1,
+    "reason": "Cloth and planks seem useful for making bellows, one of the stated goals.",
+    "choice": 7,
+    "expectation": "I expect a bellows or a component for one, though the exact result is unclear.",
+    "alternatives": [
+      {
+        "choice": 8,
+        "reason": "Planks and brick might contribute to the kiln, but I chose to pursue the bellows first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and planks made an awning, so that combination did not directly advance the bellows goal.",
+    "reaction": "The awning was unexpected.",
+    "step": 2,
+    "reason": "Wood and cloth may make a frame with flexible sides for the bellows.",
+    "choice": 8,
+    "expectation": "I expect bellows or a component for them, though it could be another construction.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Cloth and air might also relate to bellows, but wood seems useful for their frame."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wood and cloth made a puppet, so I still need a route to bellows.",
+    "reaction": "Another unexpected result; the bellows recipe remains unclear.",
+    "step": 3,
+    "reason": "Cloth and air are the remaining offered pair that suggests the bellows' flexible air chamber.",
+    "choice": 4,
+    "expectation": "I expect cloth bellows or a related component, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Brick and fire might help build the kiln, but I want to pursue the bellows first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cloth and air made bellows, completing that goal and revealing a need for more heat.",
+    "reaction": "The valve and nozzle explanation made the bellows' role clear.",
+    "step": 4,
+    "reason": "Brick and fire seem likely to produce a kiln or something useful for building one.",
+    "choice": 2,
+    "expectation": "I expect a kiln or a kiln component, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 6,
+        "reason": "Planks and brick might also make a kiln, but fire seems more directly related to firing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Brick and fire made the kiln, completing that goal and revealing a need for charcoal.",
+    "reaction": "The brick walls holding heat make sense.",
+    "step": 5,
+    "reason": "Wood in the kiln seems like a direct way to make the charcoal needed for the furnace.",
+    "choice": 3,
+    "expectation": "I expect the kiln to turn the wood into charcoal.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The bellows may make the kiln hotter, but I chose to pursue charcoal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kiln turned wood into charcoal, completing the fuel goal; the remaining goal is to get it hotter.",
+    "reaction": "The explanation of limiting air made the charcoal process clear.",
+    "step": 6,
+    "reason": "Adding bellows to the kiln should increase the airflow and heat.",
+    "choice": 3,
+    "expectation": "I expect a hotter kiln or a furnace suitable for smelting iron.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Charcoal and fire might also produce heat, but the bellows seem directly suited to the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bellows turned the kiln into an unfuelled forge; it needs charcoal before smelting.",
+    "reaction": "The remaining fuel requirement is clear.",
+    "step": 7,
+    "reason": "Adding charcoal should prepare the forge for smelting.",
+    "choice": 3,
+    "expectation": "I expect a fuelled forge ready to heat iron ore.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "The quarry may provide ore, but the forge still needs fuel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Charcoal fuelled the forge, completing the heat goal and revealing the need for a pickaxe.",
+    "reaction": "The connection between charcoal, airflow and a hotter fire is clear.",
+    "step": 8,
+    "reason": "Using stone at the iron quarry may reveal what is needed to break the ground or make a pickaxe.",
+    "choice": 3,
+    "expectation": "I expect quarrying to provide material or a clue toward making a pickaxe, though the result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Stone and fire might produce a useful tool material, but the quarry seems directly related to the new goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Using stone at the quarry produced iron ore, which can now be combined with the forge.",
+    "reaction": "Getting ore with stone was unexpected.",
+    "step": 9,
+    "reason": "Smelting the ore should provide iron for the pickaxe.",
+    "choice": 3,
+    "expectation": "I expect iron or an intermediate smelted material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Smelting the ore produced iron, giving me material for the pickaxe.",
+    "reaction": "The result followed the expected smelting process.",
+    "step": 10,
+    "reason": "Iron and wood suggest a metal head fitted to a wooden handle.",
+    "choice": 3,
+    "expectation": "I expect a pickaxe or another handled iron tool, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The forge might shape the iron first, but iron and wood seem more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Iron and wood made the pickaxe, completing that goal and revealing a goal to shape nails at the forge.",
+    "reaction": "The handled tool came together as expected.",
+    "step": 11,
+    "reason": "Heating iron in the forge seems like the next step toward shaping nails.",
+    "choice": 4,
+    "expectation": "I expect hot iron or nails, though the shaping may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The forge turned iron into nails, completing the goal and revealing the wooden tool chest as the next task.",
+    "reaction": "The explanation makes the nails' purpose clear.",
+    "step": 12,
+    "reason": "Planks and nails are the obvious materials for building the chest.",
+    "choice": 5,
+    "expectation": "I expect a wooden tool chest, possibly needing further fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Planks and nails made the wooden chest, completing the final goal and the chapter.",
+    "reaction": "The chest was a straightforward, satisfying use for the nails.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making charcoal in the kiln was worthwhile because the explanation showed how limiting air changes what happens to heated wood.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The puppet felt least relevant while I was trying to make bellows, and it left the recipe unclear.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Using stone at the iron quarry produced iron ore; I had expected a clue or material for a pickaxe instead.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Cloth and air produced bellows with wooden boards, a valve and a nozzle, even though those parts were not explicit in the combination.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the forge and charcoal steps made the process understandable, and I am curious how the tools will be used.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

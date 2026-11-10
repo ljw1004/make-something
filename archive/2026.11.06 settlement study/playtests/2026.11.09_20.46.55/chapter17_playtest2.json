@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The chest and planks seem useful for building the empty grain bin.",
+    "choice": 2,
+    "expectation": "I expect to make a grain bin, though it may need another step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Planks and net might make a drying rack for fruit, but I chose to start with the bin."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bin is complete, and storing grain is now a goal.",
+    "reaction": "The raised base and fitted lid make its purpose clear.",
+    "step": 2,
+    "reason": "Putting grain in the bin directly addresses the new goal.",
+    "choice": 2,
+    "expectation": "I expect to store the grain in the bin.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "This might make a fruit-drying rack, but I want to finish storing the grain first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grain is stored, completing that goal; drying fruit remains.",
+    "reaction": "The result was straightforward.",
+    "step": 3,
+    "reason": "Planks and net could form a rack for drying the fruit.",
+    "choice": 2,
+    "expectation": "I expect to make a drying rack, though another step may be needed to dry the fruit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drying rack is ready, so I can use it to dry the fruit.",
+    "reaction": "The result matched my expectation.",
+    "step": 4,
+    "reason": "Fruit on the rack directly advances the remaining goal.",
+    "choice": 2,
+    "expectation": "I expect the fruit to dry on the rack.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit is dried, but the drying goal has not yet been marked complete.",
+    "reaction": "I expected drying the fruit to complete the goal, so I am curious what remains.",
+    "step": 5,
+    "reason": "A lidded jar seems useful for storing the dried fruit.",
+    "choice": 1,
+    "expectation": "I expect to make a covered jar that may be usable for storing the fruit.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cider and air might produce vinegar, but the jar seems more relevant to fruit storage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covered jar is ready to hold the dried fruit.",
+    "reaction": "That matches my expectation.",
+    "step": 6,
+    "reason": "Putting the dried fruit in the jar should complete its storage.",
+    "choice": 1,
+    "expectation": "I expect to store the dried fruit and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fruit is stored, completing its goal and revealing a new goal to make pickles.",
+    "reaction": "The new pickle goal was unexpected.",
+    "step": 7,
+    "reason": "Cider and air is the only offered combination, and it may make vinegar for pickling.",
+    "choice": 1,
+    "expectation": "I expect vinegar, though I am unsure what else the pickles will require.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cider became vinegar, which can now be combined with fruit for the pickle goal.",
+    "reaction": "The result matched my expectation.",
+    "step": 8,
+    "reason": "This is the only offered combination and appears to advance the pickle goal.",
+    "choice": 1,
+    "expectation": "I expect pickled fruit, possibly needing a jar afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vinegar and fruit made pickles, which can now be put in a jar.",
+    "reaction": "That matched my expectation.",
+    "step": 9,
+    "reason": "This is the only offered combination and directly addresses the goal of making a jar of pickles.",
+    "choice": 1,
+    "expectation": "I expect a jar of pickles and completion of the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pickles are jarred and all chapter goals are complete.",
+    "reaction": "The result matched my expectation.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the grain bin was most worthwhile: its raised base and fitted lid explained how it protects the grain from damp.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the dried fruit into a separate covered jar felt repetitive after making the drying rack and drying the fruit.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The pickle goal appeared only after I stored the dried fruit.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The drying goal remained incomplete after the fruit was dried; I had to infer that it also required storage.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably stop here: the storage details were interesting, but the later sequence offered little meaningful choice.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

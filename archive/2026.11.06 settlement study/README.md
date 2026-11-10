@@ -1,5 +1,15 @@
 # Settlement study
 
+The user declared Settlement complete on **9 November 2026** and requested archiving and pushing the finished work. This is the single archive home, retaining the date of the first background study. The live [manuscript](../../stories/settlement/settlement.md), runtime artwork and [design brief](../../stories/settlement/design-brief.md) remain under `stories/settlement/`.
+
+- **9 November — completed narrative, art and reference reading:** [study record](narrative-study.md), [accepted narrative treatment](narrative-treatment.md), [outcomes](outcomes.md), [production art and exact requests](artwork/README.md), and the requested timestamped [playtest reports and response arrays](playtests/).
+- **6 November — background comparison:** the retained comparison, accepted trial and eight requested contact-sheet images are documented below.
+
+The November 9 relocation preserved all 344 study files before navigation and supported export-command updates. All image bytes, exact prompts, generation request metadata and 276 requested playtest deliverables were retained unchanged. Historical source paths and hashes in requests/reports refer to their original tested versions; they are not current commands. Supported export scripts and the assembly check use this archive location. Temporary verification snapshots, captures and logs were discarded after concise outcomes were recorded. Current guidance lives in the story brief and shared documentation, not these historical reports.
+
+## 6 November 2026 — background comparison
+
+
 Completed on 6 November 2026. After playing through the full trial, the user said it was better and selected **weaker C: 22% warm cream (`#fffaf0`)** for the main Settlement story. All 31 backgrounds were promoted byte for byte from that trial, retaining the original icons and gameplay. The [single active design brief](../../stories/settlement/design-brief.md) and [UX artwork contract](../../docs/ux.md#item-artwork) own the adopted presentation. The user requested that this change remain uncommitted.
 
 [Play the main Settlement story](http://127.0.0.1:5173/make-something.html?story=stories/settlement/settlement.md) with the local server running (`npm run dev`). Its background URLs and manuscript are unchanged, preserving its existing progress identity. The [trial manuscript](playable/settlement.md) is retained as the accepted study version; its background references now point to the promoted runtime files, avoiding duplicate production artwork. Its former project preview URL is retired. The main story does not import the trial's separate browser progress.

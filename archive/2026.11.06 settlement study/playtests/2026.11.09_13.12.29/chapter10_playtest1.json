@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and watering seeds may start the garden.",
+    "choice": 1,
+    "expectation": "I expect the seeds to sprout or produce a plant, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seeds produced seedlings, giving me a direct way to pursue either garden goal.",
+    "reaction": "The result was predictable and useful.",
+    "step": 2,
+    "reason": "Combining seedlings with a window seems likely to make the greenhouse.",
+    "choice": 2,
+    "expectation": "I expect a greenhouse or a sheltered seedling structure, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Rope may support the seedlings, but I chose to pursue the greenhouse first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The window and seedlings made the greenhouse, completing that goal. The remaining combination may complete the supported garden.",
+    "reaction": "The greenhouse came together quickly, though the combination felt quite abstract.",
+    "step": 3,
+    "reason": "Seedlings and rope are the only available combination and seem relevant to supporting the garden.",
+    "choice": 1,
+    "expectation": "I expect a supported garden or an intermediate support for the seedlings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rope and seedlings made a trellis, which can now support the seedlings.",
+    "reaction": "The trellis is a sensible intermediate, though making it from seedlings and rope feels abstract.",
+    "step": 4,
+    "reason": "This is the only available combination and should advance the supported garden goal.",
+    "choice": 1,
+    "expectation": "I expect the seedlings and trellis to make a supported garden.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seedlings and trellis made the supported garden, completing the remaining goal.",
+    "reaction": "The final fitting made sense, though it was predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the seedlings to the trellis was the clearest payoff: the support had an understandable purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The greenhouse came together very quickly, with little sense of how a window and seedlings formed the structure.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected seedlings and rope to make a supported garden or a support, but the trellis itself coming from those ingredients felt abstract.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Using seedlings and rope to create a trellis was hard to explain physically.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be unlikely to continue personally: this chapter ended quickly, and the abstract combinations offered little to figure out.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

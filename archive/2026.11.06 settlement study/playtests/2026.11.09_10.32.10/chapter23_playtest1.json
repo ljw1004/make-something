@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "A bowl on a table looks like a direct way to make the washstand.",
+    "choice": 3,
+    "expectation": "I expect this to make a washstand, though it may need further parts.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Sand and charcoal might help prepare drinking water, but the washstand seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The washstand is complete; the remaining goal is the covered water supply.",
+    "reaction": "That worked as expected.",
+    "step": 2,
+    "reason": "Sand and charcoal may form a filter for preparing drinking water.",
+    "choice": 1,
+    "expectation": "I expect a filtering material or device, though I don't know its exact form.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lid will likely cover the jar, but preparing the water first seems useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sand and charcoal made a filter bed, which may help prepare the water.",
+    "reaction": "That fits the expected purpose.",
+    "step": 3,
+    "reason": "The hollow pipe may give the filter bed a way to carry water through it.",
+    "choice": 1,
+    "expectation": "I expect a water filter or part of one, though its exact form is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The jar needs a lid, but I want to prepare the water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter bed and pipe made a water filter, so I can now use it on the water.",
+    "reaction": "The result was as expected.",
+    "step": 4,
+    "reason": "Filtering the water advances the drinking-water goal.",
+    "choice": 1,
+    "expectation": "I expect filtered water, though it may still need further treatment before drinking.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The jar needs covering, but I want to prepare the water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Filtering removed visible particles, but the water may still contain harmful microbes, so further treatment is needed.",
+    "reaction": "The distinction between clear and safe water is useful.",
+    "step": 5,
+    "reason": "Heating the filtered water should address microbes before storage.",
+    "choice": 1,
+    "expectation": "I expect boiled or otherwise heat-treated water suitable for the jar.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The jar needs a lid, but treating the water first seems more useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filtered water is now boiled and ready to put in the jar.",
+    "reaction": "That treatment followed logically from the warning about microbes.",
+    "step": 6,
+    "reason": "Putting the boiled water in the jar directly advances the remaining goal.",
+    "choice": 3,
+    "expectation": "I expect a filled water jar that can then be covered.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lid is needed, but filling the jar first seems more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The boiled water is in the jar; it still needs a lid.",
+    "reaction": "The result was as expected.",
+    "step": 7,
+    "reason": "Adding the lid should complete the covered water supply.",
+    "choice": 2,
+    "expectation": "I expect a covered filled water jar and completion of the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covered jar completes the drinking-water goal and the chapter; the result also clarifies that the boiled water cooled before storage.",
+    "reaction": "The completed sequence felt practical, especially the emphasis on keeping treated water clean.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering and then boiling the water was the most worthwhile passage: the warning distinguished clear water from water free of harmful microbes.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the washstand was straightforward but brief; it offered less to think about than the water-treatment sequence.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The reminder that clear-looking filtered water can still contain harmful microbes changed my understanding of what remained to be done.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the filter bed with a hollow pipe made a water filter, but the pipe's exact role was not explained.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would try another chapter because the water-treatment sequence connected straightforward combinations to a useful real-world distinction.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

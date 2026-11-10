@@ -1,0 +1,83 @@
+[
+  {
+    "step": 1,
+    "reason": "Wood and cloth seem useful for making a puppet, one of the theatre's required parts.",
+    "choice": 1,
+    "expectation": "I expect a puppet or a component for one, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cloth and window might make a curtain or stage, but I chose to start with the puppets."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The combination made a puppet, so the remaining offered action likely develops the stage.",
+    "reaction": "The puppet result was straightforward and expected.",
+    "step": 2,
+    "reason": "Cloth and window are the only offered combination, and they may make a curtain for the stage.",
+    "choice": 1,
+    "expectation": "I expect a curtain or a curtained stage component, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The curtain is ready to combine with the platform for the stage.",
+    "reaction": "The result was expected and straightforward.",
+    "step": 3,
+    "reason": "Curtain and platform are the only offered combination and fit the goal of making a curtained stage.",
+    "choice": 1,
+    "expectation": "I expect a curtained stage or a component of the puppet theatre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The curtain and platform made a stage, ready to combine with the puppet.",
+    "reaction": "The result was expected.",
+    "step": 4,
+    "reason": "Stage and puppet are the only offered combination and directly fit the theatre goal.",
+    "choice": 1,
+    "expectation": "I expect a puppet theatre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stage and puppet made the puppet theatre and completed the chapter's goal.",
+    "reaction": "The result was expected; the explanation of the curtain's role added a useful detail.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the stage and puppet brought the pieces together, and the result explained how the curtain hides the puppeteers.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the stage was predictable, with only one combination offered.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Nothing particularly surprised me; the results followed the chapter's stated goal.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "Using a window to make a curtain felt somewhat arbitrary, since its role in making the curtain was unclear.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably not continue personally: the theatre came together coherently, but most decisions were forced and predictable.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

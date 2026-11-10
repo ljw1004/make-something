@@ -1,0 +1,30 @@
+{
+  "asset": "astronomy-night-v2",
+  "tool": "built-in image_gen.imagegen",
+  "mode": "lighting-weather edit",
+  "generated": "2026-11-09",
+  "prompt": "astronomy-night-v2.prompt.txt",
+  "references": [
+    {
+      "role": "edit target; exact composition and geography",
+      "path": "stories/settlement/assets/backgrounds/29.webp",
+      "sha256": "2938f78f47a946fddc9a1e95b930b24739fd61fd61454dfd3d4d1c170bb4711d",
+      "treatment": "Existing treated reference; generation explicitly repaints a full-strength untreated master."
+    }
+  ],
+  "generated_source": "/Users/ljw/.codex/generated_images/01a1c41f-41d6-71f0-97c5-c40651624122/exec-3544f670-dc6e-4970-b6f6-ab84890e0563.png",
+  "master": {
+    "path": "astronomy-night-v2.master.png",
+    "dimensions": [853, 1844],
+    "sha256": "4375ccd34d73fbab7ebde4f1cc1f8af31eaa91654e339455bdf9359d9406d479"
+  },
+  "export": {
+    "script": "export-astronomy.mjs",
+    "runtime": "stories/settlement/assets/backgrounds/astronomy-night-v2.webp",
+    "dimensions": [780, 1688],
+    "treatment": "22% #fffaf0 composited once onto the untreated resized master",
+    "encoder": "Chromium canvas WebP, quality 0.95",
+    "sha256": "a003e30892e2a411d72f6e8665868a1ab2b4e6b17d0e00cd27324fa5a94ded32"
+  },
+  "inspection": "Selected master and actual exported runtime viewed at 390×844. Ground, rocks, vegetation and sea now read as nighttime; moon, stars and reflection remain visible after cream treatment. Lighthouse has a small warm lantern light. Composition retains open playable foreground. This is an artwork display check, not a fresh gameplay test."
+}
