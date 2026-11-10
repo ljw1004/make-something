@@ -1,8 +1,6 @@
-# ![An open manuscript with a cross and quill](icon.png) Theology: Disputed Questions
+# ![An open manuscript with a cross and quill](icon.png) Theology
 
-A manuscript desk, not a test of faith. Follow a wound, a failed promise, bread, a hungry household and a request for prayer through changing arguments. Build what each writer is claiming, test it against a case, and leave real disagreements open. New chapters reuse distinctions you have made. Each item has a short explanation you can revisit.
-
-> NOTE: Converted from `divinity-final-reading-scenes-v7`, the composed current scenario at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The conversion predates the current Markdown runtime. The active manuscript now runs through the shared parser and engine; subsequent authenticity revisions are recorded in the repository review history. All combinations are global. Completed goals remain satisfied.
+You are Augustine, Aquinas, Martin Luther. How will you respond to the arguments of your day? Why does evil exist? Can we do good without God’s help? What happens at Communion? Replay these great debates from their perspectives. Share their struggles to reconcile faith, reason, and the ideas of their time.
 
 > NOTE: Reconstructing an attributed religious argument is not endorsement, demonstration of a miracle, or authentication of an object. These desks compare texts; they do not claim that the writers met. The Book of Two Principles and the Lyon ritual are distinct witnesses, not a single creed for everyone called Cathar. Examples use Eg.; invented situations remain identified in their prose or author notes. The desk voice is a modern educational reconstruction, not a quotation or evidence that a writer read a particular other manuscript. Claims are stated directly; first person belongs mainly to hypothetical examples and attributed quotations. The voice and italic conclusion stay with the original desk when later board labels gain attribution.
 
