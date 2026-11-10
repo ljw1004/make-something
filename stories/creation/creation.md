@@ -2,7 +2,7 @@
 
 background: ![Creation](assets/backgrounds/c01-deep.webp)
 
-Create the world, and every living creature that moves.
+Create the world, and every living creature that moves upon it.
 
 ## Create the heavens and the earth
 
