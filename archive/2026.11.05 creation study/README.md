@@ -8,6 +8,8 @@ This is Creation's single archive, named for its first completed study on **5 No
 
 The later [shared square-icon pass](<../2026.11.06 app icon/2026.11.06-shared-icons/README.md>) extends the accepted mosaic into a full opaque square for catalogue and home-screen use. Its selected master and exact request remain with that shared app/story work; the original circular master is preserved in the story-icon archive.
 
+On 10 November, the user selected [the simpler light-and-wave icon](production/2026.11.10-icons/README.md) for the catalogue and home screen. The detailed circular mosaic now illustrates Song of creation at 144px diameter; its original 1254px circular and square masters remain unchanged in their archives.
+
 | Date | Work and retained material |
 |---|---|
 | 5 November 2026 | [First edition](2026.11.05-first-edition.md): scientific/artistic [research](research.md), [working notes](2026.11.05-first-edition-notes.md), 202 combinations, six fast/detailed campaigns and [original production sources](production/README.md). |
@@ -16,6 +18,8 @@ The later [shared square-icon pass](<../2026.11.06 app icon/2026.11.06-shared-ic
 | 6 November 2026 | [Encyclopedia](2026.11.06-encyclopedia.md): source revisions, editorial selection, 183 nonfiction entries, artwork credits and review outcomes. |
 | 6 November 2026 | [Advancing glacier](production/2026.11.06-glacier/README.md): selected master, final request, export, scientific sources and review criteria. |
 | 6 November 2026 | [Catalogue-icon comparison](production/2026.11.06-catalogue-icon/README.md): requested Ravilious-style alternatives; the user retained the mosaic from the shared [story-icon project](<../2026.11.06 story icons/README.md>). |
+| 10 November 2026 | [Simpler identity and Song of creation](production/2026.11.10-icons/README.md): selected light-and-wave master, closer-composition comparison, exact requests, original-mosaic preservation and item reuse. |
+| 10 November 2026 | [Richer ending colour](production/2026.11.10-ending-colour/README.md): accepted saturation preview, full-resolution master, exact request and matching full-page export geometry. |
 
 The original and revised campaigns share [playtests/](playtests/) and [art-review/](art-review/), retaining their existing timestamped directories. [Original runner instructions](tools/README.md) and [revision runner instructions](tools/2026.11.05-revision/README.md) describe their respective historical versions. The retained [revision manuscript](creation.md) and adjacent `assets/` are the completed 5 November study reference; edit the live story for subsequent changes.
 

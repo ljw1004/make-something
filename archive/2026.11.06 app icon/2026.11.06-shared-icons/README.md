@@ -11,6 +11,8 @@ Completed 6 November 2026. The user selected the Creation square mosaic unchange
 
 The earlier [app master](../icon-master.png) and [Creation master](<../../2026.11.06 story icons/masters/creation.png>) remain unchanged. No new artwork was generated after selection. Runtime exports only reduce the selected masters to 256 × 256 pixels, preserving their opaque square compositions.
 
+Preservation check, 10 November 2026: `creation-square.png` is the largest original square version available, 1254 × 1254, and matches its original generated source byte for byte (SHA-256 `151e42a408509844f5ab8161fc9b8364f9d7fb37916fea25e057092afbc132b2`). The user requested preservation and reuse for **Song of creation**, then requested a larger circular item. Its final [576px item export](../../../stories/creation/assets/icons/song-of-creation.png) uses the preserved [circular original](<../../2026.11.06 story icons/masters/creation.png>); both masters remain unchanged. The completed [artwork follow-up](<../../2026.11.05 creation study/production/2026.11.10-icons/README.md>) records the selected simpler home-screen identity, export commands and item verification. The Creation command below reproduces the historical 6 November export; use the follow-up command for the current identity.
+
 From the repository root on macOS:
 
 ```sh
