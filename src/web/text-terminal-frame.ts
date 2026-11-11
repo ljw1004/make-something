@@ -15,13 +15,16 @@ export function terminalFrame(story:Story, adventure:Adventure, refresh=false):F
 
 export type TerminalPart = {kind:'text'; text:string}|{kind:'image'; chapter:number; url:string};
 
-/** Match chapter messages to newly visited chapters, never parse titles or replay the engine.
- * Starting at chapter one makes visits and arrival messages correspond in order, even
- * when a command skips chapters or automatically passes through a narrative chapter.
+/** Match chapter messages without parsing titles or replaying the engine.
+ * The initial frame recounts every chapter before the checkpoint (including skips),
+ * followed by actual arrivals. Later frames contain only new arrivals.
  */
-export function terminalParts(story:Story, adventure:Adventure, previousVisits:number, refresh=false):TerminalPart[] {
+export function terminalParts(story:Story, adventure:Adventure, previousVisits:number, refresh=false, startingChapter=1):TerminalPart[] {
   const frame = terminalFrame(story,adventure,refresh), text = renderFrame(frame);
-  const chapters = refresh ? [] : adventure.state.visited.slice(previousVisits);
+  const visited=adventure.state.visited;
+  const first=visited.find(chapter=>chapter >= startingChapter-1) ?? adventure.state.chapter;
+  const chapters = refresh ? [] : previousVisits ? visited.slice(previousVisits)
+    : [...Array.from({length:first},(_,chapter)=>chapter),...visited.filter(chapter=>chapter >= first)];
   const parts:TerminalPart[] = [];
   let offset=0, start=0, arrival=0;
   for (const [index,message] of frame.messages.entries()) {
@@ -30,7 +33,7 @@ export function terminalParts(story:Story, adventure:Adventure, previousVisits:n
       const chapter = chapters[arrival++];
       // A completed run may announce a final skipped chapter without entering it.
       // Keep all runner text, but only actual visits receive scenery.
-      const image = chapter === undefined ? undefined : background(story,chapter);
+      const image = chapter === undefined || !visited.includes(chapter) ? undefined : background(story,chapter);
       if (image && chapter !== undefined) {
         if (offset > start) parts.push({kind:'text',text:text.slice(start,offset)});
         parts.push({kind:'image',chapter,url:image});

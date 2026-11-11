@@ -21,7 +21,7 @@ This document owns implementation boundaries, technical constraints and testing 
 
 ### Browser text terminals
 
-Browser text terminals are a presentation layer over the existing adventure runner, command parser and terminal completer. Keep their DOM, keyboard input and image loading under `src/web/`; do not duplicate transition rules or change the engine to accommodate their appearance. Starting at chapter one lets new `state.visited` entries identify chapter messages in order, including multiple arrivals in one frame. Insert scenery at those boundaries without parsing chapter titles or replaying engine actions for display. Keep the text equal to the human CLI frame, and reserve image space before network completion. The [terminal UX](ux.md#browser-terminals) owns interaction and session behavior.
+Browser text terminals are a presentation layer over the existing adventure runner, command parser and terminal completer. Keep their DOM, keyboard input and image loading under `src/web/`; do not duplicate transition rules or change the engine to accommodate their appearance. Pass direct chapter requests to the runner's existing checkpoint option. Its initial frame recounts every prior chapter, including skips, followed by actual arrivals; later frames align with new `state.visited` entries. Insert scenery only for actual visits, without parsing chapter titles or replaying engine actions for display. Keep the text equal to the human CLI frame, and reserve image space before network completion. Story selection and chapter arrivals use `history.replaceState`; URL updates during play must never restart the runner. The [terminal UX](ux.md#browser-terminals) owns interaction and session behavior.
 
 ## State and continuation analysis
 

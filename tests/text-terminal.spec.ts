@@ -21,7 +21,7 @@ const expected=(adventure:Adventure)=>renderFrame({...adventure.frame,
 async function fixture(page:Page,style:PlayStyle) {
   await page.route('**/terminal-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:terminalStory}));
   await page.route('**/terminal-fixture/*.svg',route=>route.fulfill({contentType:'image/svg+xml',body:svg}));
-  await page.goto(`/text-${style}.html?story=terminal-fixture/story.md`);
+  await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=terminal-fixture/story.md`);
   await expect(page.locator('#prompt')).toBeVisible();
 }
 
@@ -43,7 +43,8 @@ for (const style of ['fast','detailed'] as const) test(`${style} terminal matche
   await expect(page.locator('#transcript')).toContainText('The workshop opens.');
   await expect(page.locator('#transcript')).toContainText('The van disappears around the corner.');
   expect(await page.evaluate(()=>Object.keys(localStorage))).toEqual([]);
-  await page.reload();await expect.poll(()=>output(page)).toBe(expected(startAdventure(story,{playStyle:style})));
+  await expect(page).toHaveURL(new RegExp(`chapter=${adventure.state.chapter+1}$`));
+  await page.reload();await expect.poll(()=>output(page)).toBe(expected(startAdventure(story,{chapter:adventure.state.chapter+1,playStyle:style})));
   expect(errors).toEqual([]);
 });
 
@@ -76,7 +77,7 @@ test('100-character column stays stable on wide resize; delayed or failed pictur
   const gate=new Promise<void>(resolve=>{release=resolve;});
   await page.route('**/terminal-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:terminalStory}));
   await page.route('**/terminal-fixture/*.svg',async route=>{await gate;await route.fulfill({contentType:'image/svg+xml',body:svg});});
-  await page.goto('/text-fast.html?story=terminal-fixture/story.md',{waitUntil:'domcontentloaded'});
+  await page.goto('/simulator-story.html?story=terminal-fixture/story.md',{waitUntil:'domcontentloaded'});
   await expect(page.locator('#command')).toBeAttached();
   await expect(page.locator('.chapter-picture')).toHaveCount(2);
   const initial=await page.locator('.terminal').boundingBox();
@@ -106,18 +107,97 @@ test('100-character column stays stable on wide resize; delayed or failed pictur
 test('both pages list current stories, load their unchanged runner openings, and report missing manuscripts',async({page})=>{
   const paths=storyIds();
   for (const style of ['fast','detailed'] as const) {
-    await page.goto(`/text-${style}.html`);
-    await expect(page.locator('#story-picker a')).toHaveCount(paths.length);
+    await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html`);
+    await expect(page.locator('#story-picker [data-story]')).toHaveCount(paths.length);
+    await expect(page.locator('h1')).toHaveText(`MAKE SOMETHING WORTHWHILE (${style==='fast'?'story':'interaction'} engine)`);
+    await expect(page.locator('a,nav')).toHaveCount(0);
+    await expect(page.locator('#story-picker')).toContainText('6. THEOLOGY. You are Augustine, Aquinas, Martin Luther.');
+    await page.locator('#command').fill('999');await page.locator('#command').press('Enter');
+    await expect(page.getByRole('alert')).toContainText('Choose a story number');
+    await page.locator('#command').fill('6');await page.locator('#command').press('Enter');
+    await expect.poll(()=>output(page)).toContain('Augustine');
+    expect(new URL(page.url()).searchParams.get('story')).toBe('stories/theology/theology.md');
+    expect(new URL(page.url()).searchParams.get('chapter')).toBe('1');
+    await expect(page.locator('#story-picker')).toBeAttached(); // Remains in terminal scrollback.
     for (const path of paths) {
-      await page.goto(`/text-${style}.html?story=stories/${path}`);
+      await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=stories/${path}`);
       const source=parseStory(readFileSync(`stories/${path}`,'utf8'),{id:path});
       const adventure=startAdventure(source,{playStyle:style});
       await expect.poll(()=>output(page)).toBe(expected(adventure));
       await expect(page.locator('.chapter-picture')).toHaveCount(adventure.state.visited.filter(chapter=>background(source,chapter)).length);
     }
   }
-  await page.goto('/text-fast.html?story=missing-terminal-story.md');
+  await page.goto('/simulator-story.html?story=missing-terminal-story.md');
   await expect(page.getByRole('status')).toContainText('HTTP 404');
   await expect(page.getByRole('link',{name:'Try again'})).toBeVisible();
   await expect(page.locator('#prompt')).toBeHidden();
+});
+
+test('direct chapter URLs use original checkpoints, including skips and invalid requests',async({page})=>{
+  await fixture(page,'fast');
+  for (const chapter of [3,4,5]) {
+    await page.goto(`/simulator-story.html?story=terminal-fixture/story.md&chapter=${chapter}`);
+    const adventure=startAdventure(story,{chapter});
+    await expect.poll(()=>output(page)).toBe(expected(adventure));
+    expect(new URL(page.url()).searchParams.get('chapter')).toBe(String(adventure.state.chapter+1));
+    expect(await page.locator('.chapter-picture').evaluateAll(nodes=>nodes.map(n=>Number(n.getAttribute('data-chapter'))))).toEqual(adventure.state.visited);
+  }
+  for (const chapter of ['0','-1','1.5','cat','',String(story.chapters.length+1)]) {
+    await page.goto(`/simulator-story.html?story=terminal-fixture/story.md&chapter=${chapter}`);
+    await expect(page.getByRole('status')).toContainText('Chapter must be');
+    await expect(page.locator('#prompt')).toBeHidden();
+  }
+});
+
+for (const style of ['fast','detailed'] as const) test(`${style} chapter URL changes retain the chosen branch; reopening synthesizes a new checkpoint`,async({page})=>{
+  const source=`# A choice
+## Workshop
+**Goals**
+- Ready
+  - Ticket
+  - Gift
+**Items**
+- Paper
+- Ribbon
+- Gift
+- Switch
+- Button
+- Ticket
+**Combinations**
+- Paper + Ribbon -> Gift
+- Switch + Button -> Ticket
+## Dispatch
+**Goals**
+- Send it -- Parcel
+**Items**
+- Parcel
+- Stamp
+**Combinations**
+- Gift + Stamp -> Parcel
+- Ticket + Stamp -> Parcel
+`;
+  const parsed=parseStory(source,{id:'optional'});
+  let loads=0;
+  await page.route('**/optional.md',route=>{loads++;return route.fulfill({body:source});});
+  await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=optional.md`);
+  let adventure=startAdventure(parsed,{playStyle:style});
+  await expect.poll(()=>output(page)).toBe(expected(adventure));
+  const historyLength=await page.evaluate(()=>window.history.length);
+  for (const item of ['Paper']) {
+    const command=style==='fast' ? String(adventure.frame.options.find(option=>option.text.startsWith(item+' +'))!.choice) : `inspect ${item}`;
+    await page.locator('#command').fill(command);await page.locator('#command').press('Enter');
+    adventure=choose(parsed,adventure,adventure.frame.step,style==='fast'?Number(command):parseCommand(command));
+    await expect.poll(()=>output(page)).toBe(expected(adventure));
+  }
+  expect(adventure.state.chapter).toBe(1);
+  await expect.poll(()=>output(page)).toContain('- Gift');
+  expect(new URL(page.url()).searchParams.get('chapter')).toBe('2');
+  expect(loads).toBe(1);
+  expect(await page.evaluate(()=>window.history.length)).toBe(historyLength);
+  expect(await page.evaluate(()=>Object.keys(localStorage))).toEqual([]);
+  await page.reload();
+  const checkpoint=startAdventure(parsed,{chapter:2,playStyle:style});
+  await expect.poll(()=>output(page)).toBe(expected(checkpoint));
+  expect(await output(page)).not.toContain('- Gift');
+  expect(loads).toBe(2);
 });

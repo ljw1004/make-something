@@ -31,10 +31,11 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
   }).join('')}</nav></main>`;
 }
 
-/** Text terminals use the same story inventory, with plain titles and no artwork. */
-export function renderTerminalCatalogue(entries:CatalogueEntry[], style:'fast'|'detailed'):string {
-  return `<nav aria-label="Stories"><ul>${entries.map(entry => {
-    const href=`text-${style}.html?story=${encodeURIComponent(entry.path).replaceAll('%2F','/')}`;
-    return `<li><a href="${escape(href)}">${escape(entry.title)}</a></li>`;
-  }).join('')}</ul></nav>`;
+/** Numbered terminal choices share the catalogue's manuscripts and authored prose. */
+export function renderTerminalCatalogue(entries:CatalogueEntry[]):string {
+  return entries.map((entry,index) => {
+    const prose=entry.description.replace(/!\[[^\]]*\]\([^)]+\)/g,'').replace(/\s+/g,' ').trim();
+    const text=`${index+1}. ${entry.title.toUpperCase().replace(/\.$/,'')}.${prose ? ` ${prose}` : ''}`;
+    return `<span data-story="${escape(entry.path)}">${escape(text)}</span>`;
+  }).join('\n\n');
 }

@@ -18,7 +18,8 @@ const input = document.querySelector<HTMLInputElement>('#command')!;
 const status = document.querySelector<HTMLParagraphElement>('#status')!;
 const picker = document.querySelector<HTMLElement>('#story-picker')!;
 let story:Story, adventure:Adventure, storyURL:string, visits=0;
-let ready=false;
+let ready=false, selecting=true, startingChapter=1;
+const stories=[...picker.querySelectorAll<HTMLElement>('[data-story]')].map(node=>node.dataset.story!);
 const history:string[]=[];
 let historyIndex=0, draft='';
 
@@ -28,7 +29,7 @@ function appendText(parent:HTMLElement,text:string,kind:string) {
 }
 function display(refresh=false):HTMLElement {
   const output=document.createElement('pre');output.dataset.terminalOutput='';
-  for (const part of terminalParts(story,adventure,visits,refresh)) {
+  for (const part of terminalParts(story,adventure,visits,refresh,startingChapter)) {
     if (part.kind === 'text') {appendText(output,part.text,'terminalText');continue;}
     const picture=document.createElement('span');
     picture.className='chapter-picture';picture.dataset.chapter=String(part.chapter);
@@ -44,12 +45,15 @@ function display(refresh=false):HTMLElement {
   visits=adventure.state.visited.length;
   transcript.append(output);
   form.hidden=adventure.frame.phase !== 'choose';
+  const url=new URL(location.href);
+  url.searchParams.set('chapter',String(adventure.state.chapter+1));
+  if (url.href !== location.href) window.history.replaceState(null,'',url);
   return output;
 }
 
-form.addEventListener('submit',event=>{
+form.addEventListener('submit',async event=>{
   event.preventDefault();
-  if (!ready || adventure.frame.phase !== 'choose') return;
+  if (!ready || (!selecting && adventure.frame.phase !== 'choose')) return;
   const line=input.value;input.value='';
   if (line.trim()) history.push(line);
   historyIndex=history.length;draft='';
@@ -57,17 +61,25 @@ form.addEventListener('submit',event=>{
   transcript.append(echo);
   let response:HTMLElement;
   try {
-    let refresh=false;
-    if (style === 'detailed') {
-      const command=parseCommand(line);
-      if (isLook(command)) refresh=true;
-      else adventure=choose(story,adventure,adventure.frame.step,command);
+    if (selecting) {
+      const choice=/^[1-9]\d*$/.test(line.trim()) ? Number(line.trim()) : NaN;
+      if (!Number.isInteger(choice) || choice > stories.length) throw new Error(`Choose a story number from 1 to ${stories.length}.`);
+      const url=new URL(location.href);
+      url.searchParams.set('story',stories[choice-1]);url.searchParams.delete('chapter');
+      response=await openStory(url);
     } else {
-      const choice=line.trim() ? Number(line.trim()) : NaN;
-      if (!Number.isFinite(choice)) refresh=true;
-      else adventure=choose(story,adventure,adventure.frame.step,choice);
+      let refresh=false;
+      if (style === 'detailed') {
+        const command=parseCommand(line);
+        if (isLook(command)) refresh=true;
+        else adventure=choose(story,adventure,adventure.frame.step,command);
+      } else {
+        const choice=line.trim() ? Number(line.trim()) : NaN;
+        if (!Number.isFinite(choice)) refresh=true;
+        else adventure=choose(story,adventure,adventure.frame.step,choice);
+      }
+      response=display(refresh);
     }
-    response=display(refresh);
   } catch (error) {
     response=document.createElement('pre');response.className='command-error';
     response.setAttribute('role','alert');response.textContent=(error as Error).message;
@@ -79,7 +91,7 @@ form.addEventListener('submit',event=>{
 
 input.addEventListener('input',event=>{
   const edit=event as InputEvent;
-  if (!ready || style !== 'detailed' || edit.isComposing || edit.inputType !== 'insertText' ||
+  if (!ready || selecting || style !== 'detailed' || edit.isComposing || edit.inputType !== 'insertText' ||
     input.selectionStart !== input.value.length || input.selectionEnd !== input.value.length) return;
   const completed=completeCommandLine(input.value,detailedObjects(story,adventure.state));
   if (completed !== input.value) {
@@ -96,23 +108,38 @@ input.addEventListener('keydown',event=>{
   input.setSelectionRange(input.value.length,input.value.length);
 });
 
-async function open() {
-  if (!new URL(location.href).searchParams.has('story')) return;
-  picker.hidden=true;status.hidden=false;status.textContent='Loading story…';
+async function openStory(url:URL):Promise<HTMLElement> {
+  ready=false;input.disabled=true;status.hidden=false;status.textContent='Loading story…';
   try {
-    storyURL=resolveStoryURL(location.href);
+    const chapter=url.searchParams.get('chapter');
+    if (chapter !== null && !/^[1-9]\d*$/.test(chapter)) throw new Error('Chapter must be a positive whole number.');
+    startingChapter=chapter === null ? 1 : Number(chapter);
+    storyURL=resolveStoryURL(url.href);
     const response=await fetch(storyURL);
     if (!response.ok) throw new Error(`Could not load the story (HTTP ${response.status}).`);
     story=parseStory(await response.text(),{id:storyURL,file:storyURL});
-    adventure=startAdventure(story,{playStyle:style,mode:'story'});
-    display();ready=true;status.hidden=true;
-    document.title=`${story.title} · --${style} · Text engine`;
-    const other=document.querySelector<HTMLAnchorElement>('[data-other-mode]')!;
-    const otherURL=new URL(other.href);
-    otherURL.search=new URL(location.href).search;
-    other.href=otherURL.href;
+    adventure=startAdventure(story,{chapter:startingChapter,playStyle:style,mode:'story'});
+    window.history.replaceState(null,'',url);
+    selecting=false;visits=0;
+    input.setAttribute('aria-label','Command');
+    // The menu stays in scrollback, but command recall begins with gameplay.
+    history.length=0;historyIndex=0;draft='';
+    return display();
+  } finally {ready=true;input.disabled=false;status.hidden=true;}
+}
+
+async function open() {
+  const url=new URL(location.href);
+  if (!url.searchParams.has('story')) {
+    ready=true;form.hidden=false;input.setAttribute('aria-label','Story number');input.focus({preventScroll:true});
+    return;
+  }
+  picker.hidden=true;
+  try {
+    await openStory(url);
     if (!form.hidden) input.focus({preventScroll:true});
   } catch (error) {
+    ready=false;status.hidden=false;
     status.textContent=(error as Error).message+' ';
     const retry=document.createElement('a');retry.href=location.href;retry.textContent='Try again';status.append(retry);
   }

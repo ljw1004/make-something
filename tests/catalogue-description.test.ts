@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { catalogueDescription, renderCatalogue } from '../src/build/catalogue.ts';
+import { catalogueDescription, renderCatalogue, renderTerminalCatalogue } from '../src/build/catalogue.ts';
 
 test('catalogue cover and prose image paths belong to their story, including a site subdirectory', () => {
   const html = catalogueDescription('![cover](assets/cover.webp)\n\nAuthored description.\n\n![remote](https://example.com/picture.webp)', 'stories/my-story/alternate.md');
@@ -14,6 +14,16 @@ test('invalid catalogue artwork cannot break every story card', () => {
   const html = catalogueDescription('![bad](javascript:alert)\n\nStill readable.', 'stories/story/story.md');
   assert.doesNotMatch(html, /src="javascript:/);
   assert.match(html, /Still readable/);
+});
+
+test('terminal choices are numbered prose with safe manuscript paths and no cover artwork or navigation',()=>{
+  const html=renderTerminalCatalogue([
+    {path:'stories/a & b/story.md',title:'A & B',description:'![Cover](assets/cover.svg)\n\nYou are a maker.\nWhat next?'},
+    {path:'stories/theology/theology.md',title:'Theology',description:'You are Augustine, Aquinas. <script>never execute</script>'},
+  ]);
+  assert.match(html,/data-story="stories\/a &amp; b\/story.md">1\. A &amp; B\. You are a maker\. What next?/);
+  assert.match(html,/2\. THEOLOGY\. You are Augustine, Aquinas\. &lt;script&gt;/);
+  assert.doesNotMatch(html,/<a |<img|<script>|Cover|cover.svg/);
 });
 
 test('baked catalogue uses portable story links and escaped authored text without bundling artwork', () => {

@@ -29,7 +29,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     const index = '<!doctype html><head><!-- catalogue-styles --></head><body><div id="app"><!-- story-catalogue --></div><script type="module" src="/catalogue.js"></script></body>';
     const player = '<!doctype html><body data-catalogue="./index.html"><div>Player template</div><script type="module" src="/player.js"></script></body>';
     write('index-dev.html', index); write('make-something-dev.html', player);
-    for (const style of ['fast','detailed']) write(`text-${style}-dev.html`,player
+    for (const style of ['fast','detailed']) write(`simulator-${style==='fast'?'story':'interactions'}-dev.html`,player
       .replace('<body ',`<body data-play-style="${style}" `)
       .replace('Player template',`Terminal ${style}<!-- terminal-catalogue -->`));
     write('catalogue.js', 'document.body.dataset.catalogue = "one";');
@@ -45,8 +45,8 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     assert.doesNotMatch(read('index.html'), /Excluded brief|stories.json|\/catalogue.js|story-catalogue/);
     assert.doesNotMatch(read('make-something.html'), /\/player.js/);
     for (const style of ['fast','detailed']) {
-      assert.match(read(`text-${style}.html`),new RegExp(`href="text-${style}.html\\?story=stories/shared/story.md"`));
-      assert.doesNotMatch(read(`text-${style}.html`),/terminal-catalogue|Excluded brief|<img/);
+      assert.match(read(`simulator-${style==='fast'?'story':'interactions'}.html`),/data-story="stories\/shared\/story.md">1\. FIRST TITLE\./);
+      assert.doesNotMatch(read(`simulator-${style==='fast'?'story':'interactions'}.html`),/terminal-catalogue|Excluded brief|<img|<a /);
     }
     assert.equal(existsSync(join(root, 'dist')), false);
     assert.equal(existsSync(join(root, 'stories.json')), false);
@@ -90,13 +90,13 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
       assert.match(await (await fetch(new URL(path, base))).text(), /Fresh player template/);
     }
     for (const style of ['fast','detailed']) for (const suffix of ['','-dev']) {
-      const html=await (await fetch(new URL(`text-${style}${suffix}.html`,base))).text();
-      assert.match(html,/Updated title/);assert.match(html,/@vite\/client/);
+      const html=await (await fetch(new URL(`simulator-${style==='fast'?'story':'interactions'}${suffix}.html`,base))).text();
+      assert.match(html,/UPDATED TITLE/);assert.match(html,/@vite\/client/);
     }
     assert.match(await (await fetch(new URL('stories/shared/story.md', base))).text(), /Updated title/);
     assert.equal((await fetch(new URL('stories/shared/missing.md', base))).status, 404);
     assert.equal((await fetch(new URL('stories.json', base))).status, 404);
-    for (const path of ['combinations.html', 'combinations-dev.html', 'stories/shared/combinations.html']) {
+    for (const path of ['combinations.html', 'combinations-dev.html', 'stories/shared/combinations.html','text-fast.html','text-detailed.html']) {
       assert.equal((await fetch(new URL(path, base))).status, 404);
     }
     assert.match(read('index.html'), /First title/); // Dev must not rewrite the committed build.

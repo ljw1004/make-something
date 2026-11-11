@@ -50,3 +50,15 @@ background: ![Not entered](last.svg)
   assert(parts.every(part=>part.kind==='text'));
   assert.equal(parts.map(part=>part.kind==='text'?part.text:'').join(''),renderFrame(terminalFrame(story,end)));
 });
+
+test('checkpoint scrollback pairs scenery with actual chapters even when its history recounts skipped chapters',()=>{
+  const story=parseStory(terminalStory,{id:'terminal'});
+  for (let chapter=1;chapter<=story.chapters.length;chapter++) {
+    const adventure=startAdventure(story,{chapter});
+    const before=structuredClone(adventure);
+    const parts=terminalParts(story,adventure,0,false,chapter);
+    assert.equal(parts.filter(p=>p.kind==='text').map(p=>p.text).join(''),renderFrame(terminalFrame(story,adventure)));
+    assert.deepEqual(parts.filter(p=>p.kind==='image').map(p=>p.chapter),adventure.state.visited);
+    assert.deepEqual(adventure,before);
+  }
+});

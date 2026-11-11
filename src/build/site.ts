@@ -4,7 +4,7 @@ import type { Plugin } from 'vite';
 import { loadStory, storyIds } from '../story/load.ts';
 import { renderCatalogue, renderTerminalCatalogue } from './catalogue.ts';
 
-export const sitePageNames = ['index','make-something','text-fast','text-detailed'] as const;
+export const sitePageNames = ['index','make-something','simulator-story','simulator-interactions'] as const;
 
 const inventory = 'assets/build-files.json';
 const bundleFile = (path: unknown): path is string => typeof path === 'string' && /^assets\/[^/\\]+\.(?:js|css|map)$/.test(path);
@@ -35,7 +35,7 @@ export function sitePages(): Plugin {
         const path = new URL(request.url ?? '/', 'http://localhost').pathname;
         const catalogue = path === '/' || path === '/index.html' || path === '/index-dev.html';
         const player = path === '/make-something-dev.html' || path.endsWith('/make-something.html');
-        const terminal = /^\/(text-fast|text-detailed)(?:-dev)?\.html$/.exec(path)?.[1];
+        const terminal = /^\/(simulator-story|simulator-interactions)(?:-dev)?\.html$/.exec(path)?.[1];
         if (catalogue || player || terminal) {
           try {
             let html = readFileSync(resolve(root, `${catalogue ? 'index' : terminal ?? 'make-something'}-dev.html`), 'utf8');
@@ -77,7 +77,7 @@ export function sitePages(): Plugin {
           return { path: `stories/${path}`, title: story.title, heading: story.heading, description: story.description };
         });
         return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries))
-          .replace('<!-- terminal-catalogue -->', () => renderTerminalCatalogue(entries,html.includes('data-play-style="detailed"') ? 'detailed' : 'fast'));
+          .replace('<!-- terminal-catalogue -->', () => renderTerminalCatalogue(entries));
       },
     },
     generateBundle: {
