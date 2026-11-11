@@ -6,7 +6,9 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib.font_manager import FontProperties
 from matplotlib.lines import Line2D
+from matplotlib.textpath import TextPath
 from matplotlib.ticker import FuncFormatter, MultipleLocator
 
 from plot_category_loop_lengths import AREAS, AREA_COLORS, load_area_snapshot
@@ -106,6 +108,12 @@ def cumulative_figure(groups, metadata):
     # These labels describe cumulative duration cutoffs, not each area's maximum.
     # The shared 6h label rounds the snapshot's longest run of 6h 00m 21s.
     cutoffs = ["1m", "5m", "15m", "1h", "3h", "6h"]
+    label_font = FontProperties(family="DejaVu Sans", size=6.5)
+    marker_sizes = {}
+    for label in cutoffs:
+        bounds = TextPath((0, 0), label, prop=label_font).get_extents()
+        # Enclose the text's corners with only a small margin, in typographic points.
+        marker_sizes[label] = (np.hypot(bounds.width, bounds.height) + 1.5) ** 2
     details = {}
     for area_index, (area, rows) in enumerate(bands.items()):
         populated = [(i, band) for i, band in enumerate(rows) if band["prompts"]]
@@ -114,15 +122,17 @@ def cumulative_figure(groups, metadata):
         assert np.isclose(hours[-1], sum(row["seconds"] for row in groups[area]) / 3600)
         assert prompts[-1] == sum(1 + row["steers"] for row in groups[area])
         color = AREA_COLORS[area]
-        ax.plot(np.r_[0, hours], np.r_[0, prompts], color=color, linewidth=1.8, zorder=2)
+        # Complete each area's line and labeled circles before drawing the next area.
+        area_zorder = 2 + area_index * (2 * len(cutoffs) + 1)
+        ax.plot(np.r_[0, hours], np.r_[0, prompts], color=color, linewidth=1.8, zorder=area_zorder)
         for x, y, (i, band) in zip(hours, prompts, populated):
             gid = f"cumulative-messages-{area}-{i}"
             # Draw each circle and its text together so overlapping dots naturally
             # cover earlier dots, including their labels. Keep edge circles whole.
-            zorder = 3 + 2 * (area_index * len(cutoffs) + i)
-            ax.scatter(x, y, s=380, color=color, edgecolors="none",
+            zorder = area_zorder + 1 + 2 * i
+            ax.scatter(x, y, s=marker_sizes[cutoffs[i]], color=color, edgecolors="none",
                        zorder=zorder, gid=gid, clip_on=False)
-            ax.text(x, y, cutoffs[i], ha="center", va="center", fontsize=6.5,
+            ax.text(x, y, cutoffs[i], ha="center", va="center", fontproperties=label_font,
                     color="white", zorder=zorder + 1, clip_on=False)
             details[gid] = (f"{AREAS[area]} · through {band['label']} · "
                             f"duration cutoff {cutoffs[i]}{' (rounded)' if i == len(cutoffs) - 1 else ''} · "
