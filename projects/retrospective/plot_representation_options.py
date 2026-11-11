@@ -25,9 +25,10 @@ def style_axes(ax, xlabel, ylabel):
     ax.set_ylabel(ylabel, labelpad=12, color="#595959")
 
 
-def legend(figure, y):
+def legend(figure, y, averages=None):
     handles = [Line2D([], [], color=AREA_COLORS[area], marker="o", linewidth=1.5,
-                      label=title + (" (includes Other)" if area == "game-engine" else ""))
+                      label=title + (" (includes Other)" if area == "game-engine" else "")
+                      + (f"\n{averages[area]:.1f} words/prompt" if averages is not None else ""))
                for area, title in AREAS.items()]
     figure.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.52, y),
                   ncol=3, frameon=False, labelcolor="#595959", fontsize=10)
@@ -89,6 +90,9 @@ def bucket_figure(bands, metadata):
 
 
 def cumulative_figure(bands, metadata):
+    averages = {area: sum(band["words"] for band in rows)
+                / sum(band["prompts"] + band["steers"] for band in rows)
+                for area, rows in bands.items()}
     figure, axes = plt.subplots(1, 2, figsize=(13, 7.2), facecolor="white")
     figure.subplots_adjust(left=0.075, right=0.97, bottom=0.22, top=0.77, wspace=0.28)
     details = {}
@@ -121,7 +125,7 @@ def cumulative_figure(bands, metadata):
     figure.suptitle("How words and prompts accumulate alongside hours", y=0.96, fontsize=16, color="#595959")
     figure.text(0.5, 0.895, "Add duration bands from shortest to longest; each dot is the next running total",
                 ha="center", fontsize=11, color="#595959")
-    legend(figure, 0.865)
+    legend(figure, 0.865, averages)
     figure.text(0.075, 0.105, "Duration-band order: Under 1m → 1–5m → 5–15m → 15–60m → 1–3h → 3h+.",
                 fontsize=10, color="#595959")
     footer(figure, metadata, 0.05)
