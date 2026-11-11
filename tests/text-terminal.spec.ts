@@ -109,7 +109,7 @@ test('both pages list current stories, load their unchanged runner openings, and
   for (const style of ['fast','detailed'] as const) {
     await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html`);
     await expect(page.locator('#story-picker [data-story]')).toHaveCount(paths.length);
-    await expect(page.locator('h1')).toHaveText(`MAKE SOMETHING WORTHWHILE (${style==='fast'?'story':'interaction'} engine)`);
+    await expect(page.locator('h1')).toHaveText(`MAKE SOMETHING WORTHWHILE [${style==='fast'?'story':'interaction'} simulator]`);
     await expect(page.locator('a,nav')).toHaveCount(0);
     await expect(page.locator('#story-picker')).toContainText('6. THEOLOGY. You are Augustine, Aquinas, Martin Luther.');
     await page.locator('#command').fill('999');await page.locator('#command').press('Enter');
