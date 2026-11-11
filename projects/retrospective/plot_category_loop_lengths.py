@@ -2,11 +2,12 @@
 """Plot agentic hours by loop length for art, story and game-engine (including other)."""
 
 import argparse
+import csv
+import hashlib
 import json
 from pathlib import Path
 
-from combine_sources import load_combined_snapshot
-from plot_dataset import configure_style, local_time, np, plt
+from plot_dataset import configure_style, load_snapshot, local_time, np, plt
 from plot_time_allocation import duration_hour_groups, loop_length_figure
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -55,7 +56,7 @@ def combined_loop_length_figure(groups, metadata, x_max):
         snapshot = local_time(metadata["captured_at_utc"])
         figure.text(0.12, 0.057,
                     f"{len(ended) + sum(row['steers'] for row in ended):,} prompts · {sum(row['words'] for row in ended):,} words · "
-                    f"{metadata['untimed_records']} prompts without timing · snapshot {snapshot:%d %b %Y}",
+                    f"{metadata['status_counts']['open']} open turns excluded · snapshot {snapshot:%d %b %Y}",
                     fontsize=9, color="#7f7f7f")
         figure.text(0.12, 0.033, "Prompts include steers; words count human writing. Each loop uses its initial prompt’s primary category.",
                     fontsize=9, color="#7f7f7f")
@@ -63,39 +64,35 @@ def combined_loop_length_figure(groups, metadata, x_max):
 
 
 def load_area_snapshot(dataset):
-    """Load classified Codex and Dot records, folding Other into Game-engine."""
-    rows, provenance = load_combined_snapshot(dataset)
-    totals = provenance["totals"]
-    metadata = {
-        "captured_at_utc": max(provenance["sources"]["codex"]["captured_at_utc"],
-                               provenance["sources"]["dot"]["last_message_at_utc"], key=local_time),
-        "untimed_records": totals["records"] - totals["records_with_run_duration"],
-        "word_count": {"ended_loop_words": totals["words_with_run_duration"]},
-    }
+    """Join and validate the classified snapshot, folding Other into Game-engine."""
+    rows, metadata = load_snapshot(dataset)
+    classification_path = dataset / "prompt-classifications.csv"
+    provenance = json.loads((dataset / "classification-metadata.json").read_text())
+    for path, expected in [(dataset / "agentic-loops.csv", provenance["source_sha256"]),
+                           (classification_path, provenance["classifications_sha256"])]:
+        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError(f"Source differs from the classified snapshot: {path}")
+    with classification_path.open(newline="", encoding="utf-8") as handle:
+        labels = list(csv.DictReader(handle))
+    by_id = {row["prompt_id"]: row for row in labels}
+    if len(by_id) != len(labels) or set(by_id) != {row["prompt_id"] for row in rows}:
+        raise ValueError("Classification IDs must uniquely and exactly cover the timing dataset")
     groups = {area: [] for area in AREAS}
     open_counts = {area: 0 for area in AREAS}
     for row in rows:
-        category = row["primary_category"]
+        category = by_id[row["prompt_id"]]["primary_category"]
         area = "game-engine" if category == "other" else category
-        if area not in groups:
-            raise ValueError(f"Unclassified record: {row['record_id']}")
-        row["seconds"] = float(row["duration_seconds"]) if row["duration_seconds"] else None
-        # Plot one initial unit per record plus any separately counted messages.
-        # Dot contributes one message; its unknown steer role stays blank in CSV.
-        row["steers"] = int(row["user_message_count"]) - 1
-        row["words"] = int(row["total_word_count"])
         if row["seconds"] is None:
             open_counts[area] += 1
         else:
             groups[area].append(row)
     ended = [row for row in rows if row["seconds"] is not None]
     assert sum(map(len, groups.values())) == len(ended)
-    assert sum(open_counts.values()) == metadata["untimed_records"]
+    assert sum(open_counts.values()) == metadata["status_counts"]["open"]
     assert sum(row["steers"] for group in groups.values() for row in group) == sum(row["steers"] for row in ended)
     assert sum(row["words"] for group in groups.values() for row in group) == metadata["word_count"]["ended_loop_words"]
     assert np.isclose(sum(row["seconds"] for group in groups.values() for row in group),
-                      totals["recorded_duration_hours"] * 3600)
-    assert sum(1 + row["steers"] for row in ended) == totals["messages_with_run_duration"]
+                      sum(row["seconds"] for row in ended))
     return groups, open_counts, metadata
 
 
@@ -115,13 +112,12 @@ def render(dataset, output):
             if area == "game-engine":
                 note = "Includes Other. Primary category per prompt; mixed loops counted once. Same hours scale on all three charts."
             figure = loop_length_figure(group, seconds, metadata, title=f"{title}: time by loop length",
-                                        x_max=common_x_max, open_count=open_counts[area], scope_note=note,
-                                        excluded_label="prompts without timing")
+                                        x_max=common_x_max, open_count=open_counts[area], scope_note=note)
             figure.savefig(output / f"time-by-loop-length-{area}.png", dpi=180, facecolor="white")
             pdf.savefig(figure, facecolor="white")
             plt.close(figure)
             summary[area] = {"plotted_prompts": len(group), "steers": sum(row["steers"] for row in group),
-                             "hours": seconds / 3600, "untimed_prompts_excluded": open_counts[area]}
+                             "hours": seconds / 3600, "open_turns_excluded": open_counts[area]}
     combined = combined_loop_length_figure(groups, metadata, common_x_max)
     combined_path = output / "time-by-loop-length-combined"
     for extension in ("png", "pdf"):

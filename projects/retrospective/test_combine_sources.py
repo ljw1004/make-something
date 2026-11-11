@@ -39,18 +39,18 @@ class CombinedSourcesTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "input changed"):
                 load_combined_snapshot(root)
 
-    def test_last_reply_interval_supplies_duration_without_inventing_steers(self):
+    def test_last_reply_interval_does_not_supply_run_duration_or_steers(self):
         row = dot_records([message()])[0]
         self.assertEqual(row["seconds_to_last_visible_reply_before_next_prompt"], "3600")
-        self.assertEqual(row["duration_seconds"], "3600")
-        self.assertEqual(row["duration_evidence"], "last_visible_reply_before_next_prompt")
+        self.assertEqual(row["duration_seconds"], "")
+        self.assertEqual(row["duration_evidence"], "unavailable")
         for field in ("initial_prompt_count", "steer_count", "steer_word_count"):
             self.assertEqual(row[field], "")
         totals = summarize([row])
         self.assertEqual(totals["user_messages"], 1)
         self.assertEqual(totals["messages_without_initial_or_steer_classification"], 1)
-        self.assertEqual(totals["records_with_run_duration"], 1)
-        self.assertEqual(totals["recorded_duration_hours"], 1)
+        self.assertEqual(totals["records_with_run_duration"], 0)
+        self.assertEqual(totals["recorded_duration_hours"], 0)
 
     def test_missing_replies_stay_untimed(self):
         row = dot_records([message(first_visible_reply_utc="", seconds_to_first_visible_reply="",
@@ -72,8 +72,8 @@ class CombinedSourcesTests(unittest.TestCase):
         totals = summarize([codex, dot])
         self.assertEqual((totals["records"], totals["user_messages"], totals["human_words"]), (2, 4, 102))
         self.assertEqual((totals["known_initial_prompts"], totals["known_steers"]), (1, 2))
-        self.assertEqual((totals["messages_with_run_duration"], totals["words_with_run_duration"]), (4, 102))
-        self.assertAlmostEqual(totals["recorded_duration_hours"], 1 + 1 / 60)
+        self.assertEqual((totals["messages_with_run_duration"], totals["words_with_run_duration"]), (3, 100))
+        self.assertAlmostEqual(totals["recorded_duration_hours"], 1 / 60)
 
     def test_new_execution_evidence_is_not_silently_discarded(self):
         with self.assertRaisesRegex(ValueError, "update the import policy"):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Combine Codex loops with Dot's prompt-to-last-reply run durations."""
+"""Combine source messages and words, retaining only recorded run durations."""
 
 import argparse
 from collections import Counter
@@ -42,7 +42,7 @@ def instant(value):
 
 
 def dot_records(rows):
-    """Use the user's chosen last-reply duration, counting each Dot message once."""
+    """Keep Dot reply intervals as observations, not agentic run durations."""
     if not rows:
         raise ValueError("Dot export has no messages")
     seen = set()
@@ -86,8 +86,7 @@ def dot_records(rows):
             record_kind="message", prompt_at_utc=row["prompt_sent_utc"], prompt_text=row["prompt_text"],
             user_message_count=1, prompt_word_count=words, total_word_count=words,
             source_prompt_word_count=supplied_words,
-            duration_seconds=row["seconds_to_last_visible_reply_before_next_prompt"],
-            duration_evidence="last_visible_reply_before_next_prompt" if replies else "unavailable",
+            duration_seconds="", duration_evidence="unavailable",
             status="reply_observed" if replies else "unknown", source_file="dots-conversation-data.csv",
             timing_note=row["timing_note"],
         )
@@ -209,12 +208,12 @@ def combine(dataset):
         "word_count_policy": "Existing human-authored-v1 tokenizer; Dot prompt_text trusted as direct human input; supplied counts preserved separately.",
         "duration_policy": {
             "codex": "Recorded task duration from the frozen Codex snapshot.",
-            "dot": "seconds_to_last_visible_reply_before_next_prompt, as requested by the user; each Dot message contributes once.",
+            "dot": "No recorded run durations. Visible-reply intervals are retained separately; all Dot messages are excluded from duration charts.",
         },
         "limits": [
             "Rows have mixed grain: a Codex loop includes its steers; a Dot row is one message with unknown initial/steer role.",
             "Use user_message_count for combined message totals; do not count records as initial prompts.",
-            "Missing Dot reply intervals stay blank and are excluded from duration plots. Steer counts remain unknown; each Dot row adds one plotted prompt.",
+            "Dot reply intervals can end in unrelated background updates and are not used as run durations. Dot steer counts remain unknown.",
             "Dot conversation IDs, attachment bodies and outcomes are not supplied; conversation totals cannot be combined.",
             "The two sources have different capture cutoffs. Their original snapshots remain unchanged.",
         ],

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "dataset": "combined-conversations.csv",
-  "dataset_sha256": "a19b6e769bf107e0238f0f3a83b33bd6f5f39e6c45f5734e9b9bb3cbe9dfbd4a",
+  "dataset_sha256": "3dd0970a1b9767ce2023a096577031aceead0fc56713a8ed2de1032f7ea9da32",
   "input_sha256": {
     "agentic-loops.csv": "588d3e7f7e8941e7841558b16884d7ab18a48b875c92726900ae968225e069ec",
     "metadata.json": "898c33f02943d305bc4ca6fadeec70fac24ad4d6c892d585a183bb8c49affaf8",
@@ -48,10 +48,10 @@
       "known_initial_prompts": 0,
       "known_steers": 0,
       "messages_without_initial_or_steer_classification": 236,
-      "records_with_run_duration": 232,
-      "recorded_duration_hours": 139.06649694444445,
-      "messages_with_run_duration": 232,
-      "words_with_run_duration": 19715
+      "records_with_run_duration": 0,
+      "recorded_duration_hours": 0.0,
+      "messages_with_run_duration": 0,
+      "words_with_run_duration": 0
     }
   },
   "totals": {
@@ -65,20 +65,20 @@
     "known_initial_prompts": 537,
     "known_steers": 491,
     "messages_without_initial_or_steer_classification": 236,
-    "records_with_run_duration": 766,
-    "recorded_duration_hours": 274.7693175,
-    "messages_with_run_duration": 1257,
-    "words_with_run_duration": 94448
+    "records_with_run_duration": 534,
+    "recorded_duration_hours": 135.70282055555555,
+    "messages_with_run_duration": 1025,
+    "words_with_run_duration": 74733
   },
   "word_count_policy": "Existing human-authored-v1 tokenizer; Dot prompt_text trusted as direct human input; supplied counts preserved separately.",
   "duration_policy": {
     "codex": "Recorded task duration from the frozen Codex snapshot.",
-    "dot": "seconds_to_last_visible_reply_before_next_prompt, as requested by the user; each Dot message contributes once."
+    "dot": "No recorded run durations. Visible-reply intervals are retained separately; all Dot messages are excluded from duration charts."
   },
   "limits": [
     "Rows have mixed grain: a Codex loop includes its steers; a Dot row is one message with unknown initial/steer role.",
     "Use user_message_count for combined message totals; do not count records as initial prompts.",
-    "Missing Dot reply intervals stay blank and are excluded from duration plots. Steer counts remain unknown; each Dot row adds one plotted prompt.",
+    "Dot reply intervals can end in unrelated background updates and are not used as run durations. Dot steer counts remain unknown.",
     "Dot conversation IDs, attachment bodies and outcomes are not supplied; conversation totals cannot be combined.",
     "The two sources have different capture cutoffs. Their original snapshots remain unchanged."
   ]
