@@ -10,10 +10,11 @@ import json
 from pathlib import Path
 
 from build_dataset import collect_turns, instant, read_events
-from word_counts import WORD_FIELDS, loop_word_counts, word_count_summary
+from word_counts import AttachmentAudit, WORD_FIELDS, loop_word_counts, word_count_summary
 
 
 def enrich(dataset, codex_home):
+    attachment_audit = AttachmentAudit(dataset / "attachment-audit.json")
     source = dataset / "agentic-loops.csv"
     old_hash = hashlib.sha256(source.read_bytes()).hexdigest()
     with source.open(newline="", encoding="utf-8") as handle:
@@ -50,7 +51,7 @@ def enrich(dataset, codex_home):
                 if user["id"] in seen_messages:
                     raise ValueError(f"Repeated user message across saved loops: {user['id']}")
                 seen_messages.add(user["id"])
-            row.update(loop_word_counts(users, codex_home))
+            row.update(loop_word_counts(users, codex_home, attachment_audit))
     if len(rows) != metadata["initial_prompts"] or len(seen_messages) != metadata["user_messages"]:
         raise ValueError("Recovered message totals differ from the snapshot")
     if original != [{key: value for key, value in row.items() if key not in WORD_FIELDS} for row in rows]:
@@ -60,7 +61,7 @@ def enrich(dataset, codex_home):
     writer.writeheader()
     writer.writerows(rows)
     data = buffer.getvalue().encode("utf-8")
-    metadata.update(schema_version=2, word_count=word_count_summary(rows))
+    metadata.update(schema_version=3, word_count=word_count_summary(rows, attachment_audit))
     if provenance:
         provenance.setdefault("source_enrichment", {
             "source_before_sha256": old_hash,

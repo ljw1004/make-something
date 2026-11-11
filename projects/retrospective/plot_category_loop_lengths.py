@@ -58,7 +58,7 @@ def combined_loop_length_figure(groups, metadata, x_max):
                     f"{len(ended) + sum(row['steers'] for row in ended):,} prompts · {sum(row['words'] for row in ended):,} words · "
                     f"{metadata['status_counts']['open']} open turns excluded · snapshot {snapshot:%d %b %Y}",
                     fontsize=9, color="#7f7f7f")
-        figure.text(0.12, 0.033, "Prompts include steers; words include pasted text. Each loop uses its initial prompt’s primary category.",
+        figure.text(0.12, 0.033, "Prompts include steers; words count human writing. Each loop uses its initial prompt’s primary category.",
                     fontsize=9, color="#7f7f7f")
         return figure
 

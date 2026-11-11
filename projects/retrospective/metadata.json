@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "captured_at_utc": "2026-11-11T17:28:35.023Z",
   "display_timezone": "America/Los_Angeles",
   "repository": "/Users/ljw/code/combination-challenge",
@@ -42,14 +42,19 @@
     }
   ],
   "word_count": {
+    "policy": "human-authored-v1",
     "tokenization": "Unicode letter/number sequences; internal apostrophes and hyphens stay within a word",
-    "includes": "User message text and full pasted-text attachments, including quoted text, code and debug logs",
-    "excludes": "App-generated wrappers, attachment previews/paths, question-reply questions/IDs, selected assistant text in response annotations, images and non-text attachments",
+    "includes": "Direct user input trusted as human-authored, plus audited human-written text-attachment content",
+    "excludes": "Generated diagnostic attachments, unchanged source in mixed attachments, app-generated wrappers, attachment previews/paths, question-reply questions/IDs, selected assistant text in response annotations, images and non-text attachments",
     "question_replies": "Count only the answer strings",
     "steer_order": "Source-log order after message-ID deduplication",
-    "prompt_words": 88074,
+    "attachment_audit": {
+      "file": "attachment-audit.json",
+      "sha256": "d306861d854784f1aae5eb11bd6b4a1c5981ca60af470146d9a2b8b3b8499ced"
+    },
+    "prompt_words": 51477,
     "steer_words": 23326,
-    "total_words": 111400,
-    "ended_loop_words": 111330
+    "total_words": 74803,
+    "ended_loop_words": 74733
   }
 }

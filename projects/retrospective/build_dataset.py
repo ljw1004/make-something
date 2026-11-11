@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 import sqlite3
 
-from word_counts import WORD_FIELDS, loop_word_counts, word_count_summary
+from word_counts import AttachmentAudit, WORD_FIELDS, loop_word_counts, word_count_summary
 
 
 FIELDS = [
@@ -114,7 +114,7 @@ def collect_turns(events):
     return turns, duplicate_messages
 
 
-def timing_row(thread, turn_id, turn, last_observed, source_log, codex_home=None):
+def timing_row(thread, turn_id, turn, last_observed, source_log, codex_home=None, attachment_audit=None):
     prompt = turn["users"][0]
     end = turn["end"]
     terminal = turn.get("end_payload", {})
@@ -161,11 +161,12 @@ def timing_row(thread, turn_id, turn, last_observed, source_log, codex_home=None
     for field in ("duration_seconds", "prompt_to_end_seconds", "observed_seconds"):
         if row[field] != "" and row[field] < 0:
             raise ValueError(f"Negative {field} in {turn_id}")
-    row.update(loop_word_counts(turn["users"], codex_home or Path.home() / ".codex"))
+    row.update(loop_word_counts(turn["users"], codex_home or Path.home() / ".codex", attachment_audit))
     return row
 
 
 def build(codex_home, repository, output):
+    attachment_audit = AttachmentAudit()
     cutoff = datetime.now(timezone.utc)
     state_path = codex_home / "state_5.sqlite"
     with sqlite3.connect(state_path.as_uri() + "?mode=ro", uri=True) as db:
@@ -198,14 +199,14 @@ def build(codex_home, repository, output):
                 if message["id"] in all_message_ids:
                     raise ValueError(f"Copied user history across conversations: {message['id']}")
                 all_message_ids.add(message["id"])
-            row = timing_row(thread, turn_id, turn, last_observed, source_log, codex_home)
+            row = timing_row(thread, turn_id, turn, last_observed, source_log, codex_home, attachment_audit)
             all_prompt_ids.add(row["prompt_id"])
             rows.append(row)
     rows.sort(key=lambda row: (row["prompt_at_utc"], row["conversation_id"], row["turn_id"]))
     if len(all_prompt_ids) != len(rows):
         raise ValueError("Non-unique initial prompt IDs")
     metadata = {
-        "schema_version": 2,
+        "schema_version": 3,
         "captured_at_utc": cutoff.isoformat(timespec="milliseconds").replace("+00:00", "Z"),
         "display_timezone": "America/Los_Angeles",
         "repository": str(repository),
@@ -225,9 +226,12 @@ def build(codex_home, repository, output):
         "last_prompt_at_utc": rows[-1]["prompt_at_utc"] if rows else None,
         "duplicate_message_events_ignored": duplicates,
         "excluded_turns": excluded,
-        "word_count": word_count_summary(rows),
+        "word_count": word_count_summary(rows, attachment_audit),
     }
     output.mkdir(parents=True, exist_ok=True)
+    audit_output = output / attachment_audit.path.name
+    if audit_output.resolve() != attachment_audit.path.resolve():
+        audit_output.write_bytes(attachment_audit.path.read_bytes())
     with (output / "agentic-loops.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS)
         writer.writeheader()

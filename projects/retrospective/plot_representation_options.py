@@ -36,14 +36,14 @@ def legend(figure, y):
 def footer(figure, metadata, y):
     snapshot = local_time(metadata["captured_at_utc"])
     figure.text(0.08, y,
-                f"Prompts include steers; words include pasted text. {metadata['status_counts']['open']} open loops excluded. Snapshot {snapshot:%d %b %Y}.",
+                f"Prompts include steers; words count human writing. {metadata['status_counts']['open']} open loops excluded. Snapshot {snapshot:%d %b %Y}.",
                 fontsize=9, color="#7f7f7f")
 
 
 def bucket_figure(bands, metadata):
     figure = plt.figure(figsize=(12, 8.3), facecolor="white")
     ax = figure.add_axes([0.09, 0.22, 0.87, 0.60])
-    style_axes(ax, "Total agentic duration in the bucket (hours)", "Total words in the bucket")
+    style_axes(ax, "Total agentic duration in the bucket (hours)", "Total human-written words in the bucket")
     # Short numeric labels keep the crowded low-duration region legible. Full
     # bucket names and exact values are available on hover in the SVG export.
     offsets = {
@@ -80,7 +80,7 @@ def bucket_figure(bands, metadata):
     legend(figure, 0.888)
     size_handles = [plt.scatter([], [], s=count * 5, color="#a5a5a5", alpha=0.65,
                                 edgecolor="white", label=f"{count} prompts") for count in (25, 75, 150)]
-    ax.legend(handles=size_handles, loc="upper right", frameon=False, fontsize=9,
+    ax.legend(handles=size_handles, loc="best", frameon=False, fontsize=9,
               labelspacing=1.6, borderpad=1, labelcolor="#595959")
     figure.text(0.09, 0.105, "1  Under 1m       2  1–5m       3  5–15m       4  15–60m       5  1–3h       6  3h+",
                 fontsize=10, color="#595959")
@@ -92,7 +92,7 @@ def cumulative_figure(bands, metadata):
     figure, axes = plt.subplots(1, 2, figsize=(13, 7.2), facecolor="white")
     figure.subplots_adjust(left=0.075, right=0.97, bottom=0.22, top=0.77, wspace=0.28)
     details = {}
-    for ax, quantity, ylabel in zip(axes, ("words", "messages"), ("Cumulative words", "Cumulative prompts")):
+    for ax, quantity, ylabel in zip(axes, ("words", "messages"), ("Cumulative human-written words", "Cumulative prompts")):
         style_axes(ax, "Cumulative agentic duration (hours)", ylabel)
         maximum_hours = max(sum(band["hours"] for band in rows) for rows in bands.values())
         ax.set_xlim(0, np.ceil(maximum_hours * 1.12))
@@ -111,8 +111,9 @@ def cumulative_figure(bands, metadata):
                 details[gid] = (f"{AREAS[area]} · through {band['label']} · "
                                 f"{x:.2f} cumulative hours · {y:,} cumulative {quantity}")
             final = "Game-engine" if area == "game-engine" else AREAS[area]
-            ax.annotate(final, (hours[-1], values[-1]), xytext=(0, 11), textcoords="offset points",
-                        ha="center", fontsize=10, color=AREA_COLORS[area])
+            offset, alignment = ((8, -10), "left") if quantity == "words" and area == "game-engine" else ((0, 11), "center")
+            ax.annotate(final, (hours[-1], values[-1]), xytext=offset, textcoords="offset points",
+                        ha=alignment, fontsize=10, color=AREA_COLORS[area])
         maximum_value = max(sum(band["words"] if quantity == "words" else band["prompts"] + band["steers"]
                                 for band in rows) for rows in bands.values())
         ax.set_ylim(0, maximum_value * 1.17)

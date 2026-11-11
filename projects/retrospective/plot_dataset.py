@@ -5,6 +5,7 @@ import argparse
 from collections import Counter
 import csv
 from datetime import datetime, timedelta
+import hashlib
 import json
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -149,6 +150,9 @@ def steers(ax, rows):
 
 def load_snapshot(dataset):
     metadata = json.loads((dataset / "metadata.json").read_text())
+    audit = metadata["word_count"]["attachment_audit"]
+    if hashlib.sha256((dataset / audit["file"]).read_bytes()).hexdigest() != audit["sha256"]:
+        raise ValueError("Attachment audit changed; recompute word counts before plotting")
     with (dataset / "agentic-loops.csv").open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     for row in rows:

@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-11",
+  "snapshot_captured_at_utc": "2026-11-11T17:28:35.023Z",
+  "policy": "Trust text entered directly as human-authored; count only audited human-written portions of text attachments; images contribute no words. Repeated submissions count each time.",
+  "coverage": {
+    "user_messages": 1028,
+    "text_attachment_occurrences": 9,
+    "unique_text_contents": 7,
+    "image_blocks_excluded": 68,
+    "initial_attachment_messages": 9,
+    "steer_attachment_messages": 0
+  },
+  "reviews": [
+    {
+      "sha256": "4ebca3c17723fa636864863f9d3b998fda9c03c3a0a90644bef42dd41360fdd4",
+      "raw_word_count": 34734,
+      "decision": "exclude",
+      "counted_word_count": 0,
+      "description": "Machine-generated drag-event JSON trace",
+      "basis": "The user explicitly excluded this diagnostic payload. The JSON contains 344 event records, timestamps and coordinates rather than authored prose."
+    },
+    {
+      "sha256": "d1e583f52725aa6e9dcc12e8d54e90a8f13ff5b5a4be6e51f7ae631172d9592a",
+      "raw_word_count": 661,
+      "decision": "partial",
+      "counted_word_count": 40,
+      "description": "Cookbook excerpt with human rewrites amid existing manuscript text",
+      "basis": "The user described this as their suggested rewrite of the first three chapters. Comparison with the last committed manuscript before the first paste isolates the new synopsis, headings, image captions and chapter prose; unchanged source, notes, mechanics, image paths and coordinates are excluded.",
+      "included_spans": [
+        {
+          "start": 12,
+          "end": 81
+        },
+        {
+          "start": 1653,
+          "end": 1666
+        },
+        {
+          "start": 1669,
+          "end": 1678
+        },
+        {
+          "start": 1735,
+          "end": 1760
+        },
+        {
+          "start": 1760,
+          "end": 1783
+        },
+        {
+          "start": 3161,
+          "end": 3170
+        },
+        {
+          "start": 3173,
+          "end": 3178
+        },
+        {
+          "start": 3239,
+          "end": 3247
+        },
+        {
+          "start": 3247,
+          "end": 3267
+        },
+        {
+          "start": 4192,
+          "end": 4211
+        },
+        {
+          "start": 4214,
+          "end": 4229
+        },
+        {
+          "start": 4282,
+          "end": 4300
+        },
+        {
+          "start": 4300,
+          "end": 4358
+        }
+      ],
+      "span_units": "Zero-based Unicode character offsets, end-exclusive, in UTF-8-decoded attachment bytes",
+      "baseline": {
+        "commit": "30522b05441304b7a364a183abdc287d8a654a34",
+        "path": "stories/cookbook/cookbook.md",
+        "scope": "Preface and first three chapters"
+      },
+      "authorship_context_prompt_id": "678e16dd-16c7-4703-bcb3-364a2f005f0f"
+    },
+    {
+      "sha256": "cf3f0f3c06a9e7fccc048a3a860442264a14d2e0192f808bbb63061fb211a47a",
+      "raw_word_count": 1743,
+      "decision": "include",
+      "counted_word_count": 1743,
+      "description": "Mars editorial and artwork feedback",
+      "basis": "Read the complete document: first-person, chapter-specific criticism, rewrite suggestions and requests addressed to the assistant, consistent with the surrounding user conversation. Counted as human-authored feedback; this is a contextual attribution, not independent proof of authorship."
+    },
+    {
+      "sha256": "085d19590e7aacad66de4ff8bf483be388f6f3d4bc01cffd48a07749d145238d",
+      "raw_word_count": 1211,
+      "decision": "include",
+      "counted_word_count": 1211,
+      "description": "Mars editorial and artwork feedback",
+      "basis": "Read the complete document: first-person, chapter-specific criticism, rewrite suggestions and requests addressed to the assistant, consistent with the surrounding user conversation. Counted as human-authored feedback; this is a contextual attribution, not independent proof of authorship."
+    },
+    {
+      "sha256": "98d419768e69244858dc075658015cccb53f743abe531a29d9c7ee1518ec6224",
+      "raw_word_count": 1902,
+      "decision": "include",
+      "counted_word_count": 1902,
+      "description": "Mars editorial and artwork feedback",
+      "basis": "Read the complete document: first-person, chapter-specific criticism, rewrite suggestions and requests addressed to the assistant, consistent with the surrounding user conversation. Counted as human-authored feedback; this is a contextual attribution, not independent proof of authorship."
+    },
+    {
+      "sha256": "732d48de2682bdfc4d35e664e8597671638a40cf9f852f0327bc2a51fbc0ae15",
+      "raw_word_count": 1432,
+      "decision": "include",
+      "counted_word_count": 1432,
+      "description": "Mars editorial and artwork feedback",
+      "basis": "Read the complete document: first-person, chapter-specific criticism, rewrite suggestions and requests addressed to the assistant, consistent with the surrounding user conversation. Counted as human-authored feedback; this is a contextual attribution, not independent proof of authorship."
+    },
+    {
+      "sha256": "dece5cf7f1f0763bd729e3110763896bb1ea4bf308ed8b8a6f9c6e4eee341b6f",
+      "raw_word_count": 1261,
+      "decision": "include",
+      "counted_word_count": 1261,
+      "description": "Settlement editorial feedback",
+      "basis": "Read the complete document: first-person, chapter-specific criticism, rewrite suggestions and requests addressed to the assistant, consistent with the surrounding user conversation. Counted as human-authored feedback; this is a contextual attribution, not independent proof of authorship."
+    }
+  ],
+  "occurrences": [
+    {
+      "relative_path": "attachments/27424827-5843-430b-beea-39d3b3cdc5aa/Pasted text.txt",
+      "sha256": "4ebca3c17723fa636864863f9d3b998fda9c03c3a0a90644bef42dd41360fdd4",
+      "message_id": "4e12da17-599f-42c5-95bc-3db56fad3c6a",
+      "initial_prompt_id": "4e12da17-599f-42c5-95bc-3db56fad3c6a",
+      "at": "2026-11-01T21:07:13.189Z"
+    },
+    {
+      "relative_path": "attachments/59f9a265-6666-48d9-8d3e-eb2e7ec28e33/Pasted text.txt",
+      "sha256": "d1e583f52725aa6e9dcc12e8d54e90a8f13ff5b5a4be6e51f7ae631172d9592a",
+      "message_id": "86f7bf79-195e-4514-9bd2-0a6642f081c1",
+      "initial_prompt_id": "86f7bf79-195e-4514-9bd2-0a6642f081c1",
+      "at": "2026-11-01T21:29:23.143Z"
+    },
+    {
+      "relative_path": "attachments/aa0948fd-6b0c-4754-bcd2-df7fc2a93796/Pasted text.txt",
+      "sha256": "d1e583f52725aa6e9dcc12e8d54e90a8f13ff5b5a4be6e51f7ae631172d9592a",
+      "message_id": "678e16dd-16c7-4703-bcb3-364a2f005f0f",
+      "initial_prompt_id": "678e16dd-16c7-4703-bcb3-364a2f005f0f",
+      "at": "2026-11-01T21:35:54.466Z"
+    },
+    {
+      "relative_path": "attachments/965993a6-3cbd-4922-84de-a40fceeb55fd/Pasted text.txt",
+      "sha256": "d1e583f52725aa6e9dcc12e8d54e90a8f13ff5b5a4be6e51f7ae631172d9592a",
+      "message_id": "00118fb3-6153-4b2e-8a83-a34809e42921",
+      "initial_prompt_id": "00118fb3-6153-4b2e-8a83-a34809e42921",
+      "at": "2026-11-01T21:36:55.188Z"
+    },
+    {
+      "relative_path": "attachments/6cc9d623-7afa-4a68-ab49-63d555ff0c74/Pasted text.txt",
+      "sha256": "cf3f0f3c06a9e7fccc048a3a860442264a14d2e0192f808bbb63061fb211a47a",
+      "message_id": "c00fa622-8143-4551-8c42-656480c38a3f",
+      "initial_prompt_id": "c00fa622-8143-4551-8c42-656480c38a3f",
+      "at": "2026-11-04T08:35:40.517Z"
+    },
+    {
+      "relative_path": "attachments/48b5a996-839a-48f5-94b2-ce975b11b444/Pasted text.txt",
+      "sha256": "085d19590e7aacad66de4ff8bf483be388f6f3d4bc01cffd48a07749d145238d",
+      "message_id": "17767fcd-8840-4960-9b64-6cec98644510",
+      "initial_prompt_id": "17767fcd-8840-4960-9b64-6cec98644510",
+      "at": "2026-11-04T15:16:40.870Z"
+    },
+    {
+      "relative_path": "attachments/e73f5bae-3e3a-4181-b16e-87cee7cac3b8/Pasted text.txt",
+      "sha256": "98d419768e69244858dc075658015cccb53f743abe531a29d9c7ee1518ec6224",
+      "message_id": "46de33ec-6e4e-4a91-9e3f-215c934dd423",
+      "initial_prompt_id": "46de33ec-6e4e-4a91-9e3f-215c934dd423",
+      "at": "2026-11-04T19:50:30.293Z"
+    },
+    {
+      "relative_path": "attachments/548dd5af-527f-4774-b483-1fb6e868ed59/Pasted text.txt",
+      "sha256": "732d48de2682bdfc4d35e664e8597671638a40cf9f852f0327bc2a51fbc0ae15",
+      "message_id": "58b5c263-c5a7-48f5-9baa-9e4cef87e4b6",
+      "initial_prompt_id": "58b5c263-c5a7-48f5-9baa-9e4cef87e4b6",
+      "at": "2026-11-05T01:40:19.865Z"
+    },
+    {
+      "relative_path": "attachments/82110dc2-29ec-47d8-a6c1-8da01661b8fb/Pasted text.txt",
+      "sha256": "dece5cf7f1f0763bd729e3110763896bb1ea4bf308ed8b8a6f9c6e4eee341b6f",
+      "message_id": "6536136f-f623-4e85-ac76-8aa811761050",
+      "initial_prompt_id": "6536136f-f623-4e85-ac76-8aa811761050",
+      "at": "2026-11-10T04:30:30.720Z"
+    }
+  ]
+}

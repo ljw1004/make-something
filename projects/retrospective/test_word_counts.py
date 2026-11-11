@@ -11,7 +11,7 @@ import unittest
 
 from add_word_counts import enrich
 from build_dataset import collect_turns, timing_row
-from word_counts import WORD_FIELDS, count_words, loop_word_counts, message_word_count
+from word_counts import AttachmentAudit, WORD_FIELDS, count_words, loop_word_counts, message_word_count
 
 
 class WordCountTests(unittest.TestCase):
@@ -38,12 +38,50 @@ class WordCountTests(unittest.TestCase):
             attachment = home / 'attachments' / 'example' / 'Pasted text.txt'
             attachment.parent.mkdir(parents=True)
             attachment.write_text('pasted body\nwith five words')
+            audit_path = home / 'attachment-audit.json'
+            audit_path.write_text(json.dumps({"reviews": [{
+                "sha256": hashlib.sha256(attachment.read_bytes()).hexdigest(), "decision": "include",
+                "raw_word_count": 5, "counted_word_count": 5,
+            }]}))
+            audit = AttachmentAudit(audit_path)
             message = (f'# Files pasted by the user:\n\n## "pasted body with five words…": {attachment}\n'
                        '\nPasted text contains the user\'s request.\n\n## My request:\nAlso this.')
-            self.assertEqual(message_word_count(message, home), 7)
+            self.assertEqual(message_word_count(message, home, audit), 7)
             attachment.unlink()
             with self.assertRaises(FileNotFoundError):
-                message_word_count(message, home)
+                message_word_count(message, home, audit)
+
+    def test_attachment_audit_excludes_generated_text_and_selects_human_edits(self):
+        mixed = 'Inherited material.\nMy new request.\n'
+        generated = b'Generated diagnostic payload 123'
+        start = mixed.index('My new request.')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'attachment-audit.json'
+            path.write_text(json.dumps({"reviews": [
+                {"sha256": hashlib.sha256(mixed.encode()).hexdigest(), "decision": "partial",
+                 "raw_word_count": 5, "counted_word_count": 3,
+                 "included_spans": [{"start": start, "end": len(mixed)}]},
+                {"sha256": hashlib.sha256(generated).hexdigest(), "decision": "exclude",
+                 "raw_word_count": 4, "counted_word_count": 0},
+            ]}))
+            audit = AttachmentAudit(path)
+            self.assertEqual(audit.count(mixed.encode()), 3)
+            self.assertEqual(audit.count(generated), 0)
+            # The user's explicit trust rule applies to direct input, regardless of its appearance.
+            self.assertEqual(message_word_count(generated.decode(), Path(directory), audit), 4)
+            with self.assertRaisesRegex(ValueError, 'has not been audited'):
+                audit.count((mixed + 'New content.').encode())
+
+    def test_image_blocks_do_not_contribute_words(self):
+        turns, _ = collect_turns([
+            (1, '2026-11-01T00:00:00Z', {"type": "task_started", "turn_id": "t"}),
+            (2, '2026-11-01T00:00:01Z', {"type": "item_completed", "turn_id": "t", "item": {
+                "type": "UserMessage", "client_id": "p", "content": [
+                    {"type": "text", "text": "Use my sketch"},
+                    {"type": "image", "text": "Image metadata must never count", "url": "data:image/png;base64,abc"},
+                ]}}),
+        ])
+        self.assertEqual(loop_word_counts(turns['t']['users'], Path('/unused'))['total_word_count'], 3)
 
     def test_response_annotations_count_comments_and_request_only(self):
         message = ('# Response annotations:\nGenerated instructions do not count.\n<response-annotations>\n'
@@ -70,6 +108,7 @@ class WordCountTests(unittest.TestCase):
             home, dataset = root / 'codex', root / 'dataset'
             home.mkdir()
             dataset.mkdir()
+            (dataset / 'attachment-audit.json').write_text(json.dumps({"reviews": []}))
             (home / 'source.jsonl').write_text(''.join(json.dumps(record) + '\n' for record in records))
             turns, _ = collect_turns([(i + 1, record["timestamp"], record["payload"])
                                       for i, record in enumerate(records[:4])])
