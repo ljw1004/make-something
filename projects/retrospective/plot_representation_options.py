@@ -95,16 +95,20 @@ def cumulative_figure(groups, metadata):
     # Preserve the former right panel's physical plot dimensions and axis limits.
     plot_width = 13 * (0.97 - 0.075) / (2 + 0.28)
     plot_height = 7.2 * (0.77 - 0.22)
-    figure = plt.figure(figsize=(6.5, 6.25), facecolor="white")
-    ax = figure.add_axes([0.145, 0.24, plot_width / 6.5, plot_height / 6.25])
-    style_axes(ax, "Cumulative agentic duration (hours)", "Cumulative prompts")
+    figure = plt.figure(figsize=(6.5, 4.95), facecolor="white")
+    ax = figure.add_axes([0.145, 0.15, plot_width / 6.5, plot_height / 4.95])
+    style_axes(ax, "Cumulative duration of agentic runs", "How many prompts")
     maximum_hours = max(sum(band["hours"] for band in rows) for rows in bands.values())
     maximum_prompts = max(sum(band["prompts"] + band["steers"] for band in rows) for rows in bands.values())
     ax.set_xlim(0, np.ceil(maximum_hours * 1.12))
     ax.set_ylim(0, maximum_prompts * 1.17)
     ax.xaxis.set_major_locator(MultipleLocator(20))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
-    area_positions = {"art": (37, 228), "story": (73, 553), "game-engine": (14, 420)}
+    area_labels = {
+        "art": ((10, 0), "left", "center"),
+        "story": ((0, -16), "right", "top"),
+        "game-engine": ((-48, 14), "left", "bottom"),
+    }
     # These labels describe cumulative duration cutoffs, not each area's maximum.
     # The shared 6h label rounds the snapshot's longest run of 6h 00m 21s.
     cutoffs = ["1m", "5m", "15m", "1h", "3h", "6h"]
@@ -137,17 +141,15 @@ def cumulative_figure(groups, metadata):
                             f"duration cutoff {cutoffs[i]}{' (rounded)' if i == len(cutoffs) - 1 else ''} · "
                             f"{x:.2f} cumulative hours · {y:,} cumulative prompts")
         average = sum(row["words"] for row in groups[area]) / prompts[-1]
-        ax.text(*area_positions[area], f"{AREAS[area]}.\n{average:.0f} words/prompt",
-                fontsize=11, color=color, va="center", linespacing=1.4)
-    figure.suptitle("Prompts and agentic hours", y=0.97, fontsize=16, color="#595959")
-    figure.text(0.54, 0.916, "Accumulate runs from shortest to longest",
-                ha="center", fontsize=10, color="#595959")
-    snapshot = local_time(metadata["captured_at_utc"])
-    figure.text(0.145, 0.04,
-                "Dots show cumulative run-duration cutoffs (rounded).\n"
-                "Prompts include steers; words count human writing.\n"
-                f"Game-engine includes Other. {metadata['status_counts']['open']} open loops excluded. {snapshot:%d %b %Y}.",
-                fontsize=8.5, color="#7f7f7f", linespacing=1.4)
+        offset, horizontal, vertical = area_labels[area]
+        ax.annotate(f"{AREAS[area]}\n(avg {average:.0f} words/prompt)", (hours[-1], prompts[-1]),
+                    xytext=offset, textcoords="offset points", ha=horizontal, va=vertical,
+                    fontsize=10, color=color, linespacing=1.25,
+                    zorder=area_zorder + 2 * len(cutoffs) + 0.5)
+    ax.text(0.03, 0.965, "How I prompted: cumulative totals", transform=ax.transAxes,
+            ha="left", va="top", fontsize=14, color="#595959", zorder=50)
+    ax.text(0.03, 0.90, "From shortest agentic runs (1m) to longest (6h)", transform=ax.transAxes,
+            ha="left", va="top", fontsize=9.5, color="#595959", zorder=50)
     return figure, details
 
 
