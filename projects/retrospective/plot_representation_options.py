@@ -109,11 +109,10 @@ def cumulative_figure(groups, metadata):
     # The shared 6h label rounds the snapshot's longest run of 6h 00m 21s.
     cutoffs = ["1m", "5m", "15m", "1h", "3h", "6h"]
     label_font = FontProperties(family="DejaVu Sans", size=6.5)
-    marker_sizes = {}
-    for label in cutoffs:
-        bounds = TextPath((0, 0), label, prop=label_font).get_extents()
-        # Enclose the text's corners with only a small margin, in typographic points.
-        marker_sizes[label] = (np.hypot(bounds.width, bounds.height) + 1.5) ** 2
+    bounds = [TextPath((0, 0), label, prop=label_font).get_extents()
+              for label in cutoffs if len(label) == 2]
+    # One size fits the short labels closely; 15m may extend beyond its circle.
+    marker_size = (max(np.hypot(box.width, box.height) for box in bounds) + 1.5) ** 2
     details = {}
     for area_index, (area, rows) in enumerate(bands.items()):
         populated = [(i, band) for i, band in enumerate(rows) if band["prompts"]]
@@ -130,7 +129,7 @@ def cumulative_figure(groups, metadata):
             # Draw each circle and its text together so overlapping dots naturally
             # cover earlier dots, including their labels. Keep edge circles whole.
             zorder = area_zorder + 1 + 2 * i
-            ax.scatter(x, y, s=marker_sizes[cutoffs[i]], color=color, edgecolors="none",
+            ax.scatter(x, y, s=marker_size, color=color, edgecolors="none",
                        zorder=zorder, gid=gid, clip_on=False)
             ax.text(x, y, cutoffs[i], ha="center", va="center", fontproperties=label_font,
                     color="white", zorder=zorder + 1, clip_on=False)
