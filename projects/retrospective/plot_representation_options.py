@@ -88,11 +88,6 @@ def bucket_figure(bands, metadata):
     return figure, details
 
 
-def longest_duration_label(seconds):
-    hours, minutes = divmod(round(seconds / 60), 60)
-    return f"{hours}h" + (f" {minutes}m" if minutes else "")
-
-
 def cumulative_figure(groups, metadata):
     bands = {area: duration_hour_groups(rows) for area, rows in groups.items()}
     # Preserve the former right panel's physical plot dimensions and axis limits.
@@ -107,38 +102,31 @@ def cumulative_figure(groups, metadata):
     ax.set_ylim(0, maximum_prompts * 1.17)
     ax.xaxis.set_major_locator(MultipleLocator(20))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
-    # Positions are in points relative to each dot, so the small labels stay
-    # legible around the crowded origin without changing the data geometry.
-    dot_offsets = {
-        "art": [(12, 0), (24, 0), (12, -3), (9, -13), (-9, 11), (10, -10)],
-        "story": [(12, 7), (14, 16), (10, -5), (9, -9), (0, 10), (-3, -15)],
-        "game-engine": [(10, 3), (10, 2), (10, 0), (-5, 11)],
-    }
     area_positions = {"art": (37, 228), "story": (73, 553), "game-engine": (14, 420)}
-    cutoffs = ["1m", "5m", "15m", "1h", "3h"]
+    # These labels describe cumulative duration cutoffs, not each area's maximum.
+    # The shared 6h label rounds the snapshot's longest run of 6h 00m 21s.
+    cutoffs = ["1m", "5m", "15m", "1h", "3h", "6h"]
     details = {}
-    for area, rows in bands.items():
+    for area_index, (area, rows) in enumerate(bands.items()):
         populated = [(i, band) for i, band in enumerate(rows) if band["prompts"]]
         hours = np.cumsum([band["hours"] for _, band in populated])
         prompts = np.cumsum([band["prompts"] + band["steers"] for _, band in populated])
         assert np.isclose(hours[-1], sum(row["seconds"] for row in groups[area]) / 3600)
         assert prompts[-1] == sum(1 + row["steers"] for row in groups[area])
-        longest = max(row["seconds"] for row in groups[area])
         color = AREA_COLORS[area]
         ax.plot(np.r_[0, hours], np.r_[0, prompts], color=color, linewidth=1.8, zorder=2)
         for x, y, (i, band) in zip(hours, prompts, populated):
             gid = f"cumulative-messages-{area}-{i}"
-            ax.scatter(x, y, s=28, color=color, edgecolor="white", linewidth=0.5, zorder=3, gid=gid)
-            label = cutoffs[i] if i < len(cutoffs) else longest_duration_label(longest)
-            offset = dot_offsets[area][i]
-            ax.annotate(label, (x, y), xytext=offset, textcoords="offset points",
-                        ha="right" if offset[0] < 0 else "left", va="center",
-                        fontsize=8.5, color=color, zorder=4,
-                        arrowprops={"arrowstyle": "-", "color": color, "linewidth": 0.5,
-                                    "shrinkA": 3, "shrinkB": 4} if np.hypot(*offset) >= 20 else None)
+            # Draw each circle and its text together so overlapping dots naturally
+            # cover earlier dots, including their labels. Keep edge circles whole.
+            zorder = 3 + 2 * (area_index * len(cutoffs) + i)
+            ax.scatter(x, y, s=380, color=color, edgecolors="none",
+                       zorder=zorder, gid=gid, clip_on=False)
+            ax.text(x, y, cutoffs[i], ha="center", va="center", fontsize=6.5,
+                    color="white", zorder=zorder + 1, clip_on=False)
             details[gid] = (f"{AREAS[area]} · through {band['label']} · "
-                            f"{x:.2f} cumulative hours · {y:,} cumulative prompts"
-                            + (f" · longest run {longest:.3f} seconds" if i == len(rows) - 1 else ""))
+                            f"duration cutoff {cutoffs[i]}{' (rounded)' if i == len(cutoffs) - 1 else ''} · "
+                            f"{x:.2f} cumulative hours · {y:,} cumulative prompts")
         average = sum(row["words"] for row in groups[area]) / prompts[-1]
         ax.text(*area_positions[area], f"{AREAS[area]}.\n{average:.0f} words/prompt",
                 fontsize=11, color=color, va="center", linespacing=1.4)
@@ -147,7 +135,7 @@ def cumulative_figure(groups, metadata):
                 ha="center", fontsize=10, color="#595959")
     snapshot = local_time(metadata["captured_at_utc"])
     figure.text(0.145, 0.04,
-                "Dots show run-duration cutoffs; 3h+ dots show longest runs.\n"
+                "Dots show cumulative run-duration cutoffs (rounded).\n"
                 "Prompts include steers; words count human writing.\n"
                 f"Game-engine includes Other. {metadata['status_counts']['open']} open loops excluded. {snapshot:%d %b %Y}.",
                 fontsize=8.5, color="#7f7f7f", linespacing=1.4)
