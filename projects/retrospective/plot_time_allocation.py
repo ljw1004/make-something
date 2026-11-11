@@ -62,16 +62,18 @@ def draw_prompts(ax, ranked, total):
 def duration_hour_groups(ranked):
     bounds = [0, 60, 300, 900, 3600, 10800, np.inf]
     labels = ["Under 1m", "1–5m", "5–15m", "15–60m", "1–3h", "3h+"]
-    hours, counts, steer_counts = [], [], []
+    hours, counts, steer_counts, word_counts = [], [], [], []
     for low, high in zip(bounds, bounds[1:]):
         subset = [row for row in ranked if low <= row["seconds"] < high]
         counts.append(len(subset))
         steer_counts.append(sum(row["steers"] for row in subset))
+        word_counts.append(sum(row["words"] for row in subset))
         hours.append(sum(row["seconds"] for row in subset) / 3600)
     assert sum(counts) == len(ranked)
     assert sum(steer_counts) == sum(row["steers"] for row in ranked)
-    return [{"label": label, "hours": hour, "prompts": count, "steers": steer_count}
-            for label, hour, count, steer_count in zip(labels, hours, counts, steer_counts)]
+    assert sum(word_counts) == sum(row["words"] for row in ranked)
+    return [{"label": label, "hours": hour, "prompts": count, "steers": steer_count, "words": words}
+            for label, hour, count, steer_count, words in zip(labels, hours, counts, steer_counts, word_counts)]
 
 
 def draw_duration_hours(ax, ranked, total, *, title="Time by loop length", x_max=None):

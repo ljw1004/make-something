@@ -154,6 +154,13 @@ def load_snapshot(dataset):
     for row in rows:
         row["seconds"] = float(row["duration_seconds"]) if row["duration_seconds"] else None
         row["steers"] = int(row["steer_count"])
+        row["words"] = int(row["total_word_count"])
+        steer_words = json.loads(row["steer_word_counts"])
+        assert len(steer_words) == row["steers"]
+        assert all(isinstance(count, int) and count >= 0 for count in steer_words)
+        assert sum(steer_words) == int(row["steer_word_count"])
+        assert int(row["prompt_word_count"]) >= 0
+        assert row["words"] == int(row["prompt_word_count"]) + sum(steer_words)
         row["local_at"] = local_time(row["prompt_at_utc"])
         if (row["seconds"] is None) != (row["status"] == "open"):
             raise ValueError(f"Unexpected missing duration: {row['turn_id']}")
@@ -161,6 +168,7 @@ def load_snapshot(dataset):
             raise ValueError(f"Nonpositive duration cannot use a log axis: {row['turn_id']}")
     assert len(rows) == metadata["initial_prompts"]
     assert dict(Counter(row["status"] for row in rows)) == metadata["status_counts"]
+    assert sum(row["words"] for row in rows) == metadata["word_count"]["total_words"]
     return rows, metadata
 
 

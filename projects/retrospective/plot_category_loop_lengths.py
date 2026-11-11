@@ -39,8 +39,8 @@ def combined_loop_length_figure(groups, metadata, x_max):
             ax.barh(positions, [band["hours"] for band in bands], height=0.82,
                     color=AREA_COLORS[area], label=label, zorder=3)
             for y, band in zip(positions, bands):
-                prompts, steers = band["prompts"], band["steers"]
-                counts = f"{prompts} {'prompt' if prompts == 1 else 'prompts'} + {steers} {'steer' if steers == 1 else 'steers'}"
+                prompts, words = band["prompts"] + band["steers"], band["words"]
+                counts = f"{prompts:,} {'prompt' if prompts == 1 else 'prompts'}, {words:,} {'word' if words == 1 else 'words'}"
                 ax.annotate(counts, (band["hours"], y), xytext=(7, 0), textcoords="offset points",
                             va="center", fontsize=10, color="#404040")
         ax.set_yticks(centers, [band["label"] for band in bands])
@@ -55,10 +55,10 @@ def combined_loop_length_figure(groups, metadata, x_max):
         ended = [row for group in groups.values() for row in group]
         snapshot = local_time(metadata["captured_at_utc"])
         figure.text(0.12, 0.057,
-                    f"{len(ended)} prompts · {sum(row['steers'] for row in ended)} steers · "
+                    f"{len(ended) + sum(row['steers'] for row in ended):,} prompts · {sum(row['words'] for row in ended):,} words · "
                     f"{metadata['status_counts']['open']} open turns excluded · snapshot {snapshot:%d %b %Y}",
                     fontsize=9, color="#7f7f7f")
-        figure.text(0.12, 0.033, "Primary category per prompt; mixed loops counted once.",
+        figure.text(0.12, 0.033, "Prompts include steers; words include pasted text. Each loop uses its initial prompt’s primary category.",
                     fontsize=9, color="#7f7f7f")
         return figure
 
@@ -89,6 +89,7 @@ def render(dataset, output):
     assert sum(map(len, groups.values())) == len(ended)
     assert sum(open_counts.values()) == metadata["status_counts"]["open"]
     assert sum(row["steers"] for group in groups.values() for row in group) == sum(row["steers"] for row in ended)
+    assert sum(row["words"] for group in groups.values() for row in group) == metadata["word_count"]["ended_loop_words"]
     assert np.isclose(sum(row["seconds"] for group in groups.values() for row in group),
                       sum(row["seconds"] for row in ended))
     maximum_band_hours = max(band["hours"] for group in groups.values() for band in duration_hour_groups(group))

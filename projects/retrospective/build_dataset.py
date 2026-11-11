@@ -9,6 +9,8 @@ from pathlib import Path
 import re
 import sqlite3
 
+from word_counts import WORD_FIELDS, loop_word_counts, word_count_summary
+
 
 FIELDS = [
     "conversation_id", "conversation_title", "archived", "turn_id", "root_turn_id",
@@ -16,7 +18,7 @@ FIELDS = [
     "started_at_utc", "ended_at_utc", "status", "duration_seconds", "duration_source",
     "prompt_to_end_seconds", "steer_count", "last_observed_at_utc", "observed_seconds",
     "end_reason", "error_message", "source_log", "start_line", "prompt_line", "end_line",
-]
+] + WORD_FIELDS
 # Only inspect the envelope before decoding: image/tool records can be very large.
 ENVELOPE = re.compile(
     rb'^\{"timestamp":\s*"([^"]+)"(?:,\s*"ordinal":\s*\d+)?,\s*"type":\s*"([^"]+)"'
@@ -112,7 +114,7 @@ def collect_turns(events):
     return turns, duplicate_messages
 
 
-def timing_row(thread, turn_id, turn, last_observed, source_log):
+def timing_row(thread, turn_id, turn, last_observed, source_log, codex_home=None):
     prompt = turn["users"][0]
     end = turn["end"]
     terminal = turn.get("end_payload", {})
@@ -159,6 +161,7 @@ def timing_row(thread, turn_id, turn, last_observed, source_log):
     for field in ("duration_seconds", "prompt_to_end_seconds", "observed_seconds"):
         if row[field] != "" and row[field] < 0:
             raise ValueError(f"Negative {field} in {turn_id}")
+    row.update(loop_word_counts(turn["users"], codex_home or Path.home() / ".codex"))
     return row
 
 
@@ -195,14 +198,14 @@ def build(codex_home, repository, output):
                 if message["id"] in all_message_ids:
                     raise ValueError(f"Copied user history across conversations: {message['id']}")
                 all_message_ids.add(message["id"])
-            row = timing_row(thread, turn_id, turn, last_observed, source_log)
+            row = timing_row(thread, turn_id, turn, last_observed, source_log, codex_home)
             all_prompt_ids.add(row["prompt_id"])
             rows.append(row)
     rows.sort(key=lambda row: (row["prompt_at_utc"], row["conversation_id"], row["turn_id"]))
     if len(all_prompt_ids) != len(rows):
         raise ValueError("Non-unique initial prompt IDs")
     metadata = {
-        "schema_version": 1,
+        "schema_version": 2,
         "captured_at_utc": cutoff.isoformat(timespec="milliseconds").replace("+00:00", "Z"),
         "display_timezone": "America/Los_Angeles",
         "repository": str(repository),
@@ -222,6 +225,7 @@ def build(codex_home, repository, output):
         "last_prompt_at_utc": rows[-1]["prompt_at_utc"] if rows else None,
         "duplicate_message_events_ignored": duplicates,
         "excluded_turns": excluded,
+        "word_count": word_count_summary(rows),
     }
     output.mkdir(parents=True, exist_ok=True)
     with (output / "agentic-loops.csv").open("w", newline="", encoding="utf-8") as handle:

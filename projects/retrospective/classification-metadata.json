@@ -5,7 +5,7 @@
   "reasoning_effort": "low",
   "method": "Model judgments by three Luna subagents, followed by schema and coverage validation",
   "source_dataset": "agentic-loops.csv",
-  "source_sha256": "0837f3f93ef8cc8314542406f37cb20be33026b717095d849303a5573baa1248",
+  "source_sha256": "fda03ed32bda703ac84c44f676d8aa6b09f48115330208a846ba74cf7e89a714",
   "rubric": "classification-guide.md",
   "rubric_sha256": "794629bd2cdaae072b663583f9d4bc23f75304667efe267486acb526fd9308ad",
   "classifications_sha256": "ba90a9bbac84cbc8223d8fb2d3d2c7ce2010eacffe80dccd68e64a32b17b0675",
@@ -116,5 +116,15 @@
       }
     ],
     "limits": "This is a reviewed model classification, not a human-labeled accuracy benchmark."
+  },
+  "source_enrichment": {
+    "source_before_sha256": "0837f3f93ef8cc8314542406f37cb20be33026b717095d849303a5573baa1248",
+    "added_columns": [
+      "prompt_word_count",
+      "steer_word_counts",
+      "steer_word_count",
+      "total_word_count"
+    ],
+    "original_columns_verified_unchanged": true
   }
 }

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "captured_at_utc": "2026-11-11T17:28:35.023Z",
   "display_timezone": "America/Los_Angeles",
   "repository": "/Users/ljw/code/combination-challenge",
@@ -40,5 +40,16 @@
       "source_log": "sessions/2026/11/03/rollout-2026-11-03T20-16-30-01a1a4c5-ceff-79e1-acb5-a0d161fffb5d.jsonl",
       "start_line": 6791
     }
-  ]
+  ],
+  "word_count": {
+    "tokenization": "Unicode letter/number sequences; internal apostrophes and hyphens stay within a word",
+    "includes": "User message text and full pasted-text attachments, including quoted text, code and debug logs",
+    "excludes": "App-generated wrappers, attachment previews/paths, question-reply questions/IDs, selected assistant text in response annotations, images and non-text attachments",
+    "question_replies": "Count only the answer strings",
+    "steer_order": "Source-log order after message-ID deduplication",
+    "prompt_words": 88074,
+    "steer_words": 23326,
+    "total_words": 111400,
+    "ended_loop_words": 111330
+  }
 }

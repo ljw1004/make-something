@@ -10,13 +10,14 @@ This project collects evidence about the human–agent development process behin
 
 ## Dataset
 
-- [agentic-loops.csv](agentic-loops.csv): one row per initial prompt, with text, timing, outcome, steer count and source locations.
+- [agentic-loops.csv](agentic-loops.csv): one row per initial prompt, with text, timing, outcome, steer count, word counts for the prompt and each steer, and source locations.
 - [metadata.json](metadata.json): capture time, scope, counts and excluded turns for the current snapshot.
 - [build_dataset.py](build_dataset.py): reproducible extraction using Python's standard library. Reads the local Codex database and logs without modifying them.
 - [test_build_dataset.py](test_build_dataset.py): small synthetic checks for message deduplication, steers, timing, interruption, failure and capture boundaries.
+- [add_word_counts.py](add_word_counts.py): adds word counts to the saved snapshot without refreshing its prompts, steers or timing. [word_counts.py](word_counts.py) owns counting rules; [test_word_counts.py](test_word_counts.py) checks text boundaries and snapshot preservation.
 - **[plots/time-by-loop-length.png](plots/time-by-loop-length.png): a plain bar chart of total agentic hours by loop length**, with `N prompts + M steers` labels beside each bar. Also available as [PDF](plots/time-by-loop-length.pdf).
 - **The same chart by area:** [art](plots/time-by-loop-length-art.png), [story](plots/time-by-loop-length-story.png), and [game-engine including other](plots/time-by-loop-length-game-engine.png), with a shared hours scale. [Three-page PDF](plots/time-by-loop-length-by-area.pdf).
-- **[All three areas in one chart](plots/time-by-loop-length-combined.png):** each duration band has three colored subrows, with prompt and steer counts beside each bar. [One-page PDF](plots/time-by-loop-length-combined.pdf).
+- **[All three areas in one chart](plots/time-by-loop-length-combined.png):** each duration band has three colored subrows, labeled `N prompts, M words`. Here prompts include initial prompts and steers, and words include both. [One-page PDF](plots/time-by-loop-length-combined.pdf).
 - [plot_category_loop_lengths.py](plot_category_loop_lengths.py): joins the timing and classification snapshots to render the separate area charts and the combined chart.
 - **[plots/time-allocation.png](plots/time-allocation.png): the total recorded agentic duration divided among individual prompts**, with time-weighted breakdowns. Also available as [PDF](plots/time-allocation.pdf) and [SVG with prompt details on hover](plots/time-allocation.svg).
 - [plot_time_allocation.py](plot_time_allocation.py): renders the time-allocation view and the standalone loop-length chart from the same saved snapshot.
@@ -56,7 +57,7 @@ The initial pass classified all 537 prompts. Runtime records confirmed that all 
 
 Start with **time allocation** when the quantity of interest is agentic duration. The total is **135.7 hours** across the 534 initial prompts with recorded end events. It includes completed, failed and interrupted turns; the three open turns have unknown final durations and are excluded. Overlapping turns are summed separately, and each initial prompt is assigned its entire loop, including work added through steers.
 
-The **area bar charts** use the same plain appearance, duration bins, and hours axis as each other. The combined chart places Art, Story and Game-engine in three colored subrows within each duration band, with more vertical room for the bars and count labels. They group by Luna's primary category and fold `other` into `game-engine` for plotting. The source classifications remain intact. Each loop and its steer count contributes to one area, including mixed requests; open turns are excluded from bars and counted in each chart's footer. The renderer checks the classification/source hashes and reconciles all three groups to the original totals.
+The **area bar charts** use the same plain appearance, duration bins, and hours axis as each other. The combined chart places Art, Story and Game-engine in three colored subrows within each duration band, with more vertical room for the bars and count labels. Its `N prompts, M words` labels count all initial prompts plus steers in the bucket, and all words in those messages and their pasted text. The separate-area charts retain their initial-prompt and steer labels. All groupings use Luna's primary category and fold `other` into `game-engine` for plotting. Each loop, including all its steers and their words, belongs to its initial prompt's area and duration band. Open turns are excluded from bars. The renderer checks the classification/source hashes and reconciles all three groups to the original totals.
 
 - **Prompt rectangles:** one rectangle per initial prompt, with area exactly proportional to its share of the total recorded duration. Color encodes steer count; the legend gives hours in each steer group. The largest labeled tiles carry duration ranks. Open the SVG in a browser to hover over any rectangle for its prompt excerpt, ID, conversation, duration, outcome and steer count. Small prompts keep their actual area instead of receiving a minimum visual size.
 - **Time by loop length:** summed hours in each duration band. The right of each bar reads `N prompts + M steers`, counting initial prompts and all their mid-turn steers separately. Hours are read from the axis, with no hour or percentage annotations. Every band contributes to the same 135.7-hour total. The standalone export uses a white background, one blue bar series, gray gridlines and ordinary typography.
@@ -91,7 +92,23 @@ The time-allocation pass reconciled the hour totals and all 534 rectangle areas,
 
 The plain loop-length chart reconciles 534 initial prompts and 491 steers across its six bands. Its standalone PNG and PDF and the corresponding panel in the time-allocation exports use the revised count labels.
 
-The separate and combined area charts preserve those same 534 prompts, 491 steers and 135.7 recorded hours collectively, with three open turns excluded. Their labels and shared scale were visually checked. The separate-area PDF contains one page per area; the combined chart has a one-page PDF.
+The separate and combined area charts preserve those same 534 initial prompts, 491 steers and 135.7 recorded hours collectively, with three open turns excluded. The combined chart therefore labels 1,025 prompts in total. Their labels and shared scale were visually checked. The separate-area PDF contains one page per area; the combined chart has a one-page PDF.
+
+## Word counts
+
+Words are Unicode letter/number sequences, keeping internal apostrophes and hyphens within a word. Punctuation and Markdown markers do not count as words; numbers do. This is a reproducible text measure, not an estimate of manual typing effort.
+
+At the user's request, counts include complete pasted-text attachments, including quoted documents, code and debug logs. Each attachment counts once per message that supplies it; supplying the same text in another message counts again. Paste-wrapper headings, previews and filesystem paths are excluded. For clarification replies, only the user's answer counts, excluding the assistant's question and generated IDs. Response annotations count user comments and the request, excluding the selected assistant text and generated instructions. Images and non-text attachments are excluded. Missing pasted text causes an error rather than a zero-word estimate.
+
+The word-count enrichment recovered all 1,028 messages in the original snapshot, including 21 clarification replies and nine pasted-text attachments. These contain 111,400 words: 88,074 in initial prompts and 23,326 in steers. The chart includes 111,330 words across the 1,025 messages in ended loops, excluding the three open loops and their 70 words. It preserves every previous CSV value, including initial prompt text, durations, outcomes and steer counts. Luna's classifications are unchanged; their metadata retains the pre-enrichment source hash and records the new source hash. Summary totals and counting rules are recorded under `word_count` in [metadata.json](metadata.json).
+
+To add or reproduce counts for an existing snapshot, without including newer conversations or messages:
+
+```sh
+python3 -B projects/retrospective/add_word_counts.py
+```
+
+This reads the original source logs through the saved capture time and each row's observed boundary. It verifies message identities, text, steer counts and total coverage before replacing any dataset files. The regular dataset exporter also includes word counts for future snapshots. Nine synthetic checks cover timing, deduplication, clarification answers, response annotations, pasted text, and enrichment that leaves a frozen open loop unchanged despite later messages. A repeat enrichment produces identical files.
 
 ## What a row means
 
@@ -131,6 +148,10 @@ All timestamps are ISO 8601 UTC. Use `America/Los_Angeles` when presenting local
 | `duration_source` | `reported_duration_ms`, `event_timestamps`, or blank when open. |
 | `prompt_to_end_seconds` | Elapsed time from the recorded initial prompt to the terminal event; blank when open. |
 | `steer_count` | Additional user messages within the same turn. |
+| `prompt_word_count` | Words in the initial prompt, including its pasted text. |
+| `steer_word_counts` | JSON array containing one integer per steer, in source-log order after message-ID deduplication. |
+| `steer_word_count` | Sum of the per-steer word counts. |
+| `total_word_count` | Initial-prompt words plus all steer words for the loop. |
 | `last_observed_at_utc` | Terminal-event timestamp, or last available log timestamp for an open row. |
 | `observed_seconds` | Logged start to `last_observed_at_utc`; never substituted for an open row's duration. |
 | `end_reason` | Recorded interruption reason, when present. |
@@ -138,7 +159,7 @@ All timestamps are ISO 8601 UTC. Use `America/Los_Angeles` when presenting local
 | `source_log` | Log path relative to the Codex home recorded in metadata. |
 | `start_line`, `prompt_line`, `end_line` | One-based physical line numbers in that source log. |
 
-CSV quoting preserves multiline prompt text. Read it with a CSV parser rather than treating each physical line as a row. Only initial prompt text is retained; the dataset does not copy assistant replies, tool output, attachments or steer text.
+CSV quoting preserves multiline prompt text. Read it with a CSV parser rather than treating each physical line as a row, and parse `steer_word_counts` as JSON. Only initial prompt text is retained; the dataset records word counts without copying assistant replies, tool output, attachments or steer text.
 
 ## Refresh and verify
 
