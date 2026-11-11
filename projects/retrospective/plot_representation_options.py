@@ -106,7 +106,7 @@ def cumulative_figure(groups, metadata):
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
     area_labels = {
         "art": ((10, 0), "left", "center"),
-        "story": ((0, -16), "right", "top"),
+        "story": ((0, -22), "right", "top"),
         "game-engine": ((-48, 14), "left", "bottom"),
     }
     # These labels describe cumulative duration cutoffs, not each area's maximum.
@@ -140,9 +140,11 @@ def cumulative_figure(groups, metadata):
             details[gid] = (f"{AREAS[area]} · through {band['label']} · "
                             f"duration cutoff {cutoffs[i]}{' (rounded)' if i == len(cutoffs) - 1 else ''} · "
                             f"{x:.2f} cumulative hours · {y:,} cumulative prompts")
-        average = sum(row["words"] for row in groups[area]) / prompts[-1]
+        total_words = sum(row["words"] for row in groups[area])
+        average = total_words / prompts[-1]
         offset, horizontal, vertical = area_labels[area]
-        ax.annotate(f"{AREAS[area]}\n(avg {average:.0f} words/prompt)", (hours[-1], prompts[-1]),
+        ax.annotate(f"{AREAS[area]}, {total_words / 1000:.0f}kwords\n(avg {average:.0f} words/prompt)",
+                    (hours[-1], prompts[-1]),
                     xytext=offset, textcoords="offset points", ha=horizontal, va=vertical,
                     fontsize=10, color=color, linespacing=1.25,
                     zorder=area_zorder + 2 * len(cutoffs) + 0.5)
