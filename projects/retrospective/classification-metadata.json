@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "classified_at_utc": "2026-11-11T18:20:13Z",
+  "classifier_model": "gpt-6-luna",
+  "reasoning_effort": "low",
+  "method": "Model judgments by three Luna subagents, followed by schema and coverage validation",
+  "source_dataset": "agentic-loops.csv",
+  "source_sha256": "0837f3f93ef8cc8314542406f37cb20be33026b717095d849303a5573baa1248",
+  "rubric": "classification-guide.md",
+  "rubric_sha256": "794629bd2cdaae072b663583f9d4bc23f75304667efe267486acb526fd9308ad",
+  "classifications_sha256": "ba90a9bbac84cbc8223d8fb2d3d2c7ce2010eacffe80dccd68e64a32b17b0675",
+  "prompt_count": 537,
+  "category_summary": {
+    "art": {
+      "prompts": 72,
+      "steers": 108,
+      "recorded_duration_hours": 23.632981388888886,
+      "open_turns": 0
+    },
+    "story": {
+      "prompts": 208,
+      "steers": 302,
+      "recorded_duration_hours": 94.52314694444443,
+      "open_turns": 1
+    },
+    "game-engine": {
+      "prompts": 242,
+      "steers": 77,
+      "recorded_duration_hours": 17.148675555555556,
+      "open_turns": 1
+    },
+    "other": {
+      "prompts": 15,
+      "steers": 4,
+      "recorded_duration_hours": 0.39801666666666663,
+      "open_turns": 1
+    }
+  },
+  "confidence_counts": {
+    "high": 478,
+    "medium": 58,
+    "low": 1
+  },
+  "evidence_basis_counts": {
+    "prompt": 380,
+    "context": 157
+  },
+  "mixed_prompt_count": 54,
+  "context": {
+    "full_initial_prompt": true,
+    "conversation_title": true,
+    "preceding_user_messages": 2,
+    "preceding_user_character_limit_each": 700,
+    "preceding_assistant_final_character_limit": 1800,
+    "referenced_plaintext_attachments": true,
+    "attachment_character_limit": 16000
+  },
+  "workers": [
+    {
+      "task_name": "luna_classify_1",
+      "prompts": 180
+    },
+    {
+      "task_name": "luna_classify_2",
+      "prompts": 186
+    },
+    {
+      "task_name": "luna_classify_3",
+      "prompts": 171
+    }
+  ],
+  "validation": {
+    "unique_prompt_ids": true,
+    "exact_source_coverage": true,
+    "valid_categories_and_flags": true,
+    "source_unchanged": true
+  },
+  "limits": [
+    "Categories describe initial requests, not every later action or steer.",
+    "Mixed-loop hours are assigned entirely to the primary category in this summary.",
+    "Confidence labels are model assessments, not calibrated probabilities.",
+    "Context excerpts can be incomplete; prompt previews are for display only."
+  ],
+  "review": {
+    "parent_spot_review": "Reviewed Other and low-confidence results, high-duration requests, short continuations and representative mixed requests.",
+    "luna_followup_review": [
+      "Reconsidered missed mixed-category requests and context-dependent continuations.",
+      "Replaced generic or mismatched rationales with descriptions of the actual requests.",
+      "Distinguished authored story mechanics and story analysis from shared runtime or tooling changes.",
+      "Reviewed nine referenced pasted requests using recovered text."
+    ],
+    "attachment_evidence": {
+      "requests": 9,
+      "full_text": 8,
+      "truncated_large_trace": 1
+    },
+    "parent_relabelled_decisions": false,
+    "runtime_model_verification": [
+      {
+        "task_name": "luna_classify_1",
+        "thread_id": "01a1cbcc-8959-7e73-93d3-5dd0cbf9116a",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      },
+      {
+        "task_name": "luna_classify_2",
+        "thread_id": "01a1cbcc-b111-76a0-bd49-f85e31e433ff",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      },
+      {
+        "task_name": "luna_classify_3",
+        "thread_id": "01a1cbcc-d9be-7bf3-8bc0-3e65eb947eda",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      }
+    ],
+    "limits": "This is a reviewed model classification, not a human-labeled accuracy benchmark."
+  }
+}
