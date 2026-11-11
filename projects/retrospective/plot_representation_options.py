@@ -38,7 +38,7 @@ def legend(figure, y):
 def footer(figure, metadata, y):
     snapshot = local_time(metadata["captured_at_utc"])
     figure.text(0.08, y,
-                f"Prompts include steers; words count human writing. {metadata['status_counts']['open']} open loops excluded. Snapshot {snapshot:%d %b %Y}.",
+                f"Prompts include steers; words count human writing. {metadata['untimed_records']} prompts without timing. Snapshot {snapshot:%d %b %Y}.",
                 fontsize=9, color="#7f7f7f")
 
 
@@ -107,11 +107,12 @@ def cumulative_figure(groups, metadata):
     area_labels = {
         "art": ((10, 0), "left", "center"),
         "story": ((0, -22), "right", "top"),
-        "game-engine": ((-48, 14), "left", "bottom"),
+        "game-engine": ((-116, 30), "left", "bottom"),
     }
-    # These labels describe cumulative duration cutoffs, not each area's maximum.
-    # The shared 6h label rounds the snapshot's longest run of 6h 00m 21s.
-    cutoffs = ["1m", "5m", "15m", "1h", "3h", "6h"]
+    # The final shared cutoff encloses the longest run in either source.
+    longest_hours = max(row["seconds"] for rows in groups.values() for row in rows) / 3600
+    final_cutoff = f"{int(np.ceil(longest_hours))}h"
+    cutoffs = ["1m", "5m", "15m", "1h", "3h", final_cutoff]
     label_font = FontProperties(family="DejaVu Sans", size=6.5)
     bounds = [TextPath((0, 0), label, prop=label_font).get_extents()
               for label in cutoffs if len(label) == 2]
@@ -150,7 +151,7 @@ def cumulative_figure(groups, metadata):
                     zorder=area_zorder + 2 * len(cutoffs) + 0.5)
     ax.text(0.03, 0.965, "How I prompted: cumulative totals", transform=ax.transAxes,
             ha="left", va="top", fontsize=14, color="#595959", zorder=50)
-    ax.text(0.03, 0.90, "From shortest agentic runs (1m) to longest (6h)", transform=ax.transAxes,
+    ax.text(0.03, 0.90, f"From shortest agentic runs (1m) to longest ({final_cutoff})", transform=ax.transAxes,
             ha="left", va="top", fontsize=9.5, color="#595959", zorder=50)
     return figure, details
 

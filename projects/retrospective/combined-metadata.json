@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "dataset": "combined-conversations.csv",
+  "dataset_sha256": "a19b6e769bf107e0238f0f3a83b33bd6f5f39e6c45f5734e9b9bb3cbe9dfbd4a",
+  "input_sha256": {
+    "agentic-loops.csv": "588d3e7f7e8941e7841558b16884d7ab18a48b875c92726900ae968225e069ec",
+    "metadata.json": "898c33f02943d305bc4ca6fadeec70fac24ad4d6c892d585a183bb8c49affaf8",
+    "attachment-audit.json": "d306861d854784f1aae5eb11bd6b4a1c5981ca60af470146d9a2b8b3b8499ced",
+    "prompt-classifications.csv": "ba90a9bbac84cbc8223d8fb2d3d2c7ce2010eacffe80dccd68e64a32b17b0675",
+    "classification-metadata.json": "81d8c95bef8d6dfaf04f7d9b8f228703a532bd750cda69c45d98856130a58b82",
+    "dots-conversation-data.csv": "ebb5d13d47d169be9fea0a0a79b35b14a0380a44855bbefa58aa529f7251a59f",
+    "dot-classifications.csv": "8b7ea58d7bbbc2f497660f94a5b4e971b9339c1b612a8f1489a9b755d36eaa58",
+    "dot-classification-metadata.json": "349c84bfea7b56cd6bbe2c2e29f8b957508953e3ff82ae0b53a4c4344028f1bb"
+  },
+  "sources": {
+    "codex": {
+      "file": "agentic-loops.csv",
+      "sha256": "588d3e7f7e8941e7841558b16884d7ab18a48b875c92726900ae968225e069ec",
+      "captured_at_utc": "2026-11-11T17:28:35.023Z",
+      "records": 537,
+      "record_kinds": {
+        "loop": 537
+      },
+      "user_messages": 1028,
+      "human_words": 74803,
+      "known_initial_prompts": 537,
+      "known_steers": 491,
+      "messages_without_initial_or_steer_classification": 0,
+      "records_with_run_duration": 534,
+      "recorded_duration_hours": 135.70282055555555,
+      "messages_with_run_duration": 1025,
+      "words_with_run_duration": 74733
+    },
+    "dot": {
+      "file": "dots-conversation-data.csv",
+      "sha256": "ebb5d13d47d169be9fea0a0a79b35b14a0380a44855bbefa58aa529f7251a59f",
+      "first_message_at_utc": "2026-10-26T02:39:20.713247+00:00",
+      "last_message_at_utc": "2026-11-11T21:17:21.337031+00:00",
+      "supplied_prompt_words": 19941,
+      "rows_with_recounted_words": 79,
+      "messages_with_reply_intervals": 232,
+      "records": 236,
+      "record_kinds": {
+        "message": 236
+      },
+      "user_messages": 236,
+      "human_words": 19943,
+      "known_initial_prompts": 0,
+      "known_steers": 0,
+      "messages_without_initial_or_steer_classification": 236,
+      "records_with_run_duration": 232,
+      "recorded_duration_hours": 139.06649694444445,
+      "messages_with_run_duration": 232,
+      "words_with_run_duration": 19715
+    }
+  },
+  "totals": {
+    "records": 773,
+    "record_kinds": {
+      "message": 236,
+      "loop": 537
+    },
+    "user_messages": 1264,
+    "human_words": 94746,
+    "known_initial_prompts": 537,
+    "known_steers": 491,
+    "messages_without_initial_or_steer_classification": 236,
+    "records_with_run_duration": 766,
+    "recorded_duration_hours": 274.7693175,
+    "messages_with_run_duration": 1257,
+    "words_with_run_duration": 94448
+  },
+  "word_count_policy": "Existing human-authored-v1 tokenizer; Dot prompt_text trusted as direct human input; supplied counts preserved separately.",
+  "duration_policy": {
+    "codex": "Recorded task duration from the frozen Codex snapshot.",
+    "dot": "seconds_to_last_visible_reply_before_next_prompt, as requested by the user; each Dot message contributes once."
+  },
+  "limits": [
+    "Rows have mixed grain: a Codex loop includes its steers; a Dot row is one message with unknown initial/steer role.",
+    "Use user_message_count for combined message totals; do not count records as initial prompts.",
+    "Missing Dot reply intervals stay blank and are excluded from duration plots. Steer counts remain unknown; each Dot row adds one plotted prompt.",
+    "Dot conversation IDs, attachment bodies and outcomes are not supplied; conversation totals cannot be combined.",
+    "The two sources have different capture cutoffs. Their original snapshots remain unchanged."
+  ]
+}

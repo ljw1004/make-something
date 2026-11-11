@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "classifier_model": "gpt-6-luna",
+  "reasoning_effort": "low",
+  "classified_at_utc": "2026-11-11T23:10:55+00:00",
+  "method": "Three Luna workers classify each Dot message using the existing category rubric and supplied conversation context.",
+  "source_file": "dots-conversation-data.csv",
+  "source_sha256": "ebb5d13d47d169be9fea0a0a79b35b14a0380a44855bbefa58aa529f7251a59f",
+  "classifications_sha256": "8b7ea58d7bbbc2f497660f94a5b4e971b9339c1b612a8f1489a9b755d36eaa58",
+  "rubric": "classification-guide.md",
+  "rubric_sha256": "794629bd2cdaae072b663583f9d4bc23f75304667efe267486acb526fd9308ad",
+  "messages": 236,
+  "category_counts": {
+    "game-engine": 93,
+    "story": 122,
+    "other": 11,
+    "art": 10
+  },
+  "confidence_counts": {
+    "medium": 39,
+    "high": 194,
+    "low": 3
+  },
+  "mixed_messages": 39,
+  "workers": [
+    {
+      "task_name": "luna_classify_1",
+      "messages": 79
+    },
+    {
+      "task_name": "luna_classify_2",
+      "messages": 79
+    },
+    {
+      "task_name": "luna_classify_3",
+      "messages": 78
+    }
+  ],
+  "context": {
+    "full_message": true,
+    "preceding_user_messages": 2,
+    "preceding_user_character_limit_each": 1000,
+    "preceding_reply_character_limit": 2000,
+    "current_first_reply_character_limit": 1600,
+    "current_last_reply_character_limit": 2000
+  },
+  "review": "Reviewed low-confidence, Other and long-duration cases against prompt/context evidence. Primary categories describe the requested work.",
+  "validation": {
+    "exact_source_coverage": true,
+    "unique_ids": true,
+    "valid_decision_schema": true
+  },
+  "review_evidence": {
+    "checked_cases": "Reviewed all low-confidence/Other decisions and all messages assigned intervals over one hour. Context-only labels remain model judgments.",
+    "runtime_model_verification": [
+      {
+        "task_name": "luna_classify_1",
+        "thread_id": "01a1cbcc-8959-7e73-93d3-5dd0cbf9116a",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      },
+      {
+        "task_name": "luna_classify_2",
+        "thread_id": "01a1cbcc-b111-76a0-bd49-f85e31e433ff",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      },
+      {
+        "task_name": "luna_classify_3",
+        "thread_id": "01a1cbcc-d9be-7bf3-8bc0-3e65eb947eda",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      }
+    ]
+  }
+}

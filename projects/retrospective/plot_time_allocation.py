@@ -101,7 +101,7 @@ def draw_duration_hours(ax, ranked, total, *, title="Time by loop length", x_max
 
 
 def loop_length_figure(ranked, total, metadata, *, title="Time by loop length", x_max=None,
-                       open_count=None, scope_note=None):
+                       open_count=None, scope_note=None, excluded_label=None):
     """A plain standalone bar chart, with counts decorating the measured hours."""
     with plt.rc_context({"figure.facecolor": "white", "savefig.facecolor": "white",
                          "font.family": "DejaVu Sans", "font.size": 11}):
@@ -110,9 +110,11 @@ def loop_length_figure(ranked, total, metadata, *, title="Time by loop length", 
         snapshot = local_time(metadata["captured_at_utc"])
         if open_count is None:
             open_count = metadata['status_counts']['open']
+        if excluded_label is None:
+            excluded_label = 'open turn' if open_count == 1 else 'open turns'
         figure.text(0.12, 0.06 if scope_note else 0.045,
                     f"{len(ranked)} prompts · {sum(row['steers'] for row in ranked)} steers · "
-                    f"{open_count} open {'turn' if open_count == 1 else 'turns'} excluded · snapshot {snapshot:%d %b %Y}",
+                    f"{open_count} {excluded_label} excluded · snapshot {snapshot:%d %b %Y}",
                     fontsize=9, color="#7f7f7f")
         if scope_note:
             figure.text(0.12, 0.028, scope_note, fontsize=9, color="#7f7f7f")
