@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action should connect the bones at the elbow, a first step toward making the arm movable.",
+    "choice": 1,
+    "expectation": "I expect an arm skeleton with an elbow joint, though it may still need muscles to move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The elbow joint lets the forearm turn, but the arm needs muscles to pull it in each direction.",
+    "reaction": "The explanation makes the next goal clear.",
+    "step": 2,
+    "reason": "I’ll add the bending muscles to give the arm one of the two pulls it needs.",
+    "choice": 1,
+    "expectation": "I expect the bending muscles to fill the pull-to-bend slot, leaving the straightening slot empty.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The straightening muscles should also fill a needed slot, but either direction seems reasonable to add first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bending muscles pull through tendons when they shorten, so the arm still needs a separate pull to straighten.",
+    "reaction": "The tendon explanation makes the need for two muscle groups clearer.",
+    "step": 3,
+    "reason": "The only available combination adds the missing straightening muscles.",
+    "choice": 1,
+    "expectation": "I expect the straightening muscles to fill the remaining slot, giving the arm a pull in each direction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The straightening muscles complete the opposing pulls, showing how the arm can bend, straighten and hold the elbow steady.",
+    "reaction": "The final fitting ties the chapter’s explanation together clearly.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the bending muscles was most worthwhile because the result explains how tendons attach muscle to bone and why a relaxed muscle cannot push the arm straight again.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the straightening muscles repeated the tendon explanation, though it usefully completed the opposing pair.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that relaxing a muscle only eases its pull clarified why a separate muscle group is needed to straighten the arm.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each part had a clear role in making or moving the elbow.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter to see how the body supplies or instructs the arm, although the compatible choices here left little to figure out.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to build the kidney's adjustable water-recovery route, and joining the loop to the existing renal unit seems like a practical first step.",
+    "choice": 2,
+    "expectation": "I expect the loop to extend the tubule, though I don't yet know how the gradient will be established.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The loop and medullary vessels may establish the gradient, but I chose to connect the loop to the existing unit first."
+      },
+      {
+        "choice": 3,
+        "reason": "The hypothalamus and pituitary appear relevant to ADH control, but I chose to build the fluid route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loop now extends the tubule, and the result identifies the vessels as the next part needed to carry water away while limiting gradient washout.",
+    "reaction": "The vessels' role is interesting, though how they limit washout remains unclear.",
+    "step": 2,
+    "reason": "I want to continue building the water-recovery route, and the result explicitly says the vessels still need to join.",
+    "choice": 1,
+    "expectation": "I expect the vessels to attach to the loop and contribute to water recovery, though I am unsure whether this will establish the gradient by itself.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hypothalamus and pituitary should help connect blood concentration to ADH control, but I want to finish the kidney route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessels produced a renal unit with a medullary gradient, though the result did not explain how the gradient forms.",
+    "reaction": "The new gradient advances the goal, but I am curious about the mechanism.",
+    "step": 3,
+    "reason": "The collecting duct should add the adjustable wall to the water-recovery route.",
+    "choice": 1,
+    "expectation": "I expect the duct to join the renal unit and provide a wall whose water permeability can respond to ADH.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hypothalamus and pituitary should build the control pathway, but I want to complete the kidney route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collecting duct completes the recovery route: increased wall permeability lets water move into the concentrated medulla by osmosis, leaving more concentrated fluid.",
+    "reaction": "The explanation makes the gradient and adjustable wall feel connected, though it still leaves the gradient's formation unclear.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it appears to build the remaining blood-concentration control pathway.",
+    "choice": 1,
+    "expectation": "I expect the hypothalamus and posterior pituitary to form an ADH control pathway that can eventually regulate the collecting duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hypothalamus and pituitary now form a blood-borne ADH pathway that can signal the kidney when plasma concentration rises.",
+    "reaction": "The distinction between a signal and replacement water is useful.",
+    "step": 5,
+    "reason": "This is the only offered combination and should connect the ADH signal to the collecting ducts.",
+    "choice": 1,
+    "expectation": "I expect the pathway to regulate collecting-duct water permeability in response to blood concentration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ADH pathway is now connected to the kidney: higher ADH increases water recovery, and release can fall as the concentration disturbance subsides.",
+    "reaction": "The feedback completes the picture, although the account of how the medullary gradient forms remains thin.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the collecting duct was most worthwhile because the result explained how its permeability and the medullary gradient work together to recover water by osmosis.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the medullary vessels was least satisfying: the resulting gradient appeared without an explanation of how it forms or how the vessels limit its washout.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between ADH as a signal and replacement water clarified what the hormone actually contributes.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The vessel combination had a stated purpose, but the jump to a completed medullary gradient felt underexplained.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter because connecting the hormone signal to water recovery made the system more coherent, though I would hope for more explanation of mechanisms.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "The elbow joint should connect the arm bones and help make the elbow movable; it is also the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the joint to connect the bones, though muscles may still be needed to move them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The joint makes the elbow movable, and the new goal calls for muscles to pull in both directions.",
+    "reaction": "The explanation clearly distinguishes joint movement from the force needed to produce it.",
+    "step": 2,
+    "reason": "I'll add the bending muscles to fill one of the arm's two pull slots.",
+    "choice": 1,
+    "expectation": "I expect the bending muscles to fill the pull-to-bend slot, leaving the straightening slot empty.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The straightening muscles should fill the other slot, but either direction seems reasonable to start with."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bending muscles pull through tendons when they shorten, so the arm still needs a separate pull to straighten.",
+    "reaction": "The tendon explanation makes the pulling mechanism clearer.",
+    "step": 3,
+    "reason": "The straightening muscles fill the remaining pull slot, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the straightening muscles to attach and give the arm a pull in the opposite direction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The straightening muscles complete the opposing pulls, showing how the arm can bend, straighten and hold its position.",
+    "reaction": "The parallel explanation reinforces the idea, though repeating the tendon definition felt unnecessary.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the bending muscles was most worthwhile because the result explained how shortening muscle pulls bone through a tendon and why relaxing cannot push it back.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the straightening muscles repeated the tendon definition, although it usefully showed the opposite pull.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that relaxing a muscle cannot push the bones back clarified why a separate muscle group is needed.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each part had a clear role in making or moving the elbow.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the opening made me curious about how the body supplies and directs the arm, although the choices so far were mostly straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available combination, and connecting the filter to the tubule seems relevant to giving filtered fluid a route out.",
+    "choice": 1,
+    "expectation": "I expect the tubule to receive fluid from the filter, though I’m not sure how the model will show it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter and tubule formed a filtration route; I’ll connect it to the circulation to complete the blood side of the model.",
+    "reaction": "The result is straightforward, though it adds no explanation yet.",
+    "step": 2,
+    "reason": "This is the only offered combination, and circulation seems necessary to show where the filtered fluid comes from.",
+    "choice": 1,
+    "expectation": "I expect the filtration route to connect to the blood supply, though I’m unsure how the result will represent filtration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows that glucose enters the filtrate along with water, salts and urea, so the next goal is to recover it before it reaches the urine.",
+    "reaction": "The distinction between filtrate and finished urine is useful and makes the next step clearer.",
+    "step": 3,
+    "reason": "This is the only offered combination, and the recovery lining seems suited to keeping glucose from continuing down the tubule.",
+    "choice": 1,
+    "expectation": "I expect the lining to recover glucose from the filtrate, although I’m unsure how the model will show where it goes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows that glucose, salts and much of the filtered water return to the blood, while urea and other solutes continue along the tubule. It completes the recovery goal.",
+    "reaction": "The explanation makes the recovery lining feel purposeful and connects waste removal to taking useful substances back.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the recovery lining was most worthwhile because the result explains where glucose goes and shows that salts and water are also recovered.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the filter and tubule was the least engaging step: it was the only option and produced a named route without explaining much on its own.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The useful distinction was that filtrate contains glucose and is not finished urine; the later result clarified that glucose returns to the blood.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the combinations felt arbitrary: their names and the goals suggested their purpose. Still, each decision offered only one combination, so I was following the available path rather than figuring out compatibility.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see how the model reaches the body's response to a drink, though I would hope for more meaningful choices than this chapter offered.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "step": 1,
+    "reason": "The elbow joint should connect the arm bones so the arm can move; it is also the only available action.",
+    "choice": 1,
+    "expectation": "I expect the joint to connect the bones, though muscles may still be needed to bend and straighten the arm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The joint made a movable arm, but the bones need muscles to pull it in each direction. I’ll start filling those slots.",
+    "reaction": "The explanation makes the joint’s role clear.",
+    "step": 2,
+    "reason": "Bending muscles should provide the pull needed to bend the elbow.",
+    "choice": 1,
+    "expectation": "I expect the bending muscles to fill the bend slot; the straightening muscles will probably still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could add the straightening muscles first, but both pulls appear necessary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bending muscles pull through tendons when they shorten, but relaxing them does not straighten the arm. The straightening muscles should provide the opposite pull.",
+    "reaction": "The tendon explanation makes the connection to the bones clearer.",
+    "step": 3,
+    "reason": "Add the straightening muscles to complete the opposing pull; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the straightening muscles to fit into the remaining slot and allow the arm to straighten.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The straightening muscles provide the opposing pull, completing the arm and explaining how muscles position the hand.",
+    "reaction": "The final explanation ties the two pulls together clearly, though the outcome was predictable.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the bending muscles was most worthwhile: the result explains tendons and why relaxing a muscle cannot push the bones back.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the straightening muscles was predictable after the earlier explanation, although it usefully completed the model.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that relaxing a muscle does not push the bones back clarified why a second muscle group is needed.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each part had a clear role. The offered combinations made compatibility explicit, so I did not have to discover it.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see how the body supplies or instructs the arm, though this chapter offered few meaningful choices. The explanations define tendons and connect familiar parts clearly, but completing the steps alone would not demonstrate student comprehension.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

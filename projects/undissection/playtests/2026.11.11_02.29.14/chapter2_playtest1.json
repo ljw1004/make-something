@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to build the route for adjustable water recovery, and the loop and medullary vessels seem relevant to its driving gradient.",
+    "choice": 1,
+    "expectation": "I expect them to form a structure involved in establishing or maintaining a concentration gradient, though I am unsure how the game will explain it.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The hypothalamus and pituitary seem relevant to sensing concentration and releasing ADH, but I want to build the kidney route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result distinguishes the loop's role in establishing the gradient from the vessels' role in preserving it. I'll connect the assembly to the renal unit next.",
+    "reaction": "The distinction was useful, though I still don't know how either process works.",
+    "step": 2,
+    "reason": "Connecting the loop and vessels to the recovering renal unit should extend the fluid's route.",
+    "choice": 1,
+    "expectation": "I expect a renal unit with the loop and vessels attached, possibly revealing the next part of the water-recovery route.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hypothalamus and pituitary should connect concentration sensing to ADH, but I want to finish building the kidney route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loop and vessels are now connected to the renal unit, leaving the adjustable collecting duct to add.",
+    "reaction": "The result confirms the connection but adds no explanation.",
+    "step": 3,
+    "reason": "The collecting duct should complete the water-recovery route by adding the adjustable wall.",
+    "choice": 1,
+    "expectation": "I expect a renal unit with a collecting duct that can vary water recovery in response to ADH.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The hypothalamus and pituitary appear to form the control pathway, but I want to finish the kidney route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The duct completes the water-recovery route, and the result explains how permeability and the medullary gradient work together. I need to connect concentration sensing to the duct next.",
+    "reaction": "The explanation of why both the gradient and permeable wall matter was useful.",
+    "step": 4,
+    "reason": "This is the only offered combination and should begin the remaining control pathway.",
+    "choice": 1,
+    "expectation": "I expect a hypothalamus–pituitary control pathway that can respond to blood concentration and release ADH.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hypothalamus and pituitary now form a blood-borne ADH pathway; I can connect that signal to the kidney.",
+    "reaction": "The distinction between a signal and replacement water is clear, though the sensing mechanism remains unexplained.",
+    "step": 5,
+    "reason": "This is the only offered combination and should connect the control pathway to the collecting ducts.",
+    "choice": 1,
+    "expectation": "I expect ADH to change collecting duct permeability and water recovery in response to blood concentration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connection completes the feedback pathway: ADH changes collecting duct permeability, and its release can fall as the concentration disturbance subsides.",
+    "reaction": "The feedback explanation was useful, though it remained fairly general.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the collecting duct was most worthwhile because the result explained how its permeability and the medullary gradient work together to recover water.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the loop and vessels to the renal unit felt least worthwhile: the result confirmed the assembly but added no explanation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between the loop establishing the gradient and the vessels preserving it changed my understanding, although I still wanted to know how they do those things.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but connecting the loop assembly to the renal unit was a predictable construction step with little explanatory payoff.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how the regulated kidney responds to a drink, though I would want more explanation of the underlying mechanisms.",
+        "steps": [
+          1,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
