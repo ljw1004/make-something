@@ -25,10 +25,9 @@ def style_axes(ax, xlabel, ylabel):
     ax.set_ylabel(ylabel, labelpad=12, color="#595959")
 
 
-def legend(figure, y, averages=None):
+def legend(figure, y):
     handles = [Line2D([], [], color=AREA_COLORS[area], marker="o", linewidth=1.5,
-                      label=title + (" (includes Other)" if area == "game-engine" else "")
-                      + (f"\n{averages[area]:.1f} words/prompt" if averages is not None else ""))
+                      label=title + (" (includes Other)" if area == "game-engine" else ""))
                for area, title in AREAS.items()]
     figure.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.52, y),
                   ncol=3, frameon=False, labelcolor="#595959", fontsize=10)
@@ -89,46 +88,69 @@ def bucket_figure(bands, metadata):
     return figure, details
 
 
-def cumulative_figure(bands, metadata):
-    averages = {area: sum(band["words"] for band in rows)
-                / sum(band["prompts"] + band["steers"] for band in rows)
-                for area, rows in bands.items()}
-    figure, axes = plt.subplots(1, 2, figsize=(13, 7.2), facecolor="white")
-    figure.subplots_adjust(left=0.075, right=0.97, bottom=0.22, top=0.77, wspace=0.28)
+def longest_duration_label(seconds):
+    hours, minutes = divmod(round(seconds / 60), 60)
+    return f"{hours}h" + (f" {minutes}m" if minutes else "")
+
+
+def cumulative_figure(groups, metadata):
+    bands = {area: duration_hour_groups(rows) for area, rows in groups.items()}
+    # Preserve the former right panel's physical plot dimensions and axis limits.
+    plot_width = 13 * (0.97 - 0.075) / (2 + 0.28)
+    plot_height = 7.2 * (0.77 - 0.22)
+    figure = plt.figure(figsize=(6.5, 6.25), facecolor="white")
+    ax = figure.add_axes([0.145, 0.24, plot_width / 6.5, plot_height / 6.25])
+    style_axes(ax, "Cumulative agentic duration (hours)", "Cumulative prompts")
+    maximum_hours = max(sum(band["hours"] for band in rows) for rows in bands.values())
+    maximum_prompts = max(sum(band["prompts"] + band["steers"] for band in rows) for rows in bands.values())
+    ax.set_xlim(0, np.ceil(maximum_hours * 1.12))
+    ax.set_ylim(0, maximum_prompts * 1.17)
+    ax.xaxis.set_major_locator(MultipleLocator(20))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
+    # Positions are in points relative to each dot, so the small labels stay
+    # legible around the crowded origin without changing the data geometry.
+    dot_offsets = {
+        "art": [(12, 0), (24, 0), (12, -3), (9, -13), (-9, 11), (10, -10)],
+        "story": [(12, 7), (14, 16), (10, -5), (9, -9), (0, 10), (-3, -15)],
+        "game-engine": [(10, 3), (10, 2), (10, 0), (-5, 11)],
+    }
+    area_positions = {"art": (37, 228), "story": (73, 553), "game-engine": (14, 420)}
+    cutoffs = ["1m", "5m", "15m", "1h", "3h"]
     details = {}
-    for ax, quantity, ylabel in zip(axes, ("words", "messages"), ("Cumulative human-written words", "Cumulative prompts")):
-        style_axes(ax, "Cumulative agentic duration (hours)", ylabel)
-        maximum_hours = max(sum(band["hours"] for band in rows) for rows in bands.values())
-        ax.set_xlim(0, np.ceil(maximum_hours * 1.12))
-        ax.xaxis.set_major_locator(MultipleLocator(20))
-        for area, rows in bands.items():
-            populated = [band for band in rows if band["prompts"]]
-            hours = np.cumsum([band["hours"] for band in populated])
-            values = np.cumsum([band["words"] if quantity == "words" else band["prompts"] + band["steers"]
-                               for band in populated])
-            assert np.isclose(hours[-1], sum(band["hours"] for band in rows))
-            ax.plot(np.r_[0, hours], np.r_[0, values], color=AREA_COLORS[area], linewidth=1.8, zorder=2)
-            for i, (x, y, band) in enumerate(zip(hours, values, populated)):
-                gid = f"cumulative-{quantity}-{area}-{i}"
-                ax.scatter(x, y, s=28, color=AREA_COLORS[area], edgecolor="white", linewidth=0.5,
-                           zorder=3, gid=gid)
-                details[gid] = (f"{AREAS[area]} · through {band['label']} · "
-                                f"{x:.2f} cumulative hours · {y:,} cumulative {quantity}")
-            final = "Game-engine" if area == "game-engine" else AREAS[area]
-            offset, alignment = ((8, -10), "left") if quantity == "words" and area == "game-engine" else ((0, 11), "center")
-            ax.annotate(final, (hours[-1], values[-1]), xytext=offset, textcoords="offset points",
-                        ha=alignment, fontsize=10, color=AREA_COLORS[area])
-        maximum_value = max(sum(band["words"] if quantity == "words" else band["prompts"] + band["steers"]
-                                for band in rows) for rows in bands.values())
-        ax.set_ylim(0, maximum_value * 1.17)
-        ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
-    figure.suptitle("How words and prompts accumulate alongside hours", y=0.96, fontsize=16, color="#595959")
-    figure.text(0.5, 0.895, "Add duration bands from shortest to longest; each dot is the next running total",
-                ha="center", fontsize=11, color="#595959")
-    legend(figure, 0.865, averages)
-    figure.text(0.075, 0.105, "Duration-band order: Under 1m → 1–5m → 5–15m → 15–60m → 1–3h → 3h+.",
-                fontsize=10, color="#595959")
-    footer(figure, metadata, 0.05)
+    for area, rows in bands.items():
+        populated = [(i, band) for i, band in enumerate(rows) if band["prompts"]]
+        hours = np.cumsum([band["hours"] for _, band in populated])
+        prompts = np.cumsum([band["prompts"] + band["steers"] for _, band in populated])
+        assert np.isclose(hours[-1], sum(row["seconds"] for row in groups[area]) / 3600)
+        assert prompts[-1] == sum(1 + row["steers"] for row in groups[area])
+        longest = max(row["seconds"] for row in groups[area])
+        color = AREA_COLORS[area]
+        ax.plot(np.r_[0, hours], np.r_[0, prompts], color=color, linewidth=1.8, zorder=2)
+        for x, y, (i, band) in zip(hours, prompts, populated):
+            gid = f"cumulative-messages-{area}-{i}"
+            ax.scatter(x, y, s=28, color=color, edgecolor="white", linewidth=0.5, zorder=3, gid=gid)
+            label = cutoffs[i] if i < len(cutoffs) else longest_duration_label(longest)
+            offset = dot_offsets[area][i]
+            ax.annotate(label, (x, y), xytext=offset, textcoords="offset points",
+                        ha="right" if offset[0] < 0 else "left", va="center",
+                        fontsize=8.5, color=color, zorder=4,
+                        arrowprops={"arrowstyle": "-", "color": color, "linewidth": 0.5,
+                                    "shrinkA": 3, "shrinkB": 4} if np.hypot(*offset) >= 20 else None)
+            details[gid] = (f"{AREAS[area]} · through {band['label']} · "
+                            f"{x:.2f} cumulative hours · {y:,} cumulative prompts"
+                            + (f" · longest run {longest:.3f} seconds" if i == len(rows) - 1 else ""))
+        average = sum(row["words"] for row in groups[area]) / prompts[-1]
+        ax.text(*area_positions[area], f"{AREAS[area]}.\n{average:.0f} words/prompt",
+                fontsize=11, color=color, va="center", linespacing=1.4)
+    figure.suptitle("Prompts and agentic hours", y=0.97, fontsize=16, color="#595959")
+    figure.text(0.54, 0.916, "Accumulate runs from shortest to longest",
+                ha="center", fontsize=10, color="#595959")
+    snapshot = local_time(metadata["captured_at_utc"])
+    figure.text(0.145, 0.04,
+                "Dots show run-duration cutoffs; 3h+ dots show longest runs.\n"
+                "Prompts include steers; words count human writing.\n"
+                f"Game-engine includes Other. {metadata['status_counts']['open']} open loops excluded. {snapshot:%d %b %Y}.",
+                fontsize=8.5, color="#7f7f7f", linespacing=1.4)
     return figure, details
 
 
@@ -156,8 +178,9 @@ def render(dataset, output):
     configure_style()
     with plt.rc_context({"text.color": "#595959", "font.size": 10, "savefig.facecolor": "white"}):
         with PdfPages(output / "representation-options.pdf") as pdf:
-            for name, builder in [("words-hours-buckets", bucket_figure), ("cumulative-words-prompts-hours", cumulative_figure)]:
-                figure, details = builder(bands, metadata)
+            for name, builder, data in [("words-hours-buckets", bucket_figure, bands),
+                                        ("cumulative-prompts-hours", cumulative_figure, groups)]:
+                figure, details = builder(data, metadata)
                 figure.savefig(output / f"{name}.png", dpi=180, facecolor="white")
                 figure.savefig(output / f"{name}.svg", facecolor="white")
                 svg_details(output / f"{name}.svg", details)
