@@ -19,6 +19,7 @@ This project collects evidence about the human–agent development process behin
 - **The same chart by area:** [art](plots/time-by-loop-length-art.png), [story](plots/time-by-loop-length-story.png), and [game-engine including other](plots/time-by-loop-length-game-engine.png), with a shared hours scale. [Three-page PDF](plots/time-by-loop-length-by-area.pdf).
 - **[All three areas in one chart](plots/time-by-loop-length-combined.png):** each duration band has three colored subrows, labeled `N prompts, M words`. Here prompts include initial prompts and steers, and words include both. [One-page PDF](plots/time-by-loop-length-combined.pdf).
 - [plot_category_loop_lengths.py](plot_category_loop_lengths.py): joins the timing and classification snapshots to render the separate area charts and the combined chart.
+- **Two-axis representation sketches:** [bucket bubbles](plots/words-hours-buckets.png) and [cumulative words/prompts against hours](plots/cumulative-words-prompts-hours.png), with a [two-page PDF](plots/representation-options.pdf). The [bubble SVG](plots/words-hours-buckets.svg) and [cumulative SVG](plots/cumulative-words-prompts-hours.svg) show exact values and duration bands on hover. [Renderer](plot_representation_options.py).
 - **[plots/time-allocation.png](plots/time-allocation.png): the total recorded agentic duration divided among individual prompts**, with time-weighted breakdowns. Also available as [PDF](plots/time-allocation.pdf) and [SVG with prompt details on hover](plots/time-allocation.svg).
 - [plot_time_allocation.py](plot_time_allocation.py): renders the time-allocation view and the standalone loop-length chart from the same saved snapshot.
 - [plots/overview.png](plots/overview.png): four charts and headline duration statistics from the saved snapshot.
@@ -59,6 +60,8 @@ Start with **time allocation** when the quantity of interest is agentic duration
 
 The **area bar charts** use the same plain appearance, duration bins, and hours axis as each other. The combined chart places Art, Story and Game-engine in three colored subrows within each duration band, with more vertical room for the bars and count labels. Its `N prompts, M words` labels count all initial prompts plus steers in the bucket, and all words in those messages and their pasted text. The separate-area charts retain their initial-prompt and steer labels. All groupings use Luna's primary category and fold `other` into `game-engine` for plotting. Each loop, including all its steers and their words, belongs to its initial prompt's area and duration band. Open turns are excluded from bars. The renderer checks the classification/source hashes and reconciles all three groups to the original totals.
 
+The **representation sketches** explore giving both quantities numeric axes while preserving hours horizontally. Bucket bubbles place each nonempty area/duration bucket at its total hours and words, with bubble area proportional to its initial-prompt-plus-steer count. Small numbers identify duration bands; SVG hover details provide exact values. The cumulative alternative starts each area at zero and adds the six duration bands from shortest to longest. Each marker is a running total, and each straight segment adds the next bucket's hours and words or prompts. The two panels compare words and prompt counts on separate vertical scales, with a common hours scale. Accumulation follows loop length rather than conversation chronology. Each endpoint gives the area's total; segment slopes express words or prompts per recorded agentic hour, not a quality or productivity score. These sketches retain the earlier bar charts for comparison.
+
 - **Prompt rectangles:** one rectangle per initial prompt, with area exactly proportional to its share of the total recorded duration. Color encodes steer count; the legend gives hours in each steer group. The largest labeled tiles carry duration ranks. Open the SVG in a browser to hover over any rectangle for its prompt excerpt, ID, conversation, duration, outcome and steer count. Small prompts keep their actual area instead of receiving a minimum visual size.
 - **Time by loop length:** summed hours in each duration band. The right of each bar reads `N prompts + M steers`, counting initial prompts and all their mid-turn steers separately. Hours are read from the axis, with no hour or percentage annotations. Every band contributes to the same 135.7-hour total. The standalone export uses a white background, one blue bar series, gray gridlines and ordinary typography.
 - **Time concentration:** accumulated hours as prompts are added from longest to shortest. The first **27 prompts account for 50.8%** of all recorded time; the first **90 account for 80.1%**.
@@ -81,6 +84,7 @@ python3 -m venv runs/retrospective-plot-venv
 runs/retrospective-plot-venv/bin/python -m pip install -r projects/retrospective/plot-requirements.txt
 MPLCONFIGDIR=runs/retrospective-mpl-cache runs/retrospective-plot-venv/bin/python -B projects/retrospective/plot_time_allocation.py
 MPLCONFIGDIR=runs/retrospective-mpl-cache runs/retrospective-plot-venv/bin/python -B projects/retrospective/plot_category_loop_lengths.py
+MPLCONFIGDIR=runs/retrospective-mpl-cache runs/retrospective-plot-venv/bin/python -B projects/retrospective/plot_representation_options.py
 MPLCONFIGDIR=runs/retrospective-mpl-cache runs/retrospective-plot-venv/bin/python -B projects/retrospective/plot_dataset.py
 ```
 
@@ -93,6 +97,8 @@ The time-allocation pass reconciled the hour totals and all 534 rectangle areas,
 The plain loop-length chart reconciles 534 initial prompts and 491 steers across its six bands. Its standalone PNG and PDF and the corresponding panel in the time-allocation exports use the revised count labels.
 
 The separate and combined area charts preserve those same 534 initial prompts, 491 steers and 135.7 recorded hours collectively, with three open turns excluded. The combined chart therefore labels 1,025 prompts in total. Their labels and shared scale were visually checked. The separate-area PDF contains one page per area; the combined chart has a one-page PDF.
+
+The representation sketches use the same validated category join and reconcile all bucket totals and cumulative endpoints. The bubble view has 16 populated buckets; the two cumulative panels have 32 markers with SVG hover details. Their two-page PDF and label placement were checked. The shared category-loading refactor preserves the existing combined bar-chart PNG byte for byte.
 
 ## Word counts
 

@@ -63,7 +63,8 @@ def combined_loop_length_figure(groups, metadata, x_max):
         return figure
 
 
-def render(dataset, output):
+def load_area_snapshot(dataset):
+    """Join and validate the classified snapshot, folding Other into Game-engine."""
     rows, metadata = load_snapshot(dataset)
     classification_path = dataset / "prompt-classifications.csv"
     provenance = json.loads((dataset / "classification-metadata.json").read_text())
@@ -92,6 +93,11 @@ def render(dataset, output):
     assert sum(row["words"] for group in groups.values() for row in group) == metadata["word_count"]["ended_loop_words"]
     assert np.isclose(sum(row["seconds"] for group in groups.values() for row in group),
                       sum(row["seconds"] for row in ended))
+    return groups, open_counts, metadata
+
+
+def render(dataset, output):
+    groups, open_counts, metadata = load_area_snapshot(dataset)
     maximum_band_hours = max(band["hours"] for group in groups.values() for band in duration_hour_groups(group))
     common_x_max = max(10, float(np.ceil(maximum_band_hours * 1.6 / 10) * 10))
     output.mkdir(parents=True, exist_ok=True)
