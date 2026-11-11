@@ -27,6 +27,12 @@ Each story's ordinary Markdown H1 contains its identifying image and title. Rend
 - Open each story at its own URL. A missing manuscript shows a visible load error with **Try again**; an unknown catalogue hash bookmark shows an explicit unknown-story error. Do not silently substitute another story. The [README](../README.md#run-the-game) owns route syntax and deployment layout.
 - Identify browser progress, drafts and tutorial completion by the resolved full manuscript URL. Player routes that resolve to the same manuscript share that state; different manuscripts remain independent even when they share an artwork directory. A changed website origin or manuscript path has a separate identity; do not treat filenames as display titles or silently move saved data between stories.
 
+### Historical prototype collection
+
+The separate `/archive/prototypes/` collection follows the user's remembered sequence, retaining stage numbers and distinguishing preservation dates from publication or recorded play. Present the nine selected prototypes with their surviving names and short descriptions; Bell Orchard and Mneme include both revisions, and the shared canvas includes Elements, Forms and Ideas. Keep this retrospective separate from the current story catalogue, with a link back to it.
+
+Preserve the prototypes' original interactions and text. Adapt historical navigation to the exported collection. Bell Orchard and Mneme use the original text reader and combination buttons, running entirely in the browser; a page visit starts a fresh run, **Start again** resets it, and **Download this run** exports its replayable JSON. Explain that these text runs last only while the page is open. Existing board autosaves use a separate retrospective namespace so playing the export cannot overwrite other editions' progress. The [retrospective instructions](../projects/retrospective/prototype-history.md#static-collection) own the export and its evidence limits.
+
 ## Home-screen apps
 
 - In standalone WebKit apps, supply the system `Canvas` colour for a solid status-bar background, following the device's light/dark preference. This addresses the unwanted iOS fade over scenery while keeping the clock and system indicators visible. Apply the treatment to both catalogue and player, including loading/error views. The colour source must not paint over artwork, intercept input or add layout height. Let iOS size its status area and keep controls aligned to the current safe-area insets on rotation; ordinary browser tabs retain their existing appearance.

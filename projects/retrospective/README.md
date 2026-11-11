@@ -1,6 +1,12 @@
 # Retrospective
 
-This project collects evidence about the human–agent development process behind **Make Something Worthwhile**. Its first dataset measures the agentic loop following each initial, non-steer prompt in this repository's locally saved Codex conversations.
+This project collects evidence about the human–agent development process behind **Make Something Worthwhile**, including its surviving prototypes and locally saved conversations.
+
+## Prototype history
+
+- [Prototype sequence and playback](prototype-history.md): Lucian's selected pre-Markdown sequence, story lineups, dated Git/publication evidence, local launch instructions, the Markdown/salvage transition and limits on dating the move from Dot to Codex.
+- [serve-prototypes.mjs](serve-prototypes.mjs): serves the preserved browser prototypes locally with cache in ignored scratch space; the history document also explains the separate Bell Orchard/Mneme server.
+- [Static collection](../../archive/prototypes/index.html): the nine selected prototypes, including browser-only Bell Orchard and Mneme adapters. [Build](build-prototypes.mjs) and [verify](verify-prototypes.mjs) it separately from the current game; [hosting instructions](prototype-history.md#static-collection) cover GitHub Pages.
 
 ## Dataset
 

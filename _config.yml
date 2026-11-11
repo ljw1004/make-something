@@ -1,11 +1,18 @@
-# GitHub Pages publishes the generated root pages/bundles and original stories.
+# GitHub Pages publishes the generated root pages/bundles, stories and prototype export.
 # Keep every other root entry excluded when adding files or directories.
 # Jekyll 3's include option does not recursively override exclude: ["*"].
 exclude:
   - AGENTS.md
   - LICENSE
   - README.md
-  - archive
+  # Only archive/prototypes/ is published. Dated archives remain excluded,
+  # including future dated archive folders. Exclude any new non-dated sibling here.
+  - "archive/20*"
+  - "archive/legacy-*"
+  - archive/icon-generation
+  - archive/README.md
+  - archive/document-inventory.json
+  - archive/salvage-index.md
   - dist
   - docs
   - index-dev.html

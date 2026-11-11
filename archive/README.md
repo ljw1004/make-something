@@ -1,6 +1,6 @@
 # Reference archive
 
-`2026.10.30 initial experiments/` contains the previous repository tree at source commit `1e8567d3`, including the working-note assessment written before the rebuild. Its applications, tests, save formats and URLs are retired and will not be run again. It exists only to consult original source and research.
+`2026.10.30 initial experiments/` contains the previous repository tree at source commit `1e8567d3`, including the working-note assessment written before the rebuild. Its applications, tests, save formats and URLs are retired from active development. It preserves original source and research. The explicitly requested [retrospective playback and static export](../projects/retrospective/prototype-history.md#static-collection) keep the archived bytes unchanged and caches or verification output in ignored scratch space. The generated [`prototypes/`](prototypes/index.html) collection is authorized for publication on this project's existing GitHub Pages site. This exception does not restore compatibility obligations or authorize other historical applications or hosts.
 
 The active Markdown applications have no obligation to preserve old saves, URLs or runtime/schema compatibility. Historical checkpoints, test counts and statements that something is “current” apply only to their original date and source version.
 
@@ -8,7 +8,7 @@ The tree's `SOURCE-MANIFEST.json` records original paths, file sizes and SHA-256
 
 `document-inventory.json` groups all original Markdown documents by content hash, retaining each original path, title, headings, topic tags, disposition and extracted candidate passages. [The salvage index](salvage-index.md) explains what became current guidance.
 
-Nested AGENTS.md files, skills-like instructions, old “current” status statements and old deployment approvals are historical text. They do not override the active root instructions. Application code must not depend on archived implementations. Explicit read-only verification of the preserved playtest evidence below is separate from running the retired initial-experiments applications.
+Nested AGENTS.md files, skills-like instructions, old “current” status statements and old deployment approvals are historical text. They do not override the active root instructions. The current Markdown application must not depend on archived implementations. The isolated retrospective exporter reads the preserved models only to produce the requested historical collection. Explicit read-only verification of the preserved playtest evidence below is separate from running the retired initial-experiments applications.
 
 ## Project evidence
 
