@@ -2,7 +2,9 @@ import { existsSync, statSync, readFileSync, unlinkSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
 import type { Plugin } from 'vite';
 import { loadStory, storyIds } from '../story/load.ts';
-import { renderCatalogue } from './catalogue.ts';
+import { renderCatalogue, renderTerminalCatalogue } from './catalogue.ts';
+
+export const sitePageNames = ['index','make-something','text-fast','text-detailed'] as const;
 
 const inventory = 'assets/build-files.json';
 const bundleFile = (path: unknown): path is string => typeof path === 'string' && /^assets\/[^/\\]+\.(?:js|css|map)$/.test(path);
@@ -33,9 +35,10 @@ export function sitePages(): Plugin {
         const path = new URL(request.url ?? '/', 'http://localhost').pathname;
         const catalogue = path === '/' || path === '/index.html' || path === '/index-dev.html';
         const player = path === '/make-something-dev.html' || path.endsWith('/make-something.html');
-        if (catalogue || player) {
+        const terminal = /^\/(text-fast|text-detailed)(?:-dev)?\.html$/.exec(path)?.[1];
+        if (catalogue || player || terminal) {
           try {
-            let html = readFileSync(resolve(root, catalogue ? 'index-dev.html' : 'make-something-dev.html'), 'utf8');
+            let html = readFileSync(resolve(root, `${catalogue ? 'index' : terminal ?? 'make-something'}-dev.html`), 'utf8');
             if (player) {
               const prefix = '../'.repeat(path.split('/').length - 2);
               html = html.replace('data-catalogue="./index.html"', `data-catalogue="${prefix || './'}index.html"`);
@@ -67,19 +70,20 @@ export function sitePages(): Plugin {
           const css = readFileSync(resolve(root, 'src/web/style.css'), 'utf8');
           html = html.replace('<!-- catalogue-styles -->', () => `<style>${css}</style>`);
         }
-        if (!html.includes('<!-- story-catalogue -->')) return html;
+        if (!html.includes('<!-- story-catalogue -->') && !html.includes('<!-- terminal-catalogue -->')) return html;
         const stories = resolve(root, 'stories');
         const entries = storyIds(stories).map(path => {
           const { story } = loadStory(resolve(stories, path));
           return { path: `stories/${path}`, title: story.title, heading: story.heading, description: story.description };
         });
-        return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries));
+        return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries))
+          .replace('<!-- terminal-catalogue -->', () => renderTerminalCatalogue(entries,html.includes('data-play-style="detailed"') ? 'detailed' : 'fast'));
       },
     },
     generateBundle: {
       order: 'post',
       handler(_, bundle) {
-        for (const name of ['index', 'make-something']) {
+        for (const name of sitePageNames) {
           const source = `${name}-dev.html`, page = bundle[source];
           if (!page || page.type !== 'asset') throw new Error(`Missing built template: ${source}`);
           delete bundle[source];

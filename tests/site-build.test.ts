@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { build, createServer, type InlineConfig } from 'vite';
-import { sitePages } from '../src/build/site.ts';
+import { sitePages, sitePageNames } from '../src/build/site.ts';
 
 // Exercise a real root build on a disposable repository, including its second build.
 test('root builds preserve sources, retire only owned bundles and serve fresh development templates', async () => {
@@ -14,9 +14,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
   const config: InlineConfig = {
     configFile: false, root, cacheDir: join(root, '.vite'), base: './', appType: 'mpa', publicDir: false, logLevel: 'silent',
     plugins: [sitePages()],
-    build: { outDir: '.', emptyOutDir: false, rolldownOptions: {input: {
-      index: join(root, 'index-dev.html'), 'make-something': join(root, 'make-something-dev.html'),
-    }} },
+    build: { outDir: '.', emptyOutDir: false, rolldownOptions: {input: Object.fromEntries(sitePageNames.map(name=>[name,join(root,`${name}-dev.html`)]))} },
   };
   const runBuild = () => build({...config, plugins: [sitePages()]});
   let server: Awaited<ReturnType<typeof createServer>> | undefined;
@@ -31,6 +29,9 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     const index = '<!doctype html><head><!-- catalogue-styles --></head><body><div id="app"><!-- story-catalogue --></div><script type="module" src="/catalogue.js"></script></body>';
     const player = '<!doctype html><body data-catalogue="./index.html"><div>Player template</div><script type="module" src="/player.js"></script></body>';
     write('index-dev.html', index); write('make-something-dev.html', player);
+    for (const style of ['fast','detailed']) write(`text-${style}-dev.html`,player
+      .replace('<body ',`<body data-play-style="${style}" `)
+      .replace('Player template',`Terminal ${style}<!-- terminal-catalogue -->`));
     write('catalogue.js', 'document.body.dataset.catalogue = "one";');
     write('player.js', 'document.body.dataset.player = "one";');
     write('keep.txt', 'unrelated root file'); write('assets/keep.js', 'unrelated asset');
@@ -43,6 +44,10 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     assert.doesNotMatch(read('index.html'), /background:|start\.svg/);
     assert.doesNotMatch(read('index.html'), /Excluded brief|stories.json|\/catalogue.js|story-catalogue/);
     assert.doesNotMatch(read('make-something.html'), /\/player.js/);
+    for (const style of ['fast','detailed']) {
+      assert.match(read(`text-${style}.html`),new RegExp(`href="text-${style}.html\\?story=stories/shared/story.md"`));
+      assert.doesNotMatch(read(`text-${style}.html`),/terminal-catalogue|Excluded brief|<img/);
+    }
     assert.equal(existsSync(join(root, 'dist')), false);
     assert.equal(existsSync(join(root, 'stories.json')), false);
     assert.equal(existsSync(join(root, 'combinations.html')), false);
@@ -83,6 +88,10 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     }
     for (const path of ['make-something.html', 'make-something-dev.html', 'stories/shared/make-something.html']) {
       assert.match(await (await fetch(new URL(path, base))).text(), /Fresh player template/);
+    }
+    for (const style of ['fast','detailed']) for (const suffix of ['','-dev']) {
+      const html=await (await fetch(new URL(`text-${style}${suffix}.html`,base))).text();
+      assert.match(html,/Updated title/);assert.match(html,/@vite\/client/);
     }
     assert.match(await (await fetch(new URL('stories/shared/story.md', base))).text(), /Updated title/);
     assert.equal((await fetch(new URL('stories/shared/missing.md', base))).status, 404);

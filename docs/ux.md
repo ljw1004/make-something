@@ -14,7 +14,7 @@ This is the authoritative record of the interface contract: interaction, present
 
 Let the [game's philosophy](../README.md#philosophy) guide player and authoring UX.
 
-Use a warm paper palette, outlined cards, square hotspot frames, high-contrast partner/drop states, reading dialogs and explicit chapter arrows. Keep scene artwork visible and leave natural working space for the objects. Gameplay panels have no chapter-title overlay or reserved title strip. Construction target pictures belong in authored background art and have no separate tap action. The interface should support recognizing, trying and discovering combinations without requiring an instructional screen or administrative steps. The [experience criteria](fun-and-evaluation.md) govern claims about whether that succeeds.
+The graphical player uses a warm paper palette, outlined cards, square hotspot frames, high-contrast partner/drop states, reading dialogs and explicit chapter arrows. Keep scene artwork visible and leave natural working space for the objects. Gameplay panels have no chapter-title overlay or reserved title strip. Construction target pictures belong in authored background art and have no separate tap action. The interface should support recognizing, trying and discovering combinations without requiring an instructional screen or administrative steps. The separate [browser terminals](#browser-terminals) present the text engine as a development demonstration. The [experience criteria](fun-and-evaluation.md) govern claims about whether that succeeds.
 
 ## Catalogue and story identity
 
@@ -148,6 +148,16 @@ The player decides whether to inspect for compatibility or act on an inference. 
 - AI uses `"choice": {"inspect":"A"}` or `"choice": {"combine":"A","with":"B"}` inside its full structured decision reply. A look contains only `{"step":N,"choice":{"look":true}}`; the same first-move and once-per-decision restrictions apply. An unsuccessful combination or inspection still produces a result for the following reflection.
 
 Retained evaluations identify the playstyle and tested manuscript's chapter titles. Do not combine modes into one chapter score or compare their decision-density ratios as the same condition. The [report format](fun-and-evaluation.md#run-files) owns headings and assembly rules.
+
+### Browser terminals
+
+The fast and detailed terminal pages let visitors interact with the existing text engine used during development. They use the human command-line behavior from chapter one through the ending, including automatic progression and chapter skipping. Keep AI instructions, structured reflection forms, grading and chapter checkpoint selection outside these pages. The [README](../README.md#browser-text-terminals) owns their URLs and launch instructions.
+
+- Fill the page with black and use light, fixed-size monospace text. Center a left-aligned **100-character** column. Wider-window resizing changes the margins, keeping line wrapping stable; below that width, wrap to fit. Use one ordinary document scrollbar and preserve browser text selection. Do not animate scrolling, output or font size.
+- Append commands and runner output to one continuous transcript. Preserve the human CLI's text, including Markdown punctuation, indentation, picture descriptions, options, errors and discovery prose. Only the current prompt accepts input. Fast mode takes numbers; detailed mode takes `inspect`/`combine` commands, with the existing `i`/`c` expansion and name completion. Enter refreshes the board without advancing a decision. Up/Down recalls submitted commands and restores the unfinished input.
+- Insert each entered chapter's inherited or explicit background immediately before its heading. Images provide atmosphere and remain in the scrollback; they have no game interaction. Preserve their aspect ratio inside a fixed-height area so delayed loads or errors cannot move existing text. A failed image leaves the terminal usable. Repeated looks add no pictures; chapters skipped by the runner add no invented arrivals.
+- Keep the prompt at the end of the document. Submitting a command brings the start of its response into view; retaining input focus must not force a jump past a long response. Reading older output and loading pictures do not move the scroll position.
+- Each page lists the existing stories when no manuscript is selected. Opening a story or switching modes begins a fresh in-memory run. Reload starts again; these development demonstrations do not read or write the graphical game's saves or editor drafts. Completion keeps the full transcript visible and closes the prompt.
 
 ## Result placement
 

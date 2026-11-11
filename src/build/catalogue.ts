@@ -30,3 +30,11 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
     return `<a href="${escape(href)}" data-story="${escape(entry.path)}"><h2 class="story-title">${heading}</h2>${catalogueDescription(entry.description, entry.path)}</a>`;
   }).join('')}</nav></main>`;
 }
+
+/** Text terminals use the same story inventory, with plain titles and no artwork. */
+export function renderTerminalCatalogue(entries:CatalogueEntry[], style:'fast'|'detailed'):string {
+  return `<nav aria-label="Stories"><ul>${entries.map(entry => {
+    const href=`text-${style}.html?story=${encodeURIComponent(entry.path).replaceAll('%2F','/')}`;
+    return `<li><a href="${escape(href)}">${escape(entry.title)}</a></li>`;
+  }).join('')}</ul></nav>`;
+}
