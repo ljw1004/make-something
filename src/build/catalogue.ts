@@ -35,7 +35,7 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
 export function renderTerminalCatalogue(entries:CatalogueEntry[]):string {
   return entries.map((entry,index) => {
     const prose=entry.description.replace(/!\[[^\]]*\]\([^)]+\)/g,'').replace(/\s+/g,' ').trim();
-    const text=`${index+1}. ${entry.title.toUpperCase().replace(/\.$/,'')}.${prose ? ` ${prose}` : ''}`;
-    return `<span data-story="${escape(entry.path)}">${escape(text)}</span>`;
+    const title=escape(entry.title.toUpperCase().replace(/\.$/,''));
+    return `<span data-story="${escape(entry.path)}">${index+1}. <span class="terminal-story-title">${title}</span>.${prose ? ` ${escape(prose)}` : ''}</span>`;
   }).join('\n\n');
 }

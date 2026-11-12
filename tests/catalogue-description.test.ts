@@ -21,8 +21,8 @@ test('terminal choices are numbered prose with safe manuscript paths and no cove
     {path:'stories/a & b/story.md',title:'A & B',description:'![Cover](assets/cover.svg)\n\nYou are a maker.\nWhat next?'},
     {path:'stories/theology/theology.md',title:'Theology',description:'You are Augustine, Aquinas. <script>never execute</script>'},
   ]);
-  assert.match(html,/data-story="stories\/a &amp; b\/story.md">1\. A &amp; B\. You are a maker\. What next?/);
-  assert.match(html,/2\. THEOLOGY\. You are Augustine, Aquinas\. &lt;script&gt;/);
+  assert.match(html,/data-story="stories\/a &amp; b\/story.md">1\. <span class="terminal-story-title">A &amp; B<\/span>\. You are a maker\. What next?/);
+  assert.match(html,/2\. <span class="terminal-story-title">THEOLOGY<\/span>\. You are Augustine, Aquinas\. &lt;script&gt;/);
   assert.doesNotMatch(html,/<a |<img|<script>|Cover|cover.svg/);
 });
 

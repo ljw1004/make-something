@@ -45,7 +45,7 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     assert.doesNotMatch(read('index.html'), /Excluded brief|stories.json|\/catalogue.js|story-catalogue/);
     assert.doesNotMatch(read('make-something.html'), /\/player.js/);
     for (const style of ['fast','detailed']) {
-      assert.match(read(`simulator-${style==='fast'?'story':'interactions'}.html`),/data-story="stories\/shared\/story.md">1\. FIRST TITLE\./);
+      assert.match(read(`simulator-${style==='fast'?'story':'interactions'}.html`),/data-story="stories\/shared\/story.md">1\. <span class="terminal-story-title">FIRST TITLE<\/span>\./);
       assert.doesNotMatch(read(`simulator-${style==='fast'?'story':'interactions'}.html`),/terminal-catalogue|Excluded brief|<img|<a /);
     }
     assert.equal(existsSync(join(root, 'dist')), false);

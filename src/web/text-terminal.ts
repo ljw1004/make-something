@@ -1,13 +1,14 @@
 import './text-terminal.css';
 import {parseStory} from '../story/parser.ts';
 import type {Story} from '../story/types.ts';
-import {choose, startAdventure} from '../playtest/adventure.ts';
+import {choose, itemName, startAdventure} from '../playtest/adventure.ts';
+import {label} from '../engine/game.ts';
 import type {Adventure} from '../playtest/adventure.ts';
 import {isLook, parseCommand} from '../playtest/commands.ts';
 import {detailedObjects} from '../playtest/detailed.ts';
-import {completeCommandLine} from '../playtest/terminal-input.ts';
-import {resolveStoryAsset, resolveStoryURL} from './story-document.ts';
-import {terminalParts} from './text-terminal-frame.ts';
+import {terminalCommandInput} from './terminal-command-input.ts';
+import {resolveStoryURL} from './story-document.ts';
+import {highlightTerminalObjects, terminalFrame, terminalFrameMarkdown} from './text-terminal-frame.ts';
 
 const requestedStyle = document.body.dataset.playStyle;
 if (requestedStyle !== 'fast' && requestedStyle !== 'detailed') throw new Error('Unknown terminal play style.');
@@ -17,32 +18,45 @@ const form = document.querySelector<HTMLFormElement>('#prompt')!;
 const input = document.querySelector<HTMLInputElement>('#command')!;
 const status = document.querySelector<HTMLParagraphElement>('#status')!;
 const picker = document.querySelector<HTMLElement>('#story-picker')!;
-let story:Story, adventure:Adventure, storyURL:string, visits=0;
-let ready=false, selecting=true, startingChapter=1;
+let story:Story, adventure:Adventure;
+let ready=false, selecting=true;
+const commandInput=terminalCommandInput(input,()=>ready && !selecting && style==='detailed' ? detailedObjects(story,adventure.state) : undefined);
 const stories=[...picker.querySelectorAll<HTMLElement>('[data-story]')].map(node=>node.dataset.story!);
-const history:string[]=[];
-let historyIndex=0, draft='';
-
-function appendText(parent:HTMLElement,text:string,kind:string) {
-  const span=document.createElement('span');
-  span.dataset[kind]='';span.textContent=text;parent.append(span);
+function showStorySelection(storyURL:string) {
+  let choice=stories.findIndex(path=>new URL(path,location.href).href === storyURL)+1;
+  if (!choice) {
+    // A direct manuscript outside the published catalogue still gets a menu choice.
+    const path=new URL(location.href).searchParams.get('story')!;
+    choice=stories.push(path);
+    const entry=document.createElement('span');entry.dataset.story=path;
+    const title=document.createElement('span');title.className='terminal-story-title';
+    title.textContent=story.title.toUpperCase().replace(/\.$/,'');
+    const description=story.description.replace(/!\[[^\]]*\]\([^)]+\)/g,'').replace(/\s+/g,' ').trim();
+    entry.append(`${choice}. `,title,`.${description ? ` ${description}` : ''}`);
+    picker.append('\n\n',entry);
+  }
+  const selection=document.createElement('pre');selection.className='story-selection';
+  selection.textContent=`> ${choice}`;
+  transcript.append(selection);
+}
+function colorObjects(element:HTMLElement) {
+  highlightTerminalObjects(element,Object.keys(adventure.state.tokens).flatMap(id=>[
+    label(story,adventure.state,id),itemName(story,adventure.state,id),
+  ]));
+}
+function revealPrompt() {
+  if (!form.hidden) {
+    input.focus({preventScroll:true});
+    form.scrollIntoView({block:'nearest',behavior:'instant'});
+    commandInput.refresh();
+  } else transcript.lastElementChild?.scrollIntoView({block:'end',behavior:'instant'});
 }
 function display(refresh=false):HTMLElement {
   const output=document.createElement('pre');output.dataset.terminalOutput='';
-  for (const part of terminalParts(story,adventure,visits,refresh,startingChapter)) {
-    if (part.kind === 'text') {appendText(output,part.text,'terminalText');continue;}
-    const picture=document.createElement('span');
-    picture.className='chapter-picture';picture.dataset.chapter=String(part.chapter);
-    picture.setAttribute('aria-hidden','true');
-    const image=document.createElement('img');image.alt='';image.draggable=false;
-    const fallback=document.createElement('span');fallback.className='picture-error';
-    fallback.textContent='[Chapter image unavailable]';fallback.hidden=true;
-    image.onerror=()=>{image.hidden=true;fallback.hidden=false;};
-    try {image.src=resolveStoryAsset(part.url,storyURL);}
-    catch {image.hidden=true;fallback.hidden=false;}
-    picture.append(image,fallback);output.append(picture);
-  }
-  visits=adventure.state.visited.length;
+  const text=document.createElement('span');text.dataset.terminalText='';
+  text.innerHTML=terminalFrameMarkdown(terminalFrame(story,adventure,refresh));
+  colorObjects(text);
+  output.append(text);
   transcript.append(output);
   form.hidden=adventure.frame.phase !== 'choose';
   const url=new URL(location.href);
@@ -51,22 +65,21 @@ function display(refresh=false):HTMLElement {
   return output;
 }
 
-form.addEventListener('submit',async event=>{
+form.addEventListener('submit',event=>{
   event.preventDefault();
   if (!ready || (!selecting && adventure.frame.phase !== 'choose')) return;
-  const line=input.value;input.value='';
-  if (line.trim()) history.push(line);
-  historyIndex=history.length;draft='';
+  const line=commandInput.submission();commandInput.setValue('');
   const echo=document.createElement('pre');echo.className='command-echo';echo.textContent=`> ${line}`;
+  if (!selecting) {echo.dataset.terminalObjects='';colorObjects(echo);}
   transcript.append(echo);
-  let response:HTMLElement;
   try {
     if (selecting) {
       const choice=/^[1-9]\d*$/.test(line.trim()) ? Number(line.trim()) : NaN;
       if (!Number.isInteger(choice) || choice > stories.length) throw new Error(`Choose a story number from 1 to ${stories.length}.`);
       const url=new URL(location.href);
       url.searchParams.set('story',stories[choice-1]);url.searchParams.delete('chapter');
-      response=await openStory(url);
+      // A real page navigation gives Back/Forward their ordinary browser behavior.
+      echo.remove();location.assign(url.href);return;
     } else {
       let refresh=false;
       if (style === 'detailed') {
@@ -78,66 +91,72 @@ form.addEventListener('submit',async event=>{
         if (!Number.isFinite(choice)) refresh=true;
         else adventure=choose(story,adventure,adventure.frame.step,choice);
       }
-      response=display(refresh);
+      display(refresh);
     }
   } catch (error) {
-    response=document.createElement('pre');response.className='command-error';
+    const response=document.createElement('pre');response.className='command-error';
     response.setAttribute('role','alert');response.textContent=(error as Error).message;
     transcript.append(response);
   }
-  if (!form.hidden) input.focus({preventScroll:true});
-  response.scrollIntoView({block:'start',behavior:'instant'});
+  revealPrompt();
 });
 
-input.addEventListener('input',event=>{
-  const edit=event as InputEvent;
-  if (!ready || selecting || style !== 'detailed' || edit.isComposing || edit.inputType !== 'insertText' ||
-    input.selectionStart !== input.value.length || input.selectionEnd !== input.value.length) return;
-  const completed=completeCommandLine(input.value,detailedObjects(story,adventure.state));
-  if (completed !== input.value) {
-    input.value=completed;input.setSelectionRange(completed.length,completed.length);
+input.addEventListener('input',()=>{
+  if (promptAvailable()) revealPrompt();
+});
+function promptAvailable() {return ready && !form.hidden && !input.disabled;}
+function otherControl(target:EventTarget|null) {
+  return target instanceof Element && target !== input && !!target.closest('a,button,input,textarea,select,[contenteditable]');
+}
+document.addEventListener('click',event=>{
+  if (!promptAvailable() || otherControl(event.target) || !window.getSelection()?.isCollapsed) return;
+  input.focus({preventScroll:true});
+});
+document.addEventListener('keydown',event=>{
+  if (!promptAvailable() || otherControl(event.target) || event.isComposing) return;
+  if (!event.altKey && !event.ctrlKey && !event.metaKey && ['ArrowUp','ArrowDown'].includes(event.key)) {
+    event.preventDefault();return;
   }
-});
-input.addEventListener('keydown',event=>{
-  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing ||
-    !['ArrowUp','ArrowDown'].includes(event.key)) return;
-  event.preventDefault();
-  if (historyIndex === history.length) draft=input.value;
-  historyIndex=Math.max(0,Math.min(history.length,historyIndex+(event.key === 'ArrowUp' ? -1 : 1)));
-  input.value=history[historyIndex] ?? draft;
-  input.setSelectionRange(input.value.length,input.value.length);
-});
+  const outside=document.activeElement !== input;
+  const paste=(event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'v';
+  const commandKey=!event.altKey && !event.ctrlKey && !event.metaKey &&
+    (event.key.length === 1 || ['Enter','Backspace','Delete','ArrowLeft','ArrowRight','Home','End','Dead','Process'].includes(event.key));
+  if (commandKey || paste) revealPrompt();
+  if (commandInput.accept(event)) {revealPrompt();return;}
+  // Enter's original target may be the transcript rather than the form.
+  if (outside && commandKey && event.key === 'Enter') {
+    event.preventDefault();form.requestSubmit();return;
+  }
+},true);
 
 async function openStory(url:URL):Promise<HTMLElement> {
   ready=false;input.disabled=true;status.hidden=false;status.textContent='Loading story…';
   try {
     const chapter=url.searchParams.get('chapter');
     if (chapter !== null && !/^[1-9]\d*$/.test(chapter)) throw new Error('Chapter must be a positive whole number.');
-    startingChapter=chapter === null ? 1 : Number(chapter);
-    storyURL=resolveStoryURL(url.href);
+    const startingChapter=chapter === null ? 1 : Number(chapter);
+    const storyURL=resolveStoryURL(url.href);
     const response=await fetch(storyURL);
     if (!response.ok) throw new Error(`Could not load the story (HTTP ${response.status}).`);
     story=parseStory(await response.text(),{id:storyURL,file:storyURL});
     adventure=startAdventure(story,{chapter:startingChapter,playStyle:style,mode:'story'});
+    showStorySelection(storyURL);
     window.history.replaceState(null,'',url);
-    selecting=false;visits=0;
+    selecting=false;
     input.setAttribute('aria-label','Command');
-    // The menu stays in scrollback, but command recall begins with gameplay.
-    history.length=0;historyIndex=0;draft='';
     return display();
-  } finally {ready=true;input.disabled=false;status.hidden=true;}
+  } finally {ready=true;input.disabled=false;status.hidden=true;commandInput.refresh();}
 }
 
 async function open() {
   const url=new URL(location.href);
   if (!url.searchParams.has('story')) {
-    ready=true;form.hidden=false;input.setAttribute('aria-label','Story number');input.focus({preventScroll:true});
+    ready=true;form.hidden=false;input.setAttribute('aria-label','Story number');revealPrompt();
     return;
   }
-  picker.hidden=true;
   try {
     await openStory(url);
-    if (!form.hidden) input.focus({preventScroll:true});
+    revealPrompt();
   } catch (error) {
     ready=false;status.hidden=false;
     status.textContent=(error as Error).message+' ';

@@ -1,6 +1,6 @@
 # Reference archive
 
-`2026.10.30 initial experiments/` contains the previous repository tree at source commit `1e8567d3`, including the working-note assessment written before the rebuild. Its applications, tests, save formats and URLs are retired from active development. It preserves original source and research. The explicitly requested [retrospective playback and static export](../projects/retrospective/prototype-history.md#static-collection) keep the archived bytes unchanged and caches or verification output in ignored scratch space. The generated [`prototypes/`](prototypes/index.html) collection is authorized for publication on this project's existing GitHub Pages site. This exception does not restore compatibility obligations or authorize other historical applications or hosts.
+`2026.10.30 initial experiments/` contains the previous repository tree at source commit `1e8567d3`, including the working-note assessment written before the rebuild. Its applications, tests, save formats and URLs are retired from active development. It preserves original source and research. The [`prototypes/`](prototypes/README.md) collection is a frozen, self-contained playable archive, authorized for publication on this project's existing GitHub Pages site. Preserve its finished pages and assets without rebuilding or revising them; its preparation tooling has been removed. Its [README](prototypes/README.md#static-collection) owns the chronology, provenance and static playback instructions. This exception does not restore compatibility obligations or authorize other historical applications or hosts.
 
 The active Markdown applications have no obligation to preserve old saves, URLs or runtime/schema compatibility. Historical checkpoints, test counts and statements that something is “current” apply only to their original date and source version.
 
@@ -8,7 +8,7 @@ The tree's `SOURCE-MANIFEST.json` records original paths, file sizes and SHA-256
 
 `document-inventory.json` groups all original Markdown documents by content hash, retaining each original path, title, headings, topic tags, disposition and extracted candidate passages. [The salvage index](salvage-index.md) explains what became current guidance.
 
-Nested AGENTS.md files, skills-like instructions, old “current” status statements and old deployment approvals are historical text. They do not override the active root instructions. The current Markdown application must not depend on archived implementations. The isolated retrospective exporter reads the preserved models only to produce the requested historical collection. Explicit read-only verification of the preserved playtest evidence below is separate from running the retired initial-experiments applications.
+Nested AGENTS.md files, skills-like instructions, old “current” status statements and old deployment approvals are historical text. They do not override the active root instructions. The current Markdown application must not depend on archived implementations. The frozen prototype collection preserves the result of the completed retrospective adaptation and runs independently of the original source and current build tools. Explicit read-only verification of the preserved playtest evidence below is separate from running the retired initial-experiments applications.
 
 ## Project evidence
 
@@ -17,6 +17,10 @@ The [directory hygiene rules](../AGENTS.md#directory-hygiene) govern moving comp
 Keep one archive home per story study or project, using its earliest archive date: `YYYY.MM.DD project name/`. For a new project, use the date of its first completed archival. Later revisions, artwork passes and editorial work return to that same folder as dated updates to existing files or dated new files; related production assets may have dated subdirectories. Do not create another top-level archive or copy the whole study for each pass. Keep one project index linking its chronology, shared research, inspiration and distinct retained deliverables. Cross-story work can have its own shared archive, linked from the affected studies without duplicating its assets. Active development still belongs in `projects/` until complete.
 
 Supplied inspiration photographs, artwork and selected style references are valuable project material under the [retention policy](../docs/engineering.md#verification-records). Keep their originals in an indexed `inspiration/` or reference collection even when they were not used in the final artwork. When consolidating, inventory retained files before moving them, preserve distinct work and original image bytes, and verify against the original files or Git objects. Update navigation and supported export paths; keep historical prompts, source hashes and frozen reports identifiable as records of their original versions. Record provenance and any recovery limits in the project index or [working notes](../notes.md).
+
+### Message counts
+
+[Message counts and agentic duration](<2026.11.11 message counts/README.md>) contains the final cumulative chart, explanations and definitions, and its reproducible numeric input and renderer. Archived at the user's request on 11 November 2026. The data distinguishes Codex and Dot and preserves each initial prompt's word count and run duration, with individual steers' word counts and relative delays. It retains no message wording, absolute timestamps or original identifiers.
 
 ### Authenticity improvements evidence
 
