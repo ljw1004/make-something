@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to begin bringing fuel into the cell for ATP renewal.",
+    "choice": 1,
+    "expectation": "The carrier should form a membrane patch able to transport glucose, though a further combination may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump supports the ion transport goal, but starting with fuel seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so glucose can now be added to pursue fuel delivery.",
+    "reaction": "The outward-facing pocket makes the next step clear.",
+    "step": 2,
+    "reason": "Combine glucose with its carrier to bring fuel into the cell.",
+    "choice": 1,
+    "expectation": "Glucose should bind the carrier and move into the cytosol, likely down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump also serves a goal, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol, ready to be used inside the cell.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "Place the glucose in the cell interior to continue following its breakdown.",
+    "choice": 1,
+    "expectation": "Glucose will be available for a subsequent metabolism step; placement alone may not break it down.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for the other goal, but I want to continue the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose placement produced glycolysis and ATP renewal, with pyruvate directed toward mitochondria.",
+    "reaction": "The diagram clearly distinguishes glycolysis from an oxygen-consuming step.",
+    "step": 4,
+    "reason": "Add the oxygen already entering the cytosol to continue toward aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "This should connect pyruvate and oxygen to mitochondrial ATP production, though intermediate steps may be simplified.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump addresses the other goal, but I want to complete the fuel pathway first."
+      },
+      {
+        "choice": 3,
+        "reason": "Amino acids could support protein synthesis, but that is not the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is complete, and protein synthesis has emerged as a new goal.",
+    "reaction": "The separate roles of fuel, oxygen and the hydrogen-ion gradient are useful, though the sequence is dense.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to work toward the ion transport goal.",
+    "choice": 1,
+    "expectation": "This should place the pump in the membrane; a further step will probably be needed to power transport.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance the new protein-growth goal, but I want to address ion transport first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed and can now be paired with ATP renewal to pursue ion transport.",
+    "reaction": "The adjacent channel inset makes the passive-versus-active comparison clear.",
+    "step": 6,
+    "reason": "Connect aerobic ATP renewal to the pump to power ion transport.",
+    "choice": 2,
+    "expectation": "ATP should power sodium and potassium transport against their gradients, though the cycle may be simplified.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP renewal might also power the pump, but I chose the aerobic route just completed."
+      },
+      {
+        "choice": 4,
+        "reason": "Amino acids could advance protein synthesis, but I want to finish the pump goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Powered transport completes the ion-transport goal, leaving protein synthesis for cell growth.",
+    "reaction": "The contrast between pumping outward and passive sodium entry is clear.",
+    "step": 7,
+    "reason": "Combine amino acids with aerobic ATP renewal to pursue the remaining protein-synthesis goal.",
+    "choice": 2,
+    "expectation": "The amino acids and available energy should support protein synthesis, likely using the existing ribosomes and RNA messages.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP renewal may also support synthesis, but I chose the completed aerobic pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids and energy supply produced proteins using existing RNA messages and ribosomes, completing the final goal.",
+    "reaction": "The picture connects the construction to protein synthesis, though the ATP- and GTP-supported steps are not explained in detail.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Aerobic ATP renewal was the most worthwhile construction: its planned picture distinguishes fuel oxidation, oxygen's role and the hydrogen-ion gradient driving ATP synthase. The sequence is dense, but those connections have educational value.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the glucose carrier was straightforward setup; the following transport sequence did more to explain how the carrier works.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Placing glucose in the cell interior immediately produced glycolysis and cytosolic ATP renewal, rather than just positioning the glucose.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Pairing aerobic ATP renewal directly with amino acids felt somewhat shorthand for protein synthesis. The result clarifies the roles of ribosomes and existing RNA, but not the individual energy-coupling steps.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: the comparison between powered pumping and passive sodium flow made a useful structural and functional distinction.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

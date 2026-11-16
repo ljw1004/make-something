@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "The turning cells fit beneath the flap in the fluid-filled loops, where movement bends their hairs.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "This should build sensors that respond when the head starts turning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loops and cells formed turning sensors; the remaining goal is to build the tilt sensors.",
+    "reaction": "The fluid lag bending the sensors makes the connection clearer.",
+    "step": 2,
+    "reason": "The mineral weights sit on the jelly layer above the tilt sensor cells, according to the pictures.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form sensors that respond to tilt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors are built, and the next goal is to connect both kinds of sensors to movement.",
+    "reaction": "The shifting weighted layer makes their response to tilt clearer.",
+    "step": 3,
+    "reason": "The balance nerves are shown leaving both kinds of sensor and reaching the brain. I'll start with the turning sensors.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors should connect to a nerve route to the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The tilt sensors also need a connection to the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning and weighted sensors had to be combined into balance organs before connecting them to the nerves.",
+    "reaction": "I expected a direct nerve connection, so the required order surprised me.",
+    "step": 4,
+    "reason": "The picture shows balance nerves leading from both kinds of sensor to the brain.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance nerves"
+    },
+    "expectation": "The balance organs should connect to the brain through the nerves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both balance sensors now have nerve routes to the brain; they still need to be connected to the body's movements.",
+    "reaction": "The combined nerve route matches what I expected.",
+    "step": 5,
+    "reason": "The body already has the brain and inner ears, so connecting the balance organs to it seems like the next step.",
+    "choice": {
+      "combine": "Balance organs with nerves",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The balance organs should become connected to the body's brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Balance organs with nerves",
+          "with": "Eye and posture nerve routes"
+        },
+        "reason": "Those routes also connect the brain to the muscles involved in balance."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs are now connected to the body's brain; the movement routes remain to be added.",
+    "reaction": "That connection worked as expected.",
+    "step": 6,
+    "reason": "The remaining nerve routes lead from the brain and spinal cord to the eye and posture muscles, matching the goal.",
+    "choice": {
+      "combine": "Body with connected balance organs",
+      "with": "Eye and posture nerve routes"
+    },
+    "expectation": "The balance signals should connect to eye and body movements that help keep the person steady.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The movement routes completed the model: balance signals help adjust the eyes and posture, alongside information from vision, muscles and joints.",
+    "reaction": "The eyes turning opposite the head made the purpose of the connections clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the movement routes was most worthwhile because the fixed-point example showed what the balance sensors help the body do.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the balance organs to the body was straightforward, but it mostly repeated the brain connection already shown when the nerves were added.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected to connect the turning sensors directly to the nerves, but first had to join both kinds of sensors into balance organs.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order at step 3 was not clear from the pictures: each sensor appeared to have a nerve route, but the game required them to be joined first.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: seeing how the sensors lead to a practical eye movement was interesting, though I would hope for choices with clearer reasons.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

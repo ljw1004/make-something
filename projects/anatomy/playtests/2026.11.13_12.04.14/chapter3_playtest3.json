@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "Copying the DNA directly addresses the genome goal before the cell divides.",
+    "choice": 2,
+    "expectation": "The nucleotides will be used to copy the nuclear DNA; I am unsure how the result will represent the chromosomes.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Building the spindle is also a goal, but copying the genome first seems a natural starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied and its sister chromatids remain together; the spindle and cell growth still need attention.",
+    "reaction": "The distinction between copying all DNA and making protein is useful.",
+    "step": 2,
+    "reason": "The centrosomes and spindle proteins directly address the chromosome-separating spindle goal.",
+    "choice": 2,
+    "expectation": "They will form a spindle that can later help separate the copied chromosomes.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Growing the cell is also necessary, but I want to prepare the separation machinery next."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, but chromosomes have not yet separated; a daughter-cell goal has appeared.",
+    "reaction": "The distinction between forming the spindle and pulling chromosomes apart is clear.",
+    "step": 3,
+    "reason": "Growing the cell's surface and contents addresses the remaining preparation goal before division.",
+    "choice": 1,
+    "expectation": "The phospholipids and proteins will contribute to cell growth, though I am unsure exactly how it will be represented.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Combining the copied nucleus with the spindle could advance chromosome separation, but I prefer to complete cell growth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The combination made membrane vesicles rather than completing cell growth; they can now be combined with the stem cell.",
+    "reaction": "The vesicles are a plausible intermediate, though their role in growth is not yet shown.",
+    "step": 4,
+    "reason": "Adding the vesicles to the cell should advance the unfinished growth goal.",
+    "choice": 1,
+    "expectation": "The vesicles may supply membrane for the growing cell, though I am unsure whether that completes its growth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Chromosome separation also needs attention, but I want to follow through on cell growth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell body has grown, completing the growth goal; the copied genome and spindle still need to be brought together.",
+    "reaction": "The explanation connects membrane growth with increased cytoplasm and organelles, though the vesicles' contribution to those contents is not explicit.",
+    "step": 5,
+    "reason": "This is the only offered combination and should advance chromosome separation.",
+    "choice": 1,
+    "expectation": "The spindle will engage the copied chromosomes and help separate their sister chromatids, though I am unsure whether division will follow immediately.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sister chromatids have separated into matching sets, but the cell still shares one cytoplasm.",
+    "reaction": "The distinction between chromosome separation and division into two cells is clear.",
+    "step": 6,
+    "reason": "This is the only offered combination and brings the grown cell body together with the separated chromosomes.",
+    "choice": 1,
+    "expectation": "The chromosome sets will be incorporated into the enlarged cell body, preparing it for division; I am unsure whether two cells will form immediately.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two daughter nuclei have formed, but they remain within one shared cytoplasm.",
+    "reaction": "The separate nuclear and cytoplasmic division stages are clear.",
+    "step": 7,
+    "reason": "This is the only offered combination and should divide the remaining shared cell body.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the cell, producing two daughter stem cells, each with a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The shared cell has divided into two unspecialized daughter cells, each with a complete nuclear genome; the chapter goals are complete.",
+    "reaction": "The final picture plan ties nuclear separation to the formation of two complete cells, and the gene-expression connection raises a useful next question.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes was most worthwhile: the result distinguishes sister-chromatid separation from division of the shared cytoplasm.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making membrane vesicles was a less informative intermediate. The later growth picture shows more cytoplasm and organelles, but does not make the vesicles' contribution to those contents explicit.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The copied-genome result clarified that replication includes noncoding DNA, not just sequences used to make proteins.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining phospholipids with new proteins to make vesicles was a less obvious connection before the result.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how cells with the same genome develop different structures through gene expression, although the later steps here offered little choice beyond following the sole combination.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

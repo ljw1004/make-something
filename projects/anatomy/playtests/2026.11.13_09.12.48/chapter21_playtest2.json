@@ -1,0 +1,167 @@
+[
+  {
+    "step": 1,
+    "reason": "The lipids fit between the outer keratinocytes and should establish the skin's water barrier.",
+    "choice": {
+      "combine": "Keratinocyte layers",
+      "with": "Water-barrier lipids"
+    },
+    "expectation": "The layers will form a water-resistant outer skin surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The keratinocyte layers and lipids formed an epidermal barrier that slows water loss and renews from deeper cells.",
+    "reaction": "The link between the barrier and its renewal is useful.",
+    "step": 2,
+    "reason": "The dermal connective tissue should support the epidermal barrier as the deeper skin layer.",
+    "choice": {
+      "combine": "Epidermal barrier",
+      "with": "Dermal connective tissue"
+    },
+    "expectation": "The epidermis and dermis will form a layered skin structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal barrier cannot currently be combined with anything, so the dermis may need preparation first.",
+    "reaction": "I was surprised the two skin layers could not yet be joined.",
+    "step": 3,
+    "reason": "The dermal connective tissue and blood vessels suggest a vascularized supporting layer.",
+    "choice": {
+      "combine": "Dermal connective tissue",
+      "with": "Skin blood vessels"
+    },
+    "expectation": "The vessels will become part of the dermal tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Dermal connective tissue"
+        },
+        "reason": "Checking its partners could clarify how to prepare the dermis."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dermal tissue now contains blood vessels, preparing a supporting skin layer.",
+    "reaction": "That makes the required preparation clearer.",
+    "step": 4,
+    "reason": "The vascular dermis may now be ready to join the epidermal barrier, though the earlier attempt failed.",
+    "choice": {
+      "combine": "Vascular dermis",
+      "with": "Epidermal barrier"
+    },
+    "expectation": "The two prepared layers will form a layered skin structure.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Vascular dermis"
+        },
+        "reason": "Checking its partners could reveal whether another component is needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared epidermis and vascular dermis form layered skin with slots for a sweat outlet and sensory endings.",
+    "reaction": "The required order is clearer now.",
+    "step": 5,
+    "reason": "The sweat gland coil and duct visibly fit together to make an outlet for the skin.",
+    "choice": {
+      "combine": "Sweat gland coil",
+      "with": "Sweat gland duct"
+    },
+    "expectation": "They will form a sweat gland with a duct to the surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil and duct now form a sweat gland with a surface pore, ready for the skin's sweat outlet slot.",
+    "reaction": "The connection is straightforward.",
+    "step": 6,
+    "reason": "The assembled gland and duct match the sweat outlet slot in the layered skin.",
+    "choice": {
+      "combine": "Sweat gland and duct",
+      "with": "Layered skin[]"
+    },
+    "expectation": "The sweat gland and its duct will be fitted into the layered skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sweat gland and duct are fitted into the layered skin, leaving the sensory endings slot.",
+    "reaction": "The gland fits as expected.",
+    "step": 7,
+    "reason": "Cutaneous sensory endings match the remaining named slot.",
+    "choice": {
+      "combine": "Cutaneous sensory endings",
+      "with": "Layered skin[Sweat gland and duct]"
+    },
+    "expectation": "The sensory endings will be fitted into the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin now has both its sweat gland and sensory endings fitted.",
+    "reaction": "The arrangement of the gland and nerves is clear.",
+    "step": 8,
+    "reason": "The completed layered skin should cover the body to fulfill the goal.",
+    "choice": {
+      "combine": "Layered skin[Sweat gland and duct,Cutaneous sensory endings]",
+      "with": "Body with food and water regulation"
+    },
+    "expectation": "The skin will join the body, with its vessels and sensory endings connected to existing systems.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed skin joined the body's existing vessels and nerves, completing the goal.",
+    "reaction": "The final connection provides a clear conclusion to the construction.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the epidermal barrier was most worthwhile: the planned cross-section and explanation connect lipids and outer cells to reduced water loss and renewal from deeper layers.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to join the epidermis directly to connective tissue was confusing: the visible descriptions suggested adjacent layers, but did not explain why the dermis first needed vessels.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the epidermal barrier could not initially combine with anything; vascularising the dermis first made the layer combination possible.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring blood vessels in the dermis before joining the layers felt somewhat arbitrary, even though a vascular dermis has a clear biological role.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: connecting the skin's barrier, glands, vessels and nerves to the existing body was useful, although the required assembly order was occasionally opaque.",
+        "steps": [
+          1,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

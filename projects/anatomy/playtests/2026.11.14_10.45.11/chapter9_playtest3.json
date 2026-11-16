@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places the turning sensor cells at the base of a fluid-filled loop, where moving fluid bends their hairs.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "This should build the turning sensors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turn-sensing canals are built; the tilt sensors are another clear goal.",
+    "reaction": "The picture makes the link between moving fluid and bending sensors clearer.",
+    "step": 2,
+    "reason": "The picture places the mineral weights above the tilt sensor cells, where the jelly layer shifts when tilted.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form the tilt sensors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors are built and can detect tilt and changes in straight-line movement.",
+    "reaction": "The shifting weighted layer makes their job clearer.",
+    "step": 3,
+    "reason": "The balance nerves are pictured connecting the sensor regions to the brain, so I'll start with the turning sensors.",
+    "choice": {
+      "combine": "Balance nerves",
+      "with": "Turn-sensing canals"
+    },
+    "expectation": "The turning sensors should connect to the incoming balance nerve route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors now have an incoming nerve route; the weighted sensors and outgoing routes still need connecting.",
+    "reaction": "The nerve fibres make the route toward the brain clearer.",
+    "step": 4,
+    "reason": "The balance nerves were consumed in the last combination, so I'll check what the weighted sensors can connect to now.",
+    "choice": {
+      "inspect": "Weighted balance sensors"
+    },
+    "expectation": "The compatibility list should show how to connect the weighted sensors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both kinds of balance sensor now connect to incoming nerves; the outgoing routes still need joining.",
+    "reaction": "I didn't expect the weighted sensors to connect through the already-built turning sensor assembly.",
+    "step": 5,
+    "reason": "The remaining goal is to join incoming and outgoing routes, and the eye and posture nerve routes lead toward the muscles.",
+    "choice": {
+      "combine": "Balance organs with incoming nerves",
+      "with": "Eye and posture nerve routes"
+    },
+    "expectation": "This should connect the balance sensors' incoming signals to the outgoing routes for eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed inner ear connects both balance sensors through the brain to eye and posture muscles; vision and signals from muscles and joints also help with balance.",
+    "reaction": "The example of eyes moving opposite a head turn made the completed route feel useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the nerve routes was most worthwhile because it connected the sensors to a familiar result: keeping your eyes on a point while turning your head.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the weighted sensors was less clear: after the balance nerves were consumed, I needed a compatibility hint to see what to do next.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the weighted sensors to join the already-built turning sensor assembly rather than connect to a separate nerve item.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That assembly pairing felt a little arbitrary from the available names, although the result showed both sensors connected to incoming nerves.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: building the sensors and seeing how they help control eye movement made me curious about other body connections.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

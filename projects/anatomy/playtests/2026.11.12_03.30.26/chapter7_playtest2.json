@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The arterial wall appears to need the thin cell lining to form an artery.",
+    "choice": {
+      "combine": "Endothelial lining",
+      "with": "Arterial wall"
+    },
+    "expectation": "The lining and wall should form an artery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining and arterial wall formed vessels whose elastic walls stretch and recoil. The remaining pieces suggest building the venous side next.",
+    "reaction": "The pulse and rest comparison makes the artery wall's role clearer.",
+    "step": 2,
+    "reason": "The pocket-shaped folds appear intended to fit inside the venous wall.",
+    "choice": {
+      "combine": "Venous wall",
+      "with": "Venous valve folds"
+    },
+    "expectation": "The folds should form a vein with valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The venous wall needed an endothelial lining first, producing thin-walled veins; the valve folds remain to be added.",
+    "reaction": "The automatic combination clarified the required order, though the initial pairing seemed plausible.",
+    "step": 3,
+    "reason": "The valve folds are shown inside a vein, so they should fit the newly formed veins.",
+    "choice": {
+      "combine": "Thin-walled veins",
+      "with": "Venous valve folds"
+    },
+    "expectation": "The folds should create veins with valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valve folds completed the venous return structure, showing how muscle compression and valves help blood move toward the heart. The capillary branches still need to connect the route.",
+    "reaction": "The picture makes the valves' purpose clearer.",
+    "step": 4,
+    "reason": "The capillary-scale branches appear to be the next part of the route from arteries into tissues.",
+    "choice": {
+      "combine": "Arterial vessels",
+      "with": "Capillary-scale branches"
+    },
+    "expectation": "The branches should connect to the arteries as the beginning of a route through tissues.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arterial vessels cannot currently be combined with anything, so the capillary branches may need preparation first.",
+    "reaction": "I am unsure what the branches need before they can join the route.",
+    "step": 5,
+    "reason": "The capillary branches are the remaining part of the route, so checking their available partners should reveal the next step.",
+    "choice": {
+      "inspect": "Capillary-scale branches"
+    },
+    "expectation": "The inspection should show what can be combined with the branches.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary branches also needed the endothelial lining, creating a thin-walled capillary bed for exchange. I can now try connecting it to the arterial vessels.",
+    "reaction": "The shared lining requirement makes the vessel-building pattern clearer.",
+    "step": 6,
+    "reason": "Capillaries connect arteries to the tissue exchange route.",
+    "choice": {
+      "combine": "Capillary bed",
+      "with": "Arterial vessels"
+    },
+    "expectation": "The capillary bed should connect to the arterial vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary bed connected to the arteries, forming a distribution and exchange bed; the venous return remains to complete the route.",
+    "reaction": "The branching picture helps explain how blood reaches a broad area of tissue.",
+    "step": 7,
+    "reason": "The veins should carry blood back from the capillary bed to complete the route.",
+    "choice": {
+      "combine": "Distribution and exchange bed",
+      "with": "Venous return"
+    },
+    "expectation": "The venous return should connect to the exchange bed, completing the vessel route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The venous return joined the exchange bed, completing the systemic vessel network and the chapter goal.",
+    "reaction": "The completed route clearly connects the vessel parts to their roles.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the capillary bed to the arteries was most worthwhile: the branching picture showed how blood reaches a broad area of tissue.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the arterial vessels directly to the capillary branches was least worthwhile because the response did not say what preparation was missing.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the endothelial lining was available again for the veins and capillaries after forming the arteries. The later result also made the capillary wall's role in exchange clear.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding the valve folds to the venous wall seemed physically plausible, but the game required the lining first. The feedback showed the needed order without explaining why the folds could not be added earlier.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: assembling the route made the relationship between vessel structure and function interesting, and I would like to see how it connects to the rest of the body.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

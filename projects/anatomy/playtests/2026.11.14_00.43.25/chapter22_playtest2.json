@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments' knobs match a recognition protein on one lymphocyte, and the picture says help has already been supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should become activated, ready to multiply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is activated; the lymph node's picture suggests it can now multiply there.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The chapter says the lymph node supports activated cells as they multiply.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte should multiply in the node, producing descendants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making cells and memory cells; the remaining goal is to clear bacteria.",
+    "reaction": "It is useful to see that the descendants have different roles.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are their building blocks, so these cells may use them to make antibodies.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells will produce antibodies from amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies from amino acids; their tips fit the bacteria's surface knobs.",
+    "reaction": "The matching shapes make the next step clear.",
+    "step": 4,
+    "reason": "The antibodies' tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies should bind to the bacteria, making them easier for white blood cells to engulf.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving coated bacteria for the engulfing cells.",
+    "reaction": "The coating matches what the white-cell picture showed.",
+    "step": 5,
+    "reason": "The engulfing white blood cells are pictured grabbing antibody-coated bacteria.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells should engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibody coating helped the cells recognize their target.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making antibody-producing and memory cells was most worthwhile: it showed that descendants of one activated cell can have different roles.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making antibodies from amino acids was straightforward and less interesting than seeing what the antibodies did.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The activated lymphocyte produced both antibody-making cells and lasting memory cells after several days of division.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the pictures and earlier protein-building explanation made the pairings understandable.",
+        "steps": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see what memory cells do later, since this chapter introduces them but focuses on clearing the current bacteria.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

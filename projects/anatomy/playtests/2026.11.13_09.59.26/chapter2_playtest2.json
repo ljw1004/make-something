@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The carrier needs to sit in the membrane to provide glucose with a route into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be installed in a membrane patch, ready to transport glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, so glucose can now be tested with it.",
+    "reaction": "The result matches the expected membrane fitting.",
+    "step": 2,
+    "reason": "Glucose fits the carrier, and its higher outside concentration should favor entry.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol and is available for breakdown.",
+    "reaction": "The carrier's changing shape makes the transport step clear.",
+    "step": 3,
+    "reason": "The cell interior contains the machinery for glucose breakdown and ATP renewal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose will begin its breakdown inside the cell, potentially connecting to aerobic ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown in the cytosol remakes some ATP and produces pyruvate, which points toward the mitochondria.",
+    "reaction": "The distinction that glycolysis does not take oxygen as an input is useful.",
+    "step": 4,
+    "reason": "The pyruvate arrows and the oxygen already entering the cytosol suggest connecting oxygen with the ATP-making pathway for aerobic renewal.",
+    "choice": {
+      "combine": "Oxygen entering the cytosol",
+      "with": "Cytosol remaking ATP"
+    },
+    "expectation": "Oxygen and the products of glucose breakdown will support aerobic ATP renewal in mitochondria.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cytosol remaking ATP"
+        },
+        "reason": "I could check its available partners if the direct connection is wrong."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal now connects pyruvate-derived fuel and oxygen to mitochondrial ATP production; the sodium-potassium pump remains to be fitted.",
+    "reaction": "The distinct roles of fuel and oxygen are useful to see.",
+    "step": 5,
+    "reason": "The pump is a membrane protein, so it likely needs to be installed before it can use ATP for ion transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be installed in a membrane patch, ready to transport ions using ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane with its ATP-binding site facing the cytosol.",
+    "reaction": "The comparison with the passive sodium channel clarifies why the pump is a separate route.",
+    "step": 6,
+    "reason": "The installed pump can use ATP supplied by aerobic renewal to drive ion transport.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump will use renewed ATP to move sodium and potassium against their concentration gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Powered transport completes the ATP and ion-transport goal; making new proteins remains.",
+    "reaction": "The contrast between pumping and passive sodium flow is clear.",
+    "step": 7,
+    "reason": "Amino acids are protein building blocks, and the cell interior contains ribosomes and existing RNA messages.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Living cell interior"
+    },
+    "expectation": "Ribosomes will use the amino acids to make new proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the DNA building blocks matching an existing strand, and the working cell contains DNA in its nucleus.",
+    "choice": {
+      "combine": "DNA building blocks",
+      "with": "Working cell"
+    },
+    "expectation": "The cell will use the building blocks to copy its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Working cell"
+        },
+        "reason": "Making extra membrane also matches a goal, so I could start there instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied, so the remaining visible goal is to add membrane material.",
+    "reaction": "The picture helped me see that each old DNA strand is paired with a new one.",
+    "step": 2,
+    "reason": "The intro says to prepare new membrane, and the membrane fats are the available material for it.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The fats will provide extra membrane for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new membrane is ready in sacs but has not yet joined the cell boundary; the next goal is to finish division.",
+    "reaction": "It was useful to see that making membrane and adding it to the boundary are separate steps.",
+    "step": 3,
+    "reason": "The new membrane supply is ready for the cell, which already has copied DNA.",
+    "choice": {
+      "combine": "New membrane supply",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The new membrane will join the cell boundary and help prepare the cell to divide.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane joined the boundary, and the copied chromosomes separated as the cell divided; each daughter cell received a complete set.",
+    "reaction": "The three-panel sequence made the connection between preparation and division clear.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the membrane supply with the cell was most worthwhile because the sequence showed how the preparations led to two cells with complete DNA copies.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply was a little less clear on its own: the picture mentioned membrane-making structures without explaining them, though it showed the sacs were not yet part of the boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the new membrane first stayed in small sacs instead of immediately enlarging the cell boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; each pairing matched a goal or the described next stage.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because seeing the prepared parts come together made me curious how the new cells might become different tissues.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

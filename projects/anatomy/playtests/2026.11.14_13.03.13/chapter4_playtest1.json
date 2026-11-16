@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "The bone window has spaces for mineral, and strengthening the bones is one of the goals.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Living bone framework"
+    },
+    "expectation": "The mineral should strengthen the living bone framework.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells",
+          "with": "Front tendon attachments"
+        },
+        "reason": "The cells also appear ready to build a muscle between the front attachments."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bones are strengthened with mineral, while the joint remains movable. Next I can build the muscles.",
+    "reaction": "The contrast between hard bone and the movable joint is helpful.",
+    "step": 2,
+    "reason": "The front attachments have an empty space for muscle cells, as the chapter describes.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Front tendon attachments"
+    },
+    "expectation": "The cells should build a muscle on the front of the elbow.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells",
+          "with": "Back tendon attachments"
+        },
+        "reason": "The back attachments also need a muscle; either side could come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front cells formed a biceps that pulls to bend the elbow; the back attachment still needs a muscle.",
+    "reaction": "The picture makes the connection between the attachment and bending clearer.",
+    "step": 3,
+    "reason": "The back attachments are the remaining empty muscle-building area.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Back tendon attachments"
+    },
+    "expectation": "The cells should form a muscle behind the elbow that pulls in the opposite direction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps straightens the elbow using the same kind of pulling cells as the biceps; their different attachments determine the direction. All goals are complete.",
+    "reaction": "Seeing the two muscles pull in opposite directions made their jobs clearer.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the biceps and triceps was most worthwhile because their placement showed how pulling can bend or straighten the same joint.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second muscle placement felt a little repetitive, although the different result made the comparison useful.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The same kind of muscle cells can produce opposite movements because of where the muscles attach.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: the pictures showed spaces for mineral and muscle cells.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because seeing familiar body parts assembled and connected to their jobs was understandable and satisfying.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

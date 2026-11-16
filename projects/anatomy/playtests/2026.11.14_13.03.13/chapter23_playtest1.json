@@ -1,0 +1,76 @@
+[
+  {
+    "step": 1,
+    "reason": "Drinking water reaches the small intestine, where the absorbing surface lies beside blood vessels.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water will cross the gut wall toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Kidney pair[Ureters,Bladder]"
+        },
+        "reason": "The kidneys can also process the blood under the water-saving conditions described."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink crossed the gut lining into blood, completing the water-replacement goal. The remaining goal is kidney conservation.",
+    "reaction": "The picture makes the difference between drinking water and saving filtered water clear.",
+    "step": 2,
+    "reason": "The kidneys filter blood, and the chapter says water-saving signals have already reached them.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney pair[Ureters,Bladder]"
+    },
+    "expectation": "The kidneys will return more water to the blood while still producing some urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more filtered water to the blood while still producing concentrated urine, completing the conservation goal. Saving water does not replace the need to drink.",
+    "reaction": "The contrast between conserving water and adding it from a drink was clear.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the drink crossing into blood with the kidneys returning filtered water was worthwhile because the two steps show different ways the body maintains water.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Neither step was confusing, but both pairings were fairly predictable from the introduction and pictures.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The kidneys still produced urine while conserving more water; they could not make up the missing water themselves.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: the pictures and chapter goals explained why water went to the gut and blood went to the kidneys.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because connecting familiar body functions was interesting, though I would hope for some less predictable decisions.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

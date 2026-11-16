@@ -1,0 +1,97 @@
+[
+  {
+    "step": 1,
+    "reason": "The upper digestive tract ends beside the colon outline, so the two sections clearly belong together.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "The small intestine and colon will join into a continuous gut route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gut is now continuous, so I can work on the remaining head and skin goals.",
+    "reaction": "It makes sense to see the two gut sections joined into one route.",
+    "step": 2,
+    "reason": "The skin covering has a named slot matching the repaired segment and its location.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering"
+    },
+    "expectation": "The repaired segment will fit into the matching opening in the covering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment is in the covering, leaving the head goal.",
+    "reaction": "It is satisfying that the scar and neighboring connections remain visible.",
+    "step": 3,
+    "reason": "The eye's optic nerve leads toward the brain, so it belongs in the head model.",
+    "choice": {
+      "combine": "Eye with optic nerve",
+      "with": "Head and spine"
+    },
+    "expectation": "The eye will be placed in the head with its nerve leading toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is fitted into the head, with its nerve leading to the brain; the ears still need placing.",
+    "reaction": "The supplied second eye makes the head model feel complete without adding another copy.",
+    "step": 4,
+    "reason": "The ears' established nerves lead toward the matching brain connections in the head.",
+    "choice": {
+      "combine": "Ears",
+      "with": "Head and spine"
+    },
+    "expectation": "The ears will fit into the head with their hearing and balance connections intact.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ears are fitted with their hearing and balance connections intact, completing the head goal and the chapter.",
+    "reaction": "It is satisfying that the balance sensors stayed part of the same ears rather than being added twice.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the gut sections was worthwhile because it showed a continuous food route while keeping absorbed material's path into blood separate.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the eye and ears was straightforward and a little repetitive: both clearly belonged in the head, so there was not much to figure out.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The repaired skin segment filled only a small opening, with its scar and connections preserved; it did not become the whole skin covering.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The pictures and named slot made the pairings understandable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue if another chapter offered a new connection to figure out. This chapter was a satisfying recap, but its placements were mostly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

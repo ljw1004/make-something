@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the lung route: the labels show the right heart connects to the lung vessels.",
+    "choice": 1,
+    "expectation": "I expect the right side to connect to the lung network; it may still need the left side to complete the route.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The labels also make the body route clear, but I'll follow the lung route first."
+      },
+      {
+        "choice": 3,
+        "reason": "The heart muscle needs its own supply too, but I'll start with one of the main routes."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung vessels connect to the right heart and leave an open route to the left heart. I'll build the body route next.",
+    "reaction": "The labelled open ends make it clear that the routes still need joining.",
+    "step": 2,
+    "reason": "The left heart is labelled as sending blood to the body, so its pairing with the body vessels makes sense.",
+    "choice": 1,
+    "expectation": "I expect a left-heart and body route, possibly with open ends to connect later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The heart muscle also needs its own supply, but I'll finish the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body route leaves ends that match the lung route, so the two can now be joined.",
+    "reaction": "The matching labels make the next connection clear.",
+    "step": 3,
+    "reason": "Joining the two routes should connect blood flow through the lungs and body.",
+    "choice": 2,
+    "expectation": "I expect the open ends to connect into a continuous route through both sides of the heart.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The heart muscle needs its own vessel network, but I want to join the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The main routes form a continuous lap through the heart twice, with the two sides separated by a wall. The heart muscle's own supply still needs building.",
+    "reaction": "Seeing the full lap made the two routes easier to follow.",
+    "step": 4,
+    "reason": "This is the only available combination, and its open vessel ends match to form the heart muscle's supply network.",
+    "choice": 1,
+    "expectation": "I expect the arteries to connect to the heart-muscle capillaries and veins, leaving a route back toward the right heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has a vessel network with open ends that can connect to the main circulation.",
+    "reaction": "The labelled ends make its connection easier to follow.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it should connect the heart muscle's supply to the main routes.",
+    "choice": 1,
+    "expectation": "I expect the network to connect to the body's main artery and return to the right heart; blood may still need to be added.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle's vessels now branch from the main artery and return to the right heart. The circulation still needs blood.",
+    "reaction": "The diagram makes it clear that the heart muscle has its own delivery route.",
+    "step": 6,
+    "reason": "This is the only offered combination, and adding blood matches the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect blood to fill the connected routes through the lungs, body and heart muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the connected circulation, including the branch supplying the heart muscle.",
+    "reaction": "The filled diagram ties the routes together, though it mostly confirms what I expected.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes was most worthwhile: the complete arrow path showed that one lap passes through the heart twice.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding blood was straightforward and mostly repeated the route already shown; it was also the only offered combination.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't thought about the heart muscle needing its own vessels branching from the main artery and returning to the right heart.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: the labels explained the connections, although the final actions were the only offered combinations.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I'd probably continue to see how another body system connects to circulation. The labelled routes made this chapter understandable, though the final steps felt predictable.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

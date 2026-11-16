@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to follow the meal’s nutrients into the liver and see how glucose is handled.",
+    "choice": 1,
+    "expectation": "The nutrients will reach the liver tissue, perhaps setting up glucose storage.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the portal vessel also advances a goal, but I want to follow the nutrients first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients have reached liver tissue, setting up the glucose-storage step.",
+    "reaction": "The result is clear, though it adds little beyond what I expected.",
+    "step": 2,
+    "reason": "I want to see how liver cells store glucose after a meal.",
+    "choice": 1,
+    "expectation": "The enzymes will help liver tissue store glucose as glycogen.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel would connect the digestive route, but I want to follow glucose storage first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen, so the next step can show its release.",
+    "reaction": "The explanation makes the storage form clear, though the result was expected.",
+    "step": 3,
+    "reason": "I want to follow the stored glucose through its release.",
+    "choice": 1,
+    "expectation": "The enzymes will help release glucose from the stored glycogen.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the portal vessel also advances a goal, but I want to finish following glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is releasing glucose from glycogen; blood transport may show where it goes next.",
+    "reaction": "The result was expected, but the picture makes the release clear.",
+    "step": 4,
+    "reason": "I want to follow the released glucose into the blood.",
+    "choice": 1,
+    "expectation": "Glucose will enter blood leaving the liver, perhaps completing the storage and release goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel connects the digestive route, but I want to finish following the glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The released glucose is now available to other tissues, completing the storage and release goal. I can connect the digestive route next.",
+    "reaction": "The link between stored glucose and the body's supply is clear, though the result was expected.",
+    "step": 5,
+    "reason": "The portal vessel is the only offered combination and should advance the remaining goal.",
+    "choice": 1,
+    "expectation": "The vessel will connect the digestive tube to the liver's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, so the digestive system can now be connected to the moving body.",
+    "reaction": "The fitting was straightforward and expected.",
+    "step": 6,
+    "reason": "This is the only offered combination and should advance the remaining goal.",
+    "choice": 1,
+    "expectation": "The digestive system will connect to the supplied movement model, linking nutrient supply to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are connected to the body's circulation and supporting routes, completing the remaining goal.",
+    "reaction": "The final picture brings the systems together clearly, although the connection was expected.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose from liver storage back into the blood was the most worthwhile passage. It connected glycogen storage to a practical supply for other tissues.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the portal vessel was straightforward but offered little explanation in its result.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the offered combinations and item names made the sequence predictable.",
+        "steps": []
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though adding blood transport was a separate, predictable step after the liver had already been described as releasing glucose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it revealed a new relationship between systems, but the predictable sequence alone would not strongly draw me onward.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

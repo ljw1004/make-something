@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The transporter-bearing cell and arriving glucose and oxygen suggest the next step is bringing fuel into the cell.",
+    "choice": {
+      "combine": "Cell with sugar transporter",
+      "with": "Glucose and oxygen"
+    },
+    "expectation": "The cell will take in fuel for energy production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell first becomes a muscle fibre by combining with its structures; fuel has not yet been used.",
+    "reaction": "I was surprised that the cell had to be assembled into a fibre before the fuel step.",
+    "step": 2,
+    "reason": "Mitochondria use glucose and oxygen to help produce usable energy, so these look like a likely pair.",
+    "choice": {
+      "combine": "Mitochondria",
+      "with": "Glucose and oxygen"
+    },
+    "expectation": "This will begin converting the fuel into usable energy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuel is now associated with the mitochondria; ADP and phosphate appear to be the next ingredients for making ATP.",
+    "reaction": "The picture clarified that glucose is first split in the cell fluid.",
+    "step": 3,
+    "reason": "ADP and phosphate are the visible ingredients for making ATP, and the mitochondria now have fuel and oxygen.",
+    "choice": {
+      "combine": "Fuelled mitochondria",
+      "with": "ADP and phosphate"
+    },
+    "expectation": "The mitochondria will produce ATP from ADP and phosphate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuelled mitochondria produced an ATP supply, which should support the muscle fibre’s pulling machinery.",
+    "reaction": "The return of ADP and phosphate makes the ongoing ATP cycle clearer.",
+    "step": 4,
+    "reason": "Thin and thick filaments appear to be the two complementary parts of the muscle’s pulling machinery.",
+    "choice": {
+      "combine": "Thin filaments",
+      "with": "Thick filaments"
+    },
+    "expectation": "They will form a contractile arrangement that can be added to the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The thin and thick filaments formed sliding filament units that appear ready to fit into the muscle fibre.",
+    "reaction": "The overlapping arrangement makes their role in pulling more concrete.",
+    "step": 5,
+    "reason": "The fibre scaffold has spaces for contractile units, and the sliding filament units appear to fill them.",
+    "choice": {
+      "combine": "Muscle fibre",
+      "with": "Sliding filament units"
+    },
+    "expectation": "The filament units will be installed in the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sliding filament units are installed in the muscle fibre. It still needs the means to pull and relax.",
+    "reaction": "The packed fibre makes the assembly feel more concrete.",
+    "step": 6,
+    "reason": "The filament-filled fibre needs energy for its pulling machinery, and the ATP supply is available.",
+    "choice": {
+      "combine": "Filament-filled muscle fibre",
+      "with": "ATP supply"
+    },
+    "expectation": "The ATP supply will equip the fibre to power its pulling machinery.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Filament-filled muscle fibre",
+          "with": "Calcium signal"
+        },
+        "reason": "The calcium signal might activate the filaments first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP has equipped the fibre's myosin heads to release and reset; the covered binding site suggests activation is still needed.",
+    "reaction": "The picture makes ATP's role in resetting the machinery clearer.",
+    "step": 7,
+    "reason": "The calcium signal appears to activate the filament machinery for pulling.",
+    "choice": {
+      "combine": "ATP-ready muscle fibre",
+      "with": "Calcium signal"
+    },
+    "expectation": "Calcium will uncover binding sites and allow the fibre to pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium activated the fibre, and the filaments slide past each other as it shortens. The remaining step appears to be relaxation.",
+    "reaction": "The distinction between the fibre shortening and the filaments staying the same length is useful.",
+    "step": 8,
+    "reason": "The calcium-pumping membranes appear able to return calcium to storage, allowing the fibre to relax.",
+    "choice": {
+      "combine": "Shortening muscle fibre",
+      "with": "Calcium-pumping membranes"
+    },
+    "expectation": "Calcium will be pumped back into storage and the muscle fibre will relax.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibre is relaxed and ready to respond again; the result shows that ATP also powers the calcium pumps needed to stop pulling.",
+    "reaction": "I found it useful that relaxation requires cellular work too.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the fibre with calcium was most worthwhile: the result connected exposed grip sites and repeated myosin pulls to the fibre shortening, while clarifying that the filaments themselves do not shorten.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the sliding filament units felt mainly like a predictable assembly step; its result added little beyond confirming that the fibre was packed with them.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the transporter-bearing cell first had to become a muscle fibre, rather than combining directly with the arriving fuel.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The first pairing was confusing: the cell and arriving fuel looked compatible, but the feedback redirected the cell to the fibre structures. The later fuel step made sense, though the required order was not initially clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the chapter made the relationship between ATP, calcium and muscle movement interesting, and I am curious how the fibre connects to larger tissues and body systems.",
+        "steps": [
+          3,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

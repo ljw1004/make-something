@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows skin-edge cells using a nearby blood supply as they divide and move into the gap.",
+    "choice": {
+      "combine": "Skin cells at the cut's edge",
+      "with": "Growing-skin blood supply"
+    },
+    "expectation": "The supplied skin cells should grow across the wound to help close its surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Repair signals"
+        },
+        "reason": "The pictured signals also suggest a direct way to start rebuilding the blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied skin cells formed a new surface across the gap. I can now work on rebuilding the support and blood supply.",
+    "reaction": "Seeing the strip span the gap was satisfying.",
+    "step": 2,
+    "reason": "The picture shows repair signals reaching the nearby capillary and starting a new branch.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The capillary should grow a branch toward the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Support-building skin cells",
+          "with": "Protein building blocks"
+        },
+        "reason": "Those cells also appear ready to make supporting fibres."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals prompted a capillary branch to grow toward the wound; it has not yet joined the other vessel.",
+    "reaction": "The new branch makes the blood-supply repair easier to picture.",
+    "step": 3,
+    "reason": "The support-building cells are shown using amino acids to make fibres beneath the skin.",
+    "choice": {
+      "combine": "Support-building skin cells",
+      "with": "Protein building blocks"
+    },
+    "expectation": "The cells should make supporting protein fibres for the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells used the building blocks to make new connective tissue beneath the wound.",
+    "reaction": "The deeper support is beginning to take shape.",
+    "step": 4,
+    "reason": "White blood cells are pictured clearing broken fragments beside the clot, so they may help prepare the wound for repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Debris-clearing white blood cells"
+    },
+    "expectation": "The cells should clear debris from the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Capillary sprout"
+        },
+        "reason": "I could check how to connect the new branch to the other vessel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clearing debris revealed slots for the healing skin's supply, surface and support.",
+    "reaction": "The slots make the remaining assembly clearer.",
+    "step": 5,
+    "reason": "The new surface appears to fit the named Surface slot.",
+    "choice": {
+      "combine": "New surface",
+      "with": "Body with healing skin[]"
+    },
+    "expectation": "The new surface should fill the surface slot over the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface closed the skin gap, but the deeper tissue still needs support and blood supply.",
+    "reaction": "It is clear that closing the surface is only part of healing.",
+    "step": 6,
+    "reason": "The new connective tissue fits the healing skin's named Support slot.",
+    "choice": {
+      "combine": "New connective tissue",
+      "with": "Body with healing skin[New surface]"
+    },
+    "expectation": "The connective tissue should add support beneath the new surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue now supports the wound beneath its closed surface; the supply slot remains.",
+    "reaction": "The layers are coming together clearly.",
+    "step": 7,
+    "reason": "The capillary sprout is the available piece for the remaining blood-supply slot.",
+    "choice": {
+      "combine": "Capillary sprout",
+      "with": "Body with healing skin[New surface,New connective tissue]"
+    },
+    "expectation": "The sprout should supply the healing tissue with blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary branch joined another vessel, restoring a blood route, and the remaining goal is to clear the clot.",
+    "reaction": "The joined route makes the new blood supply easier to understand.",
+    "step": 8,
+    "reason": "The clot-clearing enzymes are pictured cutting protein threads, which reinforced the temporary clot.",
+    "choice": {
+      "combine": "Clot-clearing enzymes",
+      "with": "Body with healing skin[New surface,New connective tissue,Capillary sprout]"
+    },
+    "expectation": "The enzymes should break down the temporary clot as the skin heals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot was mostly cleared, leaving closed skin and supporting fibres that continue to change as the scar matures. All goals are complete.",
+    "reaction": "It was satisfying to see the temporary clot give way to repaired tissue.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the capillary sprout to another vessel was worthwhile because the arrows showed how blood and materials reach the healing tissue.",
+        "steps": [
+          2,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the surface and support into named slots was clear but a little repetitive after building those pieces.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Closing the surface did not mean healing was finished: the deeper tissue still needed support and a blood supply.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The pictures and named slots made the repair steps understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue: seeing the wound go from a closed surface to supported, supplied tissue made me curious about what happens next, though the slot-fitting became repetitive.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

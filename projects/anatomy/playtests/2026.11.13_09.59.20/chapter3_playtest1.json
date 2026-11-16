@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "Copying the nuclear DNA is necessary for each daughter cell to receive a complete genome.",
+    "choice": 2,
+    "expectation": "I expect the nucleotides to be used to replicate the DNA, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Building the spindle also supports division, but DNA replication seems a useful starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, so the remaining work includes preparing the spindle and cell body for division.",
+    "reaction": "The distinction between copying the entire genome and making proteins is useful.",
+    "step": 2,
+    "reason": "The centrosomes and spindle proteins should form the machinery needed to separate the copied chromosomes.",
+    "choice": 2,
+    "expectation": "I expect a spindle to form from tubulin organized by the centrosomes, with motor proteins helping move chromosomes.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Building up the cell body also matters, but I want to prepare chromosome separation next."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled but has not yet separated chromosomes, so it can now be brought together with the copied genome.",
+    "reaction": "The picture clearly distinguishes spindle formation from chromosome separation.",
+    "step": 3,
+    "reason": "Combining the copied genome with the spindle should advance chromosome separation.",
+    "choice": 2,
+    "expectation": "I expect the spindle to attach to and help separate sister chromatids, though the exact stage shown is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Preparing more cell material also supports division, but separating the genome is the next clear task."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are separated, but the cell still needs to divide its shared cytoplasm.",
+    "reaction": "The distinction between chromosome separation and making two cells is clear.",
+    "step": 4,
+    "reason": "This is the only offered combination; it should prepare material for the growing cell.",
+    "choice": 1,
+    "expectation": "I expect the phospholipids and proteins to contribute to cell growth or membrane material, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids and proteins formed membrane vesicles, which can now be added to the cell.",
+    "reaction": "The vesicles make the membrane-growth step more concrete, although their formation is not explained.",
+    "step": 5,
+    "reason": "This is the only offered combination and should help the cell grow before division.",
+    "choice": 1,
+    "expectation": "I expect the vesicles to contribute membrane to the living cell, perhaps by fusing with its surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell body has grown, so it can now be brought together with the separated chromosome sets.",
+    "reaction": "The distinction between growth and simply splitting the original contents is useful.",
+    "step": 6,
+    "reason": "This is the only offered combination and should integrate cell growth with chromosome separation.",
+    "choice": 1,
+    "expectation": "I expect a grown cell containing the separated chromosome sets, perhaps ready for cytoplasmic division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two daughter nuclei have formed, but they still share one cytoplasm, so the cell must divide.",
+    "reaction": "The picture makes the remaining division step clear.",
+    "step": 7,
+    "reason": "The only offered combination uses actin and myosin to divide the cell body.",
+    "choice": 1,
+    "expectation": "I expect actin and myosin to constrict the cell and separate it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has divided into two pluripotent daughters with complete nuclear genomes, completing the goal; their later specialization can involve different patterns of gene expression.",
+    "reaction": "The final picture ties nuclear division and separation of the cell body together clearly.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Bringing the copied genome together with the spindle was most worthwhile: the result distinguishes separating sister chromatids from dividing the whole cell.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making membrane vesicles was less satisfying because their formation was not explained, and it was the only offered combination.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The replication result emphasized that the whole nuclear genome is copied, including noncoding DNA, rather than only protein-coding material.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining phospholipids and proteins to make vesicles had a clear growth purpose, but the connection to vesicle formation was not explained.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the chapter connected genome copying, chromosome separation and cell division in a useful sequence, and the final reference to gene expression suggests a worthwhile next topic.",
+        "steps": [
+          1,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

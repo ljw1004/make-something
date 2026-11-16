@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The arterial wall is unlined, and the lining cells are shown forming a smooth inner surface for blood flow.",
+    "choice": {
+      "combine": "Blood-facing lining cells",
+      "with": "Arterial wall"
+    },
+    "expectation": "The cells will line the elastic arterial wall.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tiny capillary tubes",
+          "with": "Nearby body cells"
+        },
+        "reason": "Their pictures also show a clear match for the exchange-vessel goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining and elastic wall made arteries, completing the first goal. The other two vessel projects remain.",
+    "reaction": "The picture made the artery assembly easy to follow.",
+    "step": 2,
+    "reason": "The capillary picture shows thin walls, and the body cells are pictured next to capillary outlines, matching the exchange goal.",
+    "choice": {
+      "combine": "Tiny capillary tubes",
+      "with": "Nearby body cells"
+    },
+    "expectation": "The capillaries will be placed close to the body cells for exchange.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood-facing lining cells",
+          "with": "Venous wall"
+        },
+        "reason": "The vein wall also needs an inner lining, but I chose the capillary project first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary bed completes the exchange goal and shows materials crossing between blood and nearby cells. The return route remains.",
+    "reaction": "The arrows made the exchange easy to follow.",
+    "step": 3,
+    "reason": "The venous wall is unlined, like the arterial wall was, so the same lining cells should fit it.",
+    "choice": {
+      "combine": "Blood-facing lining cells",
+      "with": "Venous wall"
+    },
+    "expectation": "The lining cells will form a smooth inner surface in the vein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Venous wall",
+          "with": "One-way valve flaps"
+        },
+        "reason": "The flaps also match the return-route goal, but the wall is shown needing a lining."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining made thin-walled veins; they still need the one-way valves for the return-route goal.",
+    "reaction": "The matching lining was straightforward.",
+    "step": 4,
+    "reason": "The valve flaps are pictured inside a vein, opening for forward flow and closing against backward flow.",
+    "choice": {
+      "combine": "Thin-walled veins",
+      "with": "One-way valve flaps"
+    },
+    "expectation": "The flaps will give the veins one-way valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valves completed the return route, and the new goal is to connect the three vessel routes.",
+    "reaction": "The muscle squeezing the vein was a useful detail I hadn't expected.",
+    "step": 5,
+    "reason": "Blood travels outward through arteries before reaching the capillaries, so those routes should connect first.",
+    "choice": {
+      "combine": "Arterial vessels",
+      "with": "Capillary bed"
+    },
+    "expectation": "The arteries and capillaries will join into part of the blood route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Capillary bed",
+          "with": "Venous return"
+        },
+        "reason": "The capillaries should also connect to the return route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arteries now lead into the capillary bed, with open ends on the return side.",
+    "reaction": "The branching picture made the next connection clear.",
+    "step": 6,
+    "reason": "The open return side should connect to the veins to complete the route.",
+    "choice": {
+      "combine": "Distribution and exchange bed",
+      "with": "Venous return"
+    },
+    "expectation": "The veins will join the capillary bed as the route back toward the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Joining the veins completed the vessel network and showed the full route away from and back toward the heart.",
+    "reaction": "The continuous arrow made the three parts fit together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting capillaries to body cells was most worthwhile: the picture showed which materials move between them and why the vessels need to be close.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Lining the vein felt repetitive after lining the artery, though it made sense from the pictures.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the picture to show a nearby muscle squeezing a vein while the valves direct blood forward.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and goals made the pairings understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I'd choose to continue: seeing the separate vessel parts become one route was satisfying, and I'd be curious how it connects with the heart.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

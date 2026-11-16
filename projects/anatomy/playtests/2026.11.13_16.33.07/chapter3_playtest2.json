@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane goal explicitly names phospholipids and proteins, so this pairing is clear.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "They should prepare new membrane for the growing cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Living pluripotent stem-cell model",
+          "with": "DNA nucleotides"
+        },
+        "reason": "The DNA goal also suggests a direct pairing with the cell's existing DNA."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids and proteins made membrane-building vesicles, and the new goal says to use them to enlarge the cell.",
+    "reaction": "The ER and Golgi delivery picture makes the next pairing easier to understand.",
+    "step": 2,
+    "reason": "The vesicles are the new membrane supply, and the cell is the thing that needs to grow.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles should supply membrane to enlarge the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Living pluripotent stem-cell model",
+          "with": "DNA nucleotides"
+        },
+        "reason": "Copying the cell's DNA is another current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell, but its nuclear DNA still needs to be copied.",
+    "reaction": "The fusion picture made the membrane supply's role clear.",
+    "step": 3,
+    "reason": "The DNA goal names nucleotides, and the grown cell still has uncopied nuclear DNA.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The nucleotides should be used to copy the cell's nuclear DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "New cell proteins",
+          "with": "Duplicated centrosomes"
+        },
+        "reason": "The spindle goal also names proteins and duplicated centrosomes."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied nuclear DNA, and the next goal requires a spindle to form two daughter nuclei.",
+    "reaction": "The picture helped me see how each original DNA strand serves as a template.",
+    "step": 4,
+    "reason": "The spindle goal explicitly names proteins and duplicated centrosomes, though I don't yet know how they build it.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "They should build a spindle that can move the copied chromosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins and centrosomes made a spindle, whose fibres can now be used on the cell with copied DNA.",
+    "reaction": "The preview helped show how the spindle forms, though chromosomes are not attached yet.",
+    "step": 5,
+    "reason": "The current goal explicitly says to use the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle should help separate the copied chromosomes to form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied chromosomes into two nuclei, but the cell's cytoplasm is still connected.",
+    "reaction": "The time-strip made the separation into two nuclei clearer.",
+    "step": 6,
+    "reason": "The new goal names actin and myosin for dividing the cytoplasm of the two-nucleus cell.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin should help divide the cytoplasm into two cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm divided into two stem cells, each with a complete genome, completing the chapter.",
+    "reaction": "It was satisfying to see the two separate cells after first making two nuclei.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle on the copied DNA was most worthwhile: the time-strip showed how the copies separated into two nuclei before the cell itself divided.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle was less clear as a decision. The goal named the ingredients, but I didn't understand how they would make it until the result showed the fibres.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that each copied DNA helix contained one old strand and one new strand.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The spindle pairing felt a little like following a named recipe rather than figuring it out independently, although its purpose was clear from the goal.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: seeing how the daughter cells might become muscle or lining cells is a useful next question, though I hope the new terms are explained.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

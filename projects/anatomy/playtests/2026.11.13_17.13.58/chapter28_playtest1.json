@@ -1,0 +1,197 @@
+[
+  {
+    "step": 1,
+    "reason": "The corneas match the clear-front slots in the eye walls, and their picture shows them bending light.",
+    "choice": {
+      "combine": "Corneas",
+      "with": "Eye walls[]"
+    },
+    "expectation": "The corneas should fit onto the fronts of the eyes as part of their focusing system.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Light-sensitive cells",
+          "with": "Retinal nerve cells"
+        },
+        "reason": "The pictures also suggest building the light-sensitive lining as a separate project."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corneas fit the eye walls and bend incoming light; the other fittings still need to be added.",
+    "reaction": "The matching front pieces were straightforward to fit.",
+    "step": 2,
+    "reason": "The lenses match another outlined slot, and their picture shows them bending light too.",
+    "choice": {
+      "combine": "Lenses",
+      "with": "Eye walls[Corneas]"
+    },
+    "expectation": "The lenses should fit inside the eye walls and add to the focusing parts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Light-sensitive cells",
+          "with": "Retinal nerve cells"
+        },
+        "reason": "I could build the light-sensitive lining first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lenses fit behind the openings and can bend light by different amounts.",
+    "reaction": "The comparison makes their focusing role clearer.",
+    "step": 3,
+    "reason": "The irises match the remaining light-control slot; their openings are shown at different widths.",
+    "choice": {
+      "combine": "Irises",
+      "with": "Eye walls[Corneas,Lenses]"
+    },
+    "expectation": "The irises should fit around the openings and help control how much light enters.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Light-sensitive cells",
+          "with": "Retinal nerve cells"
+        },
+        "reason": "I could work on the separate light-sensitive lining instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The irises control the size of the openings, and the focusing-parts goal is complete.",
+    "reaction": "The wider and narrower openings make the light-control role clear.",
+    "step": 4,
+    "reason": "The retinal nerve cells are pictured linking a receiving layer to fibres leaving the eye, so they seem to fit the light-sensitive cells.",
+    "choice": {
+      "combine": "Light-sensitive cells",
+      "with": "Retinal nerve cells"
+    },
+    "expectation": "They should form a light-sensitive lining that passes signals toward the fibres leaving the eye.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The light-sensitive cells and nerve cells formed retinas, completing the lining goal. The eyes and their moving muscles still need connecting.",
+    "reaction": "The picture clarified that the retina is the light-sensitive lining.",
+    "step": 5,
+    "reason": "The completed retinas belong inside the eye walls, so joining them should bring the focusing and sensing parts together.",
+    "choice": {
+      "combine": "Retinas",
+      "with": "Eye walls[Corneas,Lenses,Irises]"
+    },
+    "expectation": "The retinas should fit inside the eyes to receive the light directed by their focusing parts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Eye-moving muscles and nerves",
+          "with": "Eye walls[Corneas,Lenses,Irises]"
+        },
+        "reason": "The muscles also need to connect to the eyes."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retinas are now inside the eyes, where the front and lens direct light onto them.",
+    "reaction": "The light path makes the parts' jobs easier to connect.",
+    "step": 6,
+    "reason": "The eye-moving muscles are pictured running around the eyes, and connecting them is part of the current goal.",
+    "choice": {
+      "combine": "Eyes with focusing parts and retinas",
+      "with": "Eye-moving muscles and nerves"
+    },
+    "expectation": "The muscles and nerves should connect to the eyes so they can move.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Eyes with focusing parts and retinas",
+          "with": "Visual pathways"
+        },
+        "reason": "The eyes also need a signal route toward the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscles did not attach yet; the compatibility hint instead connected the visual pathways to the eyes.",
+    "reaction": "I was surprised the signal pathway had to come first.",
+    "step": 7,
+    "reason": "The visual pathways lead toward the brain in the body, so connecting the eyes to the body seems like the next step.",
+    "choice": {
+      "combine": "Eyes with visual pathways",
+      "with": "Body after repair"
+    },
+    "expectation": "The eyes and their visual pathways should connect to the brain in the body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Eyes with visual pathways",
+          "with": "Eye-moving muscles and nerves"
+        },
+        "reason": "The muscles still need to be connected, but the body may be needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes and visual pathways are now connected to the brain; the eye-moving muscles still need connecting.",
+    "reaction": "The connection to the brain was straightforward.",
+    "step": 8,
+    "reason": "The remaining goal calls for connecting the moving muscles, and their nerves lead toward the brain.",
+    "choice": {
+      "combine": "Body with connected eyes",
+      "with": "Eye-moving muscles and nerves"
+    },
+    "expectation": "The muscles and nerves should connect to the eyes and body so the eyes can move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscles and nerves connected, completing the eyes and showing the difference between light entering the eyes and signals reaching the brain.",
+    "reaction": "The final picture brought the separate parts together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the retinas to the focusing parts was most worthwhile: the light path showed how the parts work together, not just where they fit.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the three focusing parts one at a time was a little repetitive, even though the pictures explained their different jobs.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the eye-moving muscles to attach before the visual pathways, but the compatibility feedback connected the pathways first.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for attaching the muscles was not clear from their picture or the goal. The hint showed what to do, but not why the pathway had to come first.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: assembling the eye made the route from light to a brain signal easier to picture, though I would hope for fewer unexplained ordering requirements.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the turning sensor cells at the base of a fluid-filled loop, where moving fluid bends their hairs.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "This should make sensors that respond when the head starts turning.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tiny mineral weights",
+          "with": "Tilt sensor cells"
+        },
+        "reason": "The weights also appear to fit the tilt sensors, so that is another clear project to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors are complete, and the result shows how fluid movement changes their nerve signal. Next I can build the separate tilt sensors.",
+    "reaction": "The fluid lag bending the sensors makes the connection clearer.",
+    "step": 2,
+    "reason": "The picture places the mineral weights on the jelly layer above the tilt sensor cells.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form sensors that respond to tilt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors are complete; their shifting layer responds to tilt and changes in straight-line movement.",
+    "reaction": "The picture makes the weights' role clearer.",
+    "step": 3,
+    "reason": "The balance nerves carry signals from both sensors to the brain, while the eye and posture routes lead from the brain and spinal cord to muscles.",
+    "choice": {
+      "combine": "Balance nerves",
+      "with": "Eye and posture nerve routes"
+    },
+    "expectation": "This should join the incoming balance signals to routes that control eye and posture movements.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The incoming and outgoing nerve routes are joined. The remaining goal is to connect them and the sensors to the body.",
+    "reaction": "The arrows clarify which signals arrive and which go out.",
+    "step": 4,
+    "reason": "Both sensor types and the response routes are ready, but it is not yet clear which should be joined first. Inspecting the turning sensors should show their available partners.",
+    "choice": {
+      "inspect": "Turn-sensing canals"
+    },
+    "expectation": "The compatibility list should show how to connect the turning sensors to the rest of the balance system.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Turn-sensing canals",
+          "with": "Balance response routes"
+        },
+        "reason": "The routes receive signals from the sensors, but I am not sure whether the two sensor types must be joined first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the two sensor types into balance organs. The response routes still need connecting.",
+    "reaction": "It is clearer now that both sensors belong together in the inner ear.",
+    "step": 5,
+    "reason": "The balance response routes receive signals from the inner-ear sensors and lead toward eye and posture muscles.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance response routes"
+    },
+    "expectation": "This should connect the balance sensors to the routes for eye and posture movements.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs cannot currently be combined with anything, so I need to find another connection first.",
+    "reaction": "That was surprising because the routes seemed like a direct match.",
+    "step": 6,
+    "reason": "The goal is for the body to respond to head movement, so I will check how the balance response routes can connect to it.",
+    "choice": {
+      "inspect": "Balance response routes"
+    },
+    "expectation": "The compatibility list should show the next available connection, possibly to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The routes are now connected to the body, leaving spaces for the balance sensors.",
+    "reaction": "The pale spaces explain why the sensors need to be added after the routes.",
+    "step": 7,
+    "reason": "The balance organs fit the unconnected sensor spaces beside the ears.",
+    "choice": {
+      "combine": "Body with balance response routes",
+      "with": "Balance organs"
+    },
+    "expectation": "The sensors should connect to the body's balance response routes, allowing it to respond to head movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs are now connected to the body, completing the goal. The result also shows that vision and signals from muscles and joints help with balance.",
+    "reaction": "It was satisfying to see the eyes turn against the head movement and the body adjust its posture.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the balance organs to the body was most worthwhile: the final picture showed what the sensors and routes actually help the body do.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to connect the organs directly to the response routes was confusing; their descriptions made them sound like a natural match.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the routes had to connect to the body before the balance organs could be added.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "That required order felt a little arbitrary at first. The later picture showed the unconnected sensor spaces, but I couldn't see that prerequisite before trying.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: seeing the separate sensors come together in a familiar action made me curious about other body connections.",
+        "steps": [
+          1,
+          2,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

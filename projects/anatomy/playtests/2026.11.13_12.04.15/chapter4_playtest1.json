@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions describe a differentiation route for the unspecialized cells, which should start the supporting-tissue branch.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "Some descendants should become fibroblast-lineage cells through the timed differentiation sequence.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The muscle-forming branch is also an explicit goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen RNA messages, suggesting amino acids can supply the building blocks for collagen production.",
+    "reaction": "The unchanged DNA and selected active genes clearly connect differentiation to gene expression.",
+    "step": 2,
+    "reason": "Collagen is a protein, so combining the lineage cells with amino acids should advance the supporting-tissue goal.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to make collagen protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now produce procollagen in secretory vesicles, suggesting extracellular processing is the next step.",
+    "reaction": "The ER and Golgi processing makes the route from RNA to secreted protein more concrete.",
+    "step": 3,
+    "reason": "Extracellular fluid contains processing enzymes and space between cells, making it the likely next partner for the collagen-producing fibroblasts.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts should secrete procollagen for extracellular processing and supporting-tissue formation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts secreted procollagen, which was processed and assembled into an extracellular matrix; the supporting-tissue goal remains open.",
+    "reaction": "The distinction between intracellular production and extracellular assembly is useful.",
+    "step": 4,
+    "reason": "The matrix and the living fibroblasts together are the likely components of the supporting tissue.",
+    "choice": {
+      "combine": "Collagen-rich extracellular matrix",
+      "with": "Collagen-producing fibroblasts"
+    },
+    "expectation": "The living fibroblasts and their matrix should form a supporting tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle-forming branch instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matrix and fibroblasts formed living supporting tissue, completing that goal; the muscle-forming branch remains.",
+    "reaction": "The connection between cells and the matrix they produce makes the tissue construction clear.",
+    "step": 5,
+    "reason": "The skeletal-muscle conditions describe the differentiation route for the remaining branch.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "Some descendants should develop into muscle progenitors through the timed sequence.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has committed cells with muscle-protein RNA messages, but no mature fibres.",
+    "reaction": "The parallel with collagen production makes the next step plausible.",
+    "step": 6,
+    "reason": "Amino acids supply the building blocks for the muscle proteins specified by those messages.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should make muscle proteins and advance the muscle-forming goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids supplied muscle-protein production, completing the goal with separate myoblasts rather than mature muscle fibres.",
+    "reaction": "The contrast between proteins retained by myoblasts and collagen exported by fibroblasts made the two branches more meaningful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building living supporting tissue was most worthwhile: the planned pictures connect gene expression and protein production to secretion, matrix assembly, and the arrangement of living cells within tissue.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The parallel amino-acid combinations were predictable, though they reinforced that different RNA messages can direct production of different proteins.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The muscle goal ended with separate, single-nucleus myoblasts rather than a mature fused fibre; the result makes clear that further development remains.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the finished matrix with the fibroblasts felt somewhat like a separate bookkeeping step, although it clarified that tissue includes both cells and extracellular material.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to continue to see how the myoblasts develop into muscle, particularly because this chapter stops before fibre formation.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

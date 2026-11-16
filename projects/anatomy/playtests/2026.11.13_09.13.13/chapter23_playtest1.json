@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic cells are positioned to sense the higher glucose level after a meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The beta cells will respond to the glucose-rich blood by releasing insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The after-meal signal releases insulin into blood, with routes to both muscle and liver.",
+    "reaction": "The two separate target branches make me curious about their different responses.",
+    "step": 2,
+    "reason": "The result shows insulin reaching skeletal muscle, making it a clear next target.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will promote glucose uptake by skeletal muscle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver is the other target shown and may store glucose as glycogen."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increased muscle glucose transport, and its release weakened as blood glucose fell. The liver is the other indicated target.",
+    "reaction": "The feedback linking falling glucose to reduced insulin release is useful.",
+    "step": 3,
+    "reason": "The insulin signal also reaches the liver, which can store glucose as glycogen.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Insulin will promote glucose storage as glycogen in the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores glucose as glycogen and reduces glucose output after a meal; the after-meal goal is complete.",
+    "reaction": "The distinction from muscle transporter insertion is useful.",
+    "step": 4,
+    "reason": "The pancreatic sensing cells can also respond to the lower glucose level between meals.",
+    "choice": {
+      "combine": "Blood between meals",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "Alpha cells will release glucagon into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower glucose prompted glucagon release, with its highlighted route reaching the liver.",
+    "reaction": "The contrast with the after-meal insulin response is clear.",
+    "step": 5,
+    "reason": "Glucagon reaches the liver, where stored glycogen can help keep glucose available between meals.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will promote glycogen breakdown and glucose release from the liver into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promoted liver glycogen breakdown and glucose release; its stimulation diminished as blood glucose rose. Both goals are complete.",
+    "reaction": "The return toward balance makes the between-meal feedback satisfying to follow.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin’s effects on muscle and liver was most worthwhile: the planned pictures distinguish increased muscle glucose transport from liver glycogen storage and reduced glucose output.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial hormone-release combinations were fairly predictable from the labelled sensing cells and blood conditions, though they established the comparison.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The liver picture explicitly avoided a muscle-style transporter-insertion arrow, clarifying that the two target tissues respond differently.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; each followed a visible signal or target. The pictures did not explain how pancreatic cells sense glucose, however.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter that connects contrasting organ responses with feedback, as this one did for insulin and glucagon.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,143 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start assembling the digestive tube by fitting the salivary glands at their mouth ducts.",
+    "choice": 4,
+    "expectation": "The glands will attach to the tube, leaving the other organ slots to fill.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Starting starch digestion also fits the goals, but I prefer to connect the organs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted, so I'll continue connecting the digestive organs.",
+    "reaction": "The fitting was straightforward, though it added little detail about the glands.",
+    "step": 2,
+    "reason": "The pancreas has a duct to the small intestine, so fitting it advances the organ-assembly goal.",
+    "choice": 4,
+    "expectation": "The pancreas will attach to the digestive tube, with the liver and gallbladder still to fit.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The liver and gallbladder also connect by ducts, but I'll fit the pancreas first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted, leaving the liver and gallbladder as the remaining offered organ fitting.",
+    "reaction": "The fitting was clear but gave no further detail about the pancreas.",
+    "step": 3,
+    "reason": "I'll connect the liver and gallbladder to continue the organ-assembly goal.",
+    "choice": 4,
+    "expectation": "They will fit onto the digestive tube; the portal vessel slot may still need a later connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The organ-assembly goal is complete, and the result links the fitted organs to their digestive contributions. I'll move on to breaking down the meal.",
+    "reaction": "The summary makes the earlier fittings more meaningful, though it does not explain bile's role yet.",
+    "step": 4,
+    "reason": "Salivary amylase is shown near starch chains, so I'll begin with starch digestion.",
+    "choice": 1,
+    "expectation": "Amylase will break the starch into smaller carbohydrates, perhaps requiring another step before absorption.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Fat digestion might clarify bile's role, but I'll start with the starch mentioned in the result."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amylase produced shorter starch chains, so further digestion is still needed.",
+    "reaction": "The result matched my expectation, but gave little detail about the reaction.",
+    "step": 5,
+    "reason": "I'll continue digesting the starch with the available enzymes.",
+    "choice": 1,
+    "expectation": "The shorter chains will be broken into smaller sugars suitable for absorption, though the exact products are uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Fat digestion could clarify bile's role, but I'd like to finish the starch pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch pathway has reached individual glucose molecules; I'll continue breaking down the other meal components.",
+    "reaction": "The two-stage progression was clear, though the final explanation was brief.",
+    "step": 6,
+    "reason": "I'll try fat with bile and lipase to see how they prepare it for absorption.",
+    "choice": 2,
+    "expectation": "Bile may disperse the fat into smaller droplets, allowing lipase to break it into absorbable products.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Protein digestion also advances the goal, but I'm curious about bile's role."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion produced fatty acids and monoglycerides, and the explanation distinguishes bile's dispersing role from lipase's action. Protein is the remaining offered meal component.",
+    "reaction": "The distinction that bile is not an enzyme was useful; monoglycerides are named but not explained.",
+    "step": 7,
+    "reason": "Protein digestion is the only offered combination and advances the remaining goal.",
+    "choice": 1,
+    "expectation": "The enzymes will break protein into smaller absorbable components, possibly amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced amino acids and completed the remaining goal.",
+    "reaction": "The result was clear but brief, without explaining how the protein chains were broken apart.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining fat with bile and lipase was most worthwhile: the result distinguished dispersing fat into droplets from breaking fat molecules apart, and clarified that bile is not an enzyme.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The organ fittings were straightforward but initially repetitive: fitting the pancreas added no explanation until the later summary. The fat result also named monoglycerides without explaining them.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The clarification that bile is not an enzyme sharpened the distinction between its role and lipase’s.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the fittings matched marked duct locations and the food combinations matched the digestion goal. The portal vessel slot remained unfilled, though, and its later role was not explained in this chapter.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the digestion products cross the intestinal lining, since this chapter prepared them for absorption but did not show that step.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

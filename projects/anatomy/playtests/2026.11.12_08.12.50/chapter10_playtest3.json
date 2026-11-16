@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the lung side to the pleural membranes as a first step toward linking lung movement to the chest.",
+    "choice": 2,
+    "expectation": "I expect the membranes to attach around the lungs, though I am unsure how the chest connection will be shown.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The membranes could instead be attached to the rib cage first, but I chose to start with the lungs."
+      },
+      {
+        "choice": 3,
+        "reason": "The control pathway also needs building, but I want to establish the mechanical connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural membranes now cover the lungs, leaving the rib cage connection as the next mechanical step.",
+    "reaction": "The narrow fluid-filled space makes me curious how chest movement transfers to the lungs.",
+    "step": 2,
+    "reason": "Connect the covered lungs to the rib cage to build the breathing mechanism.",
+    "choice": 1,
+    "expectation": "I expect the outer pleural membrane to connect the lungs to the chest wall, though the movement may need further parts.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The control pathway is also needed, but I want to finish the mechanical connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are now linked to the rib cage through the pleural interface; the apparatus still needs a breathing muscle and control.",
+    "reaction": "The interface is visible, but how it transfers chest movement to the lungs remains unclear.",
+    "step": 3,
+    "reason": "Add the diaphragm to the named breathing-muscle slot before connecting control.",
+    "choice": 2,
+    "expectation": "I expect the diaphragm to fit beneath the rib cage and help change chest volume, although control will still be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The control centres and nerves also need connecting, but I want to complete the mechanical apparatus first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm is fitted beneath the rib cage; the control pathway still needs to be built.",
+    "reaction": "The placement is clear, but the result does not yet show how the diaphragm moves air.",
+    "step": 4,
+    "reason": "Connect the control centres to the motor nerves; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a nerve pathway from the control centres toward the breathing muscles, though it may still need fitting to the apparatus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control centres and nerves form a breathing drive, with CO₂ feedback indicated; it still needs connecting to the apparatus.",
+    "reaction": "The feedback is interesting, though the inset does not explain how CO₂ changes the rhythm.",
+    "step": 5,
+    "reason": "Fit the breathing drive into the remaining control slot; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the drive to connect to the breathing muscles and complete their control, possibly showing how breathing moves air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed apparatus explains how the diaphragm expands the chest and pulls the lungs outward through the pleural interface, while elastic recoil helps air leave.",
+    "reaction": "The paired breathing views resolve my earlier uncertainty about how the parts move air.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the breathing drive was most worthwhile: the resulting illustration plan links the diaphragm, pleural interface and lung recoil to airflow.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the diaphragm was clear but somewhat thin on its own; its immediate result showed placement without explaining movement.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The breathing-drive picture introduced blood CO₂ feedback, although it did not explain how CO₂ changes the breathing rhythm.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the named slots and compatible options made the assembly sequence clear, even where the mechanism was explained only later.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter if it continued connecting structures to their functions, though this chapter's mostly straightforward fittings offered limited meaningful choice.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "The lining and mucus fit the goal of protecting the colon's inner wall; the picture shows mucus above the cells.",
+    "choice": {
+      "combine": "Colon lining",
+      "with": "Colon mucus"
+    },
+    "expectation": "The mucus will form a protective layer over the lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus now covers the lining, so the supporting tissue and vessels look like the next part of the wall.",
+    "reaction": "The result matched the picture's suggestion.",
+    "step": 2,
+    "reason": "The supporting tissue is pictured beneath a space for the lining, so these pieces appear to fit together.",
+    "choice": {
+      "combine": "Mucus-covered colon lining",
+      "with": "Colon supporting tissue and vessels"
+    },
+    "expectation": "The covered lining will join the supporting tissue and its blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected inner wall is complete, and the new goal is to add it to the body.",
+    "reaction": "The water-recovery role makes the wall more than just a barrier.",
+    "step": 3,
+    "reason": "The body's colon has an opening for its inner wall, so these pieces fit the new goal.",
+    "choice": {
+      "combine": "Colon inner wall",
+      "with": "Body with connected digestion"
+    },
+    "expectation": "The inner wall will complete the colon in the body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Wet food remainder",
+          "with": "Resident gut microbes"
+        },
+        "reason": "This also directly matches the goal of having microbes act on fibre."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colon wall is installed in the body; the remaining goal is to explore what microbes make from fibre.",
+    "reaction": "The picture makes the separation between microbes and the lining clear.",
+    "step": 4,
+    "reason": "The wet remainder contains fibre, and the microbes are pictured breaking down fragments of it.",
+    "choice": {
+      "combine": "Wet food remainder",
+      "with": "Resident gut microbes"
+    },
+    "expectation": "The microbes will turn some fibre into smaller molecules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microbes turned some fibre into small fatty acids and gas, completing the remaining goal; some fibre stayed unbroken.",
+    "reaction": "The gas was a surprising extra product.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the inner wall was worthwhile because it showed both water recovery and how the lining separates the contents from blood.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mucus was straightforward and predictable from the picture, though it helped build the wall.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect bacteria breaking down fibre to produce gas as well as small fatty acids.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the pictures and goals made the pairings understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing how the colon wall and resident bacteria have different jobs made me curious about other body systems.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

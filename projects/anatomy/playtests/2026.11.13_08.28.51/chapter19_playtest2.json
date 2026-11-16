@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The blood sample and nephron preparation visibly match the first filtration stage.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Nephron preparation"
+    },
+    "expectation": "The nephron should filter fluid and small dissolved substances from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sample has entered the tubule while blood cells and most proteins stayed in the blood; the next stage is recovery.",
+    "reaction": "The filter's distinction between small substances and blood cells is clear.",
+    "step": 2,
+    "reason": "The tubule transporters are positioned to recover selected substances from the filtered sample.",
+    "choice": {
+      "combine": "Filtered sample in tubule",
+      "with": "Selective tubule transporters"
+    },
+    "expectation": "Selected useful dissolved substances will move from the tubule back toward the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and other useful substances have been recovered, leaving water recovery as the next visible stage.",
+    "reaction": "The distinction between filtration and selective recovery is clear.",
+    "step": 3,
+    "reason": "The water-permeable tubule is shown moving water back toward blood.",
+    "choice": {
+      "combine": "Sample after nutrient recovery",
+      "with": "Water-permeable tubule"
+    },
+    "expectation": "Water will move from the tubule toward the blood, leaving a more concentrated fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water has returned to the blood while wastes remain in the tubule; the sample is ready for the drainage stage.",
+    "reaction": "The distinction between recovery and waste remaining in the tubule is clear.",
+    "step": 4,
+    "reason": "Urinary drainage leads from the kidney toward the bladder, matching the next stage of urine formation.",
+    "choice": {
+      "combine": "Sample after water recovery",
+      "with": "Urinary drainage"
+    },
+    "expectation": "The remaining fluid will enter the urinary drainage route as urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid is now shown as urine moving through a ureter to the bladder; the urinary organs still need connecting to the body.",
+    "reaction": "The filtration-to-drainage sequence is clear.",
+    "step": 5,
+    "reason": "The kidney pair has a marked ureter slot, and the ureters provide the route toward the bladder.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters will attach to the kidneys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are attached to the kidney pair; the bladder slot remains to be filled.",
+    "reaction": "The attachment is straightforward.",
+    "step": 6,
+    "reason": "The bladder is the remaining named slot in the kidney pair.",
+    "choice": {
+      "combine": "Kidney pair[Ureters]",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder will attach to the ureters, completing the urinary organ assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder is attached, completing the kidney drainage assembly; it can now be connected to the body.",
+    "reaction": "The kidney-to-bladder route is straightforward.",
+    "step": 7,
+    "reason": "The remaining goal is to connect the urinary organs to the body.",
+    "choice": {
+      "combine": "Kidney pair[Ureters,Bladder]",
+      "with": "Body with a living colon"
+    },
+    "expectation": "The urinary organs will join the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys and drainage organs are now connected to the body and circulation, completing both goals.",
+    "reaction": "The final connection neatly places the filtering sequence in the larger body model.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering glucose made the distinction between filtration and selective reabsorption clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the ureters and bladder was straightforward but repetitive, since the named slots already indicated the pairings.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The filter lets many small substances enter the tubule before useful substances are selectively recovered; almost all filtered glucose is normally recovered in healthy kidneys.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the water-recovery picture shows water returning to blood without explaining what drives its movement.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: connecting a microscopic process to an organ system was useful, though I would hope for more explanation of mechanisms and more meaningful choices.",
+        "steps": [
+          1,
+          2,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

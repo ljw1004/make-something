@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The dividing basal cells need nutrients to renew the skin, so these look like a natural pair.",
+    "choice": {
+      "combine": "Basal skin cells",
+      "with": "Skin nutrients"
+    },
+    "expectation": "They should produce new skin cells or a renewed skin layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The basal cells produced new skin cells, showing the start of skin renewal.",
+    "reaction": "The upward movement of older cells makes the renewal process clear.",
+    "step": 2,
+    "reason": "Erythropoietin is shown carrying a kidney signal to the red-cell precursors in marrow.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Erythropoietin"
+    },
+    "expectation": "The signal should help the precursors produce new red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal leads the marrow precursors toward red-cell maturation, connecting oxygen supply to blood renewal.",
+    "reaction": "The low-oxygen cue makes the reason for the signal clearer.",
+    "step": 3,
+    "reason": "The two bone cell types are shown removing old matrix and depositing new matrix in the resulting hollow.",
+    "choice": {
+      "combine": "Bone-removing cells",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "Together they should produce renewed bone tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-removing cells cannot combine with anything yet, so bone renewal may require another step first.",
+    "reaction": "I am unsure what enables the bone cells to act.",
+    "step": 4,
+    "reason": "The new skin cells appear ready to contribute to renewal in the body.",
+    "choice": {
+      "combine": "New skin cells",
+      "with": "Body after repair"
+    },
+    "expectation": "The new cells should renew the body's skin.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Body after repair"
+        },
+        "reason": "Checking the body's available partners could clarify the renewal sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new cells renewed the body's skin, showing how cells made below replace those shed at the surface.",
+    "reaction": "The connection between cell production and shedding is clear.",
+    "step": 5,
+    "reason": "The developing red cells appear ready to add blood renewal to the same body.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will gain a supply of newly developing red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing red cells added blood renewal to the body, linking marrow production with the kidney’s low-oxygen signal.",
+    "reaction": "Seeing the red cells leave marrow for a vessel makes the connection concrete.",
+    "step": 6,
+    "reason": "The bone-removing cells could not act earlier, but the body now has skin and blood renewal in place. I will try them with the updated body.",
+    "choice": {
+      "combine": "Body renewing skin and blood",
+      "with": "Bone-removing cells"
+    },
+    "expectation": "The bone-removing cells should begin replacing an old patch of bone.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-removing cells act on the body first, creating a patch ready for the next stage of renewal.",
+    "reaction": "That explains why combining the two bone cell types directly did not work.",
+    "step": 7,
+    "reason": "The bone-forming cells are shown depositing new matrix in the hollow left by bone removal.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells should add new bone matrix to the patch and complete bone renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells completed the renewal sequence, showing that different cells remove and rebuild bone matrix.",
+    "reaction": "The final result made the two stages of bone renewal clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding developing red cells to the body was worthwhile because it connected marrow production to the kidney's response to low oxygen.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to combine the two bone cell types was confusing at first; their descriptions suggested they worked in sequence, but did not make the required interaction with the body clear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the bone-removing cells had to act on the body before the bone-forming cells could rebuild the patch.",
+        "steps": [
+          3,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for adding the renewal processes to the body was not clear from the initial board. The failed bone-cell combination made that especially noticeable.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter if it explored a new relationship or presented a less predictable problem. The renewal examples were clear, though much of this chapter involved pairing described components and adding them to the body.",
+        "steps": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

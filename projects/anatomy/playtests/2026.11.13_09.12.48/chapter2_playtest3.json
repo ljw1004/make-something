@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The cell's existing glucose transporter and the concentration difference suggest glucose can enter and begin the pathway.",
+    "choice": {
+      "combine": "Cell with selective exchange",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter the cell through its transporter, starting its breakdown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the carrier and is broken down in the cytosol; pyruvate then enters mitochondria. The next goal is to remake ATP and use it for ion pumping.",
+    "reaction": "The picture usefully distinguishes cytosolic ATP production from the mitochondrial stage.",
+    "step": 2,
+    "reason": "Oxygen is shown traveling toward mitochondria, where the products of glucose breakdown can support ATP production.",
+    "choice": {
+      "combine": "Cell breaking down glucose",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will enable a mitochondrial stage of energy production, bringing the cell closer to remaking ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell breaking down glucose",
+          "with": "ATP ingredients: ADP and phosphate"
+        },
+        "reason": "The ADP and phosphate are needed to remake ATP, but oxygen may be needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen now receives electrons in the mitochondrial pathway, while fuel supplies energy; the ATP ingredients remain to be used.",
+    "reaction": "The distinction between oxygen's role and fuel's role is useful.",
+    "step": 3,
+    "reason": "ADP and phosphate are the listed ingredients for remaking ATP, the next part of the goal.",
+    "choice": {
+      "combine": "Cell with aerobic respiration",
+      "with": "ATP ingredients: ADP and phosphate"
+    },
+    "expectation": "The cell will use energy from respiration to make ATP from ADP and phosphate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now remakes ATP using a hydrogen-ion gradient across the mitochondrial inner membrane; the remaining goal is to use ATP for ion pumping.",
+    "reaction": "The two-panel picture makes the connection between electron flow and ATP production clearer.",
+    "step": 4,
+    "reason": "The ATP-powered ion pump is the remaining piece needed to use ATP at the cell boundary.",
+    "choice": {
+      "combine": "Cell remaking ATP",
+      "with": "ATP-powered ion pump"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium ions across the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed cell uses ATP to pump sodium and potassium against their concentration differences, linking respiration to work at the membrane.",
+    "reaction": "It is satisfying to see the ATP-making pathway connected to a specific cellular job.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding ADP and phosphate was most worthwhile: the planned two-panel illustration connects electron flow, a hydrogen-ion gradient and ATP production rather than simply calling mitochondria powerhouses.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The oxygen step compresses several mitochondrial processes into a short pathway, so the connection from electron transfer to hydrogen-ion pumping is not yet clear until the following result.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The distinction that oxygen receives electrons and becomes part of water, while fuel supplies the energy, sharpened my understanding of their different roles.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the listed ingredients and goal made the sequence reasonably clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how later constructions connect cellular mechanisms to tissues and organs, although these are illustration plans rather than finished artwork.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

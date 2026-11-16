@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The filter picture shows small substances crossing out of the blood, which starts the first goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney filter"
+    },
+    "expectation": "The filter should separate small substances from blood cells and large proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter let useful glucose and salts through along with waste, so the fluid needs the recovery tube next.",
+    "reaction": "It was surprising that useful substances pass through the filter too.",
+    "step": 2,
+    "reason": "The recovery tube picture shows useful substances moving from the filtered fluid back into blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Glucose, some salts and much water should return to the blood, leaving fluid to continue onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovery tube returned useful substances and much water to blood, leaving urine; the remaining goal is to connect the kidneys to the bladder.",
+    "reaction": "It makes sense that filtering is followed by taking useful materials back.",
+    "step": 3,
+    "reason": "The urinary system has an empty ureters slot, and the ureters connect the kidneys toward the bladder.",
+    "choice": {
+      "combine": "Ureters",
+      "with": "Urinary system"
+    },
+    "expectation": "The ureters should fit onto the kidney outlets, leaving the bladder to be added.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect to the kidney outlets and lead toward the remaining bladder position.",
+    "reaction": "The route is coming together as expected.",
+    "step": 4,
+    "reason": "The bladder fits the remaining slot and receives urine from the ureters.",
+    "choice": {
+      "combine": "Bladder",
+      "with": "Urinary system[Ureters]"
+    },
+    "expectation": "The bladder should connect to the ureters and complete the route from the kidneys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder completed the continuous route from both kidneys, and the chapter's goals are complete.",
+    "reaction": "It was satisfying to see the whole urine route connected as expected.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the recovery tube made the filtering process clearer: useful substances and much water return to blood rather than all becoming waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the bladder was straightforward and less interesting as a decision, though it completed the model.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The filter lets useful glucose and salts through along with waste; it doesn't just select waste.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The pictures showed why the recovery tube and ureters belonged in their routes.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I'd choose to continue because seeing filtering and recovery as separate steps was interesting, even though fitting the final parts was predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

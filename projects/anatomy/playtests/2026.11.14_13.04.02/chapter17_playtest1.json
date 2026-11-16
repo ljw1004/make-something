@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments have antigen shapes matching one resting lymphocyte, and the picture says helper-cell support is already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should become activated after recognizing the bacterial fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active; the lymph node picture suggests it can now multiply there.",
+    "reaction": "The matching shapes made the selection easy to follow.",
+    "step": 2,
+    "reason": "The lymph node is described as supporting an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the node, producing descendants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making and memory cells, completing one goal; I can now work on clearing the bacteria.",
+    "reaction": "The later-encounter picture made the purpose of memory cells clearer.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and the earlier cell chapter showed amino acids being used to build proteins. I’m guessing these cells can use them to make antibodies.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells will use the amino acids to produce antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids made matching antibodies, which can now bind the bacteria.",
+    "reaction": "The matching shapes make the next pairing clear.",
+    "step": 4,
+    "reason": "The antibodies' tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will attach to the bacteria, helping white blood cells recognize them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing white blood cells.",
+    "reaction": "The coating matches the white blood cell picture, so the next step is clear.",
+    "step": 5,
+    "reason": "The white blood cell picture shows it binding and engulfing an antibody-coated bacterium.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells will engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cells engulfed and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibody coating helped lead to the bacteria being cleared.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Growing the activated lymphocyte in the lymph node was most worthwhile: it showed both antibody-making cells and memory cells, and explained why a later response can be faster.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the antibodies was less interesting as a separate step; the earlier protein-building example made the amino-acid pairing fairly predictable.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The memory cells could help produce a faster response to a later encounter with the same antigen.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The amino-acid pairing was a guess, but the earlier protein-building example gave it a purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: following the matching shapes from antigen recognition to bacterial clearance made the immune response understandable, and I'd be curious to see another body system connected this way.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

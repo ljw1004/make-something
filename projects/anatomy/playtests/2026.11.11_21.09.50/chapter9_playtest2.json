@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The scrape is the only available action, and applying it to the body should establish what needs to be repaired.",
+    "choice": 1,
+    "expectation": "I expect the scrape to create a wound or leak that the platelets and clotting proteins can help limit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The scrape has broken the skin and tiny vessels, so the next step is to limit the leak using the body's own platelets.",
+    "reaction": "The explanation makes the scale of the damage clear without implying the whole hand stopped working.",
+    "step": 2,
+    "reason": "Platelets are the only offered combination and seem relevant to limiting bleeding.",
+    "choice": 1,
+    "expectation": "I expect the platelets to gather at the damaged vessels and begin limiting the leak, though clotting proteins may also be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug limits the leak, but the skin still needs repair. Clotting proteins seem like the next part of the response.",
+    "reaction": "The distinction between plugging a vessel and replacing skin is clear and useful.",
+    "step": 3,
+    "reason": "Clotting proteins are the only offered combination and may strengthen the plug.",
+    "choice": 1,
+    "expectation": "I expect the clotting proteins to help stabilize the platelet plug, though the skin will still need to be rebuilt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibrin mesh reinforces the plug, completing the immediate seal; the site still needs preparation before the living barrier can be rebuilt.",
+    "reaction": "The distinction between a temporary seal and rebuilt skin is clear.",
+    "step": 4,
+    "reason": "Cleanup cells are the only offered combination and seem suited to preparing the damaged site.",
+    "choice": 1,
+    "expectation": "I expect the cleanup cells to remove damaged material and help prepare the area for rebuilding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cleanup cells help handle debris and microbes and signal repair, leaving the site ready to rebuild rather than fully healed.",
+    "reaction": "I found it useful that defense and cleanup can overlap with rebuilding.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The fibrin mesh reinforcing the platelet plug was most worthwhile because it showed how a temporary seal limits bleeding without replacing skin.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Creating the scrape was the least engaging step because it was the only available action and mainly set up the situation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that cleanup cells also send signals influencing repair, so defense, cleanup and rebuilding overlap.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though each decision had only one offered combination, so there was little room to choose a strategy.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the living skin barrier is rebuilt; this chapter clearly prepared the site but stopped before that happened.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

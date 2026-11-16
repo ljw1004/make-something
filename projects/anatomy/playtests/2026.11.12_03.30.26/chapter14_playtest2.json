@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The portal vessel is named as the digestive tube’s empty slot and connects the intestine to the liver.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube"
+    },
+    "expectation": "The vessel will connect the digestive tract to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, connecting the digestive tube to the liver route.",
+    "reaction": "The named slot made that step straightforward.",
+    "step": 2,
+    "reason": "Portal blood carries the meal's glucose to the liver, so bringing it together with liver tissue should begin the storage sequence.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Liver tissue"
+    },
+    "expectation": "The nutrients will reach the liver tissue for processing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Portal nutrients now flow past liver cells, setting up the glucose storage sequence.",
+    "reaction": "The result makes the route into the liver clear.",
+    "step": 3,
+    "reason": "The glycogen-making enzymes should let the liver store some of the arriving glucose.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The liver tissue will make glycogen from glucose for storage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen, so the next part of the goal is to release it.",
+    "reaction": "The branching granules make the stored form easier to picture.",
+    "step": 4,
+    "reason": "The glycogen-release enzymes are described as separating glucose units from glycogen.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The liver tissue will release glucose from its glycogen stores.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is now releasing glucose from glycogen; blood transport looks like the next step toward carrying it onward.",
+    "reaction": "The storage and release sequence is clear, though the release result adds little explanation.",
+    "step": 5,
+    "reason": "Blood transport is described as carrying blood away from liver tissue, so it should carry the released glucose onward.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "Blood will carry glucose away from the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now available in blood for other tissues, completing the storage and release goal.",
+    "reaction": "The explanation makes the liver’s role between meals clear.",
+    "step": 6,
+    "reason": "The fitted digestive tube and supplied movement model are the two larger systems the remaining goal asks me to connect.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Supplied movement model"
+    },
+    "expectation": "The digestive system will connect to the circulation supplying the moving arm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are connected to the body’s circulation and supporting routes, completing the remaining goal.",
+    "reaction": "The connection brings the chapter’s separate routes together, though the final description is brief.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and releasing glycogen was the most worthwhile sequence: it showed how liver tissue can store glucose and make it available between meals.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The release step felt slight on its own; its picture repeated the action without explaining when or why it happens. The following result supplied that context.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The between-meals explanation clarified why stored glycogen matters beyond the meal being absorbed.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The named portal-vessel slot and the enzyme descriptions made the choices clear, although most were predictable.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter to see how the connected systems work together, though I would hope for more meaningful choices than this mostly straightforward sequence.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

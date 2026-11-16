@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic cells are positioned to sense the glucose-rich blood after a meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells should respond to the higher glucose level, likely by releasing insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beta cells released insulin into blood, with routes to both muscle and liver; either tissue may be the next target.",
+    "reaction": "The separate branches make the signal's destinations clear.",
+    "step": 2,
+    "reason": "The liver can store glucose as glycogen after a meal, so it is a plausible insulin target.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Insulin should promote glucose storage as glycogen in the liver.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Skeletal muscle"
+        },
+        "reason": "The insulin signal also reaches muscle, which can take up glucose."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin promotes liver glycogen storage and reduces liver glucose output; the muscle branch remains to be explored.",
+    "reaction": "The distinction between liver glucose entry and muscle transporter insertion is useful.",
+    "step": 3,
+    "reason": "Insulin also reaches skeletal muscle, making it the natural next target for the after-meal response.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will increase muscle glucose uptake, likely by promoting glucose transporter insertion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle response completes the after-meal goal; the remaining goal concerns blood glucose between meals.",
+    "reaction": "The weakening insulin signal makes the feedback connection clear.",
+    "step": 4,
+    "reason": "The same pancreatic sensing cells can respond to the lower glucose level between meals.",
+    "choice": {
+      "combine": "Blood between meals",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will release more glucagon, signalling the liver to make glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower-glucose condition prompted alpha cells to release glucagon, with its route directed to the liver.",
+    "reaction": "The contrast with the after-meal insulin response is clear.",
+    "step": 5,
+    "reason": "Glucagon reaches the liver, where stored glycogen can provide glucose between meals.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will promote glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promoted liver glycogen breakdown and glucose release, with its signal diminishing as blood glucose rose; the between-meals goal is complete.",
+    "reaction": "The feedback closes the comparison neatly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin’s effects in liver and muscle was most worthwhile: the planned pictures distinguish liver storage from increased muscle membrane transport, rather than treating both tissues identically.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial sensing combinations were fairly predictable, though they established the two conditions clearly.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The liver picture explicitly excluded a muscle-style transporter-insertion arrow, making the difference between the two tissues more precise than I expected.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless; each action followed a visible signal or storage route. The term “islet” appeared without an explanation, though the alpha and beta cells were labelled.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: the contrasting conditions and feedback made these constructions informative without requiring many exploratory moves. This judgment concerns the supplied text and illustration plans, not finished artwork or student comprehension.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

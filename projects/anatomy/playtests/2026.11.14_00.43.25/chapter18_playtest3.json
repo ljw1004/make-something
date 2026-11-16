@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "The drinking water is headed toward the small intestine, and the absorbing surface is already built.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water should cross the gut lining toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Kidney pair[Ureters,Bladder]"
+        },
+        "reason": "I could instead start with the kidney's water-saving route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink's water crossed into blood, completing the replacement goal; the kidney's conservation goal remains.",
+    "reaction": "It was clear to see how drinking adds water rather than just saving it.",
+    "step": 2,
+    "reason": "The kidney previously filtered blood and recovered water, and the chapter says water-saving signals have already reached it.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney pair[Ureters,Bladder]"
+    },
+    "expectation": "The kidneys should return more water to the blood while sending some urine to the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more water to the blood but still produced urine, completing the conservation goal. Drinking replaces water; the kidneys cannot make the missing water.",
+    "reaction": "The contrast between saving water and replacing it was clear.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining blood with the kidneys was worthwhile because it showed how water can be conserved while waste still leaves in urine.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Neither step was confusing, but moving the drink across the gut wall was predictable from the goal and pictures.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The kidneys could return more water to the blood and still release some urine.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; both followed the stated goals and the pictures.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see another connection between body systems, though these two combinations were fairly straightforward.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

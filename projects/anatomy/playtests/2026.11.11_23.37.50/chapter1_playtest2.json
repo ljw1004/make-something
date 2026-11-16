@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane fats are pictured as a two-layer boundary, which looks like the starting point for enclosing cell fluid.",
+    "choice": {
+      "combine": "Membrane fats",
+      "with": "Water"
+    },
+    "expectation": "The fats and water will begin forming a fluid-filled boundary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats",
+          "with": "Transport proteins"
+        },
+        "reason": "The channels could make the boundary selective, though there is no fluid enclosed yet."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane forms from fats and transport proteins; water was not the right partner for that step. I can now try enclosing fluid.",
+    "reaction": "The compatibility feedback made the next step clear.",
+    "step": 2,
+    "reason": "Water is the likely starting material for the cell fluid that the membrane needs to enclose.",
+    "choice": {
+      "combine": "Water",
+      "with": "Mineral salts"
+    },
+    "expectation": "The salts and water will form cell fluid.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Selective cell membrane",
+          "with": "Water"
+        },
+        "reason": "The membrane might enclose water directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and mineral salts formed cell fluid, so the selective membrane can now plausibly enclose it.",
+    "reaction": "The dissolved charged particles made the result easy to connect to the ingredients.",
+    "step": 3,
+    "reason": "The goal calls for enclosing cell fluid within a selective boundary, and both pieces are available.",
+    "choice": {
+      "combine": "Selective cell membrane",
+      "with": "Cell fluid"
+    },
+    "expectation": "The membrane will enclose the cell fluid and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane enclosed the fluid, creating a muscle-cell model with three named slots for the new goal.",
+    "reaction": "The selective-boundary explanation connected the construction to the cell’s need for supplies.",
+    "step": 4,
+    "reason": "Muscle nuclei contain DNA, so they appear to fit the stored-instructions slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei will fill the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei filled the stored-instructions slot. The model still needs a protein-building system and ATP machinery.",
+    "reaction": "The inset reinforces the connection between DNA and copied instructions.",
+    "step": 5,
+    "reason": "The ribosomes are pictured reading a coded strip and producing a protein chain, so copied RNA instructions appear to be their partner.",
+    "choice": {
+      "combine": "Copied RNA instructions",
+      "with": "Ribosomes"
+    },
+    "expectation": "They will form a protein-building system for the model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied RNA and ribosomes formed an instruction-reading protein-building system that appears ready to fit into the model.",
+    "reaction": "The picture clearly connects the coded strip to a growing protein chain.",
+    "step": 6,
+    "reason": "The model needs protein builders, and the instruction-reading ribosomes match that slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Instruction-reading ribosomes"
+    },
+    "expectation": "The ribosomes will fill the protein-builders slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes filled the protein-builders slot. The model still needs oxygen-using ATP machinery.",
+    "reaction": "The explanation made the ribosomes’ role clear.",
+    "step": 7,
+    "reason": "Mitochondria match the model’s remaining ATP machinery slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will fill the ATP machinery slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria filled the ATP machinery slot, and the new goal is to add pulling structures.",
+    "reaction": "The fuel, oxygen and ATP diagram helps connect mitochondria to cell work.",
+    "step": 8,
+    "reason": "The pulling protein threads match the new goal and appear ready to fit into the muscle-cell model.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads will give the model its pulling structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulling threads transformed the completed cell model into muscle fibers and finished the chapter. The final picture adds that the filaments slide past each other rather than shorten.",
+    "reaction": "The final construction was satisfying, and the two-pose picture made the pulling mechanism more concrete.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the pulling threads was most worthwhile because it connected the cell components to the muscle’s job and showed how filament overlap produces shortening.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the nuclei was straightforward, but its result added relatively little beyond the earlier picture of DNA and copied instructions.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final picture clarified that the filaments keep their length while the repeating unit shortens as they overlap more.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining membrane fats with water seemed plausible from the boundary picture, but the game instead directed me to transport proteins. The feedback made the required pairing clear, though the reason for making that pair first was not obvious.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the final muscle-fiber picture made me curious how these cells will be organized into tissues and connected to other body systems.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

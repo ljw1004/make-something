@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The salivary glands have a named slot in the digestive tube, so fitting them directly advances the first goal.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Salivary glands"
+    },
+    "expectation": "The glands will be fitted to the tube at the mouth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands fit into the tube as expected; the pancreas and liver remain to be fitted.",
+    "reaction": "The named slot made this a straightforward start.",
+    "step": 2,
+    "reason": "The pancreas has a named slot and its duct leads to the small intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Pancreas"
+    },
+    "expectation": "The pancreas will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder remain among the named glandular slots.",
+    "reaction": "Another straightforward fitting.",
+    "step": 3,
+    "reason": "The liver and gallbladder have a named slot in the digestive tube.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Liver and gallbladder"
+    },
+    "expectation": "The liver and gallbladder will be fitted to the tube via their ducts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver and gallbladder are fitted, completing the glandular-organ goal; meal breakdown remains.",
+    "reaction": "The brief summary clarified what each organ contributes.",
+    "step": 4,
+    "reason": "Salivary amylase is shown beside starch chains, so it is a direct starting point for digesting the starchy food.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Salivary amylase"
+    },
+    "expectation": "Amylase will begin breaking the starch into smaller carbohydrates.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase shortened the starch chains; further digestion should make them absorbable.",
+    "reaction": "The result matched the expected first stage.",
+    "step": 5,
+    "reason": "The pancreatic and intestinal starch-digesting enzymes are the natural next step for the shorter chains.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Starch-digesting enzymes"
+    },
+    "expectation": "The enzymes will break the chains into smaller absorbable sugars.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Further starch digestion produced individual glucose molecules, ready for absorption.",
+    "reaction": "The two-stage progression from starch to glucose was clear.",
+    "step": 6,
+    "reason": "Protein-digesting enzymes are shown beside protein chains, making them the direct next meal component to process.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Protein-digesting enzymes"
+    },
+    "expectation": "The enzymes will break the protein into smaller absorbable components.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced meal amino acids; fat remains to be broken down.",
+    "reaction": "The protein-to-amino-acid result was straightforward.",
+    "step": 7,
+    "reason": "Bile and lipase are shown acting on fat droplets, so they are the direct choice for the remaining meal component.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile and lipase"
+    },
+    "expectation": "Bile will disperse the fat into smaller droplets, allowing lipase to break it into absorbable products.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

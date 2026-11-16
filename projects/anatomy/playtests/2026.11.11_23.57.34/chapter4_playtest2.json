@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The support cells’ membrane sheets look suited to wrapping and insulating the motor neuron fibers, matching the current goal.",
+    "choice": {
+      "combine": "Motor neuron fibers",
+      "with": "Insulating support cells"
+    },
+    "expectation": "The support cells will insulate the outgoing nerve fibers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor fibers are now insulated, and the next goal is to connect the control system to the arm.",
+    "reaction": "The segmented wrapping makes the support cells' role clearer.",
+    "step": 2,
+    "reason": "Motor nerves appear to be the outgoing connection between the control system and the arm.",
+    "choice": {
+      "combine": "Motor nerves",
+      "with": "Seeing control system"
+    },
+    "expectation": "The motor nerves will connect to the control system as part of the route to the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Motor nerves",
+          "with": "Arm framework"
+        },
+        "reason": "The nerves could connect to the arm first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor nerves now extend from the control system, but their muscle endings are still unattached.",
+    "reaction": "The unattached endings make the next connection clear.",
+    "step": 3,
+    "reason": "Connecting the outgoing nerves to the arm should complete the route to its muscles.",
+    "choice": {
+      "combine": "Control system with outgoing nerves",
+      "with": "Arm framework"
+    },
+    "expectation": "The nerve endings will connect the control system to the arm muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The outgoing route now connects the control system to the arm, but it does not show information returning from the arm.",
+    "reaction": "The closed-eyes panel makes the missing feedback route clear.",
+    "step": 4,
+    "reason": "The stretch receptors and sensory nerves are the available parts that can return information from the muscles.",
+    "choice": {
+      "combine": "Stretch receptors and sensory nerves",
+      "with": "Guided arm"
+    },
+    "expectation": "The receptors and sensory nerves will add a returning route that helps account for sensing arm position with the eyes closed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed arm now has a sensory route back to the central nervous system. The result clarifies that muscle sensors contribute information about arm position but cannot locate an unseen target.",
+    "reaction": "The comparison of two arm positions made the feedback role clear, and the distinction about unseen targets was useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the sensory route was most worthwhile because it connected the closed-eyes question to muscle-length information returning to the nervous system. The described comparison of two positions helped explain what the construction contributes.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the outgoing nerves to the control system was a fairly predictable intermediate step, though it made the later attachment to the arm clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final distinction that muscle sensors contribute to sensing limb position but do not locate an unseen target sharpened my understanding of what the feedback can do.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the available parts and successive goals gave each connection a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue because the chapter built a clear link between outgoing commands and returning sensory information, and I am curious how other body systems will support the arm's work.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

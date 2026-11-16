@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture links these messengers to activating muscle genes in the unspecialized cells, which should start the muscle-cell goal.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for muscle development"
+    },
+    "expectation": "Some cells will begin developing toward muscle cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for supporting cells"
+        },
+        "reason": "The other messengers could start the supporting-fibre goal instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messengers produced muscle precursor cells whose muscle-protein instructions are being copied; the fibres still need to be made.",
+    "reaction": "The precursor label makes the next stage clearer.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, so they seem useful for making the muscle proteins shown as still to be made.",
+    "choice": {
+      "combine": "Muscle precursor cells",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The precursor cells will use the amino acids to make muscle proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for supporting cells"
+        },
+        "reason": "I could start the supporting-cell path instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle precursors now contain pulling proteins, completing the muscle goal; the supporting-fibre goal remains.",
+    "reaction": "The sliding fibres make their pulling job clearer.",
+    "step": 3,
+    "reason": "The other messengers are pictured activating support-protein genes in the unspecialized cells.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for supporting cells"
+    },
+    "expectation": "Some cells will begin developing into supporting cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting messengers produced cells with instructions for support proteins, but the fibre network has not been built yet.",
+    "reaction": "This parallels the muscle-cell path clearly.",
+    "step": 4,
+    "reason": "Amino acids are protein building blocks, and the cells have instructions for making support proteins.",
+    "choice": {
+      "combine": "Fibre-producing cells",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells will use the amino acids to make supporting fibres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells made fibres around themselves, completing the remaining goal and showing a contrast with proteins kept inside muscle cells.",
+    "reaction": "The inside-versus-around comparison made the two paths clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making both kinds of protein was worthwhile because it showed how cells with the same DNA can do different jobs: muscle cells keep pulling proteins inside, while supporting cells build fibres around themselves.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second messenger step felt a little repetitive after the muscle path, though the parallel helped make the comparison clear.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that cells with the same DNA could make different structures by using different genes.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt arbitrary: the pictures linked each messenger to a cell path, and amino acids were identified as protein building blocks. The details of how the messengers switch genes on were not explained.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because seeing how these cells become larger tissues sounds interesting, especially after seeing the pulling proteins.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

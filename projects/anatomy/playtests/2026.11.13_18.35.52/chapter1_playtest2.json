@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "The fat molecules appear to form the cell boundary, and the picture shows oxygen crossing its oily middle.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Oxygen"
+    },
+    "expectation": "This should make a boundary that lets oxygen enter.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Membrane fats (lipids)"
+        },
+        "reason": "I could check how to build the boundary first if oxygen cannot combine directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats first needed water to form a membrane patch; the result says oxygen crosses its oily middle.",
+    "reaction": "I was surprised that water was needed to build the patch before adding oxygen.",
+    "step": 2,
+    "reason": "The patch is now available, and its description says oxygen can cross it.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "This should make the boundary that lets oxygen enter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the membrane patch, completing the first goal.",
+    "reaction": "The arrows going both ways were interesting, even though more oxygen enters.",
+    "step": 3,
+    "reason": "The water-channel protein has a pore sized for water, so it looks like the route the next goal asks for.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein should form a water route through the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water-channel protein made a route through the membrane, completing the second goal.",
+    "reaction": "The picture makes it clear that water can pass both ways.",
+    "step": 4,
+    "reason": "The sugar-carrier protein has a sugar-shaped pocket and spans the membrane, matching the remaining goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier should be installed in the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier was installed, completing the last goal and showing another route through the membrane.",
+    "reaction": "The two-panel picture helped me see how the carrier opens to either side.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the water-channel protein was worthwhile because its picture clearly showed water passing through the membrane in both directions.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen after the patch was made felt a little repetitive because the patch description had already said oxygen could cross it.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected oxygen to combine directly with the fats, so I was surprised that water was needed to form the patch first.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to combine the fats with water first was not obvious to me before the compatibility hint, though the resulting picture showed the fat heads facing water.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter: the pictures made the different routes through the membrane understandable, and I would be curious to see how other cell parts fit together.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

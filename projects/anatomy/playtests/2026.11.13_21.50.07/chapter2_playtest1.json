@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "Adding mitochondria starts the goal of helping the cell use glucose for energy.",
+    "choice": 2,
+    "expectation": "I expect the mitochondria to be added inside the cell; it may still need a way to bring in glucose.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Adding ribosomes would also advance a goal, but I chose to start with energy."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The cutaway shows where the mitochondria fit, though the result was expected.",
+    "step": 2,
+    "reason": "The carrier's pictured pocket matches glucose, so adding it should help glucose cross the cell membrane.",
+    "choice": 2,
+    "expectation": "I expect the carrier to be fitted into the membrane; glucose may need a separate step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Ribosomes advance the other goal, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and a new goal asks me to feed the cell glucose to make ATP.",
+    "reaction": "The two-panel picture makes the carrier's route clearer.",
+    "step": 3,
+    "reason": "Glucose matches the carrier, and feeding it to the cell is the new goal.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter the cell and help it make ATP, though I don't yet know exactly what ATP does.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Adding ribosomes would work toward the other goal, but I want to follow the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is broken down, transferring some energy into ATP that the cell uses and remakes. The protein-builder goal remains.",
+    "reaction": "The inset helped connect glucose and oxygen to ATP, though the details are still new to me.",
+    "step": 4,
+    "reason": "Adding ribosomes to the cell directly advances the remaining goal.",
+    "choice": 2,
+    "expectation": "I expect the ribosomes to be fitted inside the cell; the RNA copy may be needed separately.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The picture suggests RNA passes through ribosomes, but I want to put the builders in the cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the new goal is to give one an RNA instruction.",
+    "reaction": "The enlarged groove makes the RNA connection easier to picture.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it matches the new goal.",
+    "choice": 1,
+    "expectation": "I expect the RNA instruction to reach a ribosome, possibly starting protein production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the new goal is to build a protein from the supplied amino acids.",
+    "reaction": "The picture connects the RNA order to the building blocks, though I don't know exactly how ATP helps.",
+    "step": 6,
+    "reason": "This is the only offered combination, so I'm following it toward the protein-building goal.",
+    "choice": 1,
+    "expectation": "I expect ATP to help the ribosome build a protein using the amino acids, though the process is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein is a folded chain of amino acids ordered by RNA; ATP helps with the work rather than becoming part of the chain. All goals are complete.",
+    "reaction": "That distinction made the final combination clearer, although exactly how ATP helps remains unclear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Feeding glucose to the cell was most worthwhile: the result connected glucose and oxygen to ATP the cell can use.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria was straightforward but mostly confirmed what I expected, with little explanation of their role at that point.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know what ATP did when it first appeared. The final result showed it helps build a protein without becoming part of it.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining ATP with the ribosome felt somewhat arbitrary before the result: it was the only offered pairing, and I didn't yet understand how ATP would help.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter because seeing food connected to both energy and protein building was interesting, though I'd want similarly clear explanations of new terms.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The mitochondria picture places them inside the cell, and adding them is part of a goal.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be added inside the cell, helping it make ATP from glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus]",
+          "with": "Ribosomes"
+        },
+        "reason": "The ribosomes also have a marked place inside the cell and are needed for the other goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are now inside the cell; it still needs a route for glucose and protein builders.",
+    "reaction": "The placement matches the picture, so it feels like straightforward progress.",
+    "step": 2,
+    "reason": "The sugar-carrier protein spans the membrane and has a pocket for glucose, so it looks like the route the cell needs.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will fit into the cell membrane and provide a route for glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria]",
+          "with": "Ribosomes"
+        },
+        "reason": "The ribosomes also have a marked place inside the cell."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, completing the glucose route and revealing a goal to feed the cell.",
+    "reaction": "The two-panel picture makes the carrier's role clearer.",
+    "step": 3,
+    "reason": "Glucose matches the carrier's pocket, and the new goal says to feed it to the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter the cell through the carrier so the mitochondria can help make ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+          "with": "Ribosomes"
+        },
+        "reason": "Adding ribosomes would also advance the protein-builder goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose produced ATP, which the result says can power work such as building proteins. The remaining goal is to add protein builders.",
+    "reaction": "The inset helps connect glucose, oxygen and ATP, though I don't know the detailed process.",
+    "step": 4,
+    "reason": "The ribosomes have a marked place inside the cell and are named as its protein builders.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will fit inside the cell and complete the protein-builder goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the new goal calls for using ATP to build a protein.",
+    "reaction": "The enlarged picture helps show how RNA reaches a ribosome.",
+    "step": 5,
+    "reason": "The new goal explicitly says to use ATP in the cell; the intro says amino acids and RNA are already inside.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein,Ribosomes]",
+      "with": "ATP"
+    },
+    "expectation": "The cell will use ATP to build a protein from amino acids using the RNA instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell used ATP to make a protein from amino acids, completing the final goal. ATP powers the work rather than becoming part of the protein.",
+    "reaction": "The picture made the difference between fuel and building material clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using ATP to build a protein was most worthwhile: it brought together the cell's energy, RNA instructions and protein builders in one result.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the mitochondria was straightforward but less engaging on its own; the picture had already shown exactly where they belonged.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that adding the carrier completed the glucose-route goal before the cell was actually fed; feeding it became a separate goal.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary. The goals and pictures explained the pairings, although I followed the ATP instruction without knowing the detailed chemistry.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see how these cell parts connect to larger structures, though most choices here were fairly direct.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

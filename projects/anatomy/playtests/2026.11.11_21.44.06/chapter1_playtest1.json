@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a selective boundary, so membrane fats and transport proteins seem like the most direct starting point.",
+    "choice": 1,
+    "expectation": "I expect a membrane with channels that regulate what crosses it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Water and salts may form the cell's interior, but the boundary seems more directly tied to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane provides the selective boundary; I now need an interior to go with it.",
+    "reaction": "The explanation makes the protein channels' purpose clear.",
+    "step": 2,
+    "reason": "Water and mineral salts seem like a useful starting point for the cell's interior.",
+    "choice": 1,
+    "expectation": "I expect a watery solution containing dissolved salts, though I'm unsure how it will connect to the membrane.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes could form nuclei, but the interior seems more relevant to the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell fluid completes the boundary goal, and the new goal points toward adding cell machinery.",
+    "reaction": "The dissolved particles make the fluid's composition clear, though I expected to join it to the membrane first.",
+    "step": 3,
+    "reason": "Combining the membrane and fluid seems like the next step toward making a cell interior ready for the machinery.",
+    "choice": 1,
+    "expectation": "I expect the membrane to enclose the cell fluid, creating a basic cell compartment.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes seem relevant to the new instructions goal, but I want to assemble the basic compartment first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane and fluid form a muscle-cell model with three named slots for the machinery in the current goal.",
+    "reaction": "The empty slots make the next steps clear.",
+    "step": 4,
+    "reason": "DNA and nuclear envelopes appear to make the stored instructions component needed by the model.",
+    "choice": 1,
+    "expectation": "I expect them to form nuclei containing DNA, ready to fit into the model.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes seem to fill the protein builders slot, but I chose to prepare the instructions first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and nuclear envelopes formed muscle nuclei, which can now be added to the model.",
+    "reaction": "The result was what I expected; the porous membranes are a useful visual detail.",
+    "step": 5,
+    "reason": "I want to fill the stored instructions slot with the nuclei I just made.",
+    "choice": 1,
+    "expectation": "I expect the nuclei to fit into the muscle-cell model as its stored instructions.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes should fill the protein builders slot, but I chose to finish adding the nuclei first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei are installed, and the inset suggests copies of instructions pass through their pores. The model still needs protein builders and ATP machinery.",
+    "reaction": "The copied strips help connect the nuclei to work elsewhere in the cell.",
+    "step": 6,
+    "reason": "Ribosomes appear to fill the protein builders slot in the current goal.",
+    "choice": 1,
+    "expectation": "I expect the ribosomes to fit into the model as protein builders.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mitochondria seem suited to the ATP machinery slot, but I chose to add the protein builders first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are installed, and the explanation connects copied instructions to protein production. The model still needs its ATP machinery.",
+    "reaction": "The bead-chain picture makes the ribosomes' job easier to follow.",
+    "step": 7,
+    "reason": "Mitochondria appear to fill the remaining machinery slot, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the mitochondria to fit into the model as oxygen-using ATP machinery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are installed, completing the machinery goal; the next goal is to add pulling structures.",
+    "reaction": "The installation is straightforward, though the result does not explain what ATP does.",
+    "step": 8,
+    "reason": "The pulling protein threads match the new goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the threads to be added to the muscle-cell model so it can pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulling threads completed the muscle fibers, and the result points toward a larger construction made from cells.",
+    "reaction": "Seeing the parts come together was satisfying, though the result leaves me curious about how the fibers work together.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding ribosomes was most worthwhile because the explanation connected copied instructions to making proteins, giving the earlier nuclei a clear purpose.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria felt less informative: the slot identified them as ATP machinery, but the result did not explain what ATP does.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The boundary goal was marked complete when I made cell fluid, before I combined it with the membrane. I expected to join them first.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The early completion of the boundary goal felt slightly unclear because the membrane and fluid were still separate. The later combination made their relationship clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the muscle fibers form a larger structure, especially if the next chapter explains how their cellular work contributes to tissue function.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

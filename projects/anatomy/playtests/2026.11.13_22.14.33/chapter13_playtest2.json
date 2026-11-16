@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows saliva's enzyme fitting the starch in bread, so this is a clear place to start breaking it down.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Saliva"
+    },
+    "expectation": "Saliva will start breaking the starch chain into smaller pieces.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fat food",
+          "with": "Bile"
+        },
+        "reason": "The picture also clearly shows bile spreading fat into smaller droplets."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva shortened the starch chains, so they may need more breakdown to become small molecules.",
+    "reaction": "The result matched the picture and was straightforward.",
+    "step": 2,
+    "reason": "The enzyme picture says different enzymes break starch and protein bonds, so I expect these enzymes to break the shorter starch chains further.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The shorter starch chains will be broken into smaller sugar molecules.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fat food",
+          "with": "Bile"
+        },
+        "reason": "Bile visibly spreads fat into smaller droplets and addresses the other goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes broke the starch into separate glucose units that can cross the intestinal lining; protein still needs breaking down.",
+    "reaction": "It was satisfying to see the linked starch units become separate sugars.",
+    "step": 3,
+    "reason": "The picture shows protein as an amino-acid chain and says digestive enzymes break protein bonds.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The enzymes will break the protein into smaller pieces, potentially amino acids.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fat food",
+          "with": "Bile"
+        },
+        "reason": "Bile is also shown spreading fat droplets, addressing the other goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein became separate amino acids, completing the starch and protein goal. Fat still needs to be spread into smaller droplets.",
+    "reaction": "That matched the enzyme picture and made the protein breakdown clear.",
+    "step": 4,
+    "reason": "The bile picture directly shows it spreading a large fat droplet into smaller ones.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile"
+    },
+    "expectation": "Bile will spread the fat into smaller droplets without changing the fat molecules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bile spread the fat into smaller droplets, and the new goal is to break down the fat molecules themselves.",
+    "reaction": "The extra exposed surface helps explain why spreading the droplets comes first.",
+    "step": 5,
+    "reason": "The enzyme picture shows a shape that fits fat molecules and says enzymes break bonds.",
+    "choice": {
+      "combine": "Small fat droplets",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The enzymes will break the fat molecules into smaller molecules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes broke the fat molecules apart, completing the chapter and making their job distinct from bile's spreading action.",
+    "reaction": "It was satisfying to see why the two fat steps were different.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Breaking down the fat after spreading it was most worthwhile: the two steps showed that smaller droplets are not the same as smaller fat molecules.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Breaking down the protein was clear but less interesting as a decision because the enzyme picture already gave away the pairing.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The smaller fat droplets exposed more surface without changing the fat molecules; enzymes then broke the molecules apart.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The pictures and goals gave a purpose for each pairing.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue to see what happens to the small food molecules after digestion, especially since glucose was described as able to cross the intestinal lining.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

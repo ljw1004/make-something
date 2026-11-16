@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "Both muscles need living muscle tissue, but the separate developing cells do not yet show how to build it. I’ll check what they can combine with.",
+    "choice": {
+      "inspect": "Developing muscle cells"
+    },
+    "expectation": "The compatibility list should show how to turn the developing cells into muscle tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells and supporting tissue formed muscle bundles, which can now fill a muscle's covering.",
+    "reaction": "The picture makes the connection from muscle fibres to tendons clearer.",
+    "step": 2,
+    "reason": "The biceps covering has an empty space, so the muscle bundles look like a suitable fit.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Biceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the biceps covering and connect to its tendons.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle bundles",
+          "with": "Triceps tendons and outer covering"
+        },
+        "reason": "The triceps covering also needs muscle tissue; either muscle seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bundles filled the biceps covering and connected to its tendons. The biceps can now be attached to the arm.",
+    "reaction": "The picture makes the path of the pull easier to follow.",
+    "step": 3,
+    "reason": "The biceps tendons need to connect across the elbow, so I’ll attach the completed muscle to the arm skeleton.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps should attach across the front of the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow; the arm assembly still needs a back muscle.",
+    "reaction": "Seeing the shortened biceps bend the elbow makes its pull clearer.",
+    "step": 4,
+    "reason": "The triceps covering is empty, just as the biceps covering was, so I’ll fill it with muscle bundles.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Triceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the triceps covering and connect to its tendons.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The muscle bundles filled the triceps covering and connected to its tendon, ready for attachment to the arm.",
+    "reaction": "The tendon picture makes the path of the pull clearer.",
+    "step": 5,
+    "reason": "The arm assembly has an empty back-muscle slot, and the triceps belongs across the back of the elbow.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Triceps with tendons"
+    },
+    "expectation": "The triceps should attach to the back of the arm and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps attachment completed the arm and showed how its pull straightens the elbow, opposite the biceps' bending pull.",
+    "reaction": "Seeing the two pulls produce opposite movements was satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the triceps was most worthwhile because it completed the pair and showed how different attachments move the elbow in opposite directions.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the triceps covering repeated the earlier biceps step, so it felt less interesting once the pattern was clear.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The muscle bundles formed from developing cells and supporting tissue; the picture showed how that tissue carries their pull toward the tendons.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. I inspected the developing cells because I wasn't sure how the tissue was built, and the compatibility result supplied the pairing.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: putting the arm together made the connection between muscle attachments and movement understandable, though the repeated covering step was predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

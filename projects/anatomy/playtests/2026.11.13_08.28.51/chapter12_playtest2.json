@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Surfactant lines the air sacs, making it a plausible first component of the lung model.",
+    "choice": {
+      "combine": "Alveolar sacs",
+      "with": "Surfactant"
+    },
+    "expectation": "The sacs will gain a surfactant lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sacs are now lined with surfactant, which helps prevent collapse; they are ready to be brought close to the pulmonary capillaries.",
+    "reaction": "The explanation makes the lining's purpose clear.",
+    "step": 2,
+    "reason": "The capillary sheet is shaped to wrap around the air sacs and bring blood close enough for exchange.",
+    "choice": {
+      "combine": "Stable air sacs",
+      "with": "Pulmonary capillary sheet"
+    },
+    "expectation": "The capillaries will surround the sacs, bringing blood close to their thin walls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries now surround the sacs, with oxygen and carbon dioxide diffusing in opposite directions down their respective partial-pressure differences.",
+    "reaction": "The separate pressure comparisons clarify why the gases move in opposite directions.",
+    "step": 3,
+    "reason": "The elastic fibres are pictured around air sacs and are a natural next component of the exchange region.",
+    "choice": {
+      "combine": "Air–blood exchange surface",
+      "with": "Elastic supporting tissue"
+    },
+    "expectation": "The exchange surface will gain elastic support around the sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exchange surface now has elastic support that stretches and recoils.",
+    "reaction": "The expanded and recoiled outlines make the fibres' role clear.",
+    "step": 4,
+    "reason": "The large airways have outlets matched to the smaller bronchioles, so they should form a continuous conducting route.",
+    "choice": {
+      "combine": "Large conducting airways",
+      "with": "Small conducting bronchioles"
+    },
+    "expectation": "The bronchioles will connect to the large airways and lead toward the exchange region.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large airways and bronchioles now form a conducting tree, with bronchiole width affecting airflow resistance.",
+    "reaction": "The contrasting wall structures explain their different roles.",
+    "step": 5,
+    "reason": "The conducting airway tree should connect to the supported air sacs to provide a route for air to reach the exchange surface.",
+    "choice": {
+      "combine": "Conducting airway tree",
+      "with": "Supported exchange surface"
+    },
+    "expectation": "The airways will connect to the exchange region, forming a lung structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conducting airways now connect to the supported exchange surfaces, forming lungs.",
+    "reaction": "The assembled route from airways to sacs is clear.",
+    "step": 6,
+    "reason": "The remaining goal is to connect the lungs to the blood-filled circulation.",
+    "choice": {
+      "combine": "Lungs",
+      "with": "Blood-filled circulation"
+    },
+    "expectation": "The pulmonary vessels will connect the lungs to the circulating blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are connected to the circulation, completing the goal; continued exchange also depends on fresh air reaching the sacs.",
+    "reaction": "The completed route makes the connection between breathing and circulation clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Wrapping the sacs in capillaries was most worthwhile: the planned comparisons explain why oxygen and carbon dioxide diffuse in opposite directions.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding elastic support was straightforward, but its result largely repeated the picture description rather than explaining recoil in breathing.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The exchange surface distinguished each gas’s partial-pressure difference, rather than treating gas movement as one shared gradient. The term partial pressure itself could use a brief explanation for this audience.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the matched structures and goal made the assembly sequence clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: connecting the airway and blood routes to gas exchange made the construction informative, and I would be curious to see how ventilation keeps fresh air reaching the sacs.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

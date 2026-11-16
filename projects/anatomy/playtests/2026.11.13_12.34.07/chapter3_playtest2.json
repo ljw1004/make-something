@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "I’ll start with genome copying, since each daughter cell needs a complete genome.",
+    "choice": 2,
+    "expectation": "The nucleotides will be used to copy the DNA in the nucleus, though I’m unsure how the result will depict the process.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The spindle is also needed to separate chromosomes, but copying the genome seems a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, with sister chromatids still joined; the spindle remains to be built for their separation.",
+    "reaction": "The distinction between copying the whole genome and making proteins is useful.",
+    "step": 2,
+    "reason": "Build the spindle needed to separate the copied chromosomes.",
+    "choice": 2,
+    "expectation": "Tubulin and motor proteins will assemble around the centrosomes into a chromosome-separating spindle.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Membrane growth is also a goal, but I want to follow genome copying with the separation machinery."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, but the copied chromosomes have not yet been separated; making daughter cells is now a goal.",
+    "reaction": "The overlapping fibres make the spindle's organization clear, though the separation mechanism is still to come.",
+    "step": 3,
+    "reason": "Combine the copied genome with the spindle to work toward separating the chromosomes.",
+    "choice": 2,
+    "expectation": "The spindle will engage the copied chromosomes and help separate the sister chromatids, though I’m unsure whether this alone produces daughter cells.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Membrane growth is still needed, but I want to follow the chromosome-separation sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are at opposite poles, but the cell still shares one cytoplasm and has not divided.",
+    "reaction": "The distinction between chromosome separation and cell division is clear and useful.",
+    "step": 4,
+    "reason": "The only available combination addresses the remaining membrane-growth goal.",
+    "choice": 1,
+    "expectation": "Phospholipids and proteins will form additional membrane for the growing cell; I’m unsure how that will connect to division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane components formed vesicles, and the next goal is to grow the cell's surface and contents.",
+    "reaction": "The vesicles make a plausible intermediate, though their contribution to growth is still to be shown.",
+    "step": 5,
+    "reason": "The only available combination applies the new vesicles to the stem cell to advance growth.",
+    "choice": 1,
+    "expectation": "The vesicles will contribute membrane to the growing cell, possibly by fusing with its surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Vesicle fusion expands the surface alongside growth of cytoplasm and organelles; the enlarged body and separated chromosomes are ready to be brought together.",
+    "reaction": "The before-and-after description clarifies how membrane growth contributes to the larger cell.",
+    "step": 6,
+    "reason": "The only offered combination brings the grown cell body together with its separated chromosome sets toward the daughter-cell goal.",
+    "choice": 1,
+    "expectation": "The result will integrate the separated chromosome sets into the enlarged cell, though further division may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two daughter nuclei have formed, but they still share one cytoplasm, so the cell has not yet divided.",
+    "reaction": "The separate nuclear envelopes make the remaining division step clear.",
+    "step": 7,
+    "reason": "The only offered combination uses actin and myosin to divide the cell body.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the cell, separating the cytoplasm into two daughter stem cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has divided into two unspecialized daughter stem cells, each with a complete genome; the chapter is complete.",
+    "reaction": "The final picture connects division to a continuing stem-cell population, though the branching descendants are only briefly explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome sets was most worthwhile: the picture and prose distinguish sister-chromatid separation from division of the shared cytoplasm.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making membrane vesicles was a thin intermediate on its own; its contribution became clear only when they fused with the cell surface.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The copied-genome result emphasized that replication includes noncoding DNA, unlike making a protein.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the enlarged cell body with separated chromosome sets felt somewhat like joining two views of the same cell rather than performing a physical action, although the resulting daughter nuclei had a clear purpose.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the sequence made growth, chromosome separation and division distinct, and the final descendant branches suggest a next question about specialization.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

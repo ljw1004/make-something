@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes are shown clearing debris at the cut, a plausible early part of wound repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The wound will be cleared of some debris while the vessel remains sealed.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Repair signals"
+        },
+        "reason": "The signals also visibly point toward the nearby vessel, suggesting a route to improving the wound's blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Phagocytes cleared debris, revealing supply, surface and support slots for the healing wound.",
+    "reaction": "The three slots make the remaining repair jobs clearer.",
+    "step": 2,
+    "reason": "The repair signals point to the nearby vessel, suggesting they can help establish wound supply.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The vessel will respond to the signals and help supply the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Repair signals produced a capillary sprout connected to the existing circulation, suggesting a supply for the wound.",
+    "reaction": "The new branch makes the supply connection clear.",
+    "step": 3,
+    "reason": "The capillary sprout appears to fit the healing body's supply slot.",
+    "choice": {
+      "combine": "Body with healing skin[]",
+      "with": "Capillary sprout"
+    },
+    "expectation": "The sprout will supply the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sprout filled the supply slot and formed a connected blood-flow route to the wound.",
+    "reaction": "The completed vessel loop clarifies how nutrients reach the repair site.",
+    "step": 4,
+    "reason": "The fibroblast picture shows a collagen gene, and the RNA building blocks are shown entering its nucleus.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "RNA building blocks"
+    },
+    "expectation": "The fibroblasts will make an RNA message for collagen production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now have a collagen RNA message ready for ribosomes.",
+    "reaction": "The image clearly distinguishes the DNA from its RNA copy.",
+    "step": 5,
+    "reason": "Matrix nutrients include amino acids, which the fibroblasts need to make collagen from the RNA instructions.",
+    "choice": {
+      "combine": "Fibroblasts with collagen instructions",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will produce collagen to support the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used the RNA instructions and nutrients to produce extracellular collagen-rich connective tissue.",
+    "reaction": "The sequence connects gene expression to physical wound support clearly.",
+    "step": 6,
+    "reason": "The new connective tissue should fit the wound's support slot.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New connective tissue"
+    },
+    "expectation": "The connective tissue will support the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue filled the support slot; the surface still needs closing.",
+    "reaction": "The note that young tissue remains weaker adds useful context.",
+    "step": 7,
+    "reason": "Epidermal edge cells and their nutrients appear to be the pieces needed to rebuild the surface.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The edge cells will grow or spread to form a replacement surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new epidermal surface, ready to close the remaining surface slot.",
+    "reaction": "The sheet extending across the gap makes the closure easy to follow.",
+    "step": 8,
+    "reason": "The new surface matches the healing body's remaining surface slot.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New surface"
+    },
+    "expectation": "The new epidermal sheet will close the wound surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface completed the wound closure, support and supply goal; the temporary clot still needs clearing.",
+    "reaction": "The distinction between a closed surface and deeper tissue still strengthening is useful.",
+    "step": 9,
+    "reason": "Clot-clearing enzymes are shown breaking down fibrin, matching the remaining goal.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will break down the temporary fibrin clot in the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clot-clearing enzymes removed much of the temporary fibrin, completing the repair goals while leaving a still-maturing scar.",
+    "reaction": "The distinction between clearing the clot and continued collagen remodeling is useful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making collagen support was most worthwhile: the planned images connect a DNA-to-RNA message and protein production to extracellular tissue that supports the wound.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the new surface into its clearly named slot was straightforward but less informative than making it; the result largely repeated that cells crossed the gap.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The capillary sprout joined another nearby vessel to form a flow route, making the link between a new branch and wound nourishment more concrete.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: the named slots and picture descriptions made the repair pieces' purposes clear.",
+        "steps": [
+          1,
+          3,
+          6,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter offered similarly concrete connections between cellular processes and body function, though the slot-fitting itself became predictable.",
+        "steps": [
+          4,
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

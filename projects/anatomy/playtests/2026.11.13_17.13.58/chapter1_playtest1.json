@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "The lipid picture shows heads that face water and tails that avoid it, suggesting water could help arrange the fats into a boundary.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats and water will form a membrane patch that can be used for the oxygen goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Oxygen"
+        },
+        "reason": "The oxygen picture shows it crossing the oily middle, but the boundary may need to be formed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats formed a two-layer membrane patch, and oxygen can cross its oily middle.",
+    "reaction": "The heads and tails arranging into two layers makes the boundary easier to picture.",
+    "step": 2,
+    "reason": "The result says oxygen crosses the membrane's oily middle, so this directly addresses the first goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will cross the membrane patch and fulfill the oxygen goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the membrane, completing the first goal; water and sugar still need routes.",
+    "reaction": "The arrows show that oxygen crosses both ways, with more entering.",
+    "step": 3,
+    "reason": "The water-channel picture shows a pore for water, and the membrane result says channels make water crossing faster.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein will fit into the membrane and give water a faster route across.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also appears to fit into the membrane, but either route could come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is now in a membrane, with water passing through it both ways. Sugar still needs a route.",
+    "reaction": "The picture makes the channel's job clear.",
+    "step": 4,
+    "reason": "The sugar carrier has a sugar-shaped pocket and spans a membrane, so I will try adding it to the membrane with the water channel.",
+    "choice": {
+      "combine": "Membrane with a water channel",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will fit into the membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane with a water channel has no available combinations, so I need another way to use the sugar carrier.",
+    "reaction": "I expected both proteins to fit into the same patch, so that result was surprising.",
+    "step": 5,
+    "reason": "Inspecting the sugar carrier should reveal what it can currently combine with without guessing which membrane is available.",
+    "choice": {
+      "inspect": "Sugar-carrier protein"
+    },
+    "expectation": "The compatibility list will show how to make a sugar route, possibly combining automatically if there is only one option.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier combined automatically with a membrane patch, creating a separate sugar route.",
+    "reaction": "The two panels make the carrier's changing pocket easier to picture.",
+    "step": 6,
+    "reason": "Glucose matches the carrier's pocket, so it is the natural next piece to try.",
+    "choice": {
+      "combine": "Membrane with a sugar carrier",
+      "with": "Glucose — a small sugar"
+    },
+    "expectation": "Glucose will cross using the carrier, completing the sugar route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose crossed using the carrier, completing the remaining goal and showing that different molecules use different routes through the boundary.",
+    "reaction": "The sequence of sugar binding, crossing and being released made the carrier's job easier to picture.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane patch was most worthwhile: the picture explained how the water-facing heads and water-avoiding tails arrange into a boundary.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add the sugar carrier to the water-channel membrane was frustrating because it could not combine with anything, even though I expected both proteins to fit.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the sugar carrier needed a separate membrane patch rather than the one with the water channel.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Using a separate patch felt a little arbitrary because the story did not explain why I couldn't add both proteins to the first one.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the pictures made the different routes across the membrane understandable, and I would be curious to see what comes next.",
+        "steps": [
+          1,
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

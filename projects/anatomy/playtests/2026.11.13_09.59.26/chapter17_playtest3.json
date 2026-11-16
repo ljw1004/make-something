@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The resident microbes and food remainder occupy the same colon, suggesting a direct exchange to explore.",
+    "choice": {
+      "combine": "Resident gut microbes",
+      "with": "Wet food remainder"
+    },
+    "expectation": "The microbes will act on some of the undigested material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microbes ferment some fibre into small fatty acids and gas; I can now connect those contents to the colon.",
+    "reaction": "The distinction that not all microbes are helpful is useful.",
+    "step": 2,
+    "reason": "The fermenting contents are already in the colon, so combining them with the body may show their exchange with the host.",
+    "choice": {
+      "combine": "Fermenting colon contents",
+      "with": "Body with connected digestion"
+    },
+    "expectation": "The model will show how the colon handles the fermentation products and remaining contents.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Colon mucus",
+          "with": "Body with connected digestion"
+        },
+        "reason": "The mucus is also part of the colon habitat, but the fermentation products seem more directly relevant to exchange."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body model now shows fatty acids entering lining cells and blood, alongside water and salt absorption; mucus remains to connect.",
+    "reaction": "The arrows make the host's uptake clearer.",
+    "step": 3,
+    "reason": "Colon mucus is the remaining habitat component and is produced by the intestinal lining.",
+    "choice": {
+      "combine": "Colon mucus",
+      "with": "Body with fermenting colon contents"
+    },
+    "expectation": "The mucus will be incorporated into the colon habitat, showing its relationship with the lining and microbes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model shows mucus separating most bacteria from the lining, alongside water and salt recovery and uptake of microbial fatty acids.",
+    "reaction": "The final cutaway usefully brings the exchanges together, though the role of mucus is shown rather than explained.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the fermenting contents with the body was most worthwhile: the planned arrows connected microbial products to uptake by the colon and blood.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mucus was a straightforward final assembly step; its protective relationship was visible, but not explained in much detail.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Some microbial fermentation products can enter colon cells and blood, while fibre remains in the gut.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: each connected an identifiable part of the colon habitat.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see another system linked to the existing body model, particularly if it offers similarly clear cause-and-effect comparisons.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

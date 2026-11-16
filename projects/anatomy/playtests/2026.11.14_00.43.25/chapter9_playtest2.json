@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The lung network is labelled as receiving blood from the right heart, so these pieces have a clear connection.",
+    "choice": {
+      "combine": "Right side of heart",
+      "with": "Lung blood-vessel network"
+    },
+    "expectation": "The right heart will connect to the lung vessels as part of the lung route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right heart now connects to the lung vessels, whose return end is labelled for the left heart.",
+    "reaction": "The labelled return makes the next connection clear.",
+    "step": 2,
+    "reason": "The lung route's open end leads to the left heart.",
+    "choice": {
+      "combine": "Right heart and lung route",
+      "with": "Left side of heart"
+    },
+    "expectation": "The returning lung vessels will connect to the left side of the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route cannot be combined with anything yet, so I will build the body route separately.",
+    "reaction": "I was surprised the labelled lung return could not connect yet.",
+    "step": 3,
+    "reason": "The left heart is labelled as sending blood to the body, and the body network leads away from and back toward a heart.",
+    "choice": {
+      "combine": "Left side of heart",
+      "with": "Body blood-vessel network"
+    },
+    "expectation": "The left heart will connect to the body vessel network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left heart now connects to the body vessels, completing the body-route goal; both routes still have open ends.",
+    "reaction": "The separate body route makes the two circuits easier to distinguish.",
+    "step": 4,
+    "reason": "The heart-muscle arteries have open branch tips, and the heart-muscle capillaries have open entrances.",
+    "choice": {
+      "combine": "Arteries for the heart muscle",
+      "with": "Heart-muscle capillaries and veins"
+    },
+    "expectation": "The arteries will connect to the capillaries and veins to form the heart muscle's vessel network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart-muscle vessels now form a network with open connections to the body's main artery and the right heart.",
+    "reaction": "The labelled ends make its place in the larger route clearer.",
+    "step": 5,
+    "reason": "The heart-muscle network starts at the body's main artery, which should be part of the left heart and body route.",
+    "choice": {
+      "combine": "Heart-muscle vessel network",
+      "with": "Left heart and body route"
+    },
+    "expectation": "The heart-muscle network will connect to the body's main artery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart-muscle network cannot be combined yet, despite its labelled connection to the body artery.",
+    "reaction": "The prerequisite is unclear to me.",
+    "step": 6,
+    "reason": "I'll check the left heart and body route for an available connection rather than guess another prerequisite.",
+    "choice": {
+      "inspect": "Left heart and body route"
+    },
+    "expectation": "The compatibility list should show what this route can connect to next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the two routes, making a complete circuit and possibly enabling the heart-muscle network.",
+    "reaction": "I was surprised the routes could connect in this order after the reverse attempt failed.",
+    "step": 7,
+    "reason": "The heart-muscle network has labelled connections to the body's main artery and right heart, both now in the combined model.",
+    "choice": {
+      "combine": "Heart and two routes",
+      "with": "Heart-muscle vessel network"
+    },
+    "expectation": "The heart-muscle vessels will connect to the combined heart and routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart-muscle vessels connected to the complete circuit, showing how the heart gets its own blood supply and completing the goals.",
+    "reaction": "It was satisfying to see the pump's own delivery route added.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the two routes showed one full lap through the heart twice, making the lung and body routes easier to understand together.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the heart-muscle network to the body route was frustrating because its labelled connection made sense, but the prerequisite was unclear.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that inspecting the body route joined it to the lung route after my earlier attempt from the other direction failed.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The order of connecting the two routes felt arbitrary: the open ends matched, but the earlier attempt could not proceed.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how the circulation connects to other body systems, though I would hope the required connection order becomes clearer.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

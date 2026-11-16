@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows chamber valves fitting between the upper and lower chambers, so I can start building the right pump.",
+    "choice": {
+      "combine": "Right heart chambers",
+      "with": "Chamber valves"
+    },
+    "expectation": "The valve should fit between the right heart chambers and help prevent backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connecting valve is in place; the right pump still needs its artery-exit valve.",
+    "reaction": "The filling and squeezing explanation makes the valve's job clearer.",
+    "step": 2,
+    "reason": "The remaining named slot matches the artery-exit valves.",
+    "choice": {
+      "combine": "Right heart chambers",
+      "with": "Artery-exit valves"
+    },
+    "expectation": "An outlet valve should fit at the right heart's artery exit and prevent backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both right-heart valves are in place, so I can connect that pump to the lung route.",
+    "reaction": "The two poses make it clearer that the valves open at different times.",
+    "step": 3,
+    "reason": "The lung-vessel picture shows a route from the right heart toward the left heart.",
+    "choice": {
+      "combine": "Right heart chambers",
+      "with": "Lung blood vessels"
+    },
+    "expectation": "The right pump should connect to the blood vessels leading through the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right pump now connects through the lungs toward the left heart, so I can build the left pump next.",
+    "reaction": "The arrows make the connection between the two sides clearer.",
+    "step": 4,
+    "reason": "The left chambers have the same named valve slot as the right chambers.",
+    "choice": {
+      "combine": "Left heart chambers",
+      "with": "Chamber valves"
+    },
+    "expectation": "A valve should fit between the left chambers and prevent blood from flowing backward during the squeeze.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left connecting valve is in place; its artery exit still needs a valve.",
+    "reaction": "This matches the right side, so the next step is clear.",
+    "step": 5,
+    "reason": "The remaining artery-exit slot matches the artery-exit valves, as on the right side.",
+    "choice": {
+      "combine": "Left heart chambers",
+      "with": "Artery-exit valves"
+    },
+    "expectation": "An outlet valve should fit at the left artery exit and close against backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both left-heart valves are in place, so the pump is ready to connect to the body route.",
+    "reaction": "This mirrors the right pump, making the next connection clear.",
+    "step": 6,
+    "reason": "The left pump sends blood into the body artery, and the body blood-vessel network leads away from and back toward the heart.",
+    "choice": {
+      "combine": "Left heart chambers",
+      "with": "Body blood-vessel network"
+    },
+    "expectation": "The left pump should connect to the route through the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left pump now connects to the body route, and the new goal calls for joining the two routes and supplying the heart.",
+    "reaction": "The return arrow makes the continuous route easier to picture.",
+    "step": 7,
+    "reason": "The lung route ends at the left heart, and the body route returns toward the right heart, so the two pumps should connect.",
+    "choice": {
+      "combine": "Right pump with lung route",
+      "with": "Left pump with body route"
+    },
+    "expectation": "The two routes should join into a continuous path through the heart, lungs and body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung and body routes now form one continuous circuit; the heart still needs its own blood supply.",
+    "reaction": "The complete path makes the two journeys easier to follow.",
+    "step": 8,
+    "reason": "The heart’s own vessels are pictured branching from the body artery into the heart wall, matching the remaining goal.",
+    "choice": {
+      "combine": "Connected lung and body routes",
+      "with": "Heart’s own blood vessels"
+    },
+    "expectation": "The vessels should connect to the circuit and supply the heart muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has its own vessel supply, and the remaining goal is to fill the circulation with blood.",
+    "reaction": "It is useful to see that blood in the chambers does not supply the whole heart muscle.",
+    "step": 9,
+    "reason": "The new goal directly calls for adding blood to the connected circulation.",
+    "choice": {
+      "combine": "Circulation supplying the heart",
+      "with": "Blood"
+    },
+    "expectation": "Blood should fill the connected routes through the heart, lungs and body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the connected circulation and all chapter goals.",
+    "reaction": "Seeing the whole route filled in was satisfying.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes was most worthwhile because the continuous path made the two journeys easier to follow.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the left-side valves repeated the right-side process, so it felt less engaging even though the valves have a clear job.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the heart muscle to need its own blood vessels rather than being supplied by blood inside its chambers.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the pictures and named slots explained the pairings, although fitting both sets of valves was repetitive.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because connecting the two routes helped me understand how the parts work together, and I would be curious to see another system built that way.",
+        "steps": [
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it should start the warm-weather response.",
+    "choice": 1,
+    "expectation": "I expect the body to warm up and reveal a way to cool it, though the exact result is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows temperature information reaching the brain, so I expect the next step to begin a cooling response.",
+    "reaction": "The signals from both skin and inside the body make the sensing step clearer.",
+    "step": 2,
+    "reason": "This is the only offered combination and may show how skin vessels respond to warmth.",
+    "choice": 1,
+    "expectation": "I expect the skin vessels to widen and help heat leave the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wider skin vessel carries more blood near the surface, showing how the brain can help move heat toward the skin.",
+    "reaction": "The before-and-after description makes the vessel response clear.",
+    "step": 3,
+    "reason": "This is the only offered combination and should start the sweat response needed for the goal.",
+    "choice": 1,
+    "expectation": "I expect the sweat glands to release sweat onto the skin, ready for evaporation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sweat has reached the skin, and the result makes evaporation the next step needed to carry heat away.",
+    "reaction": "The distinction between producing sweat and evaporating it is clear.",
+    "step": 4,
+    "reason": "This is the only offered combination and directly addresses the evaporation goal.",
+    "choice": 1,
+    "expectation": "I expect sweat to evaporate into the air and carry heat away from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation cooled the body and the weaker sweat signal suggests the response eases as temperature returns toward its earlier range. The new goal turns to cold.",
+    "reaction": "The feedback shown by the fading signal is a useful detail.",
+    "step": 5,
+    "reason": "This is the only offered combination and starts the cold response.",
+    "choice": 1,
+    "expectation": "I expect the body to sense the cold and begin a response that conserves heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold sensing reduces the sweat signal; the next offered step may show how the body limits heat loss through the skin.",
+    "reaction": "The reduced sweating is clear, though the sensing sequence feels familiar.",
+    "step": 6,
+    "reason": "This is the only offered combination and should address heat conservation.",
+    "choice": 1,
+    "expectation": "I expect the skin vessels to narrow, reducing blood flow near the surface and heat loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The narrowed vessels reduce heat loss but do not make heat, so the muscle step may address the other part of the goal.",
+    "reaction": "The matched warm and cold descriptions make the contrast clear.",
+    "step": 7,
+    "reason": "This is the only offered combination, and muscle activity could generate heat.",
+    "choice": 1,
+    "expectation": "I expect the muscles to shiver and produce heat, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle step completed the cold response: repeated contractions use ATP and produce heat, while narrowed skin vessels reduce heat loss.",
+    "reaction": "Connecting shivering back to muscle energy use was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The shivering step connected muscle work and ATP use to heat production, completing the cold response in a clear way.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The cold-sensing step repeated the earlier warm-sensing sequence, so it felt less engaging even though reduced sweating was clear.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The fading sweat signal showed that cooling responses can ease as temperature moves toward its earlier range.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but every decision offered only one combination, so I followed the sequence rather than choosing between meaningful alternatives.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably stop here. The warm and cold comparison was clear and the muscle connection was satisfying, but the single-option sequence left little room for decisions.",
+        "steps": [
+          2,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

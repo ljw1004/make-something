@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "The stem cell has a membrane growth slot, and phospholipids supply the material for it.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "Phospholipids"
+    },
+    "expectation": "The phospholipids should fill the membrane growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Phospholipids filled the membrane growth slot; the cell still needs cytoplasm growth and DNA replication.",
+    "reaction": "The fitting worked as expected.",
+    "step": 2,
+    "reason": "New cell proteins are a visible match for cytoplasm growth.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "New cell proteins"
+    },
+    "expectation": "The proteins should fill the cytoplasm growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins filled the cytoplasm growth slot, leaving DNA replication to prepare.",
+    "reaction": "The fitting worked as expected.",
+    "step": 3,
+    "reason": "DNA-building nucleotides match the remaining replication slot.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "DNA-building nucleotides"
+    },
+    "expectation": "The nucleotides should fill the DNA replication slot and allow the genome to be copied.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown and copied its DNA; the new goal is to separate it into two cells.",
+    "reaction": "The distinction between doubled DNA and still-joined chromosome copies is useful.",
+    "step": 4,
+    "reason": "The mitotic spindle can separate the copied chromosomes before the cell divides.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "Mitotic spindle"
+    },
+    "expectation": "The spindle should organize and separate the copied chromosome sets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the chromosome sets and new nuclear envelopes formed, but the cytoplasm remains continuous.",
+    "reaction": "The picture makes the remaining division step clear.",
+    "step": 5,
+    "reason": "The contractile ring is positioned to narrow the cell between the two nuclei.",
+    "choice": {
+      "combine": "Cell with separated chromosome sets",
+      "with": "Equatorial contractile ring"
+    },
+    "expectation": "The ring should constrict the cell and separate the two daughters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell separation, producing two living descendants and completing the chapter’s goals.",
+    "reaction": "The distinction between separating chromosomes and separating cells was satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Copying the genome and then separating the chromosome sets was most worthwhile: the picture plans distinguish doubled DNA from joined sister chromatids and from their later separation.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first two material fittings felt predictable and offered little explanation beyond confirming the slots.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The replication picture clarified that DNA amount doubles while the chromosome copies remain joined; separation is a later step.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The fittings had clear purposes, though adding proteins to a cytoplasm-growth slot simplified the process of cell growth.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the division sequence made the relationship between genome copying, chromosome separation and cell division clear, and the descendants suggest further branches to explore.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin-cell population is already part of this body, and its picture shows how new cells replace surface cells.",
+    "choice": {
+      "combine": "Body with a light-linked clock",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body will show its skin renewing as some new cells move toward the surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Marrow red-cell precursors",
+          "with": "Kidney red-cell signal (erythropoietin)"
+        },
+        "reason": "The signal reaching marrow suggests another route to explore blood renewal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal, so I can turn to the blood-renewal part of the goal.",
+    "reaction": "The new cells and shedding make the replacement process clear.",
+    "step": 2,
+    "reason": "The picture shows the kidney signal travelling in blood to the red-cell precursors in marrow.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The kidney signal will help the marrow precursors produce red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Low oxygen prompts the kidney signal, and the marrow precursors are developing into red cells.",
+    "reaction": "The connection between oxygen levels and blood renewal is clearer.",
+    "step": 3,
+    "reason": "The developing red cells belong to the same body, so adding them should continue the blood-renewal goal.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show its developing red cells contributing to blood renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are complete; the new goal is to remodel existing bone.",
+    "reaction": "Seeing red cells leave the marrow makes the renewal route clearer.",
+    "step": 4,
+    "reason": "The bone-removing and bone-forming cells suggest two parts of remodeling, but their order is not clear, so I’ll check the removing cells.",
+    "choice": {
+      "inspect": "Bone-removing cells"
+    },
+    "expectation": "The compatibility list should show how to begin the bone-remodeling process.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body renewing skin and blood",
+          "with": "Bone-removing cells"
+        },
+        "reason": "Removing cells might act directly on the body's existing bone."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically started remodeling by removing old bone; the forming cells are the likely next step.",
+    "reaction": "The removal step makes the order clearer.",
+    "step": 5,
+    "reason": "Bone-forming cells should rebuild the patch where old bone was removed.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will form new bone in the remodeling patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-forming cells rebuilt the patch, completing the remodeling goal and the chapter.",
+    "reaction": "It was satisfying to see the rebuilt bone alongside the other renewal processes in the same body.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the kidney signal to developing red cells was most worthwhile: it connected low oxygen to blood-cell renewal in a way I could follow.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the developing red cells to the body felt more like placing a completed piece than making a meaningful decision, although it showed where the cells go.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a low-oxygen cue at the kidney could lead to a signal that helps red cells develop in marrow.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The order of bone remodeling was not clear to me initially. The compatibility hint showed that removal came first, and the result made the forming step easier to understand.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: connecting everyday ideas like skin shedding to less familiar processes like blood and bone renewal made me curious about what else the body replaces.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "Build haemoglobin in the developing red cells to give the blood an oxygen carrier.",
+    "choice": 1,
+    "expectation": "The cells will make haemoglobin from the supplied materials, though I don't know how the result will depict it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is also needed for the sample, but I want to start with oxygen transport."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows haemoglobin assembling in developing cells and their maturation into nucleus-free red cells; oxygen can now be added.",
+    "reaction": "The maturation arrow is useful, though the loss of the nucleus is not explained.",
+    "step": 2,
+    "reason": "Add oxygen to see how the red cells carry it.",
+    "choice": 1,
+    "expectation": "Oxygen will bind to haemoglobin in the red cells, perhaps with a depiction of its release.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is needed for the blood sample, but I want to follow the oxygen-carrying cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows reversible oxygen binding and explains why more oxygen leaves haemoglobin in working tissues. I can now assemble the plasma.",
+    "reaction": "The link between low dissolved oxygen and release is useful.",
+    "step": 3,
+    "reason": "Make plasma for the blood sample; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The water and solutes will form plasma, though I don't know how it will be depicted.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma is ready to receive the blood cells.",
+    "reaction": "The picture shows its dissolved components, but adds little beyond the ingredients.",
+    "step": 4,
+    "reason": "Add the oxygen-bearing red cells to assemble the oxygen-carrying sample.",
+    "choice": 2,
+    "expectation": "The red cells will be suspended in plasma; the white cells and platelets may still need adding.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "White cells and platelets belong in the sample too, but the current goal emphasizes oxygen transport."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The red cells are suspended in plasma, but the sample still lacks white cells and platelets.",
+    "reaction": "The partial-sample picture makes the remaining components clear.",
+    "step": 5,
+    "reason": "Add the missing white cells and platelets; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The result will be a blood sample containing plasma, oxygen-bearing red cells, white cells and platelets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed sample brings the blood components together and distinguishes plasma's transport role from the red cells' oxygen-carrying role.",
+    "reaction": "The planned magnified inset usefully connects the whole sample back to haemoglobin.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen to red cells was most worthwhile: the planned picture shows reversible binding, and the prose connects release to low dissolved oxygen in working tissues.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma felt least informative: the planned picture showed particles and proteins but added little about their roles. The loss of the red-cell nucleus during maturation was also shown without explanation.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that more oxygen can leave haemoglobin where dissolved oxygen is low clarified how the carrier can supply working tissues.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No combination felt purposeless, although the final addition left the functions of white cells and platelets unexplained. The compatible-option menu guided the choices, so I did not discover the recipes independently.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how circulation connects these oxygen carriers to the arm's cells; the release explanation made that next connection interesting.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

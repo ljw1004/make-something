@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "Developing red cells have ribosomes, and the supplied materials can make their oxygen-binding haemoglobin.",
+    "choice": {
+      "combine": "Developing red blood cells",
+      "with": "Haemoglobin building materials"
+    },
+    "expectation": "The developing cells will produce haemoglobin and mature toward oxygen-carrying red cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing cells became mature red blood cells containing assembled haemoglobin, ready for the oxygen-binding construction.",
+    "reaction": "The cutaway usefully distinguishes haemoglobin production in developing cells from the mature cells without nuclei.",
+    "step": 2,
+    "reason": "Red blood cells contain haemoglobin, which should bind the available oxygen.",
+    "choice": {
+      "combine": "Red blood cells",
+      "with": "Oxygen molecules"
+    },
+    "expectation": "Oxygen will bind to haemoglobin in the red blood cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Plasma water",
+          "with": "Plasma solutes"
+        },
+        "reason": "Making plasma is another clear step toward assembling blood."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen binding and release are shown as reversible, completing that goal; blood assembly remains.",
+    "reaction": "The double arrow and explanation make the release in low-oxygen tissues clear.",
+    "step": 3,
+    "reason": "Plasma solutes dissolved in water should form the fluid component of blood.",
+    "choice": {
+      "combine": "Plasma water",
+      "with": "Plasma solutes"
+    },
+    "expectation": "This will make plasma for assembling blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma is now available as the fluid component for blood assembly.",
+    "reaction": "The straw-yellow drop makes the plasma distinct from plain water.",
+    "step": 4,
+    "reason": "Red blood cells suspended in plasma are a natural next step toward assembling blood.",
+    "choice": {
+      "combine": "Plasma",
+      "with": "Oxygen-bearing red blood cells"
+    },
+    "expectation": "The red cells will join the plasma, leaving white cells and platelets to complete the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The partial blood sample now contains plasma and oxygen-bearing red cells; white cells and platelets are still missing.",
+    "reaction": "The picture clearly identifies what remains to be added.",
+    "step": 5,
+    "reason": "Adding the white cells and platelets should complete the blood sample.",
+    "choice": {
+      "combine": "Plasma with oxygen-bearing red cells",
+      "with": "White cells and platelets"
+    },
+    "expectation": "The remaining cellular components will join the plasma and red cells, completing blood assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding white cells and platelets completed the blood sample and the remaining goal.",
+    "reaction": "The final picture brings the different components together clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Binding oxygen to red cells was most worthwhile: the double arrow and explanation connect reversible haemoglobin binding to oxygen release in tissues.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma and then adding red cells was clear but relatively predictable, with little explanation beyond the pictured components.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The developing-cell cutaway clarified that haemoglobin is assembled before maturation into red cells without nuclei.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the final explanation names white cells and platelets without explaining their functions.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how circulation brings oxygen carriers close to tissues, building on the oxygen-release explanation.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

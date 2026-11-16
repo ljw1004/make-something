@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "Clear the wound first so there is space for replacement tissue; the picture shows the white blood cells surrounding fragments.",
+    "choice": 1,
+    "expectation": "I expect the cells to remove broken fragments, though the skin gap will still need repair.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A new blood vessel should help supply healing tissue, but I want to clear the gap first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments are cleared, but the wound still needs supply, surface and support.",
+    "reaction": "It is clear that stopping bleeding did not finish the repair.",
+    "step": 2,
+    "reason": "Prepare a blood supply for the new tissue; the picture links the wound's messengers to a growing vessel branch.",
+    "choice": 1,
+    "expectation": "I expect the nearby capillary to grow a branch toward the wound, though I don't know exactly how the messengers cause it.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Making replacement surface cells also addresses a goal, but the new tissue will need a supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary has grown a branch toward the wound, ready to add to the cleared body.",
+    "reaction": "The new branch makes the blood-supply step easy to picture.",
+    "step": 3,
+    "reason": "Fit the capillary sprout into the wound to continue rebuilding its blood supply.",
+    "choice": 3,
+    "expectation": "I expect the new vessel branch to become part of the wound's supply, though I don't know if it will be sufficient on its own.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing replacement surface cells would also help close the wound, but I want to finish the supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new branch connects to another vessel, allowing blood and materials to reach nearby cells.",
+    "reaction": "Seeing the branch become a flowing route makes its purpose clearer.",
+    "step": 4,
+    "reason": "Prepare supporting fibres for the deeper wound tissue using the amino acids supplied to the skin cells.",
+    "choice": 1,
+    "expectation": "I expect the cells to make supporting protein fibres that can be added to the wound.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing surface cells would also help close the gap, but I want to build the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made new fibres, but the deeper gap still needs them fitted into the wound.",
+    "reaction": "The outlined gap makes the fibres' next use clear.",
+    "step": 5,
+    "reason": "Add the new fibres to rebuild support across the deeper wound.",
+    "choice": 2,
+    "expectation": "I expect the fibres to connect with the surviving tissue and help fill the deeper gap, while the surface remains open.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Preparing surface cells would also help close the wound, but I want to finish the deeper support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The deeper wound now has supporting fibres and a blood supply; the surface still needs closing and the temporary clot needs clearing.",
+    "reaction": "The layers of repair are becoming clearer, though the fibres fill only part of the wound.",
+    "step": 6,
+    "reason": "This is the only offered combination, and the supplies should help the skin cells replace the missing surface.",
+    "choice": 1,
+    "expectation": "I expect the skin cells to divide and move toward the gap, using the supplied nutrients and oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "New skin cells are ready at the wound edge, but the surface gap remains open.",
+    "reaction": "The outline makes their next use clear.",
+    "step": 7,
+    "reason": "Fit the new cells into the wound to close the surface; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the cells to spread across the gap, while the temporary clot may still need clearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new cells have closed the surface, but the tissue underneath is still strengthening and the clot remains to be cleared.",
+    "reaction": "It makes sense that a closed surface is not the same as fully strengthened tissue.",
+    "step": 8,
+    "reason": "Use the only offered combination to clear the temporary clot, as the remaining goal asks.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the clot's protein threads while the repaired vessel stays sealed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most clot threads are gone, while supporting fibres and a small scar remain; the scar will keep changing.",
+    "reaction": "It was interesting that closing the skin was not the end of repair.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the new capillary branch to another vessel was worthwhile: seeing blood flow through it explained how the repair gets supplies.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the new skin cells and then fitting them felt a little repetitive, though the outline made the second step clear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the surface could close while the tissue underneath was still gaining strength.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt completely arbitrary. The pictures and goals explained the parts' purposes, although I followed the messenger pairing without knowing exactly how it made a vessel grow.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing the separate repair projects come together and leave a changing scar made me curious about what comes next.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

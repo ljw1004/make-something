@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The thin exchange lining appears suited to the air sacs, where air will come close to blood.",
+    "choice": {
+      "combine": "Air sacs",
+      "with": "Thin exchange lining"
+    },
+    "expectation": "The lining will form a thin exchange surface around the air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air sacs first had to connect to the branching airways, creating open lung spaces. The lining may now fit those spaces.",
+    "reaction": "The surface-area comparison is an interesting explanation of why many small sacs help.",
+    "step": 2,
+    "reason": "The open lung spaces now include the sacs, so adding the thin exchange lining seems like the next step toward bringing air close to blood.",
+    "choice": {
+      "combine": "Open lung spaces",
+      "with": "Thin exchange lining"
+    },
+    "expectation": "The lining will add a thin surface to the lung spaces for exchange with blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open lung spaces cannot currently be combined with anything, so I need to find another way to use the exchange lining.",
+    "reaction": "I’m unsure why the lining cannot be added to the lung spaces yet.",
+    "step": 3,
+    "reason": "Inspecting the lining should reveal what it can combine with now.",
+    "choice": {
+      "inspect": "Thin exchange lining"
+    },
+    "expectation": "The compatibility list will show the lining’s available partner.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining combines with the capillary mesh to make a surface where oxygen and carbon dioxide can cross in opposite directions.",
+    "reaction": "The gas arrows clarify how exchange works while air and blood remain separate.",
+    "step": 4,
+    "reason": "The exchange surface and open lung spaces now seem ready to form the air–blood interface.",
+    "choice": {
+      "combine": "Lung exchange surface",
+      "with": "Open lung spaces"
+    },
+    "expectation": "The exchange surface will connect the air spaces to the lung capillaries.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exchange surface joined the lung spaces, completing the air–blood interface; the next goal is to draw fresh air in using muscles outside the lungs.",
+    "reaction": "The enlarged section clearly shows gases crossing while air and blood stay separate.",
+    "step": 5,
+    "reason": "The pleural membranes connect the lung side to the chest side, suggesting they should attach to the exchange lungs before the breathing chest can move them.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Exchange lungs"
+    },
+    "expectation": "The membranes will surround the lungs and provide a sliding connection to the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural sheets now surround the lungs, with an attachment edge for the chest wall.",
+    "reaction": "The description clarifies how the lungs are coupled to the moving chest.",
+    "step": 6,
+    "reason": "The breathing chest has the muscles needed to move the pleural sacs and draw air in.",
+    "choice": {
+      "combine": "Lungs in pleural sacs",
+      "with": "Breathing chest"
+    },
+    "expectation": "The chest will connect to the pleural sacs so its movement can expand the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing chest now moves the lungs to draw air in, and the remaining goal is to carry oxygen to the body.",
+    "reaction": "The pressure gauge helps explain why air enters as the chest expands.",
+    "step": 7,
+    "reason": "Circulation can carry oxygen from the breathing lungs to working tissues.",
+    "choice": {
+      "combine": "Breathing lungs",
+      "with": "Circulation"
+    },
+    "expectation": "The lungs will connect to circulation so blood can carry oxygen to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the breathing lungs to circulation completed the goal and showed oxygen traveling from the lungs to tissues, with carbon dioxide returning.",
+    "reaction": "The circuit and exchange insets brought the chapter’s pieces together clearly.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lungs to circulation was most worthwhile because it linked breathing and blood flow to oxygen delivery at tissues.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add the lining to the open lung spaces was confusing: the pieces seemed suited to each other, but the spaces had no available combination at that point.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the lining first combined with the capillary mesh rather than directly with the air sacs; the resulting gas arrows clarified the separate air and blood spaces.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for combining the lining felt somewhat arbitrary until the compatibility information showed the capillary mesh as its partner.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the oxygen-delivering circulation supports the working arm. The connections between chest movement, gas exchange and circulation held my interest.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

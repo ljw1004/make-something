@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows pancreas cells responding to different blood glucose levels, so the glucose-rich blood is a clear starting point for the after-meal goal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas cells should respond to the high glucose with a message that helps muscle take it up.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Time between meals",
+          "with": "Liver with a carbohydrate store"
+        },
+        "reason": "The earlier chapter showed the liver releasing stored glucose between meals, so this is another possible starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose-rich blood first had to be connected to the body; the pancreas, muscle and liver are now highlighted.",
+    "reaction": "I was surprised that the pancreas pairing didn't work directly, but the automatic combination clarified the next stage.",
+    "step": 2,
+    "reason": "The pancreas sensing cells respond to blood glucose, so connecting them to the body with rising glucose should move the after-meal goal forward.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas cells will sense the rising glucose and send a message involved in the response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas releases insulin into the blood, and the result explains that insulin helps muscle take up glucose.",
+    "reaction": "The message's connection to muscle is clearer now.",
+    "step": 3,
+    "reason": "Insulin's route leads to muscle, matching the after-meal goal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscle should take glucose from the blood in response to insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle took up glucose, completing the after-meal goal; the remaining goal concerns the time between meals.",
+    "reaction": "It was helpful to see insulin release decrease as blood glucose fell.",
+    "step": 4,
+    "reason": "The clock represents the shift between meals, so I'll apply it to the same body before following the liver's stored fuel.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body will move to a between-meals state as its cells use glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Time between meals",
+          "with": "Liver with a carbohydrate store"
+        },
+        "reason": "The earlier chapter connected time without food to glucose release from the liver."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The after-meal body cannot be combined with anything, so I need another starting point for the between-meals goal.",
+    "reaction": "That was unexpected; the result did not explain the prerequisite.",
+    "step": 5,
+    "reason": "The clock marks the between-meals situation, but its required partner is not clear, so I’ll check it.",
+    "choice": {
+      "inspect": "Time between meals"
+    },
+    "expectation": "The compatibility report should show what can start the between-meals response.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Time between meals",
+          "with": "Liver with a carbohydrate store"
+        },
+        "reason": "An earlier chapter showed stored liver fuel being released between meals, but this chapter may require a different setup."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meals situation starts from the earlier body as a separate view, rather than from the completed after-meal result.",
+    "reaction": "The separate starting point explains why my previous combination failed.",
+    "step": 6,
+    "reason": "The pancreas sensing cells responded to rising glucose before, and their picture also shows a response to lower glucose.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas will respond to falling glucose with a message involved in keeping fuel available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose prompted a pancreas message to the liver labelled “release stored glucose.”",
+    "reaction": "The labelled arrow makes the liver's next role clear.",
+    "step": 7,
+    "reason": "The message points to the liver, and its carbohydrate store can provide glucose between meals.",
+    "choice": {
+      "combine": "Body signalling the liver",
+      "with": "Liver with a carbohydrate store"
+    },
+    "expectation": "The liver will release glucose from its stored carbohydrate into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released stored glucose into the blood, and the pancreas's release message faded as glucose rose. Both goals are complete.",
+    "reaction": "The fading message helped me see how the response changes as glucose rises.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the pancreas message to the liver was worthwhile because it connected falling blood glucose to the release of stored fuel.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to start the between-meals sequence from the after-meal body was frustrating: the failure did not explain that the other sequence needed a separate starting view.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the between-meals route started from the earlier body rather than continuing from the after-meal result.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to connect glucose-rich blood to the body before the pancreas felt unclear at first, even though the compatibility feedback moved things forward.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: comparing the two responses made the pancreas and liver's roles clearer, despite the unclear starting-point prerequisite.",
+        "steps": [
+          2,
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

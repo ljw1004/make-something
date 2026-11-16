@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The recycling cells are shown breaking down worn red cells, which should start the iron-recovery goal.",
+    "choice": {
+      "combine": "Worn red blood cells",
+      "with": "Blood-cell recycling cells"
+    },
+    "expectation": "The recycling cells will break down the worn cells and make their iron available for reuse.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The worn cells yielded iron carried in blood, so it can now be taken to the marrow for reuse.",
+    "reaction": "It makes sense that the recycling cells remain intact while the iron is recovered.",
+    "step": 2,
+    "reason": "The marrow makes blood cells, and the goal says to use the recovered iron in new red cells.",
+    "choice": {
+      "combine": "Iron recovered from old blood cells",
+      "with": "Red bone marrow"
+    },
+    "expectation": "The marrow will use the recovered iron to make new red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovered iron became part of haemoglobin in new red cells, completing the blood-cell goal. The skin-cell goal remains.",
+    "reaction": "It is satisfying to see the iron reused while the marrow stays intact.",
+    "step": 3,
+    "reason": "The picture shows these materials moving toward the dividing skin cells to support their growth.",
+    "choice": {
+      "combine": "Dividing cells at the skin's base",
+      "with": "Water, glucose and cell building materials"
+    },
+    "expectation": "The cells will use the supplied materials to grow replacement skin cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The materials supported new skin cells while the base cells and continuous covering remained. Both goals are complete.",
+    "reaction": "The picture of new cells growing underneath while old flakes leave made the replacement process clear.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using recovered iron in marrow was most worthwhile because it showed how material from old cells becomes part of the oxygen-carrying protein in new cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The skin-cell combination was straightforward from the picture, so it involved less figuring out, although the result was clear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I noticed that the base population stays in place while its descendants move outward and become flatter.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: the pictures and goals explained why the materials belonged with the cells or marrow.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see another body process connected to what was already built, though these three predictable combinations alone were not a strong hook.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

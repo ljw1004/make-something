@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the bone-cell lineage to connect living cells to the planned bone construction.",
+    "choice": 1,
+    "expectation": "The conditions will guide stem-cell descendants toward bone-forming cells, though I don't know the resulting item's name.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mineralizing the collagen framework also advances the bone goal, but I want to establish its living cells first."
+      },
+      {
+        "choice": 3,
+        "reason": "The sleeve and lining seem suited to the capsule goal, which I can address after starting the bone."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lineage produces osteoblasts and embedded osteocytes, so I can now connect bone cells to their blood supply.",
+    "reaction": "The distinction between matrix-producing osteoblasts and embedded osteocytes is useful.",
+    "step": 2,
+    "reason": "Pair the bone cells with blood vessels to advance the living, supplied bone goal.",
+    "choice": 2,
+    "expectation": "I expect a vascularized bone-cell construction, though I don't know how it will connect to the mineralized framework.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Mineralizing the framework also advances the bone goal, but I want to establish its blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone cells now have a blood supply, with nutrients reaching osteocytes through small channels. I can build the mineralized framework next.",
+    "reaction": "The distinction between the vessel and the channels is a useful detail.",
+    "step": 3,
+    "reason": "Mineralizing the collagen framework should advance the living arm-bone goal.",
+    "choice": 1,
+    "expectation": "I expect the calcium phosphate to reinforce the collagen framework, though it may still need to be joined to the supplied bone cells.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sleeve and synovial membrane should make the joint capsule, but I want to continue the bone construction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineralized framework is ready to join to the supplied bone cells, completing the main components of living bone.",
+    "reaction": "The contrast between collagen's toughness and mineral's compression resistance makes their roles clear.",
+    "step": 4,
+    "reason": "Join the framework and supplied cells to advance the living arm-bone goal.",
+    "choice": 1,
+    "expectation": "I expect living, vascularized arm bones, though they may need further work before the goal is complete.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The joint capsule also needs its lining, but I want to finish assembling the bone first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied cells and mineralized framework form living arm bones, completing the bone goal and revealing the joint-assembly goal.",
+    "reaction": "The nutrient-channel cutaway reinforces how the embedded cells are supplied, though it repeats an earlier detail.",
+    "step": 5,
+    "reason": "Line the fibrous sleeve to advance the remaining capsule goal.",
+    "choice": 1,
+    "expectation": "I expect a joint capsule lined with synovial membrane, with the lining kept off the cartilage-facing surfaces.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Adding cartilage should prepare the bone ends for movement, but the capsule is a separate stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lined capsule is complete; the bone ends still need cartilage for the joint.",
+    "reaction": "The lining's contribution to joint fluid is clear.",
+    "step": 6,
+    "reason": "Add cartilage to the living bones; it is the only available combination and should prepare their joint surfaces.",
+    "choice": 1,
+    "expectation": "I expect cartilage-capped bone ends ready for joint assembly, though further connections may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone ends are now cartilage-covered and ready to join the lined capsule.",
+    "reaction": "The sliding-surface inset makes the cartilage's role clear.",
+    "step": 7,
+    "reason": "Join the bones to the capsule; it is the only available combination and advances the joint goal.",
+    "choice": 1,
+    "expectation": "I expect an enclosed elbow joint, possibly still needing ligaments for support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule now encloses the cartilage-covered joint, with fluid helping the surfaces glide; ligaments remain to support it.",
+    "reaction": "The cutaway makes the lining and fluid's relationship to the cartilage clear.",
+    "step": 8,
+    "reason": "Add the ligaments to support the elbow; this is the only available combination.",
+    "choice": 1,
+    "expectation": "I expect a supported, movable elbow joint that completes the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding ligaments completed the supported, movable elbow, showing bending alongside resistance to sideways movement.",
+    "reaction": "The contrasting movement arrows make the ligaments' supporting role clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Mineralizing the collagen framework was most worthwhile: the planned inset clearly connects collagen with toughness and mineral with resistance to compression.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the supplied cells to the framework repeated the nutrient-channel detail already shown with the blood supply, although it completed the living-bone construction.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lineage picture showed matrix-producing osteoblasts becoming embedded osteocytes, and the blood-supply picture distinguished nutrient-filled channels from the larger vessel containing blood cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining bone cells with blood vessels before the mineralized framework felt like an abstract construction step rather than a clear developmental sequence.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting material properties and living bone to a working joint was interesting, though the later assembly choices were predictable and mostly the only available combinations.",
+        "steps": [
+          3,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

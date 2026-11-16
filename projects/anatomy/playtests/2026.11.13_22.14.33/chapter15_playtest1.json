@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows glucose entering from blood and being joined into a stored carbohydrate.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will turn some of the absorbed glucose into a store.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tract",
+          "with": "Integrated body model"
+        },
+        "reason": "Connecting the digestive organs is the other goal, but I will make the glucose store first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose is now stored as linked carbohydrate inside liver cells; connecting the digestive organs remains.",
+    "reaction": "It is useful to see that the store can be broken down again between meals.",
+    "step": 2,
+    "reason": "The remaining goal is to connect the digestive organs to the body, so these two pieces are the obvious match.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive tract will connect to the body's circulation and other systems.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is connected to circulation, completing the chapter; the colon's inner wall remains unassembled.",
+    "reaction": "The connection makes sense, though the unfinished colon opening makes me curious about what comes next.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the liver carbohydrate store was most worthwhile: it showed how some glucose can be saved and later broken down for fuel.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the digestive tract was straightforward but less engaging because the goal already named the connection.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the completed body picture to leave the colon's inner wall unassembled.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: the liver-cell picture showed glucose storage, and the other pairing matched the connection goal.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the colon's inner wall fits into the digestive system, although this chapter's two pairings were fairly predictable.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

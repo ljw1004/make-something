@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal condition to see how pancreatic cells respond to plentiful glucose.",
+    "choice": 1,
+    "expectation": "I expect beta cells to release insulin into the blood, though the result may first show only sensing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meals response also matters, but I prefer to follow the meal-to-fasting sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result confirms insulin release and identifies muscle and liver as targets, so I can follow either branch.",
+    "reaction": "The separate target branches make the next choices clear.",
+    "step": 2,
+    "reason": "Follow insulin to skeletal muscle to see its after-meal effect.",
+    "choice": 2,
+    "expectation": "I expect insulin to increase muscle glucose uptake, possibly with some glucose stored as glycogen.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The liver response is also relevant, but I want to follow the muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose entry through more membrane transporters, and its release weakens as glucose falls. The liver branch remains.",
+    "reaction": "The link between the hormone signal, transporters and feedback is clear.",
+    "step": 3,
+    "reason": "Follow insulin to the liver to complete the after-meal response.",
+    "choice": 2,
+    "expectation": "I expect the liver to take up glucose and store more of it as glycogen.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The between-meals response is also a goal, but I want to finish the after-meal branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores glucose as glycogen and reduces its glucose output; its glucose entry is not shown using the muscle-style transporter response. The after-meal goal is complete.",
+    "reaction": "The distinction between the liver and muscle responses is useful.",
+    "step": 4,
+    "reason": "Follow the only available combination to start the between-meals response.",
+    "choice": 1,
+    "expectation": "I expect pancreatic alpha cells to release glucagon as blood glucose falls, signalling the liver to make glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meal condition increases glucagon release and lowers insulin release, with glucagon directed toward the liver.",
+    "reaction": "The contrast with the after-meal response is clear.",
+    "step": 5,
+    "reason": "Follow the only available combination to see how the liver maintains blood glucose.",
+    "choice": 1,
+    "expectation": "I expect glucagon to promote glycogen breakdown and glucose release into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release, then its stimulation diminishes as blood glucose rises. Both goals are complete.",
+    "reaction": "The feedback loop makes a clear contrast with the after-meal response.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin's effects on muscle and liver was most worthwhile: the picture plans distinguish muscle transporter insertion from liver glycogen storage rather than implying identical responses.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial insulin-release step was fairly predictable, though it clearly established the two target branches.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The explicit distinction that liver glucose entry is not shown with muscle-style transporter insertion refined my expectation.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each followed a stated condition or a hormone's target, though the fast menu supplied compatibility.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would try another chapter for similarly concrete comparisons linking signals, organ responses and feedback, although the compatible-option format makes the choices fairly guided.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

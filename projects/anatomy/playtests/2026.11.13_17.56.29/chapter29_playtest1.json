@@ -1,0 +1,193 @@
+[
+  {
+    "step": 1,
+    "reason": "The turning sensor cells fit at the base of the fluid-filled loops, where moving fluid bends their hairs.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "This should build sensors that respond when the head starts turning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fluid-filled loops and cells form turning sensors that change their nerve signal as a turn starts or changes.",
+    "reaction": "The fluid lag bending the sensor was a useful connection.",
+    "step": 2,
+    "reason": "The picture shows the mineral weights resting on the jelly layer above the tilt sensor cells.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form the weighted tilt sensors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors respond to tilt and changes in straight-line movement as the layer shifts and bends their hairs.",
+    "reaction": "The weights make the sensor's role easier to picture.",
+    "step": 3,
+    "reason": "Balance nerves are shown connecting both kinds of sensor to the brain, so I'll connect the turning sensors first.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors should connect to the balance nerve route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The weighted sensors also need a route to the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors now have nerve fibres leading toward the brain; the weighted sensors still need their connection.",
+    "reaction": "The nerve route matches the picture, though it is not connected to the brain yet.",
+    "step": 4,
+    "reason": "The balance nerves are shown leaving both kinds of sensor, so I'll connect the weighted sensors too.",
+    "choice": {
+      "combine": "Weighted balance sensors",
+      "with": "Balance nerves"
+    },
+    "expectation": "The weighted sensors should gain a nerve route toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both kinds of balance sensor now have nerve fibres leading toward the brain.",
+    "reaction": "The two incoming routes are clear, but they still need to connect to the body.",
+    "step": 5,
+    "reason": "The turning sensors' nerve fibres face the existing brain, so connecting them to the body should advance the remaining goal.",
+    "choice": {
+      "combine": "Turning sensors with incoming nerves",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The turning sensors should connect to the body's brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted sensors with incoming nerves",
+          "with": "Body with sight and hearing"
+        },
+        "reason": "The weighted sensors also need to connect to the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning and weighted sensors must be brought together before connecting them onward; the attempted pair automatically combined the sensors instead.",
+    "reaction": "I was surprised they needed to be joined before connecting to the body.",
+    "step": 6,
+    "reason": "The combined sensors have nerves leading toward the brain, but the previous attempt showed that the connection order is not obvious. I'll check their available partners.",
+    "choice": {
+      "inspect": "Balance organs with incoming nerves"
+    },
+    "expectation": "The compatibility list should show how to connect the balance organs onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically linked the balance sensors through the brain to eye and posture nerve routes; the muscle endpoints still need connecting.",
+    "reaction": "The compatibility hint clarified the connection order.",
+    "step": 7,
+    "reason": "The response connections have outlined muscle endpoints, and the body already has eyes and posture muscles.",
+    "choice": {
+      "combine": "Balance sensors with response connections",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The balance routes should connect to the body's eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance routes now connect to the body, showing opposite eye movement and posture adjustments, with vision and body signals also helping.",
+    "reaction": "The fixed-point example makes the eye response easier to picture.",
+    "step": 8,
+    "reason": "The result shows the connections, but the goal has not been reported complete. I'll check what the oriented body can combine with.",
+    "choice": {
+      "inspect": "Body oriented to the world"
+    },
+    "expectation": "The compatibility list may reveal the remaining action needed for the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oriented body has no available combinations, so it does not reveal why the remaining goal is incomplete.",
+    "reaction": "I'm confused that the pictured result did not complete the goal.",
+    "step": 9,
+    "reason": "The weighted sensors with incoming nerves are still available, so I'll check whether they have a remaining operation.",
+    "choice": {
+      "inspect": "Weighted sensors with incoming nerves"
+    },
+    "expectation": "The compatibility list may show another connection needed for the goal.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The weighted sensors with incoming nerves also have no available combination, so they do not explain the unfinished goal.",
+    "reaction": "I'm still confused about what remains to be done.",
+    "step": 10,
+    "reason": "The eye and posture nerve routes remain on the board; I'll check whether they have any available operation.",
+    "choice": {
+      "inspect": "Eye and posture nerve routes"
+    },
+    "expectation": "The compatibility list may reveal a remaining connection, though it might also be empty.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Balance nerves"
+        },
+        "reason": "Those nerves are another remaining object I could check."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the incoming balance nerves to the eye and posture routes, completing the remaining goal.",
+    "reaction": "I was relieved the goal completed, but confused that this separate connection was still needed after the body already showed the response.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the turning and weighted sensors made the different movements easier to picture: fluid lag bends one sensor, while a weighted layer shifts over the other.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Checking the oriented body and weighted sensors for further combinations felt unproductive because neither had a partner, even though a goal remained.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The turning sensors had to join the weighted sensors before connecting onward; my attempted body connection instead triggered that combination automatically.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The final separate pairing of balance nerves with eye and posture routes felt unclear: the earlier result had already shown those routes connected through the brain and the body's eye and posture response.",
+        "steps": [
+          6,
+          7,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the sensor pictures made balance understandable, and I would be curious about another body system, although the unclear final prerequisite was frustrating.",
+        "steps": [
+          1,
+          2,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

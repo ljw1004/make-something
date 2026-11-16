@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The renewing skin-cell population belongs to this body's epidermis and directly addresses skin renewal.",
+    "choice": {
+      "combine": "Body oriented to the world",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body model will show how skin cells are replenished.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; blood renewal remains to be addressed.",
+    "reaction": "The basal-to-surface renewal is clear, though the result adds little detail.",
+    "step": 2,
+    "reason": "The kidney signal is shown travelling to marrow, where the red-cell precursors are located.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will stimulate red-cell production from the marrow precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal links low oxygen to maturation of marrow red-cell precursors; the developing cells may now join the body model.",
+    "reaction": "The low-oxygen cue makes the signal's purpose clearer.",
+    "step": 3,
+    "reason": "Adding the developing red cells to the skin-renewing body should connect blood renewal to the same person.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body model will show red-cell renewal alongside skin renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are now connected in the same body, and bone remodelling is the new goal.",
+    "reaction": "The kidney-to-marrow connection gives blood renewal a clear regulatory context.",
+    "step": 4,
+    "reason": "Bone-removing and bone-forming cells suggest the two complementary parts of remodelling.",
+    "choice": {
+      "combine": "Bone-removing cells",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will form a coordinated bone-remodelling process.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone removal happens directly in the body model before bone-forming cells can act.",
+    "reaction": "The compatibility feedback clarified the sequence after my guess failed.",
+    "step": 5,
+    "reason": "The exposed bone patch now needs bone-forming cells to complete the remodelling sequence.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "Bone-forming cells will deposit new bone in the remodelled patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch after removal, completing the bone-remodelling goal.",
+    "reaction": "The final picture ties renewal back to the same person, though the bone mechanism remains brief.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Linking low oxygen at the kidney to a blood-borne signal and red-cell maturation was most worthwhile: it gave blood renewal a regulatory context.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The skin-renewal result was rather spare: the planned picture shows basal cells and shedding but adds little to the opening item description.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The kidney signal’s low-oxygen cue clarified why the marrow response happens; that cue was not explicit in the initial signal picture.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the two bone-cell types seemed plausible but failed; feedback instead revealed that removal had to be applied to the body first. The planned pictures did not explain how either cell removes or forms matrix.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the kidney-to-marrow connection and the return to the same body make me curious about other coordinated renewal processes, although I would want more detail on the mechanisms.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

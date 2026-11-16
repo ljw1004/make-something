@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "Membrane fats form a boundary in water, matching the first goal.",
+    "choice": {
+      "combine": "Membrane fats",
+      "with": "Water"
+    },
+    "expectation": "The fats and water should form an enclosed fluid compartment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The boundary must be assembled with transport proteins before it can enclose the fluid.",
+    "reaction": "I was surprised that water was not part of the membrane-building step.",
+    "step": 2,
+    "reason": "The selective membrane and water appear to be the main parts needed to enclose cell fluid.",
+    "choice": {
+      "combine": "Selective cell membrane",
+      "with": "Water"
+    },
+    "expectation": "The membrane should enclose the water, possibly with the mineral salts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selective membrane cannot currently combine, so another component likely needs preparation first.",
+    "reaction": "I am unsure what must be prepared before the fluid can be enclosed.",
+    "step": 3,
+    "reason": "Water is part of the goal, and inspecting it should reveal what it can currently combine with.",
+    "choice": {
+      "inspect": "Water"
+    },
+    "expectation": "The report should identify an available partner for water, possibly mineral salts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and mineral salts formed cell fluid, so the fluid can now be paired with the membrane.",
+    "reaction": "The automatic combination clarified the missing preparation.",
+    "step": 4,
+    "reason": "The goal calls for enclosing cell fluid within a selective boundary, and both parts are now available.",
+    "choice": {
+      "combine": "Selective cell membrane",
+      "with": "Cell fluid"
+    },
+    "expectation": "The membrane should enclose the cell fluid and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane and fluid formed a muscle-cell model with slots for stored instructions and ATP machinery.",
+    "reaction": "The slots make the next goal clear.",
+    "step": 5,
+    "reason": "DNA contains the stored instructions, and the nuclear envelopes appear to surround it.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelopes"
+    },
+    "expectation": "This should make an enclosed store of instructions for the cell model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "DNA and nuclear envelopes formed muscle nuclei, which appear to fit the stored-instructions slot.",
+    "reaction": "The result makes the next fitting clear.",
+    "step": 6,
+    "reason": "The muscle nuclei contain the stored DNA instructions needed by the cell model.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei should fill the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei filled the stored-instructions slot; the ATP machinery remains to be added.",
+    "reaction": "The inset connects the stored DNA to the copied instructions.",
+    "step": 7,
+    "reason": "Mitochondria are the available oxygen-using ATP machinery for the remaining slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria should fill the ATP machinery slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria filled the remaining slot, and the new goal is to make pulling proteins and structures.",
+    "reaction": "The fuel-to-ATP diagram makes the mitochondria's role clearer.",
+    "step": 8,
+    "reason": "The copied instructions and ribosomes are the available parts for making proteins.",
+    "choice": {
+      "combine": "Ribosomes",
+      "with": "Copied muscle-protein instructions"
+    },
+    "expectation": "The ribosomes should use the copied instructions to make pulling proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes and copied instructions produced pulling protein threads, which can now be added to the muscle-cell model.",
+    "reaction": "The picture clearly distinguishes reusable machinery from amino acids incorporated into proteins.",
+    "step": 9,
+    "reason": "The goal calls for giving the cells their pulling structures, and the new threads appear to provide them.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads should form or supply the cell model's pulling structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulling protein threads transformed the cell model into muscle fibers and completed the chapter. The picture shows how greater filament overlap shortens a repeating unit without shortening the filaments themselves.",
+    "reaction": "The two-pose explanation of shortening was satisfying and made me curious about how the fibers work together.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the pulling threads was the most worthwhile action: it connected protein production to a visible mechanism for muscle shortening.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to combine the membrane directly with water was confusing because the need to prepare cell fluid first was not yet clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the filaments keep their length while their increased overlap shortens the repeating unit.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "The membrane and water attempt initially felt arbitrary, but inspecting water revealed the missing cell-fluid preparation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how these muscle fibers are organized into tissues and connected to other body systems.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

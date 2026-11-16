@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The fat molecules are pictured as membrane pieces, so combining them with water may build the boundary shown in the goal.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats will form a membrane boundary in water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Oxygen"
+        },
+        "reason": "Oxygen is shown crossing the membrane, but the boundary may need to be assembled first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water made a membrane patch, and the result says oxygen crosses its oily middle easily.",
+    "reaction": "The two layers facing water on both sides make the boundary easier to picture.",
+    "step": 2,
+    "reason": "The result directly says oxygen crosses the patch, matching the first goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will cross the membrane patch, completing the oxygen goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Water-channel protein"
+        },
+        "reason": "The channel should help water cross, but oxygen is the more direct next pairing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the patch, completing the boundary goal; the picture also shows some crossing outward.",
+    "reaction": "It is useful to see that crossing happens both ways, even though more oxygen enters.",
+    "step": 3,
+    "reason": "The water-channel protein is pictured with a pore for water, matching the next goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein will become part of the membrane and provide a route for water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel now spans the membrane, completing the water-route goal.",
+    "reaction": "Seeing water pass both ways makes the channel's role clearer.",
+    "step": 4,
+    "reason": "The remaining goal is to prepare a sugar carrier, and the pictured sugar-carrier protein spans a membrane.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar-carrier protein will be incorporated into a membrane patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier was added to the membrane, completing the final goal and showing another route across the boundary.",
+    "reaction": "The two-panel picture helped me see how the pocket can face either side.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane patch was most worthwhile: the picture showed how its two layers face the water and gave the later routes a clear setting.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the sugar carrier felt a little repetitive after adding the water channel, although the different pocket made its role distinct.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected oxygen to enter, but the picture showed it crossing both ways, with more arrows pointing inward.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the pictures and goals made the pairings understandable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: putting the boundary together and seeing different routes through it made me curious about other cell parts, though the pairings were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

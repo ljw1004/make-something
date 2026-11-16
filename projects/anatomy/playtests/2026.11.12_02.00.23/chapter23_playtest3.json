@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes can clear debris from the wound, preparing it for repair.",
+    "choice": 1,
+    "expectation": "I expect the wound to be cleared of some debris, though it will still need to close.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repair signals at a nearby capillary also seem relevant, but I chose to begin with clearing the wound."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound has been cleaned around the clot; it still needs repair.",
+    "reaction": "The result matched my expectation, though it added little explanation.",
+    "step": 2,
+    "reason": "Repair signals acting on a nearby capillary may help supply the healing wound.",
+    "choice": 1,
+    "expectation": "I expect the capillary to respond to the signals, perhaps by growing toward the wound.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts and nutrients may build the supporting layer, but I chose to explore the blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a new capillary branch connected to the circulation, ready to add to the wound.",
+    "reaction": "The sprout matched my expectation; seeing it remain connected makes its role clearer.",
+    "step": 3,
+    "reason": "Adding the sprout should help supply the healing wound.",
+    "choice": 1,
+    "expectation": "I expect the wound to gain a blood supply that supports repair, though it will still need to close.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts may build the supporting tissue, but I want to connect the new vessel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has a connected capillary sprout and needs surface and support layers. The picture describes both overlays before they are fitted, which is confusing.",
+    "reaction": "I like seeing the vessel connected, but the premature description makes the wound's current state unclear.",
+    "step": 4,
+    "reason": "Fibroblasts and nutrients should create the connective tissue needed for support.",
+    "choice": 1,
+    "expectation": "I expect fibroblasts to make collagen-rich tissue that can be fitted beneath the wound surface.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The epidermal cells should help close the surface, but I chose to build the underlying support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts made collagen-rich connective tissue that can now fill the support slot.",
+    "reaction": "The result matched my expectation and clearly shows what the fibroblasts contribute.",
+    "step": 5,
+    "reason": "I want to add the new tissue to support the wound.",
+    "choice": 2,
+    "expectation": "I expect the connective tissue to fill the support slot, while the surface remains open.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The edge cells should help close the surface, but I want to fit the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue is fitted as support; the surface still needs to be closed.",
+    "reaction": "The fitting was straightforward, though it added no explanation.",
+    "step": 6,
+    "reason": "The only offered combination should produce the new surface needed to close the wound.",
+    "choice": 1,
+    "expectation": "I expect the edge cells to form a new surface that can be fitted over the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new surface that can now be fitted over the wound.",
+    "reaction": "The result matched my expectation and clearly shows the cells crossing the gap.",
+    "step": 7,
+    "reason": "The only offered combination fits the new surface to the healing skin.",
+    "choice": 1,
+    "expectation": "I expect the surface to close over the supported wound; the temporary clot may still need clearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has both a new surface and connective-tissue support; the temporary clot remains to be cleared.",
+    "reaction": "Closing and supporting the wound is satisfying, though the fitting itself adds little explanation.",
+    "step": 8,
+    "reason": "The only offered combination addresses the remaining clot-clearing goal.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the temporary fibrin clot while the repaired tissue remains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot has mostly cleared, leaving closed skin and a scar that is still maturing. Both chapter goals are complete.",
+    "reaction": "The distinction between the temporary clot and lasting repair tissue makes the ending satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the new connective tissue made the fibroblasts’ contribution concrete: they lay down collagen to support the wound.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The healing-skin picture described a continuous surface and supporting tissue before either was fitted, making the wound’s state confusing.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final result clarified that the clot is temporary while the new tissue remains and its collagen continues to change.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The fittings had clear purposes, but they added little explanation and the later choices were effectively prescribed by the available options.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter if it explored a new relationship as clearly as the capillary sprout and collagen did, though the repeated fittings made this chapter feel predictable.",
+        "steps": [
+          2,
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

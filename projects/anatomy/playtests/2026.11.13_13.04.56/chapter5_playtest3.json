@@ -1,0 +1,180 @@
+[
+  {
+    "step": 1,
+    "reason": "The bone-lineage environment should direct a subset of stem-cell descendants toward the cells needed for living bone.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Bone-lineage environment"
+    },
+    "expectation": "The cells will enter a bone-forming lineage.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm bone collagen framework",
+          "with": "Calcium phosphate mineral"
+        },
+        "reason": "The mineral and collagen also suggest a direct step toward a strong bone structure."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lineage step produced bone cells, including matrix-producing osteoblasts and embedded osteocytes. I can now build the bone's structural framework.",
+    "reaction": "The distinction between osteoblasts and embedded osteocytes is useful.",
+    "step": 2,
+    "reason": "Calcium phosphate crystals and collagen are depicted in the same mature bones, suggesting they combine to form a strong matrix.",
+    "choice": {
+      "combine": "Arm bone collagen framework",
+      "with": "Calcium phosphate mineral"
+    },
+    "expectation": "The mineral will reinforce the collagen framework of the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen framework is now mineralised; bone cells and blood vessels are still needed for living, supplied bone.",
+    "reaction": "The contrast between collagen's toughness and mineral's resistance to compression is helpful.",
+    "step": 3,
+    "reason": "The bone cells belong within the mature bone framework and should make it a living structure.",
+    "choice": {
+      "combine": "Mineralised arm bone framework",
+      "with": "Bone cells"
+    },
+    "expectation": "The bone cells will be incorporated into the mineralised framework.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mineralised arm bone framework",
+          "with": "Blood vessels"
+        },
+        "reason": "The vessels also need to be added to supply the bones."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineralised framework now contains bone cells, and the unfilled vessel outline identifies the remaining blood-supply detail.",
+    "reaction": "The fine channels help show how embedded bone cells connect.",
+    "step": 4,
+    "reason": "The blood vessels match the unfilled vessel outline and should supply the living bone.",
+    "choice": {
+      "combine": "Bone matrix with cells",
+      "with": "Blood vessels"
+    },
+    "expectation": "The vessels will complete the supplied arm bone assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessels completed the living arm bones, revealing a goal to connect them into a supported, movable joint.",
+    "reaction": "The cutaway distinguishes the vessel, cells and matrix clearly.",
+    "step": 5,
+    "reason": "The synovial membrane is described as a lining, and the fibrous sleeve has an unlined inner face.",
+    "choice": {
+      "combine": "Fibrous joint sleeve",
+      "with": "Synovial membrane"
+    },
+    "expectation": "The membrane will line the sleeve to form the joint capsule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sleeve is now lined, completing the capsule; the living bones still need to be assembled into a supported, movable joint.",
+    "reaction": "The description clarifies where the lining and its fluid belong.",
+    "step": 6,
+    "reason": "The synovial capsule surrounds the joint cavity and is shown on the same elbow bone outlines, so it is a plausible next fit for the living bones.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Synovial capsule"
+    },
+    "expectation": "The capsule will surround the joint between the arm bones.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Living arm bones",
+          "with": "Articular cartilage"
+        },
+        "reason": "The cartilage caps may need to be added to the bone ends first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule could not be added yet; the compatibility feedback automatically fitted cartilage to the bone ends instead.",
+    "reaction": "The required order makes sense now that the facing surfaces are capped.",
+    "step": 7,
+    "reason": "The cartilage-covered bones and lined capsule depict the same elbow, so the capsule is the next plausible connection.",
+    "choice": {
+      "combine": "Cartilage-covered arm bones",
+      "with": "Synovial capsule"
+    },
+    "expectation": "The capsule will surround the cartilage-covered joint surfaces.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cartilage-covered arm bones",
+          "with": "Elbow ligaments"
+        },
+        "reason": "The ligaments also need to support the joint and might be fitted first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule now encloses the cartilage-covered bone ends, leaving the ligaments as the apparent remaining support.",
+    "reaction": "The cutaway connects the lining and fluid to smooth joint movement.",
+    "step": 8,
+    "reason": "The elbow ligaments span the joint and should provide the remaining restraint.",
+    "choice": {
+      "combine": "Enclosed elbow",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments will support the enclosed, movable elbow joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the movable arm skeleton and the final goal; the cutaway shows bending alongside resistance to sideways movement.",
+    "reaction": "It is satisfying to see the separate joint structures brought together with distinct roles.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the living bone was most worthwhile: the planned cutaways connect collagen and mineral to toughness and compression resistance, then locate cells and vessels within the same bone.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the capsule was briefly confusing because the bone ends first needed cartilage, although the compatibility feedback immediately performed that fitting.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The lineage illustration distinguished matrix-producing osteoblasts from osteocytes embedded in the matrix, making bone feel less like an inert structure.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The required cartilage-before-capsule order was not obvious beforehand; both pieces were depicted on the same elbow, although the resulting assembly made physical sense.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions usefully connected tissue structure to function, and I would be curious to see how muscles move the completed joint.",
+        "steps": [
+          2,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture says higher blood glucose causes these pancreatic cells to release insulin, which starts the muscle-storage goal.",
+    "choice": {
+      "combine": "Pancreatic hormone cells",
+      "with": "Blood with higher glucose"
+    },
+    "expectation": "The cells will release insulin into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pancreatic hormone cells",
+          "with": "Blood with lower glucose"
+        },
+        "reason": "That should start the separate between-meals liver route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood and can be used to follow the muscle-storage route.",
+    "reaction": "The pictured route to muscle makes the next connection clear.",
+    "step": 2,
+    "reason": "The muscle fibres have receptors for blood-carried insulin and glucose nearby.",
+    "choice": {
+      "combine": "Insulin in blood",
+      "with": "Muscle fibres beside a blood vessel"
+    },
+    "expectation": "Insulin should help the muscle take in glucose and store some of it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-storage goal is complete; the lower-glucose liver route remains.",
+    "reaction": "It is useful to see that insulin signals storage without becoming part of it.",
+    "step": 3,
+    "reason": "The pancreatic cells' picture says lower blood glucose triggers release of the other hormone.",
+    "choice": {
+      "combine": "Pancreatic hormone cells",
+      "with": "Blood with lower glucose"
+    },
+    "expectation": "The cells will release the message that helps the liver provide stored glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower-glucose sample triggered the liver-release message, which can now be paired with the liver store.",
+    "reaction": "The labelled route makes the next step clear.",
+    "step": 4,
+    "reason": "The hormone's label says it tells the liver to release glucose, and the liver store contains linked glucose.",
+    "choice": {
+      "combine": "Liver-release hormone in blood",
+      "with": "Liver carbohydrate store"
+    },
+    "expectation": "The liver will break down some stored carbohydrate and release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from its store into the blood, completing the between-meals goal.",
+    "reaction": "It was helpful to see the store shrink while the hormone stayed outside the cell.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Putting insulin with the muscle fibres was most worthwhile: it showed glucose becoming stored carbohydrate while insulin acted as a message, not a building material.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing the second hormone felt somewhat repetitive after releasing insulin, though it set up the different liver route.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The liver store could supply glucose back to the blood between meals, while the muscle stored glucose for its own work.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the pictures and labels explained both hormone pairings and their destinations.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue if another chapter offered a new question to figure out. The two fuel routes were clear, but their labelled pairings left little to puzzle over.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

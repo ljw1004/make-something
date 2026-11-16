@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows amino acids matching the pieces of a protein, and the ribosome is the protein builder. Putting them together may prepare the machinery.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids should connect with the ribosome's protein-building process.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Membrane pump"
+        },
+        "reason": "The pump also visibly fits the boundary, so this could address another goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome is supplied, and the new goal and picture show that protein construction also needs ATP.",
+    "reaction": "The ATP arrow makes the next connection clearer.",
+    "step": 2,
+    "reason": "The cell picture connects food and oxygen to ATP, so glucose and the cell with mitochondria look like a useful starting pair.",
+    "choice": {
+      "combine": "Cell with mitochondria",
+      "with": "Glucose inside the cell"
+    },
+    "expectation": "This should begin the process of using glucose and oxygen to supply ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Membrane pump"
+        },
+        "reason": "The pump visibly fits across the membrane and addresses another goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has glucose, and the picture shows oxygen entering separately for the route into the mitochondrion.",
+    "reaction": "The separate oxygen arrow makes the next step clearer.",
+    "step": 3,
+    "reason": "The cell picture connects glucose and oxygen with making ATP, and oxygen is still available.",
+    "choice": {
+      "combine": "Cell supplied with glucose",
+      "with": "Oxygen entering the cell"
+    },
+    "expectation": "Adding oxygen should continue the process toward producing ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Membrane pump"
+        },
+        "reason": "The pump fits the membrane, but supplying ATP seems useful for both remaining jobs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has an ATP supply, and the picture connects it to both the pump and ribosome.",
+    "reaction": "It is satisfying to see glucose and oxygen lead to ATP for the cell's work.",
+    "step": 4,
+    "reason": "The supplied ribosome needs ATP for protein-making, as its picture showed.",
+    "choice": {
+      "combine": "Ribosome supplied with building blocks",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP should power the construction of new proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Membrane pump"
+        },
+        "reason": "The pump also needs fitting across the boundary and is connected to ATP."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered protein construction, completing that goal; the membrane pump still needs fitting.",
+    "reaction": "The picture helps connect the RNA message to different finished protein shapes.",
+    "step": 5,
+    "reason": "The pump picture shows it spanning a membrane, matching the remaining goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Membrane pump"
+    },
+    "expectation": "The pump should fit across the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and the new goal is to power it to move particles toward the crowded side.",
+    "reaction": "The empty ATP site makes the next step clear.",
+    "step": 6,
+    "reason": "The pump picture shows an ATP site, and the ATP supply was pictured leading to the pump.",
+    "choice": {
+      "combine": "Membrane with a pump",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP should power the pump to move particles toward the crowded side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers the fitted pump to move particles toward the more crowded side, completing the chapter.",
+    "reaction": "The changing pump shape makes the result easier to picture.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making ATP from glucose and oxygen, then using it to build proteins and power the pump, connected food and oxygen to two different cell jobs.",
+        "steps": [
+          2,
+          3,
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying glucose felt mostly like a setup step on its own; its purpose became clearer once oxygen was added.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The pump moved particles toward the more crowded side while using ATP; I had not expected that direction from the word transport alone.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The pictures and goals suggested the pairings, although they did not explain every detail of how respiration works.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: seeing one ATP supply connect to protein building and a working pump made me curious about how cell parts support larger body structures.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

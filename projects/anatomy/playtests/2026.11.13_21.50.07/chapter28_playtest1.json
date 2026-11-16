@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start the red blood cell renewal route by having the recycling cells break down worn cells, as the picture shows.",
+    "choice": 1,
+    "expectation": "I expect this to recover iron for the marrow, though it may take another step to make new cells.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Growing replacement skin cells also directly fits a goal, but I'll follow the iron route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The iron is now carried in blood, ready for the marrow, so I'll continue the renewal route.",
+    "reaction": "It's satisfying that the old cells' iron can be reused.",
+    "step": 2,
+    "reason": "The marrow contains developing blood cells, so pairing it with the recovered iron fits the goal.",
+    "choice": 1,
+    "expectation": "I expect the marrow to use the iron to help make new red blood cells.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Skin replacement also fits a goal, but I want to finish the iron route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovered iron is now in new red cells, completing that goal; skin replacement remains.",
+    "reaction": "It makes sense that the marrow stays in place while new cells enter the blood.",
+    "step": 3,
+    "reason": "This is the only available combination, and the materials supply the dividing skin cells for growth.",
+    "choice": 1,
+    "expectation": "I expect new skin cells to grow at the base and move toward the surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells complete the remaining goal, showing replacement beneath a surface that stays intact.",
+    "reaction": "It is satisfying to see new cells growing while old ones shed.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reusing iron to make new red blood cells was most worthwhile: it connected recycling old cells to making their oxygen-carrying protein.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Growing skin cells was straightforward and the only available combination at that point, so it involved less of a decision.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I found it interesting that the marrow stays intact while new red cells enter the blood with reused iron.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt arbitrary; both routes had a clear purpose from the goals and pictures.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue: the iron-recycling route made a familiar body process feel connected, though I would hope for more meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

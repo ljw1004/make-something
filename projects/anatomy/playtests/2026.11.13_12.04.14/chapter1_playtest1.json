@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it should establish the membrane surface needed for the goals.",
+    "choice": 1,
+    "expectation": "I expect the phospholipids to arrange into a bilayer in water, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipid bilayer is available for comparing substances and protein routes across the membrane.",
+    "reaction": "The head-and-tail arrangement is a clear, satisfying starting point.",
+    "step": 2,
+    "reason": "Test oxygen against the lipid-only membrane to address one goal and establish direct passage without a channel.",
+    "choice": 3,
+    "expectation": "I expect uncharged oxygen to diffuse through the lipid layer into the cell, down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Water across the lipid-only membrane would also provide a useful baseline, but oxygen is the clearer first test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly, so I can now compare water passage with and without a protein channel.",
+    "reaction": "The concentration arrows and whole-cell inset make the route clear.",
+    "step": 3,
+    "reason": "Test water on the lipid-only patch before adding an aquaporin, establishing a comparison.",
+    "choice": 3,
+    "expectation": "I expect some water to cross the lipid layer, with net movement toward the side with more non-crossing solutes; the rate may be low.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Adding aquaporin is also relevant, but the lipid-only comparison comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid layer slowly in both directions, with net movement toward the higher non-crossing solute concentration; I can now compare the aquaporin route.",
+    "reaction": "The matched interval makes the comparison useful.",
+    "step": 4,
+    "reason": "Add aquaporin to establish the protein-assisted water route and compare it with the lipid-only patch.",
+    "choice": 1,
+    "expectation": "I expect a membrane patch with an aquaporin channel, allowing faster water exchange while retaining the same net direction.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sodium channel also advances a goal, but finishing the water comparison first is more direct."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin is installed alongside the lipid-only comparison patch, ready for a matched water test.",
+    "reaction": "Keeping both patches visible makes the comparison straightforward.",
+    "step": 5,
+    "reason": "Add water to the aquaporin membrane to complete the comparison with slow lipid-only exchange.",
+    "choice": 2,
+    "expectation": "I expect faster water exchange in both directions, with net movement toward the higher concentration of non-crossing solutes inside.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The sodium channel advances the other goal, but I want to finish the water comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matched comparison shows faster water exchange through aquaporin, completing the oxygen and water goal; sodium remains.",
+    "reaction": "The two-way arrows and net direction make the comparison clear.",
+    "step": 6,
+    "reason": "Test sodium against the lipid-only patch before adding its channel, to establish a baseline.",
+    "choice": 2,
+    "expectation": "I expect charged sodium ions to have difficulty crossing the hydrophobic lipid layer despite their inward electrochemical gradient.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Installing the sodium channel directly would advance the goal, but the lipid-only test should make the contrast clearer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium remains outside the lipid-only patch despite the inward driving conditions, establishing a baseline for the channel.",
+    "reaction": "The contrast between the driving force and the lack of a path is clear.",
+    "step": 7,
+    "reason": "Install the sodium channel to provide the passive route; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect a membrane patch with an open sodium channel, ready for sodium to move inward down its electrochemical gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open sodium channel is installed, with a lipid-only patch retained for comparison under the same driving conditions.",
+    "reaction": "The matched comparison should make the channel's role clear.",
+    "step": 8,
+    "reason": "Apply the sodium solution to the channel-bearing membrane; it is the only offered gameplay action and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect sodium to move inward through the open channel down its electrochemical gradient without energy input.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium moves inward through the open channel without ATP expenditure, completing the passive-transport goal.",
+    "reaction": "The contrast with the sodium-blocking lipid patch makes the channel’s role clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The matched water comparison was most worthwhile: it showed exchange in both directions and distinguished faster channel-mediated passage from the direction of net movement.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing each channel and then applying its substance felt somewhat repetitive, especially when the last sodium actions were the only gameplay options.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the lipid-only sodium test usefully separated an inward driving force from the need for a viable path.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the channel-installation steps were predictable rather than meaningful choices.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the matched comparisons made the biology clear, though I would hope for more meaningful choices than the final forced sequence.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

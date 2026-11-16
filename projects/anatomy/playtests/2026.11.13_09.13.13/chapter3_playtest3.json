@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "Phospholipids supply the membrane material indicated by the cell’s membrane growth slot.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Unspecialized human stem cell"
+    },
+    "expectation": "The phospholipids will fill the membrane growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids filled the cell's membrane growth slot; the other preparations remain.",
+    "reaction": "The fitting was straightforward.",
+    "step": 2,
+    "reason": "New cell proteins match the cytoplasm growth slot.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Unspecialized human stem cell"
+    },
+    "expectation": "The proteins will fill the cytoplasm growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins filled the cytoplasm growth slot, leaving DNA replication to prepare.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "DNA-building nucleotides match the remaining replication slot.",
+    "choice": {
+      "combine": "DNA-building nucleotides",
+      "with": "Unspecialized human stem cell"
+    },
+    "expectation": "The nucleotides will fill the DNA replication slot and prepare the cell's genome for copying.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown and copied its DNA; the next goal is to separate it into two cells.",
+    "reaction": "The sister-chromatid inset makes the copied but still joined chromosomes clear.",
+    "step": 4,
+    "reason": "The mitotic spindle is shown aligning and attaching to paired chromosomes, so it is the likely next step toward separating their copies.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Unspecialized human stem cell"
+    },
+    "expectation": "The spindle will help separate the copied chromosome sets.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Equatorial contractile ring",
+          "with": "Unspecialized human stem cell"
+        },
+        "reason": "The ring should eventually divide the cell, but chromosome separation appears to come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are at opposite poles, but the cytoplasm remains continuous; the cell still needs to divide.",
+    "reaction": "The sequence makes the distinction between chromosome separation and cell division clear.",
+    "step": 5,
+    "reason": "The contractile ring is shown narrowing the cell at its equator, matching the remaining separation goal.",
+    "choice": {
+      "combine": "Equatorial contractile ring",
+      "with": "Cell with separated chromosome sets"
+    },
+    "expectation": "The ring will constrict the cell into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell separation, producing two living descendants and completing the chapter’s goals.",
+    "reaction": "The final illustration plan ties the narrowing furrow to two complete cells, rather than just separated chromosome sets.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome sets before dividing the cytoplasm was most worthwhile: the two illustration plans distinguish genome segregation from physical cell separation.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first two slot fittings were straightforward but repetitive; their outcomes added little beyond the named growth slots.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The replication inset clarified that DNA amount doubles while the sister chromatids remain joined, before the spindle separates them.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: the slots and picture descriptions gave each piece a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: building the sequence made the distinction between copying chromosomes and separating living cells concrete, though the initial fittings were predictable.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

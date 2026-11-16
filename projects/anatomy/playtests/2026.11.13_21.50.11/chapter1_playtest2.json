@@ -1,0 +1,88 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope has an open space and is described as the enclosure for DNA, so these belong together.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The DNA should be enclosed in a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "The water-facing heads and water-avoiding tails suggest another way to start building the outer enclosure."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and nuclear envelope made a nucleus, and the next goal is to put it inside the cell's outer boundary.",
+    "reaction": "The RNA copy leaving through a pore is an interesting detail, though its role isn't clear yet.",
+    "step": 2,
+    "reason": "The lipid picture shows heads that face water and tails that avoid it, suggesting the fats and water can form the outer enclosure.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The membrane fats and water should form the cell's outer boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water formed a membrane bag, completing the outer enclosure; the nucleus still needs to go inside.",
+    "reaction": "The cutaway makes it clearer how the membrane separates inside from outside.",
+    "step": 3,
+    "reason": "The remaining goal explicitly calls for putting the nucleus inside the outer boundary.",
+    "choice": {
+      "combine": "Nucleus",
+      "with": "Membrane bag"
+    },
+    "expectation": "The nucleus should fit inside the membrane bag.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus fits inside the membrane bag, completing the final goal and showing one enclosure inside another.",
+    "reaction": "It was satisfying to see the two constructions come together.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the membrane fats with water was most worthwhile: the cutaway helped me understand how a boundary can separate the inside from the outside.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the nucleus in the bag was straightforward once the goal named it, so it involved little decision-making.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The nucleus picture showed an RNA copy of a DNA instruction leaving through a pore. I was curious about it, although its role was not explained yet.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures and goals gave a reason for each pairing.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter because I am curious what else a living cell needs beyond the membrane bag and nucleus.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

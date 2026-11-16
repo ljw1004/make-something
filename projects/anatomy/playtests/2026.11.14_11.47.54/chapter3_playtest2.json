@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows muscle-development messengers meeting receivers on cells and activating muscle genes, so I'll try them with the cell population.",
+    "choice": {
+      "combine": "Chemical messengers for muscle development",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "The messengers will guide a group of cells toward using muscle-protein instructions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "The supporting-cell path also matches a goal and could be started first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle messengers produced cells with RNA copies of muscle-protein instructions, and the next goal is to build the proteins.",
+    "reaction": "The outlined fibres make the next step clear.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, and these cells now have the instructions for muscle proteins.",
+    "choice": {
+      "combine": "Amino acids — protein building blocks",
+      "with": "Cells with muscle-protein RNA"
+    },
+    "expectation": "The cells will use the amino acids and RNA instructions to build pulling proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "I could start the separate supporting-cell goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids helped make muscle cells with protein fibres that can slide to shorten the cells.",
+    "reaction": "The comparison between the RNA instructions and the finished fibres was helpful.",
+    "step": 3,
+    "reason": "The supporting-cell messengers are the named counterpart to the muscle messengers, and copying support-protein instructions is still a goal.",
+    "choice": {
+      "combine": "Chemical messengers for supporting cells",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "A group of cells will make RNA copies of support-protein instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting messengers produced cells with support-protein RNA, and the new goal is to build fibres around them.",
+    "reaction": "The missing fibre network makes the next goal clear.",
+    "step": 4,
+    "reason": "Amino acids built proteins in the muscle cells, so I expect they can also supply the building blocks for support proteins.",
+    "choice": {
+      "combine": "Amino acids — protein building blocks",
+      "with": "Cells with support-protein RNA"
+    },
+    "expectation": "The cells will use the RNA instructions and amino acids to build supporting fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells used the building blocks to make fibres around themselves, completing the goals. This contrasts with the muscle cells keeping their protein fibres inside.",
+    "reaction": "The inside-versus-outside comparison helped the two cell jobs make sense.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the two kinds of proteins was most worthwhile: comparing the muscle fibres inside cells with the supporting fibres around cells made their different jobs clearer.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The supporting-cell sequence repeated the muscle sequence, though the different final result gave the repetition a purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the supporting cells released protein to build material around themselves, rather than keeping the fibres inside like the muscle cells.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although I followed the named messenger pairings without knowing the detailed mechanism by which they activate genes.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how these different cells become tissues and organs; the contrast between their jobs gives me a reason to see what comes next.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

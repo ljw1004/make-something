@@ -1,0 +1,88 @@
+[
+  {
+    "step": 1,
+    "reason": "The scrape needs to create the damaged vessel before the platelets can respond.",
+    "choice": {
+      "combine": "Small accidental scrape",
+      "with": "Body holding a glass"
+    },
+    "expectation": "The scrape will open a small wound on the hand.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The scrape has opened the skin and broken a capillary, so the next step is to limit the bleeding.",
+    "reaction": "The magnified view makes the immediate problem clear.",
+    "step": 2,
+    "reason": "Platelets help form a plug at a damaged blood vessel.",
+    "choice": {
+      "combine": "Platelets",
+      "with": "Body with a small scrape"
+    },
+    "expectation": "The platelets will gather at the broken capillary and begin plugging it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug limits blood loss, but the skin gap remains; clotting proteins may reinforce the plug.",
+    "reaction": "The distinction between stopping the leak and repairing the skin is clear.",
+    "step": 3,
+    "reason": "Clotting proteins are the next available component for stabilizing the damaged vessel.",
+    "choice": {
+      "combine": "Clotting proteins",
+      "with": "Body with a platelet plug"
+    },
+    "expectation": "The proteins will form a clot that reinforces the platelet plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibrin reinforces the platelet plug, completing the blood-loss goal; the remaining task is to clear damaged material.",
+    "reaction": "The picture makes the temporary seal distinct from repaired skin.",
+    "step": 4,
+    "reason": "Cleanup cells are shown engulfing debris, which matches the new goal.",
+    "choice": {
+      "combine": "Cleanup cells",
+      "with": "Body with a temporary seal"
+    },
+    "expectation": "The cleanup cells will remove damaged material from the scrape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleanup cells enclosed debris beneath the clot, completing the chapter while leaving the skin edges separated and ready for rebuilding.",
+    "reaction": "The remaining gap makes it clear that cleanup is not the same as repair.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding platelets was most worthwhile because the result clearly showed the vessel leak being limited while the skin gap remained.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Reinforcing the plug with clotting proteins felt predictable after the platelet step, although it clarified what fibrin contributes.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was struck that cleanup and rebuilding can overlap, and that clearing debris still leaves the wound edges separated.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each available component had a clear connection to the wound or the stated goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the separated skin edges are rebuilt, since this chapter ended with the repair still unfinished.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

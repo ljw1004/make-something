@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "The sugar matches the carrier's pocket, so bringing it into the cell seems like a useful start toward making ATP.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter the cell through the carrier, though I'm not sure what the game will call the result.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The building blocks match the ribosome, but I want to follow the food-to-energy path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now inside the cell, ready to follow the food-to-energy path.",
+    "reaction": "The picture makes the carrier's role clear.",
+    "step": 2,
+    "reason": "The mitochondria picture connects food with making ATP, so I'll use the glucose there.",
+    "choice": 1,
+    "expectation": "I expect this to lead toward ATP production, though I don't know whether another step will be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is another goal, but I want to continue the glucose path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose is supplied, and the picture shows oxygen entering separately for the next part of the energy path.",
+    "reaction": "The separate arrows make the next pairing clear.",
+    "step": 3,
+    "reason": "The mitochondria picture connects food and oxygen with ATP, so I'll add oxygen.",
+    "choice": 1,
+    "expectation": "I expect the cell to use glucose and oxygen toward making ATP, although there may be another step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Preparing the protein builder is also a goal, but I want to finish following the energy path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has an ATP supply, and the picture links it to both the pump and ribosome.",
+    "reaction": "It's satisfying to see the glucose and oxygen path reach ATP.",
+    "step": 4,
+    "reason": "The pump is shown fitting across the membrane, which matches one of the remaining goals.",
+    "choice": 1,
+    "expectation": "I expect the pump to be fitted into the membrane; it may need ATP in a later step to work.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The amino acids match the protein builder, but I want to fit the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and a new goal asks me to power transport toward the crowded side.",
+    "reaction": "The empty ATP site makes the next step clear.",
+    "step": 5,
+    "reason": "ATP supplies energy for cell work, and the pump has an empty ATP site.",
+    "choice": 2,
+    "expectation": "I expect ATP to power the pump to move particles toward the more crowded side.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Preparing the protein builder is also a goal, but I want to finish the pump path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers the pump to move particles toward the crowded side, completing that goal.",
+    "reaction": "The changing shape makes the pump's job easier to picture.",
+    "step": 6,
+    "reason": "This is the only combination offered, and the amino acids match the ribosome's protein-building role.",
+    "choice": 1,
+    "expectation": "I expect the ribosome to be supplied with protein building blocks; I'm not sure whether it will build a protein yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome has building blocks, and the new goal and ATP arrow point to powering protein construction.",
+    "reaction": "The arrow makes the next step clear, though I don't know the details of how proteins are assembled.",
+    "step": 7,
+    "reason": "This is the only combination offered, and ATP is shown supplying energy for protein-making work.",
+    "choice": 1,
+    "expectation": "I expect ATP to power the ribosome in making a protein from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein-building path is complete: food supplies building material, ATP helps power construction, and the instructions come from DNA.",
+    "reaction": "Seeing the chains fold into different shapes made the result more interesting, though the assembly details are still unclear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the membrane pump was most worthwhile: its changing shape and movement toward the crowded side made a cell job easier to picture.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying glucose to the cell felt like a small setup step after already bringing it inside, rather than a very distinct discovery.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that ATP powered both moving particles toward the crowded side and building proteins.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt completely arbitrary, but preparing the ribosome was mainly guided by the matching labels; I didn't understand the details of protein assembly.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: connecting food and oxygen to ATP, then seeing ATP used for different jobs, made me curious about what comes next.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

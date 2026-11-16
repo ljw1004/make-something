@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll fit the salivary glands first, starting at the mouth as I assemble the digestive tube.",
+    "choice": 4,
+    "expectation": "The glands should connect to the mouth through their ducts; I expect the other organ slots to remain open.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Starting starch digestion also fits the goal, but I prefer to assemble the organs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted, so I'll continue assembling the digestive organs.",
+    "reaction": "The fitting was straightforward, though the result did not show the ducts in detail.",
+    "step": 2,
+    "reason": "The pancreas has a duct to the small intestine, making it a useful next fitting.",
+    "choice": 4,
+    "expectation": "The pancreas will be fitted to the digestive tube, with the other slots still available.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "The liver and gallbladder also need fitting, but I'll add the pancreas first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted, leaving the liver and gallbladder as the next offered organ fitting.",
+    "reaction": "The fitting was quick, but gave no additional detail.",
+    "step": 3,
+    "reason": "I'll continue assembling the digestive organs by connecting the liver and gallbladder.",
+    "choice": 4,
+    "expectation": "They will fit into the digestive tube, with the portal vessel slot still open.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The organ-fitting goal is complete; I can now work on breaking down the meal.",
+    "reaction": "The summary usefully connects each organ to its digestive contribution.",
+    "step": 4,
+    "reason": "I'll start with starch and salivary amylase, following digestion from the mouth.",
+    "choice": 1,
+    "expectation": "Amylase should begin breaking starch into smaller carbohydrates, though further digestion may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein digestion also advances the goal, but I'll start with starch."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase produced shorter starch chains, so I'll continue their digestion.",
+    "reaction": "The result makes the first breakdown step clear, though it adds little beyond the picture description.",
+    "step": 5,
+    "reason": "The starch-digesting enzymes are the offered next step for breaking the chains down further.",
+    "choice": 1,
+    "expectation": "I expect smaller sugars suitable for absorption, though the result may involve another intermediate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch has become individual glucose molecules that can cross the intestinal lining; I'll move on to the other meal components.",
+    "reaction": "The progression from chains to glucose makes the purpose of the two starch steps clear.",
+    "step": 6,
+    "reason": "I'll use the offered protein-digesting enzymes to break down the protein food.",
+    "choice": 1,
+    "expectation": "I expect the protein chains to be broken into smaller pieces, possibly amino acids.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fat digestion also fits the goal, but I'll address protein first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced meal amino acids, leaving fat digestion as the only offered combination.",
+    "reaction": "The result is clear, though it gives little detail about the breakdown.",
+    "step": 7,
+    "reason": "I'll use the only offered combination to break down the fat.",
+    "choice": 1,
+    "expectation": "Bile should help disperse the fat, and lipase should break it into smaller components suitable for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion produced fatty acids and monoglycerides, completing the meal-breakdown goal.",
+    "reaction": "The distinction that bile disperses fat but is not an enzyme was a useful clarification.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The final fat combination was most worthwhile: its planned picture and explanation distinguish bile’s dispersing role from lipase’s breakdown of fat.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pancreas was the least informative moment. It advanced assembly but gave no additional detail in the result.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The fat result explicitly distinguished bile from an enzyme. It also named monoglycerides without explaining the term, which may need clarification for the intended audience.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the offered combinations matched the goals. The organ fittings were straightforward, though their immediate results gave limited detail about the connections.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see how the products cross the intestinal lining, since this chapter prepares them for absorption but does not show that process.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

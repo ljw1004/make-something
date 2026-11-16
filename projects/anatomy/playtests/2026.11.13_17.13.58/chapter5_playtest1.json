@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The lining is pictured fitting inside the sleeve and producing joint fluid, matching the second goal.",
+    "choice": {
+      "combine": "Tough joint sleeve",
+      "with": "Joint lining"
+    },
+    "expectation": "The lining will fit inside the sleeve to make a fluid-lined joint sleeve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sleeve is now fluid-lined, completing that goal; I can work on the arm bones.",
+    "reaction": "The lining fit as expected.",
+    "step": 2,
+    "reason": "The fibres and mineral are both shown as parts of bone, with flexibility and resistance to squeezing.",
+    "choice": {
+      "combine": "Tough fibres in bone",
+      "with": "Bone mineral"
+    },
+    "expectation": "They will make a strong bone material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral reinforces the fibres, giving me bone material that still needs living cells and a blood supply.",
+    "reaction": "The combination matched the pictures.",
+    "step": 3,
+    "reason": "The bone cells are pictured inside the bone material, so adding them seems like the next step toward living bones.",
+    "choice": {
+      "combine": "Mineral-reinforced bone fibres",
+      "with": "Bone cells"
+    },
+    "expectation": "The cells will become part of the reinforced bone.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reinforced fibres currently have no available combination, so adding cells directly was not the next step.",
+    "reaction": "That was unexpected because the cells were pictured inside bone.",
+    "step": 4,
+    "reason": "I will check what the bone cells can combine with instead of guessing another prerequisite.",
+    "choice": {
+      "inspect": "Bone cells"
+    },
+    "expectation": "The compatibility list should show how to use the cells, possibly with blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells now have a blood supply; the picture shows nutrients reaching them through tiny channels.",
+    "reaction": "The automatic pairing clarified why the vessels matter.",
+    "step": 5,
+    "reason": "The supplied living cells and reinforced fibres are the two bone components built so far, so combining them fits the goal.",
+    "choice": {
+      "combine": "Bone cells with a blood supply",
+      "with": "Mineral-reinforced bone fibres"
+    },
+    "expectation": "They will form living arm bones with a blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied cells and reinforced fibres formed living arm bones, revealing the goal of making a supported movable joint.",
+    "reaction": "It was satisfying to see the bone components come together.",
+    "step": 6,
+    "reason": "The cartilage caps are pictured covering bone ends so they can slide, making them a sensible next part of the joint.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Cartilage caps"
+    },
+    "expectation": "The cartilage will cover the ends of the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone ends now have smooth cartilage caps; the sleeve and ligaments are still available for the joint.",
+    "reaction": "The caps fit as expected.",
+    "step": 7,
+    "reason": "The fluid-lined sleeve is pictured surrounding the bone ends, so it should fit around the capped bones.",
+    "choice": {
+      "combine": "Arm bones with cartilage caps",
+      "with": "Fluid-lined joint sleeve"
+    },
+    "expectation": "The sleeve will surround the capped bone ends and provide a fluid-filled space.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capped bone ends are now enclosed in the fluid-lined sleeve; the ligaments remain to support the joint.",
+    "reaction": "The picture makes it clear how cartilage and fluid help the bones move past each other.",
+    "step": 8,
+    "reason": "The ligaments are pictured connecting the bones and resisting sideways separation, matching the supported-joint goal.",
+    "choice": {
+      "combine": "Enclosed elbow joint",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments will support the enclosed elbow joint while allowing movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the movable arm skeleton and the final goal; they brace the elbow while cartilage and fluid separate the moving surfaces.",
+    "reaction": "It was satisfying to see the joint bend with its supporting parts in place.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Putting the sleeve around the capped bones made the joint's design clear: cartilage and fluid help the hard bones move past each other.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add bone cells directly to the reinforced fibres was frustrating because the picture suggested they belonged together, but the game gave no reason the pairing was unavailable.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the bone cells automatically paired them with blood vessels, and the picture showed nutrients reaching the cells through tiny channels.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to give the bone cells a blood supply before combining them with the fibres felt somewhat arbitrary. The blood supply's purpose became clear, but the required order wasn't clear beforehand.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: assembling the elbow and seeing how its parts support movement was interesting, even though the bone-building order was confusing.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

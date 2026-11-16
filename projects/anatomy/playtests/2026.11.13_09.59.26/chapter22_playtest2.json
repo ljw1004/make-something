@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic sensing cells sit beside glucose-rich blood and should initiate the after-meal response.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The cells will respond to the elevated glucose by releasing a signal, likely insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The after-meal signal is insulin, carried to both muscle and liver; I can now follow its effects.",
+    "reaction": "The separate branches make its targets clear.",
+    "step": 2,
+    "reason": "The liver contains glycogen and is a target of insulin, suggesting an after-meal storage response.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Insulin will promote glucose storage as glycogen in the liver.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle is also shown as an insulin target."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin promotes liver glycogen storage and reduces glucose output; muscle remains the other shown target.",
+    "reaction": "The distinction from muscle-style transporter insertion is useful.",
+    "step": 3,
+    "reason": "Skeletal muscle is the other target of the after-meal insulin signal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will promote glucose uptake by muscle, including through transporter insertion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increased muscle glucose uptake, and the after-meal goal is complete; the remaining goal concerns the between-meal response.",
+    "reaction": "The weakening insulin signal makes the feedback clearer.",
+    "step": 4,
+    "reason": "The pancreatic sensing cells can respond to the lower glucose level between meals.",
+    "choice": {
+      "combine": "Blood between meals",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreas will release a signal, likely glucagon, that helps maintain blood glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meal response releases glucagon from alpha cells, with the liver highlighted as its target.",
+    "reaction": "The contrast with the insulin response is clear.",
+    "step": 5,
+    "reason": "The liver's glycogen provides a plausible source of glucose between meals.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will promote glycogen breakdown and glucose release from the liver into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release, with the signal diminishing as glucose rises; both goals are complete.",
+    "reaction": "The feedback completes the contrast with the after-meal response clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin's effects on liver and muscle was most worthwhile: the planned pictures distinguish liver storage from increased muscle membrane transporters.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial insulin-release combination was straightforward and added less detail than following the hormone to its targets.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The liver picture explicitly distinguishes its glucose entry from muscle-style transporter insertion, a useful qualification to the shared insulin response.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each pairing followed a pictured signal or target.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: the contrasting hormone pathways and feedback made the constructions informative, though the pairings were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

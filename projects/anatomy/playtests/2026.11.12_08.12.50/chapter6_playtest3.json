@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Build the oxygen-carrying component first: developing red cells have the machinery to make haemoglobin.",
+    "choice": 1,
+    "expectation": "I expect the cells to produce haemoglobin from the supplied materials, though I don't know whether they'll mature yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is also needed for the blood sample, but I chose to start with the oxygen carriers."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing cells made haemoglobin and matured into nucleus-free red blood cells, so I can now try oxygen binding.",
+    "reaction": "The cutaway linking haemoglobin assembly to maturation is a useful detail.",
+    "step": 2,
+    "reason": "Test the red cells' oxygen-carrying role before assembling the rest of the blood sample.",
+    "choice": 1,
+    "expectation": "I expect oxygen to bind to haemoglobin in the red cells, though I don't know how release will be shown.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is also needed for the sample, but oxygen binding follows naturally from making red cells."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The red cells can bind and release oxygen, with more oxygen leaving haemoglobin where dissolved oxygen is low. Next I need to assemble the plasma.",
+    "reaction": "The reversible binding and connection to working tissues are useful details.",
+    "step": 3,
+    "reason": "This is the only offered combination, and plasma is needed for the blood sample.",
+    "choice": 1,
+    "expectation": "I expect the water and solutes to form plasma that can hold the blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water and solutes formed plasma, which can now be combined with blood components.",
+    "reaction": "The picture shows the mixture clearly, though it adds little explanation.",
+    "step": 4,
+    "reason": "Add the oxygen-bearing red cells to the plasma to advance the oxygen-carrying blood sample.",
+    "choice": 2,
+    "expectation": "I expect a plasma sample containing oxygen-bearing red cells; white cells and platelets may still need to be added.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "White cells and platelets belong in the sample too, but the red cells address the oxygen-carrying goal more directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The red cells are suspended in plasma, but the sample still lacks white cells and platelets.",
+    "reaction": "The picture makes the partial sample clear, though the step is predictable.",
+    "step": 5,
+    "reason": "Add the remaining blood components; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a complete blood sample containing oxygen-bearing red cells, white cells and platelets in plasma.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final combination completed the blood sample, showing its cells and platelets in plasma and confirming the oxygen-carrying goal.",
+    "reaction": "The finished picture brings the components together clearly, though it gives little explanation of white cells or platelets.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen to the red cells was most worthwhile: the planned inset and prose show haemoglobin binding and releasing oxygen, then connect release to working tissues.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma was predictable, and its picture added little explanation beyond showing particles and proteins in fluid.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The developing-cell cutaway linked haemoglobin assembly to maturation into nucleus-free red cells; I had been unsure whether maturation would happen in that step.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt entirely purposeless, but adding white cells and platelets was less clearly connected to the oxygen-carrying goal. Their roles were not explained.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how circulation brings oxygen carriers close to cells, though the sample-assembly steps themselves were fairly predictable.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

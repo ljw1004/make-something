@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action and should bring glucose into the cell toward the current goal.",
+    "choice": 1,
+    "expectation": "Glucose will enter through the existing transporter; I am unsure whether breakdown will begin in the same step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the carrier and is broken down in the cytosol, supplying some ATP and pyruvate for mitochondria. The goal now is to remake ATP and use it for pumping.",
+    "reaction": "The picture usefully distinguishes cytosolic ATP production from mitochondrial stages.",
+    "step": 2,
+    "reason": "Oxygen is the only available combination and should advance mitochondrial fuel breakdown toward the ATP goal.",
+    "choice": 1,
+    "expectation": "Oxygen will support mitochondrial processing of the fuel, perhaps preparing for ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen receives electrons and becomes part of water, while fuel supplies the energy; the next available step adds ATP ingredients.",
+    "reaction": "The distinction between oxygen's role and the fuel's role is useful.",
+    "step": 3,
+    "reason": "This is the only available combination and directly advances the goal of remaking ATP.",
+    "choice": 1,
+    "expectation": "ADP and phosphate will be joined to make ATP using energy from respiration, though the mechanism may be simplified.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The picture shows how electron flow drives a hydrogen-ion gradient that powers ATP production, linking respiration to the remaining ion-pump goal.",
+    "reaction": "The two-panel mechanism is a useful clarification beyond simply saying mitochondria make ATP.",
+    "step": 4,
+    "reason": "This is the only available combination and should put the remade ATP to work pumping ions.",
+    "choice": 1,
+    "expectation": "The pump will use ATP to move sodium and potassium across the membrane, likely against their concentration differences.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump connects ATP use to movement of sodium and potassium against their concentration differences, completing the chapter’s goal.",
+    "reaction": "It is satisfying to see ATP production connected back to the cell boundary and ion movement.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Remaking ATP was most worthwhile: the planned two-panel illustration links electron flow, hydrogen-ion movement and ATP production rather than relying on the powerhouse slogan.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The oxygen step was useful but compressed: the short pathway does not explain how electrons get from fuel to oxygen, leaving a connection for students to infer.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between fuel supplying energy and oxygen receiving electrons clarified oxygen’s role in respiration.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although every decision had only one available combination, so the sequence offered little meaningful choice.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how the cell model connects to larger structures, although I would hope for more meaningful choices.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

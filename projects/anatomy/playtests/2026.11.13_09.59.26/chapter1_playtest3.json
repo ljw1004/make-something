@@ -1,0 +1,172 @@
+[
+  {
+    "step": 1,
+    "reason": "The phospholipids are the natural starting material for the surface that both goals concern.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Water"
+    },
+    "expectation": "The phospholipids will assemble into a membrane in the watery environment.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Phospholipids"
+        },
+        "reason": "I could check their available partners first, since the exact construction recipe is not shown."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids formed bilayer patches, providing a surface for the transport comparisons.",
+    "reaction": "The head-and-tail arrangement makes the membrane structure clear.",
+    "step": 2,
+    "reason": "Oxygen is small and uncharged, so it should cross the lipid layer directly.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will diffuse through the membrane into the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Water"
+        },
+        "reason": "Water exchange is also part of the goal, but oxygen provides a straightforward first comparison."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly down its concentration gradient; water and sodium transport remain to be addressed.",
+    "reaction": "The whole-cell inset helps connect the membrane patch to the cell.",
+    "step": 3,
+    "reason": "The lipid-only patch provides the baseline for seeing how water crosses without a channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Water"
+    },
+    "expectation": "Water will exchange across the lipid membrane, with net movement toward the more concentrated cytosol.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "Installing the channel first could show the protein-assisted route, but the lipid-only comparison is useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid layer slowly in both directions, with net movement toward the higher non-crossing solute concentration.",
+    "reaction": "The two-way movement makes the net direction clearer.",
+    "step": 4,
+    "reason": "Adding the aquaporin should provide the protein-assisted comparison for water exchange.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Aquaporin water channel"
+    },
+    "expectation": "The channel will create a membrane patch through which water can cross more readily.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Open sodium channel"
+        },
+        "reason": "The sodium route also needs a membrane protein, but the water comparison is already underway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin is installed in a bilayer, while the lipid-only patch remains available for comparison.",
+    "reaction": "Keeping the original patch makes the comparison easy to follow.",
+    "step": 5,
+    "reason": "Using water with the aquaporin membrane should show how the channel changes water exchange.",
+    "choice": {
+      "combine": "Membrane with aquaporin",
+      "with": "Water"
+    },
+    "expectation": "More water will cross in the same interval, with net movement toward the higher non-crossing solute concentration inside.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Open sodium channel"
+        },
+        "reason": "That would begin the sodium route, but the water comparison is already underway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin speeds two-way water exchange without changing the net direction, completing the oxygen and water goal.",
+    "reaction": "The matched comparison makes the channel's effect clear.",
+    "step": 6,
+    "reason": "The remaining goal calls for a passive sodium route, and the open channel is designed to span the lipid membrane.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Open sodium channel"
+    },
+    "expectation": "The sodium channel will be installed in a membrane patch, ready to let sodium enter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open sodium channel is installed in the membrane under conditions favoring sodium entry.",
+    "reaction": "The matched lipid-only patch provides a useful comparison.",
+    "step": 7,
+    "reason": "The extracellular sodium solution supplies the ions for the remaining passive-entry goal.",
+    "choice": {
+      "combine": "Membrane with an open sodium channel",
+      "with": "Extracellular sodium solution"
+    },
+    "expectation": "Sodium will enter through the open channel down its electrochemical gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium entered through the open channel without ATP, completing the passive-entry goal and the chapter.",
+    "reaction": "The contrast between the channel and the surrounding ion-excluding lipid made the route clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing water crossing lipid alone with crossing through aquaporin was most worthwhile: the matched conditions show that the channel speeds exchange without determining its net direction.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the sodium channel was straightforward and somewhat repetitive after installing aquaporin, though it prepared a useful comparison.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The lipid-only membrane allowed slow water exchange in both directions; the comparison clarified that net movement and individual molecules' movement are different things.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each construction had a visible connection to a transport goal.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to another chapter: the matched membrane comparisons made the physiology concrete, and I would be curious to see how later constructions connect it to cells and organs.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "Amino acids and phospholipids supply material for cell growth, matching the first goal.",
+    "choice": {
+      "combine": "Cell with working ion pump",
+      "with": "Amino acids and phospholipids"
+    },
+    "expectation": "The cell will grow by making proteins and expanding its membranes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its DNA remains uncopied, so DNA nucleotides are the next logical ingredient.",
+    "reaction": "The cutaway makes the different contributions to growth clear.",
+    "step": 2,
+    "reason": "DNA nucleotides are the building blocks needed to copy the cell's DNA.",
+    "choice": {
+      "combine": "Growing stem cell",
+      "with": "DNA nucleotides"
+    },
+    "expectation": "The growing cell will copy its DNA before division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied, and the new goal is to separate the copies and divide the cell.",
+    "reaction": "The distinct strand styles make replication easier to follow.",
+    "step": 3,
+    "reason": "The spindle's microtubules attach to duplicated chromosomes and extend toward opposite poles, suggesting it separates the copies.",
+    "choice": {
+      "combine": "Cell with copied DNA",
+      "with": "Mitotic spindle cutaway"
+    },
+    "expectation": "The spindle will separate the chromosome copies toward opposite sides of the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell with copied DNA",
+          "with": "Actin–myosin ring"
+        },
+        "reason": "The ring should help divide the cell, but chromosome separation appears to come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets have separated into two nuclei, but the cytoplasm and outer membrane remain shared.",
+    "reaction": "The intermediate inset helps connect spindle action to the two nuclei.",
+    "step": 4,
+    "reason": "The actin–myosin ring sits at the cell equator and should divide the remaining shared cell body.",
+    "choice": {
+      "combine": "Cell with two nuclei",
+      "with": "Actin–myosin ring"
+    },
+    "expectation": "The ring will constrict the cell into two daughter cells, each with a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell division, producing daughter cells and showing how repeated divisions can build a population.",
+    "reaction": "The closing bridge makes the final separation clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome copies with the spindle was most worthwhile: the planned intermediate inset connects their movement to the formation of two nuclei before the cell itself divides.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The growth result was informative but repeated its picture description as the wonder, adding little beyond the initial result.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The final picture extended the immediate division into a population, including cells retained for further division.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; the supplied pictures and goals gave each combination a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the sequence connected familiar DNA replication to the less familiar mechanics of chromosome separation and cell division, and I would be curious to see how the descendants specialize.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

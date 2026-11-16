@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start the fibroblast branch toward making supporting material outside cells.",
+    "choice": 1,
+    "expectation": "I expect the timed conditions to produce fibroblasts that can help make extracellular material.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The muscle branch also serves a goal, but I'll pursue the supporting-material goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch has active collagen genes and RNA messages, so supplying amino acids looks like the next step toward supporting material.",
+    "reaction": "The unchanged DNA alongside selective gene activity makes the differentiation connection clear.",
+    "step": 2,
+    "reason": "I'll follow the collagen messages toward protein production.",
+    "choice": 2,
+    "expectation": "I expect the cells to use the amino acids to make collagen or a collagen precursor; extracellular processing may still be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch also needs attention, but I want to advance the fibroblast branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them in vesicles; extracellular processing appears to be the next step.",
+    "reaction": "The ER-to-Golgi sequence makes the route from message to secretion concrete.",
+    "step": 3,
+    "reason": "I'll use the extracellular fluid to advance the supporting-material goal.",
+    "choice": 2,
+    "expectation": "I expect the fibroblasts to release collagen precursors, which may be processed into extracellular supporting material.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch remains a goal, but I want to finish the collagen route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen precursors were secreted and assembled into extracellular matrix, completing the supporting-material goal.",
+    "reaction": "The sequence connects protein production to the material surrounding living cells.",
+    "step": 4,
+    "reason": "The only offered combination advances the remaining muscle-forming-cell goal.",
+    "choice": 1,
+    "expectation": "I expect the timed differentiation conditions to produce muscle-lineage precursors, rather than immediately making mature muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has committed individual cells expressing muscle genes, but no mature fibres.",
+    "reaction": "The contrast with the collagen branch reinforces how the same DNA supports different cell roles.",
+    "step": 5,
+    "reason": "The only offered combination should advance muscle protein production.",
+    "choice": 1,
+    "expectation": "I expect the cells to use amino acids to make muscle proteins; further development may be needed for mature fibres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells made actin and myosin and became myoblasts, completing the goal without becoming mature fibres.",
+    "reaction": "The distinction between separate precursors and a fused muscle fibre was useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The collagen route connected selective gene activity to protein production, secretion and an extracellular matrix that supports cells.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final amino-acid combination repeated the protein-production pattern from the fibroblast branch, although it reinforced the comparison.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The collagen precursor needed processing and assembly outside the cell before becoming part of the matrix.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though using extracellular fluid as the combination partner is an abstract way to represent secretion and processing.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the separate muscle precursors develop into functional tissue, since this chapter deliberately stops short of mature fibres.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

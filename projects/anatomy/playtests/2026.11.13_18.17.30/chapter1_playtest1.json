@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows oxygen crossing the membrane's oily middle, so the membrane fats look like the right starting piece.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Oxygen"
+    },
+    "expectation": "The fats and oxygen will form a boundary that lets oxygen enter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats needed water to form a membrane patch first; the result says oxygen can cross its oily middle.",
+    "reaction": "I was surprised that water had to come before oxygen, but the two-layer picture helps explain the boundary.",
+    "step": 2,
+    "reason": "The water-channel picture shows a pore for water, so it looks like a useful addition to the membrane patch.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein will add a faster route for water through the patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water-channel protein now spans the membrane, giving water a route in both directions.",
+    "reaction": "The picture makes the channel's job clear.",
+    "step": 3,
+    "reason": "The sugar-carrier picture shows a sugar-shaped pocket crossing the membrane, so it looks like the remaining route to add.",
+    "choice": {
+      "combine": "Membrane with a water channel",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will give sugar its own route through the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water-channel membrane cannot combine further, so the sugar carrier likely needs a separate membrane patch.",
+    "reaction": "I expected both proteins to go into the same patch, so that was surprising.",
+    "step": 4,
+    "reason": "A separate membrane patch is available, and the sugar carrier is shown spanning a membrane.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will create a membrane patch with a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The separate sugar-carrier patch completes the goal for water and sugar routes; the oxygen goal remains.",
+    "reaction": "The two panels make the carrier's changing opening easier to understand.",
+    "step": 5,
+    "reason": "The membrane patch's description says oxygen crosses its oily middle, so combining them directly now seems appropriate.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will cross the membrane patch and complete the remaining boundary goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the membrane patch, completing the remaining goal and the chapter.",
+    "reaction": "The arrows made it clear that oxygen can cross both ways, with more moving into the cell.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the sugar carrier was worthwhile because its two panels showed how a route can open on each side of the membrane.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add the sugar carrier to the water-channel membrane was frustrating: I expected both routes to be added to the same patch, but that combination did not work.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the fats combined with water first instead of oxygen. The resulting picture helped explain the two-layer boundary.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Needing a separate patch for the sugar carrier felt somewhat arbitrary; the story said different molecules use routes through the same boundary, but did not explain why I couldn't add both proteins to one patch.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the pictures made the routes easier to understand, though I hope future combinations make their prerequisites clearer.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

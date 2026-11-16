@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows saliva's enzyme fitting starch, so I want to start with what happens to bread in the mouth.",
+    "choice": 1,
+    "expectation": "I expect saliva to start breaking the starch into smaller pieces, though I'm not sure how small.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Bile breaking fat into droplets also looks useful, but I want to follow food from the mouth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva made shorter starch chains, so I can follow their breakdown further.",
+    "reaction": "The result matches what I expected, but the chains are not yet individual sugars.",
+    "step": 2,
+    "reason": "The starch picture showed linked glucose units, and digestive enzymes can break starch, so I'll continue that route.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break the shorter chains into smaller sugars, possibly glucose.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Bile's effect on fat also looks interesting, but I want to finish following the starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch is now separate glucose units that can cross the intestinal lining; I can explore another food.",
+    "reaction": "It makes sense to see the linked units separated, as expected.",
+    "step": 3,
+    "reason": "The protein picture shows a chain of amino acids, and the enzyme picture shows one fitting protein, so I want to follow its breakdown.",
+    "choice": 1,
+    "expectation": "I expect the protein chain to be broken into smaller pieces, possibly individual amino acids.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Bile's effect on fat also looks useful, but I want to compare protein breakdown with starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein has been separated into amino acids, so I can now explore what happens to fat.",
+    "reaction": "That matches the protein picture and is similar to the starch result.",
+    "step": 4,
+    "reason": "The bile picture shows it spreading a large fat droplet into smaller ones, so I want to see that process.",
+    "choice": 1,
+    "expectation": "I expect smaller fat droplets, not broken-down fat molecules, because the picture says the molecules stay unchanged.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the salivary glands would help build the digestive tube, but I want to compare the food processes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bile made smaller droplets with more exposed surface, so enzymes can now act on the fat.",
+    "reaction": "The result matches the picture; it separates droplets without showing fat molecules breaking apart.",
+    "step": 5,
+    "reason": "The enzyme picture shows enzymes fitting fat molecules, so I'll continue following fat digestion.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break the fat molecules into smaller pieces, though I don't know exactly what those pieces are.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the salivary glands helps build the tube, but I want to finish the fat route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat molecules have been split into smaller pieces, completing the food-breakdown goal. I still need to connect the glands.",
+    "reaction": "The distinction between bile spreading droplets and enzymes breaking molecules is clear.",
+    "step": 6,
+    "reason": "The salivary glands' ducts lead to the mouth, where saliva started breaking down starch, so I'll connect them first.",
+    "choice": 1,
+    "expectation": "I expect the glands to attach to the digestive tube at the mouth, leaving the other slots open.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pancreas also supplies digestive enzymes, but I want to start at the mouth."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; the pancreas and liver and gallbladder still need connecting.",
+    "reaction": "The fitting was expected, though the picture didn't add much detail.",
+    "step": 7,
+    "reason": "The pancreas picture shows its duct leading to the small intestine and supplying digestive enzymes, so I'll connect it next.",
+    "choice": 1,
+    "expectation": "I expect the pancreas to fit into its slot with its duct leading to the small intestine.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The liver and gallbladder also connect to the intestine, but I'll attach the enzyme source first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder are the remaining gland connection.",
+    "reaction": "That fitting was expected.",
+    "step": 8,
+    "reason": "This is the only offered combination, and the picture shows its duct leading to the intestine.",
+    "choice": 1,
+    "expectation": "I expect the liver and gallbladder to fit into the digestive tube and complete the gland connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver and gallbladder are connected, completing the gland goal and the chapter. The result sums up where saliva, pancreatic enzymes and bile work.",
+    "reaction": "The fitting was expected, but the summary helped connect the organs to their juices.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat digestion was most worthwhile: bile spread the fat into droplets, while enzymes broke the molecules apart. Seeing the two jobs separately made the distinction clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the salivary glands and pancreas felt repetitive; the fittings were predictable and added little detail at the time.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The smaller fat droplets had more exposed surface, connecting bile's spreading action to the enzymes working at the surface.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary. The gland connections had clear purposes, though the final one was the only offered combination.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter to see how the small food molecules get into the body. Comparing the different digestion routes was interesting.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "Start constructing the digestive system by connecting the salivary glands to the mouth.",
+    "choice": 4,
+    "expectation": "The glands will fit into their named slot on the digestive tube, leaving the other connections to complete.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Starting starch digestion also fits the goals, but I chose to assemble the organs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; the pancreas and liver connections remain.",
+    "reaction": "The fitting was straightforward.",
+    "step": 2,
+    "reason": "Continue assembling the digestive system by connecting the pancreas.",
+    "choice": 4,
+    "expectation": "The pancreas will fit into its named slot, with its duct leading to the small intestine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder remain to be connected.",
+    "reaction": "Another straightforward fitting.",
+    "step": 3,
+    "reason": "Continue assembling the digestive organs using the remaining offered fitting.",
+    "choice": 4,
+    "expectation": "The liver and gallbladder will fit into their named slot; the portal vessel slot may remain open.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The organ-fitting goal is complete; digestion remains, and the portal vessel has not yet appeared as an option.",
+    "reaction": "The summary usefully connects each organ to digestion, though the fittings were predictable.",
+    "step": 4,
+    "reason": "Begin breaking down the starch using salivary amylase.",
+    "choice": 1,
+    "expectation": "Amylase will break starch into smaller carbohydrates, probably requiring further digestion.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein digestion also advances the meal goal, but I chose to start with starch."
+      },
+      {
+        "choice": 3,
+        "reason": "Fat digestion is another useful branch, but I chose starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase produced shorter starch chains, which can now undergo further digestion.",
+    "reaction": "The intermediate makes the staged breakdown clear.",
+    "step": 5,
+    "reason": "Continue starch digestion toward pieces small enough for absorption.",
+    "choice": 1,
+    "expectation": "The enzymes will break the shorter chains into smaller sugars, possibly including glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein digestion is another goal-related branch, but I chose to finish the starch pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Further starch digestion produced individual glucose molecules for eventual absorption.",
+    "reaction": "The two-stage starch breakdown was clear.",
+    "step": 6,
+    "reason": "Continue breaking down the meal by digesting its protein.",
+    "choice": 1,
+    "expectation": "The enzymes will break protein chains into smaller peptides or amino acids.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fat digestion also advances the goal, but I chose protein first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced amino acids; fat digestion remains.",
+    "reaction": "The result is clear, though it skips intermediate peptides.",
+    "step": 7,
+    "reason": "Follow the only offered combination to break down the fat.",
+    "choice": 1,
+    "expectation": "Bile will disperse the fat into droplets, and lipase will break it into smaller absorbable components.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to establish a route for fuel into the cell.",
+    "choice": 1,
+    "expectation": "The carrier will be fitted into the membrane, allowing a later glucose transport step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump also supports a goal, but connecting the fuel supply first seems useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, so glucose can now be tested for entry.",
+    "reaction": "The placement makes sense, though it was expected.",
+    "step": 2,
+    "reason": "Use the carrier to bring glucose into the cell for ATP renewal.",
+    "choice": 1,
+    "expectation": "Glucose will move into the cytosol through the carrier, likely down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is also needed, but glucose entry comes first in my plan."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol through a changing carrier, so I can follow its breakdown inside the cell.",
+    "reaction": "The carrier sequence clearly shows how glucose crosses without an open tunnel.",
+    "step": 3,
+    "reason": "Place glucose in the cell interior to continue toward ATP renewal.",
+    "choice": 1,
+    "expectation": "Glucose will be available for breakdown in the cell interior, though the next product is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for the transport goal, but I want to follow the glucose pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown produces pyruvate and some ATP without oxygen as a glycolysis input; pyruvate points toward mitochondria.",
+    "reaction": "The distinction between glycolysis and the oxygen-dependent pathway is clear.",
+    "step": 4,
+    "reason": "Add oxygen to follow the fuel pathway toward aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "Oxygen and pyruvate will support mitochondrial ATP production, though the exact representation is uncertain.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein growth, but I want to finish following the fuel pathway first."
+      },
+      {
+        "choice": 2,
+        "reason": "The pump is needed for powered transport, but ATP renewal comes first in my plan."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal links fuel oxidation and oxygen to a hydrogen-ion gradient and ATP synthase; I can now prepare the pump for powered transport.",
+    "reaction": "The separate roles of fuel and oxygen are useful, though how electron transfer builds the hydrogen-ion reservoir is not explained.",
+    "step": 5,
+    "reason": "Fit the sodium-potassium pump into the membrane to advance the powered transport goal.",
+    "choice": 1,
+    "expectation": "The pump will be installed in the membrane, ready for a later ATP-powered transport step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein production, but I want to connect ATP renewal to the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed and can now be connected to ATP renewal.",
+    "reaction": "The nearby passive-channel inset makes the contrast with powered transport clear.",
+    "step": 6,
+    "reason": "Connect aerobic ATP renewal to the pump to advance the fuel-to-transport goal.",
+    "choice": 2,
+    "expectation": "ATP will power the pump to move sodium and potassium against their gradients.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP might also power the pump, but the goal specifically calls for connecting aerobic renewal."
+      },
+      {
+        "choice": 4,
+        "reason": "Protein production remains a goal, but I want to finish the transport pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump uses ATP to move sodium outward and potassium inward against their gradients, completing the powered transport goal.",
+    "reaction": "The contrast with passive sodium entry is clear.",
+    "step": 7,
+    "reason": "Combine amino acids with ATP renewal to pursue the remaining protein-growth goal.",
+    "choice": 2,
+    "expectation": "The cell will use amino acids and energy to make proteins, likely at ribosomes using existing RNA messages.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP production might also support protein synthesis, but aerobic renewal is already available."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes used existing RNA messages and amino acids to make proteins, completing the remaining goal.",
+    "reaction": "The protein-building picture is clear, though GTP's role is not explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting aerobic ATP renewal to the pump was most worthwhile: the resulting comparison shows how powered transport maintains gradients that passive flow would reduce.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was predictable preparation, though the passive-channel inset gave it useful context.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The aerobic picture distinguished fuel oxidation from oxygen's role and showed a hydrogen-ion reservoir driving ATP synthase; it did not explain how electron transfer builds that reservoir.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing I chose felt purposeless, although using the cell-interior hotspot for glucose was a procedural placement whose precise outcome was uncertain.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the linked transport and energy constructions were useful, and I would be curious to see how later chapters connect cell processes to larger structures.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

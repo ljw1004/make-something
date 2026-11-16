@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The digestive tube has a named portal vessel slot, and the vessel connects the intestine to the liver.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube"
+    },
+    "expectation": "The portal vessel will fit into the digestive tube and connect the gut to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, completing the visible digestive-tube slots.",
+    "reaction": "The named slot made that connection straightforward.",
+    "step": 2,
+    "reason": "The liver tissue and glycogen-making enzymes suggest a way to begin storing the meal's glucose.",
+    "choice": {
+      "combine": "Liver tissue",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The enzymes will prepare the liver tissue to make glycogen from glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nutrients in portal blood",
+          "with": "Liver tissue"
+        },
+        "reason": "The nutrients could first enter the liver tissue before storage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver first receives the portal nutrients; I can now try the glycogen-making enzymes on it.",
+    "reaction": "The compatibility feedback clarified the order.",
+    "step": 3,
+    "reason": "The liver now has access to glucose, and the enzymes link glucose into glycogen.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The liver will store some of the glucose as glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen; the remaining goal also calls for its release.",
+    "reaction": "The result clearly connects glucose storage with glycogen.",
+    "step": 4,
+    "reason": "The glycogen-release enzymes are the visible counterpart to the enzymes used for storage.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The liver will release glucose from its stored glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is releasing glucose from glycogen; blood transport may carry it away.",
+    "reaction": "The storage and release sequence is easy to follow.",
+    "step": 5,
+    "reason": "The blood transport item shows a vessel carrying blood away from liver tissue.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "The released glucose will enter blood leaving the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now available in blood, completing the storage and release goal. The digestive system still needs to connect to the moving body.",
+    "reaction": "The result makes the purpose of liver glucose storage clear.",
+    "step": 6,
+    "reason": "The supplied movement model represents the body’s circulation, and the completed digestive tube has the portal route fitted.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Supplied movement model"
+    },
+    "expectation": "The digestive system will connect to the movement model’s circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive system is connected to the body model, completing the chapter's remaining goal.",
+    "reaction": "It was satisfying to see the digestive organs join the larger circulation, though the final connection was predictable.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The storage and release sequence was most worthwhile: it showed glucose becoming glycogen, then returning to the blood for other tissues to use.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named portal vessel into its slot was clear but offered little to figure out.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I expected to add the glycogen-making enzymes to liver tissue first. The compatibility feedback showed that the liver needed to receive portal nutrients before storage.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order initially felt a little arbitrary because I expected the enzymes could prepare the liver before nutrients arrived. The feedback made the intended sequence clear.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it continued connecting the systems and explaining their effects. This chapter's storage and release sequence was clear, although most choices were predictable.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

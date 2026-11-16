@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The portal vessel fits the digestive tube's named empty slot and connects the intestine to the liver.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube[Salivary glands,Pancreas,Liver and gallbladder]"
+    },
+    "expectation": "The portal vessel will be fitted to the digestive system, connecting the gut to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is now fitted; I can work on how liver tissue handles the incoming nutrients.",
+    "reaction": "The named slot made that connection straightforward.",
+    "step": 2,
+    "reason": "The portal blood carries meal glucose to liver tissue, matching the storage goal.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Liver tissue"
+    },
+    "expectation": "The nutrients will reach the liver tissue, preparing glucose for storage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Portal nutrients now flow past liver cells, setting up the glucose-storage step.",
+    "reaction": "The connection is clear, though the picture does not yet show uptake.",
+    "step": 3,
+    "reason": "Glycogen-making enzymes are the visible means of storing glucose in liver tissue.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The liver cells will link glucose into stored glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver now stores glucose as glycogen; the remaining goal calls for its release.",
+    "reaction": "The branching granules make the storage step concrete.",
+    "step": 4,
+    "reason": "Glycogen-release enzymes are the apparent next step for showing stored glucose being released.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The enzymes will break down stored glycogen so glucose can be released.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is now shown breaking down glycogen and releasing glucose; blood transport can show where it goes.",
+    "reaction": "The storage-to-release sequence is clear.",
+    "step": 5,
+    "reason": "Blood transport is the available route away from the liver tissue.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "The released glucose will enter blood leaving the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose now travels in blood toward other tissues, completing the storage-and-release goal.",
+    "reaction": "The sequence clearly connects liver storage to supplying the body between meals.",
+    "step": 6,
+    "reason": "The remaining goal is to connect the fitted digestive system to the integrated body model.",
+    "choice": {
+      "combine": "Digestive tube[Salivary glands,Pancreas,Liver and gallbladder,Portal vessel]",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive system will connect to the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's blood vessels, nerves and lymph routes, completing the chapter.",
+    "reaction": "The integration is satisfying, although the picture description gives few details about those connections.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose from portal blood through glycogen storage and release was worthwhile: the sequence connects a familiar carbohydrate to the liver's role between meals.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final integration was less informative than the storage sequence: the picture plan names blood, nerve and lymph connections without explaining their individual roles.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The sequence clarified that stored glycogen can be broken down and its glucose carried to other tissues between meals.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Fitting the portal vessel was clearly prompted by the named slot, though the fitting itself did not show the route in detail.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the connected systems support further functions, though I would hope for more detail about their interactions than the final integration provided.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

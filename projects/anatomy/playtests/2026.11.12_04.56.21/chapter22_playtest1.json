@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The messenger cell's empty display and the bacterial surface protein suggest it can pick up material from the bacteria.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will acquire a bacterial feature to display.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger has picked up a bacterial fragment and travelled to a lymph node, where helper T cells may recognize it.",
+    "reaction": "The linked views make the journey from airway to lymph node clear.",
+    "step": 2,
+    "reason": "The messenger is displaying a fragment that a helper T cell can match, so I will bring it to the lymph node.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The messenger will interact with a matching helper T cell at the lymph node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The displayed bacterial fragment activated matching helper T cells at the lymph node.",
+    "reaction": "The matching receptor explains why only some helper cells respond.",
+    "step": 3,
+    "reason": "The activated helper cells may help activate a matching B cell at the lymph node.",
+    "choice": {
+      "combine": "Activated helper T cells",
+      "with": "Lymph node"
+    },
+    "expectation": "The helper cells will interact with matching B cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated helper T cells have no available operation yet, so another step may be needed before they can help B cells.",
+    "reaction": "That was unexpected; I thought they were ready to interact.",
+    "step": 4,
+    "reason": "B cells may need to encounter the intact bacterial protein at the lymph node first.",
+    "choice": {
+      "combine": "B cells",
+      "with": "Lymph node"
+    },
+    "expectation": "A matching B cell will encounter the bacterial protein or begin activation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "A matching B cell has bound the bacterial protein and is displaying a fragment, which may allow the activated helper T cells to assist it.",
+    "reaction": "The compatibility feedback clarified the missing step.",
+    "step": 5,
+    "reason": "The fragment-displaying B cell and activated helper T cells now appear ready to interact.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Activated helper T cells"
+    },
+    "expectation": "The helper T cells will help activate the matching B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The B cell received help from an activated helper T cell at the lymph node; the interaction required the node.",
+    "reaction": "The compatibility feedback made the required location clear.",
+    "step": 6,
+    "reason": "I will check what the helped B cells can do next to advance antibody production and immune memory.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The inspection will show the available next step for the helped B cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied into antibody-secreting plasma cells and memory B cells in the lymph node.",
+    "reaction": "The branching sequence makes the two outcomes clear.",
+    "step": 7,
+    "reason": "The antibody-making cells may now mark the airway bacteria.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Antibodies from the plasma cells will bind to the matching bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies bound matching bacterial features, completing the first goal; the bacteria have not necessarily all disappeared.",
+    "reaction": "The distinction between tagging bacteria and eliminating them is clear.",
+    "step": 8,
+    "reason": "The remaining goal is to leave the body with immune memory, and the B-cell result includes memory cells.",
+    "choice": {
+      "combine": "Protected body model",
+      "with": "Antibody-making and memory B cells"
+    },
+    "expectation": "The body model will retain memory B cells after the encounter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body retains memory B cells that can respond faster to the same antigen, completing the remaining goal. The result also makes clear that memory does not guarantee lasting or complete protection.",
+    "reaction": "The distinction between immune memory and guaranteed protection was useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the helped B cell into plasma and memory cells was most worthwhile: the branching sequence connected one encounter to both antibody production and a possible later response.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to use the activated helper T cells at the lymph node was frustrating because the result did not explain what was missing. The later compatibility feedback clarified the sequence.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the activated helper T cells to be ready to interact immediately, but the B cell first needed to bind bacterial protein and display a fragment.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to select the lymph node for the B-cell and helper-cell interaction was not obvious from the attempted pair, although the feedback showed the required location.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter if it developed the consequences of immune memory or another body-system interaction. The sequence made me curious, though the repeated assembly steps were less engaging than the explanatory results.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

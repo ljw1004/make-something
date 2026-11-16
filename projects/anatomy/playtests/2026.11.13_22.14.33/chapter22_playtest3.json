@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The lymphocyte picture shows a receptor matching the bacterial fragments, with helper-cell signals already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should recognize the fragments and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is activated, so it can now be brought to the lymph node where the picture says activated cells multiply.",
+    "reaction": "The matching shapes made the selection easy to follow.",
+    "step": 2,
+    "reason": "The lymph node's time strip shows an activated cell dividing there.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte should multiply in the living lymph node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making cells and memory cells; the remaining goal is to help clear the bacteria.",
+    "reaction": "It is useful to see that some descendants remain as memory cells.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are their building blocks, so the antibody-making cells likely need them.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to make antibodies that match the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies from amino acids; those antibodies can now bind the bacteria.",
+    "reaction": "The matching shapes make the next connection clear.",
+    "step": 4,
+    "reason": "The antibody tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies should bind to the bacteria, helping white blood cells recognize them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them coated for the engulfing white blood cells.",
+    "reaction": "The matching shapes make the connection clear.",
+    "step": 5,
+    "reason": "The white blood cell picture shows it binding to and engulfing an antibody-coated bacterium.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells should engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibody coating helped the cells clear bacteria.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making antibodies and using them to mark bacteria was most worthwhile: the matching shapes made their role clear, and the final result showed what happened next.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making antibodies from amino acids was fairly predictable from the earlier protein-building explanation, though it connected that idea to the immune response.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that the activated lymphocyte produced both antibody-making cells and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and earlier explanation gave each pairing a purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue: seeing separate cell actions build into a defense was interesting, though the pairings were often straightforward.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

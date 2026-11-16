@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose picture says it matches the sugar carrier's pocket, so bringing it through the boundary is a clear place to start.",
+    "choice": {
+      "combine": "Glucose — a small sugar",
+      "with": "Membrane with water and sugar routes"
+    },
+    "expectation": "The sugar carrier should help glucose enter the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier brought glucose into the cell, so it may now be available for the energy-making process.",
+    "reaction": "It was satisfying to see the carrier release the sugar inside.",
+    "step": 2,
+    "reason": "The mitochondria picture connects food and oxygen to ATP, so I’ll try the glucose with the cell.",
+    "choice": {
+      "combine": "Glucose inside the cell",
+      "with": "Cell with mitochondria"
+    },
+    "expectation": "The cell will use the glucose, possibly with oxygen, to produce ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has glucose, and the picture shows a separate oxygen route into the energy-making process.",
+    "reaction": "I’m curious how the two inputs come together.",
+    "step": 3,
+    "reason": "The picture shows oxygen entering separately, so I’ll try adding the oxygen already entering the cell.",
+    "choice": {
+      "combine": "Cell supplied with glucose",
+      "with": "Oxygen entering the cell"
+    },
+    "expectation": "The cell will use glucose and oxygen to make ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and oxygen led to an ATP supply, completing the energy goal. The picture links ATP to both the pump and ribosome.",
+    "reaction": "The diagram helped connect respiration to cell work.",
+    "step": 4,
+    "reason": "The pump picture shows it fitting across a membrane, matching the goal to fit a pump across the boundary.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell membrane patch"
+    },
+    "expectation": "The pump will be fitted across the membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "The matching building blocks also suggest a way to prepare the protein-building machinery."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted into the membrane, and a new goal asks me to power it toward the crowded side.",
+    "reaction": "The empty ATP site makes the next connection clear.",
+    "step": 5,
+    "reason": "The pump has an empty ATP site, and the ATP supply picture points to the pump.",
+    "choice": {
+      "combine": "Membrane with a pump",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP will power the pump to move particles toward the crowded side.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "I could work on the protein-building goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the pump, completing the transport goal; the protein-building goal remains.",
+    "reaction": "The picture made the pump's changing shape and particle movement clear.",
+    "step": 6,
+    "reason": "The amino acids match the pieces of the ribosome's growing protein chain, so they seem relevant to preparing the protein-building machinery.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids will be combined with the ribosome to prepare it for building protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now has building blocks, and the new goal is to power protein construction. The picture points to ATP.",
+    "reaction": "The ATP arrow makes the next step clear.",
+    "step": 7,
+    "reason": "The picture links ATP to the ribosome's protein-making work.",
+    "choice": {
+      "combine": "Ribosome supplied with building blocks",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP will power the ribosome to build proteins from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered protein construction, completing the final goal. The result connects food, energy and DNA instructions to making proteins.",
+    "reaction": "The different finished protein shapes made the result interesting.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making ATP and then using it to power the membrane pump was worthwhile: the pictures connected food and oxygen to a specific cell job.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying the cell with glucose felt like a small intermediate step; it set up the next combination but did not yet show the energy process.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The pump moved particles toward the more crowded side using ATP. I hadn't known why a cell would need energy for that direction of transport.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The ATP arrows and matching shapes gave reasons for the pairings, although I was following the diagrams rather than understanding every detail of how the proteins work.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how these cell pieces connect to larger body structures. The pictures made the connections understandable without needing to know all the details beforehand.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

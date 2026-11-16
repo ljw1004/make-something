@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should begin producing the neural cells needed for the goals.",
+    "choice": 1,
+    "expectation": "I expect the culture to guide the stem-cell descendants toward neurons and supporting glia, though the intermediate result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The culture produced neurons and glia, so I can now build a synaptic arrangement.",
+    "reaction": "The lineage is clear, though the distinct roles of astrocytes and oligodendrocytes remain unexplained.",
+    "step": 2,
+    "reason": "The excitatory connections are the only offered combination and should begin the firing setup.",
+    "choice": 1,
+    "expectation": "I expect excitatory inputs to be connected to a receiving neuron; whether that alone makes it fire remains uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has one excitatory input, which can be tested or supplemented.",
+    "reaction": "The plus label identifies the input, but the picture does not yet explain its effect.",
+    "step": 3,
+    "reason": "Testing one input first provides a baseline for the different responses described in the goals.",
+    "choice": 3,
+    "expectation": "I expect one incoming spike to produce an excitatory response, though it may be too weak to trigger an outgoing spike.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A second excitatory input might strengthen the response, but I want to test one first."
+      },
+      {
+        "choice": 2,
+        "reason": "An inhibitory input could change the response, but a single-input baseline seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "One excitatory spike produced a below-threshold voltage rise, establishing a quiet baseline.",
+    "reaction": "The threshold trace makes clear why receiving a signal need not produce a spike.",
+    "step": 4,
+    "reason": "Adding another excitatory input can test whether simultaneous inputs together reach threshold.",
+    "choice": 1,
+    "expectation": "I expect a second excitatory connection, which may allow the combined inputs to make the neuron fire when tested.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "An inhibitory input could explain another quiet response, but I want to test added excitation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has two separate excitatory inputs ready to test together.",
+    "reaction": "The arrangement is clear, though its effect is not yet shown.",
+    "step": 5,
+    "reason": "Testing both simultaneous inputs can show whether their combined effect reaches threshold.",
+    "choice": 2,
+    "expectation": "I expect the voltage rises to combine and possibly trigger an outgoing spike, though the result is not certain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "An inhibitory connection could help explain another quiet response, but I want to test the two excitatory inputs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two simultaneous excitatory inputs reached threshold and produced a new spike, completing the firing goal and revealing a grey-matter goal.",
+    "reaction": "The comparison with one input clearly shows how overlapping signals can trigger a spike.",
+    "step": 6,
+    "reason": "This is the only offered combination and should set up the inhibitory comparison.",
+    "choice": 1,
+    "expectation": "I expect a neuron with both excitatory and inhibitory inputs, ready to test whether inhibition prevents firing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has both excitatory and inhibitory inputs, ready for comparison.",
+    "reaction": "The plus and minus labels make the arrangement clear, although their combined effect remains to be tested.",
+    "step": 7,
+    "reason": "Testing the inputs should help account for the second quiet response before assembling the networks.",
+    "choice": 1,
+    "expectation": "I expect inhibition to reduce the excitatory effect and possibly prevent an outgoing spike.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Joining the networks advances the grey-matter goal, but testing the mixed inputs first seems more informative."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mixed inputs drove the receiving cell below its resting voltage, completing the quiet-responses goal.",
+    "reaction": "The dip makes the contrast with weak excitation clear.",
+    "step": 8,
+    "reason": "This is the only offered combination and should advance the grey-matter goal.",
+    "choice": 1,
+    "expectation": "I expect the excitatory and mixed-input arrangements to form a grey-matter network, though its exact structure is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two arrangements formed integrating grey matter, completing the final goal and the chapter.",
+    "reaction": "The mesh brings the networks together, although the picture gives little explanation of grey matter beyond its components.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Testing two simultaneous excitatory inputs was most worthwhile: the threshold trace contrasted clearly with the single-input response and showed that the outgoing spike is a new event.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the second excitatory connection was a fairly routine setup step; its picture did not yet show what the extra input changed.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The mixed-input trace dipped below its resting line even though both incoming neurons fired, illustrating a different quiet response from weak excitation alone.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Joining two input arrangements directly into grey matter felt somewhat abrupt: the resulting mesh showed its components but did not explain much about how those examples relate to the larger tissue.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrasting voltage traces made the neural integration question engaging, though I would want clearer explanations of glial roles and how the synaptic examples scale up to grey matter.",
+        "steps": [
+          1,
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

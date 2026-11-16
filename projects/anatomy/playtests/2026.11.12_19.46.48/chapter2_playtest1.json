@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose transporter to begin bringing glucose into the cell; this is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect a cell membrane with a glucose transporter, ready to take in glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter is in the membrane, ready for the glucose step.",
+    "reaction": "The placement beside the earlier channel makes the continuity clear.",
+    "step": 2,
+    "reason": "Use the only offered combination to bring glucose into the cell.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter through the transporter, though the result may also show what happens next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters and is broken down in the cytosol, producing pyruvate and some ATP before the mitochondrial stage.",
+    "reaction": "The picture usefully distinguishes cytosolic glucose breakdown from what happens in mitochondria.",
+    "step": 3,
+    "reason": "Connect the breakdown products to mitochondria using the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the model to show pyruvate moving toward or being processed by mitochondria; the details are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuel molecules enter mitochondria, completing the first goal and opening the ATP and ion-pump goal.",
+    "reaction": "The retained cytosolic arrows make the connection between stages clear.",
+    "step": 4,
+    "reason": "Add oxygen as the only offered combination to advance mitochondrial ATP production.",
+    "choice": 1,
+    "expectation": "I expect oxygen to be used in mitochondrial respiration, though I don't know how much of the ATP-making process will be shown yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen receives electrons at the end of the mitochondrial pathway, forming water; ATP production is still the next step.",
+    "reaction": "The distinction between fuel supplying energy and oxygen receiving electrons is useful, though the pathway is abbreviated.",
+    "step": 5,
+    "reason": "Add ADP and phosphate to advance the ATP goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ATP to be made from ADP and phosphate, perhaps with a picture connecting it to mitochondrial respiration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADP and phosphate are shown remaking ATP using energy from fuel processing, with both cytosolic and mitochondrial contributions.",
+    "reaction": "The recycling arrows are clear, though the mitochondrial energy-transfer mechanism remains abbreviated.",
+    "step": 6,
+    "reason": "Add the ion pump to use ATP at the cell boundary; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ATP to power ion transport across the membrane, possibly showing sodium and potassium moving in opposite directions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed pump connects ATP recycling to sodium and potassium transport against their concentration differences, completing the chapter’s goals.",
+    "reaction": "The contrast with the earlier passive sodium channel makes the ATP expenditure meaningful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the ion pump connected ATP production to a concrete job at the membrane and contrasted active transport with the earlier channel.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting fuel to mitochondria was predictable, and the resulting picture did not add much detail beyond showing fuel entering.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The oxygen step clarified that oxygen receives electrons and becomes part of water, while fuel supplies the energy.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the link between mitochondrial respiration and ATP formation was abbreviated: the energy-transfer mechanism was not explained.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see more connections between cell structures and their functions, although the single-option sequence offered little meaningful choice.",
+        "steps": [
+          2,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

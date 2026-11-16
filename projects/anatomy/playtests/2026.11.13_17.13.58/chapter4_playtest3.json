@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The muscle-development signals are shown acting on developing cells and activating muscle genes, matching the first goal.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Signals for muscle development"
+    },
+    "expectation": "The cells should develop toward making muscle proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Signals for supporting cells"
+        },
+        "reason": "The other signals suggest a separate route toward supporting cells."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced young muscle cells that have active muscle genes but not yet the fibre bundles, so they may still need building blocks.",
+    "reaction": "The picture makes the unfinished muscle cells clear.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, and the young muscle cells have messages for muscle proteins.",
+    "choice": {
+      "combine": "Young muscle cells",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should use the building blocks to make muscle proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Signals for supporting cells"
+        },
+        "reason": "I could start the separate supporting-cell goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The building blocks helped the young muscle cells make protein bundles, completing the muscle-cell goal. The supporting-cell goal remains.",
+    "reaction": "The picture makes their progress toward muscle clear.",
+    "step": 3,
+    "reason": "The supporting-cell signals are shown acting on another group of developing cells, matching the remaining goal.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Signals for supporting cells"
+    },
+    "expectation": "The signals should guide some cells toward becoming supporting cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced young supporting cells with active support-protein genes, but they do not yet have a surrounding fibre network.",
+    "reaction": "This parallels the muscle-cell development I just saw.",
+    "step": 4,
+    "reason": "Amino acids are protein building blocks, and these cells have messages for support proteins.",
+    "choice": {
+      "combine": "Young supporting cells",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should make supporting protein fibres from the building blocks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells made fibres around themselves, completing the remaining goal. The result shows that cells with the same DNA and building blocks can make proteins for different jobs.",
+    "reaction": "The contrast between proteins inside muscle cells and fibres around supporting cells was interesting.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the supporting tissue was most worthwhile because it showed where the protein fibres end up and contrasted that with the muscle cells' bundles.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two signal-to-cell steps felt a little repetitive, although the parallel helped show that the same starting cells can develop in different directions.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the supporting cells released protein to make fibres around themselves, while the developing muscle cells kept their bundles inside.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt clearly arbitrary: the signals matched the cell types, and amino acids were presented as protein building blocks. The signals' detailed workings were not explained.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see how these different cells and their proteins become parts of organs, though this chapter's repeated pairings were fairly predictable.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments have knobs that match one lymphocyte's recognition proteins, so they are a clear starting point for the response.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will recognize the bacterial antigen, beginning its activation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching antigen activated a lymphocyte with help from nearby immune cells. The node's picture suggests it can now multiply there.",
+    "reaction": "The matching shapes make the selection clear.",
+    "step": 2,
+    "reason": "The lymph node is described as supporting an activated cell as it divides, so it is the next place to try.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The node produced antibody-making cells and memory cells, giving two possible routes toward the goals.",
+    "reaction": "It is useful to see that one activated cell can produce both kinds of descendants.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are protein building blocks, so I expect the cells can use them to make antibodies.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells will produce antibodies that bind the bacterial antigen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacteria, so I can try binding them to the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "The antibody tips fit the knobs shown on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will bind to the bacteria, making them easier for engulfing white blood cells to recognize.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing cells shown in the picture.",
+    "reaction": "The coated bacteria match the example shown for the engulfing cells.",
+    "step": 5,
+    "reason": "The engulfing white blood cell picture shows it binding to and surrounding an antibody-coated bacterium.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells will engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells broke down the antibody-coated bacteria, completing the clearance goal. The memory cells remain relevant to the later response.",
+    "reaction": "The pictures make it clear how the antibodies helped the cells target the bacteria.",
+    "step": 6,
+    "reason": "The memory lymphocytes and later bacteria match the remaining goal of responding to the same antigen again.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "The same bacteria, later"
+    },
+    "expectation": "The memory cells will recognize the returning bacteria and help produce a faster response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The later bacteria could not combine directly with the cells; the automatic combination placed the memory cells in the body instead.",
+    "reaction": "I was surprised the body had to retain the memory cells before the later encounter.",
+    "step": 7,
+    "reason": "The body now contains memory cells, and the remaining goal is a response to the same bacteria later.",
+    "choice": {
+      "combine": "Body retaining memory cells",
+      "with": "The same bacteria, later"
+    },
+    "expectation": "The retained memory cells will help the body respond faster to the returning bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The later encounter showed memory cells leading to an earlier, larger wave of antibody-producing cells, completing the remaining goal.",
+    "reaction": "The comparison made the faster response easier to understand.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and using matching antibodies was most worthwhile: the shapes showed how they bind bacteria and help white blood cells engulf them.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The attempt to combine memory cells directly with the later bacteria was confusing because I didn't know the cells first had to be retained in the body. The hint did the next operation automatically.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that one activated lymphocyte could produce both antibody-making cells and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Putting the memory cells into the body before the later encounter felt like an unexplained prerequisite, although the result showed that they persist there.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: following the matching shapes through clearance and then seeing the faster later response made the connections interesting.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

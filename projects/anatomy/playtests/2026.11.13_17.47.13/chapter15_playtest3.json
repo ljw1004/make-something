@@ -1,0 +1,154 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows that the fingerlike projections are villi, so the thin lining should cover them.",
+    "choice": {
+      "combine": "Thin intestinal lining",
+      "with": "Fingerlike intestinal folds"
+    },
+    "expectation": "The villi will gain a one-cell-thick absorbing lining.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Intestinal capillaries",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "Building the blood route is another visible goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The villi now have a thin covering, and the new goal is to bring it close to blood.",
+    "reaction": "The flattened comparison makes it clear how folds fit more surface into the intestine.",
+    "step": 2,
+    "reason": "The capillaries are shown looping inside a villus, so they should fit close to the folded lining.",
+    "choice": {
+      "combine": "Folded absorbing lining",
+      "with": "Intestinal capillaries"
+    },
+    "expectation": "The capillaries will lie close to the absorbing cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Intestinal capillaries",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "I could build the blood route first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary loops are now beneath the lining, but their outgoing route to the liver remains unfinished.",
+    "reaction": "The picture makes the next connection clear.",
+    "step": 3,
+    "reason": "The outlined outgoing vessels lead toward the liver, matching the vein from the intestine.",
+    "choice": {
+      "combine": "Lining with intestinal capillaries",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The intestinal capillaries will connect to the route leading to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The absorbing surface is complete, and the next goal is to follow nutrients across it.",
+    "reaction": "The short distance between the lining and capillaries helps explain absorption.",
+    "step": 4,
+    "reason": "The previous chapter said glucose can cross the intestinal lining, so I will follow it first.",
+    "choice": {
+      "combine": "Intestinal absorbing surface",
+      "with": "Meal glucose"
+    },
+    "expectation": "Glucose will cross the lining and enter the nearby blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Intestinal absorbing surface",
+          "with": "Meal amino acids"
+        },
+        "reason": "Amino acids are another digestion product to follow across the surface."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose crosses the lining into capillaries and reaches the liver before the wider circulation; amino acids still need to be followed.",
+    "reaction": "The picture makes the route through the tissue-fluid gap clear.",
+    "step": 5,
+    "reason": "Amino acids are the other digestion product named in the chapter, so I will try them with the same surface.",
+    "choice": {
+      "combine": "Intestinal absorbing surface",
+      "with": "Meal amino acids"
+    },
+    "expectation": "Amino acids will cross the lining and enter the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Intestinal capillaries",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "The separate blood-route goal also remains unfinished."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Amino acids also cross the lining into blood headed toward the liver; the separate blood-route goal remains.",
+    "reaction": "The two nutrient routes look similar.",
+    "step": 6,
+    "reason": "The capillaries and the vein are the remaining visible pieces for the blood route.",
+    "choice": {
+      "combine": "Intestinal capillaries",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The capillaries will connect to the vein leading to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary loops now connect through veins to the liver, completing the remaining goal.",
+    "reaction": "The route is clear, though I thought it had already been connected at step 3.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the folded lining and bringing capillaries close to it helped explain how a lot of surface fits into a small space and why nutrients have only a short distance to cross.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two nutrient crossings were quite similar, so following the second felt a little repetitive.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Glucose reaches the liver before entering the wider circulation; I had not expected that particular route.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate blood-route combination felt a little unclear: connecting the vein to the lining at step 3 seemed to show that route already, but the goal still needed step 6.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter if it builds on these connections. Seeing how the lining, blood and liver link up was interesting, even though some steps felt repetitive.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

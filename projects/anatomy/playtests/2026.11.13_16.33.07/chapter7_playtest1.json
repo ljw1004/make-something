@@ -1,0 +1,196 @@
+[
+  {
+    "step": 1,
+    "reason": "The introduction calls for a separate stem-cell branch leading to neural progenitors, and the induction environment acts on stem-cell descendants.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Neural-induction environment"
+    },
+    "expectation": "The signals should guide some descendants toward neural progenitors while retaining their DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The induction produced neural progenitors that can lead to neurons and supporting cells.",
+    "reaction": "The branching picture makes the next stage clearer.",
+    "step": 2,
+    "reason": "The differentiation signals are pictured acting on neural progenitors to start making neurons.",
+    "choice": {
+      "combine": "Neural progenitors",
+      "with": "Neuronal differentiation signals"
+    },
+    "expectation": "Some progenitors should develop toward neurons with the beginnings of cell processes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The progenitors have become neuron cell bodies with buds for dendrites and axons.",
+    "reaction": "The buds make it clear where the branches will fit.",
+    "step": 3,
+    "reason": "The dendrites are pictured with bases matching the cell-body stubs, and the goal calls for receiving branches.",
+    "choice": {
+      "combine": "Neuron cell bodies",
+      "with": "Dendrites"
+    },
+    "expectation": "The cell bodies should gain branching surfaces for receiving signals.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neuron cell bodies",
+          "with": "Axons and terminals"
+        },
+        "reason": "The axons also match the cell bodies and are needed for conducting signals."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell bodies now have receiving branches; they still need axons to meet the goal.",
+    "reaction": "The picture makes clear that the branches are part of each cell.",
+    "step": 4,
+    "reason": "The axons have ends matching cell bodies, and the goal calls for conducting axons.",
+    "choice": {
+      "combine": "Cell bodies with dendrites",
+      "with": "Axons and terminals"
+    },
+    "expectation": "The neurons should gain long axons and terminals for conducting signals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have both receiving branches and conducting axons, and the next goal is to connect and support them.",
+    "reaction": "The picture clarified that the signal is a change along the membrane, not a packet moving inside the axon.",
+    "step": 5,
+    "reason": "The excitatory contacts show an axon terminal passing a signal to a receiving cell, so they are a plausible way to connect the neurons.",
+    "choice": {
+      "combine": "Neurons",
+      "with": "Excitatory synaptic contacts"
+    },
+    "expectation": "The neurons should gain connections that can pass an excitatory signal between them.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neurons",
+          "with": "Astrocytes"
+        },
+        "reason": "Astrocytes could support the neurons, but connecting them first seems useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have excitatory connections, including two inputs converging on one receiving neuron.",
+    "reaction": "The small gaps make the connections clearer.",
+    "step": 6,
+    "reason": "The inhibitory contacts show how inhibition changes a receiving neuron's response to an excitatory input, so they seem useful for completing the network.",
+    "choice": {
+      "combine": "Neurons with excitatory connections",
+      "with": "Inhibitory synaptic contacts"
+    },
+    "expectation": "The network should gain inhibitory inputs alongside its excitatory connections.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neurons with excitatory connections",
+          "with": "Astrocytes"
+        },
+        "reason": "Astrocytes could provide support, but I want to add the other type of connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuit now has both excitatory and inhibitory inputs, showing how inhibition can keep a neuron from firing.",
+    "reaction": "The paired traces made the difference clear.",
+    "step": 7,
+    "reason": "Astrocytes are shown taking up potassium and released transmitter near synapses, so they seem relevant to supporting the circuit.",
+    "choice": {
+      "combine": "Neural circuits",
+      "with": "Astrocytes"
+    },
+    "expectation": "The circuits should gain astrocyte support around their connections.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neural circuits",
+          "with": "Oligodendrocytes"
+        },
+        "reason": "Their myelin sleeves also look useful for supporting the axons."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Astrocytes are now interwoven with the neural circuits; the remaining support and synapse-change work still appears unfinished.",
+    "reaction": "The result shows where the astrocytes fit, but does not add much about what they do.",
+    "step": 8,
+    "reason": "Oligodendrocytes are pictured forming sleeves around axons, so they seem like the next supporting cells to add.",
+    "choice": {
+      "combine": "Neural circuits with astrocytes",
+      "with": "Oligodendrocytes"
+    },
+    "expectation": "The circuits should gain myelin sleeves along their axons.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Neural circuits with astrocytes",
+          "with": "Repeated paired activity"
+        },
+        "reason": "The activity might change a connection, but adding the remaining supporting cells first seems useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neural tissue now includes both supporting cell types, with myelin on selected axon stretches. The remaining goal is to examine a synapse change.",
+    "reaction": "The uncovered gaps and terminals help show that myelin does not cover the entire neuron.",
+    "step": 9,
+    "reason": "Repeated paired activity is pictured at an existing connection, matching the goal of examining a change at one synapse.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Repeated paired activity"
+    },
+    "expectation": "Repeated activity should strengthen the highlighted connection, though I don't yet know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The highlighted synapse became more responsive to the same input by adding receptors; the neighboring connection and the size of travelling impulses stayed unchanged. The chapter goals are complete.",
+    "reaction": "I was surprised that one connection could change without making the travelling impulses bigger.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding inhibitory contacts was worthwhile because the paired voltage traces showed how inputs can combine to keep a neuron from firing.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding astrocytes felt less informative: the result showed where they fit but added little about what they do beyond the initial picture.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Repeated paired activity strengthened one synapse's local response without changing the size of travelling impulses.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt entirely arbitrary, though I followed the pictured paired-activity hint without knowing exactly how it would strengthen the connection.",
+        "steps": [
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would continue: seeing how inputs combine and how one connection can change made me curious about what neural circuits do next.",
+        "steps": [
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

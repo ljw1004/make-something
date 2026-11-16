@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The eye's optic nerve leads toward the brain, and the goal asks to place it in the head.",
+    "choice": {
+      "combine": "Eye with optic nerve",
+      "with": "Head and spine[]"
+    },
+    "expectation": "The eye will fit into the head with its nerve leading toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Upper digestive tract",
+          "with": "Colon"
+        },
+        "reason": "The small intestine ends beside the colon outline, so that connection is also clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is in the head and its optic nerve reaches the brain; the ears still need to be placed.",
+    "reaction": "The connection to the same brain is satisfying.",
+    "step": 2,
+    "reason": "The ears' established nerves lead toward the matching brain connections, so they belong in the head too.",
+    "choice": {
+      "combine": "Ears",
+      "with": "Head and spine[Eye with optic nerve]"
+    },
+    "expectation": "The ears will fit into the head with their hearing and balance nerves connected toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Upper digestive tract",
+          "with": "Colon"
+        },
+        "reason": "The small intestine and colon are also ready to join."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye and ears are now in the head, completing that goal; the gut and skin goals remain.",
+    "reaction": "It is clear how the ears connect to the same brain.",
+    "step": 3,
+    "reason": "The upper digestive tract ends beside the colon outline, matching the goal to join them.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "The small intestine and colon will join into a continuous digestive route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Repaired skin segment",
+          "with": "Skin covering[]"
+        },
+        "reason": "The segment also matches the opening in the skin covering."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small intestine now joins the colon, completing the gut goal; the repaired skin segment still needs fitting.",
+    "reaction": "The separate food and blood arrows make the connection clear.",
+    "step": 4,
+    "reason": "The repaired segment matches the opening in the skin covering.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment will fit into its original place in the covering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment fits its original opening, with its vessels and nerves joining the surrounding skin. All chapter goals are complete.",
+    "reaction": "It is satisfying that the small scar stays visible rather than becoming the whole skin covering.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the digestive tract was most worthwhile: the separate arrows showed how food stays in the tube while absorbed material crosses into blood.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the eye and ears was clear but mostly straightforward fitting, with little to figure out beyond their named destinations.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The repaired skin filled only a small opening, and its scar and connections remained visible. That made the scale of the earlier repair clearer.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and goals identified where the pieces belonged.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I might continue to see more connections between the parts, though this chapter was mostly predictable assembly rather than a challenging puzzle.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

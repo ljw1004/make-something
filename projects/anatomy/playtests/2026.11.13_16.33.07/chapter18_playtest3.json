@@ -1,0 +1,88 @@
+[
+  {
+    "step": 1,
+    "reason": "The microbes and food remainder are in the same colon, so combining them seems like a direct way to explore their interaction.",
+    "choice": {
+      "combine": "Resident gut microbes",
+      "with": "Wet food remainder"
+    },
+    "expectation": "The microbes will interact with some of the undigested material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microbes ferment some leftover fibre, producing fatty acids and gas. I can now look at how those contents interact with the colon.",
+    "reaction": "I was curious that bacteria can use fibre our own enzymes leave behind.",
+    "step": 2,
+    "reason": "The contents are in the colon, and the connected body includes the colon. I expect combining them to show what the body does with the remainder.",
+    "choice": {
+      "combine": "Fermenting colon contents",
+      "with": "Body with connected digestion"
+    },
+    "expectation": "The colon will interact with the fermenting contents, possibly recovering water or taking up some products.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fermenting colon contents",
+          "with": "Colon mucus"
+        },
+        "reason": "The mucus is also in the colon, but its role in this exchange is less clear to me."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colon takes up some microbial fatty acids, water and salts; the remaining mucus may show another part of the relationship.",
+    "reaction": "It was useful to see both microbial products and water moving into the body.",
+    "step": 3,
+    "reason": "Colon mucus belongs on the intestinal lining, so adding it to the body may show how it relates to the microbes.",
+    "choice": {
+      "combine": "Body with fermenting colon contents",
+      "with": "Colon mucus"
+    },
+    "expectation": "The mucus will line the colon and show how it interacts with the microbial community.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus layer separates most bacteria from the colon lining, while the colon recovers water and salts and its cells can use some microbial fatty acids. The goal is complete.",
+    "reaction": "It was useful to see how the mucus and microbial products fit into the same colon.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the microbes with the food remainder was most worthwhile: it showed that some bacteria can ferment fibre our own enzymes leave behind, producing fatty acids and gas.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the fermenting contents to the body was a little repetitive because the final picture showed many of the same exchanges again.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the colon's cells can use some fatty acids made by microbes from leftover fibre.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding mucus made sense because it belongs on the lining, though I did not know its relationship to the microbes until the result showed it separating most bacteria from the lining.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter because seeing how microbes and the body exchange materials made me curious about other connections.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

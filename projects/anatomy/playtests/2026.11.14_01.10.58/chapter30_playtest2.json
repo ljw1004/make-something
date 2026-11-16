@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named slot for the digestive tract, so this is a clear place to start.",
+    "choice": {
+      "combine": "Lower body",
+      "with": "Digestive tract"
+    },
+    "expectation": "The digestive tract will fit into the lower body below the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is fitted in the lower body; the urinary organs still need their named slot.",
+    "reaction": "The placement makes the gut's position in the abdomen clearer.",
+    "step": 2,
+    "reason": "The lower body has a named slot for the urinary organs, so I can complete that region next.",
+    "choice": {
+      "combine": "Lower body",
+      "with": "Urinary organs"
+    },
+    "expectation": "The kidneys, ureters and bladder will fit into the lower body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now has both the digestive tract and urinary organs, completing that goal.",
+    "reaction": "The separate digestive and urinary outlets make their positions clearer.",
+    "step": 3,
+    "reason": "The chest has a shoulder waiting for the studied arm, so their connection is clear.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm will attach to the chest at the waiting shoulder.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lymph drainage network",
+          "with": "Breathing apparatus"
+        },
+        "reason": "The lymph network also has a connection waiting at the chest."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest; the lymph network still needs its connection.",
+    "reaction": "The shoulder placement ties the arm to its blood and nerve routes.",
+    "step": 4,
+    "reason": "The chest description identifies a waiting neck-vein connection for the lymph network.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The lymph drainage network will connect to the chest at the neck vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is connected, completing the chest goal and revealing the next join.",
+    "reaction": "The shared neck-vein junction makes the connection clear.",
+    "step": 5,
+    "reason": "The new goal explicitly says to join the chest to the lower body.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lower body"
+    },
+    "expectation": "The chest and lower body will join at the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, and the new goal is to connect the head and spine.",
+    "reaction": "The diaphragm makes the division between chest and abdomen clear.",
+    "step": 6,
+    "reason": "The trunk has an open channel for the spine, matching the new goal.",
+    "choice": {
+      "combine": "Head and spine",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine will fit into the trunk and connect the head and nerves to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are joined to the trunk, leaving the skin covering as the final goal.",
+    "reaction": "Seeing nerves and blood routes reach the same muscles ties earlier chapters together.",
+    "step": 7,
+    "reason": "The new goal and chapter introduction say to fit the skin covering after joining the inside.",
+    "choice": {
+      "combine": "Body beneath the skin",
+      "with": "Skin covering"
+    },
+    "expectation": "The covering will fit around the assembled body, with the repaired segment in its matching place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body and all chapter goals; the cutaway keeps the assembled organs visible.",
+    "reaction": "The small scar and continuing cell replacement made the final model feel connected to earlier discoveries.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the head and spine to the trunk was most worthwhile: it showed how nerves and blood routes reach the same muscles, connecting several earlier ideas.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two named lower-body slots was clear but a little repetitive; the main decision was simply which organ to place first.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final view showed that skin and marrow keep making replacement cells, so assembly did not mean the body had stopped changing.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the order of the two lower-body fittings was a choice without an obvious biological consequence.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be curious to continue if another chapter explored how the assembled systems respond together, though this chapter's mostly directed placements were less engaging as puzzles.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane fats appear suited to forming the selective boundary around the cell fluid, so I’ll check what they can combine with.",
+    "choice": {
+      "inspect": "Membrane fats"
+    },
+    "expectation": "The compatibility list should show how to begin building the boundary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats",
+          "with": "Transport proteins"
+        },
+        "reason": "The channel proteins might fit into the fat membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and transport proteins formed the selective membrane; it still needs cell fluid inside.",
+    "reaction": "The channel picture makes the membrane’s selectivity clear.",
+    "step": 2,
+    "reason": "Water and mineral salts are plausible ingredients for the cell fluid named in the goal.",
+    "choice": {
+      "combine": "Water",
+      "with": "Mineral salts"
+    },
+    "expectation": "They should form a fluid containing dissolved salts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and mineral salts formed cell fluid, leaving the membrane ready to enclose it.",
+    "reaction": "The picture connects the salts with dissolved charged particles.",
+    "step": 3,
+    "reason": "The goal calls for enclosing the cell fluid within the selective boundary already built.",
+    "choice": {
+      "combine": "Selective cell membrane",
+      "with": "Cell fluid"
+    },
+    "expectation": "The membrane should enclose the cell fluid and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane enclosed the fluid, and the new model has slots for stored instructions and oxygen-using ATP machinery.",
+    "reaction": "The explanation makes the selective boundary’s purpose clearer.",
+    "step": 4,
+    "reason": "DNA contains the stored instructions and appears suited to the nuclear envelopes.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelopes"
+    },
+    "expectation": "The envelopes should enclose the DNA to form stored instructions for the cell model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "DNA and nuclear envelopes formed muscle nuclei, which appear to fill the model’s stored-instructions slot.",
+    "reaction": "The porous envelope makes the nuclei’s structure easy to picture.",
+    "step": 5,
+    "reason": "The muscle nuclei contain the stored DNA instructions requested by the model.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei should fit into the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle nuclei filled the stored-instructions slot; the ATP machinery slot remains.",
+    "reaction": "The copied strips passing through pores connect the stored DNA to instructions used elsewhere in the cell.",
+    "step": 6,
+    "reason": "Mitochondria are the available structures associated with oxygen-using ATP production.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria should fill the oxygen-using ATP machinery slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria filled the ATP machinery slot, and the next goal is to make pulling proteins and add their structures.",
+    "reaction": "The fuel-and-oxygen diagram helps explain the mitochondria’s role in supplying usable energy.",
+    "step": 7,
+    "reason": "The copied muscle-protein instructions and ribosomes appear to be the pieces needed to make the pulling proteins.",
+    "choice": {
+      "combine": "Ribosomes",
+      "with": "Copied muscle-protein instructions"
+    },
+    "expectation": "The ribosomes should use the copied instructions to make muscle pulling proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes and copied instructions produced pulling protein threads, which can now be added to the cell model.",
+    "reaction": "The picture clarifies that the ribosomes and RNA are reused while amino acids become part of the proteins.",
+    "step": 8,
+    "reason": "The goal calls for giving the muscle cells their pulling structures, and the threads appear to be those structures.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads should fit into the cell model as its pulling structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding the threads completed the muscle fibers. The picture shows that the filaments overlap more as the repeating unit shortens, while the filaments themselves keep their length.",
+    "reaction": "The distinction between the shortening unit and unchanged filament lengths was interesting.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the pulling threads was most worthwhile because it brought the cell parts together and showed how their arrangement supports shortening.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making cell fluid from water and salts was straightforward but less engaging than seeing how the later structures work.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I found it useful that ribosomes and RNA are reused while amino acids become part of the new proteins.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the goals and item descriptions generally made the combinations understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue, because building the fibers made me curious how they will be organized into tissues and contribute to a working body.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

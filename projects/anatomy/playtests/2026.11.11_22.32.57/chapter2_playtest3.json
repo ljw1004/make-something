@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal is to supply the muscle fibers, and sugar is described as their fuel.",
+    "choice": {
+      "combine": "Muscle fibers",
+      "with": "Food-derived sugar"
+    },
+    "expectation": "The sugar will supply fuel to the muscle fibers; oxygen may also be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sugar is broken into smaller fuel pieces in the cell fluid, producing some ATP; oxygen still appears needed for the supply goal.",
+    "reaction": "The picture makes the first stage of fuel processing clear.",
+    "step": 2,
+    "reason": "The goal calls for oxygen as well as fuel, and the processed fuel pieces move toward a mitochondrion.",
+    "choice": {
+      "combine": "Sugar-processing muscle fibers",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will help the muscle fibers use the processed fuel to support continued cellular work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completed the supply goal, and the ATP cycle shows how fuel energy supports repeated muscle work. The next goal is to collect and transmit the fibers’ pulls.",
+    "reaction": "The cycle helps connect the fuel supply to muscle work.",
+    "step": 3,
+    "reason": "The connective wrapping is pictured fitting around a group of muscle cells, so it should help collect their pulls.",
+    "choice": {
+      "combine": "ATP-supported muscle fibers",
+      "with": "Connective wrapping"
+    },
+    "expectation": "The wrapping will bundle the muscle fibers into a structure that can collect their pulls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping gathers the fibers into muscle bundles, with their pulls directed toward the ends; tendons are still needed.",
+    "reaction": "The arrows make the purpose of the wrapping clear.",
+    "step": 4,
+    "reason": "The tendon cords should transmit the bundled pulls, and the front tendons are available.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Front tendons"
+    },
+    "expectation": "The front tendons will attach to the muscle bundles to help transmit their pull.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle bundles",
+          "with": "Rear tendons"
+        },
+        "reason": "The rear tendons also appear suited to transmitting a pull."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons produced bending muscles; the tendon needs an attachment to move a joint. Rear tendons remain available for the second muscle group.",
+    "reaction": "The result makes the tendon's role clear, though the joint is still absent.",
+    "step": 5,
+    "reason": "The rear tendons appear to be the remaining parts needed to form the second muscle group.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Rear tendons"
+    },
+    "expectation": "The rear tendons will attach to muscle bundles to create the other muscle group.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed straightening muscles and completed the goal; both muscle groups now have tendons, though bones are still absent.",
+    "reaction": "The paired muscle groups make the outcome clear, but I am curious how they will move a joint.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the connective wrapping was most worthwhile: the picture connects individual cell pulls to a larger pull through the shared wrapping.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the second set of tendons felt predictable after the first, though it completed the pair of muscle groups.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The ATP cycle changed my understanding by showing that muscle work uses ATP while cells keep remaking it using fuel energy.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the pictures and goals gave each combination a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the two muscle groups attach to bones and move a joint, since the tendons are present but the bones are still absent.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

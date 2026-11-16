@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm afternoon sets up the heat response described in the chapter.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Warm afternoon"
+    },
+    "expectation": "The body will be shown responding to the warm surroundings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warming is sensed by the brain, so I can follow the response toward sweating.",
+    "reaction": "The skin-to-brain signal makes the next step clearer.",
+    "step": 2,
+    "reason": "Sweat glands are the visible part that can produce the sweat needed for cooling.",
+    "choice": {
+      "combine": "Warming sensed",
+      "with": "Sweat glands"
+    },
+    "expectation": "The warming signal will activate the sweat glands.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The compatibility feedback showed that warming first changes skin blood flow; more blood near the surface carries heat toward the skin.",
+    "reaction": "I was surprised the sweat glands were not the next step.",
+    "step": 3,
+    "reason": "The body is now warm at the skin, and the sweat glands are needed for the cooling goal. This is a guess based on their role.",
+    "choice": {
+      "combine": "Warm skin circulation",
+      "with": "Sweat glands"
+    },
+    "expectation": "The glands will produce sweat on the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sweat has reached the skin; it still needs to evaporate to carry heat away.",
+    "reaction": "The distinction between sweating and evaporation is clear.",
+    "step": 4,
+    "reason": "Air at the skin shows water molecules lifting away, matching the evaporation goal.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat will evaporate and carry heat away from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation carried heat away, and the new goal shifts to the cold response.",
+    "reaction": "The fading sweat signal shows the response changing as temperature returns toward its earlier range.",
+    "step": 5,
+    "reason": "The cold evening is the named change that starts the next response.",
+    "choice": {
+      "combine": "Cooling body",
+      "with": "Cold evening"
+    },
+    "expectation": "The body will sense the colder surroundings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cooling skin signals the brain, and sweating decreases; the cold response still needs to conserve and make heat.",
+    "reaction": "It makes sense that less sweat appears in the cold.",
+    "step": 6,
+    "reason": "Skin vessels changed blood flow in the warm response, so I expect them to help conserve heat now.",
+    "choice": {
+      "combine": "Cold sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "Skin vessels will narrow, reducing blood flow near the surface and heat loss.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold sensed",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle could help make heat, but I expect the vessel response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrower skin vessels reduce heat loss but do not make heat, so the muscle response remains.",
+    "reaction": "The distinction between conserving heat and making it is useful.",
+    "step": 7,
+    "reason": "Skeletal muscle is the remaining visible part that could make heat, probably by shivering.",
+    "choice": {
+      "combine": "Cold skin circulation",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscles will shiver and produce heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle response completed the cold goal: repeated contractions use energy and produce heat, while narrowed vessels reduce heat loss.",
+    "reaction": "It was useful to see heat production and conservation as different responses.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the cold vessel response with shivering was most worthwhile: one reduces heat loss, while the other makes heat.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Starting the warm and cold sequences by combining the body with the weather felt fairly predictable, though it made the change in conditions clear.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected warming to lead straight to the sweat glands, but the compatibility hint first directed me to skin vessels and showed increased blood flow near the surface.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The required vessel step before sweating was not obvious to me. The result explained its role, but not why it had to come first in this sequence.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter: connecting familiar responses like sweating and shivering to heat movement was interesting, even if some steps were predictable.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

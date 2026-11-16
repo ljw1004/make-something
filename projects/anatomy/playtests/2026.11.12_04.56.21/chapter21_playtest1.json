@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus layer belongs on the ciliated airway lining and can help catch inhaled material.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Ciliated airway lining"
+    },
+    "expectation": "This should create a mucus-covered airway lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining is ready to trap inhaled material, so I will add the particles and bacteria.",
+    "reaction": "The explanation makes the mucus and cilia's complementary roles clear.",
+    "step": 2,
+    "reason": "The mucus-covered lining should encounter the inhaled particles and bacteria.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The mucus should trap some of the inhaled material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus trapped some particles and bacteria, while a few continued toward the air sacs. The trapped material can now be moved by the cilia.",
+    "reaction": "The few particles getting through make the lung macrophages' role more interesting.",
+    "step": 3,
+    "reason": "The beating cilia should move the particle-bearing mucus toward the throat.",
+    "choice": {
+      "combine": "Airway lining with trapped particles",
+      "with": "Beating airway cilia"
+    },
+    "expectation": "The cilia should sweep trapped material toward the throat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia moved trapped material toward the throat. Lung macrophages may deal with the bacteria that got farther in.",
+    "reaction": "The coordinated cilia make the clearance mechanism easy to picture.",
+    "step": 4,
+    "reason": "The macrophages appear suited to dealing with material that reached the air sacs.",
+    "choice": {
+      "combine": "Airway lining moving mucus",
+      "with": "Lung macrophages"
+    },
+    "expectation": "This should add the macrophages' response to the airway defense.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining had to be connected to the body first. A few microbes still reach an air sac, where the macrophages may act.",
+    "reaction": "The automatic combination clarified the next step after my incorrect guess.",
+    "step": 5,
+    "reason": "The remaining lung macrophages can encounter the microbes that reached the air sac.",
+    "choice": {
+      "combine": "Body moving airway mucus toward the throat",
+      "with": "Lung macrophages"
+    },
+    "expectation": "The macrophages should engulf some microbes that reach the lung.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The macrophages completed the airway defense by engulfing a microbe that reached an air sac. The result also makes clear that these defenses do not catch every microbe.",
+    "reaction": "It was satisfying to see the two defenses work at different points along the airway.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding inhaled particles to the lining and then moving the mucus made the defense easy to follow: mucus traps some material and cilia carry it toward the throat.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the moving lining to the body felt like an assembly step without much new explanation, although it placed the defense in the whole body.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Some microbes continued toward the air sacs despite the mucus, giving the macrophages a distinct role.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "I did not expect the lining to need connecting to the body before adding macrophages. The compatibility feedback resolved the step, but the required order was not clear to me.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter if it explored a new relationship as clearly as the mucus and macrophage defenses, though repeated assembly steps could become less engaging.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

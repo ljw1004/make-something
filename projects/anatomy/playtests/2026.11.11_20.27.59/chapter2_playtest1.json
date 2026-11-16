@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a cell boundary, and membrane fats and transport proteins seem like its components.",
+    "choice": 1,
+    "expectation": "I expect them to form a cell membrane, though I don't know what the game will call it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Water and salts seem likely to make the internal fluid, but I chose to build the boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane provides a boundary with controlled routes for supplies, so I will make the internal fluid next.",
+    "reaction": "The explanation of why the boundary cannot be completely sealed was useful.",
+    "step": 2,
+    "reason": "Water and dissolved salts appear to make the fluid needed for the current goal.",
+    "choice": 1,
+    "expectation": "I expect an internal cell fluid to form, though I am unsure what the game will call it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes seem relevant to the cell, but the current goal calls for internal fluid."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell fluid completes the boundary and fluid goal, so I can start assembling the muscle-cell model.",
+    "reaction": "The explanation that the watery interior supports reactions was useful.",
+    "step": 3,
+    "reason": "Combining the membrane and fluid seems like a practical way to form the cell's basic structure.",
+    "choice": 1,
+    "expectation": "I expect a basic cell model with its fluid enclosed by the membrane, though it may still need other parts.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes could make nuclei for the model, but I chose to assemble the basic cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane and fluid form a muscle-cell model with three named slots, so I can equip it with the missing machinery.",
+    "reaction": "The empty slots make the next parts of the task clear.",
+    "step": 4,
+    "reason": "DNA and nuclear envelopes seem likely to provide the stored instructions needed by the model.",
+    "choice": 1,
+    "expectation": "I expect them to form nuclei that can supply the stored instructions, though the game may require another step to fit them.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes appear to fit the protein-builder slot, but I chose to prepare the stored instructions first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei provide DNA instructions for making proteins, so they appear to fill the model's stored-instructions slot.",
+    "reaction": "The distinction between stored instructions and a conscious command center was useful.",
+    "step": 5,
+    "reason": "The nuclei seem to match the stored-instructions slot in the muscle-cell model.",
+    "choice": 1,
+    "expectation": "I expect the nuclei to fill that slot, leaving the protein builders and energy machinery to add.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes appear to fit the protein-builder slot, but I chose to add the nuclei I just made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei are fitted, and copies of selected instructions can reach the protein-building machinery, so adding ribosomes is a logical next step.",
+    "reaction": "The distinction between storing and using instructions was helpful.",
+    "step": 6,
+    "reason": "Ribosomes appear to fill the protein-builders slot and use the instructions described in the result.",
+    "choice": 1,
+    "expectation": "I expect the ribosomes to fit into the model as protein builders, leaving the energy machinery to add.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mitochondria appear to fit the energy machinery slot, but I chose to add the protein builders first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are fitted and use copied instructions to assemble proteins, leaving the energy machinery slot to fill.",
+    "reaction": "The connection between instructions and building proteins was clear.",
+    "step": 7,
+    "reason": "Mitochondria appear to fill the remaining energy machinery slot; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the mitochondria to fit into the model as its aerobic energy machinery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria complete the cell's listed machinery, but they still need fuel; the next goal is to add structures that produce force.",
+    "reaction": "The distinction between adding mitochondria and supplying fuel was useful.",
+    "step": 8,
+    "reason": "Contractile threads appear to match the new force-producing goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the threads to become part of the muscle-cell model and give it a way to produce force.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contractile threads completed the muscle fibers and connected their force-producing role to the cell parts that maintain and supply them.",
+    "reaction": "It was satisfying to see the parts come together, though the model still leaves me curious about how supplies reach the cells.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding ribosomes was most worthwhile because it connected stored instructions to making proteins that serve as cell structures and machinery.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the final machinery felt somewhat routine because the named slot and the only compatible combination made the choice obvious.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I found it useful that mitochondria help replenish ATP but still need fuel, and that some ATP is made elsewhere in the cell.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary; the named slots and explanations gave the fittings a purpose, although the compatible-partner menu guided the choices.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter to see how the muscle fibers receive supplies and contribute to moving the arm. The connections so far were clear, even if some choices felt routine.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

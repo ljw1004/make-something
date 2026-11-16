@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the membrane boundary, since the chapter describes it as the cell's starting structure.",
+    "choice": 1,
+    "expectation": "I expect the fats to form a membrane around water, though I'm not sure exactly how.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Enclosing DNA also directly serves a goal, but I want to build the cell boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats formed a closed bag with water inside, giving me a boundary where I can fit transport proteins.",
+    "reaction": "The picture of the heads facing water and tails meeting inside the wall helped make the membrane clearer.",
+    "step": 2,
+    "reason": "I'll add the water channel to give water a route through the boundary, as the goal asks.",
+    "choice": 2,
+    "expectation": "I expect the protein to fit across the membrane and provide a pore for water.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The sugar carrier also serves the boundary goal, but I'll add the water route first."
+      },
+      {
+        "choice": 1,
+        "reason": "Enclosing DNA is another goal, but I want to work on the boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted, so I can add the sugar route next.",
+    "reaction": "That worked as expected.",
+    "step": 3,
+    "reason": "The sugar carrier should complete the two routes requested for the boundary.",
+    "choice": 2,
+    "expectation": "I expect the carrier to fit into the membrane and provide a route for sugar.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Enclosing DNA is also a goal, but I want to finish the boundary routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both transport routes are fitted, completing the boundary goal; enclosing DNA remains.",
+    "reaction": "The result was straightforward and expected.",
+    "step": 4,
+    "reason": "DNA and the nuclear envelope are the only available pairing, and they match the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the envelope to enclose the DNA and form a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is enclosed in a nucleus, and the new goal is to place it inside the cell boundary.",
+    "reaction": "The RNA leaving through a pore is interesting, though its purpose isn't explained yet.",
+    "step": 5,
+    "reason": "The only offered combination matches the new goal: putting the nucleus inside the membrane bag.",
+    "choice": 1,
+    "expectation": "I expect the nucleus to sit inside the bag, separate from its outer membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is now inside the membrane bag, completing the chapter’s goals.",
+    "reaction": "Putting the nucleus inside the boundary was a straightforward finish.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane bag was most worthwhile: the picture helped me understand how the fats form a boundary between water inside and outside.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two transport proteins felt repetitive because both results were brief and expected.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The nucleus picture showed RNA leaving through a pore, which made me curious, although its purpose wasn’t explained yet.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the pairings matched the stated goals. The RNA detail’s purpose was still unclear.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I’d probably continue to see what the RNA does and how more cell parts fit together, though the fittings so far were fairly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

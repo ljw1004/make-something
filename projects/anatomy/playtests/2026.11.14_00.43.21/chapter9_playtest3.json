@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the lung route: the labels show blood leaving the right side of the heart for the lungs.",
+    "choice": 1,
+    "expectation": "I expect the right heart to connect to the lung vessels, with the return end still available for the left heart.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The heart's own blood supply is interesting too, but I want to follow the lung route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route is connected to the right heart, with openings still available for the body and left heart.",
+    "reaction": "The labeled open ends make the next connections clear.",
+    "step": 2,
+    "reason": "I'll build the body route next; the left heart's outlet is labeled for the body.",
+    "choice": 1,
+    "expectation": "I expect the left heart to connect to the body vessels, leaving ends to join with the lung route.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The heart muscle also needs its own supply, but I want to finish the two main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left heart now connects to the body route, with labeled openings matching the right-heart and lung route.",
+    "reaction": "The matching labels make it easy to see how the two routes could join.",
+    "step": 3,
+    "reason": "I'll join the two main routes to connect the flow through the lungs and body.",
+    "choice": 2,
+    "expectation": "I expect the lung return to connect to the left heart and the body return to connect to the right heart.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The heart muscle needs its own supply too, but I want to connect the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two routes now form a continuous loop through both heart halves, while the heart muscle's own supply remains to be built.",
+    "reaction": "The full-lap arrows clearly show why blood passes through the heart twice.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it builds the remaining heart-muscle vessel network.",
+    "choice": 1,
+    "expectation": "I expect the arteries to connect to the capillaries and veins, creating a route through the heart muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle has its own vessel network, with labeled ends ready to connect to the main circulation.",
+    "reaction": "The labels make its supply and return route clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it connects the heart-muscle vessels to the heart and its two routes.",
+    "choice": 1,
+    "expectation": "I expect the network to connect from the body's main artery back to the right heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final connection shows how the heart muscle gets blood from a branch of the main artery and returns it to the right heart.",
+    "reaction": "It was satisfying to see that the pump needs its own delivery route too.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the two main routes was most worthwhile: the arrows showed a full lap passing through the heart twice.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two separate routes felt a little repetitive, though the labels made their purposes clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't thought about the heart muscle needing its own blood vessels, separate from the blood in its chambers.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the labeled openings explained the connections, even when only one combination was offered.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd be curious to see how the lungs add oxygen to the blood, since this chapter showed the route but not the air sacs.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

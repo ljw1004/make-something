@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways end beside the sacs, so joining them should establish the air route described in the goal.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Lung air sacs"
+    },
+    "expectation": "The airways will connect to the sacs, creating a route for air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airways and sacs form a route with an empty exchange-surface slot, so the thin lining is the next fitting to try.",
+    "reaction": "The equal-volume comparison makes the advantage of many small sacs clear.",
+    "step": 2,
+    "reason": "The thin exchange lining forms the air-facing side of the sac wall and matches the empty slot.",
+    "choice": {
+      "combine": "Thin exchange lining",
+      "with": "Lung air route"
+    },
+    "expectation": "The lining will fit into the exchange-surface slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining first joins the capillary mesh to make the exchange surface; that surface should fit the lung route’s empty slot.",
+    "reaction": "I was surprised the two layers had to be assembled before fitting them.",
+    "step": 3,
+    "reason": "The newly made exchange surface matches the lung air route’s named empty slot.",
+    "choice": {
+      "combine": "Exchange surface",
+      "with": "Lung air route"
+    },
+    "expectation": "The exchange surface will fit onto the air route at the sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exchange surface now connects the air route to capillaries, and the next goal is to renew the air using the chest.",
+    "reaction": "The separate air and blood spaces make the gas exchange easier to picture.",
+    "step": 4,
+    "reason": "The pleural membranes have lung and chest sides, so they appear to connect the lung route to the moving chest.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Lung air route"
+    },
+    "expectation": "The membranes will attach to the lungs and provide a connection for the breathing chest.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pleural membranes",
+          "with": "Breathing chest"
+        },
+        "reason": "The membranes could instead attach to the chest first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural membranes joined the breathing chest first, forming a chest ready to couple with the lung air route.",
+    "reaction": "The result clarified which side to assemble first.",
+    "step": 5,
+    "reason": "The coupled chest and lung route are the remaining parts needed to renew air in the lungs.",
+    "choice": {
+      "combine": "Chest coupled by pleura",
+      "with": "Lung air route"
+    },
+    "expectation": "The chest will connect to the lungs so its movement can renew their air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lungs now form a breathing system; the remaining goal is to connect oxygen uptake to circulation.",
+    "reaction": "The pressure comparison clearly explains how chest movement draws air in.",
+    "step": 6,
+    "reason": "The vessel circuit can carry oxygen from the breathing lungs to the body.",
+    "choice": {
+      "combine": "Breathing lungs",
+      "with": "Connected vessel circuit"
+    },
+    "expectation": "The lungs will connect to the blood circuit so oxygen can be carried to working tissues.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs and circulation now form a complete route for carrying oxygen to tissues and returning carbon dioxide.",
+    "reaction": "The full circuit helped connect breathing to work in distant cells.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the chest to the lungs was most worthwhile: the pressure comparison explains how chest movement draws air in.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The required assembly order for the lining and capillary mesh was initially unclear; fitting the lining directly into the named slot seemed plausible.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the lining and capillary mesh had to be joined before the exchange surface could be fitted to the air route.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Attaching the pleural membranes to the chest first felt somewhat arbitrary because their description showed a lung side as well as a chest side. The compatibility feedback made the required order clear.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the pressure explanation and final circulation diagram made me curious how the remaining body systems connect to cellular work.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal starts with glucose after a meal, and the pancreatic cells are shown beside blood vessels, so they seem like a sensible place to follow the response.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will respond to the glucose-rich blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal's glucose is now shown in the whole body; the pancreatic response appears to come later.",
+    "reaction": "I expected the sensing cells to respond directly, so the required body step was a little surprising.",
+    "step": 2,
+    "reason": "The body now has rising blood glucose, and the pancreatic cells are positioned to sense it.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will respond to rising blood glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic cells release insulin into blood, with routes toward muscle and liver.",
+    "reaction": "The marked routes make the next connection clearer.",
+    "step": 3,
+    "reason": "The insulin route points toward muscle, which is available as a separate closeup.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will signal the muscle to take up glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle take up glucose, and the next goal is to keep glucose available between meals.",
+    "reaction": "It is clear how the response helps lower the rise after eating.",
+    "step": 4,
+    "reason": "The clock represents the time when incoming glucose decreases, matching the new goal.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body will move to a between-meals state as its cells continue using glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen between meals, while the liver still has stored glycogen.",
+    "reaction": "The picture makes the stored fuel relevant to the new goal.",
+    "step": 5,
+    "reason": "The pancreatic sensing cells responded to rising glucose, so I expect them to detect the fall too.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreas will respond to the falling blood glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with falling blood glucose",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver could release stored glucose, but a sensing step may come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower blood glucose led pancreatic alpha cells to release glucagon, which travels toward the liver.",
+    "reaction": "The marked route makes the liver connection clear.",
+    "step": 6,
+    "reason": "The glucagon route points to the liver, and the earlier liver chapter showed glycogen being broken down to release glucose.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will signal the liver to release glucose from its stored glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen, and glucagon release decreased as blood glucose rose. Both chapter goals are complete.",
+    "reaction": "The before-and-after sequence made the feedback response clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting glucagon to the liver was most worthwhile: it showed how stored glycogen helps keep glucose available between meals and how the response eases afterward.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting meal glucose into the whole body first felt less worthwhile because I expected the sensing cells to respond directly.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the first attempt needed the body as an intermediate; compatibility feedback completed that step automatically.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial body prerequisite was not obvious to me, though the feedback showed what to do. The later muscle and liver connections had clearer purposes.",
+        "steps": [
+          1,
+          3,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: comparing the after-meal and between-meal responses made the connections between organs understandable, though the intermediate body step was less clear.",
+        "steps": [
+          1,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

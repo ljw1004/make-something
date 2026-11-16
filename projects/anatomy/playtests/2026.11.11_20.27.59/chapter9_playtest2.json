@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The scrape is the only available combination, and placing it on the body should set up the response to the injury.",
+    "choice": 1,
+    "expectation": "I expect a scraped body model and a way to begin limiting the leak.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The scrape breaks the barrier and damages tiny vessels, so platelets seem like the next step toward limiting the leak.",
+    "reaction": "The distinction between the body's own response and an outside treatment was helpful.",
+    "step": 2,
+    "reason": "Platelets are the only offered combination and seem relevant to stopping the leak.",
+    "choice": 1,
+    "expectation": "I expect the platelets to gather at the damaged vessels and begin forming a plug, though clotting proteins may also be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug limits the leak but does not replace the missing skin; clotting proteins appear to be the next step.",
+    "reaction": "The distinction between plugging the vessel and rebuilding skin is clear and useful.",
+    "step": 3,
+    "reason": "Clotting proteins are the only offered combination and may help secure the plug.",
+    "choice": 1,
+    "expectation": "I expect the clotting proteins to strengthen the plug and further limit bleeding, though the skin will still need repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibrin mesh reinforces the platelet plug, and the next goal is to prepare the site for rebuilding.",
+    "reaction": "The distinction between a temporary seal and a rebuilt living barrier is clear.",
+    "step": 4,
+    "reason": "Cleanup cells are the only offered combination and seem suited to preparing the damaged site.",
+    "choice": 1,
+    "expectation": "I expect the cleanup cells to remove damaged material and help prepare the area for repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleanup cells prepare the site by dealing with debris and microbes and influencing repair; the chapter ends before the damaged tissue is rebuilt.",
+    "reaction": "I was curious about the rebuilding itself, so ending at preparation felt slightly abrupt.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding clotting proteins was most worthwhile because the fibrin mesh connected the platelet plug to a stronger temporary seal while making clear that sealing is not rebuilding.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Applying the scrape was the least engaging step: it set up the situation but was the only available combination.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The cleanup cells both deal with debris and microbes and send signals that influence repair; defense and rebuilding can overlap.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary, although each decision offered only one combination, so I was following the available path rather than choosing between approaches.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because I want to see how the living skin barrier is rebuilt after the temporary seal and cleanup.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

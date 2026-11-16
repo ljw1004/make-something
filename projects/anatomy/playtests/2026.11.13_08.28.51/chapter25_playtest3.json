@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell can encounter the bacteria and display a fragment for a matching helper T cell.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will take up bacterial material and display a fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger has taken up bacterial material and reached a lymph node displaying a fragment; most bacteria remain in the airway.",
+    "reaction": "The linked airway-to-node journey makes the connection clear.",
+    "step": 2,
+    "reason": "The displayed fragment and matching helper T cell suggest an interaction at the lymph node.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The messenger will interact with a matching helper T cell in the node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger activated matching helper T cells at the lymph node, producing a group of helper cells.",
+    "reaction": "The automatic inclusion of helper T cells made the node interaction clear.",
+    "step": 3,
+    "reason": "The activated helper cells and matching B cells are likely to interact in the lymph node to begin the antibody response.",
+    "choice": {
+      "combine": "Activated helper T cells",
+      "with": "Lymph node"
+    },
+    "expectation": "Matching B cells will receive helper signals and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated helper T cells have no available combination yet, so the B cells may need another step first.",
+    "reaction": "I was surprised the helper cells could not yet interact.",
+    "step": 4,
+    "reason": "Inspecting the B cells should reveal how to prepare them for the antibody response.",
+    "choice": {
+      "inspect": "B cells"
+    },
+    "expectation": "The compatibility report will show what the B cells can interact with next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell bound bacterial protein and now displays a fragment, preparing it for helper-cell interaction.",
+    "reaction": "The inspection resolved the earlier blockage and automatically performed the next step.",
+    "step": 5,
+    "reason": "The fragment-displaying B cell should now be able to receive help from the activated T cells in the lymph node.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The activated helper T cells will participate and help activate the matching B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell received signals from an activated helper T cell in the lymph node.",
+    "reaction": "The result clarified why the B cell needed to display a fragment first.",
+    "step": 6,
+    "reason": "Inspecting the helped B cells should reveal how they proceed toward antibody production or memory.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The compatibility report will show their next available interaction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cell multiplied and produced antibody-secreting plasma cells and memory B cells in the lymph node.",
+    "reaction": "The branching sequence makes the two outcomes clear.",
+    "step": 7,
+    "reason": "The antibody-making cells should be able to act on the matching airway bacteria.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Antibodies will bind to and mark the matching bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Matching antibodies tagged the bacteria, completing the first goal; immune memory remains to be incorporated into the body.",
+    "reaction": "The distinction between tagging bacteria and eliminating every one is useful.",
+    "step": 8,
+    "reason": "The antibody-making and memory B cells include the memory cells needed for the remaining goal, so I will connect them to the body.",
+    "choice": {
+      "combine": "Protected body model",
+      "with": "Antibody-making and memory B cells"
+    },
+    "expectation": "The body model will retain memory B cells that can respond to a later encounter.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The body now retains memory B cells, completing the remaining goal; the result also clarifies that memory does not guarantee lasting or complete protection.",
+    "reaction": "The distinction between immune memory and guaranteed protection was useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The B-cell sequence was most worthwhile: binding bacterial protein, receiving helper signals and branching into plasma and memory cells connected specificity to two different outcomes.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The attempt to use activated helper T cells at the node was confusing because they had no available operation until the B cell was prepared.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the B cell first had to bind bacterial protein and display a fragment before receiving help; inspecting it exposed that missing step.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate step of connecting memory cells to the whole body felt somewhat administrative: the memory cells had already appeared in the node, although the final result explained their significance.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: tracing the matching cells through an encounter was engaging, especially where the descriptions distinguished antibody tagging from eliminating every bacterium.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

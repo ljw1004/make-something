@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The mitochondria are shown in cell fluid, and putting them inside is part of the first goal.",
+    "choice": {
+      "combine": "Mitochondria",
+      "with": "Cell"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose",
+          "with": "Cell"
+        },
+        "reason": "The glucose also needs to enter the cell and matches its sugar carrier."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are now inside the cell; glucose still needs to enter.",
+    "reaction": "The cutaway makes their placement clear.",
+    "step": 2,
+    "reason": "Glucose matches the cell's sugar carrier, and the goal calls for it inside.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Cell"
+    },
+    "expectation": "Glucose will enter the cell through its sugar carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is inside, completing that goal and revealing the goal of using oxygen to supply ATP.",
+    "reaction": "The sequence makes the sugar carrier's job clear.",
+    "step": 3,
+    "reason": "The chapter says oxygen helps respiration supply ATP, and the picture shows it crossing into the cell.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Cell"
+    },
+    "expectation": "Oxygen will enter the cell and help supply ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen helped produce ATP, completing that goal; the pump and protein-building machinery still need attention.",
+    "reaction": "The diagram connects food and oxygen to usable cell energy.",
+    "step": 4,
+    "reason": "The pump is pictured spanning the membrane, and fitting it is a current goal.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell"
+    },
+    "expectation": "The pump will be fitted across the cell boundary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "The amino acids match the pieces the ribosome uses to build proteins."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, but its ATP site is empty; the cell still needs to be put to work and the protein-building machinery prepared.",
+    "reaction": "The empty ATP site makes it clear the pump is not working yet.",
+    "step": 5,
+    "reason": "The amino acids are pictured as the pieces the ribosome uses to build a protein, so this pair may prepare the machinery.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids will join the ribosome's protein-building machinery.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "ATP",
+          "with": "Cell"
+        },
+        "reason": "ATP may power the fitted pump, but the protein-building machinery also needs preparing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome and amino acids are assembled, completing preparation and revealing that the protein builder needs to go inside the cell.",
+    "reaction": "The locator makes its next placement clear.",
+    "step": 6,
+    "reason": "The new goal and picture both point to putting the assembled protein builder in the cell fluid.",
+    "choice": {
+      "combine": "Ribosome with RNA and amino acids",
+      "with": "Cell"
+    },
+    "expectation": "The protein-building assembly will be placed inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "ATP",
+          "with": "Cell"
+        },
+        "reason": "ATP may power the pump, but the newly assembled protein builder also needs to go inside."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein-building assembly is inside the cell, completing its placement goal. The cell still needs to be put to work.",
+    "reaction": "The inset helps connect the RNA message to the DNA instruction.",
+    "step": 7,
+    "reason": "ATP is available, and the pump has an empty ATP-binding site. The chapter also says ATP supports protein construction.",
+    "choice": {
+      "combine": "ATP",
+      "with": "Cell"
+    },
+    "expectation": "ATP will help put the assembled cell to work, including its pump and protein builder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP put the assembled cell to work, supporting both protein construction and the membrane pump; all goals are complete.",
+    "reaction": "It was satisfying to see the separate pieces working together in one cell.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using ATP on the assembled cell was most worthwhile because it connected the energy supply to two different jobs: building proteins and moving particles.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the prepared protein builder inside was clear but felt mostly like following the newly revealed placement goal.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that the same ATP supply supports both protein building and the pump, which moves particles toward the more crowded side.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and goals made the pairings understandable, even when the detailed mechanisms were not explained.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the cell's parts come together made me curious how the game would build up to tissues and organs.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "step": 1,
+    "reason": "The eye's optic nerve leads toward the brain, so it belongs in the head assembly.",
+    "choice": {
+      "combine": "Eye with optic nerve",
+      "with": "Head and spine[]"
+    },
+    "expectation": "The eye will be placed in the head with its nerve leading toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is in the head and its optic nerve reaches the brain. The ears are still needed for the head goal.",
+    "reaction": "It is satisfying to see the eye connected to the same brain.",
+    "step": 2,
+    "reason": "The ears belong on the head, and their established nerves lead to the brain.",
+    "choice": {
+      "combine": "Ears",
+      "with": "Head and spine[Eye with optic nerve]"
+    },
+    "expectation": "The ears will fit into the head with their hearing and balance nerve connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head goal is complete, with the ears connected to the brain. The other regions still need preparation.",
+    "reaction": "It is clear how the hearing and balance parts fit without adding a second inner ear.",
+    "step": 3,
+    "reason": "The small intestine ends beside the colon outline, so these two parts should form the digestive tract.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "The colon will join the end of the upper digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The upper digestive tract and colon now form a continuous digestive tract, ready for the lower body.",
+    "reaction": "The distinction between food in the tube and absorbed material reaching blood is clear.",
+    "step": 4,
+    "reason": "The lower body has a named slot for the digestive tract.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract will fit into the lower body, leaving the urinary-organ slot open.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is installed in the lower body, and the urinary organs still need their slot.",
+    "reaction": "The placement makes the gut's position and liver connection easier to picture.",
+    "step": 5,
+    "reason": "The lower body has a named slot for the urinary organs.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder will fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, with separate outlets.",
+    "reaction": "Their positions and separate routes are clear.",
+    "step": 6,
+    "reason": "The arm assembly belongs at the chest, and the chapter says to prepare each region before joining them.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The arm will attach to the chest while keeping its existing bones and muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest, with its vessels and nerves meeting the shoulder routes. The lymph network still needs to be added to this region.",
+    "reaction": "The shoulder connections make the arm feel like part of the same model.",
+    "step": 7,
+    "reason": "The goal calls for the lymph vessels at the chest, and the network returns fluid to a vein near the neck.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly]"
+    },
+    "expectation": "The lymph network will connect to the chest region and its vein route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is aligned with the chest's existing vein, completing both regional preparations.",
+    "reaction": "The shared vein connection makes sense without adding a duplicate.",
+    "step": 8,
+    "reason": "The repaired segment matches the opening in the skin covering, and the skin can be prepared before fitting it last.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment will fit into its matching opening in the skin covering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment now fills its matching skin opening, and the next goal is to join the chest and lower body.",
+    "reaction": "It is satisfying that the scar stays in its original location.",
+    "step": 9,
+    "reason": "Both regions are prepared, and the new goal explicitly asks to join them.",
+    "choice": {
+      "combine": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly,Lymph drainage network]",
+      "with": "Lower body[Digestive tract,Urinary organs]"
+    },
+    "expectation": "The chest and lower body will join at the boundary below the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, and the open channel shows where the spine belongs.",
+    "reaction": "The diaphragm makes the division between chest and abdomen clear.",
+    "step": 10,
+    "reason": "The new goal and open back channel point to joining the head and spine to the trunk.",
+    "choice": {
+      "combine": "Head and spine[Eye with optic nerve,Ears]",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine will fit into the back channel, connecting the head and nerves to the trunk.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are connected to the trunk, leaving the skin covering as the final goal.",
+    "reaction": "Seeing nerves and blood routes reach the same muscles brings the earlier chapters together.",
+    "step": 11,
+    "reason": "The prepared skin covering matches the body, and the new goal asks to fit it.",
+    "choice": {
+      "combine": "Skin covering[Repaired skin segment]",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering will fit over the assembled body, with the repaired segment in its original position.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completes the body while keeping the repaired scar and the earlier organs in place. All chapter goals are complete.",
+    "reaction": "It is satisfying to see the assembled body with a cutaway showing how its parts still work together.",
+    "step": 12,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the head and spine to the trunk was most worthwhile: it brought the nerve and blood routes together and showed that muscles need both signals and supplies.",
+        "steps": [
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the digestive tract and urinary organs into named slots was clear, but felt more like straightforward placement than a meaningful decision.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The joined chest and lower body showed how the diaphragm separates them while nerves, vessels and the food pipe still cross between regions.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though some placements mostly followed named slots rather than asking me to figure out a connection.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter if it explored a new connection; this final assembly was satisfying, but several placements were predictable.",
+        "steps": [
+          4,
+          5,
+          10,
+          11
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

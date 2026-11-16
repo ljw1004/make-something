@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The current goal calls for a cell boundary, so combining membrane fats and transport proteins seems useful.",
+    "choice": 1,
+    "expectation": "I expect them to form a cell membrane or boundary that controls what enters and leaves.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Water and salts seem likely to make the internal fluid, but I chose to build the boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane provides a controlled boundary, so I still need to make the internal fluid.",
+    "reaction": "The explanation of controlled routes makes the membrane's role clear.",
+    "step": 2,
+    "reason": "Water and dissolved salts seem suited to the remaining part of the current goal.",
+    "choice": 1,
+    "expectation": "I expect them to form the cell's internal fluid.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes may form nuclei, but the fluid directly matches the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell fluid completes the boundary-and-fluid goal, and the next goal is to equip the muscle-cell model.",
+    "reaction": "The explanation makes the watery interior's role in reactions clearer.",
+    "step": 3,
+    "reason": "Combining the membrane and fluid seems like a useful first step toward assembling the cell model.",
+    "choice": 1,
+    "expectation": "I expect a basic cell structure containing the fluid within the membrane, though I am unsure what it will be called.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes seem useful for equipping the model, but I want to assemble its basic structure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane and fluid form a model with three named slots, so I can now equip it.",
+    "reaction": "The empty slots make the next tasks clear.",
+    "step": 4,
+    "reason": "Ribosomes appear to match the protein builders slot, so I will fit them into the model.",
+    "choice": 2,
+    "expectation": "I expect the ribosomes to fill the protein builders slot and provide machinery for making proteins.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "DNA and nuclear envelopes may supply the stored instructions, but I chose to fill a slot directly first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes fill the protein builders slot and make proteins using copied instructions; the model still needs its other machinery.",
+    "reaction": "The link between instructions and protein building is clear.",
+    "step": 5,
+    "reason": "Mitochondria appear to fit the aerobic energy machinery slot, so I will equip the model with them.",
+    "choice": 2,
+    "expectation": "I expect the mitochondria to fill the energy machinery slot and help supply energy for cell work.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "DNA and nuclear envelopes may provide stored instructions, but I chose to fill another slot first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mitochondria supply machinery that helps replenish ATP, but they still need fuel and oxygen. The stored-instructions slot remains to be filled.",
+    "reaction": "The distinction between adding mitochondria and supplying fuel is useful.",
+    "step": 6,
+    "reason": "DNA and nuclear envelopes are the only available combination, and they seem likely to prepare the stored instructions.",
+    "choice": 1,
+    "expectation": "I expect them to form nuclei containing DNA that can fit the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle nuclei contain the DNA instructions and appear ready to fill the remaining slot.",
+    "reaction": "The clarification that a nucleus is an instruction store rather than a tiny brain is helpful.",
+    "step": 7,
+    "reason": "This is the only offered combination, and it appears to complete the model's stored-instructions slot.",
+    "choice": 1,
+    "expectation": "I expect the nuclei to fit into the model and supply its stored instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei complete the equipment goal, and the new goal is to add force-producing structures.",
+    "reaction": "The distinction between stored instructions and working copies helps connect the nuclei to the ribosomes.",
+    "step": 8,
+    "reason": "Contractile threads are the only offered combination and appear to match the force-producing goal.",
+    "choice": 1,
+    "expectation": "I expect the threads to join the muscle-cell model and provide structures that produce force.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contractile threads complete the muscle fibers and connect their force-producing role to the cell machinery that maintains and supplies them.",
+    "reaction": "The completed assembly brings the parts together clearly, though the final combination was predictable.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the contractile threads was most worthwhile because it connected the cell's supporting machinery to the muscle's job of producing tension.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The successive fittings became a little repetitive, even though each explanation added useful information.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between adding mitochondria and actually supplying fuel and oxygen sharpened my understanding of what the model still needs.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the named slots and compatible options made their immediate purposes clear.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter to see how the muscle fibers receive supplies and connect to movement, though the repeated fittings made me hope for more varied decisions.",
+        "steps": [
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

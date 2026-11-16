@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions describe a differentiation route from pluripotent cells toward supporting-tissue cells.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "Some descendants should enter the fibroblast lineage under the timed conditions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The muscle branch is also needed, but I will start with supporting tissue."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen RNA messages, while unspecialized cells remain available for the muscle branch.",
+    "reaction": "The link from unchanged DNA to collagen messages is clear.",
+    "step": 2,
+    "reason": "The collagen messages and amino acid supply suggest the cells can now make collagen protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to produce collagen proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the muscle branch first, but will follow the collagen pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have translated collagen messages and packaged procollagen for secretion.",
+    "reaction": "The ER-to-Golgi connection makes the production pathway clearer.",
+    "step": 3,
+    "reason": "Extracellular fluid contains the processing enzymes described for material released outside the cells.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts should secrete procollagen for extracellular processing into supporting material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have produced an extracellular collagen-rich matrix, but the supporting-tissue goal is not yet marked complete.",
+    "reaction": "The secretion and assembly sequence makes the matrix's origin clear.",
+    "step": 4,
+    "reason": "The living fibroblasts and their matrix are the visible components of supporting tissue.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Collagen-rich extracellular matrix"
+    },
+    "expectation": "The cells and matrix should form a living supporting tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The muscle branch also remains to be prepared."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts and their matrix form living supporting tissue, completing that goal; the muscle branch remains.",
+    "reaction": "The distinction between cells and the material they produce is clear.",
+    "step": 5,
+    "reason": "The skeletal-muscle conditions describe the remaining differentiation route from unspecialized cells.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "Some descendants should become muscle-forming progenitors under the timed conditions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with muscle-protein messages, but no mature fibres yet.",
+    "reaction": "The distinction between muscle-lineage cells and mature fibres is useful.",
+    "step": 6,
+    "reason": "The cells have muscle-protein messages and the same amino acid supply used in the fibroblast branch.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use amino acids to make muscle proteins and advance muscle preparation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells made muscle proteins and became separate myoblasts, completing the goal without yet forming mature muscle fibres.",
+    "reaction": "The distinction between myoblasts and fused fibres is useful, although the term myoblast is not explained directly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the collagen-rich matrix and then combining it with living fibroblasts made clear that supporting tissue includes both cells and material they produce outside themselves. The secretion and assembly picture description helped connect those pieces.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding amino acids to the second lineage repeated a familiar translation step, though the different RNA messages gave the repetition a purpose.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The collagen pathway included procollagen processing outside the cell before assembly into fibres, rather than simply releasing finished fibres.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the fibroblasts with their matrix felt somewhat like a formal assembly step, since the preceding picture already placed living fibroblasts beside the matrix. Its purpose became clearer in the connected-tissue picture.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the separate myoblasts develop into mature muscle fibres; this chapter establishes the precursor stage but leaves that construction ahead.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

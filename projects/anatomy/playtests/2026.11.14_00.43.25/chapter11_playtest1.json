@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The lungs need a blood supply, and the heart model already has the connected vessels.",
+    "choice": {
+      "combine": "Heart with connected vessels",
+      "with": "Lungs"
+    },
+    "expectation": "The lungs should connect to the heart's blood-vessel route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are connected to circulation; next I need to build the muscular chest.",
+    "reaction": "The picture makes the oxygen and carbon dioxide exchange clear.",
+    "step": 2,
+    "reason": "The picture shows these muscles bridging the gaps between ribs and moving them outward.",
+    "choice": {
+      "combine": "Rib cage",
+      "with": "Muscles between the ribs"
+    },
+    "expectation": "The muscles should attach between the ribs to help move the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rib muscles are in place, and the apparatus has slots for a lower chest muscle and the lungs with circulation.",
+    "reaction": "The empty slots make the next connections clear.",
+    "step": 3,
+    "reason": "The diaphragm is the broad muscle shown below the lungs, matching the lower chest muscle slot.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Diaphragm"
+    },
+    "expectation": "The diaphragm should fill the lower chest muscle slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm completes the muscular chest, leaving breathing and blood flow to be brought together.",
+    "reaction": "The arrows clarify how the chest space gets larger.",
+    "step": 4,
+    "reason": "The circulation with lung exchange matches the apparatus's lungs and circulation slot.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Circulation with lung exchange"
+    },
+    "expectation": "The lungs and circulation should fit into the muscular chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs and circulation fit into the chest, completing the chapter. The final explanation connects chest movement and pressure to air flowing in and out.",
+    "reaction": "The paired breathing views make the assembled parts feel useful, not just fitted together.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Bringing the lungs and circulation into the chest was most worthwhile because the final views show how breathing and blood flow work together.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the diaphragm was straightforward once the lower chest muscle slot was named, though the arrows helped explain its role.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the explanation that making more room lowers air pressure inside the lungs, drawing air in.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt arbitrary: the pictures and named slots gave each connection a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because building the chest and then seeing how its movement brings in air made me curious about how other body systems connect.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

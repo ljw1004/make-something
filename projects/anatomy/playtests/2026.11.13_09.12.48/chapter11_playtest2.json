@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "The chambers need the partition to separate the heart's right and left sides before the two routes can be connected.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The septum will divide the chambers into right and left sides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and revealed separate inlet and outlet valve slots.",
+    "reaction": "The reverse-flow reference makes the need for valves clear.",
+    "step": 2,
+    "reason": "The inlet valves match the empty ventricular inlet slot.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves will fit between the upper and lower chambers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted and their role in preventing backward flow during ventricular contraction is clear.",
+    "reaction": "The filling and squeezing comparison makes their direction of action clear.",
+    "step": 3,
+    "reason": "The outlet valves match the remaining ventricular outlet slot.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves will fit at the ventricular exits and help prevent backflow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted; the outlet valves limit arterial backflow between beats.",
+    "reaction": "The contrast between ejection and the interval between beats clarifies their function.",
+    "step": 4,
+    "reason": "Conducting tissue should provide the electrical pathways that coordinate the heart chambers.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Conducting tissue"
+    },
+    "expectation": "The pacemaker and conducting pathways will be added to the valved heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has conducting pathways coordinating atrial and ventricular contractions.",
+    "reaction": "The timed wave makes the sequence of contraction clearer.",
+    "step": 5,
+    "reason": "The pulmonary loop visibly connects the right side of the heart to the lungs and returns to the left side.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The pulmonary route will connect to the coordinated heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary route now connects the right heart to the lungs and returns to the left atrium, leaving the body route open.",
+    "reaction": "The separate open connection makes the next step clear.",
+    "step": 6,
+    "reason": "The systemic vessel network matches the open route toward body tissues.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The systemic vessels will connect the heart to the body and back.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now connects to separate pulmonary and systemic loops.",
+    "reaction": "The two routes are assembled, though the result gives little additional detail.",
+    "step": 7,
+    "reason": "Blood belongs in the connected vessel loops to complete circulation.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Blood"
+    },
+    "expectation": "Blood will be added to the heart and vessel network.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Circulation frame",
+          "with": "Heart’s own blood vessels"
+        },
+        "reason": "The heart also needs its own blood supply, which could be connected first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood could not be added yet; the automatic combination connected the heart muscle’s own vessels to the circulation.",
+    "reaction": "The distinction between blood in the chambers and the heart muscle’s own supply is useful, though I had expected to add blood first.",
+    "step": 8,
+    "reason": "The coronary vessels are now connected, so adding blood is the remaining visible step toward circulation.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "Blood will enter the connected pulmonary, systemic and coronary routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed both connected circulation routes, with the coronary supply retained and the direction of flow clarified.",
+    "reaction": "The final route through lungs, heart and body is satisfying to see assembled.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the heart’s own vessels was most worthwhile: the planned cutaway distinguishes blood in the chambers from the separate capillary supply needed by thick heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the systemic network was straightforward, but its resulting picture description added little beyond showing two loops; the later blood-filled schematic explains their relationship more clearly.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I expected to add blood before the coronary vessels, but the compatibility feedback instead connected the heart’s own supply. That also highlighted why chamber blood alone cannot feed all the heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order of connecting coronary vessels before adding blood was not clear from the initial goal, although the coronary connection itself had a clear biological purpose.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the valve comparisons and coronary-supply distinction made the assembly informative, and I would be interested in seeing how circulation connects to other systems.",
+        "steps": [
+          2,
+          3,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

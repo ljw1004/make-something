@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The recycling cells are shown surrounding worn red cells, so they look like the first step toward recovering their iron.",
+    "choice": {
+      "combine": "Worn red blood cells",
+      "with": "Blood-cell recycling cells"
+    },
+    "expectation": "The worn cells should be broken down so their iron can be recovered.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Dividing cells at the skin's base",
+          "with": "Water, glucose and cell building materials"
+        },
+        "reason": "Growing replacement skin cells is another clear goal I could start first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recyclers recovered iron from the worn cells, so I can now try using it in the marrow.",
+    "reaction": "It makes sense that the iron is carried in blood rather than appearing as metal pieces.",
+    "step": 2,
+    "reason": "The goal calls for using recovered iron in new red blood cells, and the marrow contains developing blood cells and their other supplies.",
+    "choice": {
+      "combine": "Iron recovered from old blood cells",
+      "with": "Red bone marrow"
+    },
+    "expectation": "The marrow should use the recovered iron to help make new red blood cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Dividing cells at the skin's base",
+          "with": "Water, glucose and cell building materials"
+        },
+        "reason": "I could work on replacement skin cells first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovered iron became part of haemoglobin in new red blood cells, completing the blood-cell goal. The skin-cell goal remains.",
+    "reaction": "It's satisfying to see the iron reused while the marrow stays intact.",
+    "step": 3,
+    "reason": "The picture shows these materials moving to the dividing skin cells for growth.",
+    "choice": {
+      "combine": "Dividing cells at the skin's base",
+      "with": "Water, glucose and cell building materials"
+    },
+    "expectation": "The cells should use the supplied materials to grow replacement skin cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin cells used the supplied materials to produce new cells beneath the surface, completing the remaining goal while the skin stayed continuous.",
+    "reaction": "It was satisfying to see new cells grow below while old cells shed above.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reusing recovered iron in new red blood cells was most worthwhile: it connected recycling old cells to making their oxygen-carrying protein.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Growing the skin cells was clear but predictable because the picture already showed the materials going to them.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The recovered iron traveled in blood on protein molecules rather than appearing as metal fragments.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt purposeless; the pictures and goals made both pairings understandable.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter showed more connections like the iron-recycling route, though these three combinations were fairly straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

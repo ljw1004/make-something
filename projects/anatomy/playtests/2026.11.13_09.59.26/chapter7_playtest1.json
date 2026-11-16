@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The culture is described as guiding stem cells into neurons and glia, which are needed for the synapse goals.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Neural induction and maturation culture"
+    },
+    "expectation": "The stem cells will develop into neural cells suitable for building the receiving neuron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The culture produced neurons and glia, providing cells for the synaptic arrangements.",
+    "reaction": "The distinct supporting roles of astrocytes and oligodendrocytes are a useful detail.",
+    "step": 2,
+    "reason": "Excitatory connections should provide a route for signals to reach the neurons.",
+    "choice": {
+      "combine": "Neurons with supporting glia",
+      "with": "Excitatory synaptic connections"
+    },
+    "expectation": "This will create an excitatory input to a receiving neuron.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have one excitatory input, ready to test with a spike.",
+    "reaction": "The single-input arrangement makes a useful starting comparison.",
+    "step": 3,
+    "reason": "A spike on the connected input should reveal whether this excitation is sufficient to make the receiving neuron fire.",
+    "choice": {
+      "combine": "One excitatory input",
+      "with": "One spike on each input"
+    },
+    "expectation": "The spike will produce an excitatory response, possibly below firing threshold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "One excitatory input produces a voltage rise below threshold, so the receiving neuron does not fire.",
+    "reaction": "That makes the weak-excitation comparison clear.",
+    "step": 4,
+    "reason": "Adding another excitatory connection may let simultaneous inputs combine to reach threshold.",
+    "choice": {
+      "combine": "One excitatory input",
+      "with": "Excitatory synaptic connections"
+    },
+    "expectation": "The receiving neuron will gain a second excitatory input.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has two excitatory inputs to test together.",
+    "reaction": "The side-by-side input arrangement makes the next comparison clear.",
+    "step": 5,
+    "reason": "The aligned spikes can test whether the two excitatory inputs together reach threshold.",
+    "choice": {
+      "combine": "Two excitatory inputs",
+      "with": "One spike on each input"
+    },
+    "expectation": "The combined excitation will make the receiving neuron fire.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two simultaneous excitatory inputs reached threshold and produced a new outgoing spike; a grey-matter construction goal also appeared.",
+    "reaction": "The distinction between overlapping voltage changes and a fresh action potential is useful.",
+    "step": 6,
+    "reason": "Adding an inhibitory connection to the two-input arrangement should set up the requested comparison.",
+    "choice": {
+      "combine": "Two excitatory inputs",
+      "with": "Inhibitory synaptic connections"
+    },
+    "expectation": "The receiving neuron will gain an inhibitory input alongside its excitatory inputs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has two excitatory inputs and an inhibitory input near its axon origin.",
+    "reaction": "This sets up a direct comparison with the two-input firing result.",
+    "step": 7,
+    "reason": "Testing one spike on each connected input should show how inhibition changes the combined response.",
+    "choice": {
+      "combine": "Two excitatory inputs with inhibition",
+      "with": "One spike on each input"
+    },
+    "expectation": "The inhibitory input will prevent the receiving neuron from reaching threshold despite the two excitatory spikes.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

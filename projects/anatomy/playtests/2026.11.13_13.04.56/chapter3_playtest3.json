@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane-preparation goal explicitly calls for phospholipids and proteins.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "These will prepare material for new membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles completed membrane preparation and revealed that the growing cell needs to use them.",
+    "reaction": "The vesicles make the membrane supply concrete, though the ER and Golgi connection is not explained.",
+    "step": 2,
+    "reason": "The new goal suggests supplying the vesicles to the living cell.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles will supply membrane to enlarge the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its nuclear DNA still needs copying.",
+    "reaction": "The vesicle-fusion inset clarifies how the membrane was added.",
+    "step": 3,
+    "reason": "The DNA-copying goal calls for nucleotides, and the grown cell contains the uncopied nuclear DNA.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The nucleotides will be used to copy the cell's nuclear DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied nuclear DNA, and the next goal requires a spindle to form daughter nuclei.",
+    "reaction": "The joined sister chromatids make the copied chromosomes visible, although S phase is not explained here.",
+    "step": 4,
+    "reason": "The spindle-building goal explicitly calls for proteins and duplicated centrosomes.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "The proteins and centrosomes will form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled, ready to act on the cell with copied DNA.",
+    "reaction": "The opposite poles and mitosis timing clarify the spindle's setup, though tubulin is not explained.",
+    "step": 5,
+    "reason": "The revealed goal explicitly calls for using the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle will separate the copied chromosomes to form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle formed two complete daughter nuclei, but the shared cytoplasm still needs to divide.",
+    "reaction": "The continuous cell boundary makes the distinction between nuclear and cytoplasmic division clear.",
+    "step": 6,
+    "reason": "The new goal explicitly calls for actin and myosin to divide the cytoplasm.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin will constrict the cell to separate its cytoplasm into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cytoplasmic division produced two separate stem cells, each with a complete genome, completing the chapter's goals.",
+    "reaction": "The final illustration plan usefully distinguishes self-renewal from later differentiation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle to form two nuclei was most worthwhile: the planned image shows complete genomes in a still-connected cell, making nuclear division distinct from cytoplasmic division.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle was straightforward, but the labels tubulin and motor protein were not explained, leaving their roles in the microtubule array unclear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The membrane-building vesicles made membrane growth concrete, though the ER and Golgi inset did not explain their connection to the supply.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the goals made each combination clear, although that also made the choices predictable.",
+        "steps": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the daughter cells develop into different tissues; the final branching arrows suggest a meaningful next connection.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

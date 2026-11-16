@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm assembly is ready for the nerve connections described in the goal.",
+    "choice": {
+      "combine": "Arm assembly[Biceps with tendons,Triceps with tendons]",
+      "with": "Nervous system model"
+    },
+    "expectation": "Peripheral nerves will connect the nervous system to the arm muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has motor and sensory connections, completing the nervous–musculoskeletal goal. I can turn to fluid return.",
+    "reaction": "The distinction between motor endings and sensory feedback was useful.",
+    "step": 2,
+    "reason": "Blind-ended lymphatic capillaries can collect excess fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries will provide an entry route for excess tissue fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue spaces now drain fluid and proteins into lymphatic capillaries; the return route still needs connecting.",
+    "reaction": "The flap mechanism makes the entry of lymph clear.",
+    "step": 3,
+    "reason": "The collecting vessel should carry lymph onward from the draining tissue spaces.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The lymphatic capillaries will connect to the collecting vessel and return duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lymph now has a collecting route to the duct outlet, leaving the venous junction to connect.",
+    "reaction": "The remaining junction is clear.",
+    "step": 4,
+    "reason": "The return duct ends beside the neck vein, so connecting the junction should complete the fluid return route.",
+    "choice": {
+      "combine": "Tissue lymph entry with collecting route",
+      "with": "Venous junction"
+    },
+    "expectation": "The lymph duct will return collected fluid and proteins to the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage route now reaches a neck vein, but the blood-supply goal remains incomplete.",
+    "reaction": "The continuous route makes the fluid return easy to follow.",
+    "step": 5,
+    "reason": "The breathing apparatus includes the blood-filled circulation, which should connect to the innervated body and arm tissues.",
+    "choice": {
+      "combine": "Innervated body framework",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The circulation and breathing muscles will connect to the body framework.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body framework now connects circulation to arm and neural tissues and motor pathways to breathing muscles; the remaining fluid-return network needs integration.",
+    "reaction": "The comparison showing fluid accumulating when return is inadequate makes the lymphatic connection purposeful.",
+    "step": 6,
+    "reason": "The lymph drainage network should complete fluid return from the supplied tissues to the circulation.",
+    "choice": {
+      "combine": "Supplied body framework",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The body model will show excess tissue fluid returning to the blood through the lymphatic network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphatic network is now integrated with the supplied body, completing the fluid-return goal and the chapter.",
+    "reaction": "The matched views make the balance between continued filtration and lymph return clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lymph network to the supplied body was most worthwhile: the planned comparison shows why fluid return matters even while filtration continues.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the collecting route to the venous junction was straightforward but less informative on its own than the final comparison.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The inadequate-return comparison clarified that fluid can accumulate even though circulation continues; the final view contrasted this with roughly steady tissue fluid.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the collecting route and venous junction were clearly linked to returning excess fluid.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: integrating the systems gave the earlier structures a useful shared context, particularly the connection between circulation and lymph return. The supplied illustration plans support that interest, though they do not establish how students would understand the finished material.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

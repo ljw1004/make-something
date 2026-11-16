@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the muscle pathway: the picture shows its messengers activating muscle genes, which connects to the RNA goal.",
+    "choice": 1,
+    "expectation": "I expect the messengers to guide some cells toward muscle and possibly enable copying muscle instructions into RNA; I'm not sure if that happens immediately.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The support-cell pathway also matches a goal, but I'll follow the muscle pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle instructions have been copied into RNA, so the cells can now build the proteins.",
+    "reaction": "The outlined fibres make the next step clear.",
+    "step": 2,
+    "reason": "I'll add amino acids to follow the muscle pathway and build the pulling proteins.",
+    "choice": 2,
+    "expectation": "I expect the cells to use the amino acids and RNA instructions to make muscle proteins.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the support-cell pathway, but I want to finish the muscle proteins first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids helped make muscle cells with protein fibres that can slide to shorten them. I'll start the support-cell pathway next.",
+    "reaction": "Seeing how the fibres could shorten the cells makes their job clearer.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it matches the remaining goal of copying support-protein instructions.",
+    "choice": 1,
+    "expectation": "I expect the messengers to activate support-protein genes and produce RNA copies in some cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support-cell messengers led to RNA copies, and the new goal is to build fibres around the cells.",
+    "reaction": "The contrast with fibres inside muscle cells makes the different jobs clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination, and amino acids are the building blocks for the supporting proteins.",
+    "choice": 1,
+    "expectation": "I expect the cells to make supporting protein fibres around themselves using the RNA instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells released proteins around themselves, completing the contrast with muscle cells that keep pulling proteins inside.",
+    "reaction": "That contrast made the different jobs of cells with the same DNA clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building muscle cells was most worthwhile: the sliding protein fibres connected the RNA instructions to how the cells can shorten.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The support pathway repeated the messenger-then-amino-acid pattern, although comparing its result with muscle was useful.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The supporting cells released proteins to form material around themselves, rather than keeping the fibres inside like the muscle cells.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the messenger pairings were supplied by the menu and pictures rather than something I worked out independently.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how these different cells become tissues and organs, especially how muscle cells work together.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

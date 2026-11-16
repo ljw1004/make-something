@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows turning sensor cells fitting at the base of a fluid-filled loop, so this directly builds one of the sensors.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "The cells will detect fluid movement as the head starts turning.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fluid's lag bends the sensors and changes a nerve signal, completing the turning sensors. Next I can build the separate tilt sensors.",
+    "reaction": "The fluid lagging behind makes the turning sensor easier to picture.",
+    "step": 2,
+    "reason": "The pictures show the mineral weights sitting on the jelly layer above the tilt sensor cells.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and sensor cells will form a sensor that responds when the head tilts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted layer bends the hairs during tilt or a change in straight-line movement, completing the second sensor.",
+    "reaction": "The shifting layer makes the weights' role clearer.",
+    "step": 3,
+    "reason": "Balance nerves are shown connecting both kinds of sensor to the brain, so I’ll start with the turning sensors.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors will connect to the brain through the balance nerves.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The weighted sensors also need a nerve connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The feedback joined the two sensor types into balance organs before connecting their nerves.",
+    "reaction": "I expected a nerve connection first, so the required order surprised me.",
+    "step": 4,
+    "reason": "The balance nerves are pictured leaving both kinds of sensor and reaching the brain.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance nerves"
+    },
+    "expectation": "The balance organs will connect to the brain through the balance nerves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs cannot currently combine with anything, so the nerves may need to be connected elsewhere first.",
+    "reaction": "I’m unsure why the direct connection was unavailable.",
+    "step": 5,
+    "reason": "The balance nerves are shown reaching the existing brain, so I’ll try connecting them to the body first.",
+    "choice": {
+      "combine": "Body with sight and hearing",
+      "with": "Balance nerves"
+    },
+    "expectation": "The balance nerves will connect to the body’s brain, preparing a route for the sensors.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Balance nerves"
+        },
+        "reason": "I could check what the nerves can currently connect to instead of guessing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body cannot currently combine with anything either, so my second guess did not reveal the needed order.",
+    "reaction": "I’m confused about what must be prepared first.",
+    "step": 6,
+    "reason": "Inspecting the balance nerves should show their available partners instead of making another guess.",
+    "choice": {
+      "inspect": "Balance nerves"
+    },
+    "expectation": "The report will identify what the nerves can connect to now.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the incoming balance nerves to the eye and posture routes, revealing the final goal.",
+    "reaction": "The required order is clearer now, although I needed the compatibility hint.",
+    "step": 7,
+    "reason": "The prepared response routes connect incoming inner-ear signals to muscles, so I’ll try joining them to the balance organs.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance response routes"
+    },
+    "expectation": "The sensors will connect to the routes that control eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs still cannot be combined directly, so I need to find what the prepared response routes can connect to first.",
+    "reaction": "I’m confused that the sensors still cannot connect, so I’ll use the compatibility hint.",
+    "step": 8,
+    "reason": "Inspecting the response routes should reveal their available partner without another guess.",
+    "choice": {
+      "inspect": "Balance response routes"
+    },
+    "expectation": "The report will show what the response routes can connect to now.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The response routes are now connected to the body, leaving spaces for the balance sensors.",
+    "reaction": "The picture clarifies why the body had to be connected first.",
+    "step": 9,
+    "reason": "The pale spaces mark the unconnected sensors, so the balance organs should now fit into the body.",
+    "choice": {
+      "combine": "Body with balance response routes",
+      "with": "Balance organs"
+    },
+    "expectation": "The balance organs will connect to the body's response routes, allowing it to respond to head movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs connected to the body, completing the chapter. Balance signals help steady the eyes and adjust posture, alongside vision and signals from muscles and joints.",
+    "reaction": "The opposite eye movement was a satisfying way to see what the connections accomplish.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the two sensor types was worthwhile because the pictures showed how fluid lag and shifting weights bend the sensory hairs in different situations.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The repeated attempts to connect the balance organs were confusing: the pictures suggested a connection, but the required assembly order was not clear.",
+        "steps": [
+          3,
+          4,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I expected to connect the turning sensors to the nerves first, but compatibility feedback joined the two sensor types instead.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Connecting the response routes to the body before adding the balance organs felt like an unclear prerequisite. The later picture made the order easier to follow, but I needed a hint.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: seeing how the sensors help keep the eyes steady was interesting, though I hope the next assembly order is clearer.",
+        "steps": [
+          1,
+          2,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

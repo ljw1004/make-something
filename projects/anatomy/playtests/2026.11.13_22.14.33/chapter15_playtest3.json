@@ -1,0 +1,73 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows glucose entering from blood and being joined into a stored carbohydrate.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will store some of the meal's glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tract",
+          "with": "Integrated body model"
+        },
+        "reason": "Connecting the digestive organs is the other goal, but I can start with the glucose store."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver cells stored some glucose as linked carbohydrate, completing the storage goal.",
+    "reaction": "The picture makes the store easier to understand.",
+    "step": 2,
+    "reason": "The remaining goal is to connect the digestive organs to the body, and these two pieces match it.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive tract will connect to the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is now connected to the body's circulation, completing the chapter; the colon's inner wall remains unfinished.",
+    "reaction": "The connection was straightforward, though the unfinished wall made me curious.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in liver cells was most worthwhile: the picture showed individual glucose units joining into a store that can be broken down later.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the digestive tract was useful but predictable; the goal and available pieces made the pairing obvious.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the completed body model to still show an unfinished inner colon wall.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: both matched a stated goal and the pictures explained their purpose.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue, mainly to see how the unfinished colon wall fits into the digestive system, although this short chapter had few meaningful choices.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

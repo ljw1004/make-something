@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and phospholipids in water should establish the membrane needed for the goals.",
+    "choice": 1,
+    "expectation": "I expect the phospholipids to form a bilayer separating the two watery sides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bilayer patches provide a basis for comparing what crosses with and without channels.",
+    "reaction": "The heads-out, tails-in arrangement is a clear starting point.",
+    "step": 2,
+    "reason": "Test oxygen directly against the lipid bilayer to address the first goal.",
+    "choice": 3,
+    "expectation": "I expect uncharged oxygen to diffuse through the lipid layer into the cell.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Water crossing the lipid layer is also relevant, but oxygen is the more straightforward first test."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly down its concentration gradient; water exchange remains to be explored.",
+    "reaction": "The whole-cell inset helps place the membrane and mitochondria in context.",
+    "step": 3,
+    "reason": "Test water against the lipid-only patch before comparing it with a channel.",
+    "choice": 3,
+    "expectation": "I expect some water to cross the bilayer, with net movement toward the side with more non-crossing dissolved particles.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The aquaporin channel is relevant to water exchange, but the lipid-only comparison seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid alone slowly, with net movement toward the higher non-crossing solute concentration; a channel comparison is next.",
+    "reaction": "The matched interval and starting solutions make the comparison useful.",
+    "step": 4,
+    "reason": "Add aquaporin to compare channel-mediated water movement with the lipid-only patch.",
+    "choice": 1,
+    "expectation": "I expect an aquaporin-containing patch that permits faster water exchange under the same conditions.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sodium channel addresses the other goal, but I want to complete the water comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin patch is ready for a matched comparison with the lipid-only patch.",
+    "reaction": "Keeping both patches side by side makes the comparison clear.",
+    "step": 5,
+    "reason": "Add water to the aquaporin patch to complete the comparison.",
+    "choice": 2,
+    "expectation": "I expect faster water exchange through aquaporin, with net movement toward the higher inside solute concentration.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The sodium channel addresses the other goal, but the water comparison is already underway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water comparison is complete: aquaporin speeds exchange while the solute difference determines net direction. Sodium remains.",
+    "reaction": "The matched comparison makes the channel's effect clear.",
+    "step": 6,
+    "reason": "Test sodium against the lipid-only membrane before adding its channel.",
+    "choice": 2,
+    "expectation": "I expect charged sodium to cross the lipid layer poorly, if at all.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Adding the sodium channel directly would address the goal, but a lipid-only comparison should clarify its role."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium did not cross the lipid-only patch during the interval, despite inward driving conditions; a channel is needed for the comparison.",
+    "reaction": "The unchanged driving conditions make the lipid barrier's role clear.",
+    "step": 7,
+    "reason": "Add the sodium channel; it is the only gameplay action available and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a membrane patch with an open sodium channel, ready to provide a passive route inward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open channel provides a route for testing sodium under the same driving conditions as the lipid-only patch.",
+    "reaction": "The matched comparison makes the channel's role easier to isolate.",
+    "step": 8,
+    "reason": "Use the only available gameplay action to test passive sodium entry through the channel.",
+    "choice": 1,
+    "expectation": "I expect sodium to move inward through the open channel down its electrochemical gradient, without energy input.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

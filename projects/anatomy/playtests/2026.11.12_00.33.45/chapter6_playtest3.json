@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways end beside hollow sacs, so joining them should build the air route toward the exchange surface.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Lung air sacs"
+    },
+    "expectation": "The airways will connect to the lung air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airways and sacs form a route with an empty exchange-surface slot; many small sacs increase the available surface area.",
+    "reaction": "The equal-volume comparison makes the advantage of small sacs clear.",
+    "step": 2,
+    "reason": "The thin exchange lining forms the air-facing side of a sac wall, so it fits the empty exchange-surface slot.",
+    "choice": {
+      "combine": "Thin exchange lining",
+      "with": "Lung air route"
+    },
+    "expectation": "The lining will be fitted to the lung air route as part of its exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining is in place, and the result identifies the capillary mesh as the next missing part.",
+    "reaction": "The picture description makes the next connection clear.",
+    "step": 3,
+    "reason": "The lung capillary mesh surrounds the sacs and supplies the blood-facing side of the exchange surface.",
+    "choice": {
+      "combine": "Lung capillary mesh",
+      "with": "Air route with lining"
+    },
+    "expectation": "The capillaries will be added around the lined air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route now has adjacent air and blood surfaces where oxygen and carbon dioxide can cross while the spaces remain separate.",
+    "reaction": "The opposing gas arrows clarify what the exchange surface does.",
+    "step": 4,
+    "reason": "The lung capillaries need to connect to the blood circuit so blood can move through the exchange surface.",
+    "choice": {
+      "combine": "Connected vessel circuit",
+      "with": "Lung route with exchange"
+    },
+    "expectation": "The lung exchange route will connect to the circulating blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung exchange surface is connected to circulating blood, and the result shows why the air must be renewed.",
+    "reaction": "The shrinking oxygen arrows make the need for breathing clearer.",
+    "step": 5,
+    "reason": "The pleural membranes link the lung side to the chest side, so they should prepare the lung route for chest movement.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Blood-supplied lung route"
+    },
+    "expectation": "The pleural membranes will be added around the blood-supplied lung route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural sheets now cover the lung, with the chest-facing sheet still unattached.",
+    "reaction": "The description makes the connection to chest movement clear.",
+    "step": 6,
+    "reason": "The breathing chest can attach to the chest-facing pleural sheet and renew the air in the lungs.",
+    "choice": {
+      "combine": "Breathing chest",
+      "with": "Blood-supplied lung route with pleura"
+    },
+    "expectation": "Chest movement will draw the lungs open and renew the air reaching the exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing chest completed the oxygen-delivering circulation. The result connects chest expansion and air entry to oxygen transport through the blood and delivery to tissues.",
+    "reaction": "The final route ties the pieces together clearly, though the pressure gauge adds a new detail that receives little explanation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lung route to circulation was most worthwhile: the result showed why blood flow alone is insufficient if the air is not renewed.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the lining and then the capillary mesh felt predictable, although the separate steps made the two sides of the exchange surface clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The shrinking oxygen arrows showed that still air would gradually lose its ability to supply oxygen to flowing blood.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. The pleural membranes were the least familiar connection, but the description of the wet sheets resisting separation helped explain their role.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: the final construction made me curious how the other body systems connect to this circulation.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

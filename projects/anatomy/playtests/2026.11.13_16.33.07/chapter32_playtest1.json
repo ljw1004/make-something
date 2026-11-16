@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin-cell population is shown in this body's epidermis, and its descendants replace surface cells, matching the renewal goal.",
+    "choice": {
+      "combine": "Body with a light-linked clock",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body will show skin cells renewing its surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; the blood-renewal part remains.",
+    "reaction": "The new cells and shedding make the replacement process clear.",
+    "step": 2,
+    "reason": "The kidney signal is shown travelling to marrow, where the red-cell precursors are located.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will help the marrow produce red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal connects low oxygen to red-cell maturation in marrow; the developing cells still need to be connected to the renewal sequence.",
+    "reaction": "The low-oxygen cue makes the signal's purpose clearer.",
+    "step": 3,
+    "reason": "The developing red cells belong to the same body and should help complete the blood-renewal goal.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show red blood cells being renewed alongside skin cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are complete; the new goal is to remodel existing bone.",
+    "reaction": "Seeing red cells leave the marrow makes the renewal route clear.",
+    "step": 4,
+    "reason": "The remaining bone-removing and bone-forming cells suggest two parts of remodeling, but I don't know which operation comes first.",
+    "choice": {
+      "inspect": "Bone-removing cells"
+    },
+    "expectation": "The compatibility report should show how to begin the bone-remodeling process.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically began remodeling by removing old bone; bone-forming cells are the apparent next step.",
+    "reaction": "The automatic combination made the order clear.",
+    "step": 5,
+    "reason": "The goal is to remodel bone, and the remaining bone-forming cells suggest replacing material after removal.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "Bone-forming cells will add new bone to the patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch after old bone was removed, completing the remodeling goal.",
+    "reaction": "It was satisfying to see the renewal processes brought together in the same body.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the kidney signal to developing red cells was worthwhile: the low-oxygen cue explained why the body adjusts their production.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding developing red cells to the body mostly confirmed the renewal route already shown, so it felt a little repetitive.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that inspecting the bone-removing cells automatically started removing old bone; it also clarified the order.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although I needed the compatibility hint to know how to begin bone remodeling.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue if another chapter explored a new connection in the body. The kidney-to-marrow signal made me curious, though some assembly steps felt predictable.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

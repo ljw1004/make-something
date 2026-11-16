@@ -1,0 +1,139 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier fits into the membrane and should provide a route for glucose entry.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be incorporated into a membrane patch, allowing glucose to cross in a later step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is now installed in the membrane, providing a plausible route for glucose entry.",
+    "reaction": "The membrane fitting worked as expected.",
+    "step": 2,
+    "reason": "Glucose can bind the installed carrier and move toward the lower concentration inside.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol through the carrier, ready for breakdown.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clearer.",
+    "step": 3,
+    "reason": "The cell interior is the natural place to follow cytosolic glucose breakdown and ATP renewal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose will be processed inside the cell, potentially connecting its breakdown to aerobic ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has undergone glycolysis, producing pyruvate and some ATP; the pyruvate is now positioned for mitochondrial processing.",
+    "reaction": "The distinction that glycolysis itself does not use oxygen is useful.",
+    "step": 4,
+    "reason": "The glycolysis product and oxygen entering the cytosol are plausible inputs for aerobic ATP renewal in the cell interior.",
+    "choice": {
+      "combine": "Glycolytic cytosol with ATP and pyruvate",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell interior will connect pyruvate and oxygen to mitochondrial ATP renewal, possibly using the oxygen automatically.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Living cell interior"
+        },
+        "reason": "I could check the available reactions first, but the pyruvate arrows suggest a direct attempt."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate-derived fuel and oxygen now support mitochondrial ATP renewal, leaving powered ion transport and protein growth to address.",
+    "reaction": "The diagram usefully distinguishes oxygen's role from fuel oxidation.",
+    "step": 5,
+    "reason": "The sodium-potassium pump needs to be installed in the membrane before it can transport ions.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be incorporated into a membrane patch, ready to use ATP for ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane and positioned to use cytosolic ATP.",
+    "reaction": "The contrast with the passive sodium channel makes the next step clear.",
+    "step": 6,
+    "reason": "Aerobic ATP renewal should supply the installed pump for powered ion transport.",
+    "choice": {
+      "combine": "Aerobic ATP renewal",
+      "with": "Membrane with a sodium-potassium pump"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium against their gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP renewal now powers sodium-potassium transport, completing the first goal; protein growth remains.",
+    "reaction": "The contrast between pumping and passive sodium flow is clear.",
+    "step": 7,
+    "reason": "The cell interior contains ribosomes and existing RNA messages, while amino acids provide the building blocks for proteins.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Living cell interior"
+    },
+    "expectation": "The ribosomes will use the amino acids to make new proteins for cell growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids and the glycolytic cytosol supported protein production using existing RNA messages, completing the remaining goal.",
+    "reaction": "The protein-building connection was clear, although the automatic use of the glycolytic cytosol was not something I had predicted.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting glycolysis to aerobic ATP renewal was most worthwhile: the planned picture distinguishes fuel oxidation from oxygen's role and shows how the proton flow supports ATP synthesis.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was relatively predictable after installing the glucose carrier, though it prepared a useful comparison with passive transport.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The protein-building reaction automatically included the glycolytic cytosol; I expected amino acids and the ribosome-containing interior to suffice.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The automatic inclusion of glycolytic cytosol in protein production felt somewhat opaque: energy-coupling steps were marked, but the specific choice of that ingredient was not explained beforehand.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions connect familiar cell biology to transport and energy use, though terms such as proton flow and ATP synthase could benefit from more explanation for this audience.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

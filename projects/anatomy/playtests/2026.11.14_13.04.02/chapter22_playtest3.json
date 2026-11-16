@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The filter picture shows blood entering its capillaries and small substances crossing into the surrounding space.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney filter"
+    },
+    "expectation": "The filter will separate water and other small substances from blood cells and large proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ureters",
+          "with": "Urinary system[]"
+        },
+        "reason": "The ureters also visibly fit the kidney-to-bladder route, which can be built first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filtered fluid contains useful glucose and water as well as wastes, so it needs the recovery tube next.",
+    "reaction": "It is interesting that the filter lets useful substances through too.",
+    "step": 2,
+    "reason": "The recovery tube picture shows glucose, some salts and much water returning to blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Useful substances will move back into the blood, leaving fluid to continue toward the urine route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ureters",
+          "with": "Urinary system[]"
+        },
+        "reason": "I could build the drainage route first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovery tube returned useful substances and much water to the blood, leaving urine. Next I need to build its route to the bladder.",
+    "reaction": "It makes sense now why filtering alone is not enough.",
+    "step": 3,
+    "reason": "The urinary system has an empty ureter slot, and the tubes lead from the kidneys toward the bladder.",
+    "choice": {
+      "combine": "Ureters",
+      "with": "Urinary system[]"
+    },
+    "expectation": "The ureters will attach to the kidneys' drainage outlets.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bladder",
+          "with": "Urinary system[]"
+        },
+        "reason": "The bladder also has a named slot and could be fitted first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect the kidney outlets toward the bladder position; the bladder still needs fitting.",
+    "reaction": "The arrows make it clear that the tubes move urine with muscular squeezes.",
+    "step": 4,
+    "reason": "The bladder fits the remaining named slot and completes the route from the kidneys.",
+    "choice": {
+      "combine": "Bladder",
+      "with": "Urinary system[Ureters]"
+    },
+    "expectation": "The bladder will attach below the ureters to receive urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder completes the continuous route from the kidneys through the ureters, and both goals are complete.",
+    "reaction": "The unchanged fluid trail made the route easy to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering blood and then recovering useful substances was most worthwhile: it showed why the kidney cannot simply remove everything that passes through its filter.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the bladder was the least challenging part because its named slot made the choice obvious, though it completed the route.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that useful glucose and water pass through the filter along with wastes and must be recovered.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and named slots gave each one a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how another body system works, although the slot-fitting here was fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

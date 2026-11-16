@@ -1,0 +1,102 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments' knobs match a lymphocyte's recognition proteins, and the intro says this encounter helps activate it.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will be activated, or prepared for activation, after recognizing the bacterial fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active; the intro says the lymph node supports its descendants multiplying.",
+    "reaction": "The matching shapes made the activation understandable.",
+    "step": 2,
+    "reason": "The lymph node is described as supporting activated cells as they multiply, so it is the next place to use the lymphocyte.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the lymph node, leading toward antibody-producing and memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph node produced antibody-making cells and memory cells; the remaining goal is to help clear the bacteria.",
+    "reaction": "The split between making antibodies now and keeping memory cells is clear.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are protein building blocks, so the antibody-making cells may use them.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies from amino acids; their tips fit the bacteria's surface knobs.",
+    "reaction": "The matching shapes make the next connection clear.",
+    "step": 4,
+    "reason": "The antibodies' tips match the knobs on the bacteria, so they should bind to them.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will coat the bacteria, helping the engulfing white blood cells recognize them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, leaving them ready for engulfing white blood cells.",
+    "reaction": "The coating matches the white blood cell picture, making the next step clear.",
+    "step": 5,
+    "reason": "The white blood cells can bind to the outward-facing parts of antibodies and engulf the coated bacteria.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells will engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cells engulfed and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibody coating helped the cells clear the bacteria.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the antibody-producing and memory cells was most worthwhile: it showed how one response can both act now and leave memory cells behind.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the antibodies was a fairly predictable use of amino acids, so it was less interesting than seeing what the antibodies did.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The antibodies marked bacteria for other white blood cells to engulf, rather than clearing them on their own.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures and introduction made the pairings understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how memory cells help in a later response. This chapter introduced them but ended before showing that.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

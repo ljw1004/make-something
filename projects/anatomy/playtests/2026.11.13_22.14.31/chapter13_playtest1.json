@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with bile and fat: the picture shows it spreading a large droplet into smaller ones, matching a goal.",
+    "choice": 5,
+    "expectation": "I expect smaller fat droplets, with the fat molecules still unchanged.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Saliva and starch also look like a useful starting pair, but I want to see the fat-droplet change first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fat is spread into droplets, and the new goal is to break down its molecules.",
+    "reaction": "The extra exposed surface makes the next step easier to picture.",
+    "step": 2,
+    "reason": "I'll use the digestive enzymes on the small droplets to follow the new fat-breakdown goal.",
+    "choice": 4,
+    "expectation": "I expect the enzymes to break fat molecules into smaller molecules; I'm unsure exactly what they will be called.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Saliva and starch also match a goal, but I want to finish exploring the fat first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion is complete; bile spread the droplets while enzymes split the molecules.",
+    "reaction": "Seeing the two different jobs separated was helpful.",
+    "step": 3,
+    "reason": "I'll try saliva on starch, since its picture shows an enzyme fitting the starch chain.",
+    "choice": 2,
+    "expectation": "I expect saliva to start breaking starch into smaller pieces, though I don't know how small.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Protein also needs breaking down, but I'll follow the starch path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva shortened the starch chains, but the goal of making small molecules remains.",
+    "reaction": "The picture makes the partial breakdown clear.",
+    "step": 4,
+    "reason": "I'll continue the starch path with digestive enzymes to break the shorter chains down further.",
+    "choice": 1,
+    "expectation": "I expect smaller sugar molecules, possibly glucose, since starch was pictured as linked glucose units.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein also needs digestion, but I want to finish the starch path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes released separate glucose units that can cross the intestinal lining; protein still needs breaking down.",
+    "reaction": "The progression from starch chains to separate glucose units makes sense.",
+    "step": 5,
+    "reason": "Protein and digestive enzymes are the only available combination, and they match the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the protein chain to be broken into smaller pieces, possibly amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced separate amino acids and completed the remaining goal.",
+    "reaction": "The result matched the pictured protein chain and made the breakdown easy to follow.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Spreading fat with bile and then using enzymes was most worthwhile: it showed that making smaller droplets and breaking molecules are different jobs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Breaking protein down was the least engaging moment because enzymes had already broken down fat and starch, and it was the only available combination.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect saliva to leave shorter starch chains that needed another enzyme step before becoming separate glucose units.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the pictures and goals explained the pairings, although the compatible-options menu guided the choices.",
+        "steps": [
+          1,
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue: seeing how the glucose and amino acids cross the gut lining would be interesting, though the repeated enzyme combinations were less engaging.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

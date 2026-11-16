@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell's empty display suggests it must first encounter the bacteria before helper T cells can recognize a fragment.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will take up bacterial material and display a fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger has taken up bacterial material and reached a lymph node displaying a fragment, so helper T-cell recognition is the next likely step.",
+    "reaction": "The linked airway-to-node journey makes the connection clear.",
+    "step": 2,
+    "reason": "A helper T cell matches the displayed fragment, and the messenger is now at the lymph node.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "The matching helper T cell will recognize the displayed fragment and become activated.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Messenger displaying bacterial fragment",
+          "with": "Lymph node"
+        },
+        "reason": "The node may be needed as the site of the interaction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Helper T-cell activation required the lymph node, and the matching cells have multiplied. B-cell activation is the next likely stage.",
+    "reaction": "The automatic node interaction clarified where recognition happens.",
+    "step": 3,
+    "reason": "B cells recognize the intact bacterial protein, so they likely need to encounter the bacteria before receiving helper signals.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "B cells"
+    },
+    "expectation": "A matching B cell will bind the bacterial surface protein, beginning its activation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Activated helper T cells",
+          "with": "Lymph node"
+        },
+        "reason": "Helper cells may interact with B cells at the node."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has bound the intact protein and now displays a fragment, ready for a helper-cell interaction.",
+    "reaction": "The distinction between binding the intact protein and displaying a fragment is useful.",
+    "step": 4,
+    "reason": "The activated helper cells and fragment-displaying B cell likely interact at the lymph node, as the earlier helper-cell activation did.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The matching helper cells will help activate the B cell at the node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The B cell has received helper signals at the lymph node; its next response should lead toward antibodies and memory.",
+    "reaction": "The contact makes the helper cell's role clearer.",
+    "step": 5,
+    "reason": "I will check what the helped B cells can do next rather than guess which remaining object triggers their response.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The compatibility report should identify the next available interaction, possibly producing antibody-secreting or memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied and differentiated into antibody-secreting plasma cells and memory B cells in the node.",
+    "reaction": "The branching time sequence clearly connects the immediate response with immune memory.",
+    "step": 6,
+    "reason": "The new cells make antibodies, and the bacteria are the matching target to mark.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Antibodies will bind the matching bacterial surface protein and mark the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Antibodies tagged the matching bacteria, completing the first goal without implying that all bacteria disappeared.",
+    "reaction": "The distinction between tagging and eliminating bacteria is useful.",
+    "step": 7,
+    "reason": "The remaining goal is to leave the body with immune memory, so I will connect the memory-bearing B cells to the body.",
+    "choice": {
+      "combine": "Protected body model",
+      "with": "Antibody-making and memory B cells"
+    },
+    "expectation": "The body model will retain memory B cells that can respond to a later encounter.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The body now retains memory B cells, completing the final goal; the result clarifies that memory can speed a later response without guaranteeing protection.",
+    "reaction": "The distinction between immune memory and guaranteed protection is useful.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the B cell from binding intact protein to displaying a fragment, receiving helper signals, and producing plasma and memory cells made the sequence of immune responses concrete. The planned branching time sequence was especially useful.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final body construction was less informative than the cell-level sequence: its planned inset shows surviving memory cells but little of how a later response unfolds.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The B cell both bound an intact bacterial protein and displayed a fragment, distinguishing its recognition from the helper T cell's interaction with a displayed fragment.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the lymph node as a separate interaction initially felt like a game-specific requirement; the automatic combination clarified the location, though the reason the interaction must be commanded there was not explained.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see a later encounter illustrated, because the final result describes a faster memory response but does not show it. The chapter's constructions made that next connection interesting.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

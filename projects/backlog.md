@@ -32,7 +32,7 @@ An approximate 200-decision campaign remains an inherited research ambition, not
 
 ## Format and tooling ideas
 
-- Detect incompatible saved progress after a manuscript changes at the same URL. Live-story reconciliation can retain consumed inputs required by revised recipes, so compatible pairs are offered from an already-blocked position and raise “This action would remove every continuation through the remaining story.” Distinguish this from a fresh-story lint failure and provide an explicit recovery path while preserving drafts and requiring the existing confirmation before discarding progress. Keep reversible live editing intact. [Undissection diagnosis and user-confirmed restart recovery](undissection/working-notes.md#saved-progress-mismatch-reported-after-the-rewrite).
+- Detect incompatible saved progress after a manuscript changes at the same URL. Live-story reconciliation can retain consumed inputs required by revised recipes, so compatible pairs are offered from an already-blocked position and raise “This action would remove every continuation through the remaining story.” Distinguish this from a fresh-story lint failure and provide an explicit recovery path while preserving drafts and requiring the existing confirmation before discarding progress. Keep reversible live editing intact. [Anatomy diagnosis and user-confirmed restart recovery](anatomy/working-notes.md#prototype-saved-progress-mismatch-reported-after-the-rewrite).
 
 These are proposals, not existing tools or syntax:
 

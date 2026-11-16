@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The phospholipids are the visible building blocks of the surface, so oxygen may combine with them to illustrate direct passage.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Oxygen"
+    },
+    "expectation": "This should construct or illustrate oxygen crossing the lipid layer.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Phospholipids"
+        },
+        "reason": "Checking their partners could reveal whether the membrane must be assembled first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen could not combine directly with phospholipids; water first helped form lipid-only membrane patches.",
+    "reaction": "The automatic assembly clarified the necessary first step.",
+    "step": 2,
+    "reason": "Oxygen is small and uncharged, so it should cross the newly formed lipid layer directly.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Oxygen"
+    },
+    "expectation": "The result should illustrate oxygen diffusing into the cell through the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly, following its concentration gradient into the cytosol.",
+    "reaction": "The whole-cell inset makes the enlarged membrane patch easier to place.",
+    "step": 3,
+    "reason": "The goal also asks for water exchange, so I will test water against the lipid-only patches before adding a channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Water"
+    },
+    "expectation": "Water should cross the lipid layer, providing a comparison with channel-assisted exchange.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "The channel could provide the water route, but the lipid-only comparison seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid layer slowly in both directions, with net movement toward the higher solute concentration inside.",
+    "reaction": "The matched comparison should make the channel’s effect clearer.",
+    "step": 4,
+    "reason": "The aquaporin channel should provide the contrasting protein route for water exchange.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Aquaporin water channel"
+    },
+    "expectation": "The channel should fit into the membrane and allow faster water exchange.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin is installed in a membrane, while the lipid-only patch remains for comparison.",
+    "reaction": "The side-by-side setup makes the next comparison clear.",
+    "step": 5,
+    "reason": "Adding water to the aquaporin membrane should show how the protein route changes exchange.",
+    "choice": {
+      "combine": "Membrane with aquaporin",
+      "with": "Water"
+    },
+    "expectation": "Water should exchange faster through the channel under the same starting conditions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin comparison shows faster two-way water exchange, with net movement toward the higher nonpenetrating solute concentration; the first goal is complete.",
+    "reaction": "The matched comparison makes the channel’s role clear.",
+    "step": 6,
+    "reason": "The remaining goal needs a passive sodium route, so the open sodium channel should fit into a lipid membrane.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Open sodium channel"
+    },
+    "expectation": "The channel should be installed in the membrane, ready to let sodium enter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sodium channel is installed, with a lipid-only patch retained under the same conditions for comparison.",
+    "reaction": "The matched conditions make the channel’s effect easier to compare.",
+    "step": 7,
+    "reason": "The extracellular sodium solution should show passive sodium entry through the open channel.",
+    "choice": {
+      "combine": "Membrane with an open sodium channel",
+      "with": "Extracellular sodium solution"
+    },
+    "expectation": "Sodium should enter through the channel down its electrochemical gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium enters through the open channel under the stated concentration and electrical conditions without ATP expenditure, completing the remaining goal.",
+    "reaction": "The contrast between a passive route and a pump is clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The water comparisons were most worthwhile: using the same starting conditions made the channel’s effect on exchange easier to understand without implying that it determines the direction of net movement.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing each channel and then adding its substance was somewhat repetitive, although the separate steps made the constructions visible.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The lipid-only comparison showed water moving both ways through the membrane, with net movement toward the higher concentration of nonpenetrating solutes.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The first attempt felt slightly arbitrary: oxygen seemed relevant to the membrane goal, but water had to be combined with phospholipids first. The compatibility feedback immediately clarified the required assembly.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the matched membrane comparisons made the physiology concrete, and I would be curious to see how later constructions connect cells to tissues and organs. The picture plans are clear, though this playthrough cannot establish how students would understand them.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

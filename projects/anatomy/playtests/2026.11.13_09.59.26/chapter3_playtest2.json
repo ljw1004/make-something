@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The nucleus contains DNA, and nucleotides are the building blocks needed to copy it before division.",
+    "choice": {
+      "combine": "Nucleus inside the stem cell",
+      "with": "DNA nucleotides"
+    },
+    "expectation": "The nuclear DNA will be replicated so each daughter can receive a complete genome.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, but its sister chromatids still need to be separated before division.",
+    "reaction": "The distinction between copying DNA and separating chromatids is useful.",
+    "step": 2,
+    "reason": "The centrosomes organize spindle components, so combining them should prepare the machinery for chromosome separation.",
+    "choice": {
+      "combine": "Duplicated centrosomes",
+      "with": "Tubulin and spindle motor proteins"
+    },
+    "expectation": "A spindle will form between the organizing centres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is ready, but the copied chromosomes have not yet been separated.",
+    "reaction": "The picture makes the spindle's preparation clear, though the accompanying text adds little.",
+    "step": 3,
+    "reason": "The cell needs more material before it can divide, and phospholipids can expand its membrane.",
+    "choice": {
+      "combine": "Living pluripotent stem cell",
+      "with": "Phospholipids"
+    },
+    "expectation": "The cell will gain membrane material for growth or division.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nucleus with its genome copied",
+          "with": "Mitotic spindle"
+        },
+        "reason": "The spindle and copied chromosomes must eventually work together, but the cell also needs to grow."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stem cell has no currently available combination, so membrane growth must proceed another way or later.",
+    "reaction": "The failed attempt was a little surprising given the membrane-growth description.",
+    "step": 4,
+    "reason": "The copied genome and spindle are the visible components needed for chromosome separation.",
+    "choice": {
+      "combine": "Nucleus with its genome copied",
+      "with": "Mitotic spindle"
+    },
+    "expectation": "The spindle will help separate the copied chromosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are separated, but the cell still needs to divide its shared cytoplasm.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 5,
+    "reason": "Actin and myosin can constrict the cell cortex to divide the cytoplasm around the separated chromosome sets.",
+    "choice": {
+      "combine": "Separated chromosome sets inside the cell",
+      "with": "Cortical actin and myosin"
+    },
+    "expectation": "A contractile ring will help split the cell into two daughters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separated chromosome sets cannot currently be combined with anything, so another preparation is needed before division.",
+    "reaction": "The failed attempt is surprising because actin and myosin have an apparent role in cytokinesis.",
+    "step": 6,
+    "reason": "Phospholipids and new proteins are the remaining growth materials; combining them may prepare the cell body for division.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "They will contribute membrane and cellular material for a growing cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cortical actin and myosin"
+        },
+        "reason": "Checking its partners could reveal how to initiate cytokinesis."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The growth materials formed membrane vesicles, suggesting a route to expanding the cell membrane.",
+    "reaction": "The vesicles clarify why the materials needed to be combined first, though the accompanying text adds little.",
+    "step": 7,
+    "reason": "The new vesicles may supply membrane to the living cell as it prepares to divide.",
+    "choice": {
+      "combine": "New membrane vesicles",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The vesicles will contribute membrane to the growing cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cortical actin and myosin"
+        },
+        "reason": "Its compatibility report might reveal the remaining cytokinesis preparation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell body, providing more membrane and cytoplasm for division.",
+    "reaction": "The growth picture makes the preparation for two daughter cells clearer.",
+    "step": 8,
+    "reason": "The enlarged cell body and separated chromosome sets are matching parts of the same cutaway and need to come together before division.",
+    "choice": {
+      "combine": "Enlarged stem-cell body",
+      "with": "Separated chromosome sets inside the cell"
+    },
+    "expectation": "The grown cell body will be joined with the separated chromosome sets, preparing it for cytokinesis.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Enlarged stem-cell body",
+          "with": "Cortical actin and myosin"
+        },
+        "reason": "The enlarged body might instead first acquire the machinery that constricts it."
+      }
+    ],
+    "lookedAgain": false
+  }
+]

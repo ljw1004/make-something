@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows drinking water crossing the gut lining into this vessel, matching the goal.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Gut-wall blood vessel"
+    },
+    "expectation": "The water should move across the lining into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Urinary system"
+        },
+        "reason": "The kidneys could also work on conserving water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drinking-water goal is complete; the remaining goal is to make urine while conserving water.",
+    "reaction": "The placement completed the goal as expected.",
+    "step": 2,
+    "reason": "The kidney system processes blood, and the chapter says water-saving signals have already reached it.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Urinary system"
+    },
+    "expectation": "The kidneys should make urine while returning more water to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more filtered water to the blood while still making urine, completing the remaining goal. Saving water and replacing it with a drink are different routes.",
+    "reaction": "It was satisfying to see how the two routes addressed the same problem differently.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using blood with the urinary system was most worthwhile because the result showed that conserving water still leaves urine to carry wastes away.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Moving drinking water to the blood vessel was clear, but the result only reported its placement, so it added little beyond the original picture.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The kidneys could return more water to the blood while still producing urine; I had not connected those two outcomes as clearly before.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: both matched a stated goal and the pictured routes. The water-saving signals were already supplied, though, so I did not explore how they worked.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter connected familiar body functions in a similarly clear way, though I would hope for more explanation than a placement confirmation.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The transporter-bearing cell appears ready to take in the glucose needed for energy production.",
+    "choice": {
+      "combine": "Cell with sugar transporter",
+      "with": "Glucose and oxygen"
+    },
+    "expectation": "The cell will take in fuel for the steps that produce ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose and oxygen",
+          "with": "Mitochondria"
+        },
+        "reason": "The mitochondria also appear relevant to turning fuel into usable energy."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter-bearing cell combined with the fibre structures, so I now have a muscle fibre scaffold to equip.",
+    "reaction": "I was surprised that the fuel combination instead led to assembling the fibre.",
+    "step": 2,
+    "reason": "The thin and thick filaments appear to be the complementary parts of the fibre's contractile machinery.",
+    "choice": {
+      "combine": "Thin filaments",
+      "with": "Thick filaments"
+    },
+    "expectation": "They will form a contractile unit that can be added to the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The thin and thick filaments formed sliding filament units, which appear ready to fit into the muscle fibre scaffold.",
+    "reaction": "The overlapping arrangement makes their relationship clearer.",
+    "step": 3,
+    "reason": "The scaffold has spaces for contractile units, so these units appear to belong in it.",
+    "choice": {
+      "combine": "Sliding filament units",
+      "with": "Muscle fibre"
+    },
+    "expectation": "The sliding filament units will become part of the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sliding filament units are now installed in the muscle fibre. It still appears to need usable energy and signals to pull and relax.",
+    "reaction": "Filling the fibre with the overlapping units was a clear assembly step.",
+    "step": 4,
+    "reason": "Mitochondria use glucose and oxygen in energy production, so this pair seems relevant to making ATP.",
+    "choice": {
+      "combine": "Glucose and oxygen",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will use the fuel and oxygen in a step toward producing ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuel and oxygen produced fuelled mitochondria; the picture shows glucose being split in the cell fluid before smaller molecules enter the mitochondrion.",
+    "reaction": "The distinction between the cell fluid and mitochondrion made the energy sequence clearer.",
+    "step": 5,
+    "reason": "ADP and phosphate are the remaining ingredients for making ATP, and the fuelled mitochondria appear ready to supply the energy.",
+    "choice": {
+      "combine": "Fuelled mitochondria",
+      "with": "ADP and phosphate"
+    },
+    "expectation": "The mitochondria will produce ATP from ADP and phosphate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuelled mitochondria produced an ATP supply, with the picture showing ATP going to the pulling machinery and its components returning.",
+    "reaction": "The cycle makes the continuing energy supply clearer.",
+    "step": 6,
+    "reason": "The filament-filled fibre needs ATP for its pulling machinery.",
+    "choice": {
+      "combine": "ATP supply",
+      "with": "Filament-filled muscle fibre"
+    },
+    "expectation": "The ATP supply will equip the fibre to pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibre is now ATP-ready; the covered binding site suggests it still needs a signal before pulling.",
+    "reaction": "The picture clarified that ATP helps the myosin head release and reset.",
+    "step": 7,
+    "reason": "The calcium signal appears to be the next step in activating the fibre's filaments.",
+    "choice": {
+      "combine": "ATP-ready muscle fibre",
+      "with": "Calcium signal"
+    },
+    "expectation": "Calcium will allow the filaments to interact and the fibre to pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The calcium signal exposed grip sites, allowing the filaments to slide and the fibre to shorten. The fibre still needs to relax.",
+    "reaction": "The distinction between the fibre shortening and the filaments sliding was clear.",
+    "step": 8,
+    "reason": "The calcium-pumping membranes appear able to remove calcium from around the filaments so the fibre can relax.",
+    "choice": {
+      "combine": "Shortening muscle fibre",
+      "with": "Calcium-pumping membranes"
+    },
+    "expectation": "Calcium will be pumped back into storage, allowing the muscle fibre to relax.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The calcium pumps returned calcium to storage, covering the grip sites and stopping pulling. An outside pull then relaxed the fibre, completing the goal.",
+    "reaction": "I found it useful that relaxation also requires ATP.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The calcium signal and shortening fibre were most worthwhile: the description connected the signal to exposed grip sites and made clear that the filaments slide rather than shorten.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the sliding filament units was a clear but predictable assembly step; it added less explanation than the later pulling sequence.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I had expected ATP simply to power pulling, so seeing it help myosin release and reset, and then power calcium pumping during relaxation, broadened my understanding.",
+        "steps": [
+          6,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "My first attempt to give the transporter-bearing cell glucose and oxygen seemed plausible from the titles, but the compatibility feedback redirected it to fibre assembly. The purpose became clear once I saw the result.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the sequence made the connection between cellular energy and muscle movement concrete, and I am curious how the fibre will connect to larger body systems.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

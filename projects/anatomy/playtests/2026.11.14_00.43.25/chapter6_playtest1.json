@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The skull picture shows where the brain fits, matching the protection goal.",
+    "choice": {
+      "combine": "Brain",
+      "with": "Skull"
+    },
+    "expectation": "The skull should enclose and protect the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Spinal cord",
+          "with": "Backbone"
+        },
+        "reason": "The backbone also has a matching outline and could protect the spinal cord first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skull now surrounds the brain, so the spinal cord still needs its protection.",
+    "reaction": "The result matched the picture; the membranes and fluid were an extra detail.",
+    "step": 2,
+    "reason": "The backbone picture has an outline for the spinal cord, matching the other part of the protection goal.",
+    "choice": {
+      "combine": "Spinal cord",
+      "with": "Backbone"
+    },
+    "expectation": "The backbone should surround and protect the spinal cord.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sensory nerve root",
+          "with": "Motor nerve root"
+        },
+        "reason": "Their pictures show both roots meeting the same nerve trunk, so I could build that route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The backbone protects the cord, and the new goal asks me to connect it to the protected brain.",
+    "reaction": "The side openings make sense as routes for the nerve branches.",
+    "step": 3,
+    "reason": "The new goal directly names the two protected structures that need to be connected.",
+    "choice": {
+      "combine": "Brain inside the skull",
+      "with": "Spinal cord inside the backbone"
+    },
+    "expectation": "The brain and spinal cord should connect while remaining protected by their bones.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sensory nerve root",
+          "with": "Motor nerve root"
+        },
+        "reason": "Their pictures show them meeting at the same nerve trunk, so I could work on that goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected brain and spinal cord are connected; the sensory and motor roots still need joining.",
+    "reaction": "The detail about rapid local responses was interesting.",
+    "step": 4,
+    "reason": "Both root pictures show their outer ends meeting the same nerve trunk, matching the remaining goal.",
+    "choice": {
+      "combine": "Sensory nerve root",
+      "with": "Motor nerve root"
+    },
+    "expectation": "The roots should join into a spinal nerve carrying sensory messages toward the cord and motor messages away from it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The roots form one spinal nerve with separate sensory and motor fibres; it now needs to connect to the brain-and-cord model.",
+    "reaction": "The separate fibres make the two directions of messaging clearer.",
+    "step": 5,
+    "reason": "The new goal directly calls for connecting the spinal nerve to the brain-and-cord model.",
+    "choice": {
+      "combine": "Spinal nerve",
+      "with": "Brain and spinal cord"
+    },
+    "expectation": "The spinal nerve should connect to the spinal cord while retaining its sensory and motor routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spinal nerve is connected to the protected brain and cord, completing the nervous system model and all chapter goals.",
+    "reaction": "The separate incoming and outgoing arrows made the finished model easy to follow.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the sensory and motor roots was most worthwhile: the picture showed how one nerve can carry messages in both directions on separate fibres.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the skull and backbone was clear but predictable, since both pictures already showed where the parts fit.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that local spinal cord circuits can produce rapid responses without waiting for a conscious decision.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and goals made each connection understandable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: connecting the nerve roots and seeing the finished system made me curious about how the routes work with the rest of the body.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes are shown clearing debris at the cut, a likely first part of wound repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The wound will be cleared of some debris.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleared of debris and now has supply, surface and support slots to fill.",
+    "reaction": "The named slots make the next stages clearer.",
+    "step": 2,
+    "reason": "Repair signals are shown acting on the nearby capillary, suggesting they can help establish the wound's supply.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The signals will stimulate a blood supply for the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a capillary sprout connected to the existing circulation, suggesting it can fill the wound’s supply slot.",
+    "reaction": "The connection to the parent vessel makes the new supply easy to follow.",
+    "step": 3,
+    "reason": "The capillary sprout appears to provide the supply needed by the healing skin.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Capillary sprout"
+    },
+    "expectation": "The sprout will be fitted as the wound’s blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout filled the supply slot and formed a connected route that can deliver nutrients to the wound.",
+    "reaction": "The completed loop makes the supply’s purpose clear.",
+    "step": 4,
+    "reason": "Fibroblasts and matrix nutrients suggest a way to build the wound’s supporting tissue.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will use the nutrients to make supporting matrix.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibroblasts made new connective tissue, which appears suited to the wound’s support slot.",
+    "reaction": "The collagen fibres make the supporting role clear.",
+    "step": 5,
+    "reason": "The new connective tissue can support the healing wound.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New connective tissue"
+    },
+    "expectation": "The connective tissue will fill the support slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue filled the support slot; the result explains that this young tissue is still weaker than uninjured skin.",
+    "reaction": "The distinction between closing the wound and regaining strength is useful.",
+    "step": 6,
+    "reason": "Epidermal edge cells and cell nutrients look like the pieces needed to rebuild the wound surface.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The edge cells will use the nutrients to form new surface tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new surface that can fill the remaining surface slot.",
+    "reaction": "The sheet extending across the gap makes its role clear.",
+    "step": 7,
+    "reason": "The new surface should close the remaining gap in the healing skin.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New surface"
+    },
+    "expectation": "The new surface will fill the surface slot and close the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface closed the gap, completing the wound closure goal; the deeper tissue is still gaining strength.",
+    "reaction": "The reminder that healing continues after closure is useful.",
+    "step": 8,
+    "reason": "Clot-clearing enzymes are shown breaking down fibrin, matching the remaining goal.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will clear the temporary clot from the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clot-clearing enzymes left a closed wound with a still-maturing scar, completing the remaining goal.",
+    "reaction": "The contrast between the temporary clot and the tissue that remains is satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the new connective tissue was most worthwhile: it showed how fibroblasts support the wound and explained that young tissue is still weaker than uninjured skin.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and then fitting the new surface felt somewhat repetitive, though the picture of cells crossing the gap made the result clear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The capillary sprout joined another vessel to form a local flow route; I had expected a supply but had not anticipated that detail.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The named slots and picture descriptions gave each combination a clear purpose.",
+        "steps": [
+          1,
+          3,
+          5,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting cellular actions to a healing wound was clear and interesting, even though several fitting steps were predictable.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

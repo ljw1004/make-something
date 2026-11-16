@@ -1,0 +1,165 @@
+[
+  {
+    "step": 1,
+    "reason": "Clearing debris seems useful before rebuilding the wound.",
+    "choice": 1,
+    "expectation": "Phagocytes will remove some debris at the cut, though repair will still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Growing a blood supply also supports repair, but I chose to address debris first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Debris is cleared, and the wound still needs supply, surface and support.",
+    "reaction": "The named slots make the remaining repair tasks clear.",
+    "step": 2,
+    "reason": "Repair signals at a nearby capillary may establish the wound's blood supply.",
+    "choice": 1,
+    "expectation": "I expect the signals to stimulate a vessel response that helps supply the wound.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Making supporting material also seems important, but I chose to address the supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a vessel branch connected to circulation, which can now be added to the wound.",
+    "reaction": "The connected sprout makes the supply step easy to follow.",
+    "step": 3,
+    "reason": "Fit the new capillary sprout into the wound to address its supply slot.",
+    "choice": 3,
+    "expectation": "I expect the sprout to supply the healing wound, though surface and support will still need work.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fibroblasts may help build support, but I want to fit the supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout now forms a connected flow route that can deliver nutrients to developing tissue; surface and support remain.",
+    "reaction": "The flow loop makes the supply connection clearer.",
+    "step": 4,
+    "reason": "Start the fibroblast pathway to build support for the wound.",
+    "choice": 1,
+    "expectation": "I expect the fibroblast to use the RNA building blocks to make RNA related to collagen production, though further materials may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Surface closure also needs attention, but I chose support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now have messenger RNA copied from the collagen gene; matrix nutrients are available for the next support step.",
+    "reaction": "The picture makes the DNA-to-RNA connection clear.",
+    "step": 5,
+    "reason": "Add matrix nutrients to continue making wound support.",
+    "choice": 1,
+    "expectation": "I expect the fibroblasts to use the instructions and nutrients to make collagen or supporting matrix.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Surface closure also matters, but I want to continue the support pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used the RNA instructions and amino acids to make collagen fibres, producing connective tissue ready to fit into the wound.",
+    "reaction": "The sequence connects protein synthesis to wound support clearly.",
+    "step": 6,
+    "reason": "Fit the new connective tissue into the wound to address its support slot.",
+    "choice": 2,
+    "expectation": "I expect the connective tissue to support the damaged dermis, while the surface still needs closing.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Surface closure is also needed, but I want to finish fitting the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has collagen-rich support and a blood supply, but the surface still needs closing.",
+    "reaction": "The note that young tissue is not yet as strong as uninjured skin adds useful context.",
+    "step": 7,
+    "reason": "The only offered combination may prepare the epidermal cells to close the surface.",
+    "choice": 1,
+    "expectation": "I expect the nutrients to help the edge cells grow or move across the wound; a further fitting may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new epidermal sheet that can now be fitted over the wound.",
+    "reaction": "The sheet extending across the gap makes surface closure easy to visualize.",
+    "step": 8,
+    "reason": "Fit the new surface into the wound; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the epidermal sheet to close the surface, with clot clearing still to address.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface spans the gap, completing the closure, support and supply goal; the temporary clot still needs clearing.",
+    "reaction": "The reminder that deeper tissue is still gaining strength is useful.",
+    "step": 9,
+    "reason": "Use the only offered combination to address the remaining clot-clearing goal.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the temporary fibrin clot while the repaired tissue remains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary fibrin has mostly cleared, while the closed skin and maturing scar remain; both chapter goals are complete.",
+    "reaction": "The distinction between clearing the clot and continuing to mature the repair is useful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making new connective tissue connected the collagen gene and messenger RNA to protein production and wound support. The planned sequence made that familiar biology relevant to repair.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the new surface was predictable once the sheet and named slot were available, though it clearly showed the gap closing.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The reminder that newly formed tissue is not yet as strong as uninjured skin made repair feel less like an instant reset.",
+        "steps": [
+          6,
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the menu supplied compatibility rather than asking me to discover it. The purpose of clot-clearing enzymes was clear from their title and the remaining goal.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: connecting gene expression to a visible repair was interesting, though several fitting steps were predictable.",
+        "steps": [
+          4,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

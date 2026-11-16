@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus belongs on the ciliated airway lining, forming the surface that can catch inhaled material.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Ciliated airway lining"
+    },
+    "expectation": "This should make a mucus-covered airway lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now has mucus to trap particles and cilia to move it, so I can follow the inhaled material through this defense.",
+    "reaction": "The explanation makes the two layers' roles clear.",
+    "step": 2,
+    "reason": "Inhaled particles and bacteria should encounter the mucus-covered lining.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The mucus should trap some of the inhaled material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining had to be connected to the body before it could be used in the defense sequence.",
+    "reaction": "I was surprised that the particles could not be combined with the lining first.",
+    "step": 3,
+    "reason": "The body now has its airway lining, so I will try introducing the inhaled material.",
+    "choice": {
+      "combine": "Body with airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "Some particles and bacteria should be trapped in the airway mucus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inhaled material is now caught in the airway mucus, ready to be moved.",
+    "reaction": "The result matches the expected trapping step.",
+    "step": 4,
+    "reason": "The beating cilia can sweep the particle-bearing mucus toward the throat.",
+    "choice": {
+      "combine": "Body with particles caught in airway mucus",
+      "with": "Beating airway cilia"
+    },
+    "expectation": "The cilia should move the trapped material toward the throat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia have moved trapped material toward the throat, but some microbes reached an air sac, where macrophages can act.",
+    "reaction": "The remaining microbes make the next defense step clear.",
+    "step": 5,
+    "reason": "The lung macrophages are shown surrounding a bacterium in an air sac.",
+    "choice": {
+      "combine": "Body moving airway mucus toward the throat",
+      "with": "Lung macrophages"
+    },
+    "expectation": "Macrophages should engulf microbes that reached the air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model shows two defenses working at different locations: cilia move trapped material toward the throat, while lung macrophages engulf some microbes that reach the air sacs. Neither catches every microbe.",
+    "reaction": "I liked seeing what happens to microbes that get past the mucus.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the macrophages was most worthwhile because it showed a second defense and made clear that the airway lining does not catch everything.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the lining to the body before it could catch particles felt like an assembly requirement; I had expected to explore the lining's function first.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the lining had to be attached to the body before it could be combined with inhaled material.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "That required order felt somewhat arbitrary from the visible descriptions, although the compatibility feedback made the next step clear.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how the body responds to microbes that get past these defenses. The sequence was clear, though most combinations were predictable.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

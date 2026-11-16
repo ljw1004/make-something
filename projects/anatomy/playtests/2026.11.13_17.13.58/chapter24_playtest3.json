@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus catches particles, and the lining's hairs sweep toward the throat, so putting them together should build the airway defense.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Airway lining with sweeping hairs"
+    },
+    "expectation": "The sticky mucus will sit on the lining so the hairs can move trapped particles toward the throat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus-covered lining is ready to catch inhaled particles and move them toward the throat.",
+    "reaction": "The picture makes the hairs and mucus working together clear.",
+    "step": 2,
+    "reason": "The inhaled particles are what this lining is meant to catch and sweep away.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The mucus will trap some particles and bacteria, and the hairs will sweep them toward the throat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lung white blood cells",
+          "with": "Bacteria in a lung air sac"
+        },
+        "reason": "That looks like a separate defense to build next."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airway defense is complete; the remaining goal is to catch bacteria farther inside the lungs.",
+    "reaction": "The panels clearly show how the trapped particles move away from the lungs.",
+    "step": 3,
+    "reason": "The white blood cell is pictured reaching around a particle, and the bacteria are in the same kind of air sac.",
+    "choice": {
+      "combine": "Lung white blood cells",
+      "with": "Bacteria in a lung air sac"
+    },
+    "expectation": "The white blood cells will catch some bacteria in the air sac.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cells caught bacteria, and the new goal is to connect both defenses to the body.",
+    "reaction": "The picture makes it clear that the cell surrounds and breaks apart a bacterium.",
+    "step": 4,
+    "reason": "The two completed defenses need to come together before connecting them to the body.",
+    "choice": {
+      "combine": "Airway lining clearing particles",
+      "with": "Lung cells containing bacteria"
+    },
+    "expectation": "The airway and air-sac defenses will join into one lung-defense model.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Body releasing liver glucose"
+        },
+        "reason": "I could check how the body connects to the defenses first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The defenses connect to the body separately, and the airway lining is now attached.",
+    "reaction": "I expected the two defenses to combine first, so the automatic connection was surprising.",
+    "step": 5,
+    "reason": "The remaining lung-cell defense should connect to the body with its clearing airway lining.",
+    "choice": {
+      "combine": "Body with a clearing airway lining",
+      "with": "Lung cells containing bacteria"
+    },
+    "expectation": "The body will have both the mucus-clearing airway and white blood cells catching bacteria in its air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both defenses are now connected to the body, completing the chapter. They work in different places and do not catch everything.",
+    "reaction": "The two insets make the separate defenses easy to compare.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Catching particles in mucus was worthwhile because the successive panels showed how the hairs move them toward the throat.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the finished defenses to the body felt less interesting than seeing how they worked; the connections mostly assembled what was already shown.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the two defenses to combine first, but the game instead connected the airway lining directly to the body.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate attachment order was not clear from the goal, though the compatibility feedback automatically made the first connection.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the pictures made the two defenses understandable, and I would be curious to see another body system connected in a similarly clear way.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

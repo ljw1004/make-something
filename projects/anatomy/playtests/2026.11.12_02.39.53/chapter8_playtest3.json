@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum should separate the heart’s two sides, preparing the pump for its valves and routes. This is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect a heart with right and left sides separated, but still needing valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum created a divided heart with marked inlet and outlet valve slots, so I can now fit the valves.",
+    "reaction": "The marked slots make the next step clear.",
+    "step": 2,
+    "reason": "I’ll fit the inlet valves to begin completing the heart’s valve sets.",
+    "choice": 1,
+    "expectation": "I expect the inlet valves to fill the ventricular inlet slot, leaving the outlets to fit.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The outlet valves also fit a marked slot, but I chose to start with the inlets."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted, leaving the outlet valves as the next step toward completing both valve sets.",
+    "reaction": "The fitting was straightforward, though it added no explanation yet.",
+    "step": 3,
+    "reason": "Fit the outlet valves to complete the heart’s valve sets; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the outlet valves to fill the remaining slot and complete the valve goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted, and the explanation clarifies how they limit backward blood flow. The heart still needs to be connected to the routes and blood.",
+    "reaction": "The explanation made the two valve positions more meaningful.",
+    "step": 4,
+    "reason": "Add the conducting tissue to prepare the heart to beat; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a heart with an electrical pathway that coordinates its contractions, though I’m unsure what the resulting item will be called.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conducting tissue produced a coordinated heart, ready to connect to the blood routes.",
+    "reaction": "The explanation connects the electrical pathways to the heart’s pumping sequence.",
+    "step": 5,
+    "reason": "Connect the pulmonary loop to the heart as the only offered combination and a step toward completing the circulation.",
+    "choice": 1,
+    "expectation": "I expect the heart to connect to the lung route, with the systemic vessels and blood still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart is connected to the pulmonary route; the systemic vessel network is next.",
+    "reaction": "The unfinished loop makes me curious how the two routes will connect.",
+    "step": 6,
+    "reason": "Connect the systemic vessels to extend circulation through the body. It is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a heart connected to both pulmonary and systemic routes, with blood still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now connects to separate pulmonary and systemic vessel loops; blood remains to be added.",
+    "reaction": "Seeing both routes together makes the circulation easier to follow.",
+    "step": 7,
+    "reason": "Add blood to complete the circulation; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect blood to be added to the connected heart and vessel routes, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation and clarified that the right side pumps toward the lungs while the left pumps toward the rest of the body.",
+    "reaction": "The final explanation made the two routes easier to understand.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the outlet valves was worthwhile because the explanation distinguished their role from the inlet valves’ role in limiting backward flow.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the inlet valves was straightforward but felt slight on its own, since it did not yet explain their function.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The completed circulation clarified that blood returns to the heart after each of the two routes.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary, though adding conducting tissue was the only offered combination and its connection to coordinated contraction became clear in the result.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how circulation supports the rest of the body. The explanations connecting structures to their jobs held my interest, although the mostly single-option sequence offered few meaningful choices.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

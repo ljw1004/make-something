@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "The sleeve is unlined, and the synovial membrane is described as a joint lining.",
+    "choice": {
+      "combine": "Fibrous joint sleeve",
+      "with": "Synovial membrane"
+    },
+    "expectation": "The membrane will line the sleeve to help form the joint capsule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane lined the sleeve and completed the capsule goal. I can work on the bones next.",
+    "reaction": "The lining fit as expected.",
+    "step": 2,
+    "reason": "The picture places the mineral in the same bone outline as the collagen framework, suggesting they belong together.",
+    "choice": {
+      "combine": "Arm bone collagen framework",
+      "with": "Calcium phosphate mineral"
+    },
+    "expectation": "The mineral will strengthen the collagen framework of the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral joined the collagen framework, making it firmer; the bones still need living cells and a blood supply.",
+    "reaction": "The contrast between flexible collagen and firmer mineralised material was clear.",
+    "step": 3,
+    "reason": "The bone-lineage environment is shown guiding stem-cell descendants toward bone-related activity, so it looks like the route to living bone cells.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Bone-lineage environment"
+    },
+    "expectation": "The stem-cell descendants will develop into bone-lineage cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mineralised arm bone framework",
+          "with": "Blood vessels"
+        },
+        "reason": "The vessels also belong in the arm bones, but I want to prepare the bone cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stem-cell branch produced bone cells, including cells that make bone matrix and cells embedded in it.",
+    "reaction": "The lineage picture helped explain where the bone cells fit.",
+    "step": 4,
+    "reason": "The picture shows bone cells embedded in mature bone, so they should fit into the mineralised framework.",
+    "choice": {
+      "combine": "Bone cells",
+      "with": "Mineralised arm bone framework"
+    },
+    "expectation": "The bone cells will join the framework to form living bone tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Mineralised arm bone framework",
+          "with": "Blood vessels"
+        },
+        "reason": "The bones also need a blood supply, but I will add the cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone cells are now in the mineralised framework, and the unfilled vessel outline shows that the blood supply is still needed.",
+    "reaction": "The separate vessel outline makes the next step clear.",
+    "step": 5,
+    "reason": "The blood vessels match the unfilled vessel outline in the bone cutaway.",
+    "choice": {
+      "combine": "Bone matrix with cells",
+      "with": "Blood vessels"
+    },
+    "expectation": "The vessels will supply the living arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessels completed the living arm bones, and the new goal is to connect them into a movable joint.",
+    "reaction": "The cutaway made the different parts of living bone clearer.",
+    "step": 6,
+    "reason": "The cartilage caps look suited to covering the bone ends at the elbow before the joint is assembled.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Articular cartilage"
+    },
+    "expectation": "The cartilage will cover the ends of the arm bones where they meet.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Living arm bones",
+          "with": "Synovial capsule"
+        },
+        "reason": "The capsule also belongs around the joint, but the cartilage caps appear to fit directly on the bone ends."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cartilage now covers the facing bone surfaces, where the inset shows them sliding.",
+    "reaction": "The sliding inset made the cartilage's role clearer.",
+    "step": 7,
+    "reason": "The synovial capsule surrounds the joint cavity, so it should fit around the cartilage-covered bone ends.",
+    "choice": {
+      "combine": "Cartilage-covered arm bones",
+      "with": "Synovial capsule"
+    },
+    "expectation": "The capsule will surround the elbow joint and its fluid-filled cavity.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cartilage-covered arm bones",
+          "with": "Elbow ligaments"
+        },
+        "reason": "The ligaments also span the elbow, but the capsule looks like the next layer around the joint."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule now encloses the cartilage-covered ends, with fluid helping them glide. The joint still needs the ligaments for support.",
+    "reaction": "The cutaway made the capsule and fluid's roles clearer.",
+    "step": 8,
+    "reason": "The ligaments are shown spanning the elbow, so they should help support the enclosed joint.",
+    "choice": {
+      "combine": "Enclosed elbow",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments will reinforce the elbow while allowing movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the elbow, supporting it against sideways movement while allowing it to bend. All goals are complete.",
+    "reaction": "The arrows made the balance between movement and support clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding mineral to collagen was most worthwhile because the contrast showed how the two materials contribute to bone strength.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding bone cells to the framework felt more like assembling a cutaway than discovering how bone develops, although the picture showed where the cells belong.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that some bone-matrix-producing cells become embedded in the matrix as osteocytes.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the pictures and goals generally made the pairings clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: seeing how the cartilage, fluid and ligaments contribute different things to the elbow made me curious about how muscles would move it.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

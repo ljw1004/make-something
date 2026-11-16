@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and phospholipids in water should form the membrane surface needed for the goals.",
+    "choice": 1,
+    "expectation": "I expect a phospholipid bilayer to form, though I don't yet know how the crossings will be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bilayer patches provide a baseline for comparing substances crossing with and without channels.",
+    "reaction": "The outward-facing heads and inward-facing tails make the construction clear.",
+    "step": 2,
+    "reason": "I want to establish how water crosses the lipid layer before adding an aquaporin for comparison.",
+    "choice": 4,
+    "expectation": "Some water will cross the lipid-only membrane, probably toward the side with more nonpenetrating solute.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The aquaporin would provide a useful comparison, but I want the lipid-only baseline first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses lipid in both directions, with net movement toward the higher solute concentration; I can now compare a channel-mediated route.",
+    "reaction": "The matched conditions make the slow baseline useful, though the comparison is not yet complete.",
+    "step": 3,
+    "reason": "Add aquaporin to compare water movement through a protein channel with the lipid-only baseline.",
+    "choice": 1,
+    "expectation": "I expect a membrane patch with an aquaporin that permits faster water exchange; a separate step may be needed to show the comparison.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Oxygen crossing is another goal, but completing the water comparison first seems clearer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin is in place beside the lipid-only patch, ready for a matched water comparison.",
+    "reaction": "Keeping the starting conditions visible makes the comparison easy to follow.",
+    "step": 4,
+    "reason": "Add water to see how the aquaporin changes exchange compared with the lipid-only patch.",
+    "choice": 4,
+    "expectation": "I expect faster water exchange through aquaporin, with net movement toward the higher solute concentration inside.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Oxygen entry is another goal, but I want to finish the water comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matched comparison shows that aquaporin speeds water exchange without changing the direction of net movement.",
+    "reaction": "The distinction between faster exchange and net direction is clear and useful.",
+    "step": 5,
+    "reason": "Use the lipid-only patch to show how oxygen enters without a channel.",
+    "choice": 2,
+    "expectation": "I expect oxygen to diffuse through the lipid bilayer into the cell, down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The sodium channel is needed for the other goal, but oxygen provides a direct lipid-crossing comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly, completing the oxygen and water goal; sodium remains.",
+    "reaction": "The whole-cell inset usefully places the membrane and mitochondria in context.",
+    "step": 6,
+    "reason": "Test sodium against the lipid-only membrane before adding its channel, to establish a comparison.",
+    "choice": 2,
+    "expectation": "I expect charged sodium ions to cross the lipid core poorly, if at all.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The open channel should provide the passive route, but I want the lipid-only comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium remains outside the lipid-only patch despite inward driving conditions, establishing the baseline for a channel.",
+    "reaction": "The contrast with oxygen crossing the lipid is clear.",
+    "step": 7,
+    "reason": "Add the open sodium channel to provide the remaining passive route; it is the only gameplay action offered.",
+    "choice": 1,
+    "expectation": "I expect a membrane patch with an open sodium channel, possibly requiring another step to show sodium entry.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open sodium channel is in place under the same driving conditions as the lipid-only comparison.",
+    "reaction": "The matched conditions make the comparison straightforward.",
+    "step": 8,
+    "reason": "Use the only offered gameplay action to show whether sodium enters through the channel.",
+    "choice": 1,
+    "expectation": "I expect sodium to enter passively through the selective pore, driven by its concentration difference and the negative interior.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium enters through the open channel without ATP under the stated concentration and electrical conditions, completing the remaining goal.",
+    "reaction": "The contrast with sodium remaining outside the lipid-only patch is clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The matched water comparison was most worthwhile: it distinguishes faster exchange through aquaporin from the direction of net movement, while holding starting conditions constant.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing each channel and then adding its transported substance made the sequence somewhat repetitive, especially when only one gameplay action was available.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The water comparison sharpened the distinction between movement in both directions and net movement toward the higher nonpenetrating-solute concentration; that direction remains the same when aquaporin speeds exchange.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the membrane baselines and channel fittings supported the comparisons. The menu supplied compatibility, so these were not discoveries of recipes.",
+        "steps": [
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see whether later constructions connect membrane transport to broader physiology. The comparison plans were clear, though the repeated fitting steps were less engaging.",
+        "steps": [
+          2,
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

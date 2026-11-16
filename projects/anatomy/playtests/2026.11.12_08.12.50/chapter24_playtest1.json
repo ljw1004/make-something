@@ -1,0 +1,161 @@
+[
+  {
+    "step": 1,
+    "reason": "Clear wound debris as a practical start to repair; the menu confirms this combination is available.",
+    "choice": 1,
+    "expectation": "The phagocytes will engulf debris near the wound, though I don't know what the resulting item will be.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Making RNA in fibroblasts also looks relevant to rebuilding tissue, but I chose debris clearance first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Debris is cleared, and the wound now has supply, surface and support slots to fill.",
+    "reaction": "The remaining slots make the repair plan clearer.",
+    "step": 2,
+    "reason": "Repair signals and a nearby capillary seem a practical way to build the wound's blood supply.",
+    "choice": 1,
+    "expectation": "I expect the signals to stimulate a vessel response that helps supply the wound, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblast RNA looks relevant to supporting tissue, but I chose the supply route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a capillary sprout connected to the existing circulation, ready to supply the wound.",
+    "reaction": "The connected parent vessel makes the new supply route clear.",
+    "step": 3,
+    "reason": "Fit the capillary sprout into the wound model to advance its supply.",
+    "choice": 3,
+    "expectation": "I expect the sprout to fill the supply slot, though the result may show additional repair details.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sprout now forms a connected blood-flow route that supplies developing tissue; surface and support remain to be addressed.",
+    "reaction": "The completed loop makes the supply route more concrete.",
+    "step": 4,
+    "reason": "Start the fibroblast pathway toward wound support; the offered combination links RNA building blocks with the repair cells.",
+    "choice": 1,
+    "expectation": "I expect the fibroblasts to make RNA, perhaps for collagen production, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Surface cells also need attention, but I chose to build support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have copied the collagen gene into messenger RNA, which has reached the ribosomes; matrix nutrients are now an available next step.",
+    "reaction": "The picture clearly connects the repair task to DNA-to-RNA instructions.",
+    "step": 5,
+    "reason": "Add matrix nutrients to continue the fibroblast pathway toward wound support.",
+    "choice": 1,
+    "expectation": "I expect the cells to use the RNA instructions and nutrients to make collagen, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The epidermal cells could advance surface closure, but I want to continue the support pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used messenger RNA and amino acids to make and export collagen, producing connective tissue ready to support the wound.",
+    "reaction": "The sequence links protein synthesis to a tangible repair outcome.",
+    "step": 6,
+    "reason": "Fit the new connective tissue into the wound before moving on to surface closure.",
+    "choice": 2,
+    "expectation": "I expect the connective tissue to fill the support slot and strengthen the damaged dermis.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The epidermal cells could advance surface closure, but I want to finish fitting the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has collagen-rich support, but the surface still needs closure; the new tissue is not yet as strong as uninjured skin.",
+    "reaction": "The strength limitation makes the repair feel more realistic.",
+    "step": 7,
+    "reason": "The only offered combination advances surface closure by supplying the epidermal edge cells.",
+    "choice": 1,
+    "expectation": "I expect the nourished edge cells to help close the skin, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal cells formed a new surface sheet extending across the wound, ready to fit into the healing body.",
+    "reaction": "The sheet makes the surface-closure step clear.",
+    "step": 8,
+    "reason": "Fit the new surface into the wound; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect it to fill the surface slot and close the wound, though clot clearance may still remain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface spans the wound, completing closure, support and supply; the temporary clot still needs clearing.",
+    "reaction": "The reminder that deeper tissue is still gaining strength makes closure feel like an intermediate stage.",
+    "step": 9,
+    "reason": "Use the clot-clearing enzymes to address the remaining goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the temporary fibrin clot now that the wound has closed, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot has mostly cleared, leaving closed skin and a still-maturing scar; both chapter goals are complete.",
+    "reaction": "The distinction between clot removal and ongoing tissue maturation is a useful ending.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making connective tissue was most worthwhile: the planned sequence connects a collagen gene, messenger RNA and ribosomes to fibres that support the wound.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the new surface was predictable after the sheet had already been shown spanning the gap, although it completed the goal.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "The capillary sprout joined another vessel to form a flow route, rather than merely growing toward the wound.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though fitting separately created parts into the wound was somewhat mechanical. The compatible menu guided these choices, so I did not discover the recipes myself.",
+        "steps": [
+          3,
+          6,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting familiar cell biology to a physical repair outcome was interesting, especially with the qualification that young tissue is not yet as strong as uninjured skin. That is my judgment of the text and illustration plans, not evidence of student comprehension.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action joins the muscle precursors, advancing the goal of making a fibre.",
+    "choice": 1,
+    "expectation": "I expect the myoblasts to fuse into a multinucleated muscle cell, though it may need further development before it can pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fusion and maturation produced a multinucleated fibre with sliding filaments; its actin grip sites are still covered, so the calcium signal is the next step.",
+    "reaction": "The one-cell outline makes the many nuclei easier to understand.",
+    "step": 2,
+    "reason": "The only offered combination uses calcium to activate the fibre’s pulling machinery.",
+    "choice": 1,
+    "expectation": "I expect calcium to expose actin’s grip sites and allow myosin to pull, though the exact sequence is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium exposed the grip sites, allowing ATP-dependent myosin cycling and filament sliding; the fibre now needs to become ready again.",
+    "reaction": "The distinction between filament sliding and filament shortening is clear and useful.",
+    "step": 3,
+    "reason": "The only offered combination should return calcium to its store and prepare the fibre for another pull.",
+    "choice": 1,
+    "expectation": "I expect ATP-powered pumps to lower calcium around the filaments, allowing the fibre to relax and reset.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered calcium pumping stopped pulling and left the fibre ready again; the goal now shifts to building and attaching both muscles.",
+    "reaction": "It is useful to see that relaxation requires energy and an outside pull to lengthen the fibre.",
+    "step": 4,
+    "reason": "The only offered combination adds extracellular matrix to the relaxed fibre, likely beginning the muscle construction.",
+    "choice": 1,
+    "expectation": "I expect the matrix to surround or support the fibre as part of a larger muscle structure, though the precise result is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matrix organized fibres into supported fascicles, with enough bundles for both muscles.",
+    "reaction": "The distinction between the fibre membrane and its surrounding connective layer is helpful.",
+    "step": 5,
+    "reason": "I'll build the biceps first; its sheaths and tendon routes give the fascicles a muscle-shaped arrangement.",
+    "choice": 1,
+    "expectation": "I expect fascicles to fill the biceps sheaths and connect to its tendons, though attachment to the skeleton may be a separate step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The triceps also needs building, but either muscle seems a reasonable starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is assembled, with force traced from fibres through connective tissue to tendon; it still needs attachment to the skeleton.",
+    "reaction": "The force pathway makes the connective tissue’s role clearer.",
+    "step": 6,
+    "reason": "I'll build the triceps next so both muscles are ready for attachment.",
+    "choice": 1,
+    "expectation": "I expect the remaining fascicles to fill the three triceps head spaces and connect to its tendons.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Attaching the biceps now would also advance the goal, but I prefer to assemble both muscles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both muscles are assembled; the triceps has three heads converging at the ulna, and both muscles still need attachment.",
+    "reaction": "The different paths of the triceps heads make their anatomy more concrete.",
+    "step": 7,
+    "reason": "I'll attach the biceps first, continuing toward the goal of connecting both muscles across the elbow.",
+    "choice": 1,
+    "expectation": "I expect its tendons to connect the biceps to the shoulder and radius, positioning it to bend the elbow.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Attaching the triceps first would also advance the goal, but either order seems reasonable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached and shown pulling on the radius to flex the elbow; the extensor slot remains empty.",
+    "reaction": "The two poses clarify how the biceps produces elbow flexion.",
+    "step": 8,
+    "reason": "The only offered combination adds the triceps to the empty extensor slot.",
+    "choice": 1,
+    "expectation": "I expect the triceps tendons to attach across the elbow, positioning the muscle to extend it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps completes the arm assembly, showing how its posterior attachment produces elbow extension while the biceps produces flexion.",
+    "reaction": "The contrasting attachment positions make the opposite movements clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The calcium-triggered sliding cycle was most worthwhile: it connects ATP use to pulling and distinguishes sliding filaments from shortening filaments.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two muscles was somewhat repetitive, although their different head and tendon arrangements added anatomical detail.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Relaxation requires ATP-powered calcium pumping, and the fibre lengthens under an outside pull rather than actively pushing itself longer.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The order of building and attaching biceps versus triceps felt like a preference rather than a consequential decision; both were needed for the goal.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the progression from filament movement to opposing movements at the elbow made the constructions worth following, despite some predictable assembly.",
+        "steps": [
+          2,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

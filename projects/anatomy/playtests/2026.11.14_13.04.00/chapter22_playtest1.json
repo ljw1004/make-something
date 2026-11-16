@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with filtering blood, since the picture shows small substances passing into the kidney while cells and large proteins stay in the vessels.",
+    "choice": 1,
+    "expectation": "I expect a filtered fluid containing water, glucose, salts and waste, which may then go to the recovery tube.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ureters would start the route to the bladder, but I want to follow filtration first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter also lets useful glucose, salts and water through, so the recovery tube is the next step.",
+    "reaction": "It was interesting that filtering doesn't just remove waste.",
+    "step": 2,
+    "reason": "The recovery tube is shown returning useful substances to the blood.",
+    "choice": 1,
+    "expectation": "I expect glucose, some salts and much of the water to return to the blood, leaving fluid containing wastes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ureters would build the drainage route, but I want to finish following the filtered fluid first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid becomes urine after useful substances and much water return to the blood. Now I need to build its drainage route.",
+    "reaction": "It makes sense that filtering and taking substances back are separate steps.",
+    "step": 3,
+    "reason": "The ureters lead from the kidneys toward the bladder, so I'll add them first.",
+    "choice": 1,
+    "expectation": "I expect the two ureters to connect to the kidney outlets, leaving a place for the bladder.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could add the bladder first, but following the route from the kidneys seems clearer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now lead from the kidneys toward the bladder position, leaving the bladder to add.",
+    "reaction": "The muscular squeezes moving fluid along the tubes were a useful detail.",
+    "step": 4,
+    "reason": "Adding the bladder is the only available combination and completes the pictured drainage route.",
+    "choice": 1,
+    "expectation": "I expect the bladder to connect to the ureters and receive urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder completes the route from both kidneys; urine collects there without changing into a different fluid.",
+    "reaction": "The continuous fluid trail made the route easy to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering useful substances made the kidney's job clearer: the filter lets useful small substances through too.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the bladder was straightforward and was the only available combination, so it involved little decision-making, even though it completed the route.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The filter lets glucose and other useful substances through along with wastes, rather than picking out only waste.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures explained both recovery and the drainage route.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: following a familiar substance through filtering, recovery and drainage made the body connections interesting, even if the final fitting was predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

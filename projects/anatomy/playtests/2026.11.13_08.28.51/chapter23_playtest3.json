@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "The meal's glucose-rich blood is linked to the same body, so I’ll begin by bringing the two together.",
+    "choice": {
+      "combine": "Body conserving and making heat",
+      "with": "Glucose-rich blood after a meal"
+    },
+    "expectation": "The body model will show the rise in blood glucose after the meal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose-rich blood after a meal",
+          "with": "Pancreatic sensing cells"
+        },
+        "reason": "The pancreatic cells could instead detect the glucose directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows the post-meal rise in blood glucose; pancreatic sensing is the next likely step.",
+    "reaction": "The result was as expected.",
+    "step": 2,
+    "reason": "The pancreatic sensing cells can detect the rising glucose and begin the response.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will respond to elevated blood glucose, likely by releasing insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic beta cells released insulin into blood, with routes toward muscle and liver.",
+    "reaction": "That matched my expectation.",
+    "step": 3,
+    "reason": "The insulin route points toward muscle, which is available to show a response.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Muscle will respond to insulin by taking up more glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle takes up glucose in response to insulin, and the new goal shifts attention to maintaining blood glucose between meals.",
+    "reaction": "The feedback showing less insulin as glucose falls was useful.",
+    "step": 4,
+    "reason": "Advancing time should establish the between-meal conditions before the liver responds.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "Blood glucose will fall as tissues keep using it and incoming glucose tapers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen between meals while liver glycogen remains available.",
+    "reaction": "The time shift made the next problem clear.",
+    "step": 5,
+    "reason": "The pancreatic sensing cells may detect falling glucose and initiate the between-meal response.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "Pancreatic alpha cells will release glucagon into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with falling blood glucose",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver could directly show how stored glycogen supplies glucose."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic alpha cells released glucagon into the blood, with its route leading toward the liver.",
+    "reaction": "That matched the expected between-meal response.",
+    "step": 6,
+    "reason": "The liver contains glycogen and is the indicated target of the glucagon signal.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "The liver will break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen, and rising blood glucose reduced glucagon release, completing the between-meal feedback sequence.",
+    "reaction": "The sequential insets made the feedback response clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The paired insulin and glucagon responses were most worthwhile: they connected changing blood glucose to different pancreatic signals and tissue responses, with feedback as glucose changed.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding glucose-rich blood to the body was straightforward setup, but its result added little beyond the initial picture.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The later inset showed insulin release decreasing as muscle uptake reduced blood glucose, making feedback visible rather than ending at hormone action.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the pancreas and liver were clearly indicated by the changing conditions and signal routes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: following the same body through opposing responses and seeing feedback in the planned illustrations made the system connections interesting. The sequence was predictable, though, so I would hope for more meaningful choices.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

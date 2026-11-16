@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments' knobs match a resting lymphocyte, and the picture says helper signals are already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is activated; the lymph node picture suggests it can now multiply there.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The lymph node is described as supporting an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte should multiply in the node, leading toward antibody-producing and memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making cells and memory cells, completing that goal. Antibodies are proteins, so amino acids may help make them.",
+    "reaction": "It was useful to see that some descendants remain as memory cells.",
+    "step": 3,
+    "reason": "Amino acids are protein building blocks, and these cells make antibody proteins.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells should use the amino acids to produce antibodies that match the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacterial knobs; they can now be used against the bacteria.",
+    "reaction": "The matching shapes make the next step clear.",
+    "step": 4,
+    "reason": "The antibodies' tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies should bind to and coat the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, leaving their outward-facing stems available for the engulfing cells.",
+    "reaction": "The pictures make the next pairing clear.",
+    "step": 5,
+    "reason": "The engulfing white blood cells are shown binding to antibody-coated bacteria.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells should engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal. The result showed how antibodies help mark a target for other cells.",
+    "reaction": "It was satisfying to see the matching and coating lead to the bacteria being broken down.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Coating the bacteria and then having white blood cells engulf them showed how the antibody and the cell work together.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the antibodies was a fairly predictable use of amino acids after earlier chapters explained protein building blocks, though it connected those ideas.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "One activated lymphocyte produced both antibody-making cells and memory cells; I had not expected both outcomes from that step.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: the pictures and descriptions made the pairings understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see what the memory cells do later, although the pairings here were mostly straightforward rather than challenging.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

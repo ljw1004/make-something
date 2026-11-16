@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane fats appear to form the cell boundary, and the oxygen picture shows oxygen crossing its oily middle.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Oxygen"
+    },
+    "expectation": "This may make a membrane boundary that oxygen can cross.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "Water surrounds the membrane in its picture, so it might help form the boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats combined with water to form a membrane patch, and the result says oxygen crosses its oily middle easily. The water-channel protein now looks useful for the water route.",
+    "reaction": "I was surprised that water was needed to form the patch rather than oxygen.",
+    "step": 2,
+    "reason": "The water-channel picture shows a pore sized for water, matching the goal of giving water a protein route through the boundary.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The channel protein will fit into the patch and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also appears to span a membrane, but the water route is a clear next goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water-channel protein became part of the membrane, completing the water-route goal.",
+    "reaction": "It is satisfying to see the pictured pore fit through the boundary.",
+    "step": 3,
+    "reason": "The sugar carrier has a sugar-shaped pocket and spans a membrane, so it looks like the next piece to add.",
+    "choice": {
+      "combine": "Membrane with a water channel",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will fit into the membrane and prepare a route for sugar.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Sugar-carrier protein"
+        },
+        "reason": "I could check which membrane it fits before trying."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier joined the membrane, completing the sugar-carrier goal. The oxygen goal remains.",
+    "reaction": "The separate pore and carrier make their different routes clearer.",
+    "step": 4,
+    "reason": "The membrane description says oxygen crosses its oily middle, so I’ll try oxygen with the completed membrane.",
+    "choice": {
+      "combine": "Membrane with water and sugar routes",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will cross the membrane and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the membrane, completing the last goal. The picture shows movement both ways, with more oxygen entering.",
+    "reaction": "It was satisfying to see the finished boundary work without breaking the cell outline.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the water channel was worthwhile because the picture made it clear how a protein can provide a route through the boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final oxygen combination felt somewhat repetitive: the membrane-patch result had already said oxygen could cross its oily middle.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected oxygen to help make the boundary, but the compatibility hint paired the fats with water instead. The resulting picture showed the lipid heads facing water on both sides.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "I didn't initially understand why water had to be combined with the fats before oxygen. The resulting picture helped explain the arrangement, though I followed the compatibility hint to get there.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: building the boundary piece by piece made the different routes easier to picture, though I hope the next chapter offers more to figure out.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

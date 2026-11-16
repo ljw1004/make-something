@@ -1,0 +1,143 @@
+[
+  {
+    "step": 1,
+    "reason": "Water loss should change the blood sample and start the water-saving sequence.",
+    "choice": {
+      "combine": "Water-balance blood sample",
+      "with": "Water loss"
+    },
+    "expectation": "The sample will become more concentrated as water is lost.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water loss concentrated the sample, so the next step is to connect that change to the brain's sensors.",
+    "reaction": "The result matches the expected change.",
+    "step": 2,
+    "reason": "The water-sensing brain cells should respond to the concentrated blood.",
+    "choice": {
+      "combine": "Concentrated blood sample",
+      "with": "Brain water sensors and pituitary"
+    },
+    "expectation": "The sensors will detect the concentrated blood and initiate a water-conserving signal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrated sample triggered ADH release into the blood, identifying the signal to follow to the kidney.",
+    "reaction": "The sensor-to-hormone connection is clear.",
+    "step": 3,
+    "reason": "The collecting ducts have ADH receptors, so they are the likely target of the blood-borne signal.",
+    "choice": {
+      "combine": "Blood carrying more ADH",
+      "with": "Responsive kidney collecting ducts"
+    },
+    "expectation": "ADH will increase water recovery from the collecting ducts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH increased collecting-duct water recovery, completing the signal pathway; the body still needs its water-control route.",
+    "reaction": "The water-channel and concentration-gradient explanation makes the response clearer.",
+    "step": 4,
+    "reason": "The hormone-releasing nerve endings connect the brain's water-sensing regions to the pituitary, so they look like a useful starting point for the control route.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Hormone-releasing nerve endings"
+    },
+    "expectation": "The nerve endings will connect the body's brain water-control pathway to the pituitary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Hormone-releasing nerve endings",
+          "with": "Pituitary blood vessels"
+        },
+        "reason": "These structures also visibly fit together, but I will try connecting the route to the body first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body model has no available combination yet, so I will assemble the control route separately.",
+    "reaction": "The failed attempt was unexpected.",
+    "step": 5,
+    "reason": "The nerve endings and pituitary vessels are shown alongside each other and could form the hormone-release route.",
+    "choice": {
+      "combine": "Hormone-releasing nerve endings",
+      "with": "Pituitary blood vessels"
+    },
+    "expectation": "The nerve endings will connect to the blood vessels to form a route for hormone release.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve endings and vessels form the hormone-release route, which can now be connected to the body.",
+    "reaction": "The separate assembly explains why the earlier direct attempt failed.",
+    "step": 6,
+    "reason": "The completed brain-to-blood route should give the body its water-control connection.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Brain-to-blood hormone route"
+    },
+    "expectation": "The hormone route will connect the brain and kidneys through the body's circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone route is now connected to the body; the remaining goal calls for a drink.",
+    "reaction": "The separate route fits into the body as expected.",
+    "step": 7,
+    "reason": "Drinking water should replace some of the body's water losses.",
+    "choice": {
+      "combine": "Body with water-control route",
+      "with": "Drinking water"
+    },
+    "expectation": "The body will take in water, completing the water-control and drinking goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water entered the circulation and reduced the illustrated ADH signal as plasma concentration approached its usual range, completing both goals.",
+    "reaction": "The feedback after drinking makes the control loop more satisfying than a one-way pathway.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following ADH to the collecting ducts was most worthwhile: the planned picture connects receptors and added water channels to the concentration difference driving water recovery.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to attach nerve endings directly to the body was frustrating; the need to assemble them with pituitary vessels first was not apparent from the goal.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The drink led to fewer ADH signals as concentration approached its usual range, showing feedback rather than just water replacement.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate hormone-route assembly felt somewhat arbitrary as a construction order, even though the resulting nerve-ending-to-blood connection has a clear biological purpose.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the channel mechanism and the completed feedback loop made the constructions informative, despite the awkward assembly order. ADH was used without its full name or an explanation of the abbreviation, which could leave students unsure of the term.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

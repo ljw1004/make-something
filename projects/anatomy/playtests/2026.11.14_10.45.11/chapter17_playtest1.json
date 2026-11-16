@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The lymphocyte picture shows a recognition protein matching the bacterial fragments, with helper-cell support already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will respond to the bacterial fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is activated, so it can now be brought to the node that supports cell growth.",
+    "reaction": "The matching shapes made the selection understandable.",
+    "step": 2,
+    "reason": "The node's picture says it supports an activated cell as it divides into a growing group.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making and memory cells, completing that goal. The remaining task is to help clear the bacteria.",
+    "reaction": "The split between antibody-making and memory cells is clear, though the folded interiors are unexplained.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and the available amino acids are protein building blocks, so I expect these cells can use them to make antibodies.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make antibodies from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies from amino acids; the antibodies can now bind the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "The antibody tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will bind to and coat the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, leaving them ready for the engulfing white blood cells shown in the picture.",
+    "reaction": "The matching tips made the coating step straightforward.",
+    "step": 5,
+    "reason": "The white blood cell picture shows it binding to and surrounding an antibody-coated bacterium.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells will engulf the coated bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cells engulfed and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibodies helped mark the bacteria for removal.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the matching lymphocyte and seeing it produce both antibody-making and memory cells was most worthwhile: it connected matching an antigen to a response that can last.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and then attaching the antibodies was straightforward, though a little repetitive after the matching shapes had already been explained.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect one activated lymphocyte's descendants to include both antibody-making cells and memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt without a purpose, although the folded interiors of the antibody-making cells were shown without explanation.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: following the matching antibody through to bacteria being engulfed made me curious about other body defenses.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

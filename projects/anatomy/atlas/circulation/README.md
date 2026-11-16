@@ -1,0 +1,13 @@
+# Circulation and local defenses — selected anatomical atlas
+
+Original chapters 9–17: balance organs, blood, vessels, heart, lungs and chest, airway defenses, lymph return and immune cells. Governed by the [production brief](../production-brief.md) and [story design brief](../../design-brief.md).
+
+`map.json` supplies 83 item identities and both chest fittings. Runtime images are in `assets/`. `description-replacements.json` contains exact manuscript-text replacements for superseded arrows, insets, labels and temporal panels; integration is owned by the main story edit.
+
+All painting was generated with the builtin image-generation tool. Selected original masters and exact request JSON are retained in `sources/`, including the empty-loop correction, cleaned immune specimens and airway constituent extraction. `produce.py` uses Pillow and NumPy for cropping, alpha cleanup, scaling, layer extraction and physical compositing only. Re-run from the repository root. Temporary inspection sheets go to ignored `runs/anatomy-atlas/circulation/`.
+
+The chest uses a 1200×1400 registered canvas. Paint `breathing-apparatus.png`, then `chest-diaphragm-layer.png`, then `chest-organs-fitted-layer.png`; the latter restores anterior ribs while placing the thoracic spine behind the organs. `chest-complete.png` is the same completed construction for the final-body package. `chest-front-ribs.png` and the organs-only layer are also available. The final-body package reuses these actual parts. `blood.png` is the shared later-chapter blood supply.
+
+The still artwork shows present physical specimens, with no detached explanatory insets, arrows, purpose badges or future results. Oxygen bound inside red cells is below the resolution of their cell view; it is not painted as bubbles on their surfaces. The whole-lung cutaway and body-scale vascular tree use later-scale presentations of the same structures, retaining naturalistic continuous anatomy. The airway constituent edit follows the whole-lung source's branch arrangement. Material quantities, tissue growth and the range of scales remain illustrative simplifications.
+
+Verification: all 83 mapped identities have nonempty transparent RGBA assets; the 89 runtime PNGs have genuine alpha, and every chest fitting has the exact shared canvas dimensions. The complete contact sheet and all four chest states were visually inspected. Coverage was checked against every parsed chapter 10–17 identity and the seven revised chapter 9 identities. Fresh learner recognition and complete browser progression are separate integration checks.

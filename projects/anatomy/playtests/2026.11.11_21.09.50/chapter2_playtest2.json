@@ -1,0 +1,99 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action adds fuel to the muscle fibers, which may help support their continuing work.",
+    "choice": 1,
+    "expectation": "I expect the fibers to gain a fuel supply; oxygen may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sugar processing produces some ATP and leaves fuel for mitochondria, so adding oxygen seems like the next step toward supporting continued work.",
+    "reaction": "It is useful to see that some ATP is made outside mitochondria.",
+    "step": 2,
+    "reason": "Oxygen is the only offered combination and may help the mitochondria use the processed fuel.",
+    "choice": 1,
+    "expectation": "I expect the fibers to use oxygen to support further ATP production, though I am unsure exactly how the game will represent it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen helps the fibers replenish ATP from fuel, supporting their pulling machinery. The next goal is to organize the fibers into muscles.",
+    "reaction": "The distinction that oxygen enables fuel use rather than providing energy is useful.",
+    "step": 3,
+    "reason": "Wrapping the supported fibers is the only offered combination and seems like a way to organize them into muscle groups.",
+    "choice": 1,
+    "expectation": "I expect the wrapping to bundle the fibers into a muscle structure, though I am unsure how the two opposing groups will be formed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping bundles the fibers and passes their tension toward the muscle ends, so tendons may connect that pull to the framework.",
+    "reaction": "The connection between supporting material and transmitting tension is useful.",
+    "step": 4,
+    "reason": "I’ll add the front tendons to begin forming one of the opposing muscle groups.",
+    "choice": 1,
+    "expectation": "I expect a front muscle group with tendons that can transmit its pull, though I don’t yet know how it will attach.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The rear tendons also seem useful, but either group looks like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons form bending muscles that can pull on bones once the framework is arranged. The rear tendons appear to form the opposing group.",
+    "reaction": "It is useful to see how tendon placement relates to bending the elbow.",
+    "step": 5,
+    "reason": "The rear tendons are the only offered combination and should help complete the opposing muscle groups.",
+    "choice": 1,
+    "expectation": "I expect a muscle group that can straighten the elbow when attached on the appropriate side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed straightening muscles, completing the opposing pair. Both groups still need the right attachments to move a joint.",
+    "reaction": "The paired pulls make sense, though the framework remains unfinished.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen was most worthwhile because the result connected fuel use and ATP replenishment to the muscle's pulling machinery.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the rear tendons felt repetitive after forming the bending muscles, although it completed the opposing pair.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that sugar processing makes some ATP outside mitochondria and leaves partly processed fuel for them.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary, though the menu showed compatible combinations, so I did not have to work out which parts fit.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would like to see how the opposing muscles attach to a framework and move the joint.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,171 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier fits the membrane and is needed to bring fuel into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be incorporated into a membrane patch, providing a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is now installed in the membrane, so glucose can be tested against it.",
+    "reaction": "The fitting matches the expected transport route.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol, where it can enter the cell's fuel-processing pathway.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "The cell interior contains the machinery for breaking down glucose and renewing ATP.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell will begin processing glucose toward aerobic ATP renewal, potentially using the available oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has undergone glycolysis, producing pyruvate and some ATP; the pyruvate points toward the mitochondria for the aerobic pathway.",
+    "reaction": "The distinction that glycolysis does not use oxygen is helpful.",
+    "step": 4,
+    "reason": "The pyruvate arrows point toward mitochondria in the living cell interior, making that the natural place to continue fuel processing.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Living cell interior"
+    },
+    "expectation": "Pyruvate will enter the mitochondrial stage, potentially using the available oxygen to renew more ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell interior is not the next partner; the compatibility feedback identifies oxygen and amino acids as available routes.",
+    "reaction": "The oxygen connection makes sense, though the direct interior attempt did not work.",
+    "step": 5,
+    "reason": "Oxygen entering the cytosol is the indicated partner for continuing aerobic ATP renewal.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "The combination will connect glycolysis to oxygen-dependent mitochondrial ATP renewal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "This may address building cell material, but aerobic ATP renewal is a current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is complete, and protein production is now an additional goal.",
+    "reaction": "The distinct roles of fuel, oxygen and the hydrogen-ion gradient are informative.",
+    "step": 6,
+    "reason": "The sodium-potassium pump needs to be installed in the membrane to address the remaining ion-transport goal.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be incorporated into a membrane patch, ready to use ATP for ion transport.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "The earlier compatibility feedback suggests a route toward the new protein-production goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane, ready to be connected to ATP renewal.",
+    "reaction": "The contrast with the passive sodium channel is useful.",
+    "step": 7,
+    "reason": "The installed pump has an ATP-binding site, and aerobic ATP renewal provides the energy connection needed for ion transport.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "ATP will power the pump to transport sodium and potassium across the membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "The earlier compatibility feedback suggests a route toward protein production."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump now uses ATP to move sodium out and potassium in against their concentration gradients, completing the ion-transport goal.",
+    "reaction": "The comparison with passive channel flow clarifies why the pump needs energy.",
+    "step": 8,
+    "reason": "Earlier compatibility feedback identified amino acids as a partner for cytosolic ATP production, suggesting a route to the remaining protein-production goal.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Amino acids"
+    },
+    "expectation": "The cell will use the amino acids and available ATP to make proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino-acid combination produced new proteins using existing RNA messages and completed the final goal.",
+    "reaction": "The ribosome and energy-coupling details made the outcome more informative than a simple assembly result.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting cytosolic ATP production with oxygen was most worthwhile: the illustration plan distinguishes fuel oxidation from oxygen's role and links the hydrogen-ion gradient to ATP synthase.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the cell interior after glycolysis was least worthwhile: the pyruvate arrows suggested that location, but the game instead required the oxygen item.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The protein-production goal appeared after aerobic ATP renewal, and its final construction showed both ATP- and GTP-supported steps using existing RNA messages.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The failed cell-interior pairing felt somewhat arbitrary because the pictured pyruvate was heading toward mitochondria inside that hotspot; the compatibility feedback supplied the intended oxygen partner.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the membrane transport and ATP constructions make useful contrasts, though I would want similarly clear explanations of new terms and connections.",
+        "steps": [
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for a selective boundary, so combining membrane fats with channel proteins seems like a useful start.",
+    "choice": 1,
+    "expectation": "I expect a membrane with channels that control what passes through, though I don't know whether it will complete the goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Water and mineral salts might make the cell's interior, but the boundary seems more directly tied to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane is made, but the goal also needs an inside, so water and salts seem like the next step.",
+    "reaction": "The explanation makes the channels' purpose clear.",
+    "step": 2,
+    "reason": "Water and mineral salts seem likely to form the cell's interior.",
+    "choice": 1,
+    "expectation": "I expect a watery mixture for the inside, though it may still need to be combined with the membrane.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The DNA and envelopes could form a nucleus, but the current goal points more directly to the interior."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell fluid completes the first goal, and the new goal points toward assembling the cell's working machinery.",
+    "reaction": "I was surprised the goal completed before the fluid and membrane were combined.",
+    "step": 3,
+    "reason": "Combining the fluid with the membrane seems like a useful foundation for adding the cell's machinery.",
+    "choice": 1,
+    "expectation": "I expect a bounded cell interior that can receive other components.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA and nuclear envelopes seem relevant to the new goal, but I want to assemble the cell interior first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane and fluid formed a muscle-cell model with slots for the machinery named in the goal.",
+    "reaction": "The named slots make the next steps clear.",
+    "step": 4,
+    "reason": "DNA and nuclear envelopes seem likely to make the stored instructions needed by the model.",
+    "choice": 1,
+    "expectation": "I expect a nucleus containing DNA that can fit into the stored-instructions slot.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes appear to fit the protein-builders slot, but I chose to prepare the instructions first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and nuclear envelopes formed muscle nuclei, which appear ready to fill the stored-instructions slot.",
+    "reaction": "The result was expected, though the picture makes the enclosure clear.",
+    "step": 5,
+    "reason": "I want to add the prepared nuclei to the cell model and fill its instructions slot.",
+    "choice": 1,
+    "expectation": "I expect the nuclei to fill the stored-instructions slot, leaving the ribosomes and mitochondria to add.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes also fit the goal, but I want to use the nuclei I just made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei are fitted, leaving the protein builders and ATP machinery to add.",
+    "reaction": "The copied strips passing through the pores are an interesting detail, though their role is not yet explained.",
+    "step": 6,
+    "reason": "Ribosomes appear to fill the protein-builders slot.",
+    "choice": 1,
+    "expectation": "I expect the ribosomes to fit into the model, leaving the mitochondria to add.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mitochondria also fit the goal, but I chose to add the ribosomes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are fitted, and the explanation connects the copied instructions to protein production. The mitochondria appear to be the remaining machinery.",
+    "reaction": "The explanation clarifies the coded strips shown earlier.",
+    "step": 7,
+    "reason": "Mitochondria match the remaining ATP machinery slot, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the mitochondria to fit into the model and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria completed the machinery goal, and the new goal calls for adding pulling structures.",
+    "reaction": "The next step is clear, though the mitochondria inset does not explain how they make ATP.",
+    "step": 8,
+    "reason": "The pulling protein threads match the new goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the threads to be added to the muscle-cell model, giving it structures that can pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulling threads completed the muscle fibers and the chapter, with a hint that the next construction will combine cells into something larger.",
+    "reaction": "The finished fibers make the assembly feel purposeful, though the result gives little detail about how pulling produces movement.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding ribosomes was most worthwhile because the explanation connected copied instructions from the nuclei to protein production.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria felt less informative: the goal named ATP machinery, but the result did not explain its role or how mitochondria make ATP.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the selective-boundary goal completed when the fluid was created, before I combined it with the membrane.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The early goal completion felt slightly arbitrary because the inside and boundary were still separate; their subsequent combination made more sense as a bounded cell.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how the muscle cells become a larger construction, though I would hope for more explanation of how their parts support muscle work.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

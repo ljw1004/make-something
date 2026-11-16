@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin-cell population belongs to this body's epidermis and visibly replaces surface cells, directly matching the renewal goal.",
+    "choice": {
+      "combine": "Body with a light-linked clock",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body model will show skin cells renewing from the basal population.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; the blood-renewal part of the goal remains.",
+    "reaction": "The basal-to-surface renewal is clear, though the result adds little to the initial picture.",
+    "step": 2,
+    "reason": "The kidney signal is shown travelling to marrow, so it is a plausible next step for red-cell renewal.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will stimulate the precursors to produce red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal connects low oxygen to red-cell maturation in the marrow; the developing cells still need to be linked to the body model.",
+    "reaction": "The low-oxygen cue makes the signal's purpose clearer.",
+    "step": 3,
+    "reason": "Combining the developing red cells with the skin-renewing body should bring both renewal processes into the same model.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show ongoing red-cell renewal alongside skin renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are now shown together, and the next goal is bone remodeling.",
+    "reaction": "The marrow-to-blood connection makes the renewal sequence clear.",
+    "step": 4,
+    "reason": "Bone-removing and bone-forming cells suggest complementary stages of remodeling; I will check the removing cells' available partners before guessing their order.",
+    "choice": {
+      "inspect": "Bone-removing cells"
+    },
+    "expectation": "The inspection should reveal what the bone-removing cells can act on.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bone-removing cells",
+          "with": "Bone-forming cells"
+        },
+        "reason": "They have complementary roles, but the existing bone may need to be involved first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically applied the bone-removing cells to the body, exposing a patch of old bone being removed.",
+    "reaction": "The automatic combination clarified the remodeling order.",
+    "step": 5,
+    "reason": "Bone-forming cells are the remaining complementary component and should rebuild the remodeled patch.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The bone-forming cells will deposit new bone at the remodeling site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch after removal, completing the remodeling goal and the chapter.",
+    "reaction": "The final connected insets make a satisfying return to the body's ongoing renewal.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The kidney-to-marrow sequence was most worthwhile: the low-oxygen cue gave the red-cell signal a clear purpose, and the next result showed cells entering blood.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the skin population was straightforward but repetitive: the resulting picture added little to the initial illustration plan.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the bone-removing cells automatically applied them to the body, revealing that removal comes before rebuilding.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the bone-removal result did not explain why old matrix is removed before new matrix is deposited.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting renewal to the previously built body was satisfying, and I would be curious to see more mechanisms linked this way.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The labels show the right side sends blood to the lungs, so I’ll start that route.",
+    "choice": 1,
+    "expectation": "I expect the right heart to connect to the lung vessels, though the return to the left heart may need another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The left heart and body network also have matching labels, but I’ll start with the lungs."
+      },
+      {
+        "choice": 3,
+        "reason": "The heart muscle needs its own supply too, but I want to build a main route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung vessels connect to the right heart, with an open return to the left heart. I’ll prepare the body route next.",
+    "reaction": "The open labels make the next connection easy to follow.",
+    "step": 2,
+    "reason": "The left heart is labelled as sending blood to the body, matching the body vessel network.",
+    "choice": 1,
+    "expectation": "I expect the left heart to connect to the body vessels, leaving a return toward the right heart.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The heart muscle also needs its own supply, but I want to complete the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body route now returns toward the right heart, and the left heart has an inlet from the lungs, so the two routes look ready to join.",
+    "reaction": "The matching open ends make the circulation easier to follow.",
+    "step": 3,
+    "reason": "I want to connect the lung and body routes using their matching return labels.",
+    "choice": 2,
+    "expectation": "I expect the two heart halves and their vessel routes to form a connected loop.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The heart muscle still needs its own vessels, but I want to join the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two routes now form a loop through both heart halves, with a wall separating their chambers. The heart muscle's own supply still needs building.",
+    "reaction": "Seeing the full lap pass through the heart twice made the two routes clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination, and the open artery and capillary ends appear to fit the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a heart-muscle vessel network connecting its arteries to capillaries and returning veins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has a vessel network with labelled connections to the main artery and right heart. It still needs joining to the main routes.",
+    "reaction": "The open labels make its place in the circulation clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it should connect the heart muscle's supply to the main routes.",
+    "choice": 1,
+    "expectation": "I expect the heart-muscle vessels to join the circulation; filling it with blood may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle's vessels now branch from the main artery and return to the right heart; the circulation still needs blood.",
+    "reaction": "It clarified that the heart muscle gets blood through its own vessels, not directly from a chamber.",
+    "step": 6,
+    "reason": "This is the only offered combination and matches the remaining goal of filling the circulation.",
+    "choice": 1,
+    "expectation": "I expect blood to enter the connected lung, body and heart-muscle routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blood-filled model completes the connected lung, body and heart-muscle routes.",
+    "reaction": "The full diagram ties the separate routes together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes was most worthwhile: the arrows showed that a full lap passes through the heart twice.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the completed circulation with blood felt predictable after the routes were connected, though it finished the model.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't realized the heart muscle gets its own branch from the main artery rather than blood directly from a chamber.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the matching labels explained the connections, although the last three choices each had only one offered combination.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: seeing separate parts join into a clear circulation was satisfying, and I'd be curious to see another body system connected this way.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

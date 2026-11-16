@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The front of the arm has a biceps slot, and the introduction says to build it from muscle cells.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Front of arm[]"
+    },
+    "expectation": "The muscle cells should build or begin building the biceps at the front of the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bone mineral",
+          "with": "Front of arm[]"
+        },
+        "reason": "The bone attachment also needs mineral, and the introduction says either order works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells formed the biceps, but the radius still needs mineral.",
+    "reaction": "It is satisfying to see the cells become muscle fibres; the bone part is still unfinished.",
+    "step": 2,
+    "reason": "The front attachment is still awaiting mineral, so I’ll strengthen it next.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Front of arm"
+    },
+    "expectation": "The mineral should strengthen the bone at the biceps attachment.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells",
+          "with": "Back of arm"
+        },
+        "reason": "I could build the triceps before finishing the front."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front is complete: mineral strengthens the radius, and the biceps pulls it to bend the elbow.",
+    "reaction": "The demonstration makes the connection between muscle pull and bone movement clearer.",
+    "step": 3,
+    "reason": "The back still needs a triceps, and the introduction says it can be built from the same kind of muscle cells.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Back of arm"
+    },
+    "expectation": "The muscle cells should form the triceps at the back of the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bone mineral",
+          "with": "Back of arm"
+        },
+        "reason": "I could strengthen the back attachment first; either order works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps is built, but the ulna at its attachment still needs mineral.",
+    "reaction": "The back follows the same understandable pattern as the front.",
+    "step": 4,
+    "reason": "The remaining goal is to strengthen the triceps bone attachment.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Back of arm"
+    },
+    "expectation": "The mineral should strengthen the ulna and complete the triceps attachment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The back is complete: the triceps pulls on the strengthened ulna to straighten the elbow. Both goals are finished.",
+    "reaction": "The matching demonstration made it clear how the same kind of muscle cells can produce a different movement.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Completing the back was most worthwhile because comparing it with the front showed how tendon attachment changes the effect of a muscle's pull.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the triceps repeated the familiar muscle-cell step, though it set up the useful comparison.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I found it interesting that the same kind of muscle cells could help bend or straighten the elbow depending on where the muscle attaches.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt especially arbitrary: the slots and pictures made the muscle and mineral pairings clear.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see more connections between body structures and their jobs, though I hope it offers less repetition.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

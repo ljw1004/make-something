@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The stem cell has a membrane-growth slot, and phospholipids supply membrane material.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "Phospholipids"
+    },
+    "expectation": "The phospholipids will fill the membrane-growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids filled the membrane-growth slot; the cell still needs cytoplasm growth and DNA replication.",
+    "reaction": "The fitting worked as expected.",
+    "step": 2,
+    "reason": "New cell proteins are the evident material for the cytoplasm-growth slot.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "New cell proteins"
+    },
+    "expectation": "The proteins will fill the cytoplasm-growth slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins filled the cytoplasm-growth slot, leaving DNA replication to prepare.",
+    "reaction": "The fitting worked as expected.",
+    "step": 3,
+    "reason": "DNA-building nucleotides are the evident material for the remaining replication slot.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "DNA-building nucleotides"
+    },
+    "expectation": "The nucleotides will fill the DNA-replication slot and prepare the cell to copy its genome.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown and copied its DNA; the new goal is to separate two living daughter cells.",
+    "reaction": "The distinction between doubled DNA and still-joined chromosome copies is useful.",
+    "step": 4,
+    "reason": "The mitotic spindle is depicted attaching to paired chromosomes, making it the likely next step in separating their copies.",
+    "choice": {
+      "combine": "Unspecialized human stem cell",
+      "with": "Mitotic spindle"
+    },
+    "expectation": "The spindle will help separate the copied chromosome sets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the chromosome sets, but the cytoplasm remains continuous.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 5,
+    "reason": "The contractile ring is depicted narrowing the cell at its equator, where the remaining division must occur.",
+    "choice": {
+      "combine": "Cell with separated chromosome sets",
+      "with": "Equatorial contractile ring"
+    },
+    "expectation": "The ring will constrict the cell and separate it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contractile ring separated the cell into two complete living descendants, completing the goal.",
+    "reaction": "The final distinction between dividing living cells and assembling parts was clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome sets before dividing the cytoplasm was worthwhile: the successive picture descriptions made those distinct events clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first two slot fittings were predictable and repetitive, although they made the material needed for growth explicit.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The replication inset usefully clarified that DNA amount doubles while the sister chromosome copies remain joined until separation.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the named slots and picture descriptions made the choices clear. The term “sister chromatids,” however, was not explicitly defined beyond the inset showing joined copies.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the chromosome-separation and division sequence made me curious how the descendants would contribute to later anatomical structures.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

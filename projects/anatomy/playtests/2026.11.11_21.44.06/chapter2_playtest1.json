@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal is to supply fuel, and this is the only available action.",
+    "choice": 1,
+    "expectation": "I expect the sugar to supply the muscle fibers with fuel; oxygen may be added later.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibers now process sugar, and the diagram suggests another stage involving mitochondria. Adding oxygen is the only offered combination.",
+    "reaction": "The separate arrows make me curious about how oxygen contributes to ATP production.",
+    "step": 2,
+    "reason": "Oxygen is the remaining supply named in the goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect oxygen to help the fibers use the processed fuel for continued cellular work, though I am unsure how the result will explain it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen and fuel support ATP production, and the new goal shifts attention to gathering the fibers’ pulls.",
+    "reaction": "The ATP-to-ADP cycle helps connect energy supply to muscle work, though the diagram introduces ADP without explaining it.",
+    "step": 3,
+    "reason": "Wrapping the fibers seems like a first step toward collecting their pulls, and it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the wrapping to group the fibers so their pulls can be transmitted together.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping gathered the muscle cells into bundles, and their exposed ends suggest they are ready for tendons.",
+    "reaction": "The shared sleeve makes the grouping clear, though the result is fairly predictable.",
+    "step": 4,
+    "reason": "Front tendons seem like a practical way to attach the bundles and transmit their pull; I have no clear reason to prefer them over rear tendons.",
+    "choice": 1,
+    "expectation": "I expect the front tendons to attach to the muscle bundles, forming one muscle group.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Rear tendons also appear suitable, but I chose to start with the front."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons produced bending muscles, and the result explains that tendons transmit a pull to an attachment. The remaining combination can make the other muscle group.",
+    "reaction": "The link between tendons and moving a joint is clear, and I am curious how the two groups will work together.",
+    "step": 5,
+    "reason": "Rear tendons are the only offered combination and should complete the second muscle group.",
+    "choice": 1,
+    "expectation": "I expect the rear tendons and bundles to form a second muscle group, perhaps one that straightens a joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed straightening muscles, completing the second muscle group and the chapter’s goals.",
+    "reaction": "The result matched my expectation, though I would have liked to see how the two groups move a joint.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen was most worthwhile because the result connected fuel and oxygen to ATP and muscle work. ADP appeared without an explanation, though.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Wrapping the fibers was predictable, and the result added little beyond showing them grouped in a sleeve.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The sugar-processing result showed separate paths toward ATP and the mitochondrion, which made me curious about the next stage.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Choosing front before rear tendons felt arbitrary: both were offered and I had no clear reason to prefer either.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the bending and straightening muscles attach to bones and work together at a joint.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

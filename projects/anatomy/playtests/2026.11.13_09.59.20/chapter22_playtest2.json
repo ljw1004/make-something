@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal condition to see how pancreatic cells respond to increased blood glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic beta cells to release insulin, though the result may first show a sensing step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meals response is also relevant, but I prefer to follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result confirms that beta cells release insulin into blood, which carries it to muscle and liver.",
+    "reaction": "The separate branches make the hormone’s targets clear.",
+    "step": 2,
+    "reason": "Follow insulin to skeletal muscle to see its role after a meal.",
+    "choice": 2,
+    "expectation": "I expect muscle cells to take up more glucose and possibly store some as glycogen.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The liver is another insulin target, but I want to follow the muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose entry by increasing membrane transport proteins, and its release signal weakens as blood glucose falls.",
+    "reaction": "The feedback connection makes the response clearer.",
+    "step": 3,
+    "reason": "Follow the other insulin branch to see how the liver handles glucose after a meal.",
+    "choice": 2,
+    "expectation": "I expect insulin to promote glucose storage as glycogen in the liver.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The between-meals response is relevant, but I want to finish the after-meal branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin favours liver glycogen storage and reduces glucose output, without the muscle-style transporter insertion shown earlier.",
+    "reaction": "The distinction between liver and muscle responses is useful.",
+    "step": 4,
+    "reason": "Follow the only available combination to explore the between-meals response.",
+    "choice": 1,
+    "expectation": "I expect lower blood glucose to prompt pancreatic alpha cells to release glucagon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meals panel confirms increased glucagon release from alpha cells and reduced insulin release, with glucagon reaching the liver.",
+    "reaction": "The contrast with the after-meal response is clear.",
+    "step": 5,
+    "reason": "Follow the only available combination to see how the liver maintains blood glucose between meals.",
+    "choice": 1,
+    "expectation": "I expect glucagon to promote glycogen breakdown and glucose release from the liver into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release; its stimulation diminishes as blood glucose rises. Both goals are complete.",
+    "reaction": "The feedback closes the between-meals comparison clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to both muscle and liver was most worthwhile: the picture descriptions distinguish increased muscle transporters from liver glycogen storage rather than presenting identical responses.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate sensing steps were predictable, and after the insulin branches there was only one gameplay combination at each decision.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The explicit contrast between muscle transporter insertion and liver glucose entry sharpened my understanding of the different insulin responses.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the compatible-option menu guided the sequence rather than requiring me to discover the connections.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: comparing opposing hormone responses and their feedback was concise and informative, though the mostly prescribed sequence offered limited decision-making.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

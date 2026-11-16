@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "Starting glycolysis follows the glucose-to-ATP goal and sets up the chapter's fuel pathway.",
+    "choice": 3,
+    "expectation": "I expect glucose breakdown in the cytosol to produce some ATP and an intermediate, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fitting the pump also meets a goal, but I want to establish the ATP supply first."
+      },
+      {
+        "choice": 2,
+        "reason": "Ribosome assembly is another goal, but the fuel pathway seems like a useful starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced cytosolic ATP and pyruvate, and the new goal directs me toward the mitochondrion.",
+    "reaction": "The distinction between cytosolic ATP production and the next mitochondrial step is clear.",
+    "step": 2,
+    "reason": "Combining the products with the mitochondrion follows the pyruvate arrow and advances the new goal.",
+    "choice": 3,
+    "expectation": "I expect pyruvate to enter or supply the mitochondrion; oxygen may need a separate step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pump remains a goal, but I want to follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate enters the matrix, where processing releases CO₂ and transfers electrons to carriers; oxygen still needs to be supplied.",
+    "reaction": "The electron-carrier connection to the inner membrane makes me curious about the next step.",
+    "step": 3,
+    "reason": "Adding oxygen directly advances the mitochondrial supply goal.",
+    "choice": 3,
+    "expectation": "I expect oxygen to reach the mitochondrion and support aerobic respiration, potentially enabling more ATP production.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pump still needs fitting, but I want to finish supplying the mitochondrion first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen accepts electrons, and the resulting hydrogen-ion gradient drives mitochondrial ATP production; the pump and ribosome goals remain.",
+    "reaction": "The link between electron transfer, the gradient and ATP synthase is satisfying.",
+    "step": 4,
+    "reason": "Fitting the pump advances a remaining goal and connects to the ATP supply just built.",
+    "choice": 1,
+    "expectation": "I expect the pump proteins to be fitted into the membrane; using ATP to move ions may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosome assembly is also a goal, but I want to follow the ATP connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are fitted into the membrane, and a new goal calls for ATP-driven sodium export.",
+    "reaction": "The absence of transport arrows makes the distinction between fitting and operating the pump clear.",
+    "step": 5,
+    "reason": "Using mitochondrial ATP follows the fuel pathway through to cellular work.",
+    "choice": 3,
+    "expectation": "I expect ATP to power sodium movement out of the cell and potassium movement inward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cytosolic ATP could also power the pump, but I want to use the mitochondrial supply I just built."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Mitochondrial ATP powers sodium export and potassium import against their concentration differences, completing the pump goal.",
+    "reaction": "Connecting ATP production to work against the inward sodium pull is satisfying.",
+    "step": 6,
+    "reason": "Ribosome assembly is the remaining goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ribosome subunits to assemble on the mRNA, preparing to make protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are assembled on mRNA, and the new goal connects ATP-supported amino acid delivery to protein-making.",
+    "reaction": "The distinction between assembling ribosomes and powering protein production is clear.",
+    "step": 7,
+    "reason": "Using mitochondrial ATP continues the connection between respiration and cellular work.",
+    "choice": 2,
+    "expectation": "I expect ATP to support amino acid preparation and protein production at the ribosomes.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP is also available, but I want to follow the mitochondrial supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-supported amino acid preparation leads to proteins made from the mRNA message; pyruvate remains on the separate fuel route. All goals are complete.",
+    "reaction": "The separation of fuel and protein building blocks is a useful clarification.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the mitochondrion and then using its ATP for the pump made the connection from electron transfer and a hydrogen-ion gradient to cellular work concrete.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pump was the least engaging passage on its own: it was a straightforward placement, although separating installation from transport made sense.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The protein-making picture explicitly kept pyruvate out of the protein chain and showed ATP supporting amino acid preparation rather than becoming the protein.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the compatible menu made the choices easy; selecting mitochondrial rather than cytosolic ATP was a preference, not a discovered requirement.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: connecting respiration to membrane transport and protein-making was satisfying, and I would be curious to see how those connections extend to tissues.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The copied instructions and amino acids appear to be the ingredients for making collagen in the repair cell.",
+    "choice": {
+      "combine": "Copied collagen instructions",
+      "with": "Skin repair cell"
+    },
+    "expectation": "The repair cell will use the instructions and available amino acids to begin making collagen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair cell used the instructions and amino acids to make collagen chains; the chains still need processing and export.",
+    "reaction": "The picture makes the ribosome’s role clear, and I’m curious how the chains get outside.",
+    "step": 2,
+    "reason": "The processing and export membranes are positioned to handle the new chains inside the repair cell.",
+    "choice": {
+      "combine": "New collagen chains",
+      "with": "Processing and export membranes"
+    },
+    "expectation": "The membranes will process the collagen and help move it out of the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen chains have been processed and exported as supporting fibers, completing the first goal. The fibers can now replace support beneath the scrape.",
+    "reaction": "The sequence clearly connects work inside the cell to support outside it.",
+    "step": 3,
+    "reason": "The new fibers appear suited to rebuilding the missing support in the wound.",
+    "choice": {
+      "combine": "New supporting fibers",
+      "with": "Body ready to rebuild"
+    },
+    "expectation": "The fibers will restore support beneath the scrape, although the surface gap may still need to close.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibers span the deeper gap, but the surface cells still need to close it.",
+    "reaction": "The cross-section makes the distinction between deeper support and surface closure clear.",
+    "step": 4,
+    "reason": "The cells at the scrape’s edge are positioned to close the remaining surface gap.",
+    "choice": {
+      "combine": "Skin cells at the scrape’s edge",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The skin cells will move across the scrape and help close its surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Local chemical repair signals",
+          "with": "Skin cells at the scrape’s edge"
+        },
+        "reason": "The signals might first stimulate the edge cells to move."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells needed local repair signals before they could spread; they are now dividing and crawling toward the gap.",
+    "reaction": "The compatibility feedback resolved my uncertainty about the signals, though I had expected the cells to work directly on the wound.",
+    "step": 5,
+    "reason": "The spreading surface cells are ready to close the remaining gap in the rebuilding body.",
+    "choice": {
+      "combine": "Spreading surface cells",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The cells will cover the surface gap over the repaired support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface gap has closed over the new support, completing the goals, while deeper collagen remodeling continues.",
+    "reaction": "The earlier-and-later comparison makes the distinction between closure and ongoing repair clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and exporting collagen was the most worthwhile sequence: it connected the repair cell’s internal work to the support built outside it. The picture descriptions made that relationship understandable without assuming detailed knowledge of the pathway.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Applying the new fibers was a fairly predictable step after seeing them exported, although it clearly showed the deeper gap being filled.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the edge cells to act directly on the wound; the compatibility feedback showed that local signals came first in this sequence.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to combine signals with the edge cells first was not obvious to me, though the resulting description gave that action a clear purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter that connects cellular work to a visible change in the body, as the collagen and wound-closure sequence did.",
+        "steps": [
+          1,
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

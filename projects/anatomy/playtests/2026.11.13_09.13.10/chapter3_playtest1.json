@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "Start cell growth by supplying phospholipids for the membrane.",
+    "choice": 1,
+    "expectation": "The cell's membrane growth slot will be filled, providing more boundary material for division.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Copying DNA is also necessary, but I chose to address membrane growth first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids are fitted; the cell still needs cytoplasm growth and DNA replication.",
+    "reaction": "The fitting was straightforward, though it gave no further detail about membrane growth.",
+    "step": 2,
+    "reason": "Add the new proteins to prepare the cell's cytoplasm for division.",
+    "choice": 1,
+    "expectation": "The cytoplasm growth slot will be filled with new cell proteins.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA replication is also needed, but I will finish the growth preparations first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins are fitted, leaving DNA replication as the remaining preparation.",
+    "reaction": "Another straightforward fitting, with little additional detail.",
+    "step": 3,
+    "reason": "Use the only available combination to supply nucleotides for genome replication.",
+    "choice": 1,
+    "expectation": "The DNA replication slot will be filled, preparing the cell to copy its genome.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied and cell growth is complete; the next goal is to separate two living cells.",
+    "reaction": "The sister-chromatid inset makes the replication result clearer than the earlier fittings.",
+    "step": 4,
+    "reason": "Use the only offered combination to separate the copied chromosomes with the mitotic spindle.",
+    "choice": 1,
+    "expectation": "The spindle will align or pull sister chromatids toward opposite poles, preparing the cell for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets have separated and nuclear envelopes are forming, but the cytoplasm remains continuous.",
+    "reaction": "The picture clearly distinguishes chromosome separation from splitting the cell.",
+    "step": 5,
+    "reason": "Use the only offered combination to narrow the cell at its equator and separate the daughters.",
+    "choice": 1,
+    "expectation": "The contractile ring will constrict the membrane and divide the cytoplasm, producing two cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell separation, producing two living descendants and completing the chapter.",
+    "reaction": "The furrowing sequence usefully connects chromosome separation to division of the whole cell.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome sets was most worthwhile: the planned sequence distinguishes sister-copy separation and nuclear-envelope formation from the later splitting of cytoplasm.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial membrane and cytoplasm fittings were repetitive and gave little immediate detail about how growth occurs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The replication inset clarified that DNA amount doubles while the sister chromosome copies remain joined before separation.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The fittings had clear purposes, though adding proteins as a single cytoplasm-growth slot simplified the process without explaining much about it.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would cautiously continue: the separation sequence was clear and the descendants suggest further branches, though I would hope for more explanation than the initial fittings provided.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

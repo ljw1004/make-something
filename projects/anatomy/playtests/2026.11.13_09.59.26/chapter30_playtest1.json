@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The renewing skin-cell population belongs to this body's epidermis and directly addresses skin renewal.",
+    "choice": {
+      "combine": "Body oriented to the world",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body will show skin cells being replaced while a progenitor population remains.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Marrow red-cell precursors",
+          "with": "Kidney red-cell signal (erythropoietin)"
+        },
+        "reason": "The kidney signal and marrow precursors also suggest a direct route to blood renewal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; blood renewal remains to be addressed.",
+    "reaction": "The basal-cell and shedding comparison makes the ongoing replacement clear.",
+    "step": 2,
+    "reason": "The kidney signal travels to marrow, where the red-cell precursors can respond.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will promote red-cell production in the marrow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal links low oxygen to red-cell maturation in marrow; the developing cells still need connecting to the renewing body.",
+    "reaction": "The low-oxygen cue clarifies why the signal is released.",
+    "step": 3,
+    "reason": "Combining the developing red cells with the body should connect blood renewal to the existing skin-renewal model.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show red-cell renewal alongside skin renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are complete, and a new goal calls for bone remodeling.",
+    "reaction": "The marrow-to-vessel picture connects red-cell production to circulation clearly.",
+    "step": 4,
+    "reason": "Bone-removing and bone-forming cells suggest complementary roles in remodeling the same patch.",
+    "choice": {
+      "combine": "Bone-removing cells",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "Their combined activity will show old bone being removed and new bone formed.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Bone-removing cells"
+        },
+        "reason": "Checking its partners could clarify how to begin remodeling."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells must act on the body separately; bone removal has begun, so bone formation is the next step.",
+    "reaction": "I expected the two cell types to combine directly, but the feedback made the sequence clear.",
+    "step": 5,
+    "reason": "Bone-forming cells can add new bone to the patch where removal has begun.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "New bone will be formed at the remodeling patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells completed the local remodeling sequence, and both chapter goals are complete.",
+    "reaction": "The final illustration plan ties ongoing renewal back to the moving person effectively.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the kidney signal to developing red cells was most worthwhile: the low-oxygen cue and marrow sequence explain why production changes, not just where cells are made.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The skin-renewal result was brief: it showed basal cells and shedding but added little explanation beyond the starting illustration plan.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The bone-cell types did not combine directly; compatibility feedback instead applied the removing cells to the body first.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate bone-removal and formation sequence became clear through feedback, although the initial goal did not specify that order.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the links between kidney signaling, blood renewal and bone remodeling make the constructions informative, though the brief skin result could explain more.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

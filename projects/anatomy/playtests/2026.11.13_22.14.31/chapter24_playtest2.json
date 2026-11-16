@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin cells need supplies to divide and move across the gap, so I'll start with closing the surface.",
+    "choice": 4,
+    "expectation": "I expect the supplied skin cells to grow or move toward closing the wound, though they may need another step to cover it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A new blood-vessel branch also seems useful for healing, but I'll start with the open surface."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies produced new skin cells, but the gap is still open, so the surface needs another step.",
+    "reaction": "I’m curious how the new cells will spread across the gap.",
+    "step": 2,
+    "reason": "Clearing broken cell fragments seems useful for preparing the wound to heal.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to clear debris near the sealed vessel; I’m not sure whether that will let the new skin cells spread yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Growing a blood-vessel branch should help rebuild the blood supply, but I’ll clear debris first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The debris is cleared, and the wound now has slots for its surface, support and supply. The new skin cells can be fitted next.",
+    "reaction": "It makes sense that clearing the wound opens the way for rebuilding.",
+    "step": 3,
+    "reason": "I'll add the new skin cells to work toward closing the surface gap.",
+    "choice": 3,
+    "expectation": "I expect the new cells to spread over the cleared wound, though the deeper support and blood supply may still need work.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Growing a vessel branch should help restore the blood supply, but I want to address the open surface first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new cells closed the surface, but the deeper tissue still needs support and blood supply.",
+    "reaction": "It’s satisfying to see the gap covered, even though healing isn’t finished.",
+    "step": 4,
+    "reason": "I’ll work on the blood supply next; the picture shows wound messengers reaching the nearby vessel.",
+    "choice": 1,
+    "expectation": "I expect a new vessel branch to grow toward the wound, though I don’t know exactly how the messengers cause it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Making support fibres also addresses the remaining goal, but I’ll start with the vessel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messengers produced a capillary sprout, which can now be added to the wound for its blood supply.",
+    "reaction": "The new branch makes the vessel-growing step easier to picture.",
+    "step": 5,
+    "reason": "I'll fit the sprout into the wound to continue rebuilding its blood supply.",
+    "choice": 2,
+    "expectation": "I expect the sprout to join the wound's vessels, though the deeper support will still need rebuilding.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Making support fibres also advances healing, but I want to finish the blood-supply route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sprout joined another vessel, restoring a route for blood and materials to reach nearby cells. The deeper support still needs work.",
+    "reaction": "Seeing the branch connect into a flowing route makes its purpose clear.",
+    "step": 6,
+    "reason": "The only offered combination builds the remaining support using the supplied protein building blocks.",
+    "choice": 1,
+    "expectation": "I expect the skin cells to make supporting protein fibres that can be added to the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made supporting fibres, but the deeper gap remains open until they are added.",
+    "reaction": "The picture makes it clear why making fibres alone isn't enough.",
+    "step": 7,
+    "reason": "I'll fit the fibres into the wound to rebuild its deeper support; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the fibres to join the surviving tissue and strengthen the wound, though healing may still need another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibres filled part of the deeper wound, and the remaining goal is to clear the temporary clot.",
+    "reaction": "It makes sense to remove the clot after the surface and support have been rebuilt.",
+    "step": 8,
+    "reason": "I'll use the clot-clearing enzymes on the wound; it's the only offered combination and matches the new goal.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the temporary clot while the repaired tissue remains.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most of the temporary clot is gone, while the closed skin and supporting fibres remain; the chapter is complete.",
+    "reaction": "The small scar makes the repair feel like a continuing process rather than an instant return to the original skin.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the capillary sprout to another vessel was most worthwhile: the flowing blood made the new branch’s purpose clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the supporting fibres and then fitting them felt a little repetitive, though the picture explained why both steps mattered.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that closing the skin surface still left the deeper tissue needing support and a blood supply.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless. I followed the picture’s pairing of wound messengers and the capillary without understanding exactly how the messengers make a vessel grow.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing separate repairs come together was satisfying, and I’d be curious to see another body process explained this way.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

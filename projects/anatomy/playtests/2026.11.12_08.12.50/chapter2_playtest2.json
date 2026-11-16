@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The mitochondria match the cell's empty outline and are relevant to supplying ATP; this is the only available action.",
+    "choice": 1,
+    "expectation": "I expect the mitochondria to be placed inside the cell, preparing it to use fuel and oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now contains a mitochondrion, and glucose is shown being split into smaller fuel molecules that reach it. Oxygen is the next available combination.",
+    "reaction": "The picture usefully shows that glucose is split in the cell fluid before the smaller molecules reach the mitochondrion.",
+    "step": 2,
+    "reason": "Adding oxygen advances the ATP-supply goal and is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect oxygen to enter the cell and become available to the mitochondrion for fuel processing; I am unsure whether ATP will be made at this step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fuel-processing arrows and oxygen now meet at the mitochondrion, and the ADP and phosphate outlines indicate the next construction.",
+    "reaction": "The inset makes the next step clear, though it does not yet explain how respiration remakes ATP.",
+    "step": 3,
+    "reason": "Combining the ATP ingredients is the only offered combination and directly advances the ATP-supply goal.",
+    "choice": 1,
+    "expectation": "I expect ADP and phosphate to be joined into ATP using energy from fuel processing, though the level of detail is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The respiration route now supplies ATP, with carbon dioxide and water leaving and ADP and phosphate returning; the new goal is to use ATP for transport against a concentration difference.",
+    "reaction": "The energy-transfer arrows connect respiration to ATP production, though the mechanism remains abbreviated.",
+    "step": 4,
+    "reason": "Adding the membrane pump is the only offered combination and directly addresses the new transport goal.",
+    "choice": 1,
+    "expectation": "I expect the pump to be fitted into the membrane and use ATP to move charged particles against their concentration difference, though this may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completes the transport goal, showing ATP use alongside movement from a less crowded region to a more crowded one.",
+    "reaction": "The magnified ATP cycle is a useful connection between respiration and membrane transport.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the membrane pump was most worthwhile: the planned picture connects ATP use to movement against a concentration difference while retaining the sugar transporter for comparison.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen was the least informative passage: the arrows show the inputs meeting, but do not explain how respiration transfers energy to ATP production.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The first construction showed glucose being split in the cell fluid before smaller fuel molecules reached the mitochondrion, rather than depicting the whole process inside it.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although every decision offered only one combination, so I followed the available sequence rather than discovering compatibility.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the cell's energy supply supports a larger body, though the forced sequence offered little meaningful choice in this chapter.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

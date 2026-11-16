@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "Water and mineral salts look like the ingredients for the cell fluid named in the goal.",
+    "choice": {
+      "combine": "Water",
+      "with": "Mineral salts"
+    },
+    "expectation": "They will form cell fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and mineral salts formed cell fluid, so I can now work on the selective boundary around it.",
+    "reaction": "The result matches the picture I expected.",
+    "step": 2,
+    "reason": "Membrane fats look like the material for a boundary around the cell fluid.",
+    "choice": {
+      "combine": "Cell fluid",
+      "with": "Membrane fats"
+    },
+    "expectation": "The fats will form a membrane around the cell fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats enclosed the fluid, but the picture says protein channels are absent, so the boundary still needs transport proteins.",
+    "reaction": "The missing channels make the next step clear.",
+    "step": 3,
+    "reason": "Transport proteins have channels that can make the enclosing membrane selective.",
+    "choice": {
+      "combine": "Membrane-enclosed fluid",
+      "with": "Transport proteins"
+    },
+    "expectation": "The transport proteins will become part of the membrane, creating a selective boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane now has transport channels, and the cell model needs stored instructions and ATP machinery.",
+    "reaction": "The picture makes the purpose of the channels clear.",
+    "step": 4,
+    "reason": "DNA and nuclear envelopes appear to be the parts needed to store the cell's instructions.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelopes"
+    },
+    "expectation": "The DNA will be enclosed to form stored instructions for the cell model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "DNA and nuclear envelopes formed muscle nuclei, which appear to fill the stored-instructions slot.",
+    "reaction": "The porous envelope connects the nuclei to the earlier picture of copied instructions leaving through pores.",
+    "step": 5,
+    "reason": "The nuclei contain the stored DNA needed by the muscle-cell model.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei will fill the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei filled the stored-instructions slot; the model still needs oxygen-using ATP machinery.",
+    "reaction": "The inset reinforces how copied instructions can leave the nuclei.",
+    "step": 6,
+    "reason": "Mitochondria appear to be the ATP machinery needed by the model.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will fill the oxygen-using ATP machinery slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria filled the ATP machinery slot, and the new goal is to make pulling proteins and structures.",
+    "reaction": "The capacity diagram helps explain how mitochondria support cell work.",
+    "step": 7,
+    "reason": "The ribosomes and copied muscle-protein instructions are pictured together, with a protein chain emerging.",
+    "choice": {
+      "combine": "Ribosomes",
+      "with": "Copied muscle-protein instructions"
+    },
+    "expectation": "The ribosomes will use the copied instructions to make pulling proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied instructions and ribosomes produced pulling protein threads; the picture shows that the ribosomes and RNA are reused.",
+    "reaction": "The two panels make the transition from protein chains to organized filaments clear.",
+    "step": 8,
+    "reason": "The muscle-cell model needs pulling structures, and the newly made threads appear to provide them.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads will be added to the muscle-cell model as pulling structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding the pulling protein threads completed the muscle fibers and showed how overlapping filaments shorten a repeating unit without the filaments themselves shortening.",
+    "reaction": "The two-pose description made me curious about how the fibers produce movement together.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the pulling threads was most worthwhile because the result connected the cell parts to the fibers' pulling action. The described two-pose illustration makes the change in filament overlap concrete.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining water and mineral salts was straightforward preparation, though it established what the membrane would enclose.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The final description clarified that the repeating unit shortens as the filaments overlap further, while each filament stays the same length.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The visible parts and goals gave each combination a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue because I want to see how these working muscle fibers become tissue and contribute to movement. The described illustrations helped connect the parts to their jobs, though their visual clarity cannot yet be assessed.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The muscle cells need to be assembled, but the pictures don't make clear whether to combine them first with supporting tissue or a muscle covering. I'll check their partners.",
+    "choice": {
+      "inspect": "Muscle cells with pulling proteins"
+    },
+    "expectation": "The compatibility list should show how to start building the muscles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells with pulling proteins",
+          "with": "Supporting connective tissue"
+        },
+        "reason": "The supporting tissue might help assemble the muscle cells, but its specific role here isn't clear yet."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells and supporting tissue automatically formed muscle bundles, showing how their pull reaches tendons.",
+    "reaction": "The picture makes the supporting tissue's role clearer.",
+    "step": 2,
+    "reason": "The biceps covering has empty spaces for muscle tissue, so the bundles look ready to fit inside it.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Biceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the biceps covering and connect to its tendons.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle bundles",
+          "with": "Triceps tendons and outer covering"
+        },
+        "reason": "The triceps also needs bundles, but I chose to start with the biceps."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bundles filled the biceps covering, with supporting tissue continuing into its tendons.",
+    "reaction": "The picture makes the connection to the forearm clearer.",
+    "step": 3,
+    "reason": "The biceps tendons need to connect the muscle to the arm skeleton across the elbow.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps should attach across the front of the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow, and the arm assembly still needs a back muscle.",
+    "reaction": "The bending poses make the biceps' pull easier to picture.",
+    "step": 4,
+    "reason": "The triceps covering has empty spaces for muscle bundles, just as the biceps covering did.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Triceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the triceps covering and connect to its tendons.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The bundles filled the triceps covering and connect through supporting tissue to its tendon.",
+    "reaction": "The matching construction makes the two muscles easier to compare.",
+    "step": 5,
+    "reason": "The arm assembly's back-muscle slot matches the triceps and its tendons.",
+    "choice": {
+      "combine": "Triceps with tendons",
+      "with": "Arm assembly"
+    },
+    "expectation": "The triceps should attach across the back of the elbow, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps attached across the back of the elbow, completing the goals and showing how its pull straightens the arm while the biceps bends it.",
+    "reaction": "The opposite movements made the reason for having two muscles clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the two muscles was most worthwhile: the poses and tendon attachments showed how two pulls can move the elbow in opposite directions.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the second muscle covering felt a little repetitive after building the first, although the comparison helped.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't initially understand the supporting tissue's role; the first result showed muscle cells forming bundles and passing their pull through that tissue to tendons.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial pairing with supporting tissue wasn't clear from the board alone, so I used a compatibility hint rather than knowing exactly how it would work. The result explained its purpose.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: seeing the finished arm's opposing pulls was satisfying, and I'd be curious how other body parts fit together, though the repeated muscle construction was less interesting.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

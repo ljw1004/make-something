@@ -1,0 +1,42 @@
+{
+  "nervousV4WholePrompt": "Use case: precise-object-edit. Target is this POSTERIOR skull-and-opened-column anatomical master. Preserve EXACTLY all anatomy above the cord's tapered lower end: skull, brain, brainstem, vertebrae, ordinary roots, and the large right selected Y-shaped spinal nerve with ganglion and shared trunk. Correct ONLY the descending cauda equina BELOW roughly y1060 of this 1024x1536 canvas. The current fibres incorrectly converge together into a pointed tassel at the bottom of the sacrum. REDRAW them as several distinct descending bundles that progressively PEEL LATERALLY toward their own LUMBAR AND SACRAL EXITS. Upper bundles leave toward the lower lumbar intervertebral openings. Lower bundles fan gently down and sideways toward the paired sacral foramina. Show at least two paired sacral routes clearly: each nerve bundle travels through the canal, turns toward its particular sacral hole, passes naturally beneath the lateral bony wall, and EMERGES as a short cream-colored nerve segment from that existing foramen. Use a limited shallow dissection of the bony roof beside one or two foramina to expose actual continuity; do not draw nerves over intact bone faces. Other routes may be partially occluded by bone with believable entry and emergence points. Keep the sacral bone and its holes anatomically recognizable. The lower central canal must become progressively emptier as bundles leave; only ONE thin central filum continues toward the tip, not a dense tassel of nerve roots terminating together. No extra organ, inset or exploded diagram, no labels or arrows. Preserve posterior viewpoint, whole scale, all upper geometry and fine naturalistic 1800s engraving. Genuinely transparent background.",
+  "nervousV4WindowsPrompt": "Use case: precise-object-edit. Preserve this corrected posterior nervous-system specimen and ALL its nerve trajectories. Only clarify bone depth in the LOWER SACRUM: the four curved sacral nerve bundles that run from the opened central sacral canal toward the two paired sacral foramina must not look laid on intact bone. Around each short visible nerve segment crossing the lateral sacral wall, remove the immediately overlying thin sliver of bone as a narrow local dissection channel. Show definite ivory CUT BONE RIMS on both sides of each channel; the cream nerve lies recessed inside the channel leading continuously to its existing foramen. Retain substantial sacral bone between the channels and preserve each existing round foraminal opening. This is a selective posterior anatomical dissection, not arbitrary punched holes or flat lines. Leave the canal, the single thin central filum, all nerve bundle paths, and EVERY part of the image above the sacrum unchanged. No extra nerve, longer projection, sheath made of bone, labels or arrows. Keep exact 1024x1536 registration and transparent background, fine 1800s naturalistic engraving.",
+  "nervousV4ReceiverPrompt": "Precise-object-edit. Edit target is this posterior anatomical engraving, keeping exactly its 1024x1536 registration, skull, brain, cord, ordinary roots, bones, lower lumbar/sacral root routes, outline, colors and style. Remove ONLY the one oversized demonstration spinal nerve on image-right at approximately x515-735 y772-861: its swollen sensory ganglion, lower motor arm, and common cut trunk. This leaves a prepared receiving site for that same physical nerve. Show only very short natural severed rootlet ends where its two bundles attach to the right edge of the cord. Reveal continuous brown canal floor and short normal lateral bony notch behind removed nerve. Keep ordinary roots immediately above and below; NO straight rectangular erasure boundaries, no ghost silhouette, no long bony spout, no replacement object. Absolutely all anatomy outside that one local site unchanged, particularly corrected lower roots peeling into sacral foramina. Clean transparent background, no dark halo, no shadows outside object, no text.",
+  "nervousV4BonePrompt": "Precise-object-edit. Edit target is the same registered posterior anatomical engraving. Create the empty protective skeleton by removing ALL brain, brainstem, spinal cord, and yellow nerve roots, including every lower curved lumbar and sacral nerve. Keep exactly the skull's cut rim, occipital opening, complete posterior opened vertebral canal and sacrum with continuous empty brown canal floor, the visible short lateral exit notches and the rounded sacral foramina. No long bony projection in place of the large image-right nerve: that nerve is removed, leaving the original short lateral notch. Preserve exact 1024x1536 position, scale, bone shape, colors, engraving texture, posterior view. Show empty lateral canals where lower nerves had entered the sacral foramina. No neural tissue retained, no new bones, no text. Clean truly transparent background with no shadow or colored halo outside the object.",
+  "nervousV4PreparedTissuePrompt": "Precise-object-edit / background-extraction. Derive ONLY the complete nervous tissue from this exact posterior cutaway: posterior brain, cerebellum, brainstem, spinal cord, ordinary attached roots, and lower roots peeling into separate lumbar and sacral exits with one thin central filum. Remove skull, vertebral bones, sacral bone and ALL brown canal floor, exposing TRANSPARENT EMPTY SPACE between each yellow root. Preserve exact original position, scale and every root trajectory, especially the pair of S-shaped sacral roots. There is NO large demonstration nerve on image-right: retain the prepared short natural cut rootlet endpoints near x515 y780-860, no new large branch. Do NOT fill gaps with brown material. Crisp clean cutout on absolutely empty transparent background, NO black background, NO brown halo, NO gradient, NO shadow. White transparent canvas; detached nervous tissue only. Same registered1024x1536 anatomy and fine hand-colored engraving.",
+  "_provenance": {
+    "reference_base": "sources",
+    "requests": {
+      "nervousV4WholePrompt": {
+        "references": [
+          "whole-posterior-v3.png"
+        ],
+        "output": "lower-routes-reference-v4.png"
+      },
+      "nervousV4WindowsPrompt": {
+        "references": [
+          "lower-routes-reference-v4.png"
+        ],
+        "output": "lower-routes-whole-v4.png"
+      },
+      "nervousV4ReceiverPrompt": {
+        "references": [
+          "whole-registered-v4.png"
+        ],
+        "output": "receiver-v4.png"
+      },
+      "nervousV4BonePrompt": {
+        "references": [
+          "whole-registered-v4.png"
+        ],
+        "output": "bones-v4.png"
+      },
+      "nervousV4PreparedTissuePrompt": {
+        "references": [
+          "receiver-v4.png"
+        ],
+        "output": "prepared-tissue-v4.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named space for the digestive tract, so this is a clear place to start.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The abdominal part of the digestive tract should fit into the lower body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is in place, and the lower body still needs its urinary organs.",
+    "reaction": "The continued route toward the chest makes the fit clear.",
+    "step": 2,
+    "reason": "The lower body has a named slot for the urinary organs.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder should fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, completing that goal.",
+    "reaction": "The separate outlets make their positions clearer.",
+    "step": 3,
+    "reason": "The repaired segment matches the named opening in the skin covering.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment should fit into the covering at the studied forearm site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment completes the skin covering, and joining the chest to the lower body is now a goal.",
+    "reaction": "The small scar remaining at the original site is a clear link to the repair chapter.",
+    "step": 4,
+    "reason": "The chest goal calls for joining the studied arm to the breathing apparatus.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The arm should attach to the chest at its supplied shoulder connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest; the lymph vessels still need to be joined.",
+    "reaction": "The shoulder connection links the arm's nerves and blood vessels to the chest.",
+    "step": 5,
+    "reason": "The remaining chest goal specifically calls for joining the lymph vessels.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly]"
+    },
+    "expectation": "The lymph drainage network should connect to the chest, including its return route to a vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm and lymph network are now attached, completing the chest preparation goal.",
+    "reaction": "The lymph route joining the same vein makes the connection clear.",
+    "step": 6,
+    "reason": "The new goal calls for joining the prepared chest to the lower body.",
+    "choice": {
+      "combine": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly,Lymph drainage network]",
+      "with": "Lower body[Digestive tract,Urinary organs]"
+    },
+    "expectation": "The chest should join above the lower body, with the abdominal organs below the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body now form a trunk and limbs, with a channel ready for the spine.",
+    "reaction": "The diaphragm and separate routes make the joined regions easier to picture.",
+    "step": 7,
+    "reason": "The new goal calls for joining the head and spine to the trunk, and the back channel is ready for the spine.",
+    "choice": {
+      "combine": "Head and spine[Eye with optic nerve,Ears]",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine should fit into the back of the trunk, connecting the head and nerves to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are connected to the trunk, leaving the skin covering to fit.",
+    "reaction": "The nerve and blood routes show how the assembled parts work together.",
+    "step": 8,
+    "reason": "The remaining goal is to fit the prepared skin covering over the body.",
+    "choice": {
+      "combine": "Skin covering[Repaired skin segment]",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering should fit around the assembled body, retaining the repaired forearm segment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body while keeping the repaired segment and the assembled organs visible in the cutaway. All goals are complete.",
+    "reaction": "It was satisfying to see the scar and the earlier structures retained in one body.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the chest and lower body was most worthwhile: the diaphragm and separate routes helped me picture how the regions fit together.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the urinary organs was clear but mostly followed a named slot, so it involved little figuring out.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final cutaway showed replacement cells still being made, rather than presenting the assembled body as something static.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the named slots and goals explained the fittings, even when they were straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I might continue if another chapter explored how the assembled systems work together. The final cutaway suggests possibilities, though this chapter's choices were mostly straightforward assembly.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

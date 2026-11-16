@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell's empty display suggests it can pick up a bacterial feature to present to helper T cells.",
+    "choice": 1,
+    "expectation": "I expect the messenger cell to take up bacterial material and display a fragment, though I don't yet know how it reaches the lymph node.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "B cells match the intact bacterial protein, but I want to establish the messenger-cell pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger displays a bacterial fragment and travels to a lymph node, clarifying how it reaches helper T cells.",
+    "reaction": "The linked airway-to-node views make that journey clear.",
+    "step": 2,
+    "reason": "Place the helper T cells at the node to prepare for their interaction with the displaying messenger.",
+    "choice": 2,
+    "expectation": "I expect the helper T cells to be placed at the lymph node; further steps may be needed to activate a matching cell.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The messenger also belongs at the node, but I chose to place the helper cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helper T cells are at the node, and the offered interaction with the displaying messenger is now available.",
+    "reaction": "The placement was straightforward.",
+    "step": 3,
+    "reason": "Use the displayed fragment to engage a matching helper T cell at the lymph node.",
+    "choice": 1,
+    "expectation": "I expect a matching helper T cell to be activated, though I don't know exactly what the result will show.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "B cells also need to recognize the bacteria, but I want to complete the helper-cell interaction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The displayed bacterial fragment activated a matching helper T cell, producing a group of helper cells.",
+    "reaction": "The matching-receptor explanation makes the result clear.",
+    "step": 4,
+    "reason": "The only available combination follows the B-cell side of the antibody response.",
+    "choice": 1,
+    "expectation": "I expect a B cell matching the intact bacterial surface protein to bind it; further helper-cell interaction may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The B cell binds the intact bacterial protein and displays a fragment, setting up an interaction with activated helper T cells.",
+    "reaction": "Seeing both forms on the B cell clarifies the connection.",
+    "step": 5,
+    "reason": "The offered helper T-cell interaction is the only productive combination and may advance the antibody response.",
+    "choice": 1,
+    "expectation": "I expect the activated helper T cells to help activate the matching B cell, though the next result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helper T cell signals the matching B cell, advancing its response to the bacterial protein.",
+    "reaction": "The contact makes the helper role clear, though the signals remain unspecified.",
+    "step": 6,
+    "reason": "The only gameplay option continues the helped B-cell response at the lymph node.",
+    "choice": 1,
+    "expectation": "I expect the helped B cells to develop into cells involved in antibody production or memory, but the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cell multiplied and produced both antibody-secreting plasma cells and memory B cells, providing paths toward both goals.",
+    "reaction": "The branching sequence clearly connects one selected B cell to the two outcomes.",
+    "step": 7,
+    "reason": "Use the antibody-making cells with the bacteria to pursue the goal of marking them.",
+    "choice": 1,
+    "expectation": "I expect antibodies to bind the matching bacterial surface protein, though I am unsure how the result will depict this.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Adding the cells to the body may address immune memory, but I want to mark the bacteria first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Matching antibodies attached to the bacteria, completing the marking goal without implying that all bacteria disappeared.",
+    "reaction": "The distinction between tagging bacteria and eliminating them is useful.",
+    "step": 8,
+    "reason": "The only gameplay option adds the antibody-making and memory cells to the body, addressing the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the body model to retain memory B cells that can respond in a later encounter, though I don't know how that will be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now retains memory B cells, completing the remaining goal. The result clarifies that immune memory is cellular and does not guarantee lasting or complete protection.",
+    "reaction": "The distinction from conscious memory and the limits on protection are useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The selected B cell multiplying and branching into plasma and memory cells was most worthwhile: the planned sequence connects a single recognition event to both antibody production and a later response.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing helper T cells at the lymph node was a straightforward preparation with little to examine on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The B cell bound an intact bacterial protein but displayed a fragment, linking its recognition to the helper T-cell response.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The lymph-node placement felt procedural, although its purpose was clear. The helper signals were left unspecified, which leaves a connection worth explaining for this audience.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the branching immune response and the qualification that antibody tagging does not eliminate every bacterium made me curious about what other defenses do next. The largely forced sequence offered few meaningful choices, though.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

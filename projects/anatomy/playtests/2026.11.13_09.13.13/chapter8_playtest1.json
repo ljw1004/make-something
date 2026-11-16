@@ -1,0 +1,185 @@
+[
+  {
+    "step": 1,
+    "reason": "Schwann cells wrap peripheral axons, so pairing them with the nerve fibres should help build the peripheral route.",
+    "choice": {
+      "combine": "Sensory and motor nerve fibres",
+      "with": "Schwann cells"
+    },
+    "expectation": "The Schwann cells will form insulating myelin around portions of the sensory and motor axons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The peripheral nerve now has wrapped axons carrying sensory and motor signals in opposite directions.",
+    "reaction": "The gaps in the wrapping are a useful detail, though their role is not explained yet.",
+    "step": 2,
+    "reason": "The spinal white-matter tracts surround a central opening, suggesting that grey matter belongs inside them to form the spinal cord.",
+    "choice": {
+      "combine": "Integrating grey matter",
+      "with": "Longitudinal spinal white-matter tracts"
+    },
+    "expectation": "This should assemble a spinal cord with central grey matter and surrounding white-matter pathways.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spinal cord is assembled with grey matter inside the surrounding white matter.",
+    "reaction": "The cutaway makes that arrangement clear.",
+    "step": 3,
+    "reason": "The brain's connecting white matter and grey matter appear to be the corresponding pieces for assembling the brain.",
+    "choice": {
+      "combine": "Integrating grey matter",
+      "with": "Connecting white matter of the brain"
+    },
+    "expectation": "This should build a brain with grey matter connected by white-matter pathways.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brain now has grey and white matter connected to ascending and descending pathways.",
+    "reaction": "The cutaway distinguishes the brain's outer grey layer from the spinal cord's central grey matter.",
+    "step": 4,
+    "reason": "The brain and spinal cord form the central nervous system and need connecting for the sensory and motor routes.",
+    "choice": {
+      "combine": "Brain with long central pathways",
+      "with": "Spinal cord"
+    },
+    "expectation": "The brain and spinal cord will form a connected central pathway.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brain cannot currently be combined with anything, so connecting it directly to the spinal cord is not the next step.",
+    "reaction": "That was unexpected given the goal of connecting the routes.",
+    "step": 5,
+    "reason": "The peripheral nerve needs a connection to the spinal cord to carry sensory signals inward and motor signals outward.",
+    "choice": {
+      "combine": "Myelinated peripheral nerve",
+      "with": "Spinal cord"
+    },
+    "expectation": "This should connect the peripheral nerve to the spinal cord.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Spinal cord"
+        },
+        "reason": "Checking its available partners could clarify the route if the direct connection is not available."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The peripheral nerve is connected to the cord, with sensory fibres entering and motor fibres leaving through different routes.",
+    "reaction": "The cutaway clarifies how the two directions share a nerve but separate at the cord.",
+    "step": 6,
+    "reason": "Pain-sensing input can now enter the spinal cord through the peripheral sensory route.",
+    "choice": {
+      "combine": "Pain-sensing input from the periphery",
+      "with": "Spinal cord with peripheral routes"
+    },
+    "expectation": "The pain signal will travel into the spinal cord, opening a route toward the brain or a local motor response.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Touch input from the periphery",
+          "with": "Spinal cord with peripheral routes"
+        },
+        "reason": "Touch is another available sensory signal to trace inward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pain input produced coordinated spinal motor output, completing the motor-route goal without requiring a brain response.",
+    "reaction": "The excitatory and inhibitory branches make the opposing motor responses clear.",
+    "step": 7,
+    "reason": "Touch input is the other available sensory signal and may establish the route toward the brain.",
+    "choice": {
+      "combine": "Touch input from the periphery",
+      "with": "Spinal cord with peripheral routes"
+    },
+    "expectation": "The touch signal should enter the spinal cord and proceed toward an ascending sensory pathway.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Touch input from the periphery"
+        },
+        "reason": "Checking its partners could clarify the sensory route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Touch input has no available operation at present, so the ascending sensory route likely needs another prerequisite.",
+    "reaction": "That is unclear because the touch input visibly points toward the cord.",
+    "step": 8,
+    "reason": "Inspecting the spinal cord's peripheral routes may reveal what can advance the remaining sensory goal.",
+    "choice": {
+      "inspect": "Spinal cord with peripheral routes"
+    },
+    "expectation": "The compatibility list will show an available next step toward tracing sensation to the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the spinal cord automatically connected it to the brain, creating a nervous system model and enabling a possible sensory route.",
+    "reaction": "The connection became available only after the peripheral routes were added, which explains the earlier failed attempt.",
+    "step": 9,
+    "reason": "The assembled nervous system may now accept the touch input that previously had no available operation.",
+    "choice": {
+      "combine": "Touch input from the periphery",
+      "with": "Nervous system model"
+    },
+    "expectation": "The touch signal should travel through the connected sensory pathways toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Touch now reaches the cerebral cortex through the connected nervous system, completing the remaining goal.",
+    "reaction": "The route is clear, though the deep brain relay is not named or explained.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Tracing pain into a spinal circuit was most worthwhile: the planned picture and explanation connect excitatory and inhibitory contacts to coordinated motor output without waiting for conscious perception.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed touch combination was confusing: the input picture pointed toward the cord, but did not explain why the assembled system was needed first.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the brain and cord could connect only after peripheral routes were added; inspecting the cord then performed the connection automatically.",
+        "steps": [
+          4,
+          5,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "That assembly prerequisite felt somewhat arbitrary: the supplied pictures did not make clear why the brain and cord could not connect first.",
+        "steps": [
+          4,
+          5,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the spinal circuit and contrasting grey-matter arrangements made the constructions informative, although I would want more explanation of details such as the myelin gaps and the unnamed sensory relay.",
+        "steps": [
+          1,
+          2,
+          3,
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

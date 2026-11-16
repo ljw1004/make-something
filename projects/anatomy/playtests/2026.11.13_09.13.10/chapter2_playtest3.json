@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to begin bringing fuel into the cell.",
+    "choice": 1,
+    "expectation": "The carrier will fit into the membrane and provide a route for glucose, though glucose may need a separate step.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Amino acids could advance protein production, but I want to follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so glucose can now be combined with it.",
+    "reaction": "The membrane placement makes sense; the distinct routes are clearly shown.",
+    "step": 2,
+    "reason": "Bring glucose across the membrane to advance the fuel pathway.",
+    "choice": 1,
+    "expectation": "Glucose will enter the cytosol through the carrier, likely down its concentration gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol and is ready for the interior step.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "Follow glucose into the cell interior to advance its breakdown.",
+    "choice": 1,
+    "expectation": "Glucose will be processed by cytosolic enzymes, perhaps beginning glycolysis.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Oxygen is also needed for aerobic ATP renewal, but I will follow glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced pyruvate and ATP without oxygen; the pyruvate points toward mitochondria.",
+    "reaction": "The carbon split and absence of oxygen as a glycolysis input are useful details.",
+    "step": 4,
+    "reason": "Add oxygen to follow pyruvate into aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "The cell will use oxygen and products of glucose breakdown to renew more ATP, likely involving mitochondria.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein synthesis, but I want to finish the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal links pyruvate-derived fuel and oxygen to mitochondrial ATP production; powered ion transport remains to be connected.",
+    "reaction": "The distinct roles of fuel, oxygen and the proton gradient are informative, though the electron-transfer connection is brief.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to prepare for powered ion transport.",
+    "choice": 1,
+    "expectation": "The pump will be fitted into the membrane, with a later step likely connecting it to ATP use.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Placing aerobic ATP renewal may also advance the connection, but the pump needs installing first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed and can now be connected to an ATP source.",
+    "reaction": "The comparison with the passive sodium channel makes the contrast in transport useful.",
+    "step": 6,
+    "reason": "Connect aerobic ATP renewal to the pump to advance the powered transport goal.",
+    "choice": 2,
+    "expectation": "ATP will power sodium movement outward and potassium movement inward against their gradients.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glycolytic ATP might also power the pump, but aerobic renewal better follows the current fuel pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump uses ATP to move sodium and potassium against their gradients, completing the fuel and transport goal; protein production remains.",
+    "reaction": "The comparison with passive sodium flow makes the pump's purpose clear.",
+    "step": 7,
+    "reason": "Use the available amino acids in the cell interior to advance protein production.",
+    "choice": 1,
+    "expectation": "Ribosomes will use the amino acids to make proteins, possibly using the existing RNA messages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein synthesis completed the remaining goal: ribosomes used existing RNA messages and amino acids, with energy-supported steps.",
+    "reaction": "The connection to cell growth is clear, although the roles of ATP and GTP are only briefly marked.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting aerobic ATP renewal to the sodium-potassium pump was most worthwhile: it linked fuel use to cellular work and contrasted powered transport with passive flow.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was useful preparation but less engaging on its own than seeing it work.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The aerobic renewal illustration distinguished fuel oxidation from oxygen's role at the end of electron transfer; the connection was informative but brief.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No chosen action felt purposeless. The compatible menu guided the sequence, so I did not discover these combinations independently.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how these cellular processes connect to tissues and organs; the transport and energy comparisons were useful.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

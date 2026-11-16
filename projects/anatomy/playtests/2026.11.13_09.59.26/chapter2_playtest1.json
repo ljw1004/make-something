@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The carrier's glucose-binding pocket and membrane-spanning shape suggest installing it in a lipid patch first.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "This should make a membrane with a glucose carrier, providing a route for glucose into the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, so glucose can now be tested against it.",
+    "reaction": "The carrier's orientation makes the next step clear.",
+    "step": 2,
+    "reason": "Glucose fits the carrier's outward-facing pocket and is more concentrated outside.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose should enter the cytosol through the carrier down its concentration gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol through the carrier, making it available for breakdown.",
+    "reaction": "The conformational sequence makes the carrier's role clear.",
+    "step": 3,
+    "reason": "The cell interior contains the machinery for glucose breakdown and aerobic ATP renewal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose should be processed in the cell, potentially using the available oxygen to renew ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown in the cytosol remakes some ATP and sends pyruvate toward mitochondria; aerobic ATP renewal remains to be connected.",
+    "reaction": "The picture usefully distinguishes glycolysis from the oxygen-dependent stages.",
+    "step": 4,
+    "reason": "Oxygen entering the cytosol and the ATP-remaking cytosol may connect pyruvate breakdown to aerobic ATP renewal in the cell interior.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell interior should link the products of glycolysis with mitochondrial aerobic ATP renewal, using available oxygen if needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytosol cannot be used directly at the interior hotspot; its listed partners include incoming oxygen and amino acids.",
+    "reaction": "The compatibility feedback clarifies the next connection.",
+    "step": 5,
+    "reason": "Incoming oxygen is the listed partner that best fits the goal of aerobic ATP renewal.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "This should connect glycolysis products and oxygen to mitochondrial ATP renewal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "Amino acids are also compatible, but appear more relevant to the protein-growth goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal now connects pyruvate-derived fuel and oxygen to mitochondrial ATP production; powered ion transport and protein growth remain.",
+    "reaction": "The picture makes oxygen's distinct role and the hydrogen-ion gradient more concrete.",
+    "step": 6,
+    "reason": "The sodium-potassium pump is a membrane protein, so installing it in a lipid patch should prepare it for powered transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump should be fitted into the membrane, ready to use ATP to move ions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "Their known compatibility could advance protein growth instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane with its ATP-binding site facing the cytosol, ready to connect to ATP renewal.",
+    "reaction": "The comparison with the passive sodium channel makes the distinction worth following.",
+    "step": 7,
+    "reason": "Aerobic ATP renewal supplies ATP, and the installed pump has an ATP-binding site.",
+    "choice": {
+      "combine": "Aerobic ATP renewal",
+      "with": "Membrane with a sodium-potassium pump"
+    },
+    "expectation": "ATP renewal should power the pump to move sodium and potassium against their concentration gradients.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "This known-compatible pair could advance protein growth instead."
+      }
+    ],
+    "lookedAgain": false
+  }
+]

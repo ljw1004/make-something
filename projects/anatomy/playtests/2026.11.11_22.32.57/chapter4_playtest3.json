@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The support cells' membrane sheets appear suited to insulating the motor neuron fibers, matching the current goal.",
+    "choice": {
+      "combine": "Motor neuron fibers",
+      "with": "Insulating support cells"
+    },
+    "expectation": "The support cells will wrap the fibers to form insulated outgoing nerve routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor nerves are built, and the next goal is to connect sight to muscle commands.",
+    "reaction": "The segmented wrapping makes the support cells’ role clearer.",
+    "step": 2,
+    "reason": "Sensory nerves appear suited to carrying information from the eyes toward the central nervous system.",
+    "choice": {
+      "combine": "Eyes",
+      "with": "Sensory nerves"
+    },
+    "expectation": "The sensory nerves will connect to the eyes to carry visual information.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes and sensory nerves now form a visual information route; it still needs a central connection to support muscle commands.",
+    "reaction": "The change from light rays to a nerve signal is clear.",
+    "step": 3,
+    "reason": "The central nervous system can receive the visual route's sensory signals.",
+    "choice": {
+      "combine": "Visual information route",
+      "with": "Central nervous system"
+    },
+    "expectation": "The visual route will connect to the central nervous system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The visual route now reaches the brain, but the motor nerves still need to connect the control system to movement.",
+    "reaction": "The distinction between seeing a target and producing force is clear.",
+    "step": 4,
+    "reason": "The motor nerves appear to be the outgoing link needed for muscle commands.",
+    "choice": {
+      "combine": "Seeing control system",
+      "with": "Motor nerves"
+    },
+    "expectation": "The motor nerves will connect to the seeing control system to carry commands toward the muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The seeing control system has no available combination, so I need another way to connect the motor route.",
+    "reaction": "The failed connection is a little surprising; the next link is not clear.",
+    "step": 5,
+    "reason": "The motor nerves have endings at muscles, so the arm framework is a plausible next connection.",
+    "choice": {
+      "combine": "Motor nerves",
+      "with": "Arm framework"
+    },
+    "expectation": "The motor nerves will connect to the arm's muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor nerves now connect to the arm's muscles, providing an outgoing route for signals.",
+    "reaction": "That clarifies why the nerves needed to connect to the arm first.",
+    "step": 6,
+    "reason": "The nerve-linked arm may now be ready to connect to the seeing control system and receive commands.",
+    "choice": {
+      "combine": "Nerve-linked arm",
+      "with": "Seeing control system"
+    },
+    "expectation": "The seeing control system will connect to the arm's motor route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The guided arm now links sight to outgoing muscle commands, and the remaining goal is to return information about arm position.",
+    "reaction": "The incoming and outgoing arrows make the connection clear.",
+    "step": 7,
+    "reason": "The stretch receptors sense muscle position and have a returning sensory nerve, matching the new goal.",
+    "choice": {
+      "combine": "Stretch receptors and sensory nerves",
+      "with": "Guided arm"
+    },
+    "expectation": "The receptors and sensory nerves will connect the arm's position information to its control system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stretch receptors completed the feedback route, showing how the arm can provide position information even with the eyes closed.",
+    "reaction": "The eyes-closed example made the purpose of the returning signals concrete.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the nerve-linked arm to the seeing control system brought the incoming visual information and outgoing muscle commands together in one diagram.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to connect the seeing control system directly to the motor nerves was confusing; the result did not explain why that connection was unavailable.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the motor nerves to connect directly to the seeing control system, but they first needed to connect to the arm.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for connecting the motor nerves felt somewhat arbitrary at first, though the later diagram made the completed route understandable.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: building the incoming and outgoing routes made me curious how the next body system would connect to the arm.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

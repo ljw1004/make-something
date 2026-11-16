@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The DNA building blocks match positions beside existing DNA, suggesting the cell can use them to copy its instructions.",
+    "choice": {
+      "combine": "DNA building blocks",
+      "with": "Working cell"
+    },
+    "expectation": "The cell will use the building blocks to make a copy of its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Working cell"
+        },
+        "reason": "The fats might also help make extra membrane, which is the other goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied DNA, so I can work on making extra membrane.",
+    "reaction": "The picture makes it clearer that each chromosome has a copied partner.",
+    "step": 2,
+    "reason": "Membrane fats are the visible material for the remaining goal of making extra membrane.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The fats will add membrane to the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new membrane is prepared in sacs but has not yet joined the cell boundary; the remaining goal is division.",
+    "reaction": "I hadn't expected the membrane to be prepared separately before joining the boundary.",
+    "step": 3,
+    "reason": "The prepared membrane needs to join the cell, and the copied DNA is already inside it.",
+    "choice": {
+      "combine": "New membrane supply",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The new membrane will help the cell grow or divide, with a DNA copy going to each daughter cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane joined the boundary, and the copied chromosomes separated into two cells with complete matching sets. Further divisions produced a cell population.",
+    "reaction": "The three-panel sequence made the connection between growth, chromosome separation and division clear.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the membrane supply with the cell was most worthwhile because it showed how the prepared membrane and copied DNA contributed to division.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply was a little less satisfying on its own because it prepared material without yet enlarging the cell.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected the fats to enlarge the cell directly, but they first formed membrane held in small sacs.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: the goals and pictures gave each pairing a purpose, although the membrane-making structures themselves weren't explained in detail.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see what happens to the cell population, though this short chapter was mostly straightforward preparation followed by division.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

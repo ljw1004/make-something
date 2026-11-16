@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The digestive tube has a named empty slot for the portal vessel, which connects the intestine to the liver.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube"
+    },
+    "expectation": "The portal vessel will fit into the digestive tube and connect the gut-to-liver blood route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, completing the named gut-to-liver connection in the tube.",
+    "reaction": "That fitting was straightforward.",
+    "step": 2,
+    "reason": "The portal blood contains meal glucose, and the goal asks how liver tissue handles it.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Liver tissue"
+    },
+    "expectation": "The liver tissue will receive the nutrients carried in portal blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver now receives the meal's glucose and amino acids, so I can follow the glucose storage goal.",
+    "reaction": "The blood route is clearer now.",
+    "step": 3,
+    "reason": "The picture shows glycogen-making enzymes linking glucose into a storage granule, matching the goal.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The liver will store some of the incoming glucose as glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen; the next part of the goal is to release it.",
+    "reaction": "The storage picture makes glycogen's role clearer.",
+    "step": 4,
+    "reason": "The release enzymes are pictured separating glucose units from a glycogen granule.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The liver will release glucose from its stored glycogen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is now breaking down glycogen and releasing glucose; blood transport may carry it onward.",
+    "reaction": "The storage-and-release sequence makes sense.",
+    "step": 5,
+    "reason": "Blood transport is pictured carrying blood away from liver tissue, matching the released glucose's next route.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "Blood will carry the released glucose away from the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood now carries glucose from the liver to other tissues, completing the storage-and-release goal.",
+    "reaction": "It is useful to see where the stored glucose goes.",
+    "step": 6,
+    "reason": "The remaining goal is to connect the digestive system to the body, and the portal vessel has been fitted to the digestive tube.",
+    "choice": {
+      "combine": "Integrated body model",
+      "with": "Digestive tube"
+    },
+    "expectation": "The digestive system will connect to the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's blood vessels, nerves and lymph routes, completing the chapter.",
+    "reaction": "It was satisfying to see digestion joined to the larger body model.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose from liver storage back into the blood was worthwhile because it showed what glycogen is for and where the glucose goes.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named portal vessel into its slot was straightforward but offered little to figure out.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I learned that the liver can store glucose as glycogen and release it between meals.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the named slot and pictures made the pairings clear, though the enzyme steps largely followed their labels.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting digestion to the rest of the body makes me curious how another system would fit in, even though some pairings were predictable.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

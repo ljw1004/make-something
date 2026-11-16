@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope has an open space and the goal says to enclose DNA in a nucleus.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The envelope should enclose the DNA to form a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "These might form the membrane boundary needed for the other goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is now enclosed in a nucleus, and the next goal is to put it inside a cell boundary.",
+    "reaction": "The new goal makes the membrane boundary feel like the next useful piece.",
+    "step": 2,
+    "reason": "The membrane fats and water may form the boundary described in the introduction.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats should form a membrane boundary in the water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water formed a closed membrane bag, providing a boundary for the nucleus and transport proteins.",
+    "reaction": "The cutaway helps me picture how the fats make an inside and an outside.",
+    "step": 3,
+    "reason": "The new goal says to put the nucleus inside the cell boundary, and the membrane bag now provides one.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Nucleus"
+    },
+    "expectation": "The nucleus should be fitted inside the membrane bag.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane bag",
+          "with": "Water-channel protein"
+        },
+        "reason": "The channel should also fit into the boundary to provide a route for water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is inside the membrane bag, completing that goal; the boundary still needs water and sugar routes.",
+    "reaction": "The nucleus fitting inside the larger boundary makes the cell layout clearer.",
+    "step": 4,
+    "reason": "The water-channel protein has a pore for water and should fit into the membrane boundary.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The water channel should fit into the bag's boundary, providing a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane bag",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier should provide the other route needed for the same goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted into the membrane; the sugar route is still needed.",
+    "reaction": "The boundary is coming together as expected.",
+    "step": 5,
+    "reason": "The sugar-carrier protein has a sugar-shaped pocket and should provide the remaining route through the boundary.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier should fit into the membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completed the boundary’s water and sugar routes, and all chapter goals are complete.",
+    "reaction": "It was satisfying to see both routes fitted into the same boundary.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane bag was most worthwhile: the cutaway showed how the fats form a boundary with water on both sides.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two transport proteins was straightforward and a little repetitive, although their pictures showed different routes.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the membrane bag’s picture description also mentioned structures we had not fitted yet, such as mitochondria and a pump. That made it less clear which parts were actually present.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the goals and pictures gave each pairing a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would try another chapter to see how more cell parts fit together, though this chapter’s choices were mostly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

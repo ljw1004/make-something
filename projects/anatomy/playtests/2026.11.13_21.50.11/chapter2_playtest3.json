@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria inside the cell, and adding them is part of the first goal.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The cutaway makes their placement clear.",
+    "step": 2,
+    "reason": "The carrier's picture shows it spanning a membrane and holding glucose, so it looks like the route the cell needs.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will be fitted into the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, completing the glucose route; the new goal is to feed the cell glucose.",
+    "reaction": "The two-panel picture makes the carrier's role clearer.",
+    "step": 3,
+    "reason": "The glucose matches the carrier's pocket, and the new goal asks the cell to use it.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter the cell and help it make ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was used to make ATP, which the cell uses for energy; the protein-builder goal remains.",
+    "reaction": "The inset helps connect glucose and oxygen to ATP production.",
+    "step": 4,
+    "reason": "The ribosomes' picture places them in the cell fluid, and the goal asks for protein builders.",
+    "choice": {
+      "combine": "Cell",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will be added to the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the new goal is to give one an RNA instruction.",
+    "reaction": "The enlarged groove makes the RNA connection clearer.",
+    "step": 5,
+    "reason": "The RNA copy carries an instruction from the nucleus, and the ribosome has a groove for it.",
+    "choice": {
+      "combine": "Cell",
+      "with": "RNA copy from the nucleus"
+    },
+    "expectation": "The RNA instruction will be given to a ribosome in the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the new goal is to build a protein from the supplied amino acids.",
+    "reaction": "The picture connects the RNA order with the protein building blocks.",
+    "step": 6,
+    "reason": "The amino acids are a supplied pool rather than a selectable item, so I'll check what the ribosome can combine with.",
+    "choice": {
+      "inspect": "Ribosome with RNA"
+    },
+    "expectation": "The compatibility list should show how to proceed with protein building.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection showed that ATP was the missing partner and automatically completed the protein. ATP supplies energy for the work; the amino acids become the protein.",
+    "reaction": "I was surprised that inspecting also completed the combination, and the picture made ATP's role clearer.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making ATP from glucose was most worthwhile: the inset connected food and oxygen with a form of energy the cell uses, which later helped build protein.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the mitochondria and ribosomes was clear but fairly predictable because their pictures already showed where they belonged.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know ATP was needed for the protein-building step until the compatibility hint showed it; inspecting then automatically made the protein.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to pair the ribosome with ATP was not clear to me beforehand, though the result explained its purpose.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting food to both cell energy and protein building made me curious about how the next structures fit together.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

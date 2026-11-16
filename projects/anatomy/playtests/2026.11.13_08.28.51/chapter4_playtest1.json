@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "The environment provides signals for the stated fibroblast route, so it is the natural next step for the stem-cell population.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Fibroblast-development environment"
+    },
+    "expectation": "The signals should guide some cells toward a fibroblast identity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals led a subset toward fibroblasts and activated a collagen gene, producing messenger RNA ready for translation.",
+    "reaction": "The link from an outside signal to a specific RNA message is useful.",
+    "step": 2,
+    "reason": "Amino acids are the building blocks needed to translate the collagen message into protein.",
+    "choice": {
+      "combine": "Developing fibroblasts with collagen messenger RNA",
+      "with": "Amino acids"
+    },
+    "expectation": "Ribosomes should use the messenger RNA and amino acids to make a collagen precursor.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now make procollagen in the ER and Golgi, ready for secretion.",
+    "reaction": "The RNA-to-protein connection is clear, though procollagen itself is not explained yet.",
+    "step": 3,
+    "reason": "The vesicles are shown carrying procollagen from the Golgi to the cell surface, making them the natural next step.",
+    "choice": {
+      "combine": "Procollagen-producing fibroblasts",
+      "with": "Secretory vesicles"
+    },
+    "expectation": "The vesicles should release procollagen outside the fibroblasts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Procollagen is now outside the fibroblasts, where it can be processed into extracellular material.",
+    "reaction": "The vesicle fusion makes the route from intracellular production to secretion clear.",
+    "step": 4,
+    "reason": "The enzymes are shown clipping secreted procollagen and cross-linking collagen molecules.",
+    "choice": {
+      "combine": "Secreted procollagen",
+      "with": "Collagen-processing enzymes"
+    },
+    "expectation": "The enzymes should process the procollagen and help form cross-linked collagen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The procollagen has become cross-linked collagen fibers that resist tension.",
+    "reaction": "The opposing arrows make the fibers' mechanical role clear.",
+    "step": 5,
+    "reason": "The hydrated proteoglycans are shown forming a gel around collagen fibers, so combining them should build the extracellular material.",
+    "choice": {
+      "combine": "Collagen fibers",
+      "with": "Hydrated proteoglycans"
+    },
+    "expectation": "The fibers and hydrated gel should form extracellular connective-tissue material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibers and hydrated gel formed an extracellular matrix, distinct from the adjacent fibroblasts, completing the goal.",
+    "reaction": "The cell-versus-matrix inset is a useful clarification.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the signal through gene activation and RNA production, then translation into procollagen, was most worthwhile: it connects cell specialization to a concrete product.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The procollagen-production passage was less clear because it named procollagen without yet explaining how it relates to collagen.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final construction clarified that fibroblasts remain separate from the matrix they help produce, rather than becoming the material themselves.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the route was fairly direct and offered few meaningful decisions.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting gene activity to secretion and the mechanical role of extracellular material made me curious about how these structures support tissues.",
+        "steps": [
+          1,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

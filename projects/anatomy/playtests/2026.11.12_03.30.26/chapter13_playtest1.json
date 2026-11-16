@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The villus is the intestinal surface the glucose needs to cross.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Glucose will cross the villus lining toward its blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached a villus blood capillary; amino acids still need to cross.",
+    "reaction": "The result clearly shows the route into blood.",
+    "step": 2,
+    "reason": "Amino acids also need to cross the intestinal lining toward the liver.",
+    "choice": {
+      "combine": "Meal amino acids",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Amino acids will enter the villus blood capillaries.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both glucose and amino acids have entered villus blood; their route toward the liver remains to be completed.",
+    "reaction": "The parallel results make their shared route clear.",
+    "step": 3,
+    "reason": "The fat products need to cross the intestinal surface and be packaged for their different route.",
+    "choice": {
+      "combine": "Fat digestion products",
+      "with": "Intestinal villus"
+    },
+    "expectation": "The fat products will enter intestinal cells, possibly using the packaging materials.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion products have entered intestinal cells and still need packaging for lymph transport.",
+    "reaction": "The separate step makes their route through the cells clear.",
+    "step": 4,
+    "reason": "The packaging materials appear intended to prepare the absorbed fat for transport.",
+    "choice": {
+      "combine": "Fat inside intestinal cells",
+      "with": "Lipoprotein packaging materials"
+    },
+    "expectation": "The fat will be packaged into a form that can enter lymph.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Packaging required the intestinal villus, which automatically combined the fat with the materials to make chylomicrons.",
+    "reaction": "The station requirement was unexpected, but the result explains what the cells package.",
+    "step": 5,
+    "reason": "The lacteal is the villus lymph vessel entrance, so it appears to be the next destination for the packaged fat.",
+    "choice": {
+      "combine": "Chylomicrons",
+      "with": "Lacteal entrance"
+    },
+    "expectation": "The chylomicrons will enter lymph through the lacteal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Packaged fat has entered lymph and will later reach the blood; the glucose and amino acid route toward the liver remains.",
+    "reaction": "The villus requirement was clearer after the previous step, and the result distinguishes fat's route.",
+    "step": 6,
+    "reason": "Both nutrients are now in villus blood and may need to be brought together for their shared route toward the liver.",
+    "choice": {
+      "combine": "Glucose in villus blood",
+      "with": "Amino acids in villus blood"
+    },
+    "expectation": "They will combine into a shared blood route toward the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and amino acids joined blood draining toward the liver, completing the remaining goal.",
+    "reaction": "The final result clearly connected the two nutrients to their shared route.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat through intestinal cells into lymph was most worthwhile. Packaging it as chylomicrons and sending it into the lacteal made its different route clear.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate glucose and amino acid crossings were clear but repetitive: both produced much the same result before joining in portal blood.",
+        "steps": [
+          1,
+          2,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I expected to combine the absorbed fat directly with the packaging materials; the villus was required as the station, and the result explained that intestinal cells rebuild and package the fat.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the villus as a station made biological sense, but it was not obvious from the item names that the fat and packaging materials could not be combined directly. The compatibility feedback resolved it.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how the absorbed nutrients are used. The contrasting blood and lymph routes gave the construction a clear purpose, though the repeated crossing steps were less engaging.",
+        "steps": [
+          1,
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The pictures show fluid moving a flap that bends the turning cells' hairs, so these pieces belong together.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "The loops and cells should form sensors for head turns.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loops and cells make turn-sensing canals; their nerve bundle still needs connecting.",
+    "reaction": "The fluid bending the flap makes the sensor easier to picture.",
+    "step": 2,
+    "reason": "The picture places the mineral weights on the jelly above the tilt sensor cells, matching the weighted tilt sensor goal.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form sensors for tilt.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors detect tilt and changes in straight-line movement; both sensor types now need nerve connections.",
+    "reaction": "The shifting weighted layer makes their role clearer.",
+    "step": 3,
+    "reason": "The balance nerves are pictured connecting the sensor regions to the brain, so I’ll connect the turning sensors first.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors should connect to a nerve route toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The tilt sensors also need a connection to the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors now have incoming nerves aimed toward the brain; the weighted sensors and outgoing routes still need connecting.",
+    "reaction": "The connection follows the picture, though it does not yet show the full route.",
+    "step": 4,
+    "reason": "The weighted sensors also need incoming nerves, but the balance nerves were consumed, so I’ll check what they can connect with now.",
+    "choice": {
+      "inspect": "Weighted balance sensors"
+    },
+    "expectation": "The compatibility list should show how to connect the weighted sensors to the nerve route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both sensor types now connect to incoming nerve fibres toward the brain; the outgoing routes remain to be joined.",
+    "reaction": "The automatic combination clarified how the weighted sensors connect.",
+    "step": 5,
+    "reason": "The remaining nerve routes lead from the brain and spinal cord toward eye and posture muscles, matching the goal of joining incoming and outgoing routes.",
+    "choice": {
+      "combine": "Balance organs with incoming nerves",
+      "with": "Eye and posture nerve routes"
+    },
+    "expectation": "The sensor signals should connect through the brain to routes toward the eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed route connects both balance sensors through the brain to eye and posture muscles; vision and signals from muscles and joints also help.",
+    "reaction": "Seeing the eyes move opposite the head made the purpose of the nerve route clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the nerve routes was most worthwhile because it connected the sensors to keeping the eyes on a point and adjusting posture.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the turning sensors to the nerves felt like a routine intermediate step; it did not yet show the whole route.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the weighted sensors to detect tilt, but they also respond when straight-line movement changes.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "After the balance nerves were consumed, it was not clear how to connect the weighted sensors. Inspection revealed the pairing, though the reason for that particular combination was not obvious beforehand.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter if it connected body parts to an everyday effect as clearly as the head-and-eye example. The intermediate fittings were less interesting on their own.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

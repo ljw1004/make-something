@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The capillaries are shown wrapping around air sacs, matching the gas-exchange goal.",
+    "choice": {
+      "combine": "Tiny air sacs",
+      "with": "Lung capillaries"
+    },
+    "expectation": "The vessels and sacs should form a thin surface where gases can cross.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sacs and capillaries now show gases crossing while air and blood stay separate.",
+    "reaction": "The opposite directions of oxygen and carbon dioxide are clear.",
+    "step": 2,
+    "reason": "The windpipe divides into the main branches shown on the branching air tubes, so they should join to build the air route.",
+    "choice": {
+      "combine": "Windpipe",
+      "with": "Branching air tubes"
+    },
+    "expectation": "They will form a branching route for air toward the sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The windpipe and tubes now form branching airways, and the goal is to join them to the exchange surfaces.",
+    "reaction": "The continuous air route is clear.",
+    "step": 3,
+    "reason": "The airway tips face the air sacs, matching the new goal.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Air sacs with blood vessels"
+    },
+    "expectation": "The airways should connect to the sacs and their nearby blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The branching airways cannot combine yet, so the exchange surface may need more preparation.",
+    "reaction": "The prerequisite was not clear from the new goal.",
+    "step": 4,
+    "reason": "The elastic tissue is pictured surrounding air sacs, so I will try adding it before joining the airways.",
+    "choice": {
+      "combine": "Air sacs with blood vessels",
+      "with": "Elastic supporting tissue"
+    },
+    "expectation": "The elastic tissue will support the sacs and allow them to stretch and recoil.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Air sacs with blood vessels"
+        },
+        "reason": "I could check its available partners instead of trying the pictured pairing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air sacs now have elastic support, completing their preparation for exchange.",
+    "reaction": "The expansion and recoil make the tissue's role clearer, though it was an unclear prerequisite for joining the airways.",
+    "step": 5,
+    "reason": "The prepared sacs should now connect to the branching airways, as the goal asks.",
+    "choice": {
+      "combine": "Elastic air sacs with blood vessels",
+      "with": "Branching airways"
+    },
+    "expectation": "The airways will connect to the supported air sacs to form lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supported air sacs joined the airways to form lungs, completing the chapter.",
+    "reaction": "It was satisfying to see the separate routes come together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the air sacs and capillaries was most worthwhile: the result clearly showed oxygen and carbon dioxide crossing in opposite directions while air and blood stay separate.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to join the airways to the sacs before adding elastic tissue was frustrating because the new goal suggested they were ready to join.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the sacs needed elastic support before the airways could join them; the goal did not make that prerequisite clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The elastic support had a clear purpose once added, but requiring it before connecting the airways felt arbitrary because that order was not explained.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: seeing the lung pieces connect and learning how gases cross was interesting, despite the unclear prerequisite.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

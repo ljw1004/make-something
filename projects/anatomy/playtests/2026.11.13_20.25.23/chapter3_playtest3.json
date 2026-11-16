@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The DNA building blocks match positions on an existing strand, and the working cell contains DNA in its nucleus.",
+    "choice": {
+      "combine": "DNA building blocks",
+      "with": "Working cell"
+    },
+    "expectation": "The cell will use the building blocks to copy its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Working cell"
+        },
+        "reason": "Adding membrane material also matches a goal, but I will try copying the DNA first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied DNA, so I can work on the remaining goal of adding membrane.",
+    "reaction": "The inset showing each old strand paired with a new one helped me picture the copying.",
+    "step": 2,
+    "reason": "The remaining goal calls for extra membrane, and membrane fats are available to add to the cell.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The fats will provide extra membrane for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats made a new membrane supply, and the next goal is to finish division with DNA in each cell.",
+    "reaction": "The picture helped me see how the new membrane reaches the cell boundary.",
+    "step": 3,
+    "reason": "The copied DNA and new membrane seem like the two preparations needed for division.",
+    "choice": {
+      "combine": "New membrane supply",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The cell will use the extra membrane to divide into two cells, each with a DNA copy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane supply completed division, producing cells with complete DNA copies and finishing the chapter.",
+    "reaction": "The sequence of chromosomes separating and the cell pinching in two made the result easier to picture.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Copying the DNA was most worthwhile because the inset showed each old strand paired with a new strand, helping explain how the instructions are copied.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply was less engaging as a decision: the goal and available fats made the pairing fairly obvious, though the picture explained where the membrane went.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that each old DNA strand was paired with a newly made strand in the copy.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The final pairing made sense as using the two preparations for division, though I was following the goal rather than understanding every detail of how extra membrane enables it.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because seeing the copied chromosomes separate into new cells makes me curious about what the cells do next.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

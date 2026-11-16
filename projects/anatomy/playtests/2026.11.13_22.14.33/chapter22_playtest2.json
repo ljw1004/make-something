@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "The lymphocytes include one whose recognition proteins match the bacterial fragments, and the picture says helper signals are already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will recognize the bacterial antigens and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so it can now be brought to the lymph node to multiply.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The lymph node picture says it supports an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the node, producing descendants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced both antibody-making and memory cells, completing that goal. Antibodies may help the engulfing cells catch the bacteria.",
+    "reaction": "It is clear how one selected cell leads to two different kinds of descendants.",
+    "step": 3,
+    "reason": "Antibodies are proteins, so the antibody-making cells should use amino acids to make them.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells will produce antibodies from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies from amino acids; their tips fit the bacteria's surface knobs.",
+    "reaction": "The matching shapes make the next step clear.",
+    "step": 4,
+    "reason": "The antibody tips match the knobs on the bacteria, so they should bind to them.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will coat the bacteria, helping white blood cells recognize them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies bound to the bacteria, leaving them coated for the engulfing cells.",
+    "reaction": "The result matches the picture of how the white blood cells recognize coated bacteria.",
+    "step": 5,
+    "reason": "The engulfing white blood cells have surface shapes that bind the outward-facing parts of the antibodies.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells will engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "Seeing how antibodies help the cells catch bacteria tied the steps together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the antibody-producing and memory cells was most worthwhile: it showed how one matching cell can produce descendants with different jobs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making antibodies from amino acids felt fairly predictable after learning that antibodies are proteins, though it connected to the earlier protein-building chapter.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that the selected lymphocyte produces both antibody-making cells and lasting memory cells, rather than only making antibodies.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and descriptions explained the pairings.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: matching the antibodies to bacteria and seeing how engulfing cells use them made the immune response understandable.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The muscle-development messengers are shown meeting receivers on the unspecialized cells and activating muscle genes. That seems like a first step toward copying their instructions.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for muscle development"
+    },
+    "expectation": "The messengers will direct a group of cells toward the muscle pathway.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for supporting cells"
+        },
+        "reason": "The support-cell pathway is also a goal, but I can start with muscle."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle messengers produced cells with muscle-protein RNA, and the next goal is to make their pulling proteins.",
+    "reaction": "The picture makes it clear that the RNA is a copy and the protein still needs to be made.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, and these cells now have the RNA instructions for muscle proteins.",
+    "choice": {
+      "combine": "Cells with muscle-protein RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells will use the amino acids to build pulling proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for supporting cells"
+        },
+        "reason": "I could start the other RNA goal first, but I want to follow the muscle pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids made muscle cells with protein fibres that can slide to shorten the cells. The support-protein pathway is still unfinished.",
+    "reaction": "Seeing the instructions lead to fibres that can shorten the cell was satisfying.",
+    "step": 3,
+    "reason": "The supporting-cell messengers are shown activating support-protein genes in another group of the population.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for supporting cells"
+    },
+    "expectation": "The messengers will produce cells with RNA copies of support-protein instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting-cell messengers produced cells with support-protein RNA, and the remaining goal is to build fibres around them.",
+    "reaction": "The picture clearly separates the RNA instructions from the fibres that have yet to be made.",
+    "step": 4,
+    "reason": "Amino acids are protein building blocks, and these cells now have instructions for support proteins, just as the muscle cells had instructions for pulling proteins.",
+    "choice": {
+      "combine": "Cells with support-protein RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells will use the amino acids to build supporting fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids helped the cells build supporting connective tissue around themselves, completing the chapter. This contrasts with the muscle cells keeping their pulling proteins inside.",
+    "reaction": "The contrast between proteins inside cells and fibres around cells made the two paths clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building muscle cells from the RNA instructions was most worthwhile: the picture connected the instructions to fibres that can shorten a cell.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second pathway felt somewhat repetitive because it followed the same messenger-then-amino-acids pattern, although the different result was useful.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The support cells released protein to build material around themselves, rather than keeping the fibres inside like the muscle cells.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the pairings felt especially arbitrary: the pictures and goals explained the messengers, RNA and protein building blocks well enough to follow them.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how these different cells become larger tissues and organs, though I hope the next chapter offers a less repetitive pattern.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The white blood cells are shown surrounding fragments beside the clot, so they seem suited to clearing the wound.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Debris-clearing white blood cells"
+    },
+    "expectation": "The cells will clear broken fragments from the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragments are cleared, and the wound still needs supply, surface and support.",
+    "reaction": "The cleared-wound picture makes the next repair stages easier to see.",
+    "step": 2,
+    "reason": "The picture shows wound messengers reaching the nearby vessel and pointing toward a growing branch, which should help rebuild the blood supply.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Protein messengers from the wound"
+    },
+    "expectation": "The existing capillary will grow a new branch toward the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messengers prompted a capillary branch toward the wound, preparing part of the blood supply.",
+    "reaction": "The growing branch makes the supply route visible.",
+    "step": 3,
+    "reason": "The support-building cells are shown releasing fibres, and the amino acids are their protein building blocks.",
+    "choice": {
+      "combine": "Support-building skin cells",
+      "with": "Protein building blocks"
+    },
+    "expectation": "The cells will make supporting protein fibres for the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made new supporting fibres, but the deeper gap still needs to be filled.",
+    "reaction": "The picture makes it clear the fibres are not yet joined across the wound.",
+    "step": 4,
+    "reason": "The skin cells are shown dividing at the cut, with oxygen and nutrients supplied nearby for their growth.",
+    "choice": {
+      "combine": "Skin cells at the cut's edge",
+      "with": "Oxygen, glucose and amino acids"
+    },
+    "expectation": "The skin cells will grow to help close the surface gap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "New skin cells are ready at the wound edge, but they have not yet covered the gap.",
+    "reaction": "The picture makes the difference between producing cells and closing the wound clear.",
+    "step": 5,
+    "reason": "The cleared wound has a named Surface slot, and the new skin cells are positioned to spread across it.",
+    "choice": {
+      "combine": "Body with a debris-cleared wound",
+      "with": "New skin cells"
+    },
+    "expectation": "The new cells will fill the surface slot and cover the skin gap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells closed the surface, but the tissue underneath still needs support and blood supply.",
+    "reaction": "It is clear that closing the surface is only part of healing.",
+    "step": 6,
+    "reason": "The wound has a Support slot, and the newly made protein fibres are intended to fill the deeper gap.",
+    "choice": {
+      "combine": "Body with a debris-cleared wound",
+      "with": "New supporting protein fibres"
+    },
+    "expectation": "The fibres will join the wound as support for the deeper tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibres now support part of the deeper wound; the supply slot remains.",
+    "reaction": "The layers of repair are coming together.",
+    "step": 7,
+    "reason": "The capillary sprout is the prepared blood-supply piece, and the wound still has a Supply slot.",
+    "choice": {
+      "combine": "Body with a debris-cleared wound",
+      "with": "Capillary sprout"
+    },
+    "expectation": "The new vessel branch will connect to the wound's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new vessel connects and supplies the repaired tissue; the remaining goal is to clear the temporary clot.",
+    "reaction": "Seeing blood flow through the joined vessels makes the supply step clear.",
+    "step": 8,
+    "reason": "The clot-clearing enzymes are shown cutting protein threads, like those reinforcing the clot.",
+    "choice": {
+      "combine": "Body with a debris-cleared wound",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will break down the temporary clot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot was mostly cleared, leaving closed skin and supporting fibres in a small scar. All chapter goals are complete.",
+    "reaction": "It was satisfying to see the temporary clot removed while the new support remained.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Closing the surface and then adding deeper support and blood supply showed that healing involves more than covering the cut.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the supporting fibres and new skin cells felt somewhat repetitive, though the pictures showed why neither alone closed the wound.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the clot to be cleared after the skin closed; it was temporary, while the supporting fibres remained.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The pictures and named wound slots made the pairings understandable.",
+        "steps": [
+          2,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: seeing the separate repair pieces become a working whole was interesting, although some preparation steps felt repetitive.",
+        "steps": [
+          3,
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

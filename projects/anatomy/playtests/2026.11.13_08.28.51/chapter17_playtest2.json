@@ -1,0 +1,125 @@
+[
+  {
+    "step": 1,
+    "reason": "The portal vessel fits the digestive tube's named empty slot and connects the intestine to the liver.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube"
+    },
+    "expectation": "The vessel should complete the gut-to-liver connection in the digestive model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, completing the digestive tube's listed slots.",
+    "reaction": "The connection was straightforward.",
+    "step": 2,
+    "reason": "The liver tissue is positioned to receive the glucose and amino acids in portal blood.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Liver tissue"
+    },
+    "expectation": "The nutrients should reach the liver tissue, allowing glucose handling to be examined.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Portal nutrients now flow past liver cells, setting up the glucose-storage step.",
+    "reaction": "The route from intestine to liver is clear.",
+    "step": 3,
+    "reason": "Glycogen-making enzymes should let the liver store some of the arriving glucose.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "Liver cells will link glucose into glycogen for storage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver now stores glucose as glycogen, setting up the release step.",
+    "reaction": "The branching granules make the storage form clear.",
+    "step": 4,
+    "reason": "The glycogen-release enzymes should show how stored glucose becomes available again.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The liver will break down glycogen to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is now releasing glucose from stored glycogen; blood transport may carry it onward.",
+    "reaction": "The storage-and-release sequence is straightforward.",
+    "step": 5,
+    "reason": "Blood transport is the remaining component for carrying glucose away from the liver.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "Glucose released by the liver will enter blood travelling away from it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now carried away from the liver in blood, completing the storage-and-release goal.",
+    "reaction": "The connection to supplying other tissues is clear.",
+    "step": 6,
+    "reason": "The fitted digestive tube and integrated body model are the remaining major systems to connect.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive system should join the body's circulation and other connected systems.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's blood vessels, nerves and lymph routes, completing the chapter.",
+    "reaction": "The final integration is satisfying, though the picture description leaves the individual connections fairly general.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose from portal blood into glycogen storage and back into blood was most worthwhile: the sequence gives the liver's connection to the intestine a functional purpose.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate release and blood-transport steps felt somewhat repetitive; the picture of release already suggested glucose leaving the liver cell.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final integration also connects the digestive organs to nerves and lymph routes, not just blood vessels, although it does not detail those connections.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though making blood transport a separate component after glucose release felt a little mechanical.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter developed the system connections in more detail; tracing a concrete process through the constructions was more interesting than simply fitting organs together.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

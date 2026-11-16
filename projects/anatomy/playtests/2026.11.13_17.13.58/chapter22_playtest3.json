@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm-afternoon picture shows the body heating up, so I’ll start with its response to warmth.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Warm afternoon"
+    },
+    "expectation": "The body should begin responding to the warm conditions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with living skin",
+          "with": "Cold evening"
+        },
+        "reason": "The cold response is also a goal, but either occasion can come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warming is sensed and signals lead toward the skin vessels and glands, so I can follow one of those responses.",
+    "reaction": "The signal route makes the next step clearer.",
+    "step": 2,
+    "reason": "The picture points to skin vessels as part of the response to warming, and wider vessels may help heat escape.",
+    "choice": {
+      "combine": "Warming sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels should widen and help heat leave the body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Warming sensed",
+          "with": "Sweat glands"
+        },
+        "reason": "The signals also lead to sweat glands, which may start the sweat response."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Wider vessels bring more warm blood near the skin, where heat can move outward. I’ll follow the other warm-weather response next.",
+    "reaction": "The picture makes the vessel response clear.",
+    "step": 3,
+    "reason": "The warming signal also led to the sweat glands, but I’m not sure which current item starts that response, so I’ll check their partners.",
+    "choice": {
+      "inspect": "Sweat glands"
+    },
+    "expectation": "The compatibility list should show how to start the sweat response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm skin circulation led to sweating; the sweat now needs to evaporate to carry heat away.",
+    "reaction": "The automatic combination clarified the sequence.",
+    "step": 4,
+    "reason": "The air picture shows water leaving wet skin, matching the evaporation needed for the warm-weather goal.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat should evaporate into the air and carry heat away.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation completed the warm-weather goal, so I’ll turn to the separate cold-weather response.",
+    "reaction": "The temperature indicator shows how cooling helps.",
+    "step": 5,
+    "reason": "The cold evening is a separate occasion for the same body, so it should start the cold response.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Cold evening"
+    },
+    "expectation": "The body should sense the cold and begin responding to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold is sensed, with signals leading to skin vessels and muscles; I can follow either response.",
+    "reaction": "The cold signal route resembles the warm one.",
+    "step": 6,
+    "reason": "The vessel picture showed a narrower option, which may reduce heat loss in the cold.",
+    "choice": {
+      "combine": "Cold sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "Skin vessels should narrow, reducing heat loss near the surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold sensed",
+          "with": "Skeletal muscle"
+        },
+        "reason": "The signal also leads to muscles, which may produce heat by shivering."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrower skin vessels reduce heat loss; the muscle response remains to be followed.",
+    "reaction": "The smaller heat arrows make the effect clear.",
+    "step": 7,
+    "reason": "Cold signals also lead to skeletal muscle, which may make heat by shivering. I’m guessing the cold circulation is the next link, as it was for sweating.",
+    "choice": {
+      "combine": "Cold skin circulation",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscles should shiver and help produce heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering makes heat through repeated muscle contractions, while narrower skin vessels reduce heat loss. Both goals are complete.",
+    "reaction": "The muscle inset made the source of the heat clearer.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the warm and cold vessel responses was most worthwhile: wider vessels brought warm blood near the skin, while narrower vessels reduced heat loss.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the sweat glands was less worthwhile than the direct combinations, though it clarified the required sequence and combined them automatically.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the warm skin circulation had to come before the sweat-gland combination; the earlier signal picture pointed to both.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order of the warm responses was not obvious from the signal picture, which showed routes to both vessels and glands.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: comparing the two responses helped me see how the same skin can either release or conserve heat, and shivering added another way to respond to cold.",
+        "steps": [
+          2,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

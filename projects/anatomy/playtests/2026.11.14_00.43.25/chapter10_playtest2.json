@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The capillary mesh is pictured wrapping around the air sacs, matching the goal of bringing air and blood close together.",
+    "choice": {
+      "combine": "Tiny air sacs",
+      "with": "Lung capillaries"
+    },
+    "expectation": "The vessels will surround the sacs, putting blood close to the air across thin walls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sacs and capillaries now show gas exchange across separate air and blood spaces. I still need to build the air route.",
+    "reaction": "The opposite arrows made the exchange clear.",
+    "step": 2,
+    "reason": "The windpipe's lower branches match the branching air tubes, so they should form the air route.",
+    "choice": {
+      "combine": "Windpipe",
+      "with": "Branching air tubes"
+    },
+    "expectation": "The windpipe will connect to the finer branching tubes.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air sacs with blood vessels",
+          "with": "Elastic supporting tissue"
+        },
+        "reason": "The springy fibres are also pictured around air sacs, but I can build the route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The windpipe and tubes now form the branching airways, and the goal calls for joining them to the exchange surfaces.",
+    "reaction": "The continuous air route is clear.",
+    "step": 3,
+    "reason": "The airways end beside the air-sac clusters, matching the new goal.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Air sacs with blood vessels"
+    },
+    "expectation": "The airways should connect to the sacs so air can reach the exchange surfaces.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air sacs with blood vessels",
+          "with": "Elastic supporting tissue"
+        },
+        "reason": "The supporting fibres are also shown around the sacs, but the new goal suggests joining the airways."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The branching airways cannot currently be combined, so I’ll prepare the exchange surfaces further before trying to join them.",
+    "reaction": "The failure was unexpected because the new goal suggested joining them.",
+    "step": 4,
+    "reason": "The picture places the elastic fibres around air sacs, so they appear to be a needed part of the exchange surface.",
+    "choice": {
+      "combine": "Air sacs with blood vessels",
+      "with": "Elastic supporting tissue"
+    },
+    "expectation": "The springy tissue will support the sacs, possibly making them ready to connect to the airways.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding elastic tissue completed the exchange-surface goal and may have made the sacs ready to join to the airways.",
+    "reaction": "The expansion and recoil views clarified what the elastic fibres do.",
+    "step": 5,
+    "reason": "The remaining goal is to join the airways to the exchange surfaces, now that the sacs have their elastic support.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Elastic air sacs with blood vessels"
+    },
+    "expectation": "The airways will connect to the supported air sacs to form lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding the supported sacs to the airways formed the lungs and completed the chapter.",
+    "reaction": "It was satisfying to see the branching route end at the exchange surfaces.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the air sacs and capillaries showed how oxygen and carbon dioxide cross in opposite directions while air and blood stay separate.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to join the airways to the sacs before adding elastic tissue was confusing: the new goal suggested that connection, but it was not available yet.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the airways could not connect until the elastic support had been added to the sacs.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The elastic tissue had a clear purpose once its expansion and recoil were shown, but needing it before connecting the airways was not clear from the new goal.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: building the lungs made gas exchange easier to picture, and I would be curious to see how they connect to the rest of the body.",
+        "steps": [
+          1,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

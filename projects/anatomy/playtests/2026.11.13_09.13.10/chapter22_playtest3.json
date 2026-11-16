@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "Start the warm response by seeing how skin blood vessels change to release heat.",
+    "choice": 1,
+    "expectation": "I expect the vessels to widen, increasing skin blood flow and heat loss to the cooler air.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Sweating is another warm response, but I want to follow the blood-vessel route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The widened vessels confirm the warm-case route transfers heat from blood to cooler surroundings; I'll follow the other warm response next.",
+    "reaction": "The arrows make the direction of heat transfer clear.",
+    "step": 2,
+    "reason": "Sweat glands are the other available warm-response route.",
+    "choice": 1,
+    "expectation": "I expect the signals to stimulate sweating, with evaporation helping cool the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signal produces liquid sweat; evaporation is a separate step.",
+    "reaction": "That distinction makes the cooling mechanism clearer.",
+    "step": 3,
+    "reason": "Combine sweat with air to follow how it cools the body.",
+    "choice": 1,
+    "expectation": "I expect sweat to evaporate into the air and carry heat away from the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation completes the warm response, and the humid-air comparison shows why cooling can be reduced. I'll now follow the cold response.",
+    "reaction": "The distinction between producing sweat and evaporating it is useful.",
+    "step": 4,
+    "reason": "Examine how skin vessels help conserve heat in the cold.",
+    "choice": 1,
+    "expectation": "I expect the vessels to narrow, reducing blood flow near the surface and limiting heat loss.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Muscle activity may generate heat, but I want to compare the vessel responses first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrowing skin vessels reduces heat loss rather than producing heat; the remaining cold response can address heat production.",
+    "reaction": "The distinction between conserving and generating heat is clear.",
+    "step": 5,
+    "reason": "Follow the only remaining combination to examine the muscle response to cold.",
+    "choice": 1,
+    "expectation": "I expect shivering muscle contractions to increase heat production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering completes the cold response by producing heat, contrasting with the reduced heat loss from narrowed vessels.",
+    "reaction": "The contrast between generating and conserving heat was satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Evaporating sweat was most worthwhile: separating liquid sweat production from evaporation, then comparing humid air, clarified how cooling works.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Producing liquid sweat was a rather predictable intermediate step on its own, though it supported the useful evaporation comparison.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The humid-air comparison sharpened my understanding that sweat production alone does not ensure the same cooling.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each had a clear role in the warm or cold response. The available compatible options guided the choices rather than requiring me to discover compatibility.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in another chapter that connects familiar biology to mechanisms as clearly as the evaporation and shivering comparisons did.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

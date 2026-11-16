@@ -1,0 +1,125 @@
+[
+  {
+    "step": 1,
+    "reason": "The after-meal liver cells are shown surrounded by glucose and already have the storage signal, so storing glucose there is a clear starting point.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will store some of the meal glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Insulin-producing pancreatic cells"
+        },
+        "reason": "The pancreatic cells can also release insulin into the blood after a meal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stored glucose as linked carbohydrate, and the next goal is to release it between meals.",
+    "reaction": "The picture makes it clear that the glucose units are stored inside the liver cells.",
+    "step": 2,
+    "reason": "The after-meal pancreatic cells contain insulin and can release it into the nearby blood, which is the first part of the muscle-storage goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Insulin-producing pancreatic cells"
+    },
+    "expectation": "Insulin will be released into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Glucagon-producing pancreatic cells"
+        },
+        "reason": "The between-meal cells could supply the message for releasing liver glucose instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood, ready to signal the muscle fibres to take in glucose.",
+    "reaction": "The blood route makes the connection between the pancreas and muscle clearer.",
+    "step": 3,
+    "reason": "The muscle fibres have insulin receptors and glucose nearby, matching the muscle-storage goal.",
+    "choice": {
+      "combine": "Insulin in blood",
+      "with": "Muscle fibres beside a blood vessel"
+    },
+    "expectation": "Insulin will help the muscle fibres take in and store glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle store glucose as carbohydrate while remaining outside the cells. The remaining goal is to release liver glucose between meals.",
+    "reaction": "It is helpful to see the message kept separate from the stored material.",
+    "step": 4,
+    "reason": "The between-meal pancreatic cells contain glucagon, the named message for releasing liver glucose, and can release it into blood.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Glucagon-producing pancreatic cells"
+    },
+    "expectation": "Glucagon will enter the blood and be available to signal the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is now in the blood and can carry the between-meal message to the liver.",
+    "reaction": "The contrast with insulin makes the two messages easier to follow.",
+    "step": 5,
+    "reason": "The liver carbohydrate store contains the glucose units, and glucagon is the named signal to release them.",
+    "choice": {
+      "combine": "Glucagon in blood",
+      "with": "Liver carbohydrate store"
+    },
+    "expectation": "The liver will break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver store released glucose into the blood, completing the between-meal goal. The result also showed that the release signal eases as blood glucose rises.",
+    "reaction": "It was satisfying to see the stored glucose return to the blood.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in the liver and then releasing it made the contrast between meals and the time between them clear.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing each pancreatic message into blood felt a little repetitive, although it showed how the messages travel.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The muscle stored glucose while insulin stayed outside the cells; the message was not part of the stored material.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: the pictures and goals named the signals and where they needed to go. I followed those hints rather than knowing the detailed mechanism.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter: seeing the stored glucose released connected the separate steps to a useful body function, though the repeated message-release actions were less engaging.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

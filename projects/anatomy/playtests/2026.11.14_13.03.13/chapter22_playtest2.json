@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The blood sample contains substances shown approaching the kidney filter, so filtering it is a direct start on the recovery goal.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "Small substances should pass into the filter space while blood cells and large proteins stay in the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ureters",
+          "with": "Kidney pair"
+        },
+        "reason": "The ureters visibly fit the kidney drainage outlets, so I could build the bladder route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter let useful glucose, salts and water through along with wastes, so the fluid needs the recovery tube next.",
+    "reaction": "It was interesting that the filter does not just pick out waste.",
+    "step": 2,
+    "reason": "The recovery tube is shown returning useful substances from the filtered fluid to the blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Glucose, some salts and much of the water should return toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ureters",
+          "with": "Kidney pair"
+        },
+        "reason": "I could start the separate drainage route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Recovery returns useful substances and much water to blood, leaving waste-containing fluid to collect. The drainage route still needs building.",
+    "reaction": "It makes sense that filtering is followed by taking useful substances back.",
+    "step": 3,
+    "reason": "The ureters are shown leading from the kidneys toward the bladder, and the kidney pair has a matching slot.",
+    "choice": {
+      "combine": "Ureters",
+      "with": "Kidney pair"
+    },
+    "expectation": "The ureters should fit onto the kidneys as part of the drainage route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bladder",
+          "with": "Kidney pair"
+        },
+        "reason": "The bladder also has a named slot and could be fitted first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect to the kidney outlets; the bladder still needs fitting to complete the drainage route.",
+    "reaction": "The downward route is clear, though the bladder is still missing.",
+    "step": 4,
+    "reason": "The bladder has a named slot in the kidney pair and receives the ureters.",
+    "choice": {
+      "combine": "Bladder",
+      "with": "Kidney pair"
+    },
+    "expectation": "The bladder should fit beneath the kidneys and connect to the ureters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters and bladder now form a continuous drainage route; the remaining fluid still needs to be collected.",
+    "reaction": "The completed route makes the flow to the bladder clear.",
+    "step": 5,
+    "reason": "The remaining fluid contains wastes, and the completed kidney-to-bladder route matches the collection goal.",
+    "choice": {
+      "combine": "Kidney fluid after recovery",
+      "with": "Kidney pair"
+    },
+    "expectation": "The remaining fluid should travel through the ureters and collect as urine in the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid travelled through the ureters to the bladder, completing the collection goal.",
+    "reaction": "It was satisfying to see the filtering and drainage routes come together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering useful substances made the kidney’s two-stage job understandable, especially because glucose and water pass through the filter too.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the ureters and bladder was clear but fairly predictable because the slots and pictures showed where they went.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The filter let useful substances through along with wastes, rather than selecting only waste.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the pictures and goals gave each combination a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: connecting the kidney’s filtering, recovery and drainage was understandable, and I’d be curious to see another body process built this way.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

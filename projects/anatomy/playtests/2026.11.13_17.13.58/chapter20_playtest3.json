@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows drinking water reaching the intestine, where the lining can absorb it into nearby blood.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Digestive lining for water absorption"
+    },
+    "expectation": "Water should cross the digestive lining into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with urinary system",
+          "with": "Water loss"
+        },
+        "reason": "I could instead start with the body's response to losing water."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink has reached the blood, so I can now follow the separate water-conservation goal.",
+    "reaction": "The crossing matched the picture I expected.",
+    "step": 2,
+    "reason": "Water loss happens to the body, so combining them is a reasonable way to start its response; I don't yet know how the game will show it.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Water loss"
+    },
+    "expectation": "The result should show the body responding to water loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys return more water to blood, but the body still needs replacement water. I can now bring the two routes together.",
+    "reaction": "The low water gauge makes the difference between saving and replacing water clear.",
+    "step": 3,
+    "reason": "The remaining goal asks to bring conservation and replacement together, and these two results represent those processes.",
+    "choice": {
+      "combine": "Body conserving water",
+      "with": "Drinking water entering blood"
+    },
+    "expectation": "The absorbed water should replenish the body while the kidneys conserve water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink replenished body fluids while the kidney response conserved water, completing the chapter's goals.",
+    "reaction": "The returning water gauge made the two processes fit together clearly.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Seeing the kidneys conserve water while the body-water gauge stayed low was most worthwhile: it showed why saving water cannot replace a drink.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Getting drinking water into the blood was straightforward and less revealing on its own than comparing it with conservation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The body could produce less urine and still have a low water level; it needed replacement water too.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and goals explained the pairings well enough.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter because connecting two separate processes at the end made the biology clear, though this short chapter offered few meaningful choices.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

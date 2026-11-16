@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope is shown as an enclosure, and the goal says to enclose DNA in a nucleus.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The DNA should be enclosed to form a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "The picture suggests the fats and water could help make the outer membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and envelope formed a nucleus, and the new goal is to put it inside the cell's outer boundary.",
+    "reaction": "The picture's RNA copy is interesting, though I don't yet know how it is used.",
+    "step": 2,
+    "reason": "The lipid picture shows parts that face toward and away from water, suggesting the fats and water can form the outer enclosure.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats and water should form a cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water made the outer enclosure, leaving the nucleus to be placed inside.",
+    "reaction": "The picture makes the membrane's two-sided arrangement clearer.",
+    "step": 3,
+    "reason": "The remaining goal is to put the nucleus inside the outer boundary, and the membrane bag has an empty slot.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Nucleus"
+    },
+    "expectation": "The nucleus should fit inside the membrane bag.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus fits inside the membrane bag, completing the last goal and showing the DNA enclosed within a smaller boundary inside the cell.",
+    "reaction": "It was satisfying to see the two enclosures come together, though the final fitting was predictable.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the membrane fats with water was most worthwhile: the picture showed how the water-facing heads and inward-facing tails form a boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the nucleus in the bag was straightforward progress, but the goal and empty slot made it the least interesting decision.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The nucleus picture showed an RNA copy leaving through a pore. That was interesting, but the chapter did not explain how the copy is used.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the goals and pictures gave each pairing a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter to see how the cell becomes more than a bag and what happens to the RNA copy, though this short chapter was mostly predictable.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

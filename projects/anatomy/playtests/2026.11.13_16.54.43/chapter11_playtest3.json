@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "Start the right pump by fitting the valve between its chambers; the picture shows it prevents blood from flowing backward.",
+    "choice": 1,
+    "expectation": "The chamber valve will fill the right heart's between-chambers slot, leaving the artery-exit slot open.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The left pump also needs a chamber valve, but I'll start with the right side."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right chamber valve is fitted, and its artery exit still needs a valve.",
+    "reaction": "The remaining pale exit makes the next fitting clear.",
+    "step": 2,
+    "reason": "Finish fitting the right pump's valves before building its lung route.",
+    "choice": 1,
+    "expectation": "An artery-exit valve will fill the remaining gap and help prevent backward flow.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The left pump also needs its chamber valve, but I want to finish the right side first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right pump now has both valves and can be connected to the lung vessels, although one picture description confusingly says the chamber gap remains pale.",
+    "reaction": "The conflicting picture description is confusing, but the fitted-item list shows both valves.",
+    "step": 3,
+    "reason": "Connect the right pump to the lung route, as the chapter's first goal describes.",
+    "choice": 1,
+    "expectation": "The right chambers and lung vessels will form a route carrying blood toward the lungs; I’m unsure whether it will be complete yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The left pump also needs valves, but I want to continue the right-side route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right pump and lung route are complete; blood returns toward the left side, which still needs its valves.",
+    "reaction": "Seeing the route end at the left inlet makes the two journeys easier to connect.",
+    "step": 4,
+    "reason": "Start the left pump by fitting its chamber valve, just as on the right.",
+    "choice": 1,
+    "expectation": "The valve will fill the gap between the left chambers, leaving the artery exit open.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The exit valve is also needed, but I’ll fit the chamber valve first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left chamber valve is fitted, leaving the artery exit open.",
+    "reaction": "This repeats the right-side fitting, but the remaining gap is clear.",
+    "step": 5,
+    "reason": "Fit the exit valve to prepare the left pump for its body route; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The exit valve will fill the remaining gap and prevent blood flowing backward from the artery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both left valves are listed as fitted, so I can connect the pump to the body network, despite the picture again saying the chamber gap is pale.",
+    "reaction": "The repeated conflicting description is confusing.",
+    "step": 6,
+    "reason": "Connect the left pump to the body route; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The left chambers and body vessels will form a route carrying blood around the body and back toward the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left pump now connects to the body vessels, completing that route; the two routes still need joining and the heart needs its own blood supply.",
+    "reaction": "The return arrow toward the right inlet makes the connection between the journeys clearer.",
+    "step": 7,
+    "reason": "Join the lung and body routes into one journey; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The two pumps and their routes will connect into a continuous circuit, though the heart's own vessels may still need adding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung and body routes now form one continuous circuit; the heart's own vessels still need adding.",
+    "reaction": "The complete route makes the two pumps' roles clearer.",
+    "step": 8,
+    "reason": "Add the heart's own blood vessels to supply its muscle; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The vessels will connect to the heart and supply its muscle with blood, possibly completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has its own blood supply, and the connected circulation still needs blood.",
+    "reaction": "It makes sense that the thick heart muscle needs its own vessels, separate from blood in the chambers.",
+    "step": 9,
+    "reason": "Fill the connected circulation with blood; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Blood will enter the connected heart and vessel routes, likely completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood now fills the connected routes, completing the circulation and all chapter goals.",
+    "reaction": "The finished journey brings the separate pieces together clearly.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes was most worthwhile: the continuous path made the jobs of both heart sides clear.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the left valves repeated the right-side actions, and the description wrongly seemed to leave the already fitted chamber valve gap pale.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The heart muscle needs its own blood vessels; blood inside the chambers cannot supply all of it.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though several later choices were the only offered combinations rather than decisions I could reason between.",
+        "steps": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the circulation connects to other body systems, though I hope for more meaningful choices and fewer repeated fittings.",
+        "steps": [
+          5,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

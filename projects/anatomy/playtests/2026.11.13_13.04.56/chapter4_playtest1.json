@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions explicitly guide a subset of the stem cells toward connective-tissue cells, which should help make supporting material.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "A subset of the stem cells will develop into fibroblasts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen RNA messages, suggesting amino acids can be used to make collagen.",
+    "reaction": "The link from unchanged DNA to selectively active collagen genes is clear.",
+    "step": 2,
+    "reason": "Amino acids are the building blocks needed to translate the collagen messages into protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make collagen protein from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them for secretion; the extracellular environment may be needed next.",
+    "reaction": "The progression from RNA to secretory vesicles is clear.",
+    "step": 3,
+    "reason": "The goal is supporting material outside cells, and the extracellular fluid contains processing enzymes.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will secrete collagen precursors for processing outside the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts secreted and assembled collagen outside the cells, completing the supporting-material goal.",
+    "reaction": "The distinction between living cells and the matrix they produce is clear.",
+    "step": 4,
+    "reason": "The remaining goal calls for muscle-forming cells, and the muscle conditions guide a separate stem-cell subset toward that lineage.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "A subset of the stem cells will develop toward muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has RNA messages for muscle proteins, but the cells are not yet mature fibres.",
+    "reaction": "The parallel with selective collagen gene activity is clear.",
+    "step": 5,
+    "reason": "Amino acids can supply the building blocks for the muscle proteins specified by those messages.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The muscle-lineage cells will make proteins needed for muscle development.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells made muscle proteins and became myoblasts, completing the goal without becoming mature fused fibres.",
+    "reaction": "The distinction between precursors and mature fibres was useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making extracellular matrix was worthwhile because the illustration plan connects protein secretion and assembly to the supporting material around living cells.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle branch repeated the signal-to-message-to-protein pattern already used for fibroblasts, though the comparison served a purpose.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The muscle cells remained separate, single-nucleus precursors rather than immediately becoming mature fibres.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the named conditions, messages and extracellular enzymes made the combinations understandable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the precursors develop and how cells and matrix form tissues; the chapter left those connections open.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

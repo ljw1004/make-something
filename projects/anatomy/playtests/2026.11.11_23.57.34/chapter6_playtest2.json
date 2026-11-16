@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways end beside the sacs, so joining them should establish the air route.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Lung air sacs"
+    },
+    "expectation": "The airways will connect to the lung air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airways and sacs form an air route with an empty exchange-surface slot. The result also explains why many small sacs provide more surface area.",
+    "reaction": "The equal-volume comparison is a useful way to make the surface-area advantage clear.",
+    "step": 2,
+    "reason": "The thin exchange lining appears to form the air-facing part of the missing exchange surface.",
+    "choice": {
+      "combine": "Thin exchange lining",
+      "with": "Lung air route"
+    },
+    "expectation": "The lining will be fitted to the air sacs as part of the exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air route now has its thin lining, but the capillary mesh is still missing.",
+    "reaction": "The result makes the next part of the exchange surface clear.",
+    "step": 3,
+    "reason": "The capillary mesh surrounds the sacs and supplies the blood-facing side of the exchange surface.",
+    "choice": {
+      "combine": "Lung capillary mesh",
+      "with": "Air route with lining"
+    },
+    "expectation": "The mesh will attach around the lined air sacs to form an exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route now has an exchange surface where air and blood occupy separate spaces; it still needs a connection to the circulating blood.",
+    "reaction": "The separate spaces make the chapter’s title clearer.",
+    "step": 4,
+    "reason": "The lung capillaries need to connect to the vessel circuit so blood can reach the exchange surface.",
+    "choice": {
+      "combine": "Connected vessel circuit",
+      "with": "Lung route with exchange"
+    },
+    "expectation": "The lung capillary mesh will connect to the blood circuit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessel circuit has no available combination yet, so I need to continue building the lung setup first.",
+    "reaction": "I was surprised that the blood circuit cannot connect at this stage.",
+    "step": 5,
+    "reason": "The pleural membranes link the lung side to the chest side, so they seem like the next part needed to renew the air.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Lung route with exchange"
+    },
+    "expectation": "The membranes will attach around the lung route, preparing it to connect to the breathing chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural membranes now surround the lung, with their outer sheet ready to couple to the chest.",
+    "reaction": "The description makes the next connection clear.",
+    "step": 6,
+    "reason": "The breathing chest can couple to the pleura to renew the air in the lung route.",
+    "choice": {
+      "combine": "Breathing chest",
+      "with": "Lung route with pleura"
+    },
+    "expectation": "The chest will connect to the lung through the pleural membranes, allowing its movement to renew the air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest now moves the lungs through the pleural surfaces, renewing air, and the new goal is to carry oxygen to the working body.",
+    "reaction": "The pressure gauge helps explain how chest movement draws air in.",
+    "step": 7,
+    "reason": "The breathing lungs now appear ready to connect to the blood circuit for oxygen transport.",
+    "choice": {
+      "combine": "Breathing lungs",
+      "with": "Connected vessel circuit"
+    },
+    "expectation": "The lung capillaries will connect to the circulating blood so it can carry oxygen to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the breathing lungs to the vessel circuit completed the oxygen-delivery route and both chapter goals. The final picture traces oxygen from the lungs to tissues and blood back to the heart.",
+    "reaction": "Seeing the lung and body circuits joined was satisfying, although the earlier unavailable connection left me unsure why the chest had to be added first.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the breathing chest to the lungs was most worthwhile: the pressure gauge and pleural movement explained how chest expansion draws air in.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the lining and capillary mesh felt a little repetitive, though each contributed a distinct part of the exchange surface.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the vessel circuit could not connect to the lung route before the breathing chest was added.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for connecting circulation felt somewhat arbitrary: the result at step 4 did not explain why the connection was unavailable.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter. The final circulation route connected several earlier constructions, and I would be curious to see how the body uses the delivered supplies.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The first encounter should provide the sensory input that starts the sequence.",
+    "choice": {
+      "combine": "Body oriented to the world",
+      "with": "First sensory encounter"
+    },
+    "expectation": "The body will register the bell, setting up the circuit activity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The first encounter revealed a marked synapse and a small response, providing a baseline for the circuit change.",
+    "reaction": "I’m curious how activity will change that response.",
+    "step": 2,
+    "reason": "The repeated coordinated activity is the next visible part of changing the connection.",
+    "choice": {
+      "combine": "Body responding to an encounter",
+      "with": "Coordinated circuit activity"
+    },
+    "expectation": "Repeated activity will prepare the marked connection to change.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repeated activity moved a receptor-bearing vesicle toward the receiving membrane, suggesting how the connection may change.",
+    "reaction": "I’m curious whether adding the receptors will make the later response larger.",
+    "step": 3,
+    "reason": "The result points directly to the receptor-bearing vesicle as the next part of the change.",
+    "choice": {
+      "combine": "Body with an active connection",
+      "with": "Vesicle carrying signal receptors"
+    },
+    "expectation": "The vesicle will add receptors to the receiving membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicle added receptors to the receiving membrane, changing the marked connection. The later encounter can now test its response.",
+    "reaction": "I’m interested to see whether the same bell produces a larger response.",
+    "step": 4,
+    "reason": "The remaining comparable encounter provides the input needed to see the response after the change.",
+    "choice": {
+      "combine": "Body with a changed connection",
+      "with": "Later comparable encounter"
+    },
+    "expectation": "The same input will produce a larger response at the changed connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The later encounter confirmed that comparable transmitter release produced a larger local response at the changed connection, while travelling impulses stayed the same size.",
+    "reaction": "The before-and-after comparison was satisfying because it answered the question raised by adding receptors.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The later bell encounter was most worthwhile: its comparison connected the added receptors to a larger local response while keeping transmitter release comparable.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first encounter was relatively straightforward setup; its value became clearer once there was a later response to compare it with.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I found the distinction between a larger local voltage change and unchanged travelling impulse size interesting.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary. The vesicle was a separate piece to combine, but the preceding result showed it moving toward the receiving membrane.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter that explores a different way a connection can change. This example made the cause and comparison clear, although the sequence offered few meaningful choices.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

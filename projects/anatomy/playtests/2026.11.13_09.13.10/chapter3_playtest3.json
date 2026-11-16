@@ -1,0 +1,102 @@
+[
+  {
+    "step": 1,
+    "reason": "Add phospholipids to support membrane growth as the cell prepares to divide.",
+    "choice": 1,
+    "expectation": "The cell's membrane growth slot will be filled, providing more boundary material.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Genome copying is also necessary, but I chose to start with the membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Phospholipids are fitted; the cell still needs cytoplasm growth and DNA replication.",
+    "reaction": "The fitting was straightforward, though it showed no further detail about membrane growth.",
+    "step": 2,
+    "reason": "Add the new proteins to support cytoplasm growth before copying the genome.",
+    "choice": 1,
+    "expectation": "The proteins will fill the cytoplasm growth slot.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA replication is also required, but I chose to complete the growth materials first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins are fitted, leaving DNA replication as the remaining preparation.",
+    "reaction": "The fitting was straightforward, with no additional detail.",
+    "step": 3,
+    "reason": "Use the only available combination to supply the materials for genome copying.",
+    "choice": 1,
+    "expectation": "The nucleotides will fill the DNA replication slot, allowing the cell to copy its genome.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied into joined sister chromatids, and the next goal is to separate the cells.",
+    "reaction": "The before-and-after chromosome inset clarifies what doubling DNA means.",
+    "step": 4,
+    "reason": "Use the only available combination to separate the copied chromosome sets with the spindle.",
+    "choice": 1,
+    "expectation": "The spindle will organize and separate the sister chromatids toward opposite poles; the cell may still need to divide afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets have separated and nuclear envelopes are forming, but the cytoplasm remains continuous.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 5,
+    "reason": "Use the only available combination to narrow the cell at its equator and separate the daughters.",
+    "choice": 1,
+    "expectation": "The contractile ring will constrict the membrane and divide the cytoplasm into two cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contractile ring completed separation into two living descendants, satisfying the final goal.",
+    "reaction": "The furrowing sequence makes the final division distinct from chromosome separation.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the chromosome sets was most worthwhile: the picture distinguishes that event from the later division of the cytoplasm.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial material fittings felt repetitive; their results gave little detail about how the cell grew.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The replication inset clarified that DNA doubles while sister chromatids remain joined, before they are separated.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though fitting proteins as a single cytoplasm-growth ingredient simplified a connection the result did not explain further.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes, cautiously: the distinction between chromosome separation and cell division was useful, and the descendants suggest further branches to explore, though the early fittings were repetitive.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

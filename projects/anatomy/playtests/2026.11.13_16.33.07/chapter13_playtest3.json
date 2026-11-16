@@ -1,0 +1,88 @@
+[
+  {
+    "step": 1,
+    "reason": "The pleural membranes are likely to link the lungs to the chest, though I don't yet know exactly how they work.",
+    "choice": {
+      "combine": "Circulation with lung exchange",
+      "with": "Pleural membranes"
+    },
+    "expectation": "The membranes should fit around the lungs as part of the connection to the chest.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rib cage and intercostal muscles",
+          "with": "Diaphragm"
+        },
+        "reason": "The diaphragm and rib muscles could also form the breathing apparatus first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membranes now cover the lungs, with a fluid-filled space between them; the chest connection is still needed.",
+    "reaction": "The two-layer arrangement makes me curious about how the chest moves the lungs.",
+    "step": 2,
+    "reason": "The covered lungs and rib cage are the parts that still need connecting.",
+    "choice": {
+      "combine": "Pleura-covered lungs",
+      "with": "Rib cage and intercostal muscles"
+    },
+    "expectation": "The lungs should connect to the chest through the pleural membranes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are now connected to the rib cage through the pleural interface, and the apparatus has an empty breathing-muscle slot.",
+    "reaction": "The diaphragm attachment makes the next step clear.",
+    "step": 3,
+    "reason": "The diaphragm is a breathing muscle and matches the empty slot.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Diaphragm"
+    },
+    "expectation": "The diaphragm should fit below the lungs and complete the breathing apparatus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm completed the apparatus. The result explains how it expands the chest and pulls the lungs outward, while elastic recoil helps air leave.",
+    "reaction": "The two breathing views made the purpose of the pleural connection clearer.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the diaphragm was most worthwhile because the before-and-after views showed how the assembled parts move air, not just where they fit.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Covering the lungs with the pleural membranes was less informative on its own: it showed the layers but not yet how they helped breathing.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't known how the membranes linked chest movement to lung expansion; the final explanation made that connection clearer.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary, although I initially followed the likely membrane pairing without understanding exactly how it worked.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue because seeing the assembled parts explain breathing was interesting, although the choices in this short chapter were fairly straightforward.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

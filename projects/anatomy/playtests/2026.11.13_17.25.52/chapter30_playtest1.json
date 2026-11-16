@@ -1,0 +1,156 @@
+[
+  {
+    "step": 1,
+    "reason": "The turning sensor cells fit at the base of the fluid-filled loops, where moving fluid bends their hairs.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "The combined loops and cells should detect changes in turning.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tiny mineral weights",
+          "with": "Tilt sensor cells"
+        },
+        "reason": "The pictures also show how to build the separate tilt sensors."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The loops and cells form turning sensors, so I can build the separate tilt sensors next.",
+    "reaction": "The fluid bending the flap makes the turning signal easier to picture.",
+    "step": 2,
+    "reason": "The picture places the mineral weights on the jelly above the tilt sensor cells.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and sensor cells should form tilt sensors that respond when the jelly layer shifts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors are complete; their shifting layer responds to tilt and changes in straight-line movement.",
+    "reaction": "The crystals bending the sensor hairs make their role clearer.",
+    "step": 3,
+    "reason": "The balance nerves are pictured carrying signals from both kinds of sensor to the brain.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors should connect to the balance nerve route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The weighted sensors also need a route to the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning and weighted sensors had to be joined into balance organs before connecting their nerves.",
+    "reaction": "I expected a direct nerve connection, so the required pairing surprised me.",
+    "step": 4,
+    "reason": "The balance nerves are shown leading from both sensor types toward the brain.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance nerves"
+    },
+    "expectation": "The balance organs should gain a route for sending signals to the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs cannot currently connect to anything, so I need to find another way to prepare the nerve route.",
+    "reaction": "I am unsure why the direct connection did not work.",
+    "step": 5,
+    "reason": "Inspecting the balance nerves should reveal what they can connect to now.",
+    "choice": {
+      "inspect": "Balance nerves"
+    },
+    "expectation": "The compatibility list should show how to advance the incoming signal route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance nerves joined the eye and posture routes, completing the signal pathway. The body and balance organs still need to be brought into the response.",
+    "reaction": "The compatibility hint clarified a connection I had missed.",
+    "step": 6,
+    "reason": "The response routes run through the brain and spinal cord to muscles, so connecting them to the body seems like the next step. I am guessing about the required order.",
+    "choice": {
+      "combine": "Balance response routes",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The body should gain the nerve routes for responding to balance signals.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Balance response routes"
+        },
+        "reason": "I could check its available partners before trying the connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has the response routes, but the balance sensors remain unconnected.",
+    "reaction": "The pale spaces make the remaining connection clear.",
+    "step": 7,
+    "reason": "The balance organs contain both sensor types and fit the unconnected spaces beside the ears.",
+    "choice": {
+      "combine": "Body with balance response routes",
+      "with": "Balance organs"
+    },
+    "expectation": "The sensors should connect to the body's balance routes, allowing responses to head movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the balance organs completed the body model and showed how balance signals help stabilize vision and posture, alongside information from vision, muscles and joints.",
+    "reaction": "The eyes turning opposite the head was a satisfying, understandable result.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the balance organs to the body was most worthwhile because it showed what the sensors actually help the body do.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the balance organs directly to the nerves was confusing: the attempt gave no explanation of what had to happen first.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected the turning sensors to connect directly to nerves, but the feedback joined the two sensor types first.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Having to connect the nerve routes to the body before adding the balance organs felt like an unexplained ordering requirement, even though the finished pathway made sense.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing separate sensors become a system that keeps the eyes steady was interesting, though I would hope future prerequisites are clearer.",
+        "steps": [
+          1,
+          2,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

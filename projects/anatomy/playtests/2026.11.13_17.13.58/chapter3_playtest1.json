@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The DNA building blocks match positions on an existing strand, so the living cell seems like the place to use them to copy its DNA.",
+    "choice": {
+      "combine": "Living unspecialized cell",
+      "with": "DNA building blocks"
+    },
+    "expectation": "The cell will use the building blocks to make a copy of its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "New cell proteins"
+        },
+        "reason": "These might make extra membrane, but I will try copying the DNA first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has copied its chromosomes, completing the DNA goal. I can now work on the extra membrane.",
+    "reaction": "The picture helped me see that each old DNA strand pairs with a new one.",
+    "step": 2,
+    "reason": "Membrane fats form the boundary, and the new proteins include membrane proteins, so these look like the pieces for extra membrane.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "New cell proteins"
+    },
+    "expectation": "The fats and proteins will make extra membrane for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and proteins made a membrane supply, and the remaining goal is to finish division with a DNA copy in each cell.",
+    "reaction": "The picture makes it clear the new membrane travels toward the cell surface.",
+    "step": 3,
+    "reason": "The cell has copied DNA, and the new membrane supply seems needed as it divides.",
+    "choice": {
+      "combine": "Cell with copied DNA",
+      "with": "New membrane supply"
+    },
+    "expectation": "The extra membrane will help the cell divide into two cells, each with a DNA copy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied chromosomes separated and the cell divided, with each new nucleus receiving a complete matching set. All chapter goals are complete.",
+    "reaction": "The three-panel sequence made the connection between copying DNA and dividing easier to follow.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Finishing division was most worthwhile because the sequence showed why copying DNA mattered: each new cell gets a complete set.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply was less interesting to me. The pieces fit the goal, but the membrane-making structures were not explained.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the new membrane travels toward the surface in small sacs before division.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt completely arbitrary, though combining the membrane supply with the cell was a named pairing; I did not understand all the details of how the membrane helps division.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing how the new cells become different body-cell types sounds interesting, though this chapter's combinations were fairly predictable.",
+        "steps": [
+          1,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

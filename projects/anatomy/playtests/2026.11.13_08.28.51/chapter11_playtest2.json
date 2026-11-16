@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum is shaped to divide the chambers into the heart's right and left sides.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The partition will create separate right and left sides of the heart, ready for the valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and revealed separate inlet and outlet valve slots.",
+    "reaction": "The reversing arrows make the need for valves clear.",
+    "step": 2,
+    "reason": "The inlet valves fit the marked ventricular inlet positions.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves will fill the ventricular inlet slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are installed and close against backward flow during ventricular contraction; the outlet slot remains.",
+    "reaction": "The filling and squeezing frames clarify how the inlet valves work.",
+    "step": 3,
+    "reason": "The outlet valves fit the remaining ventricular outlet positions.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves will fill the remaining slot and complete both sets of heart valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are installed, completing the valve goal; outlet valves limit backflow between beats.",
+    "reaction": "The contrast between inlet and outlet valve timing is clear.",
+    "step": 4,
+    "reason": "The conducting tissue's pacemaker and pathways appear suited to coordinating the heart's contractions.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Conducting tissue"
+    },
+    "expectation": "The heart will gain electrical pathways that coordinate its pumping.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has conducting pathways that time atrial and ventricular contractions.",
+    "reaction": "The timed wave makes the purpose of the conducting tissue clear.",
+    "step": 5,
+    "reason": "The pulmonary loop is explicitly shown connecting the heart’s right side to the lungs and returning to its left side.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The pulmonary vessels will connect to the heart to form a route through the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary route now links the right heart to the lung capillaries and returns to the left atrium, leaving a body-route connection open.",
+    "reaction": "The open connection makes the next step clear.",
+    "step": 6,
+    "reason": "The systemic vessel network provides the separate route through body tissues.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The systemic network will connect the heart to body capillaries and return blood to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now connects to separate pulmonary and systemic loops.",
+    "reaction": "The two-route layout is straightforward.",
+    "step": 7,
+    "reason": "Blood is needed to complete the circulation through the connected vessels.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Blood"
+    },
+    "expectation": "Blood will flow through the pulmonary and systemic routes.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Circulation frame",
+          "with": "Heart’s own blood vessels"
+        },
+        "reason": "The coronary vessels also need to connect to the heart, but adding blood directly addresses the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood could not be added yet; the automatic combination connected the heart’s own vessels to supply its muscle.",
+    "reaction": "I had overlooked that the coronary supply was needed first; its distinction from blood in the chambers is useful.",
+    "step": 8,
+    "reason": "With the coronary vessels connected, adding blood directly addresses the remaining circulation goal.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "Blood will enter the connected pulmonary, systemic and coronary routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation and both chapter goals, showing the pulmonary and systemic routes alongside the coronary supply.",
+    "reaction": "The completed two-loop diagram brings the separate connections together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the coronary vessels was most worthwhile: the planned cutaway distinguishes the heart muscle’s own blood supply from blood in its chambers.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the pulmonary and systemic routes was straightforward, though the separate steps helped establish the two-loop layout.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I expected to add blood immediately, but the coronary connection had to be made first. The result explained why the pump itself needs a supply.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order of coronary vessels before blood was not obvious from the goal, although compatibility feedback made the next action automatic and its purpose was explained.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the valve timing and the heart’s own blood supply made the construction informative, even if some connections were predictable.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

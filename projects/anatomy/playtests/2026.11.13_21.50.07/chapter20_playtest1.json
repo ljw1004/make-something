@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal route: the picture says higher blood glucose triggers insulin release.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release insulin, which may let me follow how muscle stores glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lower-glucose route also matches a goal, but I want to follow the after-meal route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is released into the blood and can travel to muscle, so I'll follow that route.",
+    "reaction": "The picture makes the message's destination clear.",
+    "step": 2,
+    "reason": "Place insulin beside the muscle to continue the after-meal route.",
+    "choice": 3,
+    "expectation": "I expect insulin to reach the muscle fibres; I'm not sure what other step will be needed to store glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glucose also needs to reach the muscle, but I want to place the insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is in place beside the muscle, and the glucose pairing is now available.",
+    "reaction": "The placement was straightforward, though it did not show an effect on the muscle yet.",
+    "step": 3,
+    "reason": "Combine glucose with the insulin at the muscle to follow the after-meal storage route.",
+    "choice": 2,
+    "expectation": "I expect the muscle to take in glucose and perhaps store some, though I don't know whether storage needs another step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The lower-glucose route is also a goal, but I want to finish following insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle stored glucose in chains while insulin stayed outside as a message. I'll now follow the lower-glucose route.",
+    "reaction": "The distinction between the message and the stored material is clear.",
+    "step": 4,
+    "reason": "Lower blood glucose is shown as the condition for releasing the liver's message.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release the other hormone into the blood; I don't yet know how it acts on the liver.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The liver store will probably be needed too, but I want to release its message first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower glucose prompted a second pancreatic message that travels to the liver, so I'll follow it there.",
+    "reaction": "The label makes the hormone's destination and purpose clear.",
+    "step": 5,
+    "reason": "Place the liver-release hormone at the liver to continue the lower-glucose route.",
+    "choice": 2,
+    "expectation": "I expect the hormone to reach the liver cells; the stored carbohydrate will probably also need to be involved before glucose is released.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The liver store is also needed, but I want to place the message first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone is at the liver, and the stored-carbohydrate pairing is available.",
+    "reaction": "The placement is straightforward but doesn't show glucose release yet.",
+    "step": 6,
+    "reason": "Combine the store with the liver's message to follow the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver broke down some stored carbohydrate and released glucose into blood; the release signal eases as glucose rises. Both goals are complete.",
+    "reaction": "It was satisfying to see the stored glucose return to the blood, although the pairing was prompted.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in muscle made the difference between insulin as a message and glucose as building material clear.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hormones was straightforward but didn't show their effects until the following combinations.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The liver's release signal eases as blood glucose rises, adding a return signal to the between-meals route.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the hotspot placements felt like setup rather than meaningful choices.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter if it connected systems this clearly, though I'd hope for fewer routine placement steps.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

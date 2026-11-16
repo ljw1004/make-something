@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The filter picture shows blood entering the kidney filter and small substances crossing it, so this starts the filtration goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney filter"
+    },
+    "expectation": "The filter should let water and other small substances through while keeping blood cells and large proteins in the vessels.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ureters",
+          "with": "Urinary system"
+        },
+        "reason": "The ureters could be fitted first, but I want to follow filtration and recovery first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter lets useful glucose and salts through along with wastes, so the filtered fluid needs the recovery tube next.",
+    "reaction": "It is interesting that the filter does not separate out just the waste.",
+    "step": 2,
+    "reason": "The recovery tube picture shows useful substances returning from the fluid to the blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Glucose, some salts and much of the water should return to the blood, leaving fluid containing wastes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovery tube returned useful substances and much water to the blood, leaving urine. The remaining goal is to connect the kidneys to the bladder.",
+    "reaction": "It makes sense that filtering is followed by taking useful materials back.",
+    "step": 3,
+    "reason": "The ureters are shown leading from the kidneys toward the bladder, and the urinary system has a slot for them.",
+    "choice": {
+      "combine": "Ureters",
+      "with": "Urinary system"
+    },
+    "expectation": "The ureters should connect to the kidneys in the urinary system model.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bladder",
+          "with": "Urinary system"
+        },
+        "reason": "The bladder also has a slot, but I chose to build the route from the kidneys downward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now lead from the kidneys toward the empty bladder position.",
+    "reaction": "The muscular squeezes explain how the tubes move urine along.",
+    "step": 4,
+    "reason": "The bladder fits the remaining slot and completes the route from the kidneys.",
+    "choice": {
+      "combine": "Bladder",
+      "with": "Urinary system"
+    },
+    "expectation": "The bladder should connect to the ureters as a place to hold urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder completes the continuous route from both kidneys, and urine remains the same fluid as it travels into the bladder. Both goals are complete.",
+    "reaction": "The completed route is clear, though fitting the bladder was predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering blood and then recovering useful substances was most worthwhile: it showed why the kidney does more than simply remove waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the bladder was the least interesting step because its position and purpose were already clear, although it completed the model.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that useful glucose and salts pass through the filter along with wastes and have to be recovered.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and slots explained both the filtering sequence and the route to the bladder.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because following a familiar organ through filtering, recovery and drainage made its job easier to picture, even though the final fittings were predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

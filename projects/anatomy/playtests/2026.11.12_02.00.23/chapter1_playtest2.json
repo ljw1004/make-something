@@ -1,0 +1,178 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal starts with a cell boundary, so combining phospholipids with water seems like a useful first step.",
+    "choice": 1,
+    "expectation": "I expect the phospholipids to arrange themselves into a membrane-like layer in water, though I am unsure what form it will take.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The gene is needed for the transporter, but building the boundary first follows the chapter's stated sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids formed a bilayer, so I can now use it to enclose the cell contents.",
+    "reaction": "The explanation of the heads and tails made the result satisfying and clear.",
+    "step": 2,
+    "reason": "Combining the bilayer with the cell contents seems like the next step toward a cell with selective exchange routes.",
+    "choice": 1,
+    "expectation": "I expect the bilayer to surround the contents and form a cell, though it may still need proteins for selective exchange.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Preparing the transporter gene also supports the goal, but I want to assemble the cell boundary first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bilayer and cell contents formed a boundary with slots for a channel and pump, making the next fittings clear.",
+    "reaction": "The insets suggest different ways ions move, though the pump description introduces several details at once.",
+    "step": 3,
+    "reason": "The channel fits an open slot and should provide one selective exchange route.",
+    "choice": 1,
+    "expectation": "I expect the channel protein to fit into the boundary and allow certain ions through.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ion pump also fits a named slot, but I chose to add the channel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel is fitted, leaving the pump as the other named boundary slot.",
+    "reaction": "The fitting was straightforward, though it added no further explanation of the channel.",
+    "step": 4,
+    "reason": "The ion pump fills the remaining slot and should add another exchange route.",
+    "choice": 1,
+    "expectation": "I expect the pump to fit into the boundary and help move ions using energy.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The transporter gene also supports the goal, but I want to finish the boundary fittings first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completed the selective exchange goal, and the next goal is to make a fuel-admitting protein.",
+    "reaction": "Completing the boundary was clear, though the pump fitting added no new explanation.",
+    "step": 5,
+    "reason": "The transporter gene is a logical starting point for making the protein.",
+    "choice": 1,
+    "expectation": "I expect the DNA to be positioned for RNA polymerase to use, with RNA building blocks needed next.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The RNA building blocks should also be needed, but I chose to place the gene first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter gene is at RNA polymerase, and the RNA building blocks can now be combined with it there.",
+    "reaction": "The placement was straightforward but did not add an explanation.",
+    "step": 6,
+    "reason": "The RNA building blocks should let the polymerase make an RNA copy of the gene, progressing toward the fuel-admitting protein.",
+    "choice": 1,
+    "expectation": "I expect messenger RNA carrying the transporter instructions, though I am unsure how the result will be named.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Amino acids will likely be needed at the ribosome, but making the RNA first follows the apparent sequence."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gene produced messenger RNA, which carries a working copy of the instructions to a ribosome while the DNA stays in the nucleus.",
+    "reaction": "The picture and explanation make the connection between the gene and ribosome clear.",
+    "step": 7,
+    "reason": "Placing the messenger RNA at the ribosome follows its depicted route and should prepare protein production.",
+    "choice": 1,
+    "expectation": "I expect the messenger RNA to be positioned at the ribosome, with amino acids needed to make the protein.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Amino acids are also needed at the ribosome, but I chose to place the instructions first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger RNA is positioned at the ribosome, ready to be combined with amino acids.",
+    "reaction": "The placement was straightforward but added no explanation.",
+    "step": 8,
+    "reason": "Combining amino acids with the messenger RNA at the ribosome should advance protein production.",
+    "choice": 1,
+    "expectation": "I expect the ribosome to use the RNA instructions to assemble an amino acid chain, which may still need folding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome assembled a glucose transporter chain, which can now be combined with the folding and targeting machinery.",
+    "reaction": "The picture clearly connects the RNA instructions to the growing chain.",
+    "step": 9,
+    "reason": "This is the only offered combination, and it should prepare the chain to function as a transporter.",
+    "choice": 1,
+    "expectation": "I expect the chain to fold into a glucose transporter and be directed toward the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chain is now a folded transporter in a membrane vesicle, ready to be added to the cell boundary.",
+    "reaction": "The result follows the expected sequence, though it does not explain how the vesicle delivers the transporter.",
+    "step": 10,
+    "reason": "This is the only offered combination and should give the cell a route for glucose.",
+    "choice": 1,
+    "expectation": "I expect the transporter to join the cell membrane and enable glucose entry, completing the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicle inserted the transporter into the cell membrane, showing how the protein-making sequence changed what could cross the boundary. Both goals are complete.",
+    "reaction": "The final picture usefully connected the vesicle to glucose entry.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making messenger RNA was most worthwhile: the picture and explanation connected a gene in the nucleus to instructions used at the ribosome.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate placement actions felt repetitive because they added little explanation before the combinations.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The final picture clarified how the vesicle delivers the folded transporter to the membrane.",
+        "steps": [
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "No combination felt purposeless, although placing items at equipment felt like an extra mechanical step.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how the cell becomes part of a larger tissue or body-system relationship. The connections were clear, though some intermediate actions felt routine.",
+        "steps": [
+          6,
+          8,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

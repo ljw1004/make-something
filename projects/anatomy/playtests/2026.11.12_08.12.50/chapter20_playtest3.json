@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should connect the post-meal glucose supply to the body.",
+    "choice": 1,
+    "expectation": "I expect the body to register the glucose-rich blood, though the response may need further steps.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal's glucose is now shown in the body's blood; the next offered action connects it to pancreatic sensing cells.",
+    "reaction": "The result is straightforward, with little new detail yet.",
+    "step": 2,
+    "reason": "This is the only offered combination and should begin the pancreatic response to rising glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to sense the glucose and perhaps initiate a hormone signal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic beta cells release insulin into blood, with a route toward muscle and liver; the next combination can show its effect on muscle.",
+    "reaction": "The marked route makes the signal's destination clear, though its effects remain to be seen.",
+    "step": 3,
+    "reason": "This is the only offered combination and should connect insulin signalling to muscle.",
+    "choice": 1,
+    "expectation": "I expect insulin to help muscle take up glucose, though the result may show additional effects.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is shown helping muscle take up glucose, followed by lower blood glucose and insulin release; the goal now shifts to the period between meals.",
+    "reaction": "The paired insets make the feedback clear.",
+    "step": 4,
+    "reason": "This is the only offered combination and moves the body into the between-meal situation.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to decline as cells continue using it and meal absorption tapers, prompting another response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen between meals while liver glycogen remains available; pancreatic sensing is the next offered step.",
+    "reaction": "The retained glycogen suggests a useful connection to the earlier liver chapter.",
+    "step": 5,
+    "reason": "This is the only offered combination and should begin the response to falling glucose.",
+    "choice": 1,
+    "expectation": "I expect pancreatic cells to signal the liver to release glucose, perhaps through glucagon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pancreatic alpha cells release glucagon into blood, with a marked route to the liver; the remaining combination can show its effect on stored glycogen.",
+    "reaction": "The contrast with the earlier beta-cell insulin response is clear.",
+    "step": 6,
+    "reason": "This is the only offered combination and connects the glucagon signal to liver glycogen.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver breaks down stored glycogen and releases glucose; the later reduction in glucagon completes the between-meal feedback sequence.",
+    "reaction": "The sequential insets make the return feedback clear and connect the signal to the stored fuel.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting glucagon to liver glycogen was most worthwhile: the planned sequence shows both glucose release and the subsequent reduction in the signal.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding meal glucose to the body was straightforward setup, but its picture plan added little beyond the item and goal descriptions.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The parallel feedback sequences made the contrast between insulin after a meal and glucagon between meals especially clear.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose, although each decision offered only one combination, so the sequence involved little choice.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter for the connected biology, but the single-option sequence offered little meaningful decision-making. These picture descriptions alone cannot establish how students would experience or understand it.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

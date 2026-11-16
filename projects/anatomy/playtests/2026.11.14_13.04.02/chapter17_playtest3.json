@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "The matching shapes and supplied helper signals suggest the bacterial fragments can activate the matching lymphocyte.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should become activated after recognizing the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so it can now be brought to the lymph node to multiply.",
+    "reaction": "The matching shape made the activation easy to follow.",
+    "step": 2,
+    "reason": "The lymph node picture says it supports an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte should multiply in the lymph node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphocyte produced antibody-making and memory cells; the remaining task is to help clear the bacteria.",
+    "reaction": "The later-encounter picture makes the purpose of memory cells clearer.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are their building blocks, so the antibody-making cells likely need them.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies, which can now bind the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "The antibody tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies should attach to the bacteria, making them easier for engulfing white blood cells to catch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them coated for the engulfing cells.",
+    "reaction": "The matching shapes made that result predictable.",
+    "step": 5,
+    "reason": "The white blood cell picture shows it recognizing and engulfing an antibody-coated bacterium.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells should engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "Seeing the marked bacteria broken down made the antibody step feel purposeful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the lymphocyte in the node was most worthwhile: the later-encounter picture showed why memory cells matter as well as how antibody-making cells arise.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the antibodies was a fairly predictable building-block step, though it connected to the earlier explanation of proteins.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The memory cells could help produce a faster response to a later encounter with the same antigen.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the pairings felt arbitrary; the pictures and earlier protein-building example gave them clear purposes.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how another body defense connects to this one, although these pairings were mostly predictable.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

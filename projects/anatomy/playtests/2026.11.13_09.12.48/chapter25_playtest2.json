@@ -1,0 +1,140 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell can encounter the bacteria and prepare a fragment for display to helper T cells.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will take up bacterial material and display a fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dendritic cell now displays a bacterial fragment in a lymph node, ready for a matching helper T cell.",
+    "reaction": "The linked airway-to-node journey makes the next connection clear.",
+    "step": 2,
+    "reason": "The helper T cells include one whose receptor matches the displayed fragment.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "The matching helper T cell will recognize the displayed fragment and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph node was required for the interaction; the matching helper T cell has produced a group of activated helper cells.",
+    "reaction": "The automatic station combination clarified where the recognition happens.",
+    "step": 3,
+    "reason": "B cells recognize the intact bacterial surface protein, so pairing them with the bacteria is a practical next step.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "B cells"
+    },
+    "expectation": "A matching B cell will bind the bacterial surface protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has bound the bacterial protein and now displays a fragment, potentially allowing helper T-cell recognition.",
+    "reaction": "The distinction between binding the intact protein and displaying a fragment is useful.",
+    "step": 4,
+    "reason": "The activated helper T cells can interact with the fragment-displaying B cell in the lymph node.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The helper T cells will join the interaction and help activate the matching B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has received signals from an activated helper T cell at the lymph node.",
+    "reaction": "The contact makes the helper cell’s role clear.",
+    "step": 5,
+    "reason": "I’ll check what the helped B cells can do next toward antibody production and memory.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The available partners should indicate how the B cells develop or contribute to the response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied and produced antibody-secreting plasma cells and memory B cells in the lymph node.",
+    "reaction": "The branching sequence clearly distinguishes the immediate response from longer-term memory.",
+    "step": 6,
+    "reason": "The antibody-making cells should be able to mark the remaining airway bacteria.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Matching antibodies will bind to the bacteria, while memory B cells remain.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Antibody-making and memory B cells"
+        },
+        "reason": "I could check their available partners first, but the bacteria are a plausible target."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Matching antibodies have tagged the bacteria, completing the first goal; immune memory still needs to be incorporated into the body.",
+    "reaction": "The clarification that tagging does not eliminate every bacterium is useful.",
+    "step": 7,
+    "reason": "The remaining goal suggests connecting the antibody-making and memory B cells to the protected body.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Protected body model"
+    },
+    "expectation": "The body model will retain memory B cells after the encounter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now retains memory B cells, completing the remaining goal; the result clarifies that immune memory does not guarantee complete or lasting protection.",
+    "reaction": "The distinction between cellular memory and guaranteed immunity is useful.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The B-cell development sequence was most worthwhile: the planned illustration separates antibody-secreting plasma cells from memory B cells and connects the immediate response to a later one.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final attachment of memory cells to the whole-body model felt mostly like assembly rather than a new biological interaction, though its explanation added a useful qualification.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I expected the dendritic cell and helper T cells to combine directly; compatibility feedback showed that their interaction required the lymph node and performed it automatically.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The lymph-node requirement was initially unclear, although the automatic combination made the location apparent. The description also does not explain how a displayed fragment is presented for T-cell recognition.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter offered similarly concrete connections between cell behavior and body-level effects, though the final assembly step was less engaging.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

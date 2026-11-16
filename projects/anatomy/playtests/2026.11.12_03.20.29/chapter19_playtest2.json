@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "I’m following the only available action to begin the after-meal response.",
+    "choice": 1,
+    "expectation": "I expect the body to register the rise in blood glucose, though I’m unsure what the immediate result will be.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has rising blood glucose; the pancreatic sensing cells are the next available step in the response.",
+    "reaction": "The result was straightforward, though it did not yet explain how the body responds.",
+    "step": 2,
+    "reason": "I’m following the only offered combination to see how the pancreas responds to the glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to detect the rise and perhaps release insulin, though the immediate result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic cells released insulin into the blood, with a route toward muscle and liver.",
+    "reaction": "That makes the signal’s destination clearer, and I’m curious what it does there.",
+    "step": 3,
+    "reason": "I’m following the only offered combination to see the muscle’s response to insulin.",
+    "choice": 1,
+    "expectation": "I expect the muscle to take up more glucose from the blood, though I’m unsure how the game will show it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle take up glucose, and the goal now shifts to maintaining its availability between meals.",
+    "reaction": "The later inset clearly shows the response easing as blood glucose falls.",
+    "step": 4,
+    "reason": "I’m following the only offered combination to see what changes between meals.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to fall as cells continue using it, triggering another response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen between meals, while liver glycogen remains available.",
+    "reaction": "The retained glycogen suggests a useful link to the next response.",
+    "step": 5,
+    "reason": "I’m following the only offered combination to see how the pancreas responds to falling glucose.",
+    "choice": 1,
+    "expectation": "I expect pancreatic cells to release glucagon, signalling the liver to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose led pancreatic alpha cells to release glucagon, which travels toward the liver.",
+    "reaction": "The parallel with the insulin response is clear, and I want to see how the liver responds.",
+    "step": 6,
+    "reason": "I’m following the only offered combination to connect glucagon with the liver’s stored glycogen.",
+    "choice": 1,
+    "expectation": "I expect glucagon to signal the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from stored glycogen, and glucagon release then decreased as blood glucose rose. The between-meals goal is complete.",
+    "reaction": "The sequence makes the feedback response clear and connects back to the earlier glycogen clue.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting glucagon to the liver was most worthwhile: it showed how stored glycogen supports blood glucose between meals and how the signal eases afterward.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The opening combination felt least worthwhile on its own: it established rising glucose but did not yet explain a response.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The paired insets made it clear that both insulin and glucagon responses ease as blood glucose changes.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose, though each decision had only one offered combination, so I was following the sequence rather than discovering compatibility.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in continuing to see another body-system connection, though the single available combination at each step made the gameplay predictable.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

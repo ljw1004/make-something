@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "The sample and filter directly match the goal of filtering blood; the picture shows that useful small substances can pass through too.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "Small substances should pass into the filter space while blood cells and large proteins stay in the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filtered fluid contains useful substances as well as wastes, so it needs the recovery tube.",
+    "reaction": "It is interesting that the filter lets glucose through instead of selecting only waste.",
+    "step": 2,
+    "reason": "The recovery tube's picture shows glucose, salts and water returning to the blood, matching the remaining part of the filtering goal.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "The tube should return glucose, some salts and much water to the blood, leaving fluid containing wastes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Recovery returned useful substances and much water to the blood, leaving waste-containing fluid and a new goal to collect urine.",
+    "reaction": "The two-stage process makes more sense now.",
+    "step": 3,
+    "reason": "The kidney pair has a named slot for the ureters, which carry fluid toward the bladder.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters should fit into the kidney pair and provide a route toward the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are attached to the kidneys; the bladder still needs to be fitted.",
+    "reaction": "The downward route toward the bladder is clear.",
+    "step": 4,
+    "reason": "The bladder is the remaining named slot and will complete the drainage route.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder should connect to the ureters and provide a place to collect urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters and bladder now form a complete drainage route; the remaining fluid still needs to be collected.",
+    "reaction": "Seeing the continuous route makes the pieces fit together.",
+    "step": 5,
+    "reason": "The remaining goal is to collect urine, so the fluid after recovery should use the completed kidney-to-bladder route.",
+    "choice": {
+      "combine": "Kidney fluid after recovery",
+      "with": "Kidney pair"
+    },
+    "expectation": "The remaining fluid should travel through the ureters and collect in the bladder as urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid followed the completed route into the bladder, completing the chapter.",
+    "reaction": "It was satisfying to see the filtering and drainage routes come together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering useful substances made the kidney's two-stage job clear. The filter lets glucose through, so taking it back matters.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the ureters and bladder was straightforward but less engaging than discovering what happens to the filtered fluid.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the filter lets useful glucose through rather than picking out only waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt especially arbitrary: the pictures and goals explained the pairings, including the named drainage slots.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter because the filtering-and-recovery process showed an interesting job that was not obvious from the organ names alone.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

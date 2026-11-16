@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell's empty display suggests it can take up material from the bacteria to begin the immune response.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The dendritic cell will acquire and display a bacterial fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dendritic cell now displays a bacterial fragment in the lymph node, suggesting the matching helper T cells are the next connection.",
+    "reaction": "The linked airway-to-node journey makes the messenger's role clear.",
+    "step": 2,
+    "reason": "The helper T cells include one whose receptor matches the displayed fragment.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "The matching helper T cell will be activated by the displayed fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helper T cells are activated at the lymph node; the station automatically included them with the messenger.",
+    "reaction": "The location requirement was initially unclear, but the compatibility feedback resolved it.",
+    "step": 3,
+    "reason": "A B cell matches the intact bacterial surface protein, so it should encounter the bacteria before receiving helper-cell support.",
+    "choice": {
+      "combine": "B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "The matching B cell will bind the bacterial surface protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Activated helper T cells",
+          "with": "B cells"
+        },
+        "reason": "Helper cells may also be needed, but the B cell's matching antigen is the clearer first connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has bound the bacterial protein and displays a fragment, making helper-cell support the next step.",
+    "reaction": "The distinction between binding the intact protein and displaying a fragment is useful.",
+    "step": 4,
+    "reason": "The activated helper T cells can now interact with the B cell displaying a bacterial fragment.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "At the lymph node, helper T cells will assist the matching B cell's activation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "B cell displaying bacterial fragment",
+          "with": "Activated helper T cells"
+        },
+        "reason": "Direct interaction is plausible, but the earlier helper-cell activation required the lymph node."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has received helper T-cell signals in the lymph node; it can now progress toward antibody production and memory.",
+    "reaction": "The result makes the helper cell's supporting role clear.",
+    "step": 5,
+    "reason": "The next operation for the helped B cells is not yet visible, so checking their partners should guide the response.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The compatibility list will show how the helped B cells develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied and differentiated into antibody-secreting plasma cells and memory B cells; the remaining goals likely involve connecting them to the bacteria and body.",
+    "reaction": "The branching into immediate antibody production and longer-lived memory is a useful distinction.",
+    "step": 6,
+    "reason": "The antibody-making cells should be able to mark the bacteria carrying their matching surface protein.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Antibodies will bind to the matching proteins on the bacteria.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Antibody-making and memory B cells"
+        },
+        "reason": "Their available partners could clarify whether antibody release needs another location."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Matching antibodies have tagged the bacteria; immune memory remains to be connected to the body.",
+    "reaction": "The reminder that tagging does not eliminate every bacterium is useful.",
+    "step": 7,
+    "reason": "The antibody-making and memory B cells should connect the newly formed memory cells to the protected body.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Protected body model"
+    },
+    "expectation": "The body will retain memory B cells after the encounter.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

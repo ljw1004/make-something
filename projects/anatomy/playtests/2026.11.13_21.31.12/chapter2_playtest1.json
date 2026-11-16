@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria in the cell fluid, matching one of the goals.",
+    "choice": {
+      "combine": "Mitochondria",
+      "with": "Cell"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose",
+          "with": "Cell"
+        },
+        "reason": "The sugar carrier also suggests a route for bringing glucose inside."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are now inside the cell. Glucose still needs to enter.",
+    "reaction": "The placement matched the picture as expected.",
+    "step": 2,
+    "reason": "The glucose picture shows it matching the cell's sugar carrier, and the goal calls for it inside.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Cell"
+    },
+    "expectation": "Glucose will enter the cell through the sugar carrier.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane pump",
+          "with": "Cell"
+        },
+        "reason": "The pump also needs to be fitted across the boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose entered through the carrier, completing that goal; oxygen is now needed to supply ATP.",
+    "reaction": "The picture made the sugar's route clear.",
+    "step": 3,
+    "reason": "The new goal names oxygen, and its picture shows it crossing into the cell.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Cell"
+    },
+    "expectation": "Oxygen will enter the cell and help the mitochondria supply ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane pump",
+          "with": "Cell"
+        },
+        "reason": "Fitting the pump is another current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen helped produce ATP, completing the energy goal; the pump and protein-building machinery still need attention.",
+    "reaction": "The result connected food and oxygen to ATP as expected.",
+    "step": 4,
+    "reason": "The ribosome picture shows it holding an RNA copy in the cell fluid, so adding it seems like a way to prepare the protein-building machinery.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Cell"
+    },
+    "expectation": "The ribosome will be placed inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane pump",
+          "with": "Cell"
+        },
+        "reason": "The pump also needs to be fitted across the boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome first needed amino acids; the prepared protein builder now needs to go inside the cell.",
+    "reaction": "I expected direct placement, so the preparation step surprised me.",
+    "step": 5,
+    "reason": "The new goal and the picture both place the prepared protein builder inside the cell.",
+    "choice": {
+      "combine": "Ribosome with RNA and amino acids",
+      "with": "Cell"
+    },
+    "expectation": "The prepared protein builder will be placed in the cell fluid.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane pump",
+          "with": "Cell"
+        },
+        "reason": "Fitting the pump is another remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared protein builder is now inside the cell; the membrane pump still needs fitting.",
+    "reaction": "The placement matched the goal.",
+    "step": 6,
+    "reason": "The pump picture shows it spanning the membrane, matching the remaining goal.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell"
+    },
+    "expectation": "The pump will be fitted across the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, but its ATP site is empty; the new goal is to put the cell to work.",
+    "reaction": "The empty ATP site gives a clear clue about what to try next.",
+    "step": 7,
+    "reason": "The pump has an ATP-binding site, and the introduction says ATP supports the assembled cell's work.",
+    "choice": {
+      "combine": "ATP",
+      "with": "Cell"
+    },
+    "expectation": "ATP will help the cell carry out its work, including running the pump.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP put the assembled cell to work, supporting both protein building and the membrane pump; all goals are complete.",
+    "reaction": "It was satisfying to see the separate parts working together.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using ATP on the assembled cell was most worthwhile because it connected the energy supply to two different cell jobs.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the prepared ribosome was fairly predictable once the new goal named it, though it made progress.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected to put the ribosome directly into the cell, but it first combined with amino acids. The feedback made the next step clear.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to pair the ribosome with amino acids before placing it wasn't obvious to me, although their roles in building proteins were explained.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the assembled cell use ATP made me curious how the next parts of the body fit together.",
+        "steps": [
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

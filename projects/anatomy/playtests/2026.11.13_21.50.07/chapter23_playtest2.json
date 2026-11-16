@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "The cut needs to happen before platelets can gather at the break, so I’ll start there.",
+    "choice": 1,
+    "expectation": "I expect the rough edge to cause a small cut in the skin and blood vessel.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Making reinforcing threads also fits a goal, but I’d rather establish the break first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut exposes a leaking vessel, so I’ll work on the platelet plug first.",
+    "reaction": "The narrowed vessel still leaking makes the need for a plug clear.",
+    "step": 2,
+    "reason": "The platelets are already shown gathering at the torn vessel, matching the plug goal.",
+    "choice": 1,
+    "expectation": "I expect the platelets to gather into a plug that helps stop the leak.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The enzymes can help make reinforcing threads, but I want to make the plug first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug slows the leak, so the remaining goal is to reinforce it.",
+    "reaction": "It makes sense that the plug slows blood loss before reinforcement.",
+    "step": 3,
+    "reason": "This is the only available combination, and the enzyme label says it helps clotting proteins form threads.",
+    "choice": 1,
+    "expectation": "I expect the dissolved protein to form threads that can reinforce the plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins formed a mesh, and the new goal is to stop the bleeding.",
+    "reaction": "The branching mesh makes its reinforcing role easy to picture.",
+    "step": 4,
+    "reason": "This is the only available combination, and adding the threads should reinforce the platelet plug.",
+    "choice": 1,
+    "expectation": "I expect the mesh to strengthen the plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reinforced plug stopped the bleeding, but the skin remains open and still needs to heal.",
+    "reaction": "The distinction between sealing the vessel and healing the skin was interesting.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the protein mesh to the platelet plug was most worthwhile because it showed how the two parts work together to stop bleeding.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the threads was a little predictable: the enzyme label explained the pairing, and it was the only combination offered.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The vessel was sealed, but the skin above it was still open; stopping bleeding is only the first repair.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The cut, platelet plug and reinforcing mesh all had clear purposes.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the open skin heals, since stopping the bleeding left that question unanswered.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

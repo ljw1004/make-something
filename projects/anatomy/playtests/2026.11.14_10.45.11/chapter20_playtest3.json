@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The after-meal picture shows glucose beside insulin-producing cells, so I’ll start with that signal.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Insulin-producing pancreatic cells"
+    },
+    "expectation": "The meal glucose should prompt the pancreatic cells to release insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose combined automatically with liver cells, completing liver storage instead of releasing insulin. I still need to trigger the pancreatic signal.",
+    "reaction": "I was surprised the glucose itself did not work at the pancreatic cells.",
+    "step": 2,
+    "reason": "The pancreatic picture shows glucose in the adjacent blood, so I’ll try the blood at those cells.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Insulin-producing pancreatic cells"
+    },
+    "expectation": "The pancreatic cells will release insulin into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood at the pancreatic cells produced insulin in blood, so I can now try the muscle-storage step.",
+    "reaction": "The blood pairing makes sense now that the insulin is shown entering the vessel.",
+    "step": 3,
+    "reason": "The muscle picture shows receptors for blood-carried insulin and glucose already nearby.",
+    "choice": {
+      "combine": "Insulin in blood",
+      "with": "Muscle fibres beside a blood vessel"
+    },
+    "expectation": "Insulin should help the muscle take in and store glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle store glucose, completing that goal; the remaining goal concerns the liver between meals.",
+    "reaction": "It was useful to see that insulin is a message rather than part of the stored carbohydrate.",
+    "step": 4,
+    "reason": "The between-meal pancreatic cells contain glucagon, and blood carried the insulin message in the earlier step.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Glucagon-producing pancreatic cells"
+    },
+    "expectation": "The cells should release glucagon into the blood, making the liver-release message available.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Glucagon is now in the blood and available to signal the liver to release glucose.",
+    "reaction": "The parallel with insulin makes the two messages easier to follow.",
+    "step": 5,
+    "reason": "The picture and goal connect glucagon to the liver's stored carbohydrate.",
+    "choice": {
+      "combine": "Glucagon in blood",
+      "with": "Liver carbohydrate store"
+    },
+    "expectation": "The glucagon message should prompt the liver to break down its store and release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon prompted the liver store to release glucose into the blood, completing the between-meal goal.",
+    "reaction": "It was satisfying to see the stored glucose become available again.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using insulin to store glucose in muscle was worthwhile because it showed the difference between a message and the material being stored.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempt was confusing: glucose appeared beside the pancreatic cells, but combining it with them instead triggered liver storage.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the glucose-and-pancreas attempt automatically combined glucose with the liver instead.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Using blood rather than meal glucose to trigger insulin was not obvious at first, though the result showed insulin entering the blood.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: comparing insulin and glucagon made the connection between meals and stored fuel understandable.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

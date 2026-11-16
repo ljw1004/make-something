@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The renewal goal and the skin-cell picture directly link this population to the existing body.",
+    "choice": {
+      "combine": "Body with a light-linked clock",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The model will show skin cells dividing and replacing surface cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; the remaining goal also calls for blood renewal.",
+    "reaction": "The basal-to-surface progression is clear, though the result is brief.",
+    "step": 2,
+    "reason": "The kidney signal is shown travelling to marrow, so it plausibly acts on the red-cell precursors.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will promote production of red blood cells from the marrow precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal connects low oxygen to red-cell maturation in marrow; the developing cells may now be ready to join the body model.",
+    "reaction": "The low-oxygen cue makes the signal's purpose clearer.",
+    "step": 3,
+    "reason": "The goal calls for blood renewal alongside skin renewal, so I expect the developing red cells to fit the renewing body.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body model will show renewed red blood cells entering circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are complete; the new goal is bone remodeling.",
+    "reaction": "The kidney-to-marrow connection makes blood renewal more concrete.",
+    "step": 4,
+    "reason": "Bone-removing cells are a plausible first step in remodeling an existing patch of bone, though the order is a guess.",
+    "choice": {
+      "combine": "Body renewing skin and blood",
+      "with": "Bone-removing cells"
+    },
+    "expectation": "The model will show bone-removing cells breaking down part of an existing bone patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone patch is being removed; bone-forming cells are the remaining apparent step in remodeling it.",
+    "reaction": "The removal stage is clear, though briefly described.",
+    "step": 5,
+    "reason": "Bone-forming cells can rebuild the patch after old bone is removed.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The model will show new bone being laid down in the remodeled patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells completed the remodeling example, and the chapter's goals are complete.",
+    "reaction": "The final illustration plan ties renewal back to the arm and healed wound, though the bone explanation is brief.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the kidney signal to marrow precursors was most worthwhile: the low-oxygen cue made the purpose of red-cell production clearer.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The bone-removal result was clear but brief; it gave little detail about how cells remove the old matrix.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The precursor result added a low-oxygen cue at the kidney, clarifying why its blood-borne signal reaches the marrow.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Starting bone remodeling with removal was a plausible but uncertain choice; the goal did not specify the order. The result made its purpose clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would consider continuing for more connections between systems, especially if later constructions explain the mechanisms in more detail rather than just assembling familiar parts.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

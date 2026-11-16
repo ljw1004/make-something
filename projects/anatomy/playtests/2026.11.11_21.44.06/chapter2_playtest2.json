@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "I’ll supply the muscle fibers with sugar toward the fuel and oxygen goal; it’s the only offered action.",
+    "choice": 1,
+    "expectation": "The fibers will receive sugar, and oxygen may be needed next.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sugar is processed in the cell fluid, producing some ATP and fuel that enters a mitochondrion; oxygen is the next available addition.",
+    "reaction": "The separate arrows are a little unclear without more explanation, but I’m curious what oxygen adds.",
+    "step": 2,
+    "reason": "I’ll add oxygen to advance the supply goal; it’s the only offered combination.",
+    "choice": 1,
+    "expectation": "The fibers will use oxygen with the processed fuel, likely supporting more ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen and fuel support ATP production in mitochondria, and ATP powers muscle work. The next goal is to collect and transmit the fibers’ pulls.",
+    "reaction": "The ATP cycle makes the running cost clearer, though ADP has not been explained.",
+    "step": 3,
+    "reason": "I’ll add the wrapping to group the fibers; it’s the only offered combination.",
+    "choice": 1,
+    "expectation": "The wrapping will bundle the muscle fibers so their pulls can be collected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping grouped the muscle cells into bundles, with their attachment ends still awaiting tendons.",
+    "reaction": "The shared sleeve makes the grouping clear; I’m curious how the two tendon sets relate.",
+    "step": 4,
+    "reason": "I’ll add the front tendons to start transmitting the bundles’ pull; either tendon set appears available.",
+    "choice": 1,
+    "expectation": "The front tendons will attach to the bundles, forming a muscle group that can transmit force.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The rear tendons also seem suitable, but I chose to start with the front set."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons formed bending muscles and will need an attachment to move a joint.",
+    "reaction": "The tendon’s role is clear, and I’m curious how the rear group will work with it.",
+    "step": 5,
+    "reason": "I’ll add the rear tendons to make the other muscle group; it’s the only offered combination.",
+    "choice": 1,
+    "expectation": "The rear tendons will form a second muscle group, perhaps one that straightens the joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed straightening muscles, completing the goal of collecting and transmitting the fibers’ pulls.",
+    "reaction": "The paired bending and straightening groups make sense, though I would like to see how they attach to bones.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen was most worthwhile because the result connected fuel and oxygen to ATP production and muscle work.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding sugar was less clear: the separate arrows showed ATP and processed fuel, but did not explain their relationship much.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that the cells keep remaking ATP as muscles use it; the picture made the continuing energy cost clearer, though ADP was unexplained.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Choosing front before rear tendons felt somewhat arbitrary because both were offered and I had no reason to prefer that order.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would choose to continue to see how the two muscle groups attach to bones and move a joint.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

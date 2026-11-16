@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The lymphatic capillaries lie among tissue cells, so they seem suited to collecting excess fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries will provide a route for excess tissue fluid to enter the lymphatic system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue now has lymphatic capillaries that collect fluid and proteins, so the next step is to connect them to larger vessels.",
+    "reaction": "The inward arrows and flap-like openings make the collection step clear.",
+    "step": 2,
+    "reason": "Collecting lymphatic vessels should carry fluid onward from the capillaries.",
+    "choice": {
+      "combine": "Fluid-collecting tissue",
+      "with": "Collecting lymphatic vessels"
+    },
+    "expectation": "The collecting vessels will connect to the capillaries and carry lymph away from the tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries now connect to collecting vessels, and the result explains how muscle movement and valves help move lymph onward.",
+    "reaction": "The paired panels make the role of muscle movement and valves clear.",
+    "step": 3,
+    "reason": "The return ducts join large veins, so they should complete the route back toward the blood.",
+    "choice": {
+      "combine": "Lymph return pathways",
+      "with": "Lymphatic return ducts"
+    },
+    "expectation": "The ducts will connect the lymphatic vessels to the veins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph return pathways cannot be combined yet, so I need to try another part of the assembly.",
+    "reaction": "I am surprised the ducts did not connect directly to the pathways.",
+    "step": 4,
+    "reason": "The goal calls for supplying the responsive arm, and the breathing apparatus includes the circulating blood.",
+    "choice": {
+      "combine": "Responsive arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm will connect to the circulation that supplies it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to the circulation, and its tissue spaces contain the fluid and protein the lymphatic pathways can collect.",
+    "reaction": "The tissue inset makes the connection between blood supply and fluid return clearer.",
+    "step": 5,
+    "reason": "The lymph return pathways were built around muscle tissue, so they should connect to the supplied arm.",
+    "choice": {
+      "combine": "Arm with blood supply",
+      "with": "Lymph return pathways"
+    },
+    "expectation": "The arm's tissue spaces will connect to the lymphatic collecting vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph collectors are now connected to the supplied arm, leaving the return ducts to connect them back to the blood.",
+    "reaction": "The assembly order explains why the earlier direct connection did not work, though that dependency was not obvious.",
+    "step": 6,
+    "reason": "The return ducts join large veins, completing the route from the arm's lymph collectors back to the blood.",
+    "choice": {
+      "combine": "Arm with lymph collectors",
+      "with": "Lymphatic return ducts"
+    },
+    "expectation": "The ducts will connect the collecting vessels to the veins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ducts complete the route from the arm’s lymph collectors to the veins, and the chapter goal is complete.",
+    "reaction": "The final inset brings the blood supply and fluid return together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the arm to the circulation was most worthwhile: the tissue inset linked oxygen and nutrient delivery, carbon dioxide removal, and the fluid that needs returning.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to connect the ducts was confusing because the need to attach the collectors to the arm first was not apparent from their descriptions.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that muscle movement helps squeeze lymph onward and that lymph vessels can also contract.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The required assembly order felt somewhat arbitrary: the ducts could not connect to the pathways until the pathways had been added to the arm.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions made the relationships between circulation, muscle cells and lymphatic return interesting to follow, despite the unclear dependency.",
+        "steps": [
+          2,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

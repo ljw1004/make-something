@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic cells are positioned to sense glucose in the blood after the meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells should respond to the increased blood glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose-rich blood first had to be connected to the body; I will now try the pancreatic sensing cells with that result.",
+    "reaction": "The required intermediate was unexpected, but the compatibility feedback made the next step clear.",
+    "step": 2,
+    "reason": "The body now has rising blood glucose, which the pancreatic cells can detect.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells should respond to the rising glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rising blood glucose prompted insulin release, with the blood route pointing toward muscle and liver.",
+    "reaction": "The pancreatic response is clearer now, though its effects remain to be seen.",
+    "step": 3,
+    "reason": "The picture points to muscle as a destination for the insulin signal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin should help the muscle take up glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle take up glucose, and the new goal shifts attention to the time between meals.",
+    "reaction": "The later inset made the change in blood glucose and insulin easier to follow.",
+    "step": 4,
+    "reason": "The time-between-meals item describes the supply from the gut tapering while cells keep using glucose.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body should move into a state where blood glucose is affected by continued use between meals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose is falling between meals while the liver still has stored glycogen, suggesting the body needs a signal to release glucose.",
+    "reaction": "The remaining glycogen makes the next part of the sequence easier to anticipate.",
+    "step": 5,
+    "reason": "The pancreatic sensing cells previously responded to changing blood glucose and include alpha cells as well as beta cells.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreas should respond to the falling glucose with a signal that helps make stored fuel available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose led to glucagon release, with the signal travelling toward the liver.",
+    "reaction": "The parallel with the earlier insulin response makes the sequence easier to follow.",
+    "step": 6,
+    "reason": "The glucagon route points toward the liver, which still contains stored glycogen.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon should signal the liver to release glucose from its glycogen stores.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen, and the later decrease in glucagon showed how the response can ease as blood glucose rises.",
+    "reaction": "The sequence brought the between-meal response together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the glucagon response with the liver was most worthwhile: the result connected a hormone signal to stored glycogen, glucose release and feedback. The sequential picture description helped explain the relationship.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt was the least worthwhile. It seemed reasonable for pancreatic cells to respond directly to the glucose-rich blood, but the game required the blood to be connected to the body first.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the first combination needed a whole-body intermediate. The compatibility feedback made the required step clear.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The required whole-body intermediate felt somewhat arbitrary because the blood sample and pancreatic sensing cells already suggested a direct relationship.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explored a new relationship with similarly clear cause and effect. This chapter's parallel insulin and glucagon responses were informative, though its mostly predictable sequence offered few meaningful choices.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "step": 1,
+    "reason": "The digestive tube has a named slot for the salivary glands, whose ducts lead into the mouth.",
+    "choice": {
+      "combine": "Digestive tube[]",
+      "with": "Salivary glands"
+    },
+    "expectation": "The glands should fit into the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; the pancreas and liver still match named slots.",
+    "reaction": "The fitting worked as expected.",
+    "step": 2,
+    "reason": "The pancreas has a named slot, and its duct leads to the small intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Pancreas"
+    },
+    "expectation": "The pancreas should fit into the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder remain a named slot.",
+    "reaction": "The fitting worked as expected.",
+    "step": 3,
+    "reason": "The liver and gallbladder match the remaining glandular-organ slot, and their ducts lead toward the intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Liver and gallbladder"
+    },
+    "expectation": "The liver and gallbladder should fit into the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glands, pancreas and liver are fitted, completing the first goal. Saliva begins starch digestion.",
+    "reaction": "The explanation connects the fitted organs to breaking down food.",
+    "step": 4,
+    "reason": "Salivary amylase is pictured beside starch, and the result says saliva begins starch digestion.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Salivary amylase"
+    },
+    "expectation": "The amylase should begin breaking down the starch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase shortened the starch chains; they still need further breakdown.",
+    "reaction": "The result makes the first digestion step clear.",
+    "step": 5,
+    "reason": "The starch-digesting enzymes are shown at the small intestine, so they may break the shorter chains down further.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Starch-digesting enzymes"
+    },
+    "expectation": "The enzymes should break the chains into smaller pieces for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch is now individual glucose molecules that can cross the intestinal lining; the other foods still need breakdown.",
+    "reaction": "The change from chains to individual molecules makes the purpose clear.",
+    "step": 6,
+    "reason": "The protein-digesting enzymes are pictured beside protein chains, so they are a clear match for the protein food.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Protein-digesting enzymes"
+    },
+    "expectation": "The enzymes should break the protein into smaller pieces for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein food has been broken into separate amino acids; the fat food still needs processing.",
+    "reaction": "The amino acids connect digestion to the protein building blocks seen earlier.",
+    "step": 7,
+    "reason": "Bile and lipase are pictured working on fat droplets, making them the clear match for the fat food.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile and lipase"
+    },
+    "expectation": "The fat should be broken down into smaller pieces for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion produced fatty acids and monoglycerides, completing the remaining goal. Bile disperses fat, while lipase breaks it apart.",
+    "reaction": "The distinction between bile and lipase was useful; I hadn't known bile was not an enzyme.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Breaking starch down in two stages was most worthwhile: the change from chains to individual glucose molecules made the purpose of digestion clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the three named organs was straightforward but a little repetitive; the explanation after the last fitting made their roles clearer.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that bile helps disperse fat but is not the enzyme that breaks it apart. Monoglycerides were an unfamiliar term, though the picture showed them among the products.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: the slots and food-and-enzyme pictures pointed to the pairings, even when I didn't know all the details.",
+        "steps": [
+          1,
+          4,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the small food products actually cross the gut lining, since this chapter prepared them for absorption but stopped before showing it.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

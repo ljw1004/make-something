@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The only offered action should combine the lining and mucus into an airway barrier.",
+    "choice": 1,
+    "expectation": "I expect mucus to sit over the ciliated lining and help catch inhaled material; moving it may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining is assembled, and the result explains how mucus and cilia work together; I can now test it against inhaled material.",
+    "reaction": "The connection between trapping particles and moving the mucus toward the throat is clear.",
+    "step": 2,
+    "reason": "Adding particles and bacteria directly follows the airway-defense goal.",
+    "choice": 2,
+    "expectation": "I expect some inhaled material to become trapped in the mucus, though moving it may require the beating cilia.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the lining to the body also fits the goal, but I want to see it catch particles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Some particles stick in the mucus, but a few reach toward the air sacs; clearing the trapped material is the next step.",
+    "reaction": "The few particles getting through make the defense feel less absolute.",
+    "step": 3,
+    "reason": "Beating cilia should move the trapped material toward the throat.",
+    "choice": 2,
+    "expectation": "I expect the cilia to sweep the particle-bearing mucus toward the throat; particles that got farther in may need another defense.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I considered attaching the lining to the body, but want to see how the trapped particles are cleared first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia move trapped material toward the throat; the remaining offered action connects this working lining to the body.",
+    "reaction": "The coordinated waves make the clearance mechanism easy to picture.",
+    "step": 4,
+    "reason": "This is the only offered combination and should connect the airway defense to the body.",
+    "choice": 1,
+    "expectation": "I expect the moving mucus lining to become part of the body's airways; lung macrophages may still be needed for particles that got farther in.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The working airway lining is now connected to the body, and some microbes still reach an air sac.",
+    "reaction": "The remaining microbes give the lung macrophages a clear purpose.",
+    "step": 5,
+    "reason": "The only offered combination adds a defense where microbes got through.",
+    "choice": 1,
+    "expectation": "I expect macrophages to engulf at least some microbes in the air sac, though I am unsure how the result will depict this.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model adds macrophage engulfment to mucus clearance and makes clear that neither defense catches every microbe.",
+    "reaction": "The two complementary defenses came together clearly, though the macrophage's recognition mechanism remained brief.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding lung macrophages was most worthwhile: microbes had already reached the air sac, so engulfment completed a clear sequence of defenses without implying perfect protection.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the moving lining to the body was the least interesting passage; it mainly placed an already-demonstrated mechanism in the larger model.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "A few particles continued toward the air sacs even after others stuck in mucus, giving the later macrophage a clear role.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although choosing from known-compatible options made the sequence largely guided rather than a discovery of compatibility.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the planned pictures connect trapping, clearance and engulfment into a coherent sequence, though the guided choices leave limited room for decision-making.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

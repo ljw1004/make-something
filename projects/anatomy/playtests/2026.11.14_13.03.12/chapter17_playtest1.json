@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action. The matching shapes and supplied helper signal suggest it starts the lymphocyte response.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to become activated, though I don't know the details.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active with help from another immune cell; it can now enter the lymph node step.",
+    "reaction": "The matching shapes made the selection understandable.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the node supports activated cells as they multiply.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to multiply in the living lymph node, possibly producing cells for the antibody and memory responses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell multiplied into antibody-making and memory cells, completing that goal; clearing the bacteria remains.",
+    "reaction": "It is satisfying to see the two types of descendants, though their different appearances aren't explained.",
+    "step": 3,
+    "reason": "This is the only offered combination. Antibodies are proteins, and amino acids are their building blocks.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making cells to use the amino acids to produce antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacterial antigens, so I can use them on the bacteria next.",
+    "reaction": "The matching shapes make their connection clear.",
+    "step": 4,
+    "reason": "This is the only offered combination, and the antibodies match the bacteria's surface knobs.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to bind to the bacteria, potentially helping the engulfing white blood cells clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing cells shown earlier.",
+    "reaction": "The matching shapes made the coating easy to follow.",
+    "step": 5,
+    "reason": "This is the only offered combination. The picture shows engulfing cells attaching to the antibodies on bacteria.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf and help clear the coated bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coated bacteria were engulfed and broken down, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibody coating helped the white blood cells clear them.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making antibody-making and memory cells was most worthwhile: it showed that one activated cell can produce descendants with two different roles.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and then attaching the matching antibodies was clear but a little repetitive, especially with only one combination offered each time.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The activated lymphocyte produced both antibody-making cells and lasting memory cells after several days of division.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but every step had only one offered combination, so there was little meaningful choice. The different appearances of the descendant cells were not explained.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how the body responds to another encounter, though I would hope for more meaningful choices.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll follow the muscle-development messengers to see how cells start making muscle proteins. The picture suggests they activate muscle genes, though it doesn't explain exactly how.",
+    "choice": 1,
+    "expectation": "I expect the messengers to make the muscle instructions active and help produce an RNA copy, though I'm not sure if that happens in one step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The supporting-cell path also matches a goal, but I'll explore muscle first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle messengers led to RNA copies, but the protein fibres still need to be made.",
+    "reaction": "The picture makes the next muscle step clear.",
+    "step": 2,
+    "reason": "I'll use the amino acids to build the pulling proteins from the RNA instructions, following the earlier protein-building example.",
+    "choice": 2,
+    "expectation": "I expect the cells to make muscle proteins from the amino acids, though I don't know exactly what form they'll take.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The supporting-cell path also meets a goal, but I want to finish the next muscle step first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells now have proteins that can slide to shorten the cells; they remain separate for now.",
+    "reaction": "Seeing how the proteins could help cells shorten makes their purpose clearer.",
+    "step": 3,
+    "reason": "I'll follow the only available combination to start the supporting-cell goal. The picture says the messengers activate different genes, though it doesn't explain how.",
+    "choice": 1,
+    "expectation": "I expect the cells to make RNA copies of support-protein instructions, as they did for muscle proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells have RNA copies of support-protein instructions, but no fibre network yet.",
+    "reaction": "This follows the muscle path so far, though the fibres will be around the cells instead.",
+    "step": 4,
+    "reason": "I'll use the only available combination to build the supporting fibres from amino acids, as the new goal suggests.",
+    "choice": 1,
+    "expectation": "I expect the cells to make support proteins that form fibres around them, though I don't know exactly how they get outside.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support proteins are released from cells and form fibres around them, completing the second path.",
+    "reaction": "The contrast between proteins inside muscle cells and fibres around supporting cells made their different jobs clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the muscle proteins was most worthwhile because the sliding fibres showed how they could shorten a cell.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The supporting-cell RNA step felt repetitive after the muscle RNA step, even though the comparison helped show different genes being used.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The support proteins ended up outside the cells, unlike the muscle proteins kept inside.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The messenger pairings matched the goals, but how the messengers activate particular genes was not explained, so I followed the named pairings.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, I'd try another chapter to see how the separate muscle cells become larger fibres, although the repeated RNA steps were less engaging.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

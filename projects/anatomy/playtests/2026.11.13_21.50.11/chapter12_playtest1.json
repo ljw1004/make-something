@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The tiny lymph vessels are shown beside cells, where they can collect fluid that leaves blood capillaries.",
+    "choice": {
+      "combine": "Tissue beside blood capillaries",
+      "with": "Tiny lymph vessels"
+    },
+    "expectation": "The tiny lymph vessels should form the beginning of a route that collects excess fluid around the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tiny lymph vessels collect fluid between cells while the blood vessel stays separate. The larger vessels look like the next part of the return route.",
+    "reaction": "It was useful to see where the fluid enters.",
+    "step": 2,
+    "reason": "The larger lymph vessels collect from smaller vessels and lead toward a vein.",
+    "choice": {
+      "combine": "Tissue with lymph capillaries",
+      "with": "Larger lymph vessels"
+    },
+    "expectation": "The larger vessels should carry the collected fluid toward the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue with lymph capillaries cannot currently combine with anything, so I should try building the larger return route separately.",
+    "reaction": "I was surprised the small and larger vessels did not join directly.",
+    "step": 3,
+    "reason": "The larger lymph vessel ends beside a vein, and the vein connection picture shows that junction.",
+    "choice": {
+      "combine": "Larger lymph vessels",
+      "with": "Vein connection"
+    },
+    "expectation": "This should connect the larger lymph return vessel to the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The larger lymph vessels now connect to the neck vein, with valves helping fluid move forward. The small-vessel tissue still could not combine earlier, so I will work on the other goal.",
+    "reaction": "The valve panels make the return route clearer, though the separate small vessels are still puzzling.",
+    "step": 4,
+    "reason": "The nervous system model has outgoing signals to muscles, so it should connect to the arm assembly.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Nervous system model"
+    },
+    "expectation": "The arm should connect to nerves that carry signals between it and the nervous system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to nerves carrying information in and muscle signals out. The breathing and circulation apparatus still needs connecting.",
+    "reaction": "The two-way arrows make the connection clear.",
+    "step": 5,
+    "reason": "The goal calls for joining nerves and muscles with breathing and blood supply, which the breathing apparatus contains.",
+    "choice": {
+      "combine": "Body with connected nerves",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The connected arm and nervous system should join the breathing and blood circulation model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm and nervous system now have a blood supply, and nerves reach the breathing muscles. The fluid-return goal remains.",
+    "reaction": "The inset helped distinguish nerve signals from supplies carried by blood.",
+    "step": 6,
+    "reason": "The lymph return route is built, but the earlier attempt to join the small vessels failed. Inspecting it should show what can connect next.",
+    "choice": {
+      "inspect": "Lymph return route"
+    },
+    "expectation": "The compatibility list should show how to finish connecting the fluid-return route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the return route automatically joined it to the lymph capillaries, completing the path to the vein. The new goal is to connect it to the body.",
+    "reaction": "I was surprised the same pieces could join after the larger route was connected to the vein.",
+    "step": 7,
+    "reason": "The new goal names the return route and the supplied body, which are now both available.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Body with nerves and blood supply"
+    },
+    "expectation": "The lymph drainage network should connect to the body and return excess tissue fluid to its blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is now connected to the body, completing both goals. The final picture brings together nerve signals, muscle work, blood supply and fluid return.",
+    "reaction": "It was satisfying to see the separate routes work together in one model.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lymph drainage network to the body was most worthwhile because the final picture showed how fluid return fits alongside movement and blood supply.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to join the small and larger lymph vessels directly was frustrating: the pieces looked like they should connect, but the attempt gave no explanation of what was missing.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the small vessels could join the larger route only after the latter was connected to a vein.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to connect the larger vessels to the vein before joining the small vessels felt arbitrary; the pictures did not make that order clear.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing nerve signals, blood supply and fluid return come together was interesting, although I would hope future prerequisites are clearer.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

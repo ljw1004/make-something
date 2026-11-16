@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal route: the introduction says higher blood glucose prompts an insulin message that helps muscle store glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release insulin into the blood; I'm not sure what the next step will require.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This should start the between-meals liver route, but I'll follow the after-meal route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood, ready to follow its route toward muscle.",
+    "reaction": "The picture makes the message's route clear.",
+    "step": 2,
+    "reason": "Place insulin beside the muscle to continue the after-meal route described in the introduction.",
+    "choice": 3,
+    "expectation": "I expect insulin to reach the muscle fibres, though glucose may need to be placed there separately.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glucose also needs to reach the muscle, but I'll bring the insulin message there first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is at the muscle, and the offered pairing can now bring glucose together with its message.",
+    "reaction": "The placement was straightforward.",
+    "step": 3,
+    "reason": "Continue the after-meal route by pairing the glucose with insulin at the muscle.",
+    "choice": 2,
+    "expectation": "I expect the muscle to take in glucose and perhaps store some, as the introduction described.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This starts the lower-glucose route, but I want to finish the muscle route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle route is complete; insulin acted as a message while glucose formed the store. I'll start the liver route next.",
+    "reaction": "The distinction between the message and the stored material was clear.",
+    "step": 4,
+    "reason": "Combine lower-glucose blood with the pancreatic cells to start the between-meals message.",
+    "choice": 1,
+    "expectation": "I expect the cells to release the other hormone into the blood, though I don't yet know its name.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The liver store will also be needed, but I'll get the message first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower-glucose sample triggered a liver-release message, so I can now bring it to the liver store.",
+    "reaction": "The label makes the hormone's purpose clear, though it doesn't give a specific name.",
+    "step": 5,
+    "reason": "Place the hormone at the liver to follow its indicated route.",
+    "choice": 2,
+    "expectation": "I expect the message to reach the liver; the carbohydrate store may also need to be placed there.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The store is also needed, but I'll bring the message first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver-release message is at the liver, and the store can now be combined with it.",
+    "reaction": "The placement was straightforward.",
+    "step": 6,
+    "reason": "Pair the liver store with the message to follow the between-meals route.",
+    "choice": 1,
+    "expectation": "I expect stored carbohydrate to be broken down and glucose released, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver store released glucose into the blood, completing the between-meals route; the release signal eases as blood glucose rises.",
+    "reaction": "It was satisfying to see the stored glucose return to the blood, rather than the hormone becoming part of it.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in muscle made the difference between a hormone message and the stored material clear.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing each hormone at its destination felt like a straightforward extra step rather than a meaningful decision.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The liver-release signal eases as blood glucose rises; that added a useful connection to the return route.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The hormone placements had a clear purpose, but requiring separate placement felt a little mechanical.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how other body systems connect, although the repeated placement steps were less engaging than the explanations.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

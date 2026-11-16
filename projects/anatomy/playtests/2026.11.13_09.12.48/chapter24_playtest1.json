@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "Mucus and ciliated lining are complementary parts of the airway barrier.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Ciliated airway lining"
+    },
+    "expectation": "The mucus will cover the ciliated lining and help trap inhaled material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now has mucus to trap particles and cilia to move it.",
+    "reaction": "The complementary roles are clear.",
+    "step": 2,
+    "reason": "The inhaled material should encounter the mucus-covered lining.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "Some particles and bacteria will become trapped in the mucus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Some inhaled material is trapped, but a few particles and bacteria reach the air sacs.",
+    "reaction": "The remaining particles make the lung macrophages' role relevant too.",
+    "step": 3,
+    "reason": "The beating cilia should move the trapped material toward the throat.",
+    "choice": {
+      "combine": "Airway lining with trapped particles",
+      "with": "Beating airway cilia"
+    },
+    "expectation": "The cilia will sweep particle-bearing mucus toward the throat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia now move trapped material toward the throat; some inhaled material still reached the air sacs.",
+    "reaction": "The coordinated movement makes the clearance mechanism clear.",
+    "step": 4,
+    "reason": "Macrophages can address bacteria that got past the airway lining.",
+    "choice": {
+      "combine": "Airway lining moving mucus",
+      "with": "Lung macrophages"
+    },
+    "expectation": "The lung macrophages will engulf bacteria that reached the air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining had to be connected to the body first; microbes still reach an air sac.",
+    "reaction": "The compatibility feedback clarified the required order.",
+    "step": 5,
+    "reason": "The remaining lung macrophages can address microbes that reach the air sacs.",
+    "choice": {
+      "combine": "Body moving airway mucus toward the throat",
+      "with": "Lung macrophages"
+    },
+    "expectation": "Macrophages will engulf microbes that reach the air sacs, completing the airway defense.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Macrophages complete the model by engulfing some microbes that reach the air sacs; the result also makes clear that these defenses are not perfect.",
+    "reaction": "The two complementary defenses make a satisfying conclusion.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Moving trapped material toward the throat was worthwhile: the planned picture shows how coordinated cilia clear mucus rather than merely trapping particles.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the moving lining to the body was less informative than building the clearance mechanism; the required order was not obvious from the biology alone.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The compatibility feedback showed that the lining had to join the body before macrophages could be added, even though microbes had already reached the air sacs.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That ordering felt somewhat arbitrary: macrophages were relevant to the escaped microbes, but could not be combined with the lining directly.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for more linked physiological mechanisms, although this chapter's mostly predictable sequence offered few meaningful choices. The planned pictures clarify the defenses, but do not explain how macrophages recognize common microbial features.",
+        "steps": [
+          1,
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named slot for the digestive tract, so this directly advances the first goal.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract's abdominal portion will fit into the lower body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is in place, and the lower body still needs its urinary organs.",
+    "reaction": "It is satisfying to see how the gut fits while its food pipe continues toward the chest.",
+    "step": 2,
+    "reason": "The lower body has a named slot for the urinary organs, so fitting them advances the same goal.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder will fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The urinary organs are fitted, completing the lower-body goal; the chest still needs the arms and lymph vessels.",
+    "reaction": "The separate urinary and digestive outlets make their placement clearer.",
+    "step": 3,
+    "reason": "The chapter says to join the arms to the chest, so the studied arm and breathing apparatus are a clear pair.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm assembly will attach to the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest; the other arm and lymph network still need joining.",
+    "reaction": "The shoulder connections make the arm feel part of the same model.",
+    "step": 4,
+    "reason": "The chapter calls for both arms at the chest, so the supplied other arm is the next clear fit.",
+    "choice": {
+      "combine": "Other arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The second arm will attach to the opposite side of the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both arms are attached; the lymph drainage network still needs to join the chest.",
+    "reaction": "The opposite shoulder placement was expected and makes the model more complete.",
+    "step": 5,
+    "reason": "The chapter explicitly calls for joining the lymph vessels to the chest, and their return route reaches a neck vein.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The lymph drainage network will connect to the chest and its blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is fitted, completing the chest goal and revealing the goal to join the chest and lower body.",
+    "reaction": "The aligned neck-vein connection makes it clear this is the same return route built earlier.",
+    "step": 6,
+    "reason": "The new goal directly names the two completed regions that need joining.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lower body"
+    },
+    "expectation": "The chest will join the lower body at the diaphragm, with their existing structures retained.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, and the new goal is to connect the head and spine to the trunk.",
+    "reaction": "The diaphragm and separate routes make the connection between the regions clearer.",
+    "step": 7,
+    "reason": "The trunk has an open channel for the spine, and the goal explicitly calls for joining the head and spine to it.",
+    "choice": {
+      "combine": "Head and spine",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine will fit into the back of the trunk, connecting the head and nerves to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are joined to the trunk, leaving the skin covering as the new goal.",
+    "reaction": "The shared nerve and blood routes tie the earlier parts together clearly.",
+    "step": 8,
+    "reason": "The new goal calls for fitting the existing skin covering over the completed body.",
+    "choice": {
+      "combine": "Skin covering",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering will fit over the body, retaining the repaired skin segment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body, with the repaired scar and previously built organs still visible in the cutaway.",
+    "reaction": "It was satisfying to see the separate parts come together without losing the earlier details.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the chest and lower body was most worthwhile: the diaphragm and separate routes helped me picture how the regions connect.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the second arm was straightforward but less interesting; its opposite-shoulder placement was predictable.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lymph connection lined up with the existing neck-vein junction rather than making a second one. That helped me see it as the same route.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The named slots and goals explained the fittings, though most choices were straightforward.",
+        "steps": [
+          1,
+          2,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter explored how the assembled systems work together. Putting them together was satisfying, although the final fittings were mostly predictable.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

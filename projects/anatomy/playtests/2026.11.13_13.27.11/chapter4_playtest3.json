@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "Start the supporting-material branch by differentiating cells into fibroblasts.",
+    "choice": 1,
+    "expectation": "I expect a fibroblast population that can help produce extracellular material, though further steps will be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This would advance the muscle branch, but I chose to start with supporting material."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch has active collagen genes and messages, suggesting amino acids can support collagen production.",
+    "reaction": "The link between unchanged DNA and selective gene activity is clear and useful.",
+    "step": 2,
+    "reason": "Continue the supporting-material branch by supplying amino acids to the collagen-producing cells.",
+    "choice": 2,
+    "expectation": "I expect the cells to make collagen or a collagen precursor, possibly requiring further processing outside the cell.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This would start the muscle branch, but I want to advance the fibroblast branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them for secretion, so extracellular fluid looks like the next step.",
+    "reaction": "The ER-to-Golgi connection makes the production sequence clear.",
+    "step": 3,
+    "reason": "Continue the supporting-material branch by bringing the collagen-producing cells together with extracellular fluid.",
+    "choice": 2,
+    "expectation": "I expect collagen precursors to be secreted and processed into extracellular supporting material.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "This starts the muscle branch, but I want to finish the collagen route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen precursors have formed extracellular matrix, completing the supporting-material goal; the muscle branch remains.",
+    "reaction": "The sequence from gene activity to material outside the cells is satisfying and clear.",
+    "step": 4,
+    "reason": "Start the muscle branch using the only available combination.",
+    "choice": 1,
+    "expectation": "I expect the signals to produce muscle-lineage precursors over time, rather than mature muscle immediately.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has committed cells expressing muscle genes, but no mature fibres yet.",
+    "reaction": "The contrast with the collagen branch makes selective gene activity clear.",
+    "step": 5,
+    "reason": "Use the only available combination to supply building blocks for muscle proteins.",
+    "choice": 1,
+    "expectation": "I expect the cells to make muscle proteins; further development may be needed to form mature fibres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch produced separate myoblasts with muscle proteins, completing the goal without implying they are mature fibres.",
+    "reaction": "The distinction between precursors and fused muscle fibres is useful, and the shared amino-acid supply ties the branches together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building collagen-rich extracellular matrix was most worthwhile: the planned sequence connects gene activity and protein production to material that supports cells.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle branch repeated the differentiation-then-amino-acid pattern, making its choices less engaging, though the comparison reinforced the biology.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final result stopped at separate myoblasts rather than producing mature muscle fibres, making the developmental limit explicit.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining extracellular fluid with fibroblasts was an abstract way to represent secretion and assembly rather than an obvious physical operation.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contrast between cell lineages and the unfinished development of muscle make me curious about what comes next.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,179 @@
+[
+  {
+    "step": 1,
+    "reason": "The differentiation signals select the stem-cell descendants that can become muscle precursors, a necessary starting point for the fibre.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Skeletal-muscle differentiation signals"
+    },
+    "expectation": "The population will develop muscle precursors that can subsequently fuse.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced myoblasts that make contractile and fusion proteins, so the next step is to join them.",
+    "reaction": "The contrast with collagen-secreting fibroblasts makes their different roles clear.",
+    "step": 2,
+    "reason": "The fusion proteins match the membranes of adjacent myoblasts and should join the precursors into a muscle fibre.",
+    "choice": {
+      "combine": "Muscle precursor cells",
+      "with": "Muscle-cell fusion proteins"
+    },
+    "expectation": "The myoblasts will fuse into a long cell containing multiple nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fusion produced a multinucleated fibre with assembled filaments; the covered actin sites suggest it now needs the calcium signal.",
+    "reaction": "The one-cell outline makes the relationship between fusion and multiple nuclei clear.",
+    "step": 3,
+    "reason": "The calcium pulse is the available signal for activating the fibre's pulling machinery.",
+    "choice": {
+      "combine": "Muscle fibre with sliding filaments",
+      "with": "Calcium signal"
+    },
+    "expectation": "Calcium will uncover actin's binding sites so myosin can pull on the filaments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium exposed the binding sites and enabled filament sliding; the fibre now needs calcium returned to storage to become ready again.",
+    "reaction": "The distinction between sliding filaments and shortening filaments is clear.",
+    "step": 4,
+    "reason": "The calcium-pumping membranes should remove the activating calcium from around the filaments.",
+    "choice": {
+      "combine": "Shortening muscle fibre",
+      "with": "Calcium-pumping membranes"
+    },
+    "expectation": "ATP-powered pumps will return calcium to storage, allowing the fibre to relax and become ready again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium pumping stopped the pull and completed the fibre goal; the next task is to assemble and attach the muscles.",
+    "reaction": "It is useful to see that calcium removal requires ATP and that an outside pull lengthens the fibre.",
+    "step": 5,
+    "reason": "The empty biceps sheaths need muscle fibres to form the muscle.",
+    "choice": {
+      "combine": "Relaxed muscle fibre",
+      "with": "Biceps sheaths and tendons"
+    },
+    "expectation": "The fibres will fill the biceps sheaths and connect to their tendon routes.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Relaxed muscle fibre",
+          "with": "Triceps sheaths and tendons"
+        },
+        "reason": "The triceps also needs fibres, so it could be built first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibres first needed extracellular matrix to form fascicles; there are enough bundles for both muscles.",
+    "reaction": "The connective layers clarify how individual fibres are grouped, though I had missed that intermediate step.",
+    "step": 6,
+    "reason": "The biceps sheaths have empty muscle-head spaces that the fascicles can fill.",
+    "choice": {
+      "combine": "Muscle fascicles",
+      "with": "Biceps sheaths and tendons"
+    },
+    "expectation": "The fascicles will form the biceps within its sheaths and tendon routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fascicles formed the two biceps heads, with connective tissue linking fibre force to the tendons.",
+    "reaction": "The force-transfer inset makes the sheaths' purpose clearer.",
+    "step": 7,
+    "reason": "The biceps tendons are positioned toward the shoulder and radius, so the movable skeleton is the natural attachment target.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps tendons will attach across the elbow to the arm skeleton.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Biceps with tendons"
+        },
+        "reason": "I could check its available partners, but its tendon routes suggest the skeleton."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached and flexes the elbow; the assembly still needs an extensor.",
+    "reaction": "The two poses clarify how the biceps pulls on the radius.",
+    "step": 8,
+    "reason": "The remaining fascicles should fill the triceps sheaths to make the opposing muscle.",
+    "choice": {
+      "combine": "Muscle fascicles",
+      "with": "Triceps sheaths and tendons"
+    },
+    "expectation": "The fascicles will form a triceps with tendons ready to attach to the arm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fascicles formed the triceps, ready to fill the arm assembly’s extensor slot.",
+    "reaction": "The three-head cutaway distinguishes the triceps’ attachment routes.",
+    "step": 9,
+    "reason": "The triceps is the missing extensor, and its tendon reaches the ulna across the elbow.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Triceps with tendons"
+    },
+    "expectation": "The triceps will attach to the arm assembly and provide elbow extension.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps filled the extensor slot, completing the arm and showing how attachment positions turn similar muscle pulls into opposite elbow movements.",
+    "reaction": "The paired flexion and extension poses make the contrast clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building and attaching both muscles connected the microscopic pulling machinery to movement at the elbow; the planned force-transfer inset also explained the role of connective tissue and tendons.",
+        "steps": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt to put fibres directly into the biceps sheaths was a detour, although the automatic fascicle construction made the missing intermediate useful.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The relaxation step made clear that ATP is needed to pump calcium back into storage, while an outside pull lengthens the fibre.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to form fascicles before filling the sheaths was not obvious to me at first, but the resulting picture explained the connective layers and their purpose.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting cell-level mechanisms to the completed elbow assembly was worthwhile, though the sequence was mostly predictable.",
+        "steps": [
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

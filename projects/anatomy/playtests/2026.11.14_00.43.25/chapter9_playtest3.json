@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The right heart's outgoing tube and the lung network are both labelled as connecting to each other.",
+    "choice": {
+      "combine": "Right side of heart",
+      "with": "Lung blood-vessel network"
+    },
+    "expectation": "The right side of the heart should connect to the vessels leading through the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route is connected to the right heart, and its return end is labelled for the left heart.",
+    "reaction": "The labelled open end makes the next connection clear.",
+    "step": 2,
+    "reason": "The lung route returns to the left heart, matching the left side's inlet from the lungs.",
+    "choice": {
+      "combine": "Right heart and lung route",
+      "with": "Left side of heart"
+    },
+    "expectation": "The returning lung vessels should connect to the left side of the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The right-heart and lung route cannot currently be combined with anything, so I need to build another part first.",
+    "reaction": "I was surprised that the labelled return connection was not available yet.",
+    "step": 3,
+    "reason": "The left heart's outgoing tube is labelled to the body, matching the body blood-vessel network.",
+    "choice": {
+      "combine": "Left side of heart",
+      "with": "Body blood-vessel network"
+    },
+    "expectation": "The left heart should connect to the route around the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left heart now has a body route, leaving connections to the right heart and lungs open.",
+    "reaction": "The labels make the two routes easier to follow.",
+    "step": 4,
+    "reason": "The heart-muscle arteries have open branch tips that match the capillary entrances, making the heart's own supply network.",
+    "choice": {
+      "combine": "Arteries for the heart muscle",
+      "with": "Heart-muscle capillaries and veins"
+    },
+    "expectation": "The arteries should connect to the heart-muscle capillaries and returning veins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Left heart and body route",
+          "with": "Right heart and lung route"
+        },
+        "reason": "Their open ends match, but the heart muscle's own vessel network still needs building."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has a vessel network, with open ends for the body's main artery and the right heart.",
+    "reaction": "The labelled ends make its supply and return route clear.",
+    "step": 5,
+    "reason": "The left-heart body route and right-heart lung route have matching open connections, and both routes are now built.",
+    "choice": {
+      "combine": "Left heart and body route",
+      "with": "Right heart and lung route"
+    },
+    "expectation": "The two routes should join at the heart to form a continuous circuit.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Heart-muscle vessel network"
+        },
+        "reason": "I could check how the heart muscle's supply connects first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung and body routes now form one circuit through separate sides of the heart; the heart muscle's vessel network still needs connecting.",
+    "reaction": "Seeing the full lap pass through the heart twice makes the route clearer.",
+    "step": 6,
+    "reason": "The heart-muscle vessel network has labelled connections to the body's main artery and the right heart, both part of the joined model.",
+    "choice": {
+      "combine": "Heart and two routes",
+      "with": "Heart-muscle vessel network"
+    },
+    "expectation": "The heart muscle's vessels should connect to the combined heart and circulation model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle's vessels branch from the main artery and return blood to the right heart, completing the model.",
+    "reaction": "It was interesting that the pump needs its own delivery route.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes made the full path clear: blood passes through the heart twice on one lap.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the lung route directly to the left heart was frustrating because the labels matched, but the combination was unavailable.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the labelled lung return could not connect to the left heart until another part had been built.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "That unavailable connection felt arbitrary at the time; the labels suggested it should work, but the prerequisite was not explained.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: tracing the two routes and seeing how the heart muscle gets its own supply made me curious about how other systems connect.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

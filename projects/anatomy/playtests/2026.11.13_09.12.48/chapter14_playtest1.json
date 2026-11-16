@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm and nervous system have matching peripheral connections, directly addressing the current goal.",
+    "choice": {
+      "combine": "Arm assembly[Biceps with tendons,Triceps with tendons]",
+      "with": "Nervous system model"
+    },
+    "expectation": "Peripheral nerves should connect to the arm’s muscles and sensory structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to motor and sensory nerves; the next goal is circulation and fluid return.",
+    "reaction": "The spindle-to-spinal-circuit closeup makes the two signal directions clearer.",
+    "step": 2,
+    "reason": "The breathing apparatus includes the blood-filled circulation, which should connect to the innervated arm.",
+    "choice": {
+      "combine": "Innervated body framework",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The circulation should connect to the body framework and supply the arm’s tissues.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circulation now supplies the arm and neural tissues, while the fluid buildup highlights the need for a return route.",
+    "reaction": "The comparison makes the problem of inadequate fluid return clear.",
+    "step": 3,
+    "reason": "The tissue spaces contain the excess fluid that needs to be connected to the supplied framework.",
+    "choice": {
+      "combine": "Supplied body framework",
+      "with": "Tissue spaces"
+    },
+    "expectation": "The tissue spaces should be incorporated into the model so their fluid can be returned.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tissue spaces",
+          "with": "Lymphatic capillaries"
+        },
+        "reason": "The blind-ended lymphatic capillaries also appear suited to collecting fluid from the spaces."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied framework cannot currently combine with anything, so I will build the fluid-return route separately.",
+    "reaction": "The failed attempt was unexpected, but the lymphatic capillaries still suggest a clear next step.",
+    "step": 4,
+    "reason": "Blind-ended lymphatic capillaries can collect fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries should connect to the tissue spaces and collect excess fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fluid and proteins now enter lymphatic capillaries; the route still needs to reach a vein.",
+    "reaction": "The flap inset makes the collection step clear.",
+    "step": 5,
+    "reason": "The collecting vessel and return duct should carry lymph onward from the capillaries.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The collecting vessel should connect the lymphatic capillaries to the return duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lymph now has a collecting route to a duct, but its junction with the vein remains open.",
+    "reaction": "The remaining junction is clearly marked.",
+    "step": 6,
+    "reason": "The venous junction matches the duct outlet and should complete the fluid-return route.",
+    "choice": {
+      "combine": "Tissue lymph entry with collecting route",
+      "with": "Venous junction"
+    },
+    "expectation": "The duct should connect to the vein, returning lymph to the bloodstream.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage route now reaches a neck vein; it still needs integration with the supplied body framework.",
+    "reaction": "The continuous arrows make the return path easy to follow.",
+    "step": 7,
+    "reason": "The completed drainage network should connect to the supplied body framework to finish the fluid-return goal.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Supplied body framework"
+    },
+    "expectation": "The lymphatic route should join the body model and return excess tissue fluid to circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects lymph return to circulation and shows how ongoing drainage helps keep tissue fluid roughly steady. All goals are complete.",
+    "reaction": "The matched views make the connection between filtration and fluid return satisfying and clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the lymph route from tissue spaces to a vein was most worthwhile: the planned closeups trace fluid and proteins through each structure, then show why the route matters to the whole model.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to add tissue spaces directly to the supplied framework was frustrating: the result gave no compatibility information or explanation of why the route had to be built separately.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The supplied framework could not combine with anything at that point, despite already showing tissue capillaries; the lymph route had to be assembled separately first.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to construct the lymph network separately before attaching it felt somewhat arbitrary, although the individual connections had clear purposes.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting previously built systems and tracing the consequences of fluid return made the constructions more meaningful. This is a judgment of the supplied text and illustration plans, not evidence of student comprehension.",
+        "steps": [
+          1,
+          2,
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus and ciliated lining appear to form the surface that catches inhaled material.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Ciliated airway lining"
+    },
+    "expectation": "They should form a mucus-covered airway lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now has mucus to trap particles and cilia to move it, so I’ll introduce the inhaled material next.",
+    "reaction": "The result makes the two parts’ roles clear.",
+    "step": 2,
+    "reason": "The particles and bacteria are approaching the mucus-covered airway.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The mucus should trap some of the inhaled material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus trapped some inhaled material, while a few particles continued toward the air sacs. The trapped material can now be moved toward the throat.",
+    "reaction": "The distinction between trapped particles and those that get farther in is clear.",
+    "step": 3,
+    "reason": "The beating cilia are shown sweeping particle-bearing mucus toward the throat.",
+    "choice": {
+      "combine": "Airway lining with trapped particles",
+      "with": "Beating airway cilia"
+    },
+    "expectation": "The cilia should move the trapped material toward the throat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia moved trapped particles toward the throat; the particles that reached the air sacs still need attention.",
+    "reaction": "The coordinated movement is easy to follow.",
+    "step": 4,
+    "reason": "The lung macrophages are shown surrounding a bacterium in an air sac, suggesting they handle material that got past the mucus.",
+    "choice": {
+      "combine": "Airway lining moving mucus",
+      "with": "Lung macrophages"
+    },
+    "expectation": "The macrophages should deal with some bacteria that reached the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The moving lining had to be connected to the body first; microbes still reach an air sac, so macrophages remain relevant.",
+    "reaction": "The required order was not obvious from the item descriptions.",
+    "step": 5,
+    "reason": "The body now contains the airway defense and microbes that reached an air sac, where the macrophages act.",
+    "choice": {
+      "combine": "Body moving airway mucus toward the throat",
+      "with": "Lung macrophages"
+    },
+    "expectation": "The macrophages should engulf some microbes that reached the air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The macrophages completed the airway defense by engulfing a microbe in an air sac; the result also clarified that these defenses do not catch every microbe.",
+    "reaction": "The two layers of defense came together clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following particles from the mucus to the air sacs made the different jobs of cilia and macrophages easy to understand.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the moving lining to the body felt like an extra assembly step whose required order was unclear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The macrophages could be added only after the airway lining was connected to the body.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for connecting the lining and macrophages lacked an obvious explanation in the item descriptions.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explored a new interaction as clearly as the contrast between mucus clearance and macrophage engulfment.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

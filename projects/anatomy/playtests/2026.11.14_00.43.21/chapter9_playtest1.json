@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the lung route: the labels show blood going from the right side of the heart to the lungs.",
+    "choice": 1,
+    "expectation": "I expect the right heart and lung vessels to connect, with a route toward the left heart still open.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The left heart and body network also have matching labels, but I'll start with the lungs."
+      },
+      {
+        "choice": 3,
+        "reason": "The heart's own blood supply is another clear goal, but I want to build a main route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route is built, with openings toward the left heart and from the body. I'll build the body route next.",
+    "reaction": "The open labels make it clear how the routes may connect.",
+    "step": 2,
+    "reason": "The left heart is labelled as sending blood to the body, matching the body vessel network.",
+    "choice": 1,
+    "expectation": "I expect the left heart to connect to the body vessels, leaving a way to join the lung route later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The heart muscle also needs its own supply, but I'll build the main body route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body route is built, and its open ends match the lung route's openings.",
+    "reaction": "The matching labels make the full circuit easier to follow.",
+    "step": 3,
+    "reason": "I'll join the two main routes now that their labelled ends match.",
+    "choice": 2,
+    "expectation": "I expect a connected circuit through the heart, lungs and body, though the heart muscle's own supply will still need building.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The heart muscle needs its own supply too, but I want to connect the main circuit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The main circuit is connected: blood passes through the heart on its way to both the lungs and the body. The heart muscle's own supply still needs building.",
+    "reaction": "Seeing the full arrow route makes the two trips through the heart clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it matches the remaining goal of supplying the heart muscle.",
+    "choice": 1,
+    "expectation": "I expect the heart's arteries to connect to its capillaries and veins, forming a vessel network that can later join the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart-muscle vessels form a network with labelled ends that can connect to the main circuit.",
+    "reaction": "The labels make its supply and return route clear.",
+    "step": 5,
+    "reason": "This is the only offered combination and matches the new goal of connecting the networks.",
+    "choice": 1,
+    "expectation": "I expect the heart-muscle network to connect to the body's main artery and return blood to the right heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle’s vessel network is now connected to the main artery and returns blood to the right heart, completing the chapter.",
+    "reaction": "It was useful to see that the heart muscle has its own delivery route rather than receiving blood directly from a chamber.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lung and body routes was most worthwhile: the continuous arrows made it clear that one lap passes through the heart twice.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two routes separately was a little repetitive, although their labels made both pairings understandable.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The heart muscle has its own vessels branching from the main artery and returning to the right heart.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the labels and goals explained the pairings, though the last two were the only offered combinations.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter: connecting the routes made the circulation easier to picture, and I’m curious what body system comes next.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

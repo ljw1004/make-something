@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The nearby voice starts the scene and matches the goal of responding to it.",
+    "choice": 1,
+    "expectation": "I expect the body to hear or respond to the voice, though I don't know what the response will be.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Filling the cup also advances the goal, but I want to follow the voice first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body has responded to the voice, so I’ll move on to the drink.",
+    "reaction": "The head turn makes the link between hearing and movement clear.",
+    "step": 2,
+    "reason": "Filling the cup is the only offered combination and prepares the drink.",
+    "choice": 1,
+    "expectation": "I expect a cup of water that the body can drink.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cup is filled, so the body can now have a drink.",
+    "reaction": "The extra description of an empty cup is confusing after it was filled.",
+    "step": 3,
+    "reason": "This is the only offered combination and should advance the drinking goal.",
+    "choice": 1,
+    "expectation": "I expect the body to drink the water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body has taken a drink, leaving the bite to complete the goal.",
+    "reaction": "The hand and swallowing bring the earlier body construction into an ordinary action.",
+    "step": 4,
+    "reason": "Eating is the remaining part of the goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the body to take a bite of food.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bite completes the goal, and the final picture connects the drink, breathing and circulation to the body’s continuing work.",
+    "reaction": "The ordinary scene brings several systems together clearly, though the food’s journey is less visible than the drink’s.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Taking the bite was the strongest moment: the final description connects an ordinary action to breathing, digestion and circulation over time.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the cup felt routine, and the extra description of an empty cup was confusing once it contained water.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final picture follows the drink into the blood and toward cells, extending the scene beyond the immediate act of swallowing.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The actions all had a clear purpose in the goal, though the offered combinations made the sequence straightforward rather than a puzzle.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat curious to continue if another chapter offered a new relationship to explore. This chapter tied systems together, but its choices were mostly predictable.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

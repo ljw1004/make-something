@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The enzymes are labelled as helping clotting proteins form threads, which directly matches one goal.",
+    "choice": 2,
+    "expectation": "I expect reinforcing threads to form, though they may still need to be added to the plug.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The rough edge seems likely to create the break, but I chose to prepare the threads first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The threads are ready, and stopping the bleeding is now a goal. I still need the break and platelet plug.",
+    "reaction": "The branching mesh makes the threads' reinforcing role clearer.",
+    "step": 2,
+    "reason": "This is the only available combination, and the rough edge should create the break needed for the plug.",
+    "choice": 1,
+    "expectation": "I expect the skin and a small blood vessel to be cut, allowing platelets to gather.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut is in place, but the vessel is still leaking, so the platelet plug is next.",
+    "reaction": "The narrowed vessel is visible, but it has not stopped the leak.",
+    "step": 3,
+    "reason": "This is the only available combination, and platelets are shown gathering at a torn vessel.",
+    "choice": 1,
+    "expectation": "I expect the platelets to form a plug at the break, perhaps still needing reinforcement from the threads.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug slows the leak, but it still needs the prepared threads for reinforcement.",
+    "reaction": "The picture makes it clear that slowing the leak is not the same as stopping it.",
+    "step": 4,
+    "reason": "This is the only available combination, and the threads should reinforce the plug.",
+    "choice": 1,
+    "expectation": "I expect the threads to form a mesh around the plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mesh stopped the bleeding, but the skin remains open, so sealing the vessel is only the first part of repair.",
+    "reaction": "It was satisfying to see the prepared threads reinforce the plug, and the open skin made the limit of the repair clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the threads to the platelet plug was most worthwhile: it showed how the two parts work together to stop bleeding.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the cut was less engaging because it was the only available combination and mainly set up the next action.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The vessel stopped bleeding even though the skin above it was still open. That changed how I thought about stopping a leak versus healing a cut.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary. The named parts and pictures explained their purposes, though most choices after the first were the only available combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the open skin heals. The distinction between stopping bleeding and repairing the skin gives the next part a clear hook.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

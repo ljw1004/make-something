@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows glucose joining into a stored carbohydrate, so this should advance the storage goal.",
+    "choice": 1,
+    "expectation": "I expect the liver cells to store some glucose from the blood; I'm unsure what the stored form will be called.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the vein also fits the digestive-organ goal, but I want to follow the meal's glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores some glucose as a branched carbohydrate that can be broken down again, so I can now follow its release between meals.",
+    "reaction": "The picture makes the storage step clear, though it doesn't name the carbohydrate.",
+    "step": 2,
+    "reason": "Combining the store with time without food directly follows the new goal.",
+    "choice": 1,
+    "expectation": "I expect the stored carbohydrate to break down and glucose to enter the blood, though I'm unsure how the release is controlled.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the vein would advance the other goal, but I want to finish following the glucose store first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stored carbohydrate breaks down and glucose enters the blood between meals. The remaining goal is to connect the digestive organs to the body.",
+    "reaction": "It was clear to see the store shrink as glucose was released.",
+    "step": 3,
+    "reason": "This is the only available combination, and the vein connects the intestine to the liver.",
+    "choice": 1,
+    "expectation": "I expect the vein to attach to the digestive tube and complete its liver connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted, so the digestive tube is ready to connect to the body model.",
+    "reaction": "The fitting was straightforward.",
+    "step": 4,
+    "reason": "This is the only available combination and directly follows the goal of connecting the digestive organs to the body.",
+    "choice": 1,
+    "expectation": "I expect the digestive tube and its attached organs to join the integrated body model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs and their vein are now connected to the body's circulation, completing the chapter.",
+    "reaction": "The final connection was straightforward, though the glucose storage and release sequence was more interesting.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose into storage and back into the blood was most worthwhile: it showed how the liver helps supply cells between meals.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the vein was the least engaging part; it was a straightforward connection without much new explanation.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The store shrinking as glucose entered the blood made the between-meal supply clearer. The stored carbohydrate still wasn't named.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, but connecting the vein and then the body were the only offered combinations at those points, so they felt more like assembly than meaningful choices.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the connected body works, though I'd hope for more choices like following the glucose store and fewer simple fittings.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

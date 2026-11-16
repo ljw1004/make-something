@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for supplying muscle fibers, and sugar is identified as fuel.",
+    "choice": {
+      "combine": "Muscle fibers",
+      "with": "Food-derived sugar"
+    },
+    "expectation": "The fibers will receive sugar, possibly along with the available oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibers have begun breaking down sugar and producing some ATP; oxygen still appears needed for the supply goal.",
+    "reaction": "The picture makes the first stage of fuel processing clear, and I’m curious what oxygen adds.",
+    "step": 2,
+    "reason": "Oxygen is the other supply named in the goal, and the sugar-processing fibers are ready for it.",
+    "choice": {
+      "combine": "Sugar-processing muscle fibers",
+      "with": "Oxygen"
+    },
+    "expectation": "The fibers will use oxygen to continue processing fuel and make more ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completed the supply goal, and the ATP cycle shows how the fibers can continue working. The next goal is to collect and transmit their pulls.",
+    "reaction": "The cycle helps connect fuel and oxygen to muscle work, though “used carrier” is a little abstract.",
+    "step": 3,
+    "reason": "The connective wrapping is shown fitting around a group of muscle cells, which suggests it can collect their pulls.",
+    "choice": {
+      "combine": "ATP-supported muscle fibers",
+      "with": "Connective wrapping"
+    },
+    "expectation": "The wrapping will gather the fibers into a muscle structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping gathered the fibers into bundles and showed how their pulls combine; tendons still need attaching.",
+    "reaction": "The joined arrows make the wrapping’s role clear.",
+    "step": 4,
+    "reason": "The goal is to transmit the pulls, and the front tendons are described as attachment cords.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Front tendons"
+    },
+    "expectation": "The front tendons will attach to the bundles to transmit their pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons formed a bending muscle group; the rear tendons appear to be the remaining part needed to complete the muscle groups.",
+    "reaction": "The tendon explanation clarifies why the attachment matters, though the bones are still absent.",
+    "step": 5,
+    "reason": "The rear tendons appear intended for the remaining muscle bundles.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Rear tendons"
+    },
+    "expectation": "The rear tendons will form a second muscle group that can transmit its pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed the straightening muscles and completed the goal of collecting and transmitting the fibers’ pulls.",
+    "reaction": "It was satisfying to finish the paired muscle groups, though I would have liked to see how they act on bones.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding connective wrapping was most worthwhile: the picture’s arrows showed how individual cell pulls become a larger pull, connecting cellular work to a muscle group.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the rear tendons felt repetitive after attaching the front tendons; the result added little explanation of the difference between the groups.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that sugar breakdown produced some ATP before oxygen was added, with the remaining fuel pieces continuing toward a mitochondrion.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The rear tendon action had a clear purpose, but why this particular set produces straightening muscles was not clear from the supplied descriptions.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because I want to see how the two muscle groups attach to bones and move a joint.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

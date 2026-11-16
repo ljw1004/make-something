@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the muscle-development messengers meeting the unspecialized cells and activating muscle genes, so I’ll start that branch.",
+    "choice": {
+      "combine": "Chemical messengers for muscle development",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "The cells should respond to the messengers and begin using muscle-related instructions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "The support-cell branch also matches a goal, but I’ll start with muscle."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle messengers produced cells with muscle-protein RNA, and the new goal is to build pulling proteins.",
+    "reaction": "The RNA copies make the next step clear.",
+    "step": 2,
+    "reason": "The earlier chapter showed that RNA instructions guide protein building, and amino acids are the building blocks.",
+    "choice": {
+      "combine": "Cells with muscle-protein RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should use the amino acids and RNA instructions to build pulling proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "I could start the other branch first, but I’ll continue the muscle branch."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells now contain pulling proteins, completing that branch; I’ll start the supporting-cell branch.",
+    "reaction": "The picture helps explain how sliding proteins can shorten a cell.",
+    "step": 3,
+    "reason": "The supporting-cell messengers are shown meeting unspecialized cells and activating support-protein genes.",
+    "choice": {
+      "combine": "Chemical messengers for supporting cells",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "The cells should make RNA copies of support-protein instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting messengers produced cells with support-protein RNA; the remaining goal is to build fibres around them.",
+    "reaction": "The similar steps make the two cell paths easier to compare.",
+    "step": 4,
+    "reason": "As with the muscle cells, the RNA supplies instructions and amino acids are protein building blocks.",
+    "choice": {
+      "combine": "Cells with support-protein RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should use the amino acids to make supporting fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting cells built fibres around themselves, completing the chapter. The result contrasts proteins kept inside muscle cells with material released around supporting cells.",
+    "reaction": "The comparison helped the two paths make sense, though their steps felt similar.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the pulling proteins was most worthwhile: the picture showed how overlapping fibres can slide to shorten a cell, connecting the protein to the cell’s job.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The supporting-cell path repeated much of the muscle path, so choosing its matching messenger and then amino acids felt predictable, even though the comparison was useful.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that cells with the same DNA and building blocks could end up with proteins in different places: inside muscle cells or around supporting cells.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and earlier protein-building example gave each pairing a purpose. The details of how the messengers cause different genes to become active were not explained.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, mainly to see how the separate muscle cells are assembled into larger fibres and how their pulling proteins help movement.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

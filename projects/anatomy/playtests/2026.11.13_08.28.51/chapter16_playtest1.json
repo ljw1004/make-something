@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The villus is the absorption site, and glucose is one of the nutrients the first goal asks us to send toward the liver.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Glucose should cross the intestinal lining into a blood vessel, potentially alongside amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose crossed into a villus blood capillary; amino acids still need to cross.",
+    "reaction": "The result matched the expected blood route.",
+    "step": 2,
+    "reason": "Amino acids are the other nutrient the goal asks to send toward the liver, and the villus is their absorption site.",
+    "choice": {
+      "combine": "Meal amino acids",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Amino acids will cross the intestinal lining into villus blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids also crossed into villus blood; both nutrients are now ready for their onward route.",
+    "reaction": "That matched the expected absorption route.",
+    "step": 3,
+    "reason": "The fat products need to cross the villus and be packaged for their different route.",
+    "choice": {
+      "combine": "Fat digestion products",
+      "with": "Intestinal villus"
+    },
+    "expectation": "The intestinal cell will take up the fat products and may use the available packaging materials.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion products entered intestinal cells but have not yet been packaged.",
+    "reaction": "The uptake was as expected; packaging remains a separate step.",
+    "step": 4,
+    "reason": "The available packaging materials should prepare the absorbed fat for its lymph route.",
+    "choice": {
+      "combine": "Fat inside intestinal cells",
+      "with": "Lipoprotein packaging materials"
+    },
+    "expectation": "The intestinal cells will package the fat into lipoprotein particles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Packaging required the villus as a hotspot; the automatic reaction produced chylomicrons inside intestinal cells.",
+    "reaction": "The compatibility feedback clarified the station-based step.",
+    "step": 5,
+    "reason": "Chylomicrons need to enter the villus's central lymph vessel, whose entrance is available.",
+    "choice": {
+      "combine": "Chylomicrons",
+      "with": "Lacteal entrance"
+    },
+    "expectation": "The packaged fat will enter the lacteal and travel into lymph.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Chylomicrons entered lymph through the villus, completing the fat-transport goal; glucose and amino acids still need an onward route.",
+    "reaction": "The villus was again required as the station, which makes the earlier packaging feedback useful.",
+    "step": 6,
+    "reason": "The remaining liver route is not visible among the initial items, so checking the glucose's available partners should clarify the next step.",
+    "choice": {
+      "inspect": "Glucose in villus blood"
+    },
+    "expectation": "The inspection should reveal how the absorbed glucose can proceed toward the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically combined the two absorbed nutrients into portal blood, completing the liver-route goal and the chapter.",
+    "reaction": "The automatic combination was a useful resolution, though the portal route became clear only at the end.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat into intestinal cells, packaging it into chylomicrons and sending it into lymph made its different route from glucose and amino acids concrete.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate glucose and amino-acid absorption steps had nearly identical picture descriptions, making that passage somewhat repetitive.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Packaging and lymph entry both required the villus hotspot rather than directly combining the visibly relevant ingredients; compatibility feedback completed each operation automatically.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to select the villus for packaging and lacteal entry was not obvious from the ingredient titles, even though the feedback made the required operation clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: contrasting blood and lymph routes was a useful construction, although I would want clearer explanations of terms such as portal blood and lacteal for the intended audience.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "renames": {
+    "Vein from intestine to liver": "Collecting vein from the intestine"
+  },
+  "descriptions": {
+    "name:Thin intestinal lining": "A long continuous sheet of closely joined living cells, one cell thick, gathered into loose folds. There is enough epithelial covering for the three villus cores; food faces its brush border and tissue fluid the other side.",
+    "name:Collecting vein from the intestine": "A small collecting vein with three fine tributary ends, at the same microscopic scale as the villi. It drains onward through larger veins to the liver's portal route; the large portal vein itself is outside this local specimen.",
+    "name:Intestinal capillaries": "Fine blood capillaries form loops within the three villus positions. An ordinary supplied arterial feeder brings blood to them; their fine venous ends await the collecting vein.",
+    "name:Blood route from the intestine": "The villus capillary loops connect their fine venous ends to the small collecting vein. The supplied arterial feeder remains separate from that outgoing route.",
+    "name:Intestinal absorbing surface": "One continuous mucosal cutaway shows the thin epithelial covering around three connective-tissue villi. Capillaries run inside those cores, connected to the supplied arterial feeder and the small collecting vein within the common tissue base.",
+    "name:Colon lining": "A continuous delicate mucosal inner sleeve follows the whole colon course, with folded epithelial surfaces and fine crypt texture. This is the prepared organ-scale lining, not a small rectangular tissue sample.",
+    "name:Colon supporting tissue and vessels": "An organ-shaped connective-tissue sleeve with small embedded blood vessels supports the colon lining. Its continuous anterior opening exposes the inner receiving surface.",
+    "name:Colon muscle wall": "The actual hollow muscular outer shell of the large intestine, with haustra, a blind cecal pouch and appendix, sigmoid and rectum. A broad continuous anterior opening reveals the muscle wall and space for its inner lining.",
+    "name:Colon lining with supporting tissue": "The same whole-colon mucosal sleeve lies directly against its vascular connective support. Their shared anterior cutaway shows one continuous layered inner wall.",
+    "name:Mucus-covered colon lining": "A thin mucus film coats the luminal surface of the same whole-colon mucosal sleeve.",
+    "name:Colon inner wall": "The whole-colon mucosal sleeve, supporting connective tissue and small blood vessels form one continuous inner wall, with a thin mucus film on its luminal surface.",
+    "name:Colon": "The same inner wall now fits within the muscular shell. One continuous anterior cutaway reveals the adjacent layers. A small medial ileal inlet opens above the blind cecal pouch and appendix; the sigmoid continues into the rectum.",
+    "name:Upper digestive tract": "One continuous food pipe, stomach and small intestine, with attached liver, gallbladder, pancreas and ducts. A short terminal ileum has a visible open end at the lower left, ready to join the colon.",
+    "name:Digestive tract": "The same upper tract now continues through the terminal ileum into the medial side of the cecum. The colon surrounds the small-intestinal loops, with its wall layers visible through a continuous anterior cutaway. No open inlet remains at the join.",
+    "name:Small fatty acids and gas": "An isolated sample of short-chain fatty-acid molecules with two-, three- and four-carbon backbones, plus carbon dioxide molecules. The product is shown at molecular inspection scale, without the residual food source or microbial producers.",
+    "name:Bladder": "A muscular bladder cutaway with short distal receiving channels. Two oblique ureter passages open at the upper corners of the smooth basal trigone, above the separate urethral outlet.",
+    "name:Kidney recovery tube": "One continuous cream-walled renal tubule has a clearly open inlet, coiled portions, a long hairpin and a distinct open outlet. A fine red/blue capillary network runs beside and behind it with separate vascular ends. The tan tubular wall and its lumen never merge into a blood vessel.",
+    "name:Skin blood vessels": "A small supported longitudinal sample contains a red blood-filled capillary; it represents the vessel supply distributed through the deeper skin.",
+    "name:Skin with a cut": "The same rectangular skin cross-section has a narrow cut through its surface and into a small blood vessel. Two interrupted vessel ends leak at the base of the cut. The sweat gland, nearby nerve branches and unbroken skin retain their positions.",
+    "name:Skin with a cleared wound": "In the same rectangular skin cross-section, broken cell fragments have been removed from around the clot; white cells remain beside the wound and the crossing clot threads remain in place. The surface gap, deeper skin, sweat gland, nerve branches and surrounding vessels retain their positions.",
+    "name:Repaired skin segment": "The same skin cross-section has a closed surface and a small scar beneath it. Most temporary clot threads have gone; the original vessel wall is continuous beneath the retained new capillary arch. New supporting fibres and connected capillaries remain. The neighbouring sweat gland, nerve branches and unbroken skin retain their positions."
+  },
+  "chapter19Note": "This local microscopic collecting vein drains through larger intestinal veins into the hepatic portal route. The portal trunk is not shrunk beneath a few villi. The existing arterial feeder is supplied supporting anatomy. The later whole digestive tract includes the same drainage route at organ scale.",
+  "grounding": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-5-the-small-and-large-intestines",
+  "chapter21RecipeReplacement": {
+    "old": "- Wet food remainder [transform] + Resident gut microbes [preserve] -> Small fatty acids and gas",
+    "new": "- Wet food remainder [preserve] + Resident gut microbes [preserve] -> Small fatty acids and gas"
+  },
+  "chapter21Note": "The colon layers are supplied as corresponding whole-organ preparations at a common scale, rather than treating local tissue strips as a complete organ. The muscle shell supplies the actual colon shape. Fermentation yields a sampled portion of short-chain fatty acids and gases, shown at molecular inspection scale. The preserved wet remainder retains water and unfermented fibre; the product illustration does not imply complete conversion of the entire remainder.",
+  "chapter23": {
+    "ownerDeclaration": "`water-gut-capillary` Gut-wall blood vessel (compound)",
+    "slotDeclaration": "Drinking water",
+    "goalOld": "- Move water from the gut into blood -- Drinking water @ `water-gut-capillary`",
+    "goalNew": "- Move water from the gut into blood -- `water-gut-capillary`[Drinking water]",
+    "waterDescription": "An amorphous clear water sample. After it crosses the gut wall it mixes into the blood plasma, taking the shape of the vessel lumen rather than retaining a separate puddle boundary.",
+    "ownerDescription": "A closer continuous view of the built intestinal wall shows epithelial-covered villi and their capillaries joining a collecting blood vessel in the supporting tissue. Its exposed lumen contains red cells and plasma; the intact epithelium remains the barrier crossed by absorbed water.",
+    "fittedDescription": "The same blood-vessel lumen now contains the absorbed water mixed into its plasma around the retained red cells. The vessel wall contains the fluid; no free-standing puddle covers the surrounding tissue.",
+    "replacementNote": "Two independent actions compare conservation and replacement. The kidney operation produces a different concentration of urine in the supplied low-water context. The water fitting models material mixing after absorption: water crosses the intact gut wall and becomes part of the blood plasma. Its substance persists, but a free water-sample boundary does not persist in the mixture. The fixed compound is a closer continuous cutaway of the previously built gut wall, with an exposed collecting-vessel lumen; the cross-section is an illustration, not a wound. The slot is a bounded material-mixing convention for this chapter, not a new destination-labelled substance or a reusable physiological trigger."
+  },
+  "chapter21NoteReplacement": {
+    "old": "yields a mixed physical product: short-chain fatty acids and gases in the remaining wet contents",
+    "new": "yields an isolated sample of short-chain fatty acids and gas at molecular inspection scale; the preserved wet remainder retains unfermented material"
+  }
+}

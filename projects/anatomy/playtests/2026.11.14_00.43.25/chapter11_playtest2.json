@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "The lungs need a blood supply, and the heart model already includes the route through the lungs.",
+    "choice": {
+      "combine": "Heart with connected vessels",
+      "with": "Lungs"
+    },
+    "expectation": "The lungs should connect to the heart's lung blood-vessel route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Rib cage",
+          "with": "Muscles between the ribs"
+        },
+        "reason": "Building the chest is another clear goal, but I can connect the circulation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are connected to the circulation; the muscular chest is the remaining visible goal.",
+    "reaction": "The exchange picture makes the connection between breathing and blood flow clearer.",
+    "step": 2,
+    "reason": "The picture shows the muscles bridging the gaps between the ribs, so they should fit into the rib cage.",
+    "choice": {
+      "combine": "Rib cage",
+      "with": "Muscles between the ribs"
+    },
+    "expectation": "The muscles will attach between the ribs to help move the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rib muscles are in place, and the apparatus has slots for the lower chest muscle and lungs with circulation.",
+    "reaction": "The empty slots make the next fittings clear.",
+    "step": 3,
+    "reason": "The diaphragm is the broad muscle shown below the lungs, matching the lower chest muscle slot.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Diaphragm"
+    },
+    "expectation": "The diaphragm will fit into the lower chest muscle slot.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Breathing apparatus",
+          "with": "Circulation with lung exchange"
+        },
+        "reason": "The lungs and circulation also appear to match an empty slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm completes the muscular chest, leaving the lungs and circulation to be added.",
+    "reaction": "The arrows clarify how the chest creates more room for the lungs.",
+    "step": 4,
+    "reason": "The remaining slot calls for lungs and circulation, which matches the circulation with lung exchange.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Circulation with lung exchange"
+    },
+    "expectation": "The lungs and their connected circulation will fit into the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs and circulation fit into the chest, completing the chapter. The final explanation connects chest movement to air pressure and airflow.",
+    "reaction": "The paired views made breathing in and out easier to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the lungs and circulation was most worthwhile because the final cutaways showed how chest movement brings air in and lets it out while blood keeps flowing.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the diaphragm was clear but mostly a straightforward slot match; the more complete explanation came afterward.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the explanation that making more room lowers air pressure in the lungs, drawing air in.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the pictures and named slots explained the pairings.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how other body systems connect, although the fittings here were fairly predictable.",
+        "steps": [
+          1,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

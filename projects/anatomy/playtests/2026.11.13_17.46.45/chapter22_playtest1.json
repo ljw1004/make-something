@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal situation to follow how muscle takes up glucose.",
+    "choice": 1,
+    "expectation": "I expect the body to respond to the glucose-rich blood, though I'm not sure how the pancreas enters the process yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meals situation also matches a goal, but I'll follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal raised blood glucose and highlighted the pancreas, muscle and liver, so I'll follow the pancreas next.",
+    "reaction": "I'm curious how the pancreas responds to the extra glucose.",
+    "step": 2,
+    "reason": "The sensing cells seem like the next step in the after-meal response; I'm following the named pairing without yet knowing the message.",
+    "choice": 1,
+    "expectation": "I expect the pancreas cells to respond to the higher glucose with a message, though I don't know its details yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could start the between-meals comparison, but I want to follow the meal response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is a message carried in blood that helps muscle take up glucose, so I can follow it to the muscle.",
+    "reaction": "The connection between the pancreas and muscle is clearer now.",
+    "step": 3,
+    "reason": "Combining insulin with skeletal muscle directly follows the after-meal goal.",
+    "choice": 1,
+    "expectation": "I expect the muscle to take glucose from the blood in response to insulin.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could explore the between-meals response, but I want to finish following insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle takes up glucose, and the pancreas later releases less insulin as blood glucose falls. The after-meal goal is complete.",
+    "reaction": "The change in insulin afterward makes the response clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it starts the between-meals goal.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to fall as cells use it, leading to a response that keeps fuel available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen while the liver still has stored carbohydrate, so I'll follow the pancreas response.",
+    "reaction": "I'm curious how this response differs from the insulin response.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the pancreas cells previously sensed changing glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreas to release a different message that helps make stored glucose available, though I don't yet know how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas sends a different blood-carried message telling the liver to release stored glucose.",
+    "reaction": "The label makes the between-meals response clearer, though the message isn't named.",
+    "step": 6,
+    "reason": "This is the only offered combination and follows the message to the liver's store.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from its store, and the pancreas's release message faded as blood glucose rose. Both goals are complete.",
+    "reaction": "The fading message made the between-meals response easier to understand.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to muscle was worthwhile because it connected the pancreas's message to glucose leaving the blood.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Setting up falling blood glucose was a bit repetitive after the rising-glucose setup, though it made the comparison clear.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The pancreas sent a different message to the liver between meals, and that message faded as glucose rose. The message wasn't named.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the later steps offered only one combination, so I was following the available pairing rather than figuring out compatibility.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I'd probably continue: comparing the two responses made the pancreas's role clearer, although I'd hope for more meaningful choices.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

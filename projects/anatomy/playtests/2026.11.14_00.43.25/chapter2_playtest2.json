@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria inside the cell, matching the first goal.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; it still needs a route for glucose and protein builders.",
+    "reaction": "The placement makes sense from the picture.",
+    "step": 2,
+    "reason": "The sugar carrier spans the membrane, so adding it to the cell should provide a route for glucose.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier will be fitted into the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, and the new goal is to feed glucose to the cell to make ATP.",
+    "reaction": "The two-panel picture helps explain how sugar can cross the membrane.",
+    "step": 3,
+    "reason": "Glucose matches the carrier's pocket, and the new goal asks us to feed it to the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "The cell will take in glucose and use it to make ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+          "with": "Ribosomes"
+        },
+        "reason": "Adding the protein builders also serves a goal, but I can follow the newly opened glucose goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was used to make ATP, which the result says powers work such as building proteins. The cell still needs ribosomes.",
+    "reaction": "The inset helps connect glucose and oxygen to ATP production.",
+    "step": 4,
+    "reason": "The ribosome picture marks their place inside the cell, matching the remaining goal.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will be added to the cell as protein builders.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are installed, and the new goal is to use ATP to build a protein from amino acids.",
+    "reaction": "The picture connects the RNA copy to the ribosome's job.",
+    "step": 5,
+    "reason": "The result says ATP powers protein building, and the cell now has ribosomes and amino acids.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein,Ribosomes]",
+      "with": "ATP"
+    },
+    "expectation": "The cell will use ATP to build a protein from amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP was used to build a protein from amino acids, completing the chapter. The picture shows that ATP supplies energy rather than becoming part of the protein.",
+    "reaction": "It was satisfying to see the earlier parts come together to make something.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the protein was most worthwhile because it connected the nucleus, ribosomes, amino acids and ATP in one picture.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing mitochondria was the least interesting part: the picture already showed where they belonged, so there wasn't much to figure out.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the sugar carrier to change which side its pocket opens toward. The picture made the route into the cell clearer.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt without purpose, though ATP and RNA were new terms whose jobs became clearer through the results rather than their names alone.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter because seeing separate cell parts work together was interesting, though the individual placements were fairly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

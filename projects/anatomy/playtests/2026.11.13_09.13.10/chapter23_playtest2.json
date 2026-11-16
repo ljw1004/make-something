@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal condition to follow how the pancreas responds to elevated glucose.",
+    "choice": 1,
+    "expectation": "I expect pancreatic beta cells to release insulin into the blood, initiating glucose storage or uptake.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meal response also matters, but I prefer to follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result confirms that beta cells release insulin after a meal and shows routes to both muscle and liver.",
+    "reaction": "The separate branches make the next comparison clear.",
+    "step": 2,
+    "reason": "Follow insulin to skeletal muscle to see how it handles glucose after a meal.",
+    "choice": 2,
+    "expectation": "I expect insulin to increase muscle glucose uptake, possibly with some glucose stored as glycogen.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The liver response is also relevant, but I want to follow the muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose transport, and its release weakens as blood glucose falls toward its earlier range.",
+    "reaction": "The feedback link makes the muscle response more informative.",
+    "step": 3,
+    "reason": "Follow the other insulin branch to see how the liver handles glucose after a meal.",
+    "choice": 2,
+    "expectation": "I expect insulin to promote glucose storage as liver glycogen, though the picture may show additional effects.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The between-meal response is worth comparing, but I want to finish the after-meal branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin favours liver glycogen storage and reduces glucose output, without showing the muscle-style transporter insertion.",
+    "reaction": "The distinction between liver and muscle responses is useful.",
+    "step": 4,
+    "reason": "The only available combination starts the between-meal response.",
+    "choice": 1,
+    "expectation": "I expect pancreatic alpha cells to release glucagon, signalling the liver to make glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meal panel confirms increased glucagon release from alpha cells and reduced insulin release, with glucagon reaching the liver.",
+    "reaction": "The contrast with the after-meal response is clear.",
+    "step": 5,
+    "reason": "The only available combination follows glucagon to the liver.",
+    "choice": 1,
+    "expectation": "I expect glucagon to promote glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release, with its stimulation diminishing as blood glucose rises; both goals are complete.",
+    "reaction": "The feedback closes the between-meal comparison clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin’s effects on muscle and liver was most worthwhile: the planned pictures distinguish transporter insertion in muscle from glycogen storage and reduced glucose output in liver.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The between-meal branch was predictable and had only one combination available at each decision, although it completed the comparison.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The liver picture explicitly distinguishes its glucose entry from the muscle-style transporter insertion, rather than presenting insulin’s effects as identical in both tissues.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the combinations followed the two stated conditions, though the last two were the only available combinations.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter if it offered similarly clear comparisons, though I would hope for more meaningful choices than the final single-option sequence.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm-condition signals reach the skin, where sweat glands can respond.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Sweat glands"
+    },
+    "expectation": "The signals should activate sweating as part of the cooling response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm signal produced liquid sweat; the cooling step still needs to be shown.",
+    "reaction": "The distinction between sweat on the skin and evaporation is useful.",
+    "step": 2,
+    "reason": "Air at the skin is the likely next component for evaporating the sweat.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat should evaporate into the air, carrying heat away from the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation cools the body, with less evaporation in humid air; the warm response may also involve skin vessels.",
+    "reaction": "The distinction between producing sweat and evaporating it is clear.",
+    "step": 3,
+    "reason": "Warm signals and skin vessels suggest a second route for releasing heat.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The vessels should widen, increasing blood flow near the skin and heat loss to cooler air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Widening skin vessels completes the warm response by increasing heat transfer to cooler surroundings.",
+    "reaction": "The heat-flow arrows make the vessel response clear.",
+    "step": 4,
+    "reason": "Cold signals reach the skin vessels, so their response is a direct way to investigate heat conservation.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The vessels should narrow, reducing blood flow near the skin and heat loss.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold-condition nerve signals",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Cold signals also reach motor pathways and could trigger heat-producing muscle activity."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold narrows skin vessels, reducing heat loss without producing new heat; muscle activity remains a likely cold response.",
+    "reaction": "The distinction between conserving and producing heat is clear.",
+    "step": 5,
+    "reason": "Cold signals also reach skeletal motor pathways, suggesting a heat-producing response.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The signals should cause shivering, producing heat through muscle activity.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering completes the cold response by producing heat through repeated ATP-using contractions, distinct from conserving heat by narrowing vessels.",
+    "reaction": "The contrast between heat production and conservation was satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing sweating with evaporation was most worthwhile: the planned pictures distinguish liquid sweat from actual heat loss and show why humidity matters.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial sweating result felt somewhat incomplete on its own, although the next step made its purpose clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The humid-air comparison made me think about how the surroundings limit evaporation, not just how much sweat the body produces.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each followed a visible signal or a physical connection in the planned pictures.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would continue to see more connected physiological responses, particularly if they preserve the clear contrasts between mechanisms shown here.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

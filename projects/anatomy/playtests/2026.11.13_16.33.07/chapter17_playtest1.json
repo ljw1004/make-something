@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows these enzymes linking glucose into glycogen, matching the storage goal.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "The meal's glucose will be stored as glycogen in liver tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Portal vessel"
+        },
+        "reason": "The named slot also makes the route to the liver a clear starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients must reach liver tissue before the storage step; the compatibility hint did that automatically.",
+    "reaction": "I missed that intermediate step, but the result makes the route clearer.",
+    "step": 2,
+    "reason": "The enzymes are pictured linking glucose into glycogen, and the liver is now receiving the nutrients.",
+    "choice": {
+      "combine": "Liver receiving portal nutrients",
+      "with": "Glycogen-making enzymes"
+    },
+    "expectation": "Liver cells will store some of the glucose as glycogen.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Portal vessel"
+        },
+        "reason": "The tube also has a named slot for the vessel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen; the next part of the goal is to release it.",
+    "reaction": "The storage picture makes the glucose-to-glycogen connection clear.",
+    "step": 3,
+    "reason": "The release enzymes are pictured separating glucose units from glycogen.",
+    "choice": {
+      "combine": "Liver storing glycogen",
+      "with": "Glycogen-release enzymes"
+    },
+    "expectation": "The liver will release glucose from its glycogen store.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Portal vessel"
+        },
+        "reason": "The vessel also fits the digestive tube's named slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver is now releasing glucose from glycogen; blood transport may show where it goes next.",
+    "reaction": "The storage and release sequence is clear.",
+    "step": 4,
+    "reason": "Blood transport is pictured carrying blood away from liver tissue, matching the released glucose's likely route.",
+    "choice": {
+      "combine": "Liver releasing glucose",
+      "with": "Blood transport"
+    },
+    "expectation": "Glucose will enter blood leaving the liver.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Portal vessel"
+        },
+        "reason": "The portal vessel also fits the tube's named slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose storage and release goal is complete; the digestive system still needs connecting to the body.",
+    "reaction": "Seeing glucose travel to other tissues makes the liver's role clearer.",
+    "step": 5,
+    "reason": "The digestive tube has a named portal vessel slot, and the vessel carries blood from the intestine to the liver.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Portal vessel"
+    },
+    "expectation": "The portal vessel will connect the intestine to the liver in the digestive model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted; the digestive system still needs to connect to the body.",
+    "reaction": "The named slot made that step straightforward.",
+    "step": 6,
+    "reason": "The remaining goal is to connect the digestive system to the moving body, and these are the two assembled models.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive system will join the integrated body model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's blood vessels, nerves and lymph routes, completing the chapter.",
+    "reaction": "It is satisfying to see the separate systems joined, although the picture gives only a broad overview of their connections.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose as glycogen and then releasing it made the liver's role between meals easier to understand.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the portal vessel was straightforward but less interesting than seeing what the liver does with glucose.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected to start storing glucose immediately, but the nutrients first had to reach liver tissue. The compatibility hint completed that step automatically.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The first attempted pairing lacked an obvious prerequisite to me: the goal mentioned liver tissue, but I had not realized I needed to combine it with the nutrients first. The hint clarified it.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the connected body uses nutrients, though the final connection was more of an overview than a detailed explanation.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

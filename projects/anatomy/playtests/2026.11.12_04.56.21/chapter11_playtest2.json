@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The blind-ended lymphatic capillaries appear suited to collecting excess fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries will provide a route for excess tissue fluid to enter the lymphatic system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue spaces now have lymphatic capillaries that take up fluid and proteins; the collecting vessels should extend that route.",
+    "reaction": "The inward arrows make the capillaries' role clear.",
+    "step": 2,
+    "reason": "The collecting lymphatic vessels appear to be the next link in returning the collected fluid.",
+    "choice": {
+      "combine": "Fluid-collecting tissue",
+      "with": "Collecting lymphatic vessels"
+    },
+    "expectation": "The collecting vessels will carry fluid onward from the lymphatic capillaries.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collecting vessels extend the lymphatic route, with muscle movement and valves helping lymph move forward. The return ducts are the next apparent connection.",
+    "reaction": "The paired panels make the role of muscle movement and valves clear.",
+    "step": 3,
+    "reason": "The return ducts appear to connect the lymphatic pathways to the veins.",
+    "choice": {
+      "combine": "Lymph return pathways",
+      "with": "Lymphatic return ducts"
+    },
+    "expectation": "The ducts will complete a route for lymph to return to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphatic route now reaches veins near the neck. It still needs to be connected to the circulation and arm.",
+    "reaction": "The completed route makes the return path clear.",
+    "step": 4,
+    "reason": "The arm needs to connect to the circulation for its muscles to receive oxygen and nutrients.",
+    "choice": {
+      "combine": "Responsive arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm's vessels will connect to the circulation, supplying its muscles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lymph drainage network",
+          "with": "Breathing apparatus"
+        },
+        "reason": "The ducts also need to connect to the veins, but supplying the arm seems like a useful next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to the heart and lungs, and its tissue spaces still contain fluid and protein that need a return route.",
+    "reaction": "The tissue inset clearly connects blood supply with the remaining drainage problem.",
+    "step": 5,
+    "reason": "The lymph drainage network appears to complete the return route from the supplied arm to the blood.",
+    "choice": {
+      "combine": "Arm with blood supply",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The lymphatic network will collect excess tissue fluid and return it to the bloodstream.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage network is now connected to the supplied arm and circulation, completing the route for excess tissue fluid and proteins to return to the blood.",
+    "reaction": "The final model brings the supply and drainage routes together clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lymphatic network to the supplied arm was most worthwhile because the final inset brings blood supply, tissue exchange and fluid return into one picture.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the return ducts was fairly predictable after the collecting vessels, although it completed the route to the veins.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was interested to learn that muscle movement can squeeze lymph onward and that lymph vessels can also contract.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each added a visible link in the supply or drainage route.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter if it used the assembled systems to explore a new situation. The connected final model was satisfying, though several assembly steps were predictable.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

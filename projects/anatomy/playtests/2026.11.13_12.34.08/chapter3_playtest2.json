@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "DNA nucleotides are the building blocks needed to copy the DNA shown in the nucleus.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Nucleus inside the stem cell"
+    },
+    "expectation": "The nucleotides will be used to copy the genome.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Duplicated centrosomes",
+          "with": "Tubulin and spindle motor proteins"
+        },
+        "reason": "These are the visible components for building the spindle."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, leaving membrane growth and spindle construction as the current goals.",
+    "reaction": "The distinction between copying the whole genome and making proteins is useful.",
+    "step": 2,
+    "reason": "The centrosomes organize microtubules, and the tubulin and motors are the visible spindle components.",
+    "choice": {
+      "combine": "Duplicated centrosomes",
+      "with": "Tubulin and spindle motor proteins"
+    },
+    "expectation": "These components will form a chromosome-separating spindle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Phospholipids",
+          "with": "Living pluripotent stem cell"
+        },
+        "reason": "Phospholipids may help build the growing cell's membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, and making daughter cells is now a goal; membrane growth remains unfinished.",
+    "reaction": "The spindle image makes clear that building it and separating chromosomes are distinct steps.",
+    "step": 3,
+    "reason": "Phospholipids are the visible membrane-building material, and the cell needs more membrane as it grows.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The phospholipids will contribute to membrane growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted cell combination instead revealed that phospholipids and proteins make membrane vesicles; growing the surface and contents is now the goal.",
+    "reaction": "The vesicles clarify that membrane components are assembled before being added to the cell.",
+    "step": 4,
+    "reason": "The new vesicles appear to supply membrane for the living cell's growing surface.",
+    "choice": {
+      "combine": "New membrane vesicles",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The vesicles will contribute membrane to the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles fused with the cell surface, completing growth; the remaining goal is to make daughter cells with complete genomes.",
+    "reaction": "The before-and-after view usefully connects membrane expansion with growth of the cell's contents.",
+    "step": 5,
+    "reason": "The copied genome and mitotic spindle are the components needed to separate chromosomes before division.",
+    "choice": {
+      "combine": "Nucleus with its genome copied",
+      "with": "Mitotic spindle"
+    },
+    "expectation": "The spindle will help separate the copied chromosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle has separated the chromosome copies, but the cell still needs its cytoplasm divided.",
+    "reaction": "The distinction between chromosome separation and forming two cells is clear.",
+    "step": 6,
+    "reason": "The separated chromosome sets must be brought together with the grown cell body before it can divide.",
+    "choice": {
+      "combine": "Separated chromosome sets",
+      "with": "Enlarged stem-cell body"
+    },
+    "expectation": "This will bring the separated genomes into the grown-cell division sequence.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cortical actin and myosin",
+          "with": "Enlarged stem-cell body"
+        },
+        "reason": "Actin and myosin could help divide the cell's cytoplasm."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separated chromosome sets now have daughter nuclei, but both remain in one shared cytoplasm.",
+    "reaction": "The new nuclear envelopes make the remaining division of the cell body clear.",
+    "step": 7,
+    "reason": "Cortical actin and myosin can contract beneath the membrane to divide the shared cytoplasm.",
+    "choice": {
+      "combine": "Cortical actin and myosin",
+      "with": "Stem cell with two daughter nuclei"
+    },
+    "expectation": "Actin and myosin will help split the cell into two daughter stem cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Actin and myosin completed division into two unspecialized daughter stem cells, each with a complete genome; all goals are complete.",
+    "reaction": "It was satisfying to see chromosome separation and cytoplasmic division come together as distinct stages.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes and then forming daughter nuclei was most worthwhile: the picture descriptions distinguish genome distribution from division of the shared cytoplasm.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle was relatively thin as a passage: the picture shows fibres, but the accompanying wonder adds no explanation of how they attach to and move chromosomes.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected phospholipids to go directly into the cell, but compatibility feedback led instead to membrane vesicles made with proteins; those subsequently fused with the surface.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the separated chromosome sets with the enlarged cell body felt somewhat like merging two views of the same cell rather than a physical action, although it led to a clear daughter-nuclei picture.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting the separate chromosome and cell-body views made the division sequence interesting, and the descendants taking different paths suggest a useful next question about specialization.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

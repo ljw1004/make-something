@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The tissue picture shows fluid leaving blood vessels and an empty return-vessel outline; the tiny lymph vessels fit beside the cells.",
+    "choice": {
+      "combine": "Tissue beside blood capillaries",
+      "with": "Tiny lymph vessels"
+    },
+    "expectation": "The tiny lymph vessels will collect excess fluid from around the tissue cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tiny lymph vessels collect fluid around the cells while remaining separate from the blood vessel. I can now build the return connection to a vein.",
+    "reaction": "The separate vessels make the fluid route clearer.",
+    "step": 2,
+    "reason": "The larger lymph vessels end beside a neck-vein outline, matching the vein connection and the remaining goal.",
+    "choice": {
+      "combine": "Larger lymph vessels",
+      "with": "Vein connection"
+    },
+    "expectation": "The larger lymph vessels will connect to the vein, providing a return route toward the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The larger lymph vessels now connect to a neck vein; the remaining goal is to join them to the tiny vessels beside the tissue.",
+    "reaction": "The valve panels help explain how fluid moves forward.",
+    "step": 3,
+    "reason": "Joining the tissue's lymph capillaries to the return route should complete the path back to the blood.",
+    "choice": {
+      "combine": "Tissue with lymph capillaries",
+      "with": "Lymph return route"
+    },
+    "expectation": "The small vessels will connect to the larger vessels and carry collected fluid back to the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed network shows a continuous path from fluid around cells back to a neck vein. I also learned that the fluid is called lymph once it enters the vessels.",
+    "reaction": "It was satisfying to see the separate pieces form a complete return route.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the small and large vessels was most worthwhile because it showed the whole route back to the blood and why it helps prevent fluid buildup.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the larger vessels to the vein felt fairly predictable from their matching outlines, though the valve panels added useful information.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I learned that the fluid is called lymph when it enters the lymph vessels; the separate blood vessel remains intact.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: each connected a visible part of the return route.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter. Building the complete route helped explain a body process I had not thought much about, although the pairings were straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

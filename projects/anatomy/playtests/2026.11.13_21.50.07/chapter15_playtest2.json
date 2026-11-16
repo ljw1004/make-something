@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with glucose storage: the picture shows liver cells joining glucose into a branched carbohydrate.",
+    "choice": 1,
+    "expectation": "I expect the liver cells to make a glucose store from the nutrients in the blood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The vein clearly fits the digestive tube and would help connect the organs, but I want to follow the glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores linked glucose and can break the store down later. Next I'll connect the digestive organs.",
+    "reaction": "The linked granules make the storage idea clear.",
+    "step": 2,
+    "reason": "The vein fits the named slot in the digestive tube, and it's the only combination offered.",
+    "choice": 1,
+    "expectation": "I expect the vein to connect the intestine to the liver in the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted, so the digestive tube is ready to connect to the body.",
+    "reaction": "The fitting was expected.",
+    "step": 3,
+    "reason": "This is the only combination offered, and it addresses the remaining goal of connecting the digestive organs.",
+    "choice": 1,
+    "expectation": "I expect the digestive tube and its liver connection to become part of the body model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs and their liver vein are now connected to circulation, completing the chapter; the colon lining remains unfinished.",
+    "reaction": "The connection was expected, but the unfinished colon wall makes me curious.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in liver cells was most worthwhile: the linked granules made it clear how some glucose can be saved for later.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the vein was straightforward but less interesting, since the named slot and only available combination made the choice predictable.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The liver can break down its stored carbohydrate when other tissues need fuel; I had not known that from the starting description.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The vein had a named slot, though I was following the only offered pairing rather than figuring out compatibility myself.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how the unfinished colon wall is assembled, though the last two choices were quite predictable.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

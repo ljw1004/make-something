@@ -1,0 +1,219 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows skin cells dividing and moving into the gap, with nutrients and oxygen nearby to support them.",
+    "choice": {
+      "combine": "Skin cells at the cut's edge",
+      "with": "Oxygen, glucose and amino acids"
+    },
+    "expectation": "The supplied cells should grow and help close the skin surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Protein messengers from the wound"
+        },
+        "reason": "The pictured messengers also suggest a way to rebuild the blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies helped the edge cells form a new surface across the gap; it still needs to be connected to the body.",
+    "reaction": "It is satisfying to see the gap covered by new cells.",
+    "step": 2,
+    "reason": "The new surface appears to fit the remaining skin gap on the body.",
+    "choice": {
+      "combine": "New surface",
+      "with": "Body with sealed vessel"
+    },
+    "expectation": "The new surface should close the skin over the sealed vessel.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Protein messengers from the wound"
+        },
+        "reason": "The picture also suggests these can start rebuilding the blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface cannot currently be combined with anything, so I need to work on another part of the repair first.",
+    "reaction": "I was surprised it could not yet be added to the body.",
+    "step": 3,
+    "reason": "The picture shows wound messengers reaching the nearby capillary and a new branch growing.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Protein messengers from the wound"
+    },
+    "expectation": "The messengers should help a new blood vessel branch grow.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Support-building skin cells",
+          "with": "Protein building blocks"
+        },
+        "reason": "The cells appear to use amino acids to make supporting fibres."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messengers helped a capillary branch grow toward the wound, starting the blood-supply repair.",
+    "reaction": "The pictured result matched what I expected.",
+    "step": 4,
+    "reason": "The support-building cells release protein fibres, and the amino acids are their building blocks.",
+    "choice": {
+      "combine": "Support-building skin cells",
+      "with": "Protein building blocks"
+    },
+    "expectation": "The cells should make fibres to support the healing skin.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Capillary sprout"
+        },
+        "reason": "I could check how to continue the new vessel, but the support-building pair is clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made new protein fibres across the damaged deeper skin, providing material for support.",
+    "reaction": "The result matches the picture and makes the support repair clearer.",
+    "step": 5,
+    "reason": "The white blood cells are pictured clearing broken fragments beside the clot, which seems useful before completing the wound repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Debris-clearing white blood cells"
+    },
+    "expectation": "The white blood cells should clear debris from the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Capillary sprout"
+        },
+        "reason": "I could check whether the new vessel branch has another step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clearing debris revealed slots for the wound's supply, surface and support, explaining why the new surface could not be added earlier.",
+    "reaction": "The revealed slots make the repair sequence clearer.",
+    "step": 6,
+    "reason": "The new surface matches the named Surface slot in the cleared wound.",
+    "choice": {
+      "combine": "New surface",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The new surface should fit into the wound's Surface slot.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "New supporting protein fibres",
+          "with": "Body with a debris-cleared wound"
+        },
+        "reason": "The fibres also appear to match the Support slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface filled the wound's Surface slot and completed the surface-closure goal; deeper repair remains.",
+    "reaction": "It is satisfying to see the skin gap close.",
+    "step": 7,
+    "reason": "The new protein fibres span the damaged deeper skin and match the Support slot.",
+    "choice": {
+      "combine": "New supporting protein fibres",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The fibres should fit into the wound as deeper support.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Capillary sprout",
+          "with": "Body with a debris-cleared wound"
+        },
+        "reason": "The new vessel branch might also fit the Supply slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibres now support the deeper wound; the Supply slot remains.",
+    "reaction": "The deeper repair is coming together.",
+    "step": 8,
+    "reason": "The capillary sprout is the available new blood vessel branch and appears to match the Supply slot.",
+    "choice": {
+      "combine": "Capillary sprout",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The sprout should fit as the wound's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary branch joined another vessel, completing the support and blood-supply goal. The temporary clot still needs clearing.",
+    "reaction": "Seeing blood flow through the new route makes the supply repair clearer.",
+    "step": 9,
+    "reason": "The clot-clearing enzymes are pictured cutting the protein threads that reinforce the clot.",
+    "choice": {
+      "combine": "Clot-clearing enzymes",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The enzymes should break down the temporary clot in the repaired wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes cleared most of the temporary clot threads, leaving closed skin and supporting fibres in a small scar. All chapter goals are complete.",
+    "reaction": "It was satisfying to see the temporary clot give way to repaired tissue.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Clearing debris and then fitting the surface, support and blood supply made the different parts of wound repair understandable as one connected process.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add the new surface before clearing debris was frustrating: the game did not explain that prerequisite until afterward.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the new surface to fit immediately, but clearing debris first revealed the three repair slots.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The debris-clearing prerequisite felt somewhat arbitrary because the new surface was already shown spanning the gap, although clearing fragments had an understandable purpose.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: putting the different repairs together was satisfying, even though the hidden prerequisite interrupted the flow.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

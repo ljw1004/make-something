@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "Send the absorbed nutrients to liver tissue to begin investigating glucose storage.",
+    "choice": 1,
+    "expectation": "The liver tissue will receive nutrients from the portal blood, though storage may need another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the portal vessel also serves a goal, but I want to follow the nutrients first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients now pass liver cells, setting up the glucose-storage step.",
+    "reaction": "The result is clear, though it adds little beyond the expected connection.",
+    "step": 2,
+    "reason": "Add the glycogen-making enzymes to pursue the storage goal.",
+    "choice": 1,
+    "expectation": "The liver cells will link glucose into glycogen for storage.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel also needs connecting, but I want to finish following glucose storage first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored glucose as glycogen; the remaining goal also calls for release.",
+    "reaction": "The branching granules make the storage idea clear, as expected.",
+    "step": 3,
+    "reason": "Add the release enzymes to follow the stored glucose back out.",
+    "choice": 1,
+    "expectation": "The enzymes will break down glycogen to make glucose available again, perhaps with another step needed for transport.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel still needs connecting, but I want to complete the storage-and-release sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycogen is broken down and glucose released; blood transport may show where it goes next.",
+    "reaction": "The result follows the expected storage-and-release sequence.",
+    "step": 4,
+    "reason": "Add blood transport to follow the released glucose into circulation.",
+    "choice": 1,
+    "expectation": "Glucose will enter blood leaving the liver, completing or advancing the storage-and-release goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel also needs connecting, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose now travels in blood toward other tissues, completing the storage-and-release goal.",
+    "reaction": "The between-meals connection gives the sequence a clear purpose.",
+    "step": 5,
+    "reason": "Connect the portal vessel to advance the remaining digestive-system goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The vessel will connect the intestine to the liver, though linking the digestive system to the moving body may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, making the digestive tube available to connect to the movement model.",
+    "reaction": "The fitting is expected, though it gives no further detail about the connection.",
+    "step": 6,
+    "reason": "Connect the digestive system to the supplied movement model; it is the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "The digestive system will join the circulation and moving body, possibly completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's blood vessels, nerves and lymph routes, completing the remaining goal.",
+    "reaction": "The whole-body connection is a useful culmination, although the picture description gives few details about those routes.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following stored glycogen through release into blood was most worthwhile: the between-meals explanation gives the construction a clear biological purpose.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the portal vessel was comparatively bare: the result confirmed the fitting but added no detail about the route.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was particularly surprising; the storage, release and transport results followed the offered combinations and stated goal.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear goal, but the final whole-body connection leaves the specific roles of the nerves and lymph routes unexplained.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see how the connected systems interact, though the largely predictable sequence offers limited meaningful choice.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

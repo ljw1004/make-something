@@ -1,0 +1,106 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and the fat heads and tails suggest water may help form the cell boundary.",
+    "choice": 1,
+    "expectation": "I expect the fats to arrange into a membrane-like boundary in water, though I'm not sure exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids formed two layers, with heads facing water and tails inside. Oxygen can cross the oily middle, while water channels can speed water crossing.",
+    "reaction": "The picture makes the boundary's arrangement easier to understand.",
+    "step": 2,
+    "reason": "Oxygen can cross the patch, so I'll address the first goal.",
+    "choice": 1,
+    "expectation": "I expect oxygen to pass through the membrane patch.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The water-channel protein should help water cross, but I'll try oxygen first."
+      },
+      {
+        "choice": 3,
+        "reason": "The sugar carrier looks useful for the other route, but I'll start with oxygen."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses both ways, with more entering, completing the first goal. I can now work on the water and sugar routes.",
+    "reaction": "The arrows make it clear that crossing isn't only one-way.",
+    "step": 3,
+    "reason": "The water-channel protein has a pore that fits water, so it should help make the water route.",
+    "choice": 1,
+    "expectation": "I expect the protein to fit into the membrane and provide a channel for water.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sugar carrier should make the other route, but I'll do water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel spans the membrane and lets water pass both ways; the sugar route remains.",
+    "reaction": "The picture makes the channel's job clear.",
+    "step": 4,
+    "reason": "The sugar carrier has a sugar-shaped pocket, so I'll use the only offered combination to make the other route.",
+    "choice": 1,
+    "expectation": "I expect the carrier to fit into the membrane and provide a way for sugar to cross.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier is in the membrane, with its pocket opening on each side. Glucose can now be paired with it.",
+    "reaction": "The two panels help explain how the carrier could move sugar across.",
+    "step": 5,
+    "reason": "Glucose fits the carrier's pocket, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect glucose to cross the membrane using the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose uses the carrier to enter the cell, completing the water and sugar routes and all chapter goals.",
+    "reaction": "The sequence of binding, crossing and release makes the carrier's job clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the membrane from fats and water was most worthwhile: the two-layer picture explained how the boundary is arranged.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the sugar carrier was clear but fairly predictable after making the water channel, and it was the only offered combination.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Oxygen crossed both ways, even though more entered the cell. I had expected it to pass in, but hadn't thought about movement in both directions.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures connected each pairing to a route across the membrane. Some later choices were simply the only available combinations.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter: the pictures made the cell boundary understandable, though I hope there would be more meaningful choices than the mostly predictable pairings here.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

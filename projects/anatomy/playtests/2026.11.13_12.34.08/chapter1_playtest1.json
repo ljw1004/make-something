@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The phospholipids are the natural starting point for reconstructing the membrane surface.",
+    "choice": {
+      "inspect": "Phospholipids"
+    },
+    "expectation": "I expect to learn how to assemble the lipid layer or which membrane components fit with it.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Phospholipids",
+          "with": "Water"
+        },
+        "reason": "Water might help arrange the phospholipids, but the available recipe is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids and water formed lipid-only membrane patches, providing a surface for transport comparisons.",
+    "reaction": "The bilayer arrangement is a useful visual starting point.",
+    "step": 2,
+    "reason": "Oxygen is small and uncharged, so it should cross the lipid bilayer without a channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will diffuse into the cell through the lipid membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "Installing a water channel is another plausible way to advance the transport goals."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region into the cytosol, as expected; water exchange and sodium transport remain to be explored.",
+    "reaction": "The whole-cell inset helps connect the membrane crossing to the cell interior.",
+    "step": 3,
+    "reason": "Water can cross a lipid bilayer, so testing it against the lipid-only patches should establish a comparison for the aquaporin channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Water"
+    },
+    "expectation": "Water will exchange across the lipid-only membrane, potentially more slowly than through an aquaporin.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "Installing the channel could provide the protein route for water exchange."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid-only membrane in both directions, with net movement toward the higher non-crossing solute concentration; this provides a comparison for aquaporin.",
+    "reaction": "The matched-interval comparison makes the slow exchange clear.",
+    "step": 4,
+    "reason": "The aquaporin spans a membrane and provides a specific water route, so it should fit into the patches.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Aquaporin water channel"
+    },
+    "expectation": "The channel will be incorporated into the membrane, allowing a comparison with slow lipid-only water exchange.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Open sodium channel"
+        },
+        "reason": "The sodium channel is also needed for the passive sodium route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aquaporin produces rapid two-way water exchange with net movement toward the higher non-crossing solute concentration, completing the first goal.",
+    "reaction": "The matched comparison clearly shows how a channel speeds exchange without changing the net direction.",
+    "step": 5,
+    "reason": "The open sodium channel should fit into the membrane and provide the passive route needed for sodium.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Open sodium channel"
+    },
+    "expectation": "The channel will become part of the membrane, allowing sodium to move inward down its electrochemical gradient.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Open sodium channel",
+          "with": "Extracellular sodium solution"
+        },
+        "reason": "The sodium solution is the other ingredient for demonstrating ion movement, though the channel first needs a membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open channel provided a passive inward route for sodium without ATP, completing the remaining goal.",
+    "reaction": "The contrast between the channel and ion-excluding lipid made the result clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing slow lipid-only water exchange with rapid aquaporin exchange was most worthwhile: the matched conditions made the channel’s effect on speed distinct from the direction of net movement.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial inspection was the least substantive passage: it had only one available partner and automatically assembled the membrane, though it provided a useful starting picture.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Installing the open sodium channel immediately demonstrated sodium entry; there was no separate action with the sodium solution.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the automatic use of sodium already present around the patches was not what I initially expected.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how later constructions connect membrane transport to tissues and organs; the controlled water comparison made this chapter useful.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

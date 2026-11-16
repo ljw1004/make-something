@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The phospholipids are the obvious starting material for the membrane surface needed by both goals.",
+    "choice": {
+      "inspect": "Phospholipids"
+    },
+    "expectation": "Inspection should show how to assemble the lipid layer or what can be used with it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Phospholipids and water formed bilayer patches, giving me a surface for the transport comparisons.",
+    "reaction": "The automatic assembly makes the arrangement of heads and tails clear.",
+    "step": 2,
+    "reason": "Oxygen is small and uncharged, so it should cross the lipid bilayer directly.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will diffuse through the membrane into the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the lipid region directly, so the remaining work is water exchange and a sodium route.",
+    "reaction": "The concentration arrows make the direction of oxygen movement clear.",
+    "step": 3,
+    "reason": "The water comparison starts with the lipid-only membrane, allowing its permeability to be shown before adding a channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Water"
+    },
+    "expectation": "Water will exchange across the lipid bilayer, potentially more slowly than through aquaporins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "The channel should provide a faster water route, but the lipid-only comparison seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid bilayer in both directions, with net movement toward the higher solute concentration; the aquaporin comparison remains to be made.",
+    "reaction": "The matched interval makes the slower lipid route a useful comparison.",
+    "step": 4,
+    "reason": "Adding the aquaporin to a membrane patch should establish the protein route for water exchange.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Aquaporin water channel"
+    },
+    "expectation": "The channel will be incorporated into the membrane, allowing a comparison with slow water exchange through lipid.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Open sodium channel"
+        },
+        "reason": "This should also advance a goal, but I want to finish the water comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin is installed in a membrane while the lipid-only patch remains for comparison.",
+    "reaction": "The side-by-side setup makes the comparison easy to follow.",
+    "step": 5,
+    "reason": "Water should now pass through the aquaporin, completing the comparison with the lipid-only route.",
+    "choice": {
+      "combine": "Membrane with aquaporin",
+      "with": "Water"
+    },
+    "expectation": "Water will exchange faster through aquaporin under the same starting conditions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin comparison completed the oxygen and water goal; sodium still needs a passive route.",
+    "reaction": "The paired comparisons clearly show that the channel speeds water exchange without changing its net direction.",
+    "step": 6,
+    "reason": "The open sodium channel should fit into the lipid membrane to provide a passive route for sodium.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Open sodium channel"
+    },
+    "expectation": "The channel will be incorporated into a membrane patch, ready for the sodium solution.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open sodium channel is installed in the membrane under conditions favoring sodium entry.",
+    "reaction": "The matched lipid-only patch makes the comparison clear.",
+    "step": 7,
+    "reason": "The extracellular sodium solution should provide ions to pass through the open channel.",
+    "choice": {
+      "combine": "Membrane with an open sodium channel",
+      "with": "Extracellular sodium solution"
+    },
+    "expectation": "Sodium will enter passively through the channel, driven by its concentration and electrical gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium entered through the open channel without ATP, completing the passive-transport goal and the chapter.",
+    "reaction": "The contrast between the ion-selective pore and the surrounding lipid was clear.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The water comparison was most worthwhile: matching the starting conditions and interval made the aquaporin’s effect on exchange rate distinct from the direction of net movement.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing each channel was somewhat repetitive, although both preparations made their membrane location clear.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The lipid-only patch allowed water to cross in both directions; the aquaporin increased exchange rather than creating the only possible route.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary. Inspecting phospholipids initially led automatically to assembly, and its purpose became clear in the bilayer picture.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose another chapter: the matched transport comparisons made the constructions informative, and I would be curious to see how later structures build on them.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

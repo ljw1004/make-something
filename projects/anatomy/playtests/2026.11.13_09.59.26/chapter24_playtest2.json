@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The dendritic cell's empty display suggests it can collect a bacterial feature to present to helper T cells.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will take up bacterial material and display a fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger now displays a bacterial fragment in the lymph node, so I can try engaging the matching helper T cells.",
+    "reaction": "The linked airway-to-node journey makes the messenger's role clear.",
+    "step": 2,
+    "reason": "The helper T cells include one matching the displayed fragment, suggesting they should interact.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "A matching helper T cell will recognize the displayed fragment and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helper cells were activated at the lymph node; station reactions can include the other ingredient automatically.",
+    "reaction": "The location requirement was not obvious from the attempted pair, but the automatic combination resolved it.",
+    "step": 3,
+    "reason": "B cells match the intact bacterial protein, so I expect the bacteria to engage them before helper-cell assistance.",
+    "choice": {
+      "combine": "B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "A matching B cell will bind the bacterial surface protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Activated helper T cells",
+          "with": "B cells"
+        },
+        "reason": "Helper cells might act on B cells directly at this stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has bound the bacterial protein and displays a fragment, ready for helper-cell interaction.",
+    "reaction": "The distinction between binding the intact protein and displaying a fragment is useful.",
+    "step": 4,
+    "reason": "The activated helper cells and fragment-displaying B cell likely interact in the lymph node.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Lymph node"
+    },
+    "expectation": "The activated helper T cells will help activate the matching B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has received helper signals; its next response may produce antibody-secreting and memory cells.",
+    "reaction": "The contact makes the helper signal's role clearer.",
+    "step": 5,
+    "reason": "I will check what the helped B cells can do next rather than guess how their response is triggered.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The compatibility list should reveal the next step toward antibodies or immune memory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied into antibody-secreting plasma cells and memory B cells in the lymph node.",
+    "reaction": "The branching time sequence clearly connects the immediate response with memory.",
+    "step": 6,
+    "reason": "The new cells produce matching antibodies, so combining them with the bacteria may show the marking.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "Antibodies released by the plasma cells will bind the matching bacterial surface protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "Glucose must cross the villus lining to begin its route toward the liver.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Glucose will be absorbed across the intestinal lining toward the villus blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has crossed an intestinal cell into villus blood; amino acids still need a route across.",
+    "reaction": "The capillary destination is clear, though the transport mechanism is not shown.",
+    "step": 2,
+    "reason": "Amino acids also need to cross the villus to reach blood on their way toward the liver.",
+    "choice": {
+      "combine": "Meal amino acids",
+      "with": "Intestinal villus"
+    },
+    "expectation": "Amino acids will cross the intestinal lining into villus blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both glucose and amino acids have reached villus blood; their onward route to the liver remains to be established.",
+    "reaction": "The parallel absorption routes are clear, though the transport details remain unspecified.",
+    "step": 3,
+    "reason": "Fat digestion products must cross the villus before packaged fat can enter lymph.",
+    "choice": {
+      "combine": "Fat digestion products",
+      "with": "Intestinal villus"
+    },
+    "expectation": "The fat digestion products will enter intestinal cells for packaging.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fatty acids and monoglycerides are inside the intestinal cells, ready for packaging.",
+    "reaction": "The separate fat route is becoming clearer.",
+    "step": 4,
+    "reason": "The packaging materials are intended to package fat inside intestinal cells before it enters lymph.",
+    "choice": {
+      "combine": "Fat inside intestinal cells",
+      "with": "Lipoprotein packaging materials"
+    },
+    "expectation": "The fat will be packaged into lipoprotein particles for transport toward the lacteal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Packaging required the villus as the station, and produced chylomicrons inside intestinal cells.",
+    "reaction": "The automatic station combination clarified the required location; chylomicrons are now named and explained.",
+    "step": 5,
+    "reason": "The lacteal is the villus lymph vessel entrance, so it is the natural destination for the packaged fat.",
+    "choice": {
+      "combine": "Chylomicrons",
+      "with": "Lacteal entrance"
+    },
+    "expectation": "Chylomicrons will enter the lacteal and travel into lymph.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Chylomicrons entered the villus lymph vessel, completing the fat goal; glucose and amino acids still need their onward route.",
+    "reaction": "The lymph-first route is clear, though the lacteal entrance also required the villus station.",
+    "step": 6,
+    "reason": "I’ll check how glucose in villus blood can proceed toward the liver, since no portal vessel is listed on this chapter’s board.",
+    "choice": {
+      "inspect": "Glucose in villus blood"
+    },
+    "expectation": "The compatibility list should reveal the next step toward the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting glucose revealed and automatically combined it with amino acids in villus blood, completing the route toward the liver and the chapter.",
+    "reaction": "The automatic combination resolved the missing portal-route question, though it shows the destination rather than how the portal vessel connects.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat into intestinal cells, packaging it as chylomicrons and sending it into lymph made its different route from glucose and amino acids clear. The planned pictures and prose identify the particles and explain that lymph carries them onward to blood.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The parallel glucose and amino-acid absorption results were clear but sparse: neither planned picture explains the transport mechanisms across the intestinal cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The villus was required as a station both for packaging fat and for entry into the lacteal; compatibility feedback automatically completed each operation.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the two blood-borne nutrients to create portal blood felt like a gameplay convenience: each can travel in blood independently, and the connection to the liver was not built here.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how absorbed nutrients are used after reaching the liver; the contrasting routes made that next connection interesting, even though some transport details were abbreviated.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

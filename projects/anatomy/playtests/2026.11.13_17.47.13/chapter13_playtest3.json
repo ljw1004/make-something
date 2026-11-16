@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "The pictures show tiny lymph vessels taking in fluid from around cells, matching the fluid-return goal.",
+    "choice": {
+      "combine": "Fluid around cells",
+      "with": "Tiny lymph vessels"
+    },
+    "expectation": "The tiny lymph vessels will collect excess fluid from around the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tiny vessels collect fluid from around the cells, so I can now try joining them to the larger return vessels.",
+    "reaction": "The separate blood vessel makes the two routes clearer.",
+    "step": 2,
+    "reason": "The larger lymph vessels collect from smaller vessels and lead toward a vein.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Larger lymph vessels"
+    },
+    "expectation": "The collected fluid will move into the larger lymph vessels on its way back to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The draining tissue spaces cannot currently be combined with anything, so I need another way to build the return route.",
+    "reaction": "I was surprised the smaller and larger vessels did not join directly.",
+    "step": 3,
+    "reason": "The larger lymph vessels are still part of the return route, so checking their partners should clarify the next step.",
+    "choice": {
+      "inspect": "Larger lymph vessels"
+    },
+    "expectation": "The compatibility list should show what the larger vessels can join.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The larger lymph vessels connect to the vein first; the draining tissue spaces did not need to join them directly.",
+    "reaction": "The one-way valves make the return route easier to picture.",
+    "step": 4,
+    "reason": "The nervous system's outgoing nerves reach muscles, so it makes sense to connect it to the arm.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Nervous system model"
+    },
+    "expectation": "The arm muscles will connect to nerve routes that can carry signals to them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has incoming and outgoing nerve routes connected to the brain and spinal cord.",
+    "reaction": "The separate arrows make the two signal directions clearer.",
+    "step": 5,
+    "reason": "The remaining goal calls for connecting nerves and muscles with breathing and blood supply.",
+    "choice": {
+      "combine": "Body with connected nerves",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The connected arm and nervous system will join the breathing and circulation model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm and nervous system now have a blood supply, and nerves reach the breathing muscles. The fluid-return goal remains.",
+    "reaction": "The inset helps distinguish nerve signals from materials carried by blood.",
+    "step": 6,
+    "reason": "The lymph return route connects to a vein, so I’ll try joining it to the supplied body.",
+    "choice": {
+      "combine": "Body with nerves and blood supply",
+      "with": "Lymph return route"
+    },
+    "expectation": "The lymph return route will connect to the body's circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied body cannot currently combine with anything, so the fluid-return goal needs another step.",
+    "reaction": "I was surprised the return route did not connect to the body directly.",
+    "step": 7,
+    "reason": "Inspecting the lymph return route may show how to finish the remaining goal.",
+    "choice": {
+      "inspect": "Lymph return route"
+    },
+    "expectation": "The compatibility list will show whether the return route can connect to the draining tissue spaces or another item.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The complete lymph drainage network now runs from tissue spaces to a neck vein, and a new goal asks to connect it to the supplied body.",
+    "reaction": "It is clearer now why the larger vessels needed their vein connection first.",
+    "step": 8,
+    "reason": "The new goal explicitly calls for joining the completed return route to the supplied body.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Body with nerves and blood supply"
+    },
+    "expectation": "The lymph drainage network will connect to the supplied body's circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects movement, nerve signals, blood supply and lymph return in one view; all goals are complete.",
+    "reaction": "Seeing the systems work together made the final connection satisfying.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the finished lymph network to the body was worthwhile because the final picture showed how fluid return fits alongside movement and blood supply.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the supplied body directly to the unfinished return route was frustrating because the missing prerequisite was not clear yet.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the draining tissue spaces could not initially join the larger vessels directly, but could join after the larger vessels were connected to the vein.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for joining the tiny and larger lymph vessels felt somewhat arbitrary at first; the pictures suggested they formed one route, but did not make the prerequisite obvious.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: the final model made me curious about how more body systems fit together, though I would hope future prerequisites are clearer.",
+        "steps": [
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "step": 1,
+    "reason": "The sample and filter show how blood first enters the kidney's filtering route.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "Small substances should pass into the filter space while blood cells and large proteins stay in the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney pair",
+          "with": "Ureters"
+        },
+        "reason": "I could instead start connecting the urinary organs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter lets useful glucose and water through along with wastes, so the fluid needs a recovery step.",
+    "reaction": "It is surprising that useful substances pass through the filter too.",
+    "step": 2,
+    "reason": "The recovery tube is shown returning useful substances from the filtered fluid to blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Glucose, some salts and much water should return to the blood, leaving fluid that can become urine.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney pair",
+          "with": "Ureters"
+        },
+        "reason": "I could build the drainage route first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Recovery returns useful substances and much water to the blood, leaving fluid containing wastes.",
+    "reaction": "The two-part process makes more sense now.",
+    "step": 3,
+    "reason": "The remaining fluid needs a next step toward urine, but the available pairing is not clear.",
+    "choice": {
+      "inspect": "Kidney fluid after recovery"
+    },
+    "expectation": "The compatibility list should show how to continue the urine route.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney pair",
+          "with": "Ureters"
+        },
+        "reason": "I could build the urinary drainage route instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The recovered fluid has no available partner, so I will build the urinary organ route instead.",
+    "reaction": "I am unsure what completes the urine goal yet.",
+    "step": 4,
+    "reason": "The ureters are shown leading from the kidneys toward the bladder, and the kidney pair has a ureter slot.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters should attach to the kidney outlets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are attached to the kidney pair; the bladder still needs connecting.",
+    "reaction": "That matches the pictured drainage route.",
+    "step": 5,
+    "reason": "The bladder is the other named slot, and the ureters lead toward it.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder should attach to complete the kidney drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys now have ureters and a bladder, providing a route for urine to collect.",
+    "reaction": "The drainage route is clear, though I still don't know what completes the urine goal.",
+    "step": 6,
+    "reason": "The remaining organ goal is to connect the assembled urinary organs to the body.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Body with a living colon"
+    },
+    "expectation": "The kidney pair and its drainage route should connect to the body's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The urinary organs are connected to the body, but the filtering and recovery goal remains unresolved.",
+    "reaction": "The organ route is clear; I am still unsure how to finish the urine goal.",
+    "step": 7,
+    "reason": "The recovered fluid had no available partner, so checking the connected body may reveal the next operation.",
+    "choice": {
+      "inspect": "Body with urinary system"
+    },
+    "expectation": "The compatibility list may show how to complete the urine route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected body has no available partner, so it does not reveal how to finish the remaining goal.",
+    "reaction": "I am still unsure what step turns the recovered fluid into urine.",
+    "step": 8,
+    "reason": "The recovery tube is part of the unfinished filtering route; checking it may reveal an available operation I missed.",
+    "choice": {
+      "inspect": "Kidney recovery tube"
+    },
+    "expectation": "Its compatibility list may show the next step toward urine.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Kidney pair"
+        },
+        "reason": "The assembled kidneys might also offer a way to continue the route."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The recovery tube has no available partner, so it does not reveal a next step.",
+    "reaction": "I am confused about how the remaining goal can be completed.",
+    "step": 9,
+    "reason": "The assembled kidney pair is the remaining likely place to check for a urine-related operation, though I do not know if one exists.",
+    "choice": {
+      "inspect": "Kidney pair"
+    },
+    "expectation": "Its compatibility list may reveal a way to finish the urine route.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Kidney filter"
+        },
+        "reason": "The filter is another part of the unfinished route I could check."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The assembled kidney pair could combine with the recovered fluid, completing its route to the bladder and the remaining goal.",
+    "reaction": "I was relieved to find the missing pairing, though I wish the earlier inspection had made it clearer.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering blood and then recovering useful substances made it clear that the kidney does more than simply remove waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Checking the recovered fluid, connected body and recovery tube without finding a partner felt repetitive and left me unsure how to proceed.",
+        "steps": [
+          3,
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that useful glucose and water pass through the filter along with waste and must be taken back.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The final pairing was hard to discover: inspecting the recovered fluid showed no partners, but later inspecting the assembled kidney pair found it. The route itself made sense once shown.",
+        "steps": [
+          3,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I might continue because following the filter and recovery route was interesting, but I would hope the next chapter makes its remaining connections easier to discover.",
+        "steps": [
+          1,
+          2,
+          3,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the transporter to give glucose a route into the cell; it is the only offered action.",
+    "choice": 1,
+    "expectation": "I expect the transporter to become part of the cell membrane, enabling a later glucose import step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter is installed in the membrane, so glucose import is the next step.",
+    "reaction": "The placement is straightforward and consistent with the transporter’s pictured role.",
+    "step": 2,
+    "reason": "Use the only offered combination to bring glucose into the cell.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter through the transporter, making it available for breakdown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose import also led to cytosolic breakdown into pyruvate and some ATP, setting up the mitochondrial stage.",
+    "reaction": "The picture usefully distinguishes this first ATP-producing stage from activity inside mitochondria.",
+    "step": 3,
+    "reason": "Connect the products of glucose breakdown to mitochondria; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the model to show pyruvate reaching mitochondria for further breakdown, though the exact result is unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fuel now enters mitochondria, completing the first goal and setting up ATP production and ion pumping.",
+    "reaction": "The retained arrows make the connection between cytosolic breakdown and mitochondria clear.",
+    "step": 4,
+    "reason": "Add oxygen to advance mitochondrial ATP production; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect oxygen to be incorporated into the mitochondrial respiration model, though ATP may require a later step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen now appears as the electron recipient that helps form water, distinguishing its role from fuel; ATP ingredients are the next step.",
+    "reaction": "The distinction between oxygen's role and the fuel's energy is useful, though the shortened pathway leaves intermediate mechanisms unexplained.",
+    "step": 5,
+    "reason": "Add ADP and phosphate to advance the ATP-remaking goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the model to show ATP being made from ADP and phosphate in connection with aerobic respiration, though the mechanism may be simplified.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The model now shows ATP being remade from ADP and phosphate using energy from fuel processing, ready to power cellular machinery.",
+    "reaction": "The recycling arrows are useful, though the energy-transfer mechanism remains simplified.",
+    "step": 6,
+    "reason": "Add the ion pump to put ATP to work at the membrane; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ATP to power ion movement through the membrane pump, probably involving sodium and potassium.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completes the link between ATP production and ion movement against concentration differences, finishing the chapter.",
+    "reaction": "The contrast with passive channel movement is useful, though the pump's mechanism is simplified.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen clarified that it receives electrons and becomes part of water, rather than serving as the fuel. That distinction is valuable for understanding respiration.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the glucose transporter was straightforward but offered little to decide: it was the only combination available.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Glucose import immediately led to cytosolic breakdown into pyruvate and some ATP, making clear that ATP production begins outside mitochondria.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action seemed purposeless, but every combination was the only offered choice. The energy-transfer arrows connecting fuel processing to ATP production also left the mechanism unexplained.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would cautiously continue: linking respiration to ion pumping was worthwhile, though I would hope for more meaningful choices and explanation of the mechanisms.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action; the matching shapes suggest the fragments can help activate a lymphocyte.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to respond to the bacterial antigens, though I don't know exactly what the result will be.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active; the lymph node picture suggests it can now multiply there.",
+    "reaction": "The matching shapes make the selection easy to follow, though the helpers' role is still unclear.",
+    "step": 2,
+    "reason": "Place the activated cell in the living lymph node so it can grow into a group; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the node to support the activated lymphocyte as it divides, though the immediate result may just be its placement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell has produced descendants that make antibodies or become memory cells. I can now work on either part of the response.",
+    "reaction": "It is helpful to see that the two kinds of cells come from the same activated cell.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and earlier chapters showed that amino acids are protein building blocks, so this should help make them.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making cells to use amino acids to produce antibodies matching the bacterial antigens.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered adding the cells to the body first, but I want to make the antibodies before using them."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacteria, so I can now try coating them.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "Combining the antibodies with bacteria directly addresses the coating goal.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the matching knobs on the bacteria.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered adding the memory cells to the body first, but want to finish the antibody response."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, completing that goal; the memory goal remains.",
+    "reaction": "The matching shapes made the result predictable.",
+    "step": 5,
+    "reason": "This is the only offered action and should connect the memory cells to the body.",
+    "choice": 1,
+    "expectation": "I expect the body to gain immune memory from the memory lymphocytes, though I don't know how the result will show it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has memory lymphocytes, which can support a faster, larger antibody response if the same antigen returns. Both goals are complete.",
+    "reaction": "The explanation made the purpose of keeping memory cells clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making antibody and memory cells in the lymph node was most worthwhile: it showed how one activated cell leads to both parts of the response.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Coating the bacteria was clear but predictable after seeing the matching shapes.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the same activated cell to produce descendants with both antibody-making and memory roles.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt entirely purposeless, but the explanation of how neighboring immune cells help activate the lymphocyte remained vague.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter if it explored what happens when the antigen returns; the faster response sounds interesting, though this chapter's choices were mostly straightforward.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

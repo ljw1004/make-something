@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action. The matching shapes suggest a lymphocyte can recognize the bacterial antigen.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to be activated, possibly with help from nearby immune cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching antigen activated a lymphocyte with help from nearby immune cells. Next I can place it in the lymph node.",
+    "reaction": "The matching shapes made the selection understandable.",
+    "step": 2,
+    "reason": "This is the only offered combination. The node picture says it supports activated cells as they multiply.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to enter the node and perhaps start multiplying there.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph node supported division into antibody-making cells and memory cells, giving us a way to address both goals.",
+    "reaction": "It was interesting that one activated cell produces descendants with different jobs.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and amino acids are protein building blocks, so this seems like a useful next step toward clearing bacteria.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making cells to use the amino acids to produce antibodies that match the bacterial antigens.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered connecting the cells to the body, but want to prepare antibodies first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells produced antibodies with tips matching the bacteria, so I can now try binding them.",
+    "reaction": "The matching shapes make their connection clear.",
+    "step": 4,
+    "reason": "Attaching the antibodies to bacteria looks like a practical step toward helping white blood cells clear them.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to bind to the bacteria's matching surface knobs, making them easier for engulfing cells to catch.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the cells to the body also supports the goals, but I want to follow the antibodies first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria's matching surface knobs, ready for the engulfing cells.",
+    "reaction": "The result matched the picture I expected.",
+    "step": 5,
+    "reason": "The engulfing cell picture shows it binding to antibody-coated bacteria, directly advancing the clearance goal.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to bind to and engulf the coated bacteria.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the immune cells to the body also matters, but I want to finish following bacterial clearance first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coated bacteria were engulfed and broken down, completing the clearance goal. I can now follow the memory response.",
+    "reaction": "The sequence made it clear how antibodies help the engulfing cells.",
+    "step": 6,
+    "reason": "This is the only offered combination; connecting the cells to the body may prepare the later response.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making and memory cells to become part of the protected body model, though I am unsure exactly how the later response will appear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now retains memory lymphocytes after the first response, so I can follow what happens when the bacteria return.",
+    "reaction": "The lymph-node inset makes it clear where the memory cells are shown.",
+    "step": 7,
+    "reason": "This is the only offered combination, and it directly tests the later response goal.",
+    "choice": 1,
+    "expectation": "I expect the memory cells to help produce a faster response to the same bacteria, though I don't know exactly what the result will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The later encounter showed memory cells producing an earlier, larger wave of antibody-making cells, completing the memory goal.",
+    "reaction": "The side-by-side comparison made the faster response easy to understand.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following antibodies from matching bacteria to helping white blood cells engulf them made their job clear.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the memory cells to the body was mostly a necessary placement and less interesting than seeing what they did later.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that one activated lymphocyte produced descendants with different jobs: making antibodies and retaining memory.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though placing the cells in the body was an obvious required connection rather than a meaningful choice.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter to see another body process connected step by step, though I would hope for more meaningful choices.",
+        "steps": [
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

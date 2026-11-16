@@ -1,0 +1,164 @@
+[
+  {
+    "step": 1,
+    "reason": "Heart muscle fits the marked pumping-wall position in the chambers.",
+    "choice": {
+      "combine": "Heart muscle",
+      "with": "Heart chambers"
+    },
+    "expectation": "The heart muscle will form the chamber walls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle filled the pumping-wall slot; the chambers still need direction control.",
+    "reaction": "The thickening walls make the pumping role clear.",
+    "step": 2,
+    "reason": "The valves fit the marked direction-control position and prevent reverse flow.",
+    "choice": {
+      "combine": "Heart valves",
+      "with": "Heart chambers"
+    },
+    "expectation": "The valves will fill the direction-control slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valves are installed and show how flow is kept in one direction; the pump still needs rhythm.",
+    "reaction": "The forward and reverse arrows make the valves' role clear.",
+    "step": 3,
+    "reason": "The pacemaker cells provide the electrical rhythm needed by the heart chambers.",
+    "choice": {
+      "combine": "Natural pacemaker cells",
+      "with": "Heart chambers"
+    },
+    "expectation": "The pacemaker cells will add a rhythm to the fitted heart chambers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pacemaker completed the beating heart, leaving the blood exchange route to build.",
+    "reaction": "The distinction between starting the beat and adjusting its rhythm is useful.",
+    "step": 4,
+    "reason": "Hemoglobin has oxygen-binding sites and fits inside the red-cell envelopes, making oxygen-carrying cells for the route.",
+    "choice": {
+      "combine": "Hemoglobin",
+      "with": "Flexible red-cell envelopes"
+    },
+    "expectation": "The envelopes and hemoglobin will form oxygen-carrying red cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The envelopes and hemoglobin formed red blood cells; their sugar-to-ATP pathway shows they can make ATP without mitochondria.",
+    "reaction": "The difference from the muscle cells is interesting.",
+    "step": 5,
+    "reason": "Plasma is the fluid part of blood, so combining it with red blood cells should make blood for the exchange route.",
+    "choice": {
+      "combine": "Red blood cells",
+      "with": "Plasma"
+    },
+    "expectation": "The red blood cells and plasma will form blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The red blood cells and plasma formed oxygen-carrying blood, ready for the circulation route.",
+    "reaction": "The picture makes the roles of the cells and plasma clear.",
+    "step": 6,
+    "reason": "Capillary networks connect the outgoing and returning vessels and provide thin walls for exchange.",
+    "choice": {
+      "combine": "Arteries and veins",
+      "with": "Capillary networks"
+    },
+    "expectation": "The vessels and capillaries will form a connected exchange route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arteries, veins and capillaries now form a connected vessel circuit; it still needs the pump and blood.",
+    "reaction": "The outward and returning arrows make the route clear.",
+    "step": 7,
+    "reason": "The beating heart can drive blood through the connected vessel circuit.",
+    "choice": {
+      "combine": "Beating heart",
+      "with": "Connected vessel circuit"
+    },
+    "expectation": "The heart will connect to the vessel circuit to pump blood around it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beating heart has no available combination yet, so the circuit may need blood first.",
+    "reaction": "The failed connection is surprising because the circuit appears ready for a pump.",
+    "step": 8,
+    "reason": "The oxygen-carrying blood needs a route through the connected vessels.",
+    "choice": {
+      "combine": "Oxygen-carrying blood",
+      "with": "Connected vessel circuit"
+    },
+    "expectation": "The blood will enter the vessel circuit, potentially making it ready to connect to the heart.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Connected vessel circuit"
+        },
+        "reason": "I could check its available partners first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blood-filled circuit completes the exchange route and reveals the goal of putting blood into circulation.",
+    "reaction": "The exchange inset clarifies that oxygen and nutrients leave the blood while red cells stay inside.",
+    "step": 9,
+    "reason": "The filled circuit now appears ready to connect to the beating heart.",
+    "choice": {
+      "combine": "Beating heart",
+      "with": "Blood-filled circuit"
+    },
+    "expectation": "The heart will pump blood through the circuit.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart completed the closed circulation, showing blood returning to the pump and serving multiple tissues.",
+    "reaction": "The closed-loop diagram brings the separate pieces together clearly.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the blood-filled circuit was most worthwhile: the exchange inset showed oxygen and nutrients leaving the blood while red cells remain inside, connecting the vessel structure to tissue needs.",
+        "steps": [
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to connect the heart to the empty vessel circuit was frustrating because the pieces appeared ready to connect, but the attempt gave no indication that blood had to be added first.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The red blood cells make ATP from sugar despite having no nucleus or mitochondria, unlike the muscle cells in the earlier history.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to fill the vessels before connecting the heart felt arbitrary; the failed attempt did not explain the required order.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrast between red blood cells and muscle cells, and the way circulation connects the parts, made me curious about how the remaining systems will support the body.",
+        "steps": [
+          4,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

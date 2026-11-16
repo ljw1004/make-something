@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with glucose breakdown to follow the fuel toward ATP production.",
+    "choice": 3,
+    "expectation": "Glycolysis should begin in the cytosol and yield some ATP, though the precise result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fitting the pump addresses another goal, but I want to establish the ATP supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate, and the new goal directs me toward mitochondrial fuel use.",
+    "reaction": "It was useful to see ATP production begin outside the mitochondrion without oxygen.",
+    "step": 2,
+    "reason": "Bring the pyruvate to the mitochondrion to pursue the new goal.",
+    "choice": 3,
+    "expectation": "The mitochondrion will receive the breakdown products; supplying oxygen may require a separate action.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate has entered the mitochondrion; oxygen still needs to be supplied for the current goal.",
+    "reaction": "The cutaway makes the fuel’s route clear, though the result adds little explanation.",
+    "step": 3,
+    "reason": "Supply oxygen to the pyruvate-fed mitochondrion to complete the current goal.",
+    "choice": 3,
+    "expectation": "The mitochondrion will receive oxygen, potentially enabling further ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondrion now supplies ATP, with oxygen accepting electrons and a proton gradient driving ATP synthase.",
+    "reaction": "The linked electron-transfer and proton-flow picture makes ATP production more concrete.",
+    "step": 4,
+    "reason": "Fit the pump into the membrane to advance the remaining pump goal.",
+    "choice": 1,
+    "expectation": "The pump proteins will be embedded in the membrane; using ATP may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosome assembly also addresses a remaining goal, but I want to follow the ATP supply toward its use first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted but not yet transporting; the new goal calls for ATP-powered sodium export.",
+    "reaction": "The distinction between installing the pump and operating it is clear.",
+    "step": 5,
+    "reason": "Use the mitochondrial ATP supply to drive the pump and connect ATP production to its use.",
+    "choice": 3,
+    "expectation": "ATP will power sodium movement out of the cell, likely with potassium moving in.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cytosolic ATP could also power the pump, but I want to use the mitochondrial supply just created."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers sodium export and potassium import against their concentration differences; the pump goal is complete.",
+    "reaction": "The contrast with passive sodium entry makes the need for energy clear.",
+    "step": 6,
+    "reason": "Assemble the ribosome on mRNA for the remaining goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The ribosomal subunits will assemble around an mRNA message, potentially enabling protein synthesis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are assembled on mRNA, and the new goal requires amino acids and ATP for protein production.",
+    "reaction": "Seeing both free and ER-bound ribosomes adds useful context, though their different roles are not explained.",
+    "step": 7,
+    "reason": "Supply amino acids first as the building blocks for the new proteins.",
+    "choice": 2,
+    "expectation": "The amino acids will be placed at the ribosomes; ATP will likely still need to be supplied.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Mitochondrial ATP is also needed, but I chose to supply the protein building blocks first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids are at the ribosomes; the protein-production goal still needs an ATP supply.",
+    "reaction": "The placement is straightforward, though it adds little explanation.",
+    "step": 8,
+    "reason": "Add mitochondrial ATP to the amino acids at the ribosomes to pursue protein production.",
+    "choice": 2,
+    "expectation": "ATP will supply energy for making proteins from the amino acids, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP is another available supply, but I chose to use the mitochondrial supply again."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final result connects ATP-supported amino-acid preparation and mRNA instructions to folded proteins, completing the chapter.",
+    "reaction": "The distinction between pyruvate’s fuel route and the protein chain was useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the mitochondrion was most worthwhile: the planned cutaway links electron transfer, oxygen, the proton gradient and ATP synthesis.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Moving pyruvate into the mitochondrion was clear but added little explanation beyond the route shown.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final protein picture clarified that ATP supports amino-acid preparation while pyruvate remains on a separate fuel route.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Placing amino acids at the ribosomes felt like a procedural staging step rather than a meaningful decision, although its purpose was clear.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting mitochondrial ATP production to the pump’s work was satisfying and informative, even though some intermediate steps were slight.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

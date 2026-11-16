@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier needs to be installed in the membrane to bring glucose into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "This should create a membrane with a glucose carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, ready to interact with extracellular glucose.",
+    "reaction": "The placement matches the expected transport setup.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose should enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol through the carrier, making it available for breakdown.",
+    "reaction": "The alternating carrier shape makes the transport mechanism clear.",
+    "step": 3,
+    "reason": "The living cell interior is the indicated location for processing cytosolic glucose, with oxygen also available.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell should begin breaking down glucose toward aerobic ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown in the cytosol remakes some ATP and produces pyruvate directed toward mitochondria; aerobic renewal remains to be connected.",
+    "reaction": "The separation of glycolysis from oxygen use is clear.",
+    "step": 4,
+    "reason": "The cell interior contains mitochondria and is the likely location for the next stage of processing pyruvate.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Living cell interior"
+    },
+    "expectation": "Pyruvate should proceed toward mitochondrial ATP renewal, potentially using the available oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytosolic ATP state does not combine directly with the interior; its listed partners include oxygen entering the cytosol and amino acids.",
+    "reaction": "The compatibility feedback points more directly to the aerobic step.",
+    "step": 5,
+    "reason": "Oxygen entering the cytosol is the indicated partner for connecting glucose breakdown to aerobic ATP renewal.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "This should connect the products of glycolysis and oxygen to mitochondrial ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is established, and a new goal calls for protein production alongside ion transport.",
+    "reaction": "The illustration usefully distinguishes oxygen's role from fuel oxidation and shows the hydrogen-ion reservoir driving ATP synthesis.",
+    "step": 6,
+    "reason": "The sodium-potassium pump needs a membrane location before it can transport ions.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump should be installed in the membrane, ready to use ATP for ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane with its ATP-binding site facing the cytosol.",
+    "reaction": "The comparison with the passive sodium channel sets up a useful contrast.",
+    "step": 7,
+    "reason": "The installed pump needs ATP, and aerobic ATP renewal supplies it.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump should use ATP to transport sodium and potassium against their concentration gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump now uses ATP to move sodium outward and potassium inward, completing the ion-transport goal; protein production remains.",
+    "reaction": "The contrast between powered pumping and passive sodium flow is useful.",
+    "step": 8,
+    "reason": "The earlier compatibility feedback listed amino acids with cytosolic ATP production, and the cell already has RNA messages at ribosomes.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Amino acids"
+    },
+    "expectation": "The cell should use amino acids and energy to make proteins for growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The combination produced proteins from amino acids using existing RNA messages and completed the final goal; the picture also identifies ATP- and GTP-supported steps.",
+    "reaction": "The link to ribosomes is useful, though GTP appears without explanation.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting cytosolic glucose breakdown to aerobic ATP renewal was most worthwhile: the planned illustration distinguishes fuel oxidation from oxygen's role and shows the hydrogen-ion reservoir driving ATP synthesis.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying the cytosolic ATP state at the cell interior was the least worthwhile action; it did not work, although the compatibility feedback made the next step clear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The protein-making result marked GTP-supported steps as well as ATP-supported ones, but did not explain GTP or its role.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the cytosolic ATP state directly with oxygen entering the cytosol felt somewhat abstract: the feedback identified the pair, but the item names did not by themselves convey the intervening mitochondrial reactions.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue because the constructions connect familiar cell biology to membrane transport and energy use, with useful contrasts between passive channels and powered pumps.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

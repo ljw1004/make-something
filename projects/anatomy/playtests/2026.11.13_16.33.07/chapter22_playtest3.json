@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm afternoon sets up the heat response that should lead to sweating.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Warm afternoon"
+    },
+    "expectation": "The body will experience the warm conditions, setting up a response to heat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sweat glands",
+          "with": "Warm afternoon"
+        },
+        "reason": "The glands produce sweat, but the whole body seems like the starting point for the weather change."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warming is sensed by the skin and brain, so I can now follow the response toward sweating.",
+    "reaction": "The signal travelling from skin to brain makes the next step clearer.",
+    "step": 2,
+    "reason": "Sweat glands are the direct next piece for the goal of cooling through evaporation.",
+    "choice": {
+      "combine": "Warming sensed",
+      "with": "Sweat glands"
+    },
+    "expectation": "The warming signal will activate the sweat glands and put sweat on the skin.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Warming sensed",
+          "with": "Skin vessels"
+        },
+        "reason": "Skin vessels may also respond to warmth, but the current goal specifically asks about sweat."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The compatibility hint showed that skin vessels respond before the sweat glands; wider vessels bring more blood and heat near the skin.",
+    "reaction": "I was surprised the vessel response had to come first.",
+    "step": 3,
+    "reason": "Now that warm blood is flowing near the skin, the sweat glands seem like the next step toward evaporation.",
+    "choice": {
+      "combine": "Warm skin circulation",
+      "with": "Sweat glands"
+    },
+    "expectation": "The sweat glands will produce sweat on the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sweat has reached the skin, but it still needs to evaporate to carry heat away.",
+    "reaction": "The distinction between sweating and evaporation is clear now.",
+    "step": 4,
+    "reason": "Air at the skin is shown carrying water molecules away, matching the evaporation goal.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat will evaporate into the air and carry heat away from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation carried heat away, and the new goal shifts to the cold evening.",
+    "reaction": "It was helpful to see the sweat signal fade as temperature moved back toward its earlier range.",
+    "step": 5,
+    "reason": "The cold evening is the visible starting point for the new heat-conservation goal.",
+    "choice": {
+      "combine": "Cooling body",
+      "with": "Cold evening"
+    },
+    "expectation": "The body will sense the colder surroundings and begin a cold response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body has sensed the cold and reduced sweating; it still needs to conserve and make heat.",
+    "reaction": "It makes sense that sweating decreases in the cold.",
+    "step": 6,
+    "reason": "Skin vessels responded to warmth earlier, so they may also help conserve heat in the cold.",
+    "choice": {
+      "combine": "Cold sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels will narrow, reducing blood flow near the surface and heat loss.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold sensed",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle could help make heat, but conserving heat through the skin seems like a useful first step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrower skin vessels reduce heat loss but do not make heat, so the heat-making part remains.",
+    "reaction": "The distinction between conserving heat and making it is useful.",
+    "step": 7,
+    "reason": "Skeletal muscle is the remaining visible piece that could help the body make heat.",
+    "choice": {
+      "combine": "Cold skin circulation",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscles will respond to the cold, possibly by shivering and producing heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering completes the cold response: repeated muscle contractions use energy and produce heat, while narrowed skin vessels reduce heat loss.",
+    "reaction": "Seeing heat conservation and heat production work together was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the cold vessel response with shivering was most worthwhile because it showed the difference between holding heat in and making more.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial warm-up was less engaging because it mainly set up the response rather than showing how the body cooled.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I expected to activate sweat glands immediately, but the game first directed me to the skin vessels. The result showed wider vessels carrying more heat toward the skin.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the skin-vessel response before sweating felt somewhat arbitrary: the result showed what the vessels do, but did not explain why that had to come first.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter connects familiar body responses this clearly; comparing the warm and cold responses made the choices interesting, though the required order was not always clear.",
+        "steps": [
+          2,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

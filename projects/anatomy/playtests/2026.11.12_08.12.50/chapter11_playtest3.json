@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "Connecting the arm to the breathing circulation directly addresses the first goal and links its muscles to the oxygen supply.",
+    "choice": 1,
+    "expectation": "I expect the arm’s vessels to connect to the circulation, though the details of exchange may come later.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This seems like a useful start on tissue-fluid return, but I’ll connect the arm first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is connected, and the fluid buildup shown with inadequate return makes the remaining goal clearer.",
+    "reaction": "The matched tissue views make the need for a return route concrete.",
+    "step": 2,
+    "reason": "Connect the tissue spaces to lymphatic capillaries to begin collecting the excess fluid.",
+    "choice": 1,
+    "expectation": "I expect fluid between cells to enter the blind-ended lymphatic vessels; the route back to blood may need another connection.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This looks like the return route into a vein, but I prefer to start where fluid enters the lymphatic system."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue-space fluid and proteins enter lymphatic capillaries and are then called lymph; they still need a route back to blood.",
+    "reaction": "The flap-and-arrow description makes the entry point clear.",
+    "step": 3,
+    "reason": "Connect the draining tissue spaces to the collecting vessel to extend the return route.",
+    "choice": 3,
+    "expectation": "I expect lymph to flow from the capillaries into the collecting vessel and toward the return duct.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the duct to the vein also advances the return route, but I prefer to follow it from the tissues outward."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collecting route now carries fluid and proteins to a duct, with the connection to the neck vein still open.",
+    "reaction": "Following the arrows from tissue to duct makes the route easy to follow.",
+    "step": 4,
+    "reason": "Connect the duct to the venous junction to complete its route back to blood.",
+    "choice": 1,
+    "expectation": "I expect lymph to enter the vein through the duct; the route may still need to be connected to the supplied arm.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This could connect the local drainage route to the arm, but I want to close the venous junction first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphatic route now reaches a neck vein; it remains to connect the network to the supplied arm.",
+    "reaction": "The continuous arrows make the return path clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it should connect tissue-fluid drainage to the arm.",
+    "choice": 1,
+    "expectation": "I expect the supplied arm to gain a lymphatic return route to the circulation, though I’m unsure whether that completes the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final model connects lymph return to the supplied arm and shows how continued drainage can keep tissue fluid roughly steady. Both goals are complete.",
+    "reaction": "The contrast with the earlier fluid buildup made the completed route satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the drainage network to the arm was most worthwhile: the planned matched views link the route to its purpose, preventing fluid accumulation while filtration continues.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the collecting route to the vein felt somewhat repetitive after the preceding route-building step, although it closed an important gap.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The tissue-space result clarified that proteins enter the lymphatic capillaries along with fluid, which is then called lymph.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: each extended or connected the supply and return routes. The compatible-options menu guided those choices rather than requiring me to discover compatibility.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the planned buildup-and-drainage comparison gave the assembly a concrete biological consequence, though the sequence of connections was fairly predictable.",
+        "steps": [
+          1,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

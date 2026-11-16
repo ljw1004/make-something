@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane goal names phospholipids and proteins as its components.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "This should prepare new membrane for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids and proteins made vesicles for membrane delivery, revealing a goal to enlarge the cell.",
+    "reaction": "The ER-to-Golgi delivery route is a useful connection.",
+    "step": 2,
+    "reason": "The new goal points to using the vesicles with the growing stem-cell model.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles should supply membrane to enlarge the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its nuclear DNA still needs copying.",
+    "reaction": "The vesicle-fusion inset makes the membrane delivery clear.",
+    "step": 3,
+    "reason": "The DNA-copying goal names nucleotides, and the grown cell contains the existing DNA template and replication enzymes.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The nucleotides should be used to copy the cell's nuclear DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied nuclear DNA, and the next goal requires a spindle to separate it into two nuclei.",
+    "reaction": "The old-and-new strand inset clearly shows how DNA is copied.",
+    "step": 4,
+    "reason": "The remaining spindle goal names proteins and duplicated centrosomes as its components.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "The proteins and centrosomes should form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled but has not yet attached to chromosomes; it can now be used on the cell with copied DNA.",
+    "reaction": "The mitosis preview clarifies when the spindle assembles.",
+    "step": 5,
+    "reason": "The remaining goal explicitly calls for using the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle should separate the copied chromosomes to form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the chromosome copies into two nuclei, but the cytoplasm remains connected.",
+    "reaction": "The distinction between nuclear and cytoplasmic division is clear.",
+    "step": 6,
+    "reason": "The new goal calls for actin and myosin to divide the cytoplasm of the two-nucleus cell.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin should constrict the cell and separate it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm has separated into two stem cells, each with a complete genome, completing the chapter's goals.",
+    "reaction": "The distinction between division and later differentiation is useful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle to separate copied chromosomes was most worthwhile: the planned time strip connects chromosome movement to two nuclei while showing that the cytoplasm remains joined.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing and delivering the membrane was clear but fairly predictable because the goals named the components and their use.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The spindle result was explicitly presented as a preview of assembly during mitosis after DNA copying, rather than a structure already attached to chromosomes.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the broad item title “New cell proteins” made its role in forming tubulin fibres less apparent until the result explained it.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the daughter cells develop into different tissues; the final illustration plan points toward that next question.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

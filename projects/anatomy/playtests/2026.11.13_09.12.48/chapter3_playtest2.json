@@ -1,0 +1,96 @@
+[
+  {
+    "step": 1,
+    "reason": "Amino acids and phospholipids are shown contributing to protein and membrane growth, matching the first part of the goal.",
+    "choice": {
+      "combine": "Cell with working ion pump",
+      "with": "Amino acids and phospholipids"
+    },
+    "expectation": "The cell will grow by making proteins and expanding its membranes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its DNA remains uncopied, so DNA nucleotides are the next logical input.",
+    "reaction": "The distinction between growth and later DNA copying is clear.",
+    "step": 2,
+    "reason": "DNA nucleotides are the building blocks needed to copy the cell's DNA.",
+    "choice": {
+      "combine": "Growing stem cell",
+      "with": "DNA nucleotides"
+    },
+    "expectation": "The cell will copy its DNA in preparation for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied, and the next goal is to separate the copies and divide the cell.",
+    "reaction": "The distinct old and new strand styles make the replication step concrete.",
+    "step": 3,
+    "reason": "The spindle cutaway shows microtubules attaching to duplicated chromosomes and extending toward opposite poles, matching the separation goal.",
+    "choice": {
+      "combine": "Cell with copied DNA",
+      "with": "Mitotic spindle cutaway"
+    },
+    "expectation": "The spindle will separate the chromosome copies toward opposite poles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are separated into two nuclei, but the cytoplasm and outer membrane remain shared.",
+    "reaction": "The intermediate inset helps distinguish chromosome separation from cell division.",
+    "step": 4,
+    "reason": "The actin–myosin ring is shown at the cell's equator, where it can divide the shared cell.",
+    "choice": {
+      "combine": "Cell with two nuclei",
+      "with": "Actin–myosin ring"
+    },
+    "expectation": "The ring will constrict the cell into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completes the division, producing two daughter cells and a population that includes cells retained for further division.",
+    "reaction": "The tightening-to-closure sequence makes the final separation satisfying and clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes before dividing the cell was worthwhile: the planned cutaways distinguish two nuclei in one cell from two separate daughter cells.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The growth passage was less engaging than the division sequence; it assembled several growth processes at once without much further explanation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The spindle step produced two nuclei while leaving the cytoplasm and outer membrane shared, clarifying that chromosome separation and cell division are distinct.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary: the item pictures and goals gave each combination a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the sequential constructions made the distinction between copying DNA, separating chromosomes and dividing the cell worth following.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

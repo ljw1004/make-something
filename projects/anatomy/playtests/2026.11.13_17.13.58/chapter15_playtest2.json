@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the salivary glands connecting to the mouth, and the digestive tube has a matching slot.",
+    "choice": {
+      "combine": "Digestive tube[]",
+      "with": "Salivary glands"
+    },
+    "expectation": "The salivary glands will attach to the digestive tube and supply saliva to the mouth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands fit into the digestive tube as expected; the other gland connections remain to be made.",
+    "reaction": "The matching slot made that straightforward.",
+    "step": 2,
+    "reason": "The pancreas has a matching slot, and its duct leads to the small intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Pancreas"
+    },
+    "expectation": "The pancreas will attach to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is now attached; the liver and gallbladder are the remaining digestive-juice organs shown.",
+    "reaction": "That fit as expected.",
+    "step": 3,
+    "reason": "The tube has a matching slot, and the picture shows their ducts leading to the intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Liver and gallbladder"
+    },
+    "expectation": "The liver and gallbladder will attach to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive-juice glands are connected, leaving the food breakdown goal.",
+    "reaction": "The summary helped connect each gland to its juice.",
+    "step": 4,
+    "reason": "The saliva picture shows its enzyme fitting a starch chain in chewed bread.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Saliva"
+    },
+    "expectation": "Saliva will begin breaking the starch into smaller pieces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva shortened the starch chains; they may need further breakdown.",
+    "reaction": "The result makes the first stage of digestion clear.",
+    "step": 5,
+    "reason": "The enzyme picture shows enzymes breaking starch chains, so they may break the shorter chains down further.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The enzymes will break the shorter starch chains into smaller sugar pieces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes broke the shorter starch chains into separate glucose units that can cross the intestinal lining.",
+    "reaction": "It is satisfying to see the starch broken down in stages.",
+    "step": 6,
+    "reason": "The enzyme picture shows enzymes fitting protein chains, and the protein food picture shows a chain of amino acids.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The enzymes will break the protein into smaller pieces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein was broken into separate amino acids, leaving fat to address.",
+    "reaction": "The result connects protein food to the building blocks seen earlier.",
+    "step": 7,
+    "reason": "The bile picture shows it spreading a large fat droplet into smaller ones.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile"
+    },
+    "expectation": "Bile will spread the fat into smaller droplets without breaking the fat molecules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bile spread the fat into smaller droplets, exposing more surface for digestion.",
+    "reaction": "The extra surface helps explain why the droplets matter.",
+    "step": 8,
+    "reason": "The enzyme picture shows that digestive enzymes can break bonds in fat molecules.",
+    "choice": {
+      "combine": "Small fat droplets",
+      "with": "Digestive enzymes"
+    },
+    "expectation": "The enzymes will break the fat molecules into smaller pieces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes broke fat molecules into smaller pieces, completing the food-breakdown goal. Bile and enzymes have different jobs.",
+    "reaction": "Seeing those two jobs separated made the fat sequence clearer.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Breaking starch down in stages was worthwhile: saliva shortened the chains, then enzymes released glucose that can cross the intestinal lining.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the three named glands was straightforward but repetitive; the slots made the choices predictable.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "Bile spread fat into smaller droplets without breaking its molecules; enzymes did the breaking afterward.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The gland attachments had clear matching slots and ducts, though the purpose of the separate vein-to-liver slot was not explained or used during this chapter.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing how the smaller food molecules get into the body would follow naturally from learning how digestion breaks them down.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

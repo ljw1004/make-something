@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The lipid bands belong between the outer skin cells and should help form the water barrier.",
+    "choice": {
+      "combine": "Keratinocyte layers",
+      "with": "Water-barrier lipids"
+    },
+    "expectation": "The layers and lipids should form a water-resistant outer skin layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The keratinocyte layers and lipids form an epidermal barrier that slows water loss and renews from below.",
+    "reaction": "The connection between the barrier and cell renewal is useful.",
+    "step": 2,
+    "reason": "The connective tissue should support the epidermal barrier as the deeper skin layer.",
+    "choice": {
+      "combine": "Epidermal barrier",
+      "with": "Dermal connective tissue"
+    },
+    "expectation": "The two layers should form a basic skin structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal barrier cannot currently be combined with anything, so the dermis may need preparation first.",
+    "reaction": "That was unexpected because the two layers seemed ready to join.",
+    "step": 3,
+    "reason": "Inspecting the dermal connective tissue should reveal what it needs before the skin can be assembled.",
+    "choice": {
+      "inspect": "Dermal connective tissue"
+    },
+    "expectation": "Its compatible partners may show how to prepare the deeper skin layer.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Dermal connective tissue",
+          "with": "Skin blood vessels"
+        },
+        "reason": "Blood vessels plausibly supply the dermis, but compatibility is not yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dermis needed blood vessels first, producing a vascular dermis.",
+    "reaction": "The automatic combination clarifies the preparation order.",
+    "step": 4,
+    "reason": "The prepared dermis may now be ready to join the epidermal barrier.",
+    "choice": {
+      "combine": "Vascular dermis",
+      "with": "Epidermal barrier"
+    },
+    "expectation": "The vascular dermis and epidermal barrier should form a layered skin structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vascular dermis and epidermis form layered skin with slots for a sweat outlet and sensory endings.",
+    "reaction": "The required preparation order is clearer now.",
+    "step": 5,
+    "reason": "The sweat gland duct leads from the coil to a surface pore, suggesting they form the sweat outlet together.",
+    "choice": {
+      "combine": "Sweat gland coil",
+      "with": "Sweat gland duct"
+    },
+    "expectation": "The coil and duct should form a sweat gland with an outlet to the skin surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil and duct form a sweat gland connected to a surface pore.",
+    "reaction": "The outlet matches the skin's remaining slot.",
+    "step": 6,
+    "reason": "The assembled gland and duct should fit the sweat outlet location in the layered skin.",
+    "choice": {
+      "combine": "Sweat gland and duct",
+      "with": "Layered skin[]"
+    },
+    "expectation": "The sweat gland and duct will be fitted into the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sweat gland and duct are fitted into the layered skin; sensory endings remain to be added.",
+    "reaction": "The outlet fitted as expected.",
+    "step": 7,
+    "reason": "The cutaneous sensory endings match the remaining sensory slot.",
+    "choice": {
+      "combine": "Cutaneous sensory endings",
+      "with": "Layered skin[Sweat gland and duct]"
+    },
+    "expectation": "The sensory endings will be fitted into the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin now has both its sweat outlet and sensory endings, ready to cover the body.",
+    "reaction": "The completed cutaway connects the skin’s structures to their functions.",
+    "step": 8,
+    "reason": "The completed layered skin should fit the body to satisfy the remaining goal.",
+    "choice": {
+      "combine": "Body with food and water regulation",
+      "with": "Layered skin[Sweat gland and duct,Cutaneous sensory endings]"
+    },
+    "expectation": "The body will be covered with living skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed skin connects its vessels and nerves to the body, completing the chapter goal.",
+    "reaction": "The final inset brings the separate structures together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the sensory endings was most worthwhile: the planned cutaway connected the gland, vessels and nerves to the skin’s functions rather than treating it as just a covering.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempt to join epidermis and dermis was confusing: the barrier could not combine with anything until the dermis had vessels, although the two layers seemed ready to join.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected the two skin layers to join directly; inspection instead revealed that the dermis first needed blood vessels.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required vessel-first order felt somewhat arbitrary because its necessity was not explained before the failed combination.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the planned cutaways linked structures to functions, especially barrier renewal and sensory connections, despite the unclear assembly order.",
+        "steps": [
+          1,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

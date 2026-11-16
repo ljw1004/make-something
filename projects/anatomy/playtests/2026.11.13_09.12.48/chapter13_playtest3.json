@@ -1,0 +1,82 @@
+[
+  {
+    "step": 1,
+    "reason": "The pleural membranes connect lung movement to the chest wall, making them a plausible first addition to the lung model.",
+    "choice": {
+      "combine": "Circulation with lung exchange",
+      "with": "Pleural membranes"
+    },
+    "expectation": "The lungs will gain their pleural covering, ready to connect to the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs now have both pleural membranes, ready for connection to the chest.",
+    "reaction": "The result matched the expected covering, though it did not yet explain how the membranes transmit movement.",
+    "step": 2,
+    "reason": "The rib cage provides the chest wall that can move the pleura-covered lungs.",
+    "choice": {
+      "combine": "Pleura-covered lungs",
+      "with": "Rib cage and intercostal muscles"
+    },
+    "expectation": "The lungs and pleural membranes will connect to the rib cage and its muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs and chest are connected, and the apparatus has an empty breathing-muscle slot.",
+    "reaction": "The diaphragm attachment makes the next step clear, though the pleural coupling remains unexplained.",
+    "step": 3,
+    "reason": "The diaphragm is the remaining breathing muscle and fits the named slot.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Diaphragm"
+    },
+    "expectation": "The diaphragm will be fitted beneath the lungs to complete the breathing apparatus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm completed the apparatus, and the final explanation connected chest expansion through the pleural interface to airflow and elastic recoil.",
+    "reaction": "The inhalation and exhalation comparison resolved my earlier question about the pleural connection.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the diaphragm was most worthwhile: the planned two-view illustration connects muscle movement, lung expansion and recoil to airflow.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the pleural membranes was initially less informative because the result showed their arrangement without explaining how they transmit chest movement; that connection came at the end.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final explanation clarified that quiet exhalation is helped by elastic recoil as the diaphragm relaxes, rather than requiring an active outward push.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each piece had a visible role, and the named breathing-muscle slot made the final fitting clear.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see how further constructions connect structures to function, though this chapter's three predictable fittings offered limited decision-making.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

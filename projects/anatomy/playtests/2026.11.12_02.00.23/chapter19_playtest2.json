@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should begin the after-meal sequence.",
+    "choice": 1,
+    "expectation": "I expect the absorbed glucose to enter the body's circulation, setting up a response to the meal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal’s glucose has reached the pancreas, setting up the next response.",
+    "reaction": "The sequence is clear so far.",
+    "step": 2,
+    "reason": "This is the only offered combination and should show the insulin response after a meal.",
+    "choice": 1,
+    "expectation": "I expect insulin to enter the blood and help the body respond to the increased glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin now travels from the pancreas to muscle and liver, setting up a tissue response.",
+    "reaction": "The route is clear, though the result has not yet explained what insulin does.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it should show how muscle responds to insulin.",
+    "choice": 1,
+    "expectation": "I expect muscle cells to take up more glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now linked to muscle glucose uptake and liver glycogen storage, with a diminishing signal as blood glucose falls.",
+    "reaction": "The explanation makes the purpose of the insulin response clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination and should move the sequence to the period between meals.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to fall between meals, setting up a response that makes stored fuel available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sequence has moved between meals, with less glucose arriving from the gut and lower blood glucose.",
+    "reaction": "The transition is clear, though predictable.",
+    "step": 5,
+    "reason": "This is the only offered combination and should show the pancreatic response between meals.",
+    "choice": 1,
+    "expectation": "I expect glucagon to enter the blood and signal the liver to release stored glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is now shown traveling from the pancreas to the liver, setting up the liver response.",
+    "reaction": "The route is clear, though its effect is still to come.",
+    "step": 6,
+    "reason": "This is the only offered combination and should show how the liver uses its glycogen reserve between meals.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver releases glucose from its glycogen reserve, completing the between-meals response; rising blood glucose then lessens the stimulus for glucagon release.",
+    "reaction": "The feedback explanation makes the sequence more meaningful, though the outcome was predictable.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The insulin response was most worthwhile because it connected a meal to muscle glucose uptake, liver storage and a decreasing stimulus for insulin release.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate transitions showing hormones traveling to their target organs felt repetitive; their effects came in the following steps.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The paired explanations of insulin and glucagon clarified that each response reduces the stimulus that prompted it.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but every step offered only one combination, so I was following a prescribed sequence rather than making meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be unlikely to continue personally: the biology is clearly connected, but the predictable, single-option sequence gives me little to decide.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

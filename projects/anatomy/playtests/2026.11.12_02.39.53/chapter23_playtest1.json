@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Clearing debris at the wound seems like a useful start to repair.",
+    "choice": 1,
+    "expectation": "Phagocytes will engulf debris around the sealed vessel, preparing the wound for healing.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Repair signals may help establish blood supply, but I chose to start with cleanup."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleaned around the clot, so I can move on to supporting repair.",
+    "reaction": "The cleanup was predictable, but it made the first stage clear.",
+    "step": 2,
+    "reason": "Repair signals may help the nearby capillary supply the healing tissue.",
+    "choice": 1,
+    "expectation": "The signals will stimulate a blood vessel response near the wound, possibly new capillary growth.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts and nutrients could build the supporting matrix, but I chose to establish blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a new vessel branch connected to the circulation, giving me a way to add it to the wound.",
+    "reaction": "The connected sprout makes the blood-supply step clear.",
+    "step": 3,
+    "reason": "Adding the sprout to the cleaned wound should support the healing tissue.",
+    "choice": 1,
+    "expectation": "The wound will gain a growing blood vessel to help supply repair.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts could build supporting tissue, but I want to connect the new vessel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has connected capillary branches and separate surface and support slots to fill.",
+    "reaction": "The two slots make the remaining repair work clear.",
+    "step": 4,
+    "reason": "Fibroblasts and matrix nutrients seem suited to building the wound's supporting layer.",
+    "choice": 1,
+    "expectation": "The fibroblasts will produce a supporting matrix that can be added to the healing skin.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The edge cells could help close the surface, but I chose to build support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts made new connective tissue, which appears ready to fill the wound's support slot.",
+    "reaction": "The collagen fibres make the role of the fibroblasts clear.",
+    "step": 5,
+    "reason": "Add the new connective tissue to support the healing skin.",
+    "choice": 2,
+    "expectation": "The connective tissue will fill the support slot in the wound.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The edge cells could help close the surface, but I want to add the support I just made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound has new collagen-rich support, though the tissue is not yet as strong as uninjured skin.",
+    "reaction": "The distinction between closing the wound and regaining strength is useful.",
+    "step": 6,
+    "reason": "This is the only available combination, and the edge cells appear needed to close the surface.",
+    "choice": 1,
+    "expectation": "The cells will grow or spread into a new surface layer that can be added to the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new surface that can fill the remaining wound slot.",
+    "reaction": "The picture clearly shows how the surface closes across the gap.",
+    "step": 7,
+    "reason": "The only available combination fits the new surface onto the healing skin.",
+    "choice": 1,
+    "expectation": "The new surface will close the wound over its supporting tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound surface is closed and supported, but the deeper tissue is still gaining strength; the temporary clot remains to be cleared.",
+    "reaction": "The reminder that strength returns later makes the repair feel less instantaneous.",
+    "step": 8,
+    "reason": "The only available combination addresses the remaining goal of clearing the temporary clot.",
+    "choice": 1,
+    "expectation": "The enzymes will break down the clot as the wound continues to heal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot has mostly been cleared, while the scar remains and its collagen continues to change. Both goals are complete.",
+    "reaction": "The still-maturing scar makes the ending feel more realistic than an instant return to uninjured skin.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the new connective tissue was worthwhile because it connected fibroblasts and collagen to support beneath the wound, while explaining that the tissue is still weak.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and then fitting the new surface felt predictable, especially with only one combination offered at each step, though the picture clearly showed the cells crossing the gap.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between a closed wound and deeper tissue that is still gaining strength made me think of repair as continuing after closure.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. The offered combinations and wound slots made their intended roles clear, although the menu supplied compatibility rather than leaving it to discover.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in another chapter if it explored another connected process; the repair sequence was clear, but the later choices felt quite directed.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

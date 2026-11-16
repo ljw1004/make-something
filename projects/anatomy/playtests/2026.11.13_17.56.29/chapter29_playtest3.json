@@ -1,0 +1,188 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the turning sensor cells fitting beneath a flap in the fluid-filled loops.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "The loops and cells should form turning sensors, with moving fluid bending the cells' hairs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors are built; I can now build the separate tilt sensors.",
+    "reaction": "The fluid lag bending the flap makes the turning sensor easier to picture.",
+    "step": 2,
+    "reason": "The mineral weights are shown resting above the tilt sensor cells, matching the goal of building weighted sensors.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells should form sensors that respond when the head tilts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both sensor types are built; the weighted sensors also respond to changes in straight-line movement.",
+    "reaction": "The shifting weighted layer makes the tilt sensor easier to picture.",
+    "step": 3,
+    "reason": "The balance nerves are shown leaving both kinds of sensor and leading to the brain, so I’ll connect them to the turning sensors.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors should connect to a nerve route toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The nerves also connect to the weighted sensors, so I could start with those instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors now have nerves leading toward the brain; the weighted sensors still need their connection.",
+    "reaction": "The result matches the pictured nerve route.",
+    "step": 4,
+    "reason": "The balance nerves also leave the weighted sensors, so connecting them continues the second route.",
+    "choice": {
+      "combine": "Weighted balance sensors",
+      "with": "Balance nerves"
+    },
+    "expectation": "The weighted sensors should gain a nerve route toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both sensor types now have incoming nerves facing the brain, so the routes can be connected to the body.",
+    "reaction": "The second connection worked as expected.",
+    "step": 5,
+    "reason": "The turning sensors' nerves face the brain, so connecting them to the body is a sensible next step toward steadying the eyes.",
+    "choice": {
+      "combine": "Turning sensors with incoming nerves",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The turning sensor route should connect to the body's brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted sensors with incoming nerves",
+          "with": "Body with sight and hearing"
+        },
+        "reason": "I could connect the weighted sensors first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted body connection instead joined the two balance organs; their sensory nerves now lead toward the brain.",
+    "reaction": "I was surprised they had to be joined before connecting them to the body.",
+    "step": 6,
+    "reason": "The combined organs' nerves lead toward the brain, so I'll try connecting them to the body now.",
+    "choice": {
+      "combine": "Balance organs with incoming nerves",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The balance organs should connect to the body's brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensors now connect through the brain to eye and posture nerve routes, but the muscle endpoints remain unconnected.",
+    "reaction": "I expected to connect the body first, so the required nerve-route step surprised me.",
+    "step": 7,
+    "reason": "The remaining outlined muscle endpoints suggest connecting the response routes to the body.",
+    "choice": {
+      "combine": "Balance sensors with response connections",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The balance routes should connect to the body's eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows opposing eye movement and posture adjustments, but the goal remains incomplete.",
+    "reaction": "The movements make sense, though I’m unsure what is still missing.",
+    "step": 8,
+    "reason": "I’ll check the oriented body for a remaining compatible action rather than guess from the spare nerve routes.",
+    "choice": {
+      "inspect": "Body oriented to the world"
+    },
+    "expectation": "The compatibility list should show what is needed to finish the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The oriented body has no available combination, so I need to check another remaining item for the unfinished goal.",
+    "reaction": "I’m confused that the pictured response did not complete the goal.",
+    "step": 9,
+    "reason": "The weighted sensors with incoming nerves are still available, so inspecting them may reveal a missing connection.",
+    "choice": {
+      "inspect": "Weighted sensors with incoming nerves"
+    },
+    "expectation": "The compatibility list may identify a remaining step toward completing the balance route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors with incoming nerves also have no available combination, so they do not reveal the missing step.",
+    "reaction": "I’m still confused about why the goal remains incomplete.",
+    "step": 10,
+    "reason": "The eye and posture routes are still available, so I’ll check whether they have another operation.",
+    "choice": {
+      "inspect": "Eye and posture nerve routes"
+    },
+    "expectation": "The compatibility list may reveal a remaining connection or show that this route has no available operation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the eye and posture routes automatically joined them to the balance nerves and completed the remaining goal.",
+    "reaction": "I’m relieved it finished, but confused that this separate connection was needed after the body already showed the response.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the two sensor types was worthwhile: the pictures made fluid lag and shifting weights understandable ways to bend sensor hairs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Checking the oriented body and weighted sensors was frustrating because neither had an available combination, even though the goal was still open.",
+        "steps": [
+          8,
+          9
+        ]
+      },
+      "surprise": {
+        "text": "The body showed steady eyes and posture adjustments before the goal was complete; inspecting a separate nerve route then finished it automatically.",
+        "steps": [
+          7,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate final connection felt arbitrary because the earlier result already showed sensors connected through the brain to the response routes. I followed the compatibility feedback rather than understanding why another connection was required.",
+        "steps": [
+          6,
+          7,
+          10
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter because putting the sensors together helped me picture how balance works, although the confusing final requirement weakened the hook.",
+        "steps": [
+          1,
+          2,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

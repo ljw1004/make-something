@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows drinking water reaching the small intestine, whose lining was built for absorption.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water should cross the gut lining toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood with less water",
+          "with": "Body with urinary system"
+        },
+        "reason": "The blood already has water-saving signals, so this looks like the other goal's starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink water crossed into the blood, completing that goal; the water-saving urine goal remains.",
+    "reaction": "The result matched what I expected.",
+    "step": 2,
+    "reason": "The blood already has water-saving signals, and the body contains the kidneys and urinary route.",
+    "choice": {
+      "combine": "Blood with less water",
+      "with": "Body with urinary system"
+    },
+    "expectation": "The kidneys should conserve more water while still producing urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more filtered water to the blood while still making urine. Both goals are complete; replacing lost water still requires a drink.",
+    "reaction": "The distinction between saving water and replacing it was useful.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the drink with the kidney response was most worthwhile: one adds water to the blood, while the other conserves water already in the body.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The drinking-water combination was straightforward and predictable, though it made the route into blood clear.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The kidney result made it clearer that saving water does not create the missing water.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither pairing felt arbitrary. The blood sample said water-saving signals were already present, although it did not explain how those signals work.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how the body systems connect, but this short chapter was more informative than challenging.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

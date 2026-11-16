@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to give the polar fuel a route across the membrane.",
+    "choice": 1,
+    "expectation": "The carrier will form a membrane patch that can transport glucose into the cell, though further steps may be needed.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Amino acids should support protein production, but I want to start with glucose transport."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so glucose can now be paired with it.",
+    "reaction": "The placement makes the next transport step clear.",
+    "step": 2,
+    "reason": "Bring glucose across the membrane to begin following its use as fuel.",
+    "choice": 1,
+    "expectation": "Glucose will enter the cytosol through the carrier, likely moving down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for the ion-transport goal, but glucose transport is already set up."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol, ready for the interior fuel pathway.",
+    "reaction": "The carrier’s changing shape clearly explains how it transports glucose.",
+    "step": 3,
+    "reason": "Follow the glucose into the cell interior to begin its breakdown.",
+    "choice": 1,
+    "expectation": "Cytosolic enzymes will begin breaking down glucose, possibly producing an intermediate for aerobic respiration.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Oxygen is also needed for aerobic respiration, but I want to follow glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced pyruvate and ATP without using oxygen; the pyruvate can now be followed toward mitochondria.",
+    "reaction": "The distinction between glycolysis and oxygen-dependent steps is clear.",
+    "step": 4,
+    "reason": "Combine the available oxygen with the glycolytic products to follow aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "Pyruvate and oxygen will support mitochondrial respiration and further ATP production.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein synthesis, but I want to finish following the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal links pyruvate-derived fuel and oxygen to mitochondrial ATP production; the pump still needs installation.",
+    "reaction": "The separate roles of fuel and oxygen are informative, though the proton gradient is only implied by the arrows.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to prepare for powered ion transport.",
+    "choice": 1,
+    "expectation": "The pump will be embedded in the membrane and become available for an ATP-powered transport step.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Placing ATP renewal in the interior may also advance the goal, but the pump needs a membrane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed and can now be connected to ATP renewal for powered transport.",
+    "reaction": "The passive-channel inset makes the contrast with the pump useful.",
+    "step": 6,
+    "reason": "Connect aerobic ATP renewal to the pump to advance the fuel and ion-transport goal.",
+    "choice": 2,
+    "expectation": "ATP will power sodium export and potassium import against their gradients.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Protein synthesis also advances a goal, but I want to complete the ATP-to-pump connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Powered transport completes the fuel-to-pump goal; protein synthesis remains.",
+    "reaction": "The contrast between pumping against gradients and passive flow is clear.",
+    "step": 7,
+    "reason": "Use the amino acids in the cell interior to advance protein production.",
+    "choice": 1,
+    "expectation": "Ribosomes will use the amino acids to make proteins, perhaps using existing RNA messages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein synthesis completes the remaining goal; the illustration uses existing RNA messages rather than showing their production from DNA.",
+    "reaction": "The ribosome-to-protein sequence is clear, though GTP's role is not explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting aerobic ATP renewal to the sodium-potassium pump made the contrast between powered transport and passive flow useful and concrete.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was a necessary but predictable setup step, with less to consider than the transport it enabled.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The mitochondrial plan separated fuel oxidation from oxygen's role in electron transfer, while retaining cytosolic ATP production.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The offered oxygen combinations with the glucose carrier and pump lacked an obvious purpose in the supplied descriptions; I did not try them.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the linked transport and energy constructions were informative, although some connections, such as the proton gradient and GTP's role, could use more explanation.",
+        "steps": [
+          4,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

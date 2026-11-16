@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The nucleus contains opened DNA and nearby enzymes, while the nucleotides provide the building blocks needed to copy it.",
+    "choice": {
+      "combine": "Nucleus inside the stem cell",
+      "with": "DNA nucleotides"
+    },
+    "expectation": "The nucleotides will be used to copy the genome in the nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, with sister chromatids still joined; the cell-growth and spindle goals remain.",
+    "reaction": "The distinction between copying the whole genome and making proteins is useful.",
+    "step": 2,
+    "reason": "The duplicated centrosomes organize the spindle, and tubulin and motor proteins are its apparent components.",
+    "choice": {
+      "combine": "Duplicated centrosomes",
+      "with": "Tubulin and spindle motor proteins"
+    },
+    "expectation": "These components will form a chromosome-separating spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, and producing two daughter stem cells is now a goal; cell growth remains unfinished.",
+    "reaction": "The spindle illustration makes clear that the chromosomes have not yet separated.",
+    "step": 3,
+    "reason": "Phospholipids can supply the additional membrane needed as the living cell grows.",
+    "choice": {
+      "combine": "Living pluripotent stem cell",
+      "with": "Phospholipids"
+    },
+    "expectation": "The cell will add phospholipids to its surface as part of growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The living stem cell has no available combination as the first object, so I need another route to cell growth.",
+    "reaction": "I was surprised that the apparent membrane-growth pair did not work.",
+    "step": 4,
+    "reason": "Phospholipids are still a plausible material for surface growth, so checking their available partners should clarify the route.",
+    "choice": {
+      "inspect": "Phospholipids"
+    },
+    "expectation": "The compatibility report will show how phospholipids can contribute to growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Phospholipids and new proteins formed membrane vesicles, suggesting an intermediate step toward surface growth.",
+    "reaction": "The vesicle intermediate explains why my direct attempt did not work.",
+    "step": 5,
+    "reason": "The vesicles could fuse with the living cell's membrane to expand its surface.",
+    "choice": {
+      "combine": "New membrane vesicles",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The vesicles will contribute membrane to the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell body, completing the growth goal; the copied genome and spindle still need to be brought together for division.",
+    "reaction": "The continuous larger membrane makes the vesicles' role clearer.",
+    "step": 6,
+    "reason": "The spindle must engage the copied chromosomes to separate them into daughter cells.",
+    "choice": {
+      "combine": "Nucleus with its genome copied",
+      "with": "Mitotic spindle"
+    },
+    "expectation": "The spindle will engage the copied chromosomes and help separate the sister chromatids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied chromosomes into matching sets, but the cell still has one shared cytoplasm.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 7,
+    "reason": "Cortical actin and myosin are positioned beneath the membrane and could divide the enlarged cell body.",
+    "choice": {
+      "combine": "Enlarged stem-cell body",
+      "with": "Cortical actin and myosin"
+    },
+    "expectation": "Actin and myosin will help constrict the cell body during division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The separated chromosome sets are now enclosed in two daughter nuclei within one enlarged cell; cytoplasm division remains.",
+    "reaction": "The compatibility feedback clarified that the nuclei form before the cell splits.",
+    "step": 8,
+    "reason": "Actin and myosin beneath the membrane can constrict the cell containing the two daughter nuclei.",
+    "choice": {
+      "combine": "Stem cell with two daughter nuclei",
+      "with": "Cortical actin and myosin"
+    },
+    "expectation": "The cell will constrict and divide into two daughter stem cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Actin and myosin completed the division, producing two unspecialized daughter stem cells with complete nuclear genomes; all chapter goals are complete.",
+    "reaction": "The final picture ties chromosome separation and cytoplasmic division together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes with the spindle was most worthwhile: the result distinguished distributing sister chromatids from actually splitting the cell.",
+        "steps": [
+          1,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed direct attempt to add phospholipids to the cell was the least informative on its own; inspecting the phospholipids was needed to reveal the vesicle intermediate.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that membrane growth required phospholipids and proteins to form vesicles first, rather than adding phospholipids directly to the cell.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial direct growth attempt felt arbitrary because the cell had no available combination, although the subsequent vesicle construction gave the route a clearer purpose.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions made the distinct stages of cell division understandable, and the ending raises the question of how cells with the same genome become different through gene expression.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

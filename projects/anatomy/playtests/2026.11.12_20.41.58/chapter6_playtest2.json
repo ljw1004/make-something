@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action; it should begin the muscle-cell lineage needed for the goal.",
+    "choice": 1,
+    "expectation": "The signals will guide a subset of stem-cell descendants toward muscle precursors, though the exact stage is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced myoblasts that make muscle and fusion proteins, setting up the fusion step.",
+    "reaction": "The contrast with fibroblasts exporting collagen makes the different cell jobs clear.",
+    "step": 2,
+    "reason": "Fusion is the only offered combination and should produce the multinucleated muscle fibre described in the introduction.",
+    "choice": 1,
+    "expectation": "The myoblasts will join their cytoplasm to form a cell with multiple nuclei; its pulling machinery may still need further development.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fusion produced a multinucleated fibre with actin–myosin units, but its grip sites are still covered.",
+    "reaction": "The one-cell outline makes the result of fusion clear; I’m curious how calcium enables pulling.",
+    "step": 3,
+    "reason": "The calcium signal is the only offered combination and should activate the filaments.",
+    "choice": 1,
+    "expectation": "Calcium will uncover actin’s grip sites so myosin can pull, though the exact intermediate steps may not be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium exposed the grip sites, allowing ATP-dependent myosin cycling and filament sliding; the fibre now needs to reset.",
+    "reaction": "The distinction between filaments sliding and filaments shortening is clear and useful.",
+    "step": 4,
+    "reason": "The only offered combination should remove calcium and prepare the fibre to relax and pull again.",
+    "choice": 1,
+    "expectation": "The membranes will use ATP to pump calcium back into storage, allowing the grip sites to be covered again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium pumping stopped active pulling and reset the fibre; the next goal is to assemble the muscles and tendons.",
+    "reaction": "It is useful that the picture distinguishes relaxation from lengthening under an outside pull.",
+    "step": 5,
+    "reason": "The only offered combination adds extracellular matrix, likely providing connective support for the muscle.",
+    "choice": 1,
+    "expectation": "The matrix will surround or organize muscle fibres into tissue that can be incorporated into the two muscles; the exact structure is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matrix organized fibres into supported fascicles, providing bundles for both muscles.",
+    "reaction": "The distinction between the fibre membrane and surrounding connective tissue is useful; the term fascicle is explained by the labelled bundle.",
+    "step": 6,
+    "reason": "Both muscles are needed, so I’ll start by filling the biceps sheaths.",
+    "choice": 1,
+    "expectation": "The fascicles will form a biceps within its two-head sheaths, connected to the tendons; attachment to the skeleton may be a separate step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The triceps also needs building, but either muscle seems a reasonable starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fascicles now fill the biceps sheaths, with connective tissue transmitting force toward the tendons.",
+    "reaction": "The force-path inset makes the tendon connection useful rather than just a label.",
+    "step": 7,
+    "reason": "Both muscles are needed, so I’ll build the triceps before attaching them to the skeleton.",
+    "choice": 1,
+    "expectation": "Fascicles will fill the three triceps head spaces and connect through their sheaths to the tendon.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Attaching the biceps now would also advance the goal, but I prefer to build both muscles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both muscles are built; the triceps has three heads converging on the ulna, and both muscles still need attachment to the skeleton.",
+    "reaction": "The cutaway clarifies that the triceps heads have different origins, though their functional difference is not yet explained.",
+    "step": 8,
+    "reason": "I’ll attach the biceps first; both attachments are needed, and either order seems reasonable.",
+    "choice": 1,
+    "expectation": "The biceps tendons will attach to the shoulder region and radius across the elbow, positioning it to bend the joint.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Attaching the triceps also advances the goal, but I chose to start with the biceps."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow and pulls on the radius to flex it; the extensor slot remains empty.",
+    "reaction": "The two poses make the connection between tendon pull and elbow flexion clear.",
+    "step": 9,
+    "reason": "The only offered combination fills the extensor slot with the triceps, completing the paired muscle assembly.",
+    "choice": 1,
+    "expectation": "The triceps will attach across the elbow so its pull can extend the joint, opposite to the biceps.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps attachment completes the assembly and shows how its posterior pull extends the elbow, opposite the biceps.",
+    "reaction": "The paired poses make the connection between attachment position and movement clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The calcium-triggered contraction was most worthwhile: the planned sequence connects calcium, ATP and myosin cycling while showing that filaments slide rather than shorten.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two muscles was somewhat repetitive, although the different head arrangements added anatomical detail.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "Relaxation also requires ATP to pump calcium back into storage; the fibre lengthens under an outside pull rather than actively pushing itself longer.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose, though most choices were the only offered combination, so their compatibility was supplied rather than discovered.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how these muscle and joint constructions connect to larger systems; the progression from filament sliding to opposing elbow movements was engaging.",
+        "steps": [
+          3,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

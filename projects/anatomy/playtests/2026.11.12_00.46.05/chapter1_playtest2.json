@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "Membrane fats appear to form the boundary that can enclose the cell fluid.",
+    "choice": {
+      "combine": "Membrane fats",
+      "with": "Cell fluid"
+    },
+    "expectation": "The fats will surround the fluid to begin forming a cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats enclosed the fluid, but the boundary still lacks protein channels.",
+    "reaction": "The picture makes the missing channels clear.",
+    "step": 2,
+    "reason": "Transport proteins appear to add channels to the membrane and help make the boundary selective.",
+    "choice": {
+      "combine": "Membrane-enclosed fluid",
+      "with": "Transport proteins"
+    },
+    "expectation": "The transport proteins will fit into the membrane, creating a selective boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selective boundary is complete, and the cell model now needs stored instructions and ATP machinery.",
+    "reaction": "The picture clearly connects protein channels with selective transport.",
+    "step": 3,
+    "reason": "DNA contains the stored instructions, and nuclear envelopes appear to hold it in nuclei.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelopes"
+    },
+    "expectation": "The DNA will be enclosed in nuclei for the muscle-cell model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and nuclear envelopes formed muscle nuclei, which appear ready to supply the cell model's stored instructions.",
+    "reaction": "The porous envelopes connect well with the earlier explanation that RNA can leave the nucleus.",
+    "step": 4,
+    "reason": "The muscle nuclei appear to fit the model's stored-instructions slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei will be installed as the cell model's stored instructions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei are installed in the muscle-cell model; the ATP machinery is still needed.",
+    "reaction": "The inset reinforces how copied instructions can leave the nuclei.",
+    "step": 5,
+    "reason": "Mitochondria appear to fit the oxygen-using ATP machinery slot.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be installed as the cell model's ATP machinery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are installed, and the next goal is to make pulling proteins and structures. The correction indicates that the installed nuclei are no longer selectable separately.",
+    "reaction": "The fuel and oxygen diagram makes the mitochondria's role clearer.",
+    "step": 6,
+    "reason": "The RNA building blocks use DNA as a template, and the DNA is now inside the cell model.",
+    "choice": {
+      "combine": "RNA building blocks",
+      "with": "Muscle-cell model"
+    },
+    "expectation": "The building blocks will use the installed DNA to make an RNA copy of the instructions.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "RNA building blocks"
+        },
+        "reason": "I could check their available partners if the installed nuclei cannot be reached through the model."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell model's DNA produced an RNA copy that can reach a ribosome; the DNA remains in the nucleus.",
+    "reaction": "The picture makes the copy's journey clear.",
+    "step": 7,
+    "reason": "The copied instructions are headed toward a ribosome, which makes proteins.",
+    "choice": {
+      "combine": "Copied muscle-protein instructions",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will use the copied instructions to make muscle pulling proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes used the copied instructions to make pulling protein threads, while the RNA and ribosomes remain intact.",
+    "reaction": "The two panels help connect protein production with the organized threads.",
+    "step": 8,
+    "reason": "The cell model needs pulling structures, so the new protein threads appear ready to be added.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads will give the muscle-cell model its pulling structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein threads completed the muscle fibers. The final picture shows how greater filament overlap shortens a repeating unit without shortening the filaments themselves.",
+    "reaction": "The two poses made me curious about how the filaments move past each other.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the RNA copy was most worthwhile because the picture connected DNA staying in the nucleus with instructions reaching ribosomes outside it.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the nuclei was a predictable fitting step, although its inset reinforced the RNA journey.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final picture showed that the repeating unit shortens while the individual filaments keep their length.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the goals, item names and picture descriptions gave me a reason for each combination.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the muscle fibers become tissue and connect to other body systems. Building from instructions to pulling structures gave me a reason to be curious about that next scale.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

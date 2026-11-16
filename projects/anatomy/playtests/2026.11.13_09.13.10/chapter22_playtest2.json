@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the warm response by changing skin blood flow, which may help transfer heat to cooler air.",
+    "choice": 1,
+    "expectation": "I expect skin vessels to widen and increase heat loss; the result may clarify how the nerve signals cause this.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Sweating should also help cooling, but I want to see the vessel response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The widened vessels carry more heat from core blood to the cooler surroundings, as expected. I’ll continue the warm response.",
+    "reaction": "The heat arrows make the direction of transfer clear.",
+    "step": 2,
+    "reason": "Activate sweat glands to explore the other cooling response.",
+    "choice": 1,
+    "expectation": "I expect sweat to reach the skin surface, where evaporation may remove heat.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cold-induced vessel changes would make a useful comparison, but I’ll finish the warm response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sweat has reached the skin but remains liquid, so the cooling step still needs to be shown.",
+    "reaction": "The distinction between sweating and evaporation is useful.",
+    "step": 3,
+    "reason": "Combine the sweat with air to follow how evaporation removes heat.",
+    "choice": 1,
+    "expectation": "I expect some sweat to evaporate and carry heat away from the skin.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The cold vessel response would be a useful contrast, but I want to finish the warm response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation carries heat away, and the temperature-driven signals ease as temperature returns toward its earlier range. The warm goal is complete.",
+    "reaction": "The humid-air comparison makes the distinction between sweating and cooling clearer.",
+    "step": 4,
+    "reason": "Examine the cold vessel response as a direct comparison with warm skin circulation.",
+    "choice": 1,
+    "expectation": "I expect skin vessels to narrow, reducing blood flow near the surface and heat loss.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Muscle activity may generate heat, but the vessel comparison comes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The narrowed arteriole reduces surface blood flow and outward heat transfer without producing new heat. The remaining action can show the muscle response.",
+    "reaction": "The contrast between conserving and producing heat is clear.",
+    "step": 5,
+    "reason": "Follow the only available combination to examine how skeletal muscle responds to cold.",
+    "choice": 1,
+    "expectation": "I expect shivering or similar muscle activity to produce heat using ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering uses ATP and produces heat, complementing reduced heat loss from narrowed skin vessels; both temperature goals are complete.",
+    "reaction": "The contrast between producing and conserving heat was clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following sweat from liquid drops to evaporation was most worthwhile: the humid-air comparison and easing signals made cooling and feedback concrete.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Activating the sweat glands was a fairly predictable intermediate step, although separating liquid sweat from evaporation served a useful purpose.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The humid-air comparison showed less evaporation, making clear that producing sweat alone does not guarantee the same cooling.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; each had a clear role in the warm or cold response. The compatible-action menu guided the choices, rather than my discovering the recipes.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter for similarly concrete comparisons between mechanisms, though the predictable intermediate steps were less engaging.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

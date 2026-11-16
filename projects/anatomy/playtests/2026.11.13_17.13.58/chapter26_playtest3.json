@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "The enzyme picture says it helps clotting proteins form threads, matching one goal.",
+    "choice": {
+      "combine": "Dissolved clotting protein",
+      "with": "Clotting enzymes"
+    },
+    "expectation": "The enzymes will help the dissolved proteins form reinforcing threads.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with immune memory",
+          "with": "Rough edge"
+        },
+        "reason": "The rough edge could create the break needed for the platelet plug."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clotting proteins formed threads, so the remaining immediate task is to gather the platelet plug.",
+    "reaction": "The branching mesh makes the reinforcement easier to picture.",
+    "step": 2,
+    "reason": "The platelet picture shows fragments gathering at a torn vessel, so I’ll try them at the rough edge where the break happens.",
+    "choice": {
+      "combine": "Platelets at the cut",
+      "with": "Rough edge"
+    },
+    "expectation": "The platelets will gather into a plug at the break.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with immune memory",
+          "with": "Rough edge"
+        },
+        "reason": "The body may need to encounter the edge before the plug can form."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelets have no available combination yet, so the break may need to happen first.",
+    "reaction": "That was unexpected because the platelet picture already showed a cut.",
+    "step": 3,
+    "reason": "The rough edge is described as breaking the skin and a vessel, so I’ll try it with the body first.",
+    "choice": {
+      "combine": "Body with immune memory",
+      "with": "Rough edge"
+    },
+    "expectation": "The body will get a small cut, making the platelet response available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has a cut and a leaking vessel, so the platelet response may be available.",
+    "reaction": "The narrowed vessel still leaking makes the need for a plug clear.",
+    "step": 4,
+    "reason": "The platelets are pictured gathering at a torn vessel, which matches the cut body.",
+    "choice": {
+      "combine": "Cut body",
+      "with": "Platelets at the cut"
+    },
+    "expectation": "The platelets will gather into a plug at the damaged vessel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug slows the leak; the prepared protein threads can now reinforce it.",
+    "reaction": "It is clear why the plug alone is not the final repair.",
+    "step": 5,
+    "reason": "The chapter says clotting threads reinforce the platelet plug to stop bleeding.",
+    "choice": {
+      "combine": "Body with platelet plug",
+      "with": "Clotting protein threads"
+    },
+    "expectation": "The threads will reinforce the plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The threads reinforced the platelet plug and stopped the bleeding, though the skin still needs to heal.",
+    "reaction": "The distinction between a sealed vessel and unhealed skin was useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reinforcing the plug showed how platelets and protein threads work together to stop bleeding, while leaving the skin open.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying platelets at the rough edge was confusing: the platelet picture already showed a cut, but the body first had to be cut.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that platelets had no available combination until the body encountered the rough edge.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to cut the body first made sense afterward, but the already-labelled “platelets at the cut” made that prerequisite unclear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the open skin heals; stopping the bleeding feels like the first part of the repair.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

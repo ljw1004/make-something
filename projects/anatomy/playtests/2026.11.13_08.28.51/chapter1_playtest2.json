@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Phospholipids form the membrane needed to enclose the cytosol, so these are the most direct pieces to try.",
+    "choice": {
+      "combine": "Cytosol",
+      "with": "Membrane phospholipids"
+    },
+    "expectation": "The phospholipids will form a membrane around the cytosol, or reveal what preparation is needed.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water",
+          "with": "Membrane phospholipids"
+        },
+        "reason": "Water might first help the phospholipids assemble into a membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cytosol has no available combination yet, so the membrane likely needs preparation first.",
+    "reaction": "The failed direct attempt makes the water-and-lipid pairing more promising.",
+    "step": 2,
+    "reason": "Water can promote phospholipid assembly because their heads interact with water while their tails avoid it.",
+    "choice": {
+      "combine": "Water",
+      "with": "Membrane phospholipids"
+    },
+    "expectation": "The phospholipids will assemble into a membrane structure in water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water and phospholipids formed a closed lipid bilayer, which can now be tried with the cytosol.",
+    "reaction": "The explanation of the water-facing surfaces and sheltered tails makes the structure clear.",
+    "step": 3,
+    "reason": "The assembled bilayer is the boundary needed to enclose the cytosol.",
+    "choice": {
+      "combine": "Lipid bilayer",
+      "with": "Cytosol"
+    },
+    "expectation": "The bilayer will enclose the cytosol and complete the current goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bilayer now encloses the cytosol, and the new goal calls for a selective ion pathway.",
+    "reaction": "The crossed-out ion passage makes the need for a channel clear.",
+    "step": 4,
+    "reason": "The sodium channel should provide a selective route through the membrane.",
+    "choice": {
+      "combine": "Membrane enclosing cytosol",
+      "with": "Sodium channel"
+    },
+    "expectation": "The channel will be incorporated into the membrane, allowing sodium ions a route across.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel is now embedded in the membrane and open, leaving sodium ions to be introduced.",
+    "reaction": "The water-filled passage makes the route across the oily membrane clear.",
+    "step": 5,
+    "reason": "The sodium ions should be able to cross through the installed selective channel.",
+    "choice": {
+      "combine": "Membrane with an ion channel",
+      "with": "Sodium ions"
+    },
+    "expectation": "Sodium ions will pass through the channel, completing the ion-crossing goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sodium moved inward through the open channel down its concentration difference, completing the selective-exchange goal.",
+    "reaction": "The contrast between sodium crossing and the large protein remaining outside makes the channel's selectivity clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Assembling the bilayer in water was most worthwhile: the illustration plan and explanation connect the phospholipids' water-facing heads and sheltered tails to the membrane's structure.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial direct attempt to enclose cytosol failed without explaining the missing preparation, so it was less informative than the later construction.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The cytosol could not combine with anything until the bilayer had been assembled first; that changed my plan from enclosing it directly to preparing the boundary.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The required preparation order was not explicit in the initial goal, though assembling phospholipids in water had a clear physical rationale.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions connected membrane structure to ion movement clearly, and I would be curious to see how later chapters build on that. The planned pictures and brief prose are useful, though they do not establish whether students would understand them.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

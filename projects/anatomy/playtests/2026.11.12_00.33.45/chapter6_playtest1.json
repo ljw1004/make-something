@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways end beside the sacs, so joining them should establish the route for inhaled air.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Lung air sacs"
+    },
+    "expectation": "The airways will connect to the lung air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airways and sacs formed a lung air route with an empty exchange-surface slot.",
+    "reaction": "The equal-volume comparison makes the value of many small sacs clear.",
+    "step": 2,
+    "reason": "The thin exchange lining forms the air-facing side of the sac wall, so it is a plausible fit for the open slot.",
+    "choice": {
+      "combine": "Thin exchange lining",
+      "with": "Lung air route"
+    },
+    "expectation": "The lining will form or contribute to the exchange surface in the air route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining is in place, and the result identifies the capillary mesh as the missing blood-facing part.",
+    "reaction": "The description makes the next connection clear.",
+    "step": 3,
+    "reason": "The capillary mesh surrounds the sacs and supplies the blood-facing wall needed for exchange.",
+    "choice": {
+      "combine": "Lung capillary mesh",
+      "with": "Air route with lining"
+    },
+    "expectation": "The mesh will join the lined sacs to form an air–blood exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary mesh completed the exchange surface, showing oxygen and carbon dioxide crossing between separate air and blood spaces when supplied.",
+    "reaction": "The opposing arrows make the exchange clear.",
+    "step": 4,
+    "reason": "The lung capillaries need to connect to the existing blood circuit so blood can reach the exchange surface.",
+    "choice": {
+      "combine": "Lung route with exchange",
+      "with": "Connected vessel circuit"
+    },
+    "expectation": "The lung exchange route will connect to the circulating blood system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood now flows around the air sacs, but the air needs renewing to sustain oxygen transfer.",
+    "reaction": "The shrinking arrows make the need for ventilation clear.",
+    "step": 5,
+    "reason": "The pleural membranes connect the lung side to the chest side, which should prepare the lung route for chest movement.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Blood-supplied lung route"
+    },
+    "expectation": "The membranes will attach to the lung route so the breathing chest can move it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural sheets now cover the lung, and the chest-facing sheet remains unattached.",
+    "reaction": "The wet-sheet inset helps explain how chest movement can pull on the lung.",
+    "step": 6,
+    "reason": "The breathing chest can attach to the exposed pleural sheet and renew the air in the sacs.",
+    "choice": {
+      "combine": "Breathing chest",
+      "with": "Blood-supplied lung route with pleura"
+    },
+    "expectation": "Chest movement will expand the lung route and renew its air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing chest completed the oxygen-delivering circulation. The result connects chest expansion and falling air pressure to oxygen delivery throughout the body.",
+    "reaction": "The pressure gauge and circulation arrows make the completed system satisfying to see come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the breathing chest was most worthwhile because it brought ventilation, gas exchange and circulation together in one picture.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the thin lining felt less informative on its own; its contribution became clearer after the capillary mesh was added.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The shrinking oxygen arrows showed why blood flow alone cannot sustain oxygen transfer when the air is not renewed.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The item descriptions and results made each connection plausible, although some steps were predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: I am curious how the completed circulation connects to other body systems, although the straightforward sequence leaves limited room for decisions.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

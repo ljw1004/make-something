@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin-cell population is already located in this body's epidermis and shows how its surface is renewed.",
+    "choice": {
+      "combine": "Body with a light-linked clock",
+      "with": "Renewing skin-cell population"
+    },
+    "expectation": "The body model will show skin cells renewing its outer layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin renewal; the remaining goal also calls for blood renewal.",
+    "reaction": "The result matched the expected replacement of surface cells.",
+    "step": 2,
+    "reason": "The kidney signal is shown travelling to marrow, where the red-cell precursors are located.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Kidney red-cell signal (erythropoietin)"
+    },
+    "expectation": "The signal will stimulate the precursors to produce red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Low oxygen at the kidney triggers the blood-borne signal, and the marrow precursors develop into red cells.",
+    "reaction": "The kidney-to-marrow connection is useful context for blood renewal.",
+    "step": 3,
+    "reason": "The developing red cells belong to the same body and may complete its blood-renewal route.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body model will show red-cell renewal alongside skin renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are complete; the next goal is bone remodeling.",
+    "reaction": "The kidney-to-marrow link connects oxygen delivery with blood-cell replacement.",
+    "step": 4,
+    "reason": "Bone-removing and bone-forming cells suggest complementary roles in remodeling, but their required order is unclear.",
+    "choice": {
+      "inspect": "Bone-removing cells"
+    },
+    "expectation": "The compatibility report should show how to begin remodeling the existing bone.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically applied bone-removing cells to the body, exposing a patch where old bone is removed.",
+    "reaction": "The automatic combination clarified the remodeling sequence.",
+    "step": 5,
+    "reason": "Bone-forming cells are the remaining complementary component for rebuilding the remodeled patch.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will deposit new bone in the patch where old bone was removed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch after old bone was removed, completing the renewal model and both goals.",
+    "reaction": "The closing image of the person raising the previously built arm makes the ongoing renewal feel connected to the larger model.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The kidney-to-marrow sequence was most worthwhile: it connects low oxygen delivery to a blood-borne signal and red-cell production in the planned illustrations.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The skin-renewal result was comparatively brief: it showed new basal cells and shedding but added little explanation beyond the initial picture description.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The kidney's role in signaling red-cell production provided a useful connection between oxygen delivery and marrow renewal.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the order of bone removal and formation was not initially clear; inspecting revealed the next operation and performed it automatically.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter developed similarly concrete connections between systems, particularly the kidney and marrow; the final image also provided a satisfying sense of continuity.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

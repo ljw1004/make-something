@@ -1,0 +1,144 @@
+[
+  {
+    "step": 1,
+    "reason": "Installing the glucose carrier starts the fuel pathway toward ATP renewal.",
+    "choice": 1,
+    "expectation": "The carrier will be fitted into the membrane, allowing glucose to cross by facilitated diffusion.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is also needed for ion transport, but I want to follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so I can now follow glucose into the cell.",
+    "reaction": "The outward-facing pocket makes the next step clear.",
+    "step": 2,
+    "reason": "Combining glucose with its carrier should move the fuel pathway forward.",
+    "choice": 1,
+    "expectation": "Glucose will enter the cytosol through the carrier, down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed later, but glucose entry comes first in the fuel pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol, ready for the fuel pathway.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "Place glucose in the cell interior to follow its breakdown.",
+    "choice": 1,
+    "expectation": "Glucose will become available for cellular respiration, though further steps may be needed to renew ATP.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is relevant to the transport goal, but I want to continue the glucose pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown is now shown making some ATP in the cytosol, with pyruvate headed toward mitochondria.",
+    "reaction": "The distinction that glycolysis does not directly use oxygen is useful.",
+    "step": 4,
+    "reason": "Add the incoming oxygen to continue the aerobic ATP pathway.",
+    "choice": 1,
+    "expectation": "The pathway will connect pyruvate and oxygen to mitochondrial ATP renewal, though intermediate steps may be shown.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein growth, but I want to finish following the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is now connected to oxygen and mitochondrial hydrogen-ion flow; the pump still needs installing.",
+    "reaction": "The distinction between fuel oxidation and oxygen's role is useful, though the electron-transfer connection is condensed.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to connect ATP renewal to powered ion transport.",
+    "choice": 1,
+    "expectation": "The pump will be fitted into the membrane, ready for a later ATP-powered transport step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Amino acids could advance protein growth, but I want to finish the ion-transport goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed with its ATP-binding site facing the cytosol, ready to connect to ATP renewal.",
+    "reaction": "The nearby channel comparison makes the contrast with passive transport clear.",
+    "step": 6,
+    "reason": "Connect aerobic ATP renewal to the pump to advance the powered ion-transport goal.",
+    "choice": 2,
+    "expectation": "ATP will power the pump to move sodium out and potassium in against their concentration gradients.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP might also power the pump, but the goal specifically asks for a connection to aerobic renewal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump uses ATP to move ions against their gradients, completing the fuel and transport goal; protein growth remains.",
+    "reaction": "The comparison with passive sodium flow makes the pump's purpose clear.",
+    "step": 7,
+    "reason": "Combine amino acids with ATP renewal to advance protein production.",
+    "choice": 2,
+    "expectation": "The cell will use amino acids and energy to make proteins at ribosomes, using existing RNA messages.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP might also support protein production, but aerobic renewal is already established."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein synthesis is connected to existing RNA messages and energy-supported steps, completing the remaining goal.",
+    "reaction": "The ribosome-to-protein sequence is clear, though GTP's role is not explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting aerobic ATP renewal to the sodium-potassium pump was most worthwhile: it linked fuel use to cellular work and contrasted powered transport with passive flow.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was straightforward preparation rather than an especially engaging step, although the channel comparison gave it context.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The mitochondrial plan distinguished fuel oxidation from oxygen's role in electron transfer and showed hydrogen-ion flow through ATP synthase; the connection was useful but condensed.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No chosen action felt purposeless. The compatible oxygen-and-carrier option was not explained, but I did not select it, so its result is unknown.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: linking membrane transport, ATP renewal and protein production made the constructions useful, and I would be curious to see how later chapters connect cells to tissues.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

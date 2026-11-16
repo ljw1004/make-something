@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The front of the arm needs a biceps, and the chapter says to build it from muscle cells.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Front of arm"
+    },
+    "expectation": "The muscle cells should help build the biceps at the front of the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bone mineral",
+          "with": "Front of arm"
+        },
+        "reason": "The bone attachment also needs mineral, and the chapter says either order works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells formed the biceps, while the radius still needs mineral.",
+    "reaction": "The picture makes it clearer how the biceps pulls to bend the elbow.",
+    "step": 2,
+    "reason": "The front bone attachment still needs mineral, so I’ll finish that side.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Front of arm"
+    },
+    "expectation": "The mineral should harden the bone at the biceps attachment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral strengthened the radius, completing the front-arm goal.",
+    "reaction": "It is useful to see that the mineral goes into bone, not the tendon or cartilage.",
+    "step": 3,
+    "reason": "The back of the arm still needs a triceps, and the same muscle cells can build it.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Back of arm"
+    },
+    "expectation": "The muscle cells should build the triceps at the back of the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Bone mineral",
+          "with": "Back of arm"
+        },
+        "reason": "I could strengthen the back attachment first; the chapter says either order works."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps is built and straightens the elbow, but the ulna still needs mineral.",
+    "reaction": "It is clear how the muscle's position changes the direction it moves the elbow.",
+    "step": 4,
+    "reason": "The back attachment still needs bone mineral, just as the front attachment did.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Back of arm"
+    },
+    "expectation": "The mineral should strengthen the ulna at the triceps attachment and complete the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral strengthened the ulna and completed the back-arm goal, finishing the chapter.",
+    "reaction": "It was useful to see that the tendons and joint surfaces stayed soft.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building both muscles was most worthwhile: their positions explained how the biceps bends the elbow and the triceps straightens it.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mineral to the second bone was a little repetitive after doing the same thing on the front.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The same kind of muscle cells could have different effects because the muscles pull from different positions around the elbow.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the named slots and goals explained why each part was added.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter if it offered another clear connection between body structures and what they do, though I would hope for less repetition.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

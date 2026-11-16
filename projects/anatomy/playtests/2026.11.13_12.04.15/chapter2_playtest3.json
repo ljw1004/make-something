@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier fits into the membrane and is needed to bring fuel into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be installed in a membrane patch, allowing glucose transport to be explored.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose carrier is installed in the membrane, so glucose can now be tested with it.",
+    "reaction": "The carrier's outward-facing pocket makes the next step clear.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol and is available for breakdown; the carrier remains reusable.",
+    "reaction": "The change in carrier shape makes the transport mechanism clear.",
+    "step": 3,
+    "reason": "The living cell interior contains the cytosol and mitochondria needed to follow glucose breakdown.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell interior will begin processing glucose toward ATP renewal, potentially using the available oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown has produced pyruvate and some ATP in the cytosol; the pyruvate arrows point toward the mitochondria.",
+    "reaction": "The distinction that glycolysis does not use oxygen is useful.",
+    "step": 4,
+    "reason": "The cytosol result points toward mitochondrial processing, so I will check its available partners.",
+    "choice": {
+      "inspect": "Cytosol remaking ATP"
+    },
+    "expectation": "The available partners should indicate how to continue toward aerobic ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The compatibility list identifies oxygen entering the cytosol as a route toward aerobic ATP renewal; amino acids offer another possible construction.",
+    "reaction": "The oxygen connection makes the next step clear.",
+    "step": 5,
+    "reason": "Oxygen and the products of glucose breakdown are needed to follow aerobic ATP renewal.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "The combination will show mitochondrial aerobic processing and further ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is complete, and making proteins is now an additional goal; ion transport remains unfinished.",
+    "reaction": "The separate roles of fuel and oxygen in mitochondrial ATP renewal are useful to see.",
+    "step": 6,
+    "reason": "The sodium-potassium pump needs to be installed in the membrane before it can transport ions.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be fitted into a membrane patch, ready to use ATP for ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sodium-potassium pump is installed in the membrane, ready to connect ATP use with ion transport.",
+    "reaction": "The comparison with the passive sodium channel makes the transport goal clearer.",
+    "step": 7,
+    "reason": "The installed pump has an ATP-binding site, and aerobic ATP renewal provides the energy connection.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium across the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered sodium-potassium transport is complete; making new proteins remains the goal.",
+    "reaction": "The contrast between the pump and passive channel makes their different roles clear.",
+    "step": 8,
+    "reason": "The earlier compatibility list linked amino acids with cytosolic ATP production, and amino acids are protein building blocks.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Cytosol remaking ATP"
+    },
+    "expectation": "The combination will show amino acids being assembled into new proteins using cellular energy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids and cytosolic ATP production led to new proteins, completing the remaining goal and the chapter.",
+    "reaction": "The ribosome and existing RNA message make the construction understandable, though GTP's role is not explained.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting cytosolic glucose breakdown to aerobic ATP renewal was most worthwhile: the illustration plan distinguishes fuel oxidation from oxygen's role and shows the hydrogen-ion reservoir driving ATP synthase.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the glucose carrier was a predictable setup step; its more informative shape change appeared only when glucose crossed.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The compatibility check revealed that amino acids could combine with cytosolic ATP production as well as oxygen, pointing to the later protein-building goal.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The direct combination of amino acids with 'Cytosol remaking ATP' initially felt a little abstract: ribosomes and existing RNA messages explain the connection in the result, but were not named in that combination.",
+        "steps": [
+          4,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contrasting passive channel and powered pump, and the link from fuel to ATP renewal, made the constructions informative rather than just assembly.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

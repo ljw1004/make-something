@@ -1,0 +1,84 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action and should advance the goal of bringing glucose into the cell.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter through the existing transporter and perhaps begin breaking down, though the result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the existing carrier and is broken down in the cytosol, supplying some ATP and pyruvate for mitochondria. The goal now is to remake ATP and use it for ion pumping.",
+    "reaction": "The cytosolic ATP arrow usefully clarifies that ATP production starts outside mitochondria.",
+    "step": 2,
+    "reason": "Oxygen is the only offered combination and should advance mitochondrial energy production.",
+    "choice": 1,
+    "expectation": "I expect oxygen to support further breakdown of the fuel in mitochondria, possibly preparing the way to remake ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen receives electrons at the end of the mitochondrial pathway and becomes part of water, distinguishing its role from fuel's.",
+    "reaction": "That distinction is useful, though the link between electron transfer and ATP production remains unclear.",
+    "step": 3,
+    "reason": "Adding ADP and phosphate is the only offered combination and addresses the goal of remaking ATP.",
+    "choice": 1,
+    "expectation": "I expect the cell to make ATP from ADP and phosphate using energy from respiration, though the mechanism may not be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diagram connects electron transfer to ATP production through hydrogen-ion pumping and flow back through an ATP-making protein.",
+    "reaction": "That fills in the previously unclear link between respiration and ATP production.",
+    "step": 4,
+    "reason": "The ion pump is the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the pump to use ATP to move ions across the cell membrane, likely sodium and potassium.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completes the ATP cycle by using ATP to move sodium and potassium against their concentration differences; all chapter goals are complete.",
+    "reaction": "The contrast with the earlier passive sodium channel makes the pump's purpose clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding ADP and phosphate was most worthwhile: the planned two-panel illustration connects electron transfer, hydrogen-ion flow and ATP production, filling an earlier explanatory gap.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen was less satisfying on its own because the initial result did not explain how electron transfer drives ATP production; the next result supplied that connection.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The glucose breakdown illustration showed ATP production in the cytosol, outside mitochondria, alongside pyruvate formation.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose, although every decision had only one offered combination, leaving little meaningful choice.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how later constructions connect cellular processes to tissues and organs, though I would hope for more choices.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

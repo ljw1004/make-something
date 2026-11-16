@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "Start by preparing the membrane needed for cell growth and division.",
+    "choice": 1,
+    "expectation": "The phospholipids and proteins will form new membrane material, though I am unsure how the game will depict its incorporation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also a goal, but I chose membrane preparation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane supply is packaged in vesicles, and the next goal is to use it to enlarge the cell.",
+    "reaction": "The vesicle connection is useful, though the ER and Golgi inset leaves their roles unexplained.",
+    "step": 2,
+    "reason": "Use the newly prepared membrane supply to address the revealed growth goal.",
+    "choice": 1,
+    "expectation": "The vesicles will add membrane to the growing cell, perhaps by fusing with its surface.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA copying is also required, but I will finish the membrane sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Vesicle fusion added membrane and enlarged the cell; its nuclear DNA still needs copying.",
+    "reaction": "The fusion inset makes the membrane-growth connection clear.",
+    "step": 3,
+    "reason": "Copy the nuclear DNA to prepare complete genomes for the daughter cells.",
+    "choice": 1,
+    "expectation": "The nucleotides will be used to replicate the cell's nuclear DNA, though the depiction may simplify the process.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Building the spindle is also necessary, but I want to copy the DNA first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grown cell now has copied DNA in joined sister chromatids; a spindle is needed to form two daughter nuclei.",
+    "reaction": "The S-phase label helps place DNA copying in the cell cycle.",
+    "step": 4,
+    "reason": "Build the spindle for the newly revealed goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The proteins and duplicated centrosomes will form a chromosome-moving spindle, likely using microtubules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled between two centrosomes, but chromosomes have not yet attached.",
+    "reaction": "The time-strip clarifies that spindle assembly follows DNA copying.",
+    "step": 5,
+    "reason": "Use the spindle to form daughter nuclei; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The spindle will attach to and separate the copied chromosomes so two daughter nuclei can form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two nuclei now each contain a complete genome, but the shared cytoplasm still needs to divide.",
+    "reaction": "The continuous boundary and cleavage furrow clearly distinguish nuclear division from cytoplasmic division.",
+    "step": 6,
+    "reason": "Use actin and myosin to divide the cytoplasm; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the cleavage furrow and separate the cell into two daughters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cytoplasmic division produced two separate stem cells, each with a complete genome; the chapter is complete.",
+    "reaction": "The distinction between self-renewal and later differentiation gives the outcome useful context.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming two daughter nuclei before dividing the cytoplasm was the strongest sequence: the continuous cell boundary and cleavage furrow clearly distinguish nuclear division from cell separation.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The membrane-building vesicle picture mentions the ER and Golgi but does not explain their roles, leaving that connection less informative.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The vesicles fuse with the surface to add membrane, making cell growth more concrete than simply combining the ingredients.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked an overall purpose, though combining generic new proteins with centrosomes simplifies spindle assembly; tubulin is only identified in the result.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the daughter cells develop into different tissues, although the final stretch offered only one combination at each decision.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

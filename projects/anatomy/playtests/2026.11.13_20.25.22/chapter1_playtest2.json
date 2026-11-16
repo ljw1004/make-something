@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll enclose the DNA first; the envelope picture shows a space that can hold it.",
+    "choice": 2,
+    "expectation": "I expect this to form a nucleus containing the DNA.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The fats and water might form the cell boundary, but I chose the more immediately clear DNA enclosure first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is enclosed, and the new goal is to put the nucleus inside a cell boundary.",
+    "reaction": "The RNA leaving through a pore is interesting, though its role isn't explained yet.",
+    "step": 2,
+    "reason": "This is the only offered combination, and it may build the boundary needed for the remaining goals.",
+    "choice": 1,
+    "expectation": "I expect the fats and water to form a membrane boundary, though I don't know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water made a closed boundary, so I can now put the nucleus inside or add routes through the membrane.",
+    "reaction": "The picture makes the heads facing water and tails meeting inside the wall clear, though the extra descriptions of unfitted parts are confusing.",
+    "step": 3,
+    "reason": "I'll put the nucleus inside to complete the goal that appeared after enclosing the DNA.",
+    "choice": 1,
+    "expectation": "I expect the nucleus to sit inside the membrane bag, with its DNA still enclosed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The water channel would address the other goal, but I want to finish placing the nucleus first."
+      },
+      {
+        "choice": 3,
+        "reason": "The sugar carrier also fits the boundary goal, but I'll place the nucleus first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is now inside the membrane bag, completing that goal. The boundary still needs routes for water and sugar.",
+    "reaction": "That placement was straightforward.",
+    "step": 4,
+    "reason": "I'll add the water channel because its pictured pore lets water cross the boundary.",
+    "choice": 1,
+    "expectation": "I expect the protein to fit into the membrane and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sugar carrier also addresses the remaining goal, but I'll add the water route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted, leaving the sugar route to add.",
+    "reaction": "That worked as expected.",
+    "step": 5,
+    "reason": "The sugar carrier is the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the carrier to fit into the membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completed the boundary routes and all chapter goals.",
+    "reaction": "It worked as expected, though the final fitting was predictable.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane bag was most worthwhile: the picture showed how the fats form a boundary between inside and outside.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The membrane bag result was confusing because it also described parts that had not been fitted yet.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was curious to see RNA leaving the nucleus through a pore, although its role wasn't explained.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but choosing water before sugar was just an order preference; both routes were needed.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the other cell parts fit together, though the last fittings were predictable.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

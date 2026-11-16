@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "Connect the intestinal veins to the portal branches to build the route toward the liver.",
+    "choice": 1,
+    "expectation": "I expect a portal vessel carrying nutrient-rich blood from the intestine into the liver, though the liver's exit will still need connecting.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The liver's return to the vena cava is also needed, but I prefer to follow the blood route from the intestine first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel links the intestinal and liver capillary beds; it can now be fitted to the digestive tube.",
+    "reaction": "The two-bed route makes the liver's first encounter with absorbed nutrients clear.",
+    "step": 2,
+    "reason": "Fit the new portal vessel to the digestive tube to connect the intestinal route to the liver.",
+    "choice": 2,
+    "expectation": "I expect the digestive tube to gain its portal connection; the liver's venous exit may still need to be connected.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Connecting the liver's exit is also necessary, but I want to fit the portal route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is now fitted to the digestive tube; the liver's return route remains to be connected.",
+    "reaction": "A straightforward fitting, with no further detail yet.",
+    "step": 3,
+    "reason": "Connect the liver's collecting veins to the vena cava to complete its route back toward the heart.",
+    "choice": 1,
+    "expectation": "I expect a hepatic venous return route from the liver to the vena cava.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Integrating the digestive tube with the body is also needed, but I want to establish the liver's exit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver now has a venous route to the vena cava and right atrium; the digestive system still needs integration with the body.",
+    "reaction": "The arrows clarify where blood goes after leaving the liver.",
+    "step": 4,
+    "reason": "Integrate the digestive tube with the body; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the digestive organs and their portal route to join the body model, though the hepatic return may still need a separate connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs now connect to the body's circulation, with the hepatic venous exit still to be fitted.",
+    "reaction": "The separate hepatic artery and bile ducts make the liver's connections clearer.",
+    "step": 5,
+    "reason": "Fit the hepatic venous return to complete the route toward the heart; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect blood leaving the liver to reach the vena cava and return toward the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver's venous exit is connected to the vena cava, completing the circulation goal; following the nutrients remains.",
+    "reaction": "The complete route is clear, though “sinusoids” is not explained explicitly.",
+    "step": 6,
+    "reason": "Follow the absorbed nutrients through the connected liver; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect to see what happens to glucose and amino acids as portal blood passes through the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final picture identifies sinusoids as broad capillary channels and shows that some nutrients approach liver cells while others continue in the blood. Both goals are complete.",
+    "reaction": "That clarified the previously unexplained term, though I was curious what the liver cells do with the nutrients.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the portal vessel made the two-capillary-bed route and the liver's early access to absorbed substances clear.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the portal vessel was a straightforward intermediate step with no additional explanation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The completed model showed a separate hepatic arterial supply to the same liver channels, alongside the portal route.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action seemed purposeless, although the portal-vessel fitting added little detail on its own.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see what liver cells do with absorbed nutrients; the final picture shows their arrival but not their subsequent processing.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

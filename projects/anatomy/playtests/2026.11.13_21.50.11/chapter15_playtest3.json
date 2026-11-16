@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows liver cells taking glucose from blood and joining it into a stored carbohydrate, matching the first goal.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will turn some of the glucose into a store.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube[]",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "The named vein also fits the digestive tube's empty slot, but I will start with glucose storage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver cells stored some glucose as linked carbohydrate, completing the storage goal. I can now work on connecting the digestive organs.",
+    "reaction": "It makes sense that the store can be broken down later when tissues need fuel.",
+    "step": 2,
+    "reason": "The digestive tube has a named vein-to-liver slot, and the available vein matches it.",
+    "choice": {
+      "combine": "Digestive tube[]",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The vein will fit into the digestive tube's slot and connect the intestine to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted into the digestive tube, so I can try connecting the tube to the body.",
+    "reaction": "The named slot made that connection straightforward.",
+    "step": 3,
+    "reason": "The remaining goal is to connect the digestive organs to the body, and the tube now has its vein fitted.",
+    "choice": {
+      "combine": "Digestive tube[Vein from intestine to liver]",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive tube will connect to the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tube and its vein are now connected to the body's circulation, completing the chapter. The colon's inner wall is still unassembled.",
+    "reaction": "The connection was straightforward, though the unfinished colon made me curious.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose was most worthwhile: the picture showed glucose units joined inside liver cells, and the explanation connected that store to fuel needed between meals.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named vein into its matching slot was clear but mostly a routine connection, with little new explanation at that point.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The liver can break down its stored carbohydrate when other tissues need fuel; the result helped explain why storing glucose matters.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The vein matched the named slot, although fitting it was more of a clear instruction than a meaningful choice.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the unfinished colon wall fits into the body model, though this chapter's connections were fairly predictable.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

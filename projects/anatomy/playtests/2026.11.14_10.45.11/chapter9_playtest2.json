@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the turning sensor cells at the base of a fluid-filled loop, matching the first goal.",
+    "choice": {
+      "combine": "Fluid-filled loops",
+      "with": "Turning sensor cells"
+    },
+    "expectation": "The cells will form a turning sensor that detects movement of the fluid.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tiny mineral weights",
+          "with": "Tilt sensor cells"
+        },
+        "reason": "The pictures also show how these pieces could make the tilt sensors."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors are built; their nerve bundle is still outlined. I can build the tilt sensors next.",
+    "reaction": "The fluid bending the sensors makes the turning connection clearer.",
+    "step": 2,
+    "reason": "The pictures show the mineral weights resting above the tilt sensor cells, matching the next goal.",
+    "choice": {
+      "combine": "Tiny mineral weights",
+      "with": "Tilt sensor cells"
+    },
+    "expectation": "The weights and cells will form sensors that respond when the head tilts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted sensors are built and respond to tilt and changes in straight-line movement. Next I can connect the sensor routes.",
+    "reaction": "The shifting weighted layer makes the sensors' job clearer.",
+    "step": 3,
+    "reason": "The balance nerves are pictured connecting both sensor regions to the brain, so I'll start with the turning sensors.",
+    "choice": {
+      "combine": "Turn-sensing canals",
+      "with": "Balance nerves"
+    },
+    "expectation": "The turning sensors will connect to a nerve route toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted balance sensors",
+          "with": "Balance nerves"
+        },
+        "reason": "The balance nerves also lead from the weighted sensors toward the brain."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The turning sensors now have incoming nerves, but the separate balance nerves are no longer listed. I need to find how the weighted sensors connect.",
+    "reaction": "I am unsure how the weighted sensors join the remaining routes.",
+    "step": 4,
+    "reason": "The board doesn't show a separate nerve bundle for the weighted sensors, so checking their partners is useful.",
+    "choice": {
+      "inspect": "Weighted balance sensors"
+    },
+    "expectation": "The compatibility list should show how the weighted sensors can connect to the remaining model.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Turning sensors with incoming nerves",
+          "with": "Eye and posture nerve routes"
+        },
+        "reason": "Their routes both face the brain, but that may leave the weighted sensors unconnected."
+      }
+    ],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The weighted sensors joined the turning sensors automatically, and both now have incoming nerve fibres. The remaining routes can connect them to muscles.",
+    "reaction": "The compatibility hint clarified how the weighted sensors connect.",
+    "step": 5,
+    "reason": "The goal asks to join incoming and outgoing nerve routes, and these are the two remaining route pieces.",
+    "choice": {
+      "combine": "Balance organs with incoming nerves",
+      "with": "Eye and posture nerve routes"
+    },
+    "expectation": "The balance sensors' incoming signals will connect to routes toward the eye and posture muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final connection shows how balance signals reach eye and posture muscles through the brain, while vision and signals from muscles and joints also help.",
+    "reaction": "The head-turn example made the completed route easier to picture.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the turning and weighted sensors was worthwhile because the pictures showed how fluid or a weighted layer bends sensory hairs in different situations.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the weighted sensors was initially confusing: the separate balance nerves had disappeared, so it was not clear from the board how to proceed.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the weighted sensors automatically joined them to the turning sensors, giving both incoming nerve fibres.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That connection felt a little arbitrary beforehand; I followed the compatibility hint rather than understanding from the board how the weighted sensors would acquire nerve fibres.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to another chapter: seeing how the sensors connect to eye movement and posture was interesting, though I would hope the connections stay clear.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

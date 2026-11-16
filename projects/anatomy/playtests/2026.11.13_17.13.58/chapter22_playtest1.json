@@ -1,0 +1,165 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm-afternoon picture shows body temperature rising, so I’ll start by seeing how the body responds to warmth.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Warm afternoon"
+    },
+    "expectation": "The body will show a response that helps it lose heat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with living skin",
+          "with": "Cold evening"
+        },
+        "reason": "The cold response is another clear starting point, but I’ll follow the warm one first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body senses warming and sends signals toward skin vessels and glands, so I can follow either response.",
+    "reaction": "The signal route makes me curious how the skin releases heat.",
+    "step": 2,
+    "reason": "The picture points to skin vessels, and the goal asks me to follow heat out through warm skin.",
+    "choice": {
+      "combine": "Warming sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels will widen and help heat reach the surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Warming sensed",
+          "with": "Sweat glands"
+        },
+        "reason": "The picture also shows signals going to the glands, which may start the sweating response."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wider skin vessel brings more warm blood near the surface, where heat moves toward the skin. I’ll follow the sweating part next.",
+    "reaction": "The picture makes the vessel’s role clear.",
+    "step": 3,
+    "reason": "The warming signal also led to sweat glands, so I’ll try adding them to the warm skin response.",
+    "choice": {
+      "combine": "Warm skin circulation",
+      "with": "Sweat glands"
+    },
+    "expectation": "The glands will produce sweat as part of the warm-weather response.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Warm skin circulation"
+        },
+        "reason": "I could check its partners first, since I’m not sure whether sweating connects directly to this result."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sweat now reaches the warm skin, and the result says evaporation carries heat away. Air at the skin looks like the next part of that process.",
+    "reaction": "The connection between sweat and heat loss is clearer now.",
+    "step": 4,
+    "reason": "The air picture shows water leaving wet skin, matching the evaporation described in the result.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat will evaporate and carry heat away from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation brought the temperature indicator back toward its earlier range and completed the warm-weather goal. I’ll follow the cold response next.",
+    "reaction": "The fading sweat signals make the response feel like a complete cycle.",
+    "step": 5,
+    "reason": "The cold evening is a separate occasion involving the same body, so I’ll start with the body and the cold setting.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Cold evening"
+    },
+    "expectation": "The body will sense the cold and begin a response that conserves or produces heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold is sensed by the brain, with nerve routes leading to skin vessels and muscles. I’ll follow the vessel response first.",
+    "reaction": "The signal route resembles the warm response, but points to muscles too.",
+    "step": 6,
+    "reason": "The picture points to skin vessels, and narrowing them could help reduce heat loss.",
+    "choice": {
+      "combine": "Cold sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels will narrow, reducing the amount of warm blood near the surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold sensed",
+          "with": "Skeletal muscle"
+        },
+        "reason": "The muscle route may show how the body makes heat instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrower skin vessels reduce heat loss. I’ll follow the muscle route to see how the body makes heat.",
+    "reaction": "The contrast with the wider vessels in warmth is clear.",
+    "step": 7,
+    "reason": "The cold-sensing picture showed a nerve route to muscles, and the goal also asks how heat is made.",
+    "choice": {
+      "combine": "Cold skin circulation",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscles will shiver and produce heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cold response combines reduced heat loss with shivering, which uses energy to make heat. Both chapter goals are complete.",
+    "reaction": "The muscle inset made it clear how shivering helps warm the body.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the skin vessels in warmth and cold was most worthwhile: the pictures showed how wider vessels bring heat toward the surface while narrower ones reduce heat loss.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Starting the cold response repeated the warm response’s signal-to-brain setup, though the different routes made the comparison useful.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the sweat signals faded as temperature returned toward its earlier range; that made the response feel like a cycle rather than just cooling once.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding sweat glands directly to warm skin circulation was a little uncertain: the picture showed signals to both, but I didn’t know whether the game would connect them in that order.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter if it offered another clear comparison like the warm and cold responses. Seeing the same body use different structures for opposite conditions held my interest.",
+        "steps": [
+          2,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

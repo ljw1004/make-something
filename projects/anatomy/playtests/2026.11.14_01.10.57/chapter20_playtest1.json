@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal condition: the picture shows these cells releasing insulin into blood, which should help the muscle take in glucose.",
+    "choice": 1,
+    "expectation": "I expect insulin to be released into the blood; the muscle storage may take another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The glucagon route also matches a goal, but I'll follow the after-meal sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood, ready to follow its route to muscle.",
+    "reaction": "The route to muscle makes the next step clear.",
+    "step": 2,
+    "reason": "I'll follow the insulin message to the muscle to work toward storing glucose.",
+    "choice": 2,
+    "expectation": "I expect the muscle to take in glucose and store some as carbohydrate, though I'm not sure exactly how the result will show it.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the between-meals glucagon route, but I want to finish the insulin sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle has stored glucose, completing the insulin goal; the remaining route is glucagon.",
+    "reaction": "Seeing insulin stay outside the cells makes its role as a message clearer.",
+    "step": 3,
+    "reason": "I'll follow the only available combination to start the between-meals glucagon goal.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release glucagon into the blood, with liver glucose release coming afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is in the blood and can now carry the release message to the liver.",
+    "reaction": "The route to the liver makes the next step clear.",
+    "step": 4,
+    "reason": "I'll follow the only available combination to release glucose from the liver's store.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood, completing the glucagon goal and showing how its store helps between meals.",
+    "reaction": "The shrinking store made the result easy to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to muscle and glucagon to the liver was worthwhile because it made the contrast between storing and releasing glucose clear.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing glucagon was a fairly predictable repeat of releasing insulin, though it set up the comparison.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "It was useful to see that insulin stays outside the muscle cells: it is a message, not part of the stored carbohydrate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, but the compatible pairings and labels guided the actions; I did not work out how the signals operate in detail.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would consider another chapter if it connected different body systems in a similarly clear way, though I'd hope for more meaningful choices.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

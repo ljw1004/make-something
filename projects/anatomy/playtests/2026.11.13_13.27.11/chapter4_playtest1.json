@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "I’ll start the fibroblast branch toward making supporting material outside cells.",
+    "choice": 1,
+    "expectation": "The timed conditions should guide a subset of stem-cell descendants toward fibroblasts, though further steps may be needed to make matrix.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The muscle branch also serves a goal, but I’ll pursue the fibroblast branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch has activated collagen genes and produced RNA messages, so amino acids are the next useful input for making collagen.",
+    "reaction": "The unchanged DNA and active collagen genes make the differentiation connection clear.",
+    "step": 2,
+    "reason": "Continue the fibroblast branch toward extracellular supporting material.",
+    "choice": 2,
+    "expectation": "The cells should use the amino acids and collagen messages to make collagen proteins; extracellular processing may still be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch also needs attention, but I want to follow the collagen pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them in secretory vesicles, leaving the extracellular step to pursue.",
+    "reaction": "The ER-to-Golgi processing makes the route from RNA to secreted material more concrete.",
+    "step": 3,
+    "reason": "Combine the producing cells with extracellular fluid to continue toward supporting material outside the cells.",
+    "choice": 2,
+    "expectation": "I expect collagen precursors to be secreted and processed outside the cells into supporting material.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch remains a goal, but I’ll finish the collagen pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen precursors were secreted and assembled into extracellular matrix, completing the supporting-material goal.",
+    "reaction": "The sequence clearly connects cellular secretion with tissue support.",
+    "step": 4,
+    "reason": "This is the only available combination and starts the remaining muscle-cell branch.",
+    "choice": 1,
+    "expectation": "The differentiation conditions should guide another subset of descendants toward muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has committed cells expressing muscle-protein messages, but no mature fibres yet.",
+    "reaction": "The contrast with collagen gene activation reinforces how the same DNA can support different cell roles.",
+    "step": 5,
+    "reason": "The only available combination supplies amino acids for the muscle-protein messages.",
+    "choice": 1,
+    "expectation": "The cells should make muscle proteins, though further development may be needed to form mature fibres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch produced separate myoblasts with muscle proteins, completing the goal without claiming they are mature fibres.",
+    "reaction": "The distinction between precursors and fused muscle fibres was useful and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making extracellular matrix connected gene expression and protein production to the material supporting a tissue; the planned sequence showed secretion and assembly clearly.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle branch felt comparatively brief and repetitive after the collagen pathway, although the distinction between precursors and mature fibres was useful.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The collagen pathway showed that supporting material is assembled outside living cells, rather than simply being finished inside them.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining fibroblasts with extracellular fluid was a somewhat abstract way to represent secretion and processing, though the result explained its purpose.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrasting cell lineages and the unfinished development of muscle precursors leave a useful next question.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

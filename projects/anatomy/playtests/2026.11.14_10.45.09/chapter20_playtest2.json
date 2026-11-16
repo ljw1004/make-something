@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal insulin route; the picture shows these pancreatic cells releasing insulin into blood.",
+    "choice": 1,
+    "expectation": "I expect the blood to carry insulin, which may then help muscle store glucose.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Liver glucose storage is also a clear goal, but I'll follow the insulin route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin entered the blood, so I can follow its route to muscle.",
+    "reaction": "The picture makes its role as a message clearer.",
+    "step": 2,
+    "reason": "I'll connect insulin to the muscle fibres to work toward the muscle-storage goal.",
+    "choice": 2,
+    "expectation": "I expect insulin to help the muscle take in glucose, though I'm not sure whether storage happens in this step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Liver storage is another clear goal, but I want to finish following insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle stored glucose in linked chains, while insulin stayed outside as a message. The muscle goal is complete.",
+    "reaction": "It was useful to see the difference between the message and the stored material.",
+    "step": 3,
+    "reason": "I'll store meal glucose in the liver before exploring the later between-meal signal.",
+    "choice": 2,
+    "expectation": "I expect the liver cells to store glucose, possibly in linked chains like muscle.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glucagon is the other available route, but the intro places it between meals, after storage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stored linked glucose, and the new goal is to release it between meals.",
+    "reaction": "The stored chains make the later release easier to picture.",
+    "step": 4,
+    "reason": "The only gameplay option starts the between-meal glucagon route described in the intro.",
+    "choice": 1,
+    "expectation": "I expect glucagon to enter the blood as a message to the liver; releasing glucose may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon entered the blood and can now signal the liver to use its stored carbohydrate.",
+    "reaction": "The contrast with insulin's after-meal message is clear.",
+    "step": 5,
+    "reason": "The only gameplay option connects the between-meal message to the liver store.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down its stored chains and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from its store into the blood, completing the between-meal goal.",
+    "reaction": "Seeing the store shrink made the release easy to picture.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to muscle was most worthwhile: it showed that insulin is a message, while glucose is the material stored for later work.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing glucagon felt less engaging because it was the only gameplay option and the intro had already explained its purpose.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The picture showed insulin staying outside the muscle cells while glucose entered and formed stored chains. That clarified the difference between a message and building material.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the pictures and goals gave each pairing a purpose, though the last two choices were the only gameplay options.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue for another chapter: connecting the after-meal and between-meal scenes was useful, though the final choices were predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

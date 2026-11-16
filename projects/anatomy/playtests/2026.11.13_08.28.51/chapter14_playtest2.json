@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm and nervous-system model have matching peripheral connections, directly addressing the current goal.",
+    "choice": {
+      "combine": "Arm assembly[Biceps with tendons,Triceps with tendons]",
+      "with": "Nervous system model"
+    },
+    "expectation": "The peripheral nerves should connect to the arm muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has motor and sensory connections, and the next goal is blood supply and fluid return.",
+    "reaction": "The distinction between outgoing motor and incoming sensory routes is useful.",
+    "step": 2,
+    "reason": "The breathing apparatus includes the blood-filled circulation, so connecting it to the body framework should bring vessels toward the arm.",
+    "choice": {
+      "combine": "Innervated body framework",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The circulation will connect to the arm tissues, while the nervous system remains connected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circulation now supplies the arm and nervous tissue, while the inset identifies inadequate fluid return as the remaining problem.",
+    "reaction": "The comparison makes the need for fluid drainage clear.",
+    "step": 3,
+    "reason": "Blind-ended lymphatic capillaries are positioned to collect fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The lymphatic capillaries will collect excess fluid from between the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue spaces now drain fluid and proteins into lymphatic capillaries; the lymph still needs a route back to a vein.",
+    "reaction": "The overlapping flaps make the entry route clear.",
+    "step": 4,
+    "reason": "The collecting vessel and return duct should carry lymph onward from the draining capillaries.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The lymphatic capillaries will connect to the collecting vessel and duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lymph now has a collecting route to the duct outlet, but the vein junction remains open.",
+    "reaction": "The marked outlet makes the next connection clear.",
+    "step": 5,
+    "reason": "The return duct's outlet matches the opening at the venous junction.",
+    "choice": {
+      "combine": "Tissue lymph entry with collecting route",
+      "with": "Venous junction"
+    },
+    "expectation": "The duct will connect to the vein, returning lymph to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage route now reaches a neck vein; it remains to connect it to the supplied body framework.",
+    "reaction": "The continuous arrows make the return route easy to follow.",
+    "step": 6,
+    "reason": "The completed drainage network should connect to the supplied tissues and circulation.",
+    "choice": {
+      "combine": "Supplied body framework",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The body model will show excess tissue fluid returning to the bloodstream through lymphatic vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects lymph drainage to the supplied body and shows how continued return helps keep tissue fluid roughly steady.",
+    "reaction": "The matched views make the purpose of the return route clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the drainage network to the body was most worthwhile: the planned before-and-after views link continuous filtration and lymph return to fluid balance.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the duct to the venous junction was clear but predictable; the marked opening left little to decide.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The lymphatic entry illustration showed proteins entering along with fluid, clarifying what the return route carries.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the separate venous-junction connection felt like an obvious assembly step.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting the systems and tracing fluid back to the bloodstream made the structures' functions intelligible, even though some fittings were predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

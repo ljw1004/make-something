@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria in the cell fluid, and adding them is part of a goal.",
+    "choice": {
+      "combine": "Mitochondria",
+      "with": "Cell"
+    },
+    "expectation": "The mitochondria will be placed inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; glucose is still needed for that goal.",
+    "reaction": "It was straightforward to place them where the picture showed.",
+    "step": 2,
+    "reason": "The glucose picture shows it matching the sugar carrier already in the cell boundary.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Cell"
+    },
+    "expectation": "Glucose will enter the cell through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is inside the cell, and the next goal is to use oxygen to supply ATP.",
+    "reaction": "The carrier sequence made it clear how the sugar got inside.",
+    "step": 3,
+    "reason": "The oxygen picture shows it entering the cell, and the chapter says oxygen supports ATP production.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Cell"
+    },
+    "expectation": "Oxygen will enter the cell and help the mitochondria supply ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen helped produce ATP, which the chapter says can support protein construction and the pump.",
+    "reaction": "The diagram connects food and oxygen to ATP, though it doesn't explain all the steps.",
+    "step": 4,
+    "reason": "The ribosome picture shows it assembling a protein chain from pieces that match the amino acids.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids will be paired with the ribosome to prepare protein building.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome and amino acids are ready together, and the new goal is to put the assembly inside the cell.",
+    "reaction": "The picture makes its intended location clear.",
+    "step": 5,
+    "reason": "The new goal and picture both indicate that the protein builder belongs in the cell fluid.",
+    "choice": {
+      "combine": "Ribosome with RNA and amino acids",
+      "with": "Cell"
+    },
+    "expectation": "The protein-building assembly will be placed inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein builder is inside the cell; the membrane pump still needs to be fitted.",
+    "reaction": "The inset helps connect the ribosome’s RNA message to DNA in the nucleus.",
+    "step": 6,
+    "reason": "The pump picture shows it spanning the cell boundary, matching the remaining goal.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell"
+    },
+    "expectation": "The pump will be fitted across the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and the new goal is to put the assembled cell to work.",
+    "reaction": "The empty ATP-binding site suggests the pump is not working yet.",
+    "step": 7,
+    "reason": "The chapter says ATP supports the pump and protein construction, so I’ll try using it with the assembled cell.",
+    "choice": {
+      "combine": "ATP",
+      "with": "Cell"
+    },
+    "expectation": "ATP will help the assembled cell carry out its work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP put the assembled cell to work, supporting both protein building and the membrane pump; all goals are complete.",
+    "reaction": "Seeing the same energy supply support two different jobs tied the chapter together.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using ATP with the assembled cell was most worthwhile because it connected the separate parts to two jobs the cell does.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the prepared ribosome in the cell was clear but felt mostly like a required placement rather than a decision.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the final result showed ATP supporting both protein construction and a pump moving particles toward the more crowded side.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the game did not explain every step between oxygen and ATP production.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting the cell parts to their jobs was interesting, and I would like to see how cells build larger structures.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

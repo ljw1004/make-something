@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The water and phospholipids suggest forming the cell's outer boundary.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Water"
+    },
+    "expectation": "The phospholipids will arrange into a membrane in water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids formed a lipid bilayer, which looks ready to surround the cell contents.",
+    "reaction": "The picture makes the boundary's arrangement clear.",
+    "step": 2,
+    "reason": "The bilayer and cell contents appear to be the parts needed to make a cell boundary.",
+    "choice": {
+      "combine": "Lipid bilayer",
+      "with": "Cytoplasm and cell contents"
+    },
+    "expectation": "The bilayer will surround the cell contents to form a cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bilayer now surrounds the cell contents, and the boundary has slots for a channel and a pump.",
+    "reaction": "The labeled slots make the next fittings clear.",
+    "step": 3,
+    "reason": "The channel protein matches the boundary's Channel slot.",
+    "choice": {
+      "combine": "Cell boundary",
+      "with": "Channel protein"
+    },
+    "expectation": "The channel protein will fit into the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel protein is installed, leaving the pump fitting to complete.",
+    "reaction": "The fitting worked as expected.",
+    "step": 4,
+    "reason": "The ion pump matches the remaining Pump slot.",
+    "choice": {
+      "combine": "Cell boundary",
+      "with": "Ion pump"
+    },
+    "expectation": "The ion pump will fit into the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel and pump are installed, completing the exchange-route goal; the next goal is to make a fuel-admitting protein.",
+    "reaction": "The new goal gives the remaining gene a clear purpose.",
+    "step": 5,
+    "reason": "RNA polymerase reads DNA to make RNA, so the highlighted transporter gene looks like the starting point.",
+    "choice": {
+      "combine": "DNA with glucose transporter gene",
+      "with": "RNA polymerase"
+    },
+    "expectation": "RNA polymerase will use the transporter gene to produce messenger RNA, with RNA building blocks if needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter gene has been copied into messenger RNA, which can carry its instructions to the ribosome.",
+    "reaction": "The picture clearly explains why the DNA stays in the nucleus.",
+    "step": 6,
+    "reason": "The messenger RNA carries the protein instructions to the ribosome, and amino acids are available for building the chain.",
+    "choice": {
+      "combine": "Messenger RNA",
+      "with": "Ribosome"
+    },
+    "expectation": "The ribosome will use the messenger RNA and amino acids to make a protein chain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome used the messenger RNA and amino acids to make a glucose transporter chain. The chain appears to need folding and targeting before it can work.",
+    "reaction": "The result makes the link between the RNA instructions and the protein chain clear.",
+    "step": 7,
+    "reason": "The folding and targeting machinery is the remaining piece that appears suited to preparing the transporter chain.",
+    "choice": {
+      "combine": "Glucose transporter chain",
+      "with": "Folding and targeting machinery"
+    },
+    "expectation": "The chain will fold into a glucose transporter and be directed toward the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chain is now a folded glucose transporter in a membrane vesicle, ready to be fitted into the cell boundary.",
+    "reaction": "The vesicle makes the targeting step visible, although its destination is implied.",
+    "step": 8,
+    "reason": "The transporter needs to reach the cell boundary to admit glucose.",
+    "choice": {
+      "combine": "Folded glucose transporter",
+      "with": "Cell boundary"
+    },
+    "expectation": "The transporter will join the cell boundary and provide a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter joined the membrane and completed the fuel-admission goal. The result connects protein production to a change in what can cross the cell boundary.",
+    "reaction": "It was satisfying to see the transporter reach the membrane, with the earlier channel and pump still visible.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making messenger RNA from the gene was the most worthwhile action: the result explained how instructions reach a ribosome while DNA stays in the nucleus.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the channel and pump was predictable because the slots named them. The picture compared their movement of ions, but the fitting results themselves added little explanation.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The folded transporter first appeared in a vesicle, then that vesicle joined the membrane. This made its route to the boundary more concrete.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The folding and targeting machinery had a clear role, though its destination was implied until the final result.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter to see how this working cell connects to tissues and body systems. The sequence was clear, though several fittings were predictable.",
+        "steps": [
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

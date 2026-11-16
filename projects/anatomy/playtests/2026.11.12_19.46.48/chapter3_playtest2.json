@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it should supply materials for cell growth.",
+    "choice": 1,
+    "expectation": "I expect the cell to grow by using amino acids for proteins and phospholipids for membranes, preparing it for DNA copying.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its chromosomes remain uncopied, so DNA replication is next.",
+    "reaction": "The picture makes the distinction between growth and DNA copying clear.",
+    "step": 2,
+    "reason": "DNA nucleotides are the available building blocks for copying the cell's DNA.",
+    "choice": 1,
+    "expectation": "I expect the cell to copy its chromosomes using the supplied nucleotides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "DNA replication is complete; the next goal is to separate the copies and divide the cell.",
+    "reaction": "The distinct strand styles and absence of protein-production arrows clearly distinguish replication from gene expression.",
+    "step": 3,
+    "reason": "The spindle is the only offered combination and should separate the chromosome copies.",
+    "choice": 1,
+    "expectation": "I expect the spindle to attach to sister copies and move them toward opposite poles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets have separated into two nuclei, but the cytoplasm and outer membrane remain shared.",
+    "reaction": "The intermediate inset makes the separation clear.",
+    "step": 4,
+    "reason": "The only offered combination should divide the cell at its equator.",
+    "choice": 1,
+    "expectation": "I expect the actin–myosin ring to constrict and split the cell into two daughters, each with a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell division, and the repeated pairs show how further divisions can build a stem-cell population.",
+    "reaction": "The tightening-ring sequence makes the separation of the daughters easy to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes into two nuclei was most worthwhile: the intermediate inset connects spindle action to the chromosome sets each daughter needs.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cell growth was the least engaging passage: it established the necessary preparation, but the sole available combination made it predictable.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The final illustration plan extends beyond one division to show a population, including cells retained for further division.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the actin–myosin ring's name and how its components generate constriction were not explained in the supplied prose.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the stem-cell descendants take different paths; this chapter's clear sequence was useful, though its single-option choices offered little decision-making.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

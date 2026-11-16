@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows liver cells joining glucose into a stored carbohydrate, so the incoming nutrients look like the right match.",
+    "choice": {
+      "combine": "Liver cells",
+      "with": "Nutrients in blood to liver"
+    },
+    "expectation": "The liver cells will store some of the meal's glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Vein from intestine to liver",
+          "with": "Digestive tube"
+        },
+        "reason": "The named vein also fits the tube's empty slot, so that connection could be made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored some glucose, and the new goal is to release it between meals.",
+    "reaction": "The picture makes the storage step clear.",
+    "step": 2,
+    "reason": "The clock shows a period without food, matching the new goal of releasing glucose between meals.",
+    "choice": {
+      "combine": "Liver carbohydrate store",
+      "with": "Hours without food"
+    },
+    "expectation": "The liver store will release glucose for use between meals.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Vein from intestine to liver",
+          "with": "Digestive tube"
+        },
+        "reason": "The vein matches the digestive tube's empty slot and could be connected first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver store has released glucose into the blood, completing the between-meals goal.",
+    "reaction": "The shrinking store makes the change easy to follow.",
+    "step": 3,
+    "reason": "The vein's name matches the digestive tube's empty slot and the pictured route to the liver.",
+    "choice": {
+      "combine": "Vein from intestine to liver",
+      "with": "Digestive tube"
+    },
+    "expectation": "The vein will connect the intestine to the liver in the digestive model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is now fitted to the digestive tube; the organs still need connecting to the body.",
+    "reaction": "The named slot made that connection straightforward.",
+    "step": 4,
+    "reason": "The remaining goal is to connect the digestive organs to the body, so the completed digestive tube and integrated body model are the natural pair.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive organs will connect to the body model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are now connected to the body's circulation, completing the remaining goal.",
+    "reaction": "It was satisfying to see the digestive model joined to the body, though the connection was predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose and then releasing it between meals was most worthwhile. The pictures showed how the liver can make fuel available when no food is coming in.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named vein into its matching slot was straightforward but less interesting; the connection was already clear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The liver could join glucose into a stored carbohydrate and break the store down again later. The shrinking granules made that change clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The clock represented time without food rather than a physical ingredient, but its purpose matched the goal.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how another body system connects to the model. The storage sequence was understandable, although the final assembly steps were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

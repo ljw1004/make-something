@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The sticky mucus and sweeping hairs appear to work together to catch and move particles toward the throat.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Airway lining with sweeping hairs"
+    },
+    "expectation": "The mucus will cover the lining so its hairs can sweep trapped particles toward the throat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lung white blood cells",
+          "with": "Bacteria in a lung air sac"
+        },
+        "reason": "That pairing directly addresses the other defense, but I can build the airway lining first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now has mucus and hairs, so I can try it with the inhaled particles.",
+    "reaction": "The picture makes the direction of the sweeping clear.",
+    "step": 2,
+    "reason": "The mucus can catch inhaled particles while the hairs move it toward the throat.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The particles and bacteria will get caught in mucus and be swept toward the throat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lung white blood cells",
+          "with": "Bacteria in a lung air sac"
+        },
+        "reason": "I could work on the separate air-sac defense first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airway defense is complete; the remaining goal is to catch bacteria in an air sac.",
+    "reaction": "It is clear how the sticky mucus and moving hairs work together.",
+    "step": 3,
+    "reason": "The white blood cell is shown reaching around a particle, and the bacteria are in the same part of the lung.",
+    "choice": {
+      "combine": "Lung white blood cells",
+      "with": "Bacteria in a lung air sac"
+    },
+    "expectation": "The white blood cells will catch the bacteria in the air sac.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cell encloses and breaks apart the bacterium, completing the second lung defense.",
+    "reaction": "The two panels clearly show what happens after the cell catches it.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the particles with the mucus-covered lining was most worthwhile: it showed how sticky mucus and moving hairs work together to protect the lungs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the mucus-covered lining was a straightforward setup step; its purpose became clearer when particles were added.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I expected the white blood cell to catch bacteria, but seeing the bacterium enclosed and breaking apart showed what happened next.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and goals made both defenses and their pairings clear.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: seeing two different defenses work in different parts of the lungs was interesting, though these combinations were fairly predictable.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

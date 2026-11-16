@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin cell needs to copy its DNA before it can divide, and the building blocks are shown arriving at that cell.",
+    "choice": {
+      "combine": "Skin cells preparing to divide",
+      "with": "DNA building blocks"
+    },
+    "expectation": "The cell will copy its chromosomes in preparation for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosomes are copied into joined sister chromatids, ready for separation.",
+    "reaction": "The before-and-after description makes the copying step clear.",
+    "step": 2,
+    "reason": "The separating machinery is positioned to attach to the copied chromosomes.",
+    "choice": {
+      "combine": "Skin cell with copied chromosomes",
+      "with": "Chromosome-separating machinery"
+    },
+    "expectation": "The machinery will separate the sister chromatids toward opposite sides of the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are separated, but the cell still has one shared interior.",
+    "reaction": "The description clearly distinguishes chromosome separation from cell division.",
+    "step": 3,
+    "reason": "The division ring can now divide the cell around the two separated chromosome sets.",
+    "choice": {
+      "combine": "Skin cell with separated chromosome sets",
+      "with": "Cell membrane division ring"
+    },
+    "expectation": "The ring will pinch the cell into two daughter cells, each with a chromosome set.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The division ring produced two new skin cells, each with a complete chromosome set.",
+    "reaction": "The sequence makes the final separation clear.",
+    "step": 4,
+    "reason": "Erythropoietin is shown carrying a kidney signal to marrow, where the red-cell precursors are.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Erythropoietin"
+    },
+    "expectation": "The signal will promote the production of new red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal leads the marrow precursors to develop into red cells; the result also shows low oxygen as the cue.",
+    "reaction": "The kidney-to-marrow connection is clear, though the cells are still described as developing.",
+    "step": 5,
+    "reason": "The new skin cells appear ready to be connected to the body whose skin they renew.",
+    "choice": {
+      "combine": "New skin cells",
+      "with": "Body with a light-linked clock"
+    },
+    "expectation": "The body will gain a renewing skin layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new cells are now connected to the body's renewing skin, with shedding shown at the surface.",
+    "reaction": "The link between cell division and ongoing skin renewal is clear.",
+    "step": 6,
+    "reason": "The developing red cells appear ready to connect to the same body's blood renewal.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show developing red cells contributing to blood renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows skin and blood renewal, and the next goal is to remodel existing bone.",
+    "reaction": "The kidney-to-marrow link gives blood renewal a useful connection to oxygen supply.",
+    "step": 7,
+    "reason": "Bone-removing cells and bone-forming cells suggest successive roles in remodeling, so I will check how the removing cells can be used.",
+    "choice": {
+      "inspect": "Bone-removing cells"
+    },
+    "expectation": "The available partners should show how bone removal begins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically applied the bone-removing cells to the body, showing old bone being removed.",
+    "reaction": "The automatic step makes the start of remodeling clear.",
+    "step": 8,
+    "reason": "Bone-forming cells can rebuild the patch after old bone is removed.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will form new bone in the remodeling patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch, completing the bone-remodeling goal and the chapter.",
+    "reaction": "The final picture ties the renewal processes back to the working body.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the skin cell from copied chromosomes to two daughter cells made the stages of division clear and connected them to skin renewal.",
+        "steps": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the finished skin and red cells to the body was straightforward, but those actions offered less new information than making the cells.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The red-cell result added a useful connection: low oxygen prompts a kidney signal that reaches the marrow.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The bone-removing cells had an obvious role, but I was unsure how to start the construction until inspection revealed their partner and automatically combined them.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explored a new relationship as clearly as the kidney-to-marrow signal. The assembly steps were sometimes predictable, but the connections between organs gave them purpose.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

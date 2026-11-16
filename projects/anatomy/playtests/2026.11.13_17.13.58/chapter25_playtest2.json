@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The bacterial knobs match one resting lymphocyte's recognition proteins, so these pieces look like the start of the response.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will recognize the bacterial fragments and begin responding.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Living lymph node"
+        },
+        "reason": "The node may be needed for activation, but the matching pieces are clear enough to try first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is activated, so I can now follow its growth in the lymph node.",
+    "reaction": "The matching shapes made the activation easy to follow.",
+    "step": 2,
+    "reason": "The node's picture says it supports an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the lymph node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making cells and memory cells, so the next step is to make antibodies.",
+    "reaction": "It's useful to see that the response produces both immediate defenders and memory.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and earlier chapters showed that amino acids are their building blocks.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells will use the amino acids to make antibodies that match the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies, which can now be paired with the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "The antibody tips match the knobs on the bacteria, fitting the goal of coating them.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will attach to and coat the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, completing that goal. The remaining goal is to give the body immune memory.",
+    "reaction": "The matching tips made the coating easy to understand.",
+    "step": 5,
+    "reason": "The antibody-making and memory cells include lasting memory lymphocytes, so connecting them to the body seems like the next step.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Protected body model"
+    },
+    "expectation": "The body will gain immune memory from the memory lymphocytes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has immune memory: memory lymphocytes can help produce a faster, larger antibody response if the same antigen returns. Both goals are complete.",
+    "reaction": "The explanation made the purpose of the memory cells clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Growing the activated lymphocyte in the lymph node was most worthwhile: it showed how one matching cell produces both antibody-making cells and memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the memory cells to the body felt the least informative as an action, although the result explained what memory does.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the same response produces both cells that make antibodies and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt entirely arbitrary, though the neighboring immune cells' help with activation was described rather than shown as a separate step.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter offered a similarly clear connection between body structures and what they do. The matching shapes and the memory outcome made this chapter satisfying, though the choices were mostly straightforward.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The cell already has a glucose transporter, and the goal is to bring glucose in.",
+    "choice": {
+      "combine": "Cell with selective exchange",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter through its transporter and begin breaking down.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose entered through the existing carrier and was broken down into pyruvate, revealing the ATP-remaking goal.",
+    "reaction": "The picture usefully distinguishes cytosolic glucose breakdown from the mitochondrial stage.",
+    "step": 2,
+    "reason": "The pyruvate enters mitochondria, and oxygen is shown traveling there; combining it with the cell should advance ATP production.",
+    "choice": {
+      "combine": "Cell breaking down glucose",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will support mitochondrial respiration, potentially using the available ADP and phosphate to remake ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen is now shown receiving electrons and forming water; ATP ingredients remain to be used.",
+    "reaction": "The distinction between oxygen's role and fuel's energy supply is useful.",
+    "step": 3,
+    "reason": "ADP and phosphate are the ingredients needed to remake ATP during respiration.",
+    "choice": {
+      "combine": "Cell with aerobic respiration",
+      "with": "ATP ingredients: ADP and phosphate"
+    },
+    "expectation": "The respiring cell will use ADP and phosphate to produce ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now remakes ATP using the hydrogen-ion gradient across the mitochondrial inner membrane.",
+    "reaction": "The two-panel picture usefully connects electron flow, the ion gradient and ATP production.",
+    "step": 4,
+    "reason": "The remaining goal is to use ATP to pump ions, and the ATP-powered ion pump is available.",
+    "choice": {
+      "combine": "Cell remaking ATP",
+      "with": "ATP-powered ion pump"
+    },
+    "expectation": "The pump will use the cell's ATP to move ions across its membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump uses ATP to move sodium and potassium against their concentration differences, completing the chapter's goal.",
+    "reaction": "The contrast with the earlier passive sodium channel is useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Remaking ATP was most worthwhile: the planned two-panel picture connects electron flow, the hydrogen-ion gradient and ATP production rather than relying on the powerhouse slogan.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The sequence was straightforward, though the connection between electron flow and hydrogen-ion pumping was stated rather than explained in much detail.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The distinction that fuel supplies energy while oxygen receives electrons and becomes part of water sharpened my understanding of oxygen's role.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the available pieces and goals made the sequence clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how later constructions connect cellular processes to tissues and organs, although this chapter's choices were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

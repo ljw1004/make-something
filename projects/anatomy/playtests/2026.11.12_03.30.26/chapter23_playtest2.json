@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes are shown clearing debris near the cut, a stated part of wound repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The cells will clear debris from the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Repair signals"
+        },
+        "reason": "The picture also suggests signals act on the nearby vessel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleared of debris, leaving the supporting layer and surface closure to address.",
+    "reaction": "The result matched the picture and made the first repair step clear.",
+    "step": 2,
+    "reason": "The repair signals are shown acting on the nearby capillary, suggesting a role in supplying the healing wound.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The signals will prompt the capillary to grow toward the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals prompted a capillary branch to grow toward the wound; it remains connected to the circulation.",
+    "reaction": "The result matched the picture, though its contribution to repair is not yet explained.",
+    "step": 3,
+    "reason": "Fibroblasts build connective tissue, and the matrix nutrients provide raw materials for that work.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will produce material for the wound’s supporting layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used the nutrients to make collagen-containing connective tissue, providing material for the wound’s support.",
+    "reaction": "The result made the fibroblasts’ role clear.",
+    "step": 4,
+    "reason": "The epidermal edge cells need nutrients to grow across and close the surface.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The cells will form new surface tissue for the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new surface sheet that can close the wound.",
+    "reaction": "The result clearly shows how the surface is repaired.",
+    "step": 5,
+    "reason": "The cleaned wound needs the new connective tissue for support.",
+    "choice": {
+      "combine": "Body with cleaned wound",
+      "with": "New connective tissue"
+    },
+    "expectation": "The new connective tissue will support the damaged area.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound first needed the capillary sprout; the resulting healing skin has slots for the new surface and support.",
+    "reaction": "The automatic combination clarified the required order, though I had expected to add the connective tissue directly.",
+    "step": 6,
+    "reason": "The new connective tissue fits the support slot in the healing skin.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New connective tissue"
+    },
+    "expectation": "The connective tissue will fill the support slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connective tissue fills the support slot, and the result explains that the new tissue is still weaker than uninjured skin.",
+    "reaction": "The explanation makes the support's role and its limits clear.",
+    "step": 7,
+    "reason": "The new surface matches the remaining surface slot.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New surface"
+    },
+    "expectation": "The new epidermal sheet will fill the surface slot and close the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface closed the gap and completed the wound-support goal; the temporary clot still needs clearing.",
+    "reaction": "The distinction between closure and deeper strengthening is clear.",
+    "step": 8,
+    "reason": "Clot-clearing enzymes are shown breaking down fibrin, so they should act on the healed wound's remaining clot.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will break down the temporary fibrin clot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes cleared the temporary clot, completing the goals. The remaining scar is still maturing as its collagen changes.",
+    "reaction": "The distinction between a closed wound and a fully mature repair was useful.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding connective tissue and the new surface made their different roles in supporting and closing the wound clear. The explanation that young tissue is still weaker also added useful context.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The capillary sprout was required before adding support, but its contribution to healing was not explained when it appeared. The required order was initially unclear.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected to add connective tissue directly to the cleaned wound; compatibility feedback instead combined it with the capillary sprout and revealed the surface and support slots.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the capillary sprout before adding connective tissue felt somewhat arbitrary because the result did not explain why that order mattered.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it offered similarly clear links between cellular work and the body's recovery, though I would hope for more explanation where a required order is not obvious.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

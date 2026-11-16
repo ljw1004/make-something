@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Adding mitochondria starts the goal of helping the cell make ATP from glucose.",
+    "choice": 1,
+    "expectation": "I expect the mitochondria to be placed inside the cell; the glucose route may still need to be added.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Ribosomes would address the other goal, but I chose to start with the energy-related parts."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The placement makes sense, though it doesn't yet show how ATP is made.",
+    "step": 2,
+    "reason": "The carrier's pocket matches glucose, so adding it should help sugar enter the cell.",
+    "choice": 1,
+    "expectation": "I expect the carrier to fit into the cell membrane; glucose may need a separate step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes address the protein-builder goal, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal is to feed the cell glucose to make ATP.",
+    "reaction": "The two-panel picture makes the route for sugar easier to understand.",
+    "step": 3,
+    "reason": "Glucose matches the carrier, and feeding it to the cell addresses the new goal.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter the cell and help it make ATP, though I don't know the detailed process.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosomes would address the protein-builder goal, but I want to follow the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell made ATP from glucose with oxygen, and ATP can power work such as building proteins.",
+    "reaction": "The inset helped connect glucose and mitochondria to ATP, though the detailed process is still unclear.",
+    "step": 4,
+    "reason": "Adding ribosomes is the only offered combination and addresses the remaining protein-builder goal.",
+    "choice": 1,
+    "expectation": "I expect the ribosomes to be placed inside the cell, where they can use RNA instructions to build proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are inside the cell, and the new goal connects ATP, amino acids and protein building.",
+    "reaction": "The enlarged picture helps me see how copied instructions reach a ribosome.",
+    "step": 5,
+    "reason": "This is the only offered combination and follows the goal of using ATP to build a protein.",
+    "choice": 1,
+    "expectation": "I expect the cell to use ATP and its ribosomes to make a protein from amino acids, though I don't know the detailed process.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final result connects ATP-powered work with amino acids joining in the order given by RNA; ATP does not become part of the protein.",
+    "reaction": "The picture makes the difference between fuel and building material clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Feeding glucose to the cell was most worthwhile: the result connected glucose, oxygen and mitochondria to ATP, which later helped power protein building.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria was less engaging on its own: placing them made sense, but that result did not yet show how ATP was made.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the picture showed ATP being used beside the protein-building machinery without becoming part of the protein.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the final ATP-and-cell pairing followed the only offered option and the goal rather than a detailed understanding of how it works.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because connecting food to cell work and protein building made me curious about how these pieces lead to tissues and organs.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

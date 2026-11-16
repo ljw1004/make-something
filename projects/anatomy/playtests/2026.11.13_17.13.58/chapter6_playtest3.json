@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "Both muscles need living muscle tissue, so developing cells look like a useful starting point. I don't yet know how they become the tissue needed here.",
+    "choice": {
+      "inspect": "Developing muscle cells"
+    },
+    "expectation": "The compatibility list should show how the developing cells can be used to build muscle tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Developing muscle cells",
+          "with": "Supporting connective tissue"
+        },
+        "reason": "The two tissues might form muscle together, but their precise roles aren't yet clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells and supporting tissue formed muscle bundles, which can now fill a muscle's outer covering.",
+    "reaction": "The picture makes the connection between muscle fibres and tendons clearer.",
+    "step": 2,
+    "reason": "The biceps covering has an unfilled space, and the muscle bundles look like they belong inside it.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Biceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the biceps covering and form a biceps muscle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle bundles",
+          "with": "Triceps tendons and outer covering"
+        },
+        "reason": "The triceps also needs muscle bundles, so I could build it first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bundles filled the biceps covering, forming a muscle with tendons ready to attach.",
+    "reaction": "The picture makes the path from muscle to tendon clear.",
+    "step": 3,
+    "reason": "The goal calls for connecting the biceps across the front of the elbow, so the arm skeleton is the natural next pairing.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps tendons should attach to the skeleton across the front of the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow, leaving the back muscle slot empty.",
+    "reaction": "The two poses show how the shortening biceps bends the elbow.",
+    "step": 4,
+    "reason": "The triceps covering has an unfilled space, just as the biceps covering did, so it should take the muscle bundles.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Triceps tendons and outer covering"
+    },
+    "expectation": "The bundles should fill the covering and form a triceps with tendons.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "The muscle bundles formed a triceps with tendons, ready to fill the back muscle slot.",
+    "reaction": "The picture shows how the muscle's supporting tissue continues into the tendon.",
+    "step": 5,
+    "reason": "The arm assembly has an empty back muscle slot, and the triceps belongs across the back of the elbow.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Triceps with tendons"
+    },
+    "expectation": "The triceps should attach to the back of the arm assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed arm shows how the triceps pulls to straighten the elbow, opposite the biceps' pull to bend it.",
+    "reaction": "The two poses make the opposite pulls easier to picture.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the triceps was most worthwhile because it completed the comparison: both muscles pull, but their attachments turn the joint in opposite directions.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the triceps repeated the biceps assembly in a predictable way, although it reinforced that both use the same tissue.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't understood how developing muscle cells and supporting tissue made bundles, or how the supporting tissue carried their pull toward tendons.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The first pairing wasn't obvious to me: I needed the compatibility hint to see that developing muscle cells and supporting tissue went together. The resulting picture explained its purpose.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter if it built on these connections. Seeing the parts assembled into movements was more interesting than the repeated muscle-building step.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

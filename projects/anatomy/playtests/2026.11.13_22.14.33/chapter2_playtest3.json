@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria inside the cell, and the goal asks me to add them.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria should be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The placement matched the picture, which was satisfying.",
+    "step": 2,
+    "reason": "The carrier spans the membrane and its pocket fits glucose, so it looks like the route the goal asks for.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier should fit into the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal asks me to feed glucose to the cell to make ATP.",
+    "reaction": "The two-panel picture helped me see how the carrier provides a route.",
+    "step": 3,
+    "reason": "Glucose matches the carrier's pocket, so I'll try feeding it to the cell. I don't yet know how the cell makes ATP.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "The glucose should enter the cell through the carrier and help it make ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was used to make ATP, which the result says powers work such as building proteins. The protein-builder goal remains.",
+    "reaction": "The picture helped connect glucose and oxygen to ATP, though the details are still new to me.",
+    "step": 4,
+    "reason": "The ribosome picture places these protein builders in the cell fluid, and the remaining goal asks me to add them.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes should be added to the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the new goal asks for an RNA instruction.",
+    "reaction": "The groove in the picture makes the next pairing clear.",
+    "step": 5,
+    "reason": "The RNA copy comes from the nucleus, and the ribosome has a groove for an RNA strand.",
+    "choice": {
+      "combine": "Cell",
+      "with": "RNA copy from the nucleus"
+    },
+    "expectation": "The RNA instruction should be given to a ribosome in the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the new goal asks me to use ATP to build a protein from the supplied amino acids.",
+    "reaction": "The picture makes the amino acids' role as building blocks clearer.",
+    "step": 6,
+    "reason": "The goal names ATP, and the ribosome holds the instruction for building the protein.",
+    "choice": {
+      "combine": "Ribosome with RNA",
+      "with": "ATP"
+    },
+    "expectation": "The ribosome should use ATP and the supplied amino acids to build a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP was used to build a protein from amino acids, completing the goals. The picture distinguishes ATP's role in powering the work from the amino acids that form the protein.",
+    "reaction": "It was satisfying to see the earlier glucose and RNA steps come together in a protein.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the protein was most worthwhile: it connected the RNA instruction, amino-acid building blocks and ATP's role in the work.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria was straightforward placement, with less to figure out than the later steps.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I learned that ATP helps power protein building without becoming part of the protein chain.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The final ATP pairing followed the named goal, but the chapter did not explain exactly how ATP powers the machinery.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see how these cell parts connect to larger structures, though the straightforward placements were less engaging.",
+        "steps": [
+          1,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

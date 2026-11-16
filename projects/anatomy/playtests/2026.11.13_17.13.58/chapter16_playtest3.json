@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The lining is one cell thick, and the folds are the villi the goal says to cover.",
+    "choice": {
+      "combine": "Thin intestinal lining",
+      "with": "Fingerlike intestinal folds"
+    },
+    "expectation": "The lining should cover the villi to form a thin absorbing surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The villi now have a thin lining, and the next goal is to bring it close to blood.",
+    "reaction": "The flattened comparison makes the extra surface easier to picture.",
+    "step": 2,
+    "reason": "The capillaries are shown looping inside a villus, so they should bring blood close to the lining.",
+    "choice": {
+      "combine": "Folded absorbing lining",
+      "with": "Intestinal capillaries"
+    },
+    "expectation": "The capillaries should sit close to the absorbing lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The folded lining has no available combination yet, so I’ll build the blood route separately first.",
+    "reaction": "I’m unsure why the lining and capillaries can’t be joined yet.",
+    "step": 3,
+    "reason": "The capillaries collect blood in the intestine, and the vein leads from there to the liver.",
+    "choice": {
+      "combine": "Intestinal capillaries",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "They should form a blood route from the intestine to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries now connect to the vein leading to the liver; the goal also calls for sending glucose and amino acids along that route.",
+    "reaction": "Building the blood route first explains what was missing from my earlier attempt.",
+    "step": 4,
+    "reason": "The completed blood route includes capillary loops, which should bring blood close to the folded lining.",
+    "choice": {
+      "combine": "Folded absorbing lining",
+      "with": "Blood route from the intestine"
+    },
+    "expectation": "The capillaries and lining should join to make an absorbing surface close to blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining and blood route now form an absorbing surface, with tissue fluid between the lining and capillaries.",
+    "reaction": "The cutaway makes the short crossing easier to picture.",
+    "step": 5,
+    "reason": "The goal calls for sending glucose along the blood route, and the surface brings that route close to the gut lining.",
+    "choice": {
+      "combine": "Intestinal absorbing surface",
+      "with": "Meal glucose"
+    },
+    "expectation": "Glucose should cross the lining and enter the blood route toward the liver.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Intestinal absorbing surface",
+          "with": "Meal amino acids"
+        },
+        "reason": "Amino acids also need to cross, but I can try glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose crossed the lining and entered a capillary; amino acids still need to follow.",
+    "reaction": "The picture clarifies the path through the cells and tissue fluid.",
+    "step": 6,
+    "reason": "The goal also calls for sending amino acids along the blood route.",
+    "choice": {
+      "combine": "Intestinal absorbing surface",
+      "with": "Meal amino acids"
+    },
+    "expectation": "Amino acids should cross the lining and enter the intestinal blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids have entered the capillaries too, but the goal to send both nutrients along the route has not yet been reported complete.",
+    "reaction": "The amino acids follow the same short path as glucose.",
+    "step": 7,
+    "reason": "I’ll check what the glucose in blood can combine with next; the remaining route to the liver isn’t yet clear.",
+    "choice": {
+      "inspect": "Glucose in intestinal blood"
+    },
+    "expectation": "The compatibility list should show how to move the glucose onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the two nutrients in the outgoing vein, completing the goal and showing that they reach the liver before the wider circulation.",
+    "reaction": "I was surprised that combining the two blood samples was the final step.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the lining to the blood route was worthwhile: the cutaway showed how folds provide surface and keep the crossing to blood short.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to join the lining directly to the capillaries was confusing because their pictures suggested they belonged together, but the blood route had to be built first.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the two nutrients already in blood to need combining with each other before their journey to the liver counted as complete.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the glucose and amino-acid blood samples felt somewhat arbitrary; I needed the compatibility hint to see that was the next action.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: the pictures made the path from the gut into blood easier to understand, even though one prerequisite was unclear.",
+        "steps": [
+          3,
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

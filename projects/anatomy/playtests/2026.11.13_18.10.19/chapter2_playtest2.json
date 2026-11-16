@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to start supplying ATP. The diagram connects food with the cell's energy process, and glucose is food inside the cell.",
+    "choice": 1,
+    "expectation": "I expect the cell to begin using glucose toward making ATP, though oxygen may also be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fitting the pump directly addresses another goal, but I want to follow the glucose first."
+      },
+      {
+        "choice": 3,
+        "reason": "The matching building blocks suggest a way to prepare protein-building machinery, but ATP is my first priority."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now supplied, and the picture shows oxygen entering separately, so I can follow that route next.",
+    "reaction": "The separate arrows make the next step clear.",
+    "step": 2,
+    "reason": "The diagram connects glucose and oxygen with the process that supplies ATP.",
+    "choice": 1,
+    "expectation": "I expect oxygen to join the glucose-supplied cell in the process toward making ATP.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump fits another goal, but I want to finish following the energy route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has an ATP supply, and the picture links it to both the pump and ribosome.",
+    "reaction": "The arrows make the connection between respiration and cell work clearer.",
+    "step": 3,
+    "reason": "I want to fit the pump across the boundary, as the goal asks. Its picture shows it spanning a membrane.",
+    "choice": 1,
+    "expectation": "I expect the pump to fit into the membrane patch; I am not sure whether it will start working yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The amino acids match the ribosome's protein-building job, but I want to fit the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and the new goal and empty ATP site suggest powering it next.",
+    "reaction": "The empty ATP site makes the next connection clear.",
+    "step": 4,
+    "reason": "I want to power the pump to move particles toward the crowded side.",
+    "choice": 2,
+    "expectation": "I expect ATP to power the pump's transport, though I don't know exactly how the pump works.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The ribosome and amino acids address the other goal, but I want to finish the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers the pump as it changes shape and moves particles toward the crowded side. The protein-building goal remains.",
+    "reaction": "Seeing the pump change shape makes its job clearer.",
+    "step": 5,
+    "reason": "This is the only available combination, and the amino acids match the ribosome's protein-building job.",
+    "choice": 1,
+    "expectation": "I expect the amino acids to prepare the ribosome to build a protein, though I don't know whether it will make one yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome has building blocks, and the ATP arrow points to the new protein-making goal.",
+    "reaction": "The arrow makes the next pairing clear, though I don't know the details of how ATP helps build proteins.",
+    "step": 6,
+    "reason": "This is the only available combination and matches the new goal.",
+    "choice": 1,
+    "expectation": "I expect ATP to power the ribosome in making a protein from the supplied building blocks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final result shows the ribosome following an RNA message to make protein chains, with ATP helping power construction and DNA supplying the instructions. All goals are complete.",
+    "reaction": "The different folded protein shapes make the result more interesting, though I still don't know exactly how ATP helps construction.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the membrane pump was most worthwhile: its changing shape and movement toward the crowded side made a cell job clearer.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying the ribosome was less engaging because it was the only combination and mainly set up the next step.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "It was interesting that the same ATP supply could help power both particle transport and protein construction.",
+        "steps": [
+          4,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but I followed the ATP and ribosome pairing from the labelled arrow without understanding the detailed mechanism.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, to see how these cell parts connect to larger body structures, though the last two choices were predictable.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

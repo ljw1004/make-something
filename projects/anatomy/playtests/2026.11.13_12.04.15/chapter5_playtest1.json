@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The bone-lineage environment should direct stem-cell descendants toward the cells needed for living bone.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Bone-lineage environment"
+    },
+    "expectation": "The cells will develop toward a bone-forming lineage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lineage produces osteoblasts and embedded osteocytes, giving me cells to incorporate into the bone construction.",
+    "reaction": "The distinction between matrix-producing osteoblasts and embedded osteocytes is useful.",
+    "step": 2,
+    "reason": "Mineral should reinforce the collagen framework of the arm bones.",
+    "choice": {
+      "combine": "Arm bone collagen framework",
+      "with": "Calcium phosphate mineral"
+    },
+    "expectation": "The mineral will combine with the collagen framework to form a stronger bone structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The framework is mineralised but still needs living cells and a blood supply.",
+    "reaction": "The contrast between collagen's toughness and mineral's compression resistance is useful.",
+    "step": 3,
+    "reason": "Bone cells should make the mineralised framework part of a living bone construction.",
+    "choice": {
+      "combine": "Bone cells",
+      "with": "Mineralised arm bone framework"
+    },
+    "expectation": "The bone cells will be incorporated into the mineralised arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells must be linked to a blood supply before joining the bone framework; the picture also shows nutrients reaching osteocytes through small channels.",
+    "reaction": "The automatic combination clarified the required order after my incorrect guess.",
+    "step": 4,
+    "reason": "The supplied bone cells should now be ready to join the mineralised framework.",
+    "choice": {
+      "combine": "Bone cells linked to a blood supply",
+      "with": "Mineralised arm bone framework"
+    },
+    "expectation": "The supplied cells will be incorporated into the arm bone framework.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied cells and mineralised framework formed living arm bones, completing the bone goal and revealing the joint goal.",
+    "reaction": "The nutrient-channel detail reinforces how embedded bone cells are supplied.",
+    "step": 5,
+    "reason": "The synovial membrane should line the inner face of the fibrous joint sleeve.",
+    "choice": {
+      "combine": "Fibrous joint sleeve",
+      "with": "Synovial membrane"
+    },
+    "expectation": "They will form a lined joint capsule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sleeve and membrane formed a synovial capsule, completing the lined-capsule goal.",
+    "reaction": "The distinction between the fibrous sleeve and its fluid-producing lining is clear.",
+    "step": 6,
+    "reason": "Articular cartilage should cover the ends of the living bones where they meet.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Articular cartilage"
+    },
+    "expectation": "The arm bones will acquire smooth cartilage-covered joint surfaces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm bones now have cartilage-covered surfaces that can slide against one another.",
+    "reaction": "The sliding-surface inset makes the cartilage's role clear.",
+    "step": 7,
+    "reason": "The synovial capsule should surround the cartilage-covered bone ends to form the joint.",
+    "choice": {
+      "combine": "Cartilage-covered arm bones",
+      "with": "Synovial capsule"
+    },
+    "expectation": "The capsule will join the bones around the elbow joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule now encloses the cartilage-covered bone ends, with fluid in the joint space; the elbow still needs support.",
+    "reaction": "The connection between the lining's fluid and gliding surfaces is clear.",
+    "step": 8,
+    "reason": "The elbow ligaments should support the enclosed joint by spanning its sides.",
+    "choice": {
+      "combine": "Enclosed elbow",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments will reinforce the elbow while allowing movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the movable arm skeleton, with the planned picture showing elbow bending and resistance to sideways movement; all goals are complete.",
+    "reaction": "The final cutaway brings the supporting and moving parts together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the joint from cartilage, capsule and ligaments was worthwhile because the planned pictures connect each structure to gliding or restraint.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The bone-cell supply picture was useful but appeared again in the completed bone cutaway, making that passage somewhat repetitive.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I expected bone cells to join the mineralised framework directly; instead, they first combined with blood vessels. The picture showed nutrients reaching embedded cells through tiny channels.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the blood supply to be linked to the cells before adding them to the framework felt like a game-specific ordering constraint, although the supply itself had a clear purpose.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: assembling the joint made the relationship between its structures and movement interesting, and I would be curious to see how muscle adds to it.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

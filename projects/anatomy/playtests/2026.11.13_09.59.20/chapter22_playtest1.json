@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal condition to follow how the pancreas responds to absorbed glucose.",
+    "choice": 1,
+    "expectation": "I expect pancreatic beta cells to release insulin, initiating glucose storage or uptake.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meal response is also relevant, but I prefer to follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The after-meal signal releases insulin that reaches both muscle and liver, so I can follow either target.",
+    "reaction": "The separate branches make the next choices clear.",
+    "step": 2,
+    "reason": "Follow insulin to skeletal muscle to see how it handles glucose after a meal.",
+    "choice": 2,
+    "expectation": "I expect insulin to promote glucose uptake by muscle, possibly with some glucose stored as glycogen.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The liver is another insulin target, but I want to follow muscle first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose transport, and its release signal weakens as blood glucose falls; I can now follow the liver branch.",
+    "reaction": "The membrane transporters make the hormone's distant effect concrete.",
+    "step": 3,
+    "reason": "Follow insulin to the liver to complete the after-meal response.",
+    "choice": 2,
+    "expectation": "I expect insulin to promote glucose storage as liver glycogen, though the result may show other effects too.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The between-meal response matters too, but I want to finish the after-meal branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores glucose as glycogen and reduces glucose output after a meal, completing that goal. Its depicted glucose entry differs from muscle's.",
+    "reaction": "The distinction between liver and muscle transport is useful.",
+    "step": 4,
+    "reason": "Follow the only available combination to investigate the between-meal response.",
+    "choice": 1,
+    "expectation": "I expect lower blood glucose to prompt pancreatic alpha cells to release glucagon, which may signal the liver to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower glucose is associated with increased glucagon release and decreased insulin release; the highlighted glucagon route leads to the liver.",
+    "reaction": "The contrast with the after-meal response is clear.",
+    "step": 5,
+    "reason": "Follow the only available combination to see how the liver maintains blood glucose between meals.",
+    "choice": 1,
+    "expectation": "I expect glucagon to promote liver glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release; its stimulation then decreases as blood glucose rises, completing the between-meal goal.",
+    "reaction": "The feedback makes the contrast with storage after a meal clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to muscle and liver was most worthwhile: the picture plans distinguish increased muscle transporter presence from liver glycogen storage, rather than implying identical responses.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial glucagon-release step was clear but predictable, and its panel added little beyond identifying the hormone and its target.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The explicit contrast between liver glucose entry and muscle transporter insertion sharpened my understanding of their different responses to insulin.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the compatible-option menu guided the sequence rather than requiring me to discover the connections.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue: comparing the two conditions and their feedback was useful, though the largely predictable, guided sequence offered limited decisions.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "chapter": 17,
+  "renames": {"Antibody-making and memory cells": "Responding lymph node"},
+  "addHotspot": "- Responding lymph node (center 780px, 1000px)",
+  "replaceCombinations": [
+    {
+      "from": "Activated matching lymphocyte [transform] @ Living lymph node -> Antibody-making and memory cells",
+      "to": "Activated matching lymphocyte [consume] + Living lymph node [transform] -> Responding lymph node"
+    },
+    {
+      "from": "Antibody-making and memory cells [preserve] + Amino acids [consume] -> Matching antibodies",
+      "to": "Responding lymph node [preserve] + Amino acids [consume] -> Matching antibodies"
+    },
+    {
+      "from": "Antibody-coated bacteria [transform] + Engulfing white blood cells [preserve] -> White blood cells containing bacterial remains",
+      "to": "Antibody-coated bacteria [consume] + Engulfing white blood cells [transform] -> White blood cells containing bacterial remains"
+    }
+  ],
+  "goalReplacement": {
+    "from": "Make antibody-producing cells and keep memory cells -- Antibody-making and memory cells",
+    "to": "Grow antibody-producing and memory cells in the node -- Responding lymph node"
+  },
+  "noteAddition": "The living node transforms into the same responding node: descendants remain embedded in its tissue, rather than appearing as large cells laid across an unchanged organ. Both node states are fixed at the same position and only one is present at a time. Antibody secretion preserves the responding node. Engulfment transforms the receiving white cell into its digestive state. Representative cell populations and molecular samples do not imply literal counts or stoichiometry."
+}

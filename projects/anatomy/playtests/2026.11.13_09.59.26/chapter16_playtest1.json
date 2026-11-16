@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "The intestinal collecting veins and portal branches have matching ends and together can form the route from the gut to the liver.",
+    "choice": {
+      "combine": "Intestinal collecting veins",
+      "with": "Portal vein branches"
+    },
+    "expectation": "They will form a portal vessel carrying nutrient-rich intestinal blood toward the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel now links the intestinal and liver capillary beds, and it fits the digestive tube's remaining slot.",
+    "reaction": "The two-bed route makes the liver's position before general circulation clear.",
+    "step": 2,
+    "reason": "The digestive tube has a named empty slot for the newly created portal vessel.",
+    "choice": {
+      "combine": "Portal vessel",
+      "with": "Digestive tube"
+    },
+    "expectation": "The portal vessel will connect the intestine to the liver in the digestive model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is installed in the digestive tube; the liver's exit route still needs connecting.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "The liver collecting veins carry blood out of the liver, and the vena cava junction has openings for them.",
+    "choice": {
+      "combine": "Liver collecting veins",
+      "with": "Vena cava junction"
+    },
+    "expectation": "The hepatic veins will connect the liver's blood outflow to the vena cava.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver's outflow now connects to the vena cava and right atrium; the digestive model and body circulation still need joining.",
+    "reaction": "The separate entry and exit routes make the blood flow easier to follow.",
+    "step": 4,
+    "reason": "The completed digestive tube and hepatic venous return are the two visible parts of the liver's circulation.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Hepatic venous return"
+    },
+    "expectation": "The liver's portal entry and venous exit will be joined in the digestive model.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Integrated body model",
+          "with": "Digestive tube"
+        },
+        "reason": "The digestive organs also need to connect to the wider body circulation."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted pairing instead automatically connected the digestive tube to the body; the hepatic venous exit remains to be attached.",
+    "reaction": "The compatibility feedback clarified the intended order, though my initial pairing was wrong.",
+    "step": 5,
+    "reason": "The body's liver exit is highlighted as the remaining connection, and hepatic venous return leads to the vena cava.",
+    "choice": {
+      "combine": "Body with portal-connected digestion",
+      "with": "Hepatic venous return"
+    },
+    "expectation": "The hepatic veins will complete the liver's return route to the body's circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hepatic venous return completes the digestive connection to the body's circulation; absorbed nutrients still need to be followed through the liver.",
+    "reaction": "The highlighted route makes the two liver inputs and venous exit clear, though “sinusoids” is not explained.",
+    "step": 6,
+    "reason": "The remaining nutrient item belongs on the newly connected portal route.",
+    "choice": {
+      "combine": "Nutrients in portal blood",
+      "with": "Body with connected digestion"
+    },
+    "expectation": "The model will follow absorbed glucose and amino acids through the liver and onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrient view completes the route: some glucose and amino acids move toward liver cells, while others leave in blood. It also identifies sinusoids as broad capillary channels.",
+    "reaction": "Seeing the nutrients split between liver cells and outgoing blood made the route more meaningful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the portal vessel was most worthwhile: its planned illustration labels both capillary beds and explains why the liver encounters absorbed substances before the wider circulation.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to attach hepatic venous return directly to the digestive tube was the least useful passage, although compatibility feedback automatically advanced the assembly.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The liver receives a separate arterial supply as well as portal blood; the illustration also keeps bile ducts distinct from the blood vessels.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required assembly order was not obvious: the digestive tube had to join the body before the already constructed hepatic venous return could be attached.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see more connections between systems; the nutrient route made the anatomical construction useful for following a physiological process.",
+        "steps": [
+          1,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

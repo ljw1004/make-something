@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "Membrane fats appear to form the boundary needed to enclose the cell fluid.",
+    "choice": {
+      "combine": "Membrane fats",
+      "with": "Cell fluid"
+    },
+    "expectation": "The fats should form a membrane around the fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats enclosed the fluid, but the picture shows no protein channels yet.",
+    "reaction": "The missing channels give me a clear next step.",
+    "step": 2,
+    "reason": "Transport proteins appear suited to making the boundary selective.",
+    "choice": {
+      "combine": "Membrane-enclosed fluid",
+      "with": "Transport proteins"
+    },
+    "expectation": "The proteins should add channels to the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transport proteins completed the selective boundary, and the model now needs stored instructions and ATP machinery.",
+    "reaction": "The picture clearly connects the channels with selective transport.",
+    "step": 3,
+    "reason": "DNA stores instructions, and the nuclear envelopes appear suited to enclosing it.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelopes"
+    },
+    "expectation": "The DNA should be enclosed in nuclei that can provide stored instructions for the cell model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA and envelopes formed muscle nuclei, which appear to fit the stored-instructions slot.",
+    "reaction": "The porous membranes connect the nuclei to the earlier description of RNA leaving them.",
+    "step": 4,
+    "reason": "The nuclei contain the stored DNA instructions the muscle-cell model needs.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Muscle nuclei"
+    },
+    "expectation": "The nuclei should fill the stored-instructions slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei are installed in the model; the oxygen-using ATP machinery is still needed.",
+    "reaction": "The inset connects the stored DNA with copies passing through nuclear pores.",
+    "step": 5,
+    "reason": "Mitochondria are the cell structures associated with oxygen-using ATP production.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria should fill the oxygen-using ATP machinery slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are installed, and the next goal is to make pulling proteins and their structures.",
+    "reaction": "The fuel, oxygen and ATP diagram makes the mitochondria’s role clearer.",
+    "step": 6,
+    "reason": "The opening says RNA building blocks use DNA in the nuclei to make a copy of the muscle-protein instructions.",
+    "choice": {
+      "combine": "RNA building blocks",
+      "with": "Muscle-cell model"
+    },
+    "expectation": "The installed nuclei should provide a DNA template for an RNA copy.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "RNA building blocks"
+        },
+        "reason": "I could check whether the building blocks interact directly with the model."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The RNA copy is available, and the picture shows it traveling to a ribosome while the DNA stays in the nucleus.",
+    "reaction": "The picture makes the division between stored DNA and the traveling copy clear.",
+    "step": 7,
+    "reason": "The copied instructions are meant to guide ribosomes in making the pulling proteins.",
+    "choice": {
+      "combine": "Copied muscle-protein instructions",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes should use the RNA instructions to make muscle pulling proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes used the copied instructions to make pulling protein threads, while the RNA and ribosomes remain intact.",
+    "reaction": "The two panels make the connection between protein production and organized filaments clear.",
+    "step": 8,
+    "reason": "The muscle-cell model needs pulling structures, and the new threads appear to provide them.",
+    "choice": {
+      "combine": "Muscle-cell model",
+      "with": "Pulling protein threads"
+    },
+    "expectation": "The threads should be installed as pulling structures in the model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The threads completed the muscle fibers. The final picture adds that the repeating units shorten as filaments overlap further, while the filaments themselves keep their length.",
+    "reaction": "That distinction was a satisfying final detail; it made the pulling structure easier to imagine.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the RNA copy and using it at ribosomes was the most worthwhile passage. The pictures connect stored DNA, a traveling copy and the production of pulling proteins in a clear sequence.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the nuclei was fairly predictable once the stored-instructions slot appeared, though the pore inset helped connect it to the later RNA step.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final picture changed my understanding of shortening: the filaments overlap further without themselves getting shorter.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary. The mitochondria choice drew on prior biology knowledge, but the result explained their role in remaking ATP.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because building from molecular instructions to a working muscle structure made me curious how the fibers will become tissues and contribute to a body system.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

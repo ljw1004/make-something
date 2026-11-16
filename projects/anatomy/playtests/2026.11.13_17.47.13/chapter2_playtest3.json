@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The cell picture connects food and oxygen with making ATP, so glucose and the mitochondria look like a useful starting pair.",
+    "choice": {
+      "combine": "Glucose inside the cell",
+      "with": "Cell with mitochondria"
+    },
+    "expectation": "This should begin making ATP from glucose, possibly using the available oxygen too.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has glucose, but the picture shows oxygen arriving separately before the ATP-producing process.",
+    "reaction": "The separate oxygen arrow makes the next step clearer.",
+    "step": 2,
+    "reason": "The diagram links food and oxygen to ATP, and the cell is now supplied with glucose.",
+    "choice": {
+      "combine": "Cell supplied with glucose",
+      "with": "Oxygen entering the cell"
+    },
+    "expectation": "Adding oxygen should let the cell produce ATP for its work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and oxygen produced an ATP supply, completing the first goal and pointing toward the pump and ribosome.",
+    "reaction": "The arrows make the two uses of ATP easier to follow.",
+    "step": 3,
+    "reason": "The pump picture shows an ATP-binding site and particles moving toward the crowded side, matching part of the remaining goal.",
+    "choice": {
+      "combine": "ATP supply",
+      "with": "Membrane pump"
+    },
+    "expectation": "ATP should power the pump to move particles toward the crowded side.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "ATP supply",
+          "with": "Ribosome — protein builder"
+        },
+        "reason": "The ribosome also needs ATP for the protein-making goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ATP supply cannot be combined directly, so I need to prepare the pump another way.",
+    "reaction": "That was surprising because the ATP picture pointed to the pump.",
+    "step": 4,
+    "reason": "The pump picture says it fits across a membrane, so the membrane patch looks like a useful first step.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell membrane patch"
+    },
+    "expectation": "The pump should fit into the membrane, possibly making it ready to use ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Membrane pump"
+        },
+        "reason": "I could check its compatible partners if the membrane pairing is not right."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is now in the membrane, with its ATP site empty, so it looks ready to use the ATP supply.",
+    "reaction": "The empty ATP site makes the next step clearer.",
+    "step": 5,
+    "reason": "The installed pump has an ATP-binding site, matching the remaining goal of moving particles.",
+    "choice": {
+      "combine": "Membrane with a pump",
+      "with": "ATP supply"
+    },
+    "expectation": "The pump should use ATP to move particles toward the crowded side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The installed pump used ATP to move particles toward the crowded side; making proteins remains.",
+    "reaction": "The pump's changing shape helps show how the movement happens.",
+    "step": 6,
+    "reason": "The ribosome picture shows amino acids matching the pieces of its growing protein, so these are a clear pair for the remaining goal.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The ribosome should assemble the amino acids into a protein, possibly using the available ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome has its building blocks, and the ATP arrow indicates it still needs energy for protein-making.",
+    "reaction": "The labeled arrow makes the next pairing clear.",
+    "step": 7,
+    "reason": "The supplied ribosome points to ATP for the protein-making work.",
+    "choice": {
+      "combine": "Ribosome supplied with building blocks",
+      "with": "ATP supply"
+    },
+    "expectation": "The ribosome should use ATP and the building blocks to make a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome used the building blocks and ATP to make proteins, completing the remaining goal. The result connects food, energy and DNA instructions.",
+    "reaction": "Seeing the protein chains fold into different shapes was satisfying.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making proteins was most worthwhile because it connected the building blocks, ATP and the RNA message to a finished product.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed direct ATP-and-pump attempt was confusing: the ATP picture pointed to the pump, but the pump first had to be installed in the membrane.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that ATP could not be combined directly with the pump, even though the picture showed an ATP-binding site.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The installation prerequisite initially felt unclear rather than pointless; the pump picture did show that it fits across a membrane.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because connecting familiar ideas about food and DNA to cell jobs was interesting, especially when the pictures made the next step understandable.",
+        "steps": [
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

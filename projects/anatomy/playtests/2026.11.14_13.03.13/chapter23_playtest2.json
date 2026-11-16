@@ -1,0 +1,75 @@
+[
+  {
+    "step": 1,
+    "reason": "The drinking water is headed to the small intestine, where the absorbing surface can move it across the gut wall.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water should cross the intestinal lining toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Kidney pair[Ureters,Bladder]"
+        },
+        "reason": "I could follow the water-conservation route first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink's water crossed the gut lining into blood, completing the replacement goal. The kidney conservation route remains.",
+    "reaction": "It is clear how drinking replaces water rather than just saving it.",
+    "step": 2,
+    "reason": "The kidney filter previously processed blood, and the chapter says water-saving signals have already reached the kidneys.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Kidney pair[Ureters,Bladder]"
+    },
+    "expectation": "The kidneys should process the blood, return more water to it and still produce some urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more filtered water to the blood while still making urine, completing the conservation goal. Unlike drinking, conservation cannot replace missing water.",
+    "reaction": "The contrast between saving water and replacing it was clear, though the kidney result was expected.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing drinking water entering the blood with the kidneys conserving water was most worthwhile: the two actions showed different ways the body handles a lack of water.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The kidney combination was fairly predictable after the introduction and the earlier filtering example, although it completed the comparison.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was especially surprising; the result clarified that saving water still leaves some urine and cannot create the missing water.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: the pictures and goals explained why water went to the gut and blood went to the kidneys.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue if another chapter offers a similarly clear connection to everyday life, but these two predictable combinations alone are not a strong hook.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

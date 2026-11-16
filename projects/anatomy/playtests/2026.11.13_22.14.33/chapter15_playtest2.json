@@ -1,0 +1,73 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows glucose entering liver cells and being joined into a stored carbohydrate, matching the first goal.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will turn some glucose into a stored carbohydrate.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Integrated body model",
+          "with": "Digestive tract"
+        },
+        "reason": "Connecting the digestive tract to the body also addresses a goal, but I chose to make the glucose store first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver cells stored linked glucose, completing the storage goal; I can now connect the digestive organs to the body.",
+    "reaction": "It was useful to see that the store can be broken down again between meals.",
+    "step": 2,
+    "reason": "The remaining goal is to connect the digestive organs to the body, and the digestive tract and body model are the visible pieces for that.",
+    "choice": {
+      "combine": "Integrated body model",
+      "with": "Digestive tract"
+    },
+    "expectation": "The digestive tract will connect to the body and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is connected to circulation, completing the chapter; the colon's inner wall is still shown as unfinished.",
+    "reaction": "Connecting the intestine-to-liver vein to the larger body model made the route feel more complete.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in liver cells was most worthwhile: it connected food arriving after a meal with fuel that can be made available later.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the digestive tract was straightforward and less revealing than the storage step, though it showed the vein joining circulation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The liver store was made of linked glucose units inside intact cells, and it could be broken down again when tissues need fuel.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: the pictures and goals made both pairings clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, partly to see how the unfinished colon wall is assembled and what it does.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

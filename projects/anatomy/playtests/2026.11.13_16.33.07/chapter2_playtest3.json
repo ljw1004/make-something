@@ -1,0 +1,173 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows glucose fitting the first enzyme in the cytosol, which directly relates to the ATP goal.",
+    "choice": {
+      "combine": "Glucose in the cytosol",
+      "with": "Cytosol with glycolysis enzymes"
+    },
+    "expectation": "The enzymes will start breaking down glucose and produce some ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "The matching subunits and messages also suggest a direct way to work on the ribosome goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown made ATP and pyruvate without oxygen, and the new goal points toward supplying the mitochondrion.",
+    "reaction": "The arrow from pyruvate to the mitochondrion makes the next step clear.",
+    "step": 2,
+    "reason": "The new goal calls for food breakdown products and oxygen, and the picture points pyruvate toward the mitochondrion.",
+    "choice": {
+      "combine": "Cytosolic ATP and pyruvate",
+      "with": "Mitochondrion"
+    },
+    "expectation": "The mitochondrion will take up the food breakdown product, possibly using the available oxygen too.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sodium-potassium pump proteins",
+          "with": "Lipid-only membrane patches"
+        },
+        "reason": "The pump's membrane-spanning middle suggests it fits the membrane, satisfying another goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate entered the mitochondrion, but the goal also calls for oxygen, which has not yet been supplied.",
+    "reaction": "The picture shows carbon leaving as CO₂; I am curious what happens when oxygen is added.",
+    "step": 3,
+    "reason": "The goal names oxygen as the other supply, and oxygen is already available in the cytosol.",
+    "choice": {
+      "combine": "Oxygen entering the cytosol",
+      "with": "Mitochondrion supplied with pyruvate"
+    },
+    "expectation": "Oxygen will be supplied to the mitochondrion alongside the pyruvate.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sodium-potassium pump proteins",
+          "with": "Lipid-only membrane patches"
+        },
+        "reason": "I could instead work on fitting the pump into the membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding oxygen produced a mitochondrial ATP supply. The picture links energy from food to hydrogen ions moving through an ATP-making protein, although the electron-transfer details are new to me.",
+    "reaction": "I was surprised that oxygen ends up forming water.",
+    "step": 4,
+    "reason": "The pump has a membrane-spanning middle, so fitting it into the membrane directly addresses the remaining pump goal.",
+    "choice": {
+      "combine": "Sodium-potassium pump proteins",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump proteins will fit into the membrane patch.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "Those pieces also match the remaining ribosome goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are fitted into the membrane, and the new goal asks for ATP to move sodium out.",
+    "reaction": "The picture shows the pumps in place but not yet moving anything.",
+    "step": 5,
+    "reason": "The new goal calls for ATP, and the mitochondrial ATP supply is available for cellular work.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Membrane with sodium-potassium pumps"
+    },
+    "expectation": "ATP will power the pumps to move sodium out of the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "I could work on assembling ribosomes instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the fitted pumps, moving sodium out and potassium in despite their existing concentration differences.",
+    "reaction": "It is satisfying to see the pump doing work after fitting it into the membrane.",
+    "step": 6,
+    "reason": "The remaining goal explicitly calls for assembling ribosomes on an mRNA message, and both pieces are available.",
+    "choice": {
+      "combine": "Ribosome subunits",
+      "with": "mRNA messages from the nucleus"
+    },
+    "expectation": "The ribosome subunits will assemble on the mRNA messages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are assembled on mRNA, and the new goal asks for energy to make protein.",
+    "reaction": "The picture connects the message and amino acid building blocks, though the RNA adapters are new to me.",
+    "step": 7,
+    "reason": "The new goal calls for power, and the mitochondrial ATP supply is available.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Ribosomes on mRNA"
+    },
+    "expectation": "ATP will support protein-making at the prepared ribosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP supported protein-making at the ribosomes, completing the goals. The picture distinguishes amino acids in the protein chain from pyruvate on the separate fuel route.",
+    "reaction": "It was useful to see the same ATP supply support both pumping and protein-making, though the tRNA details were new to me.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the sodium-potassium pump was most worthwhile: fitting it first and then seeing ATP move sodium out showed what the energy was used for.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying pyruvate and then oxygen felt fairly predictable because the picture and goal named both. The electron-transfer details were also hard to follow from the brief explanation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that oxygen ends up forming water as the mitochondrion makes ATP.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt entirely purposeless, though using ATP for protein-making followed the goal more clearly than I understood the RNA adapters involved.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how these cell processes connect to larger body structures, although the more detailed molecular explanations were harder to follow.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

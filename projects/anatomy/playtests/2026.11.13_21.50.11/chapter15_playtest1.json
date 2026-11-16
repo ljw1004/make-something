@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows glucose from blood being joined into a stored carbohydrate, matching the storage goal.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will turn some of the absorbed glucose into a store.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "The named vein also fits the tube's empty slot and would help connect the digestive organs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose is stored as linked carbohydrate in liver cells, completing the storage goal. I can now connect the digestive organs.",
+    "reaction": "The picture makes the storage idea clear: some glucose is linked together while some stays in the blood.",
+    "step": 2,
+    "reason": "The digestive tube has an empty vein-to-liver slot, and the named vein matches it.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The vein will fit into the digestive tube and provide the route to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted to the digestive tube, so I can try connecting it to the body.",
+    "reaction": "The named slot made that step straightforward.",
+    "step": 3,
+    "reason": "The remaining goal is to connect the digestive organs to the body, and these are the two matching constructions.",
+    "choice": {
+      "combine": "Digestive tube[Vein from intestine to liver]",
+      "with": "Integrated body model"
+    },
+    "expectation": "The digestive organs will connect to the body's circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tube and its vein joined the body's circulation, completing the chapter.",
+    "reaction": "It was satisfying to see the digestive organs connected, though the pairing was predictable.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in liver cells was most worthwhile: the result showed linked glucose as a store that can be broken down when other tissues need fuel.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named vein into its matching slot was straightforward but didn't add much beyond what the picture already showed.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the result to show some glucose remaining in the blood while other glucose was linked into a store.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt arbitrary; the goals, pictures and named slot made the pairings clear.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the unfinished colon lining is assembled, although this chapter's choices were mostly predictable.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

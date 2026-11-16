@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The ureters are shown leading from the kidneys to the bladder, and the kidney pair has a named slot for them.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters will connect to the kidneys as part of the drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are connected to the kidneys; the bladder is the remaining named slot.",
+    "reaction": "The drainage route is taking shape.",
+    "step": 2,
+    "reason": "The ureters lead toward the bladder, which has a named slot in the kidney pair.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder will attach to complete the kidneys' drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys now have a continuous route through the ureters to the bladder, and the urinary organs need connecting to the body.",
+    "reaction": "Seeing the complete route makes its purpose clear.",
+    "step": 3,
+    "reason": "The new goal calls for connecting the urinary organs to the body.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Body with a living colon"
+    },
+    "expectation": "The kidneys, ureters and bladder will connect to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The urinary organs are connected to the body; filtering blood and recovering useful substances remain.",
+    "reaction": "The picture makes the route out of the body clear.",
+    "step": 4,
+    "reason": "The blood sample contains small substances that the kidney filter is described as letting through.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "The filter will separate some small substances from the blood while leaving large cells and proteins behind.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter lets useful glucose, salts and water through along with wastes, so the fluid still needs recovery.",
+    "reaction": "It is surprising that useful substances pass through the filter too.",
+    "step": 5,
+    "reason": "The recovery tube is shown returning glucose, some salts and much water to the blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Useful substances will return to the blood, leaving fluid containing waste.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Useful substances and much water returned to the blood, leaving waste-containing fluid to collect in the bladder.",
+    "reaction": "The two-stage process makes more sense now.",
+    "step": 6,
+    "reason": "The remaining fluid needs to reach the bladder, which is part of the body's connected urinary system.",
+    "choice": {
+      "combine": "Kidney fluid after recovery",
+      "with": "Body with urinary system"
+    },
+    "expectation": "The remaining urine will travel through the ureters and collect in the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining urine followed the urinary route into the bladder, completing the final goal.",
+    "reaction": "It was satisfying to see the filtering and drainage routes come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering useful substances made the kidney's two-stage job clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the ureters and bladder was straightforward, though it helped establish the route.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The filter let useful glucose and water through along with wastes, rather than selecting only wastes.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and goals explained their purposes.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: following the substances through filtering, recovery and collection made me curious about how another body system works.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

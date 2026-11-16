@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows the lining covering the fingerlike folds, which directly matches the first goal.",
+    "choice": {
+      "combine": "Thin intestinal lining",
+      "with": "Fingerlike intestinal folds"
+    },
+    "expectation": "The folds will be covered with a thin absorbing lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now covers the villi, and the new goal is to bring it close to blood.",
+    "reaction": "The flattened comparison helps me see how the folds add surface area.",
+    "step": 2,
+    "reason": "The capillary picture shows blood vessels looping inside a villus, matching the new goal.",
+    "choice": {
+      "combine": "Folded absorbing lining",
+      "with": "Intestinal capillaries"
+    },
+    "expectation": "The capillaries will sit close to the absorbing lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries are beneath the lining, with an outgoing route toward the liver still missing.",
+    "reaction": "The picture makes the next connection clear.",
+    "step": 3,
+    "reason": "The vein leads from the intestine to the liver, matching the remaining blood-route goal.",
+    "choice": {
+      "combine": "Lining with intestinal capillaries",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The intestinal blood vessels will connect to the vein leading to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The absorbing surface now has a thin lining close to capillaries, and the next goal is to follow nutrients across it.",
+    "reaction": "The short crossing distance makes the purpose of the thin lining clearer.",
+    "step": 4,
+    "reason": "The previous chapter showed that meal glucose can cross the intestinal lining, so I can try it with the completed surface.",
+    "choice": {
+      "combine": "Intestinal absorbing surface",
+      "with": "Meal glucose"
+    },
+    "expectation": "Glucose will cross the lining toward the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose crossed the lining into a capillary and travels to the liver; the absorbing surface is now named Nutrients in blood to liver.",
+    "reaction": "Seeing the route through the tissue-fluid gap makes the crossing clearer.",
+    "step": 5,
+    "reason": "Amino acids are the other digestion product to follow, but the surface changed name, so I’ll check what they can combine with.",
+    "choice": {
+      "inspect": "Meal amino acids"
+    },
+    "expectation": "The compatibility list should show how to follow amino acids across the gut wall.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically followed amino acids across the lining into blood headed toward the liver. The separate blood-route goal still appears incomplete.",
+    "reaction": "I was surprised the absorbing surface was still available after the glucose result changed its name.",
+    "step": 6,
+    "reason": "The capillaries and the vein are the two pictured parts of the remaining blood route.",
+    "choice": {
+      "combine": "Intestinal capillaries",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The capillaries will connect to the vein leading to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries and vein formed the separate blood route, completing the last goal.",
+    "reaction": "I was glad the route was complete, though I had thought it was already connected at step 3.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose across the lining was worthwhile because the picture showed its path through the tissue-fluid gap into blood headed to the liver.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the blood route felt repetitive: step 3 seemed to connect it, but the separate route was still needed at step 6.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised the absorbing surface was still available for amino acids after the glucose result changed its name.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The separate capillary-and-vein combination felt a little arbitrary because the earlier surface result seemed to include that connection already.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see where the nutrients go after reaching the liver. The crossing was interesting, although the repeated route-building made the ending less satisfying.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

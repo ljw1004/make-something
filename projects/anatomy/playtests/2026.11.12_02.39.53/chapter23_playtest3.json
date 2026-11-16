@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "Clearing debris seems like a useful start to repairing the wound.",
+    "choice": 1,
+    "expectation": "Phagocytes will engulf debris near the cut, preparing the area for repair.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Growing a blood supply also seems relevant, but I chose to clear the wound first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleaned, so I can proceed with building support for repair.",
+    "reaction": "The result matched my expectation, though it added little beyond the picture.",
+    "step": 2,
+    "reason": "Repair signals directed at a nearby capillary seem likely to establish a blood supply for the healing tissue.",
+    "choice": 1,
+    "expectation": "The capillary may sprout toward the wound and help supply the repairing tissue.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts also seem useful for building support, but I want to establish the blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout is connected to the circulation and can now be added to the wound.",
+    "reaction": "The result matched my expectation; seeing it remain connected makes its role clearer.",
+    "step": 3,
+    "reason": "Adding the sprout to the wound should help supply the repairing tissue.",
+    "choice": 1,
+    "expectation": "The cleaned wound will gain a growing blood vessel connected to the existing circulation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts may help build the supporting tissue, but I want to connect the new vessel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has named surface and support slots, with the capillary branches connected to circulation.",
+    "reaction": "The two slots make the remaining repair work clear.",
+    "step": 4,
+    "reason": "Fibroblasts and matrix nutrients seem suited to building the wound's supporting layer.",
+    "choice": 1,
+    "expectation": "They will produce material that can support the healing skin.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The epidermal cells likely help close the surface, but I chose to build support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts produced collagen-rich connective tissue that appears suited to the support slot.",
+    "reaction": "The picture makes the fibroblasts' role clearer.",
+    "step": 5,
+    "reason": "I want to add the new connective tissue to the wound's supporting layer.",
+    "choice": 2,
+    "expectation": "The connective tissue will fill the support slot in the healing skin.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The epidermal cells should help close the surface, but I want to fit the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound has connective-tissue support, though the new tissue is still weaker than uninjured skin.",
+    "reaction": "The distinction between closing the wound and regaining strength is useful.",
+    "step": 6,
+    "reason": "The only offered combination should prepare cells to close the remaining surface.",
+    "choice": 1,
+    "expectation": "The epidermal edge cells will use the nutrients to produce a new surface layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal cells formed a new surface that can fill the remaining wound slot.",
+    "reaction": "The picture clearly shows the surface growing across the gap.",
+    "step": 7,
+    "reason": "The only offered combination should close the skin over the new support.",
+    "choice": 1,
+    "expectation": "The new surface will be fitted to the healing skin and close the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface is closed and supported, though the deeper tissue is still gaining strength; the temporary clot remains to be cleared.",
+    "reaction": "The reminder that repair continues after closure is useful.",
+    "step": 8,
+    "reason": "The only offered combination addresses the remaining goal of clearing the temporary clot.",
+    "choice": 1,
+    "expectation": "The enzymes will break down the fibrin in the temporary clot as the wound heals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot has mostly cleared, while the new tissue and a still-maturing scar remain. Both goals are complete.",
+    "reaction": "The remaining scar makes the distinction between clot removal and continuing repair clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the connective tissue was most worthwhile because the result explained that collagen supports the wound but young tissue is still weaker than uninjured skin.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the capillary sprout felt repetitive: its creation already showed it growing toward the wound, and the next action fitted it into the body.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between a closed surface and deeper tissue that is still gaining strength sharpened my understanding of healing.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though several fittings were predictable and the compatible-options menu made them easy to follow.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably stop here. The biology of continuing repair was interesting, but the repeated creation and fitting steps offered few meaningful choices.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

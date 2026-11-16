@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes are shown engulfing debris near the cut, so they appear to begin clearing the wound.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The phagocytes will clear debris from the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleared of debris around the clot, so I can work on supporting tissue and closure.",
+    "reaction": "That was a clear first step, though it did not yet explain how repair proceeds.",
+    "step": 2,
+    "reason": "The repair signals are pictured directing an arrow toward the nearby vessel, suggesting they act together.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The signals will prompt a change in the capillary that supports wound repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals prompted a new vessel branch to grow toward the wound, suggesting a way to support repair.",
+    "reaction": "The connection to the existing circulation is clear.",
+    "step": 3,
+    "reason": "Fibroblasts build connective tissue, and the pictured nutrients supply raw materials for a supporting matrix.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will use the nutrients to produce supporting tissue for the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibroblasts used the supplied materials to lay collagen in the damaged dermis, creating supporting tissue.",
+    "reaction": "The result makes the purpose of the nutrients clear.",
+    "step": 4,
+    "reason": "The new capillary branch grows toward the wound, so connecting it to the cleaned wound seems like a useful repair step.",
+    "choice": {
+      "combine": "Body with cleaned wound",
+      "with": "Capillary sprout"
+    },
+    "expectation": "The new vessel branch will become part of the repairing wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with cleaned wound",
+          "with": "New connective tissue"
+        },
+        "reason": "The collagen-rich tissue also belongs in the damaged wound."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout is now connected to the healing wound, which has surface and support slots to fill.",
+    "reaction": "The two slots make the remaining repair work clear.",
+    "step": 5,
+    "reason": "The new connective tissue supplies the collagen support shown in the damaged dermis.",
+    "choice": {
+      "combine": "Body with healing skin[]",
+      "with": "New connective tissue"
+    },
+    "expectation": "The connective tissue will fill the wound's support slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue filled the support slot; the result also clarifies that the young tissue is still weaker than uninjured skin.",
+    "reaction": "The distinction between closing a wound and restoring its strength is useful.",
+    "step": 6,
+    "reason": "The epidermal edge cells need nutrients to grow and close the remaining surface gap.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The cells will use the nutrients to form a new surface layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new epidermal surface, ready to fill the remaining surface slot.",
+    "reaction": "The sheet extending across the gap makes the closure step clear.",
+    "step": 7,
+    "reason": "The new surface fits the remaining surface slot in the healing skin.",
+    "choice": {
+      "combine": "Body with healing skin[New connective tissue]",
+      "with": "New surface"
+    },
+    "expectation": "The new surface will cover the wound and complete its surface layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface closed the gap and completed the wound-support goal; the deeper tissue is still gaining strength.",
+    "reaction": "The distinction between closure and continued strengthening is clear.",
+    "step": 8,
+    "reason": "The remaining goal is to clear the temporary clot, and the enzymes are shown breaking down fibrin.",
+    "choice": {
+      "combine": "Body with healing skin[New connective tissue,New surface]",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will break down the temporary fibrin clot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes cleared most of the temporary fibrin, completing the final goal while the scar continues to mature.",
+    "reaction": "The remaining scar makes the outcome feel more realistic than an instant return to uninjured skin.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the new connective tissue was most worthwhile: it showed how fibroblasts provide support beneath the surface and explained that young tissue is still weak.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the new surface was clear but felt predictable after the surface slot had already been identified.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The capillary sprout remained connected to its parent vessel and circulation, making the source of the wound's blood supply clear.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the item descriptions and wound slots gave each combination a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue for another chapter. The distinction between closing the wound, clearing the clot and the scar continuing to mature made me curious about how the body changes afterward.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

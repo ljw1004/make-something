@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions explicitly guide stem-cell descendants toward a supporting-tissue lineage.",
+    "choice": {
+      "combine": "Unspecialized stem-cell descendants",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "The descendants will enter the fibroblast lineage, providing cells for supporting tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast lineage now has collagen messages, suggesting amino acids can supply the building blocks for collagen production.",
+    "reaction": "The unchanged DNA and newly transcribed messages make the differentiation connection clear.",
+    "step": 2,
+    "reason": "Amino acids are the building blocks needed to translate the collagen messages into protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The fibroblast-lineage cells will make collagen protein from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made procollagen for secretion, so extracellular fluid is the likely next step toward supporting tissue.",
+    "reaction": "The ER-to-Golgi-to-vesicle sequence clarifies how the protein is prepared for export.",
+    "step": 3,
+    "reason": "The extracellular fluid contains the space and processing enzymes needed for secreted procollagen.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will secrete procollagen, allowing extracellular collagen to form around them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have produced an extracellular matrix; combining the living cells with it may complete the supporting tissue.",
+    "reaction": "The secretion and extracellular assembly sequence makes the matrix's origin clear.",
+    "step": 4,
+    "reason": "Living fibroblasts together with their collagen-rich matrix are a plausible supporting tissue.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Collagen-rich extracellular matrix"
+    },
+    "expectation": "The living fibroblasts and matrix will form a supporting tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized stem-cell descendants",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "This should advance the separate muscle-forming branch, but I can first try to complete the supporting tissue."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The living fibroblasts and their matrix formed supporting tissue, completing that goal; the muscle-forming branch remains.",
+    "reaction": "The cell–matrix attachments make the tissue more than a bundle of collagen.",
+    "step": 5,
+    "reason": "The skeletal-muscle conditions explicitly guide the remaining stem-cell descendants toward muscle progenitors.",
+    "choice": {
+      "combine": "Unspecialized stem-cell descendants",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "The descendants will develop into muscle-forming progenitor cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells have RNA messages but remain individual cells; they may need to make muscle proteins next.",
+    "reaction": "The distinction between committed cells and a mature muscle fibre is clear.",
+    "step": 6,
+    "reason": "Amino acids supplied protein building blocks for the fibroblast branch and may serve the same role for muscle messages.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The muscle-lineage cells will use amino acids to make muscle proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells used amino acids to make muscle proteins and became separate myoblasts, completing the chapter without producing mature muscle fibres.",
+    "reaction": "The distinction between myoblasts and fused mature fibres is useful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making collagen and assembling living supporting tissue was most worthwhile: the sequence connected gene expression, secretion and extracellular assembly to tissue structure.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second differentiation-and-protein-production sequence was somewhat repetitive, though it made the comparison between lineages useful.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The fibroblasts produced procollagen that was processed and assembled outside the cell, rather than simply releasing finished collagen fibres.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the fibroblasts with the matrix after they had already produced it felt a little procedural, although it had the clear purpose of showing cells and matrix as tissue.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separate myoblasts develop into muscle fibres; the chapter leaves that construction unfinished.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

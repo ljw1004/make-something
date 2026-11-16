@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "The kidney filters are supplied by blood vessels, so connecting those pieces seems like a useful start.",
+    "choice": {
+      "combine": "Kidney blood vessels",
+      "with": "Kidney filters"
+    },
+    "expectation": "The filters will connect to the kidney's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessels connected the kidneys to the body first; I can now try adding the filters to that circulation.",
+    "reaction": "The automatic connection clarified the intended starting point, though my original pairing did not work.",
+    "step": 2,
+    "reason": "The filters need blood flowing through them, and the body now has kidney circulation.",
+    "choice": {
+      "combine": "Body with kidney circulation",
+      "with": "Kidney filters"
+    },
+    "expectation": "The kidney filters will connect to the circulation and begin the filtration route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter lets water, glucose and urea enter the sample while retaining blood cells and large proteins; the tubule looks like the next place to recover useful materials.",
+    "reaction": "The distinction between filtering and recovery makes the process clearer.",
+    "step": 3,
+    "reason": "The tubule and its surrounding vessels can provide a route for materials to return to the blood.",
+    "choice": {
+      "combine": "Filtered kidney sample",
+      "with": "Tubule and surrounding vessels"
+    },
+    "expectation": "The filtered sample will enter the tubule, where useful materials can be recovered into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tubule returned glucose toward the blood, while water and urea remain in the sample. Water recovery looks like the next step.",
+    "reaction": "The arrows make the recovery route clear.",
+    "step": 4,
+    "reason": "The water channels are in the tubule wall beside a blood vessel, where water could be recovered.",
+    "choice": {
+      "combine": "Kidney sample with recovered glucose",
+      "with": "Water channels in the tubule wall"
+    },
+    "expectation": "Some water will move from the tubule back toward the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water returns toward the blood, and the remaining fluid continues toward becoming urine. The new goal calls for connecting its route to the bladder.",
+    "reaction": "The distinction between recovered water and fluid left behind is clear.",
+    "step": 5,
+    "reason": "The collecting passages lead from the kidney tubules toward the kidney outlet.",
+    "choice": {
+      "combine": "Kidney sample with recovered water",
+      "with": "Collecting passages"
+    },
+    "expectation": "The remaining fluid will move into the kidney's collecting passages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid now follows collecting passages to the kidney outlet, ready for a connection to the bladder.",
+    "reaction": "The route is easy to follow from the description.",
+    "step": 6,
+    "reason": "The ureters lead from the kidneys to the bladder, completing the route named in the goal.",
+    "choice": {
+      "combine": "Kidney urine collection",
+      "with": "Ureters and bladder"
+    },
+    "expectation": "The kidney outlets will connect through the ureters to the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect both kidneys to the bladder, completing the urine route and the chapter's goals.",
+    "reaction": "The final picture description clearly closes the route.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the filtered sample through glucose and water recovery was most worthwhile. It showed why filtration alone would lose useful materials and how the tubule returns some to the blood.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the collecting passages and then the ureters was clear, but those steps felt predictable after the recovery sequence.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The filter let glucose and water through alongside urea while retaining blood cells and large proteins. That made the need for recovery concrete.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "My initial attempt to join the kidney vessels directly to the filters failed, although the pieces seemed physically related. The automatic connection to the body clarified the intended order.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see another body system connected, though I would hope for more meaningful choices than the mostly predictable sequence here.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

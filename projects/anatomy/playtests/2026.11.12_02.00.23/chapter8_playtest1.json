@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "The only offered action divides the heart into two sides, preparing it for the separate routes described in the goal.",
+    "choice": 1,
+    "expectation": "I expect a heart with separate right and left sides, ready for valves and connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The divided heart has slots for both sets of valves, so I can fit them next.",
+    "reaction": "The picture description is confusing: it says the valve positions are empty and then says valves are present.",
+    "step": 2,
+    "reason": "I’ll fit the inlet valves first to address one of the two valve positions.",
+    "choice": 1,
+    "expectation": "I expect the inlet valves to fit between the upper and lower chambers, leaving the outlet positions empty.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The outlet valves also need fitting, but I chose to start at the inlets."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted, leaving the outlet valves to add.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "The only offered combination fills the remaining valve positions.",
+    "choice": 1,
+    "expectation": "I expect the outlet valves to fit at the ventricular exits, completing the valve fittings.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted, completing the first goal; the conducting tissue is the next available addition.",
+    "reaction": "The valve fittings were straightforward, though they added little explanation beyond the earlier description.",
+    "step": 4,
+    "reason": "The only offered combination adds conducting tissue, which appears to provide the heart’s electrical pathways.",
+    "choice": 1,
+    "expectation": "I expect a heart with electrical pathways that coordinate its beats, ready to connect to the blood and vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conducting tissue produced a coordinated heart, ready for a vessel connection.",
+    "reaction": "The explanation connects the electrical pathways to coordinated contractions, though it is brief.",
+    "step": 5,
+    "reason": "The only offered combination connects the heart to the pulmonary loop, advancing the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the heart to connect to the lung route, with the systemic vessels and blood still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has a pulmonary route; the systemic vessel network is the next available connection.",
+    "reaction": "The unfinished loop description is a little unclear about what remains unfinished.",
+    "step": 6,
+    "reason": "The only offered combination connects the systemic vessels and advances the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the heart to connect to the body-wide vessel network, with blood still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart is now connected to separate pulmonary and systemic loops; adding blood is the remaining offered action.",
+    "reaction": "Seeing the two routes together clarifies their separate connections, though the result gives no further explanation.",
+    "step": 7,
+    "reason": "The only offered combination adds blood to the circulation frame, advancing the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect a connected circulation containing blood, completing the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation and clarified that the right side pumps toward the lungs while the left pumps toward the rest of the body.",
+    "reaction": "The final explanation made the two routes more meaningful than the earlier picture descriptions alone.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding blood was the most worthwhile action because the result connected the two loops to the heart’s sides and explained where blood goes.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two valve sets felt repetitive: the fittings were straightforward and added little explanation beyond the initial description.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The initial heart description was confusing because it described empty valve positions and then said valves were present.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the description of an unfinished pulmonary loop left me unsure what remained unfinished.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how circulation supports the working arm, although the mostly single-option sequence offered few meaningful choices.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The repair cell needs instructions and amino acids to make collagen, so starting with the instructions at the cell fits the goal.",
+    "choice": {
+      "combine": "Copied collagen instructions",
+      "with": "Skin repair cell"
+    },
+    "expectation": "The cell will use the instructions, likely with the available amino acids, to build collagen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell used the instructions and amino acids to make collagen chains, which now need processing and export.",
+    "reaction": "The intact RNA template passing through the ribosome was a useful detail.",
+    "step": 2,
+    "reason": "The processing and export membranes appear to be the next part of the route for the new chains.",
+    "choice": {
+      "combine": "New collagen chains",
+      "with": "Processing and export membranes"
+    },
+    "expectation": "The membranes will process the collagen and prepare it for delivery outside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen was processed and released as fibers outside the cell. The next goal is to add those fibers beneath the damaged surface.",
+    "reaction": "The sequence from Golgi to vesicles to external fibers made the export route clear.",
+    "step": 3,
+    "reason": "The new supporting fibers appear to be the material needed to repair the scrape.",
+    "choice": {
+      "combine": "New supporting fibers",
+      "with": "Body ready to rebuild"
+    },
+    "expectation": "The fibers will replace supporting material beneath the scrape.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibers filled the deeper gap, but the surface cells still need to meet.",
+    "reaction": "The cross-section clearly distinguishes support repair from surface closure.",
+    "step": 4,
+    "reason": "The skin cells at the scrape’s edge are positioned to close the remaining surface gap.",
+    "choice": {
+      "combine": "Skin cells at the scrape’s edge",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The edge cells will help restore the protective surface, possibly using the local repair signals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells first respond to local signals, producing spreading cells that can approach the remaining gap.",
+    "reaction": "The feedback clarified the missing step; the dividing and crawling cells make the repair process easier to picture.",
+    "step": 5,
+    "reason": "The spreading surface cells appear ready to close the gap in the rebuilding body.",
+    "choice": {
+      "combine": "Spreading surface cells",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The cells will cover the gap and help restore the protective surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface gap is closed, while the deeper collagen continues to remodel and may leave a scar.",
+    "reaction": "The distinction between closing the surface and continuing deeper repair was satisfying and clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and exporting collagen was the most worthwhile sequence: it connected instructions and amino acids inside a cell to support material outside it.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the completed fibers to the body was relatively predictable, though it showed where the material was needed.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The RNA template remained intact as the collagen chain was made, and the finished fibers assembled outside the cell.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to combine edge cells with local signals before adding them to the body was not obvious to me at first. The resulting picture explained their role in prompting division and movement.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter if it developed another process with similarly clear connections between cell activity and its effect on tissue. The repair sequence held my interest, although several combinations were straightforward.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "step": 1,
+    "reason": "The microbes and undigested fibre share the colon, suggesting a direct way to explore their exchange.",
+    "choice": {
+      "combine": "Wet food remainder",
+      "with": "Resident gut microbes"
+    },
+    "expectation": "The microbes will interact with the undigested material, possibly breaking down some fibre.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with connected digestion",
+          "with": "Colon mucus"
+        },
+        "reason": "The mucus also belongs to the colon, but the food–microbe interaction seems more directly related to the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bacteria ferment some fibre into small fatty acids and gas; I can now investigate how those products interact with the colon.",
+    "reaction": "The distinction that not all microbes are helpful adds useful nuance.",
+    "step": 2,
+    "reason": "I want to check how the fermenting contents connect to the remaining colon components.",
+    "choice": {
+      "inspect": "Fermenting colon contents"
+    },
+    "expectation": "The compatibility report should reveal the next available connection, possibly involving the body or mucus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with connected digestion",
+          "with": "Colon mucus"
+        },
+        "reason": "The mucus is made by cells in the intestinal lining, so it may fit the body model."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The contents are now in the body model, with fatty acids entering cells and blood and water and salts moving toward capillaries.",
+    "reaction": "The picture makes the exchanges clearer, though the inspection led directly to the only available combination.",
+    "step": 3,
+    "reason": "The remaining mucus is produced by the colon lining and should fit the body model.",
+    "choice": {
+      "combine": "Body with fermenting colon contents",
+      "with": "Colon mucus"
+    },
+    "expectation": "The mucus will form a layer on the colon lining alongside the microbial community.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects microbial fermentation with fatty-acid uptake, water and salt recovery, and the mucus barrier; the goal is complete.",
+    "reaction": "The cutaway brings the exchanges together clearly, though the final fitting was predictable.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the food remainder with microbes was most worthwhile: it connected familiar dietary fibre to bacterial fermentation, fatty acids and gas, while noting that microbes differ.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the fermenting contents provided only one partner and automatically performed the combination, so it offered little meaningful choice, although the resulting exchange arrows were useful.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The body-model cutaway showed some microbial fatty acids entering lining cells and blood, alongside water and salt recovery.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless: mucus came from the colon lining and its final placement showed a barrier separating most bacteria from the lining.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the concise constructions linked microbial activity to human physiology, though the mostly straightforward sequence left limited scope for decisions.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

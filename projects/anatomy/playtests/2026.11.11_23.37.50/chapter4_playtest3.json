@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The support cells' membrane sheets appear suited to insulating the motor neuron fibers, matching the current goal.",
+    "choice": {
+      "combine": "Motor neuron fibers",
+      "with": "Insulating support cells"
+    },
+    "expectation": "The support cells will insulate the outgoing nerve fibers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapped fibers form motor nerves, and the next goal is to guide a reach using sight and muscle commands.",
+    "reaction": "The segmented wrapping and its role in faster signals are interesting.",
+    "step": 2,
+    "reason": "The target sends light toward the eye, so connecting it with the seeing control system should start the sight-guided reach.",
+    "choice": {
+      "combine": "Seeing control system",
+      "with": "Visible target"
+    },
+    "expectation": "The seeing control system will receive visual information about the target.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control system has received information about the target's location; motor commands are still needed for the reach.",
+    "reaction": "The path from light to a marked target location is clear.",
+    "step": 3,
+    "reason": "The motor nerves should connect the control system's commands to the arm's muscles.",
+    "choice": {
+      "combine": "Motor nerves",
+      "with": "Arm framework"
+    },
+    "expectation": "The motor nerves will connect to the arm's muscles so they can receive commands.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor nerves now reach the arm muscles, so the arm can be linked to the system that sees the target.",
+    "reaction": "The outgoing signal path is clear.",
+    "step": 4,
+    "reason": "The control system has the target location, and the nerve-linked arm has the outgoing routes needed to act on it.",
+    "choice": {
+      "combine": "Target seen by control system",
+      "with": "Nerve-linked arm"
+    },
+    "expectation": "The control system will send muscle commands to guide the arm toward the target.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm can now reach using visual information and motor commands; the remaining goal is to add feedback from the arm.",
+    "reaction": "The distinction between seeing the target and commanding the muscles is clear.",
+    "step": 5,
+    "reason": "The stretch receptors and sensory nerves are described as carrying information back from the muscles, which matches the new goal.",
+    "choice": {
+      "combine": "Stretch receptors and sensory nerves",
+      "with": "Reaching arm"
+    },
+    "expectation": "The reaching arm will gain a sensory route that reports muscle stretch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has sensory feedback about its position. The result clarifies that this feedback does not reveal the location of an unseen target.",
+    "reaction": "The distinction between sensing the arm and locating the target was useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding position feedback was most worthwhile because it extended the reach beyond a one-way command and explained what muscle sensors can report.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Linking the motor nerves to the arm was clear but predictable; its result added less explanation than the surrounding actions.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The distinction that position sensors can report the arm's position with eyes closed but cannot locate an unseen target sharpened my understanding.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The item descriptions and goals made the connections understandable.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue because the chapter connected sight, motor commands and feedback in a clear sequence, and I would be curious to see how other body systems support action.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

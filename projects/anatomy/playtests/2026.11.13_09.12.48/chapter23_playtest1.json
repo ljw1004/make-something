@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic islet cells are positioned to sense the glucose-rich blood after the meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The sensing cells will respond to the elevated glucose, likely by releasing insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose-rich blood first had to be associated with the whole body; I can now try the pancreatic sensing cells.",
+    "reaction": "The automatic compatibility feedback clarified the intended sequence.",
+    "step": 2,
+    "reason": "The pancreatic cells can now respond to the rising blood glucose in the body.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will detect rising glucose and release insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Rising glucose prompted pancreatic beta cells to release insulin into blood, with routes toward muscle and liver.",
+    "reaction": "The inset makes the signal's origin and destinations clear.",
+    "step": 3,
+    "reason": "Insulin is shown travelling toward muscle, so the available skeletal muscle is a plausible next target.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will promote glucose uptake by muscle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver is another indicated insulin target."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin-supported muscle uptake completed the post-meal goal; the focus is now maintaining blood glucose between meals.",
+    "reaction": "The later inset clearly shows insulin release easing as blood glucose falls.",
+    "step": 4,
+    "reason": "The clock represents the shift to the between-meal period, when incoming glucose tapers.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body will move into a between-meal state with less glucose arriving from the gut.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meal interval lowered blood glucose while liver glycogen remains available.",
+    "reaction": "The retained glycogen suggests a possible source of glucose.",
+    "step": 5,
+    "reason": "Pancreatic sensing cells include alpha cells, which can respond to falling blood glucose.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The alpha cells will release glucagon, signalling the liver to make glucose available.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with falling blood glucose",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver contains the stored glycogen, but a signal may be needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose prompted alpha cells to release glucagon, which travels toward the liver.",
+    "reaction": "The contrast with the earlier insulin response makes the two signals easier to follow.",
+    "step": 6,
+    "reason": "The liver contains glycogen and is the indicated target of glucagon.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will prompt the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen, and the subsequent reduction in glucagon illustrated feedback. Both chapter goals are complete.",
+    "reaction": "The sequential insets brought the between-meal response together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following falling glucose through glucagon release to liver glycogen breakdown was worthwhile: the planned insets connect the signal, its target and the resulting feedback.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt was less worthwhile because the blood had to be combined with the whole body before the pancreatic cells could respond, although compatibility feedback resolved it automatically.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The first attempt instead attached the glucose-rich blood to the body; I had expected the pancreatic response immediately.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "That required ordering felt somewhat artificial: the blood and pancreatic cells were already visually linked to the same body, so the need for an intermediate body state was not obvious.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter offered similarly clear physiological connections, though this chapter's largely predictable sequence left limited room for decisions.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

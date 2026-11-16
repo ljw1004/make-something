@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to follow absorbed nutrients into the liver and see how it handles glucose.",
+    "choice": 1,
+    "expectation": "The nutrients will reach liver tissue, perhaps setting up glucose storage.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the portal vessel also supports the goal, but I want to follow the nutrients first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nutrients have reached the liver cells, so I can follow glucose storage next.",
+    "reaction": "The blood flowing past the cells makes the route clear, though the result adds little explanation.",
+    "step": 2,
+    "reason": "I want to see how liver tissue stores glucose as glycogen.",
+    "choice": 1,
+    "expectation": "The enzymes will help liver cells turn some glucose into glycogen.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel also needs connecting, but I want to follow the glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now stored as glycogen, so I can follow how it is released.",
+    "reaction": "The explanation makes the storage step clear.",
+    "step": 3,
+    "reason": "I want to complete the storage and release sequence.",
+    "choice": 1,
+    "expectation": "The enzymes will break down glycogen to make glucose available again.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel still needs connecting, but I want to finish following the glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver can break down stored glycogen and release glucose, so I can follow where the glucose goes.",
+    "reaction": "The sequence is clear, though the result adds little beyond the picture description.",
+    "step": 4,
+    "reason": "I want to follow the released glucose into the blood.",
+    "choice": 1,
+    "expectation": "Blood transport will carry the released glucose away from the liver.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The portal vessel still needs connecting, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The storage and release goal is complete; the remaining goal is to connect digestion to the body.",
+    "reaction": "The between-meal explanation makes the purpose of glucose release clear.",
+    "step": 5,
+    "reason": "Connecting the portal vessel is the only offered gameplay action and should advance the remaining goal.",
+    "choice": 1,
+    "expectation": "The vessel will connect the digestive tube to the liver, establishing the route for blood from the intestine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The portal vessel is fitted, and the digestive system is ready to connect to the movement model.",
+    "reaction": "The fitting is straightforward, though it adds no explanation.",
+    "step": 6,
+    "reason": "This is the only offered gameplay action and should connect digestion to the supplied body.",
+    "choice": 1,
+    "expectation": "The digestive system will join the circulation and movement model, completing the remaining goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive system is connected to the body model, completing the remaining goal.",
+    "reaction": "The final connection brings the routes together, though the explanation is brief.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following stored glycogen through release into the blood was most worthwhile. The between-meal explanation gave the sequence a clear purpose.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the portal vessel was straightforward but added no explanation, making it feel more like assembly than a discovery.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The explanation that the liver releases glucose between meals clarified why storing glycogen matters.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although connecting the portal vessel after following portal nutrients to the liver made the order feel a little odd.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it developed these connections further; this chapter's clear biology was useful, but several steps felt predictable.",
+        "steps": [
+          2,
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

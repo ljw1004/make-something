@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The local repair signals appear to act on the skin cells at the edge of the gap.",
+    "choice": {
+      "combine": "Local chemical repair signals",
+      "with": "Skin cells at the scrape’s edge"
+    },
+    "expectation": "The signals should prompt the edge cells to help close the surface gap.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Skin cells at the scrape’s edge",
+          "with": "Body ready to rebuild"
+        },
+        "reason": "The edge cells might be applied directly to the wound."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals prompted the edge cells to divide and spread, so they appear ready to close the wound.",
+    "reaction": "The combination made the signals' role clear.",
+    "step": 2,
+    "reason": "The spreading cells should act at the remaining surface gap.",
+    "choice": {
+      "combine": "Spreading surface cells",
+      "with": "Body ready to rebuild"
+    },
+    "expectation": "The cells will close the surface gap.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface is closed, but sparse collagen leaves the tissue underneath weak, so repair needs to continue.",
+    "reaction": "The comparison makes the difference between closure and strength clear.",
+    "step": 3,
+    "reason": "The copied collagen instructions and amino acids appear to be ingredients for making collagen at the repair cell.",
+    "choice": {
+      "combine": "Copied collagen instructions",
+      "with": "Skin repair cell"
+    },
+    "expectation": "The repair cell will use the instructions and available amino acids to make collagen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair cell used amino acids to make collagen chains while the RNA template remained intact. The chains now need processing and export.",
+    "reaction": "Seeing the ingredients become a chain makes the cell's role clearer.",
+    "step": 4,
+    "reason": "The processing and export membranes are shown carrying material toward the cell boundary.",
+    "choice": {
+      "combine": "New collagen chains",
+      "with": "Processing and export membranes"
+    },
+    "expectation": "The collagen chains will be processed and prepared for export from the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen was processed and exported, then assembled into supporting fibers outside the cell.",
+    "reaction": "The sequence makes it clear how work inside a cell contributes to tissue support.",
+    "step": 5,
+    "reason": "The new fibers appear suited to strengthen the sparse tissue beneath the closed surface.",
+    "choice": {
+      "combine": "New supporting fibers",
+      "with": "Surface-closed body"
+    },
+    "expectation": "The fibers will reinforce the repaired tissue beneath the surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibers reduced stretching beneath the closed surface, completing the goal while showing that remodeling continues.",
+    "reaction": "The comparison made the fibers' contribution to strength clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and exporting collagen was most worthwhile: it connected work inside a cell to the fibers that support tissue.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Applying the spreading cells to the wound was predictable after they formed, although it made useful progress.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The closed surface still stretched more because the tissue beneath it had sparse collagen. That made the distinction between closure and strength clear.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; the item descriptions and results gave each combination a clear purpose.",
+        "steps": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter developed a similarly concrete connection between cell activity and what the body can do. This chapter's repair sequence held my interest.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

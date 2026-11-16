@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows glucose being joined into stored carbohydrate, and the incoming blood contains meal glucose.",
+    "choice": {
+      "combine": "Nutrients in blood to liver",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will store some of the glucose arriving in the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "The named vein also fits the digestive tube's empty slot, so I could connect the organs first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored some glucose, and the new goal is to release it between meals.",
+    "reaction": "The picture makes the storage step clear.",
+    "step": 2,
+    "reason": "The clock shows time passing without food while cells still need fuel, matching the new goal.",
+    "choice": {
+      "combine": "Liver carbohydrate store",
+      "with": "Hours without food"
+    },
+    "expectation": "The stored carbohydrate will be broken down to release glucose between meals.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Digestive tube",
+          "with": "Vein from intestine to liver"
+        },
+        "reason": "I could instead work on connecting the digestive organs to the body."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood between meals, completing that goal. I can now connect the digestive organs.",
+    "reaction": "The shrinking store and outgoing glucose make the release clear.",
+    "step": 3,
+    "reason": "The digestive tube has an empty vein-to-liver slot, and the named vein matches it.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Vein from intestine to liver"
+    },
+    "expectation": "The vein will fit into the digestive tube's liver connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted into the digestive tube, so I can connect the completed digestive organs to the body.",
+    "reaction": "The named slot made that connection straightforward.",
+    "step": 4,
+    "reason": "The remaining goal is to connect the digestive organs to the body, and these are the two assembled parts.",
+    "choice": {
+      "combine": "Integrated body model",
+      "with": "Digestive tube"
+    },
+    "expectation": "The digestive organs will connect to the body model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs are connected to the body's circulation, completing the chapter.",
+    "reaction": "It was satisfying to see the separate digestive parts joined to the body.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose and releasing it between meals was most worthwhile: the two pictures showed why a store is useful when cells still need fuel.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the named vein into its matching slot was straightforward, but less interesting than seeing what the liver does.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The stored carbohydrate could be broken down again to put glucose back into the blood between meals.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and named slot made the pairings understandable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how another body system connects to the model, although the straightforward assembly steps were less engaging than the storage and release example.",
+        "steps": [
+          1,
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

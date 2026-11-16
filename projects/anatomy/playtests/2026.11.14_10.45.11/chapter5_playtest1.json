@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows these messengers acting on the cell population to develop branches and a long extension, matching the first goal.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for nerve-cell development"
+    },
+    "expectation": "Some cells will develop into nerve cells with receiving branches and long extensions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for insulating-cell development"
+        },
+        "reason": "Those messengers appear to start the other goal, developing insulating cells."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve cells developed, and their membrane outlines show where the channels fit.",
+    "reaction": "It is helpful to see that the long extension is part of the same cell.",
+    "step": 2,
+    "reason": "The new goal and the membrane outlines point directly to fitting the gated ion channels into the nerve cells.",
+    "choice": {
+      "combine": "Nerve cells[]",
+      "with": "Gated ion channels"
+    },
+    "expectation": "The channels will be fitted through the nerve cells' membranes.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized cell population",
+          "with": "Chemical messengers for insulating-cell development"
+        },
+        "reason": "I could develop the insulating cells first, but the channels have an obvious place now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channels are fitted, and the result explains that a message travels through local electrical changes rather than one ion moving the whole way.",
+    "reaction": "The distinction between the moving message and the ions is interesting.",
+    "step": 3,
+    "reason": "The remaining goal is to develop insulating cells, and the picture names these messengers as acting on the cell population.",
+    "choice": {
+      "combine": "Unspecialized cell population",
+      "with": "Chemical messengers for insulating-cell development"
+    },
+    "expectation": "Some cells will develop into cells that can wrap around nerve extensions for insulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insulating cells are developed, and the new goal calls for wrapping them around the nerve-cell extensions.",
+    "reaction": "The cross-section makes the wrapping easy to picture.",
+    "step": 4,
+    "reason": "The goal and picture directly indicate combining the insulating cells with the nerve cells.",
+    "choice": {
+      "combine": "Insulating cells",
+      "with": "Nerve cells[Gated ion channels]"
+    },
+    "expectation": "The insulating cells will wrap their membranes around stretches of the nerve cells' long extensions.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The insulating cells now wrap separate stretches of the nerve-cell extension, leaving gaps, and all goals are complete.",
+    "reaction": "The cross-section made it clear that the wrapping cells and nerve cell remain separate.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the channels was most worthwhile because it explained how a message travels through local electrical changes without one ion travelling the whole length.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Developing the two cell types felt somewhat repetitive: both used named messengers with the population, though their pictures showed different outcomes.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that other cells wrap their membranes around stretches of one continuous nerve-cell extension, with gaps between the wraps.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The messenger pairings were clear from their names and pictures, but I followed those hints without understanding exactly how the messengers cause cells to develop differently.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the explanation of the moving message and the picture of the separate insulating cells made me curious about what nerve cells do next, even though the pairings were fairly straightforward.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

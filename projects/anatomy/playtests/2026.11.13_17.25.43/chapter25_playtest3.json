@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered pairing, and the pictures show a lymphocyte whose recognition proteins match the bacterial fragments.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to recognize the antigen and perhaps become activated, though nearby immune cells may also need to help.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so it can move on to the lymph node.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The node supports activated cells as they multiply, and this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to multiply in the living lymph node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced both antibody-making cells and memory cells, so I can now work toward either goal.",
+    "reaction": "It is clear how one activated cell leads to both parts of the response.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and earlier chapters showed amino acids are protein building blocks. I want to make the antibodies first.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making cells to use the amino acids to produce matching antibodies.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This may add immune memory to the body, but I want to follow antibody production first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies, which can now be paired with the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "Coating bacteria is one of the goals, and the antibody tips match their surface knobs.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to bind to and coat the bacteria.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Adding the memory cells to the body also supports a goal, but I want to finish the antibody route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies coated the bacteria, completing that goal; immune memory remains.",
+    "reaction": "The matching tips made the coating easy to follow.",
+    "step": 5,
+    "reason": "This is the only offered gameplay action and should connect the memory cells to the body.",
+    "choice": 1,
+    "expectation": "I expect the body to gain immune memory from the memory lymphocytes, though I don't know exactly how a later response will be shown.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has memory lymphocytes that can respond faster and more strongly if the same antigen returns; both goals are complete.",
+    "reaction": "The later-response explanation made the purpose of memory cells clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making antibodies from amino acids was worthwhile because it connected protein building blocks from earlier chapters to the immune response.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the memory cells to the body felt mostly like a final fitting, although its result explained what memory does.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The activated lymphocyte produced descendants with two different jobs: making antibodies and providing memory.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though placing the activated cell in the node was the only offered action; the introduction explained that the node supports growth.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the matching shapes and the connection between antibodies and memory were easy to follow, though several steps offered only one gameplay action.",
+        "steps": [
+          1,
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

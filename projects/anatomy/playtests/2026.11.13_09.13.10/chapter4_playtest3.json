@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "Start the supporting-tissue branch by directing descendants toward fibroblasts.",
+    "choice": 1,
+    "expectation": "I expect a fibroblast-lineage cell population after the pictured sequence of conditions, though further steps will likely be needed to make tissue.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The muscle branch also serves a goal, but I chose to start with supporting tissue."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen RNA messages, suggesting the next step is protein production.",
+    "reaction": "The unchanged DNA and newly transcribed RNA make the gene-activity connection clear.",
+    "step": 2,
+    "reason": "Combine the collagen messages with amino acids to advance the supporting-tissue branch.",
+    "choice": 2,
+    "expectation": "I expect the cells to make collagen or a collagen precursor, with further processing possibly needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could begin the muscle branch, but I want to continue the fibroblast pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells have made procollagen and packaged it in vesicles, so extracellular processing looks like the next step.",
+    "reaction": "The ER-to-Golgi sequence usefully connects protein synthesis to secretion.",
+    "step": 3,
+    "reason": "Continue the supporting-tissue branch by combining the fibroblasts with extracellular fluid.",
+    "choice": 2,
+    "expectation": "I expect procollagen to be secreted and processed outside the cells, possibly forming a collagen-rich matrix.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the muscle branch, but I want to finish the supporting-tissue pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have secreted and assembled collagen outside the cell; combining them with the matrix appears to complete the living tissue.",
+    "reaction": "The secretion and assembly sequence makes the matrix's origin clear.",
+    "step": 4,
+    "reason": "Combine the living fibroblasts with their matrix to finish the supporting-tissue branch.",
+    "choice": 2,
+    "expectation": "I expect living supporting tissue containing fibroblasts and collagen-rich extracellular matrix.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch remains necessary, but I want to complete the tissue first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting-tissue goal is complete; the remaining goal is to prepare muscle-forming cells.",
+    "reaction": "Seeing cells linked to their own matrix clarifies what makes this a tissue rather than just collagen.",
+    "step": 5,
+    "reason": "Follow the only available combination to start the muscle branch.",
+    "choice": 1,
+    "expectation": "I expect the timed differentiation conditions to produce muscle progenitors, though further steps may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with RNA messages but no mature fibres; protein synthesis is the next apparent step.",
+    "reaction": "The contrast between shared DNA and different active genes is clear, though paraxial mesoderm is unexplained.",
+    "step": 6,
+    "reason": "Use the only available combination to help prepare the muscle-forming cells.",
+    "choice": 1,
+    "expectation": "I expect the cells to use amino acids and their RNA messages to make muscle proteins, not necessarily mature fibres yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-forming goal is complete: the cells made muscle proteins but remain separate myoblasts, not mature fibres.",
+    "reaction": "The distinction between protein production and a finished muscle fibre is useful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building living supporting tissue from fibroblasts and their secreted matrix made the relationship between cells and extracellular material clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final muscle protein-production step echoed the fibroblast branch, so it felt somewhat repetitive, even though the comparison reinforced the role of different RNA messages.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The supporting tissue included living fibroblasts linked to material they had produced, rather than just a collagen bundle.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining fibroblasts with a matrix they had already secreted felt a little mechanical as a separate tissue-building step.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the separate myoblasts develop into mature muscle fibres; the chapter leaves that process open. Some terms, such as paraxial mesoderm, would benefit from explanation.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

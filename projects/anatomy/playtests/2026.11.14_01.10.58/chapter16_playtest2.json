@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places the mucus above the colon lining, so joining them should start the protected inner wall.",
+    "choice": {
+      "combine": "Colon lining",
+      "with": "Colon mucus"
+    },
+    "expectation": "The mucus should form a protective layer over the lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus now covers the lining; the supporting tissue and vessels still need to be added.",
+    "reaction": "The protective layer formed as expected.",
+    "step": 2,
+    "reason": "The picture places the supporting tissue and its vessels beneath the lining, so they should fit together.",
+    "choice": {
+      "combine": "Mucus-covered colon lining",
+      "with": "Colon supporting tissue and vessels"
+    },
+    "expectation": "The covered lining should join the supporting tissue and vessels to build the colon's inner wall.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Wet food remainder",
+          "with": "Resident gut microbes"
+        },
+        "reason": "The microbes and fibre are the other visible project, but I can finish the wall first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected inner wall is complete, and the new goal is to join it to the muscle wall. The result also shows that the lining recovers water and can use some molecules made by bacteria.",
+    "reaction": "The water and bacterial-molecule connections were interesting additions.",
+    "step": 3,
+    "reason": "The new goal names both walls, and the muscle wall's picture shows a space for the lining.",
+    "choice": {
+      "combine": "Colon inner wall",
+      "with": "Colon muscle wall"
+    },
+    "expectation": "The inner wall should fit inside the muscle wall to form the colon wall.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Wet food remainder",
+          "with": "Resident gut microbes"
+        },
+        "reason": "I could explore the microbes first, but the wall is ready to assemble."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colon wall is assembled, leaving the goal about microbes and fibre.",
+    "reaction": "The picture made it clear how the muscle moves contents while the lining separates them from blood.",
+    "step": 4,
+    "reason": "The microbes are shown among plant fibres in the wet food remainder, matching the remaining goal.",
+    "choice": {
+      "combine": "Wet food remainder",
+      "with": "Resident gut microbes"
+    },
+    "expectation": "The microbes should turn some fibre into smaller molecules.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The last result shows that bacteria break down some fibre into small fatty acids and gas, while some fibre remains. Both goals are complete.",
+    "reaction": "I was surprised that gas was produced alongside the small fatty acids.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the inner wall was worthwhile because it connected its protective lining with water recovery and the use of some bacterial products by its cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mucus was fairly predictable from the picture, although it helped build the wall.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect the bacteria to release gas as well as small fatty acids, or for some fibre to remain unbroken.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the pictures and goals explained where the wall parts belonged and why microbes met the fibre.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing how the colon wall and its resident bacteria do different but connected jobs made me curious about what comes next.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and the picture shows a lymphocyte matching the bacterial fragments.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to be activated with the supplied help, though I'm not sure exactly what the result will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching cell is active with help from its neighbor; the lymph node is the next place to support its growth.",
+    "reaction": "The matching shapes make the selection easier to understand.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the node picture shows an activated cell multiplying there.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to multiply in the node, though I don't know whether its descendants will specialize yet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphocyte's descendants include antibody-making cells and lasting memory cells, so I can now help make antibodies.",
+    "reaction": "It is useful to see that the same activated cell produces both kinds of descendants.",
+    "step": 3,
+    "reason": "This is the only offered combination; amino acids are protein building blocks, and antibodies are proteins.",
+    "choice": 1,
+    "expectation": "I expect the cells to use the amino acids to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacteria, so I can now apply them to the bacteria.",
+    "reaction": "The matching shapes make the next step clear.",
+    "step": 4,
+    "reason": "This is the only offered combination, and the antibody tips match the bacterial surface.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the bacteria, possibly making them easier for white blood cells to clear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing white blood cells.",
+    "reaction": "The matching shapes made the attachment clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the white-cell picture shows it engulfing an antibody-coated bacterium.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coated bacteria were engulfed and broken down, completing the remaining goal and showing how antibodies help mark a target for white blood cells.",
+    "reaction": "The final panels made the purpose of coating the bacteria clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Developing antibody-making and memory cells was most worthwhile: it showed two different outcomes from the activated lymphocyte.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and attaching antibodies was clear but a little repetitive, since the matching shapes already made the next step obvious.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that one activated lymphocyte could produce descendants that make antibodies as well as lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, although every decision had only one offered combination, so I was mostly following a guided sequence rather than making meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how memory cells help later, but this chapter's single-option sequence did not offer much choice.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

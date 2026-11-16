@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows Sonic hedgehog meeting prepared embryonic cells, matching the muscle-development goal. I know it acts as a message here, though not how it changes the cells.",
+    "choice": {
+      "combine": "Sonic hedgehog protein",
+      "with": "Embryonic cells"
+    },
+    "expectation": "The message should start the muscle-development path for the matching cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "TGF-beta2 protein",
+          "with": "Embryonic cells"
+        },
+        "reason": "The picture also connects this protein to tendon precursors, so I could follow that path first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The message led muscle precursors to make RNA instructions for pulling proteins; the proteins still need to be built.",
+    "reaction": "The time strip helped me understand that the message starts a later change rather than becoming part of the cell.",
+    "step": 2,
+    "reason": "The new goal is to build proteins, and amino acids are their building blocks.",
+    "choice": {
+      "combine": "Cells with muscle-protein RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should use the amino acids and RNA instructions to make pulling proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "TGF-beta2 protein",
+          "with": "Embryonic cells"
+        },
+        "reason": "I could start the tendon path instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells used the instructions and building blocks to make sliding protein fibres, completing the muscle path.",
+    "reaction": "The picture made it clearer how the proteins can help a cell shorten.",
+    "step": 3,
+    "reason": "The remaining goal names TGF-beta2, and its picture shows it reaching tendon precursors among the embryonic cells. I know it is a message, though not exactly how it changes them.",
+    "choice": {
+      "combine": "TGF-beta2 protein",
+      "with": "Embryonic cells"
+    },
+    "expectation": "The message should help the prepared tendon cells continue developing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tendon cells now have RNA instructions for collagen, but the fibres around them still need to be built.",
+    "reaction": "The rope-like collagen picture makes its role in a tough tendon easier to picture.",
+    "step": 4,
+    "reason": "Collagen is a protein, and amino acids are protein building blocks, just as in the muscle path.",
+    "choice": {
+      "combine": "Tendon cells with collagen RNA",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The cells should use the amino acids and RNA instructions to build collagen fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tendon cells made collagen fibres outside themselves, completing the tendon path and showing a contrast with the muscle cells’ internal pulling proteins.",
+    "reaction": "Seeing where the two kinds of protein end up made their different jobs clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the tendon tissue was most worthwhile because it connected collagen fibres to the link between muscle and cartilage, and contrasted them with proteins inside muscle cells.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two paths became a little repetitive: both involved a message, RNA instructions and amino acids. The repetition did help show the comparison, though.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that cells with the same DNA could develop such different structures: pulling proteins inside muscle cells and collagen fibres outside tendon cells.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The named messenger pairings depended on the goals and pictures; I could follow them without understanding exactly how the messages changed the cells.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because comparing where the proteins ended up helped me understand how different cell jobs fit together, and I would be curious to see how the muscle cells are assembled later.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

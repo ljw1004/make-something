@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The DNA building blocks match positions on an existing strand, and the working cell contains DNA. This looks like a way to start copying it.",
+    "choice": {
+      "combine": "DNA building blocks",
+      "with": "Working cell"
+    },
+    "expectation": "The cell will use the building blocks to make a copy of its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Working cell"
+        },
+        "reason": "Making extra membrane is the other current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied inside the nucleus; making extra membrane is the remaining visible goal.",
+    "reaction": "The picture of each old strand paired with a new one makes the copying more concrete.",
+    "step": 2,
+    "reason": "Membrane fats are the available material for the cell's extra membrane.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The cell will gain extra membrane for growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new membrane supply is ready, and the remaining goal is to finish division with a DNA copy in each cell.",
+    "reaction": "The picture helps explain how new membrane reaches the cell boundary.",
+    "step": 3,
+    "reason": "The cell has copied DNA, and the membrane supply should help it grow and divide.",
+    "choice": {
+      "combine": "Cell with copied DNA",
+      "with": "New membrane supply"
+    },
+    "expectation": "The cell will use the extra membrane to divide into two cells, each with a DNA copy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell divided, and the sequence shows each new nucleus receiving a complete chromosome set. All goals are complete.",
+    "reaction": "Seeing the copied chromosomes separate made the final division satisfying and easier to picture.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Finishing division was most worthwhile: the sequence connected DNA copying and extra membrane to two cells, each with a complete set of instructions.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply felt more like preparation than a meaningful choice, though the picture showed how it reaches the boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that each old DNA strand was shown paired with a newly made strand after copying.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt completely arbitrary. The membrane-making structures were not explained in detail, but the picture made their role clear enough.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see what the unspecialized cells become, though this short chapter mostly involved predictable combinations rather than difficult choices.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

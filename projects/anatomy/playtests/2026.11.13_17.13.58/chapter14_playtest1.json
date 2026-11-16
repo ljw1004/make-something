@@ -1,0 +1,173 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm muscles need nerve signals, and the nervous system model shows nerves reaching the body.",
+    "choice": {
+      "combine": "Arm assembly[Biceps with tendons,Triceps with tendons]",
+      "with": "Nervous system model"
+    },
+    "expectation": "The nerves should connect to the arm muscles so signals can reach them.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fluid around cells",
+          "with": "Tiny lymph vessels"
+        },
+        "reason": "The picture also suggests the tiny vessels collect excess fluid."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to nerves carrying signals in both directions; it still needs the breathing and blood-supply connection.",
+    "reaction": "The incoming and outgoing arrows make the connection clear.",
+    "step": 2,
+    "reason": "The breathing apparatus includes the lungs and circulation, so it should connect the arm and nerves to their supply.",
+    "choice": {
+      "combine": "Body with connected nerves",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The body will be connected to breathing and circulating blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Fluid around cells",
+          "with": "Tiny lymph vessels"
+        },
+        "reason": "The tiny vessels also appear ready to collect excess fluid."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has connected nerve routes and blood supply, completing the first goal. The fluid-return route remains.",
+    "reaction": "The picture clearly separates nerve signals from materials carried by blood.",
+    "step": 3,
+    "reason": "The tiny lymph vessels have inward-opening flaps beside the fluid around cells, suggesting they collect it.",
+    "choice": {
+      "combine": "Fluid around cells",
+      "with": "Tiny lymph vessels"
+    },
+    "expectation": "The tiny lymph vessels will collect fluid from around the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fluid now enters the tiny lymph vessels; the route still needs to reach a vein.",
+    "reaction": "The inward-opening flaps make the collection step clear.",
+    "step": 4,
+    "reason": "The larger lymph vessels collect from smaller vessels and lead toward a vein, so they should extend the return route.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Larger lymph vessels"
+    },
+    "expectation": "The collected fluid should flow into the larger lymph vessels toward the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The draining tissue spaces cannot currently combine with anything, so I need to build the rest of the return route separately.",
+    "reaction": "I expected the small and large vessels to connect directly, so that was surprising.",
+    "step": 5,
+    "reason": "The larger lymph vessels end beside a neck vein, and the vein connection shows the junction needed for the return route.",
+    "choice": {
+      "combine": "Larger lymph vessels",
+      "with": "Vein connection"
+    },
+    "expectation": "The larger lymph vessels should connect to the vein so fluid can return to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The larger lymph vessels now connect to the neck vein, completing that part of the return route.",
+    "reaction": "The valve panels make the direction of flow clearer.",
+    "step": 6,
+    "reason": "The body needs the fluid-return route, and the route now reaches a vein. I’m guessing these can be joined, since the draining tissue spaces could not combine directly.",
+    "choice": {
+      "combine": "Body with nerves and blood supply",
+      "with": "Lymph return route"
+    },
+    "expectation": "The body will gain a route returning excess tissue fluid to the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Lymph return route"
+        },
+        "reason": "I could check its available partners before trying the connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body cannot currently combine with anything, so my proposed connection did not work.",
+    "reaction": "I’m unsure what links the completed return route to the draining tissue spaces.",
+    "step": 7,
+    "reason": "Inspecting the lymph return route should reveal its available partner instead of guessing again.",
+    "choice": {
+      "inspect": "Lymph return route"
+    },
+    "expectation": "The compatibility report will show what can be connected to the return route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically joined the draining spaces to the return route, and the new goal asks to connect the completed network to the body.",
+    "reaction": "It was surprising that the route could combine with the spaces when the reverse attempt had failed earlier.",
+    "step": 8,
+    "reason": "The new goal names the return route and supplied body as the parts to connect.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Body with nerves and blood supply"
+    },
+    "expectation": "The lymph drainage network should connect to the supplied body, returning excess fluid to its blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is connected to the supplied body, completing all goals. The inset shows fluid leaving capillaries and returning separately through lymph vessels.",
+    "reaction": "It is satisfying to see the separate systems brought together, with the fluid level staying roughly steady.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the lymph route was worthwhile because the pictures showed how fluid enters tiny vessels and returns to a vein, helping prevent buildup around cells.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to connect the draining spaces directly to the larger vessels was confusing: the physical connection seemed reasonable, but the route had to be prepared first.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Inspecting the completed return route automatically joined it to the draining spaces after my earlier direct attempt had failed.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to connect the larger vessels to the vein before joining them to the draining spaces felt like an unexplained prerequisite.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter if it connected body systems as clearly, though I would hope for clearer hints about prerequisites.",
+        "steps": [
+          2,
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

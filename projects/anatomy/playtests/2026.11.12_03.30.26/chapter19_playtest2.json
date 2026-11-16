@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic sensing cells are positioned to respond to the glucose-rich blood after the meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The cells will sense the elevated glucose and initiate a response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal glucose first had to be connected to the body; I can now try the pancreatic sensing cells.",
+    "reaction": "I was surprised that the blood sample needed to be combined with the body first.",
+    "step": 2,
+    "reason": "The pancreatic cells can now respond to the body's rising blood glucose.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will sense the rise and initiate a response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic cells responded to rising blood glucose by releasing insulin toward muscle and liver.",
+    "reaction": "The route from the pancreas to its target tissues is clear so far.",
+    "step": 3,
+    "reason": "Skeletal muscle is an indicated destination for the insulin signal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will prompt muscle to take up more glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle take up glucose, and the new goal shifts attention to maintaining blood glucose between meals.",
+    "reaction": "The later inset clearly shows the response easing as blood glucose falls.",
+    "step": 4,
+    "reason": "Time between meals is the visible change that begins the next response.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "As time passes, the body will sense the changing blood glucose supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen between meals while the liver still has glycogen available.",
+    "reaction": "The retained glycogen makes the next response easier to anticipate.",
+    "step": 5,
+    "reason": "The pancreatic sensing cells can detect the change in blood glucose.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will respond to falling glucose by releasing a signal toward the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose prompted pancreatic alpha cells to release glucagon toward the liver.",
+    "reaction": "The marked route makes the liver’s role easy to anticipate.",
+    "step": 6,
+    "reason": "The liver contains glycogen and is the indicated target of glucagon.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will prompt the liver to release glucose from its glycogen stores into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen, and the later decrease in glucagon showed how the response eases as blood glucose rises.",
+    "reaction": "The sequence made the feedback response clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting glucagon to the liver was most worthwhile because the result showed stored glycogen supplying blood glucose and the signal diminishing afterward.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining the meal glucose with the body first was a slightly confusing prerequisite; I initially expected the sensing cells to respond directly to the blood.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the blood first had to be connected to the body before the pancreatic cells could sense it.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "That initial body-connection requirement felt somewhat arbitrary because the glucose-rich blood and sensing cells already seemed like a plausible pair.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: seeing the insulin and glucagon responses linked to changes in blood glucose made me curious about how other body systems regulate themselves.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

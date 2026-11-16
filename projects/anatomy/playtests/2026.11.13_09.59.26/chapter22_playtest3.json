@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic islet sits beside glucose-rich blood, suggesting its cells sense the post-meal change.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The sensing cells should respond to the higher blood glucose, likely by releasing insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The post-meal signal produces insulin that reaches both muscle and liver, so I can follow its effects on either tissue.",
+    "reaction": "The separate branches make the hormone's targets clear.",
+    "step": 2,
+    "reason": "The liver receives insulin and has glycogen machinery, making it a plausible place to store meal glucose.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "The liver should take up and store some glucose as glycogen.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle is also shown receiving insulin and could respond to it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin favours liver glycogen storage and reduces glucose output; muscle remains the other shown target.",
+    "reaction": "The distinction from muscle-style transporter insertion is useful.",
+    "step": 3,
+    "reason": "Skeletal muscle is the other tissue shown receiving the post-meal insulin signal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin should promote glucose uptake by muscle, with some glucose available for use or storage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose uptake, and the post-meal goal is complete; the remaining goal concerns the period between meals.",
+    "reaction": "The weakening insulin signal makes the feedback clearer.",
+    "step": 4,
+    "reason": "The pancreatic sensing cells can respond to the lower-glucose conditions between meals.",
+    "choice": {
+      "combine": "Blood between meals",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The islet should release a signal, likely glucagon, that helps maintain blood glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower glucose led to glucagon release, with the liver highlighted as its target.",
+    "reaction": "The contrast between alpha-cell and beta-cell responses is clear.",
+    "step": 5,
+    "reason": "The liver contains glycogen and is shown receiving glucagon between meals.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon should promote glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release, with its stimulation diminishing as blood glucose rises; both goals are complete.",
+    "reaction": "The feedback completes the contrast with the post-meal response clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin’s effects on liver storage and muscle uptake was most worthwhile: the planned pictures distinguish liver glucose entry from the increased membrane transporters in muscle.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The two pancreatic sensing combinations were predictable from the item titles and repeated the same basic selection, though they established the contrasting conditions.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The explicit distinction between liver glucose entry and muscle transporter insertion sharpened my understanding of how the tissues respond differently to insulin.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the choices followed the pictured hormone targets and the two glucose conditions.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes. I would choose another chapter to see more system-level feedback explained through contrasting conditions, although these planned illustrations alone cannot establish how well students would understand it.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

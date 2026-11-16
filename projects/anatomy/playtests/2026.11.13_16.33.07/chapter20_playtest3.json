@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter starts with water loss, so adding it to the blood sample should show the change the sensors respond to.",
+    "choice": {
+      "combine": "Water-balance blood sample",
+      "with": "Water loss"
+    },
+    "expectation": "The sample should become more concentrated as water is lost.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sample has less water relative to dissolved particles, so I can now follow the sensor response.",
+    "reaction": "That matches what I expected.",
+    "step": 2,
+    "reason": "The brain water sensors are the named structures that can respond to the concentrated sample.",
+    "choice": {
+      "combine": "Concentrated blood sample",
+      "with": "Brain water sensors and pituitary"
+    },
+    "expectation": "The sensors should detect the more concentrated blood and start a water-saving response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensors led to ADH being released into the blood; the kidney ducts have receptors for it.",
+    "reaction": "I’m curious how the signal changes water recovery.",
+    "step": 3,
+    "reason": "The collecting ducts have ADH receptors, so they are the clearest next target for the blood carrying ADH.",
+    "choice": {
+      "combine": "Blood carrying more ADH",
+      "with": "Responsive kidney collecting ducts"
+    },
+    "expectation": "ADH should signal the ducts to help the body retain more water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH causes more water channels to appear, letting more water return to the blood and leaving less in urine.",
+    "reaction": "The picture makes the water-saving effect clearer.",
+    "step": 4,
+    "reason": "The nerve endings and pituitary blood vessels are shown alongside each other, so I’ll connect them for the body’s water-control route.",
+    "choice": {
+      "combine": "Hormone-releasing nerve endings",
+      "with": "Pituitary blood vessels"
+    },
+    "expectation": "The nerve endings should connect to the blood vessels so a hormone can enter the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve endings and vessels form a route that releases ADH into blood, ready to connect to the body.",
+    "reaction": "That clarifies how the signal reaches the kidneys.",
+    "step": 5,
+    "reason": "The goal asks for a water-control route in the body, so I’ll connect the new route to it.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Brain-to-blood hormone route"
+    },
+    "expectation": "The body should gain the brain-to-blood water-control route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has a brain-to-blood route reaching the kidney cells; it still needs a drink for the goal.",
+    "reaction": "The connection fits the signal pathway shown earlier.",
+    "step": 6,
+    "reason": "The remaining goal explicitly asks for a drink, and drinking water is available.",
+    "choice": {
+      "combine": "Body with water-control route",
+      "with": "Drinking water"
+    },
+    "expectation": "The body should take in water to help replace its losses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water enters the circulation, and ADH signals decrease as the blood concentration approaches its usual range. Both goals are complete.",
+    "reaction": "It was useful to see the response ease off after the drink.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following ADH to the kidney was most worthwhile: the added water channels made it clearer how the signal helps conserve water.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the hormone route to the body felt a little repetitive after seeing how the signal reached the kidneys.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the picture to show fewer ADH signals as the blood concentration returned toward its usual range.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the nerve endings and blood vessels were shown together, although I was following their pictured pairing.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to another chapter if it offered another clear cause-and-effect pathway like this one, though the final assembly was less interesting than seeing the kidney response.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

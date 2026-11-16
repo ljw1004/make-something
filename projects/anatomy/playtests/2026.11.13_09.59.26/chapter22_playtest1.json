@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreatic islet's sensing cells are positioned to respond to the glucose-rich blood after a meal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The cells will detect the higher glucose and initiate a hormonal response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The after-meal condition triggers insulin release, which reaches both muscle and liver; I can follow one of those targets next.",
+    "reaction": "The separate target branches make the next choice clear.",
+    "step": 2,
+    "reason": "The liver is an insulin target and contains glycogen, suggesting a route for storing meal glucose.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Insulin will promote glucose storage as liver glycogen.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle is also shown receiving insulin and may take up glucose."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores glucose as glycogen under insulin signalling, without the muscle-style transporter insertion shown in the description.",
+    "reaction": "The distinction between liver and muscle glucose entry is useful.",
+    "step": 3,
+    "reason": "Muscle is the other target shown receiving insulin, so it is the natural next part of the after-meal response.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Insulin will promote glucose uptake by muscle, likely involving transporter insertion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose transport, and its release signal weakens as blood glucose falls; the after-meal goal is complete.",
+    "reaction": "The feedback connection clarifies how the response eases.",
+    "step": 4,
+    "reason": "The same pancreatic sensing cells can respond to the lower glucose level between meals.",
+    "choice": {
+      "combine": "Blood between meals",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The islet will release a hormone that helps keep blood glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lower glucose prompted glucagon release from alpha cells, with the liver highlighted as its target.",
+    "reaction": "The contrast with the after-meal insulin response is clear.",
+    "step": 5,
+    "reason": "The liver contains glycogen and is the target of the between-meal glucagon signal.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "Glucagon will promote glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promoted liver glycogen breakdown and glucose release, with its stimulation diminishing as blood glucose rose; both goals are complete.",
+    "reaction": "The feedback makes the between-meal response clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing insulin’s effects on liver storage and muscle uptake was most worthwhile: the planned pictures distinguish liver glucose entry from the increased muscle membrane transporters.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial insulin-release step was relatively straightforward; its main value was setting up the more informative target responses.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The liver picture explicitly distinguished its glucose entry from muscle-style transporter insertion, a useful clarification.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: the islet and target-organ connections were visible. Glycogen’s role was illustrated, though the term itself was not defined in words in this chapter.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see more comparisons that connect organ responses to feedback, as this chapter did for glucose regulation.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

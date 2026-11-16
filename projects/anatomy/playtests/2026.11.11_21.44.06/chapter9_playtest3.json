@@ -1,0 +1,81 @@
+[
+  {
+    "step": 1,
+    "reason": "The scrape sets up the damaged boundary needed for the goal; it is the only available action.",
+    "choice": 1,
+    "expectation": "I expect the hand to be scraped and a damaged vessel or wound to become available, though the exact result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The scrape has opened a capillary, so the immediate task is to limit the bleeding.",
+    "reaction": "The escaping red cells make the goal clear.",
+    "step": 2,
+    "reason": "Platelets seem useful for starting to seal the broken vessel, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the platelets to gather at the break and help form a plug, though clotting proteins may also be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug limits blood loss, but the skin gap remains; clotting proteins are the next offered step.",
+    "reaction": "The distinction between plugging the vessel and repairing the skin is clear.",
+    "step": 3,
+    "reason": "Clotting proteins may strengthen the plug, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a more stable clot to form at the damaged vessel, while the skin gap may remain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibrin reinforces the plug, and the next goal is to clear damaged material while the skin gap remains.",
+    "reaction": "The temporary seal makes the distinction between stopping bleeding and rebuilding skin clear.",
+    "step": 4,
+    "reason": "Cleanup cells match the new goal, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the cleanup cells to remove damaged material from the scrape, leaving the area ready for repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cleanup cells enclose debris beneath the clot, but the skin edges remain separated; the chapter ends with the body ready to rebuild.",
+    "reaction": "The unfinished gap makes the limits of the temporary seal clear, though I am curious how the skin closes.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding platelets was most worthwhile because the picture clearly showed the vessel plugged while the skin gap remained.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Creating the scrape was necessary to set up the chapter, but it was a predictable first step.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The skin gap remained visible even after the platelet plug limited blood loss, making the distinction between stopping bleeding and rebuilding clear.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt without a clear purpose, although every decision offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separated skin edges are rebuilt; the final image leaves that process unresolved.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

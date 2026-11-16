@@ -1,0 +1,166 @@
+[
+  {
+    "step": 1,
+    "reason": "The pictures show light-sensitive cells passing signals to nerve cells, so these seem like the pieces for the light-sensitive lining.",
+    "choice": {
+      "combine": "Light-sensitive cells",
+      "with": "Retinal nerve cells"
+    },
+    "expectation": "They will form a lining that detects light and sends signals onward.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Corneas",
+          "with": "Eye walls[]"
+        },
+        "reason": "The corneas also visibly fit the eye walls, starting the focusing project."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The light-sensitive and nerve cells formed retinas, completing the lining goal. I can now build the focusing parts.",
+    "reaction": "The result made the retina's role in passing light signals clearer.",
+    "step": 2,
+    "reason": "The corneas are transparent fronts that bend light, and the eye walls have matching front slots.",
+    "choice": {
+      "combine": "Corneas",
+      "with": "Eye walls[]"
+    },
+    "expectation": "The corneas will fit onto the fronts of the eyes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corneas fitted into the eye walls; the lenses and light controls still need fitting.",
+    "reaction": "The bent light arrow makes the corneas' focusing role clear.",
+    "step": 3,
+    "reason": "The eye walls have a focusing-lens slot, and the lenses bend light.",
+    "choice": {
+      "combine": "Lenses",
+      "with": "Eye walls[Corneas]"
+    },
+    "expectation": "The lenses will fit into the eyes behind the corneas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lenses fitted behind the fronts and can bend light by different amounts. The light-control slot remains.",
+    "reaction": "The different lens shapes make their focusing role clearer.",
+    "step": 4,
+    "reason": "The irises are coloured rings around pupil openings, matching the remaining light-control slot.",
+    "choice": {
+      "combine": "Irises",
+      "with": "Eye walls[Corneas,Lenses]"
+    },
+    "expectation": "The irises will fit into the eyes and control the openings for light.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The irises completed the eye fittings; their openings control how much light enters.",
+    "reaction": "The wider and narrower pupil views made the light control clear.",
+    "step": 5,
+    "reason": "The completed focusing parts need the light-sensitive retinas to detect the light they direct.",
+    "choice": {
+      "combine": "Eye walls[Corneas,Lenses,Irises]",
+      "with": "Retinas"
+    },
+    "expectation": "The retinas will fit inside the eyes behind the focusing parts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retinas joined the focusing parts, giving each eye a path from incoming light to its light-sensitive lining.",
+    "reaction": "The picture makes the path through the eye clear.",
+    "step": 6,
+    "reason": "The visual pathways lead from the backs of the eyes toward the brain, so they are the next visible connection.",
+    "choice": {
+      "combine": "Eyes with focusing parts and retinas",
+      "with": "Visual pathways"
+    },
+    "expectation": "The eyes will connect to nerve pathways carrying their signals toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Eyes with focusing parts and retinas",
+          "with": "Eye-moving muscles and nerves"
+        },
+        "reason": "The muscles also connect to the eyes, but I will follow the signal route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes now have visual pathways carrying signals away from them; the moving muscles still need connecting.",
+    "reaction": "The signal arrows make the route out of the eyes clear.",
+    "step": 7,
+    "reason": "The eye-moving muscles and nerves visibly attach around the eyes and lead toward the brain.",
+    "choice": {
+      "combine": "Eyes with visual pathways",
+      "with": "Eye-moving muscles and nerves"
+    },
+    "expectation": "The muscles and their nerves will connect to the eyes so they can move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The moving muscles and their nerves are now connected to the eyes, alongside the visual pathways.",
+    "reaction": "The opposing arrows show that the muscles pull in different directions.",
+    "step": 8,
+    "reason": "The intro says to connect the eyes to the brain, and the repaired body contains the existing brain.",
+    "choice": {
+      "combine": "Eyes with pathways and moving muscles",
+      "with": "Body after repair"
+    },
+    "expectation": "The eyes and their nerve pathways will connect to the body and brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes and their pathways joined the body, completing the chapter. The final picture distinguishes light entering the eyes from nerve signals reaching the brain.",
+    "reaction": "It was satisfying to see the separate parts connected into a working route.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the retinas to the focusing parts made the path of light through the eye understandable.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the corneas, lenses and irises was clear, but the three consecutive slotting actions felt a little repetitive.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lens views showed that flatter and rounder shapes bend light by different amounts.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures and named slots made the fittings understandable.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see another body system come together, although I would hope for more choices than consecutive obvious fittings.",
+        "steps": [
+          2,
+          3,
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

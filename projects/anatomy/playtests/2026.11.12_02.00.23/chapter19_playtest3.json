@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it starts the goal by bringing meal glucose into the body.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to rise after the meal, setting up a response from the pancreas.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal has put glucose-rich blood on its way to the pancreas, so I will follow the insulin response.",
+    "reaction": "The result matches my expectation and makes the next step clear.",
+    "step": 2,
+    "reason": "This is the only offered combination and continues the response to a meal.",
+    "choice": 1,
+    "expectation": "I expect insulin to enter the blood and help the body take up or store glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now travelling to muscle and liver, so I will follow its effect on muscle.",
+    "reaction": "The result fits my expectation, though it has not shown glucose uptake yet.",
+    "step": 3,
+    "reason": "This is the only offered combination and should show how muscle responds to insulin.",
+    "choice": 1,
+    "expectation": "I expect muscle cells to take up more glucose from the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle glucose uptake and liver glycogen storage are now shown, and falling glucose reduces the stimulus for insulin release. I will follow what happens between meals.",
+    "reaction": "The link between insulin and both tissues is clear, though liver storage appeared without a separate action.",
+    "step": 4,
+    "reason": "This is the only offered combination and moves the sequence to the between-meal state.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to fall between meals, setting up a glucagon response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose is lower between meals, so I will follow the glucagon response.",
+    "reaction": "The result matches the expected transition and makes the next step clear.",
+    "step": 5,
+    "reason": "This is the only offered combination and continues the between-meal sequence.",
+    "choice": 1,
+    "expectation": "I expect glucagon to travel in the blood and signal the liver to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is travelling from the pancreas to the liver, so I will follow its effect on the glycogen reserve.",
+    "reaction": "The result matches my expectation, though it has not shown glucose release yet.",
+    "step": 6,
+    "reason": "This is the only offered combination and should show how the liver supplies glucose between meals.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from glycogen into the blood, completing the between-meal sequence and showing how rising glucose lessens the stimulus for glucagon release.",
+    "reaction": "The result made the feedback loop clear, though it was what I expected.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The insulin response was most worthwhile because it connected muscle glucose uptake and liver storage to a reduction in the stimulus for insulin release.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The transition to the between-meal state was predictable and added little beyond establishing that blood glucose had fallen.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Liver glycogen storage appeared alongside muscle uptake, even though the selected combination named only insulin-responsive muscle.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The actions had clear purposes, but each decision offered only one combination, so the sequence felt guided rather than like a series of meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it offered more meaningful choices. This chapter explained the feedback sequence clearly, but its predictable single-option progression limited my curiosity.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

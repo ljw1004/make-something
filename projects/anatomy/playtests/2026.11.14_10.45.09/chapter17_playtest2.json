@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragments match one lymphocyte, and the helper signal is already supplied, so this looks like the first step toward making the response.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to become activated, though I'm not sure what form the result will take.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching cell is active, so it can now be placed in the lymph node to grow.",
+    "reaction": "The matching shapes and helper cell make the selection understandable.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the node supports activated cells as they multiply.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to multiply in the node, though I don't know whether antibody and memory cells appear immediately.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making and memory cells, so the next step is to make antibodies.",
+    "reaction": "It makes sense that some descendants make antibodies while others remain as memory cells.",
+    "step": 3,
+    "reason": "This is the only offered combination; amino acids are the building blocks for antibody proteins.",
+    "choice": 1,
+    "expectation": "I expect the cells to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies, which can now bind the bacteria.",
+    "reaction": "The matching shapes make their target clear.",
+    "step": 4,
+    "reason": "This is the only offered combination, and binding the bacteria should help white blood cells clear them.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the bacteria, leaving them ready for engulfing cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, making them ready for the engulfing cells.",
+    "reaction": "The matching shapes make the coating easy to follow.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the engulfing cells can bind the exposed antibody stems.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coated bacteria were engulfed and broken down, completing the response and showing how antibodies help mark a target.",
+    "reaction": "Seeing the marked bacteria cleared was a satisfying end to the sequence.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Putting the activated cell in the lymph node was most worthwhile: it showed that its descendants can both make antibodies and remain as memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and then attaching the matching antibodies felt a little repetitive because the matching shapes already made the outcome predictable.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that descendants of one activated cell could have two different roles: making antibodies and providing memory.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, but each decision offered only one combination, so I was mostly following the sequence rather than making meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter connected the pieces to an everyday body function, but the single-option sequence here did not give me much reason to keep playing for the choices.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

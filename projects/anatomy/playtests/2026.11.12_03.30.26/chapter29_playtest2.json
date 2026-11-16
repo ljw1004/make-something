@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The retinal cells provide the light information the brain clock needs.",
+    "choice": {
+      "combine": "Light-sensing retinal cells",
+      "with": "Brain clock"
+    },
+    "expectation": "This should connect light sensing to the brain clock.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retinal cells connect to the clock and help keep it aligned with the outside day. Next I can connect the clock to the gland.",
+    "reaction": "The light-to-clock link is clear.",
+    "step": 2,
+    "reason": "The nerve route appears to connect the brain clock toward the pineal gland.",
+    "choice": {
+      "combine": "Light-linked brain clock",
+      "with": "Nerve route from the brain"
+    },
+    "expectation": "This should extend the clock's connection along the nerve route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The light-linked brain clock has no available combination at this point, so I will try connecting the nerve route to the gland first.",
+    "reaction": "I was surprised the clock could not connect to the nerve route directly.",
+    "step": 3,
+    "reason": "The nerve route and pineal gland are the remaining parts of the nighttime signal pathway.",
+    "choice": {
+      "combine": "Nerve route from the brain",
+      "with": "Pineal gland"
+    },
+    "expectation": "The nerve route should connect to the pineal gland.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve route connects to the pineal gland first. I will try adding that pathway to the body.",
+    "reaction": "The route through the spinal cord and neck was unexpected.",
+    "step": 4,
+    "reason": "The body needs the connected gland to complete its nighttime signaling route.",
+    "choice": {
+      "combine": "Learning body model",
+      "with": "Nerve-connected pineal gland"
+    },
+    "expectation": "The nerve-connected pineal gland should join the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body model has no available combination yet, so the gland pathway may need another step first.",
+    "reaction": "The required order is unclear.",
+    "step": 5,
+    "reason": "Inspecting the nerve-connected gland should reveal what it can connect to next.",
+    "choice": {
+      "inspect": "Nerve-connected pineal gland"
+    },
+    "expectation": "Its available partners should show the next connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gland pathway connects to the light-linked clock, completing the indirect route. The remaining step is to add it to the body.",
+    "reaction": "The indirect route and light's effect on melatonin make the connection clearer.",
+    "step": 6,
+    "reason": "The completed pathway should connect to the existing body to satisfy the goal.",
+    "choice": {
+      "combine": "Light-to-clock-to-pineal pathway",
+      "with": "Learning body model"
+    },
+    "expectation": "The body should gain the connected clock and nighttime signaling pathway.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding the completed pathway to the body fulfilled the goal and showed that the brain clock helps coordinate rhythms across organs.",
+    "reaction": "The final connection gave the pathway a useful whole-body context.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the gland pathway to the light-linked clock was most worthwhile: the result explained the indirect route and how light can suppress the nighttime melatonin signal.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempts to connect the clock directly to the nerve route and the gland directly to the body were frustrating because the required order was unclear.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The pineal nerve route loops through the spinal cord and a nerve cluster in the neck. I had expected a more direct connection within the brain.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required assembly order felt somewhat arbitrary until inspection revealed that the connected gland could join the clock. The completed pathway then explained why the indirect route matters.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explored another surprising body connection. The explanation of light and melatonin was engaging, though the failed attempts made the assembly order less clear.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

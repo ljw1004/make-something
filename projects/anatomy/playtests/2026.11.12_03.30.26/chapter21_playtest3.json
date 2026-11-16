@@ -1,0 +1,158 @@
+[
+  {
+    "step": 1,
+    "reason": "The messenger cell appears able to encounter the bacteria and display a fragment for helper T cells.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Messenger cell (dendritic cell)"
+    },
+    "expectation": "The messenger cell will take up bacterial material and display a fragment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bacteria cannot combine directly with the messenger cell; the lymph node and B cells are available partners instead.",
+    "reaction": "I am curious how the matching B cell responds to the bacteria.",
+    "step": 2,
+    "reason": "The B-cell picture identifies a receptor matching the intact bacterial surface protein, so this pair is a direct way to pursue antibody marking.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "B cells"
+    },
+    "expectation": "A matching B cell will recognize the bacterial surface protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell binds the bacterial protein and displays a fragment, suggesting it may now interact with a helper T cell.",
+    "reaction": "The B cell's display is a useful connection to the helper T-cell picture.",
+    "step": 3,
+    "reason": "The helper T cells include one that matches a displayed fragment, so they are a plausible next partner for the B cell.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "A matching helper T cell will recognize the displayed fragment and help activate the B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fragment-displaying B cell has no available operation yet, so another part of the immune response may need to happen first.",
+    "reaction": "I am unsure what prepares the helper T cell.",
+    "step": 4,
+    "reason": "The earlier compatibility feedback listed the lymph node as a partner for the bacteria, so I will follow that lead.",
+    "choice": {
+      "combine": "Airway bacteria",
+      "with": "Lymph node"
+    },
+    "expectation": "The bacteria will interact with immune cells at the lymph node, although I do not yet know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph node action brought in the dendritic cell and produced a messenger displaying a bacterial fragment, which may activate a matching helper T cell.",
+    "reaction": "The linked airway-to-node journey clarifies why the lymph node was involved.",
+    "step": 5,
+    "reason": "The helper T-cell picture shows a receptor matching a displayed fragment, making it a plausible partner for the messenger.",
+    "choice": {
+      "combine": "Messenger displaying bacterial fragment",
+      "with": "Helper T cells"
+    },
+    "expectation": "A matching helper T cell will recognize the fragment and become activated.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger activated matching helper T cells at the lymph node, so they may now help the fragment-displaying B cell.",
+    "reaction": "The automatic lymph node step clarified where helper T-cell activation happens.",
+    "step": 6,
+    "reason": "The activated helper T cells are now a plausible partner for the B cell that displays the bacterial fragment.",
+    "choice": {
+      "combine": "B cell displaying bacterial fragment",
+      "with": "Activated helper T cells"
+    },
+    "expectation": "The helper T cells will help activate the matching B cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated helper T cells helped the matching B cell at the lymph node, producing helped B cells that may now develop into antibody-producing cells.",
+    "reaction": "The result clarified how the two matching immune cells cooperate.",
+    "step": 7,
+    "reason": "I will inspect the helped B cells to find their available next step toward antibodies and immune memory.",
+    "choice": {
+      "inspect": "Helped B cells"
+    },
+    "expectation": "The report will show how the helped B cells can continue their response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied and developed into antibody-making and memory B cells in the lymph node.",
+    "reaction": "The branching into plasma and memory cells makes the two goals connect clearly.",
+    "step": 8,
+    "reason": "The antibody-making cells appear ready to act on the bacteria; I will try combining them.",
+    "choice": {
+      "combine": "Antibody-making and memory B cells",
+      "with": "Airway bacteria"
+    },
+    "expectation": "The plasma cells' antibodies will bind to the matching bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies tagged the bacteria, completing the first goal; immune memory still needs to be connected to the body.",
+    "reaction": "The result clearly shows that antibody binding marks bacteria without necessarily eliminating them.",
+    "step": 9,
+    "reason": "I will inspect the protected body to see how the remaining immune-memory goal can be completed.",
+    "choice": {
+      "inspect": "Protected body model"
+    },
+    "expectation": "The report will show which available immune-response item can be connected to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inspecting the body automatically connected the antibody-making and memory B cells, completing the immune-memory goal. The result explains that memory cells can respond faster to the same antigen without guaranteeing complete protection.",
+    "reaction": "The distinction between cellular memory and conscious memory was clear and useful.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The helped B cells developing into plasma and memory cells connected antibody production and longer-term memory in one understandable sequence.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial attempt to combine bacteria directly with the messenger cell was confusing because the cell’s picture suggested that interaction, but it required the lymph node command.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lymph node action automatically included the messenger cell and showed it travelling from the airway to the node while displaying a fragment.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the lymph node as the required partner for interactions felt somewhat arbitrary at first, although the resulting picture explained the location.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the progression from matching cells to antibodies and memory made me curious about how another immune response might unfold.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

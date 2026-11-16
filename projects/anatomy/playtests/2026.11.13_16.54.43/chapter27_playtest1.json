@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The cut is still open, so supplying the edge cells seems like a direct way to start closing the skin.",
+    "choice": 4,
+    "expectation": "I expect the supplied skin cells to divide and move across the gap, though they may need another step to close it.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Growing a capillary could restore blood supply, but I want to start with the skin surface."
+      },
+      {
+        "choice": 3,
+        "reason": "Building support fibres addresses the deeper repair, but closing the surface is my first priority."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new cells extend across the gap; I can now work on the deeper repair.",
+    "reaction": "It was satisfying to see the surface begin to close.",
+    "step": 2,
+    "reason": "The repair signals picture shows a vessel branch growing toward the wound, which could help rebuild its blood supply.",
+    "choice": 2,
+    "expectation": "I expect the nearby capillary to grow a new branch toward the wound.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Building support fibres also addresses deeper repair, but I want to follow the blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary has grown a branch toward the wound, but the picture doesn't yet show a completed connection.",
+    "reaction": "The result matched the repair-signal picture.",
+    "step": 3,
+    "reason": "Support-building cells need amino acids to make the fibres that help rebuild deeper skin.",
+    "choice": 2,
+    "expectation": "I expect the cells to make supporting protein fibres, though those may still need to be added to the wound.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Clearing debris also helps repair, but I want to prepare the support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The support cells have made new connective tissue in the damaged deeper skin.",
+    "reaction": "The fibres forming between cells make the deeper repair easier to picture.",
+    "step": 4,
+    "reason": "Clearing broken cell fragments should prepare the wound for repair; it's the only available combination.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to clear debris around the sealed vessel, though the skin may still need further repair.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Debris is being cleared, and the healing body now has slots for the three prepared repairs.",
+    "reaction": "The cutaway brings the separate repair jobs together clearly.",
+    "step": 5,
+    "reason": "The new surface fits the surface slot and should close the remaining skin gap.",
+    "choice": 2,
+    "expectation": "I expect the new skin strip to cover the wound surface; support and blood supply will still need fitting.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The capillary sprout also fits a repair slot, but I want to close the surface first."
+      },
+      {
+        "choice": 3,
+        "reason": "The connective tissue can rebuild support, but I prefer to fit the surface first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin surface is closed, but the deeper tissue still needs support and blood supply.",
+    "reaction": "It's clear that closing the surface isn't the end of healing.",
+    "step": 6,
+    "reason": "The new connective tissue fits the support slot and should strengthen the deeper skin.",
+    "choice": 2,
+    "expectation": "I expect the new fibres to support the tissue beneath the closed surface; the capillary sprout will still need fitting.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The capillary sprout also needs fitting, but I want to address the deeper support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibres now support part of the deeper wound; the blood-supply slot remains.",
+    "reaction": "The picture makes the deeper repair clear.",
+    "step": 7,
+    "reason": "The capillary sprout is the only available combination and fits the remaining supply slot.",
+    "choice": 1,
+    "expectation": "I expect the sprout to help restore blood supply to the healing skin, though I don't know if another step will be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary branch now connects to another vessel, restoring blood flow; the remaining goal is to clear the clot.",
+    "reaction": "Seeing the branch become a flowing route makes its purpose clear.",
+    "step": 8,
+    "reason": "The clot-clearing enzymes are the only available combination and match the new goal.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break down the temporary clot now that the wound has been repaired.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Most clot threads have been cleared, while supporting fibres remain and the scar continues to mature. All goals are complete.",
+    "reaction": "The distinction between the temporary clot and lasting support made the ending clear.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the capillary sprout was most worthwhile: seeing it join another vessel and carry blood showed why the new branch mattered.",
+        "steps": [
+          2,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the prepared surface and support felt a little repetitive after making them, even though it showed where each belonged.",
+        "steps": [
+          1,
+          3,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "Closing the surface did not mean healing was finished; the deeper tissue still needed support and a blood supply.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. Clearing the clot had a clear purpose once the result showed it was temporary.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: seeing the separate repairs come together was satisfying, though some fitting steps felt repetitive.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

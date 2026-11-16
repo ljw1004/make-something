@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "Phospholipids surrounded by water suggest the starting point for forming a cell boundary.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Water"
+    },
+    "expectation": "The phospholipids will arrange into a membrane in water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids formed a bilayer, giving me a boundary to pair with the cell contents.",
+    "reaction": "The picture clearly explains how the heads and tails form the boundary.",
+    "step": 2,
+    "reason": "The cell interior needs an outer membrane, and the new bilayer appears to supply it.",
+    "choice": {
+      "combine": "Lipid bilayer",
+      "with": "Cytoplasm and cell contents"
+    },
+    "expectation": "The bilayer will enclose the cell contents.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell boundary has named slots for a channel and a pump, so I can fit those exchange routes next.",
+    "reaction": "The comparison suggests that the channel and pump move ions in different ways, though the detailed arrows take some interpretation.",
+    "step": 3,
+    "reason": "The channel protein matches the boundary's empty Channel slot.",
+    "choice": {
+      "combine": "Cell boundary",
+      "with": "Channel protein"
+    },
+    "expectation": "The channel protein will fit into the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel is installed; the boundary still needs its pump.",
+    "reaction": "The named slot made that fitting straightforward.",
+    "step": 4,
+    "reason": "The ion pump matches the boundary's remaining Pump slot.",
+    "choice": {
+      "combine": "Cell boundary",
+      "with": "Ion pump"
+    },
+    "expectation": "The ion pump will fit into the cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel and pump completed the exchange routes, and the new goal calls for making a fuel-admitting protein.",
+    "reaction": "The new goal connects the boundary to the glucose transporter gene introduced earlier.",
+    "step": 5,
+    "reason": "RNA polymerase acts on DNA, and the highlighted gene identifies the protein to make.",
+    "choice": {
+      "combine": "DNA with glucose transporter gene",
+      "with": "RNA polymerase"
+    },
+    "expectation": "The gene will be transcribed into messenger RNA, using the available RNA building blocks.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gene was copied into messenger RNA while the DNA stayed in the nucleus; the copy can now go to the ribosome.",
+    "reaction": "The picture makes the connection between the gene and the ribosome clear.",
+    "step": 6,
+    "reason": "The messenger RNA carries instructions to the ribosome, and amino acids are available to build the protein.",
+    "choice": {
+      "combine": "Messenger RNA",
+      "with": "Ribosome"
+    },
+    "expectation": "The ribosome will use the messenger RNA and amino acids to make a protein chain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome produced a glucose transporter chain; it appears to need folding and targeting before it can admit fuel.",
+    "reaction": "The result clearly connects the RNA instructions to the protein chain.",
+    "step": 7,
+    "reason": "The folding and targeting machinery is the available match for preparing the new protein chain.",
+    "choice": {
+      "combine": "Glucose transporter chain",
+      "with": "Folding and targeting machinery"
+    },
+    "expectation": "The chain will fold into a glucose transporter and be directed toward the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chain is now a folded glucose transporter in a membrane vesicle, ready to be fitted into the cell boundary.",
+    "reaction": "The vesicle makes its destination plausible, though the result does not explain how it reaches the boundary.",
+    "step": 8,
+    "reason": "The transporter admits glucose, so the cell boundary is its likely destination.",
+    "choice": {
+      "combine": "Folded glucose transporter",
+      "with": "Cell boundary"
+    },
+    "expectation": "The transporter will join the cell membrane and provide a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicle joined the membrane and inserted the transporter, completing the goal and showing how a protein changes what can cross the cell boundary.",
+    "reaction": "The final picture connects protein production back to the membrane in a satisfying way.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and installing the glucose transporter was the most worthwhile sequence: it connected a gene to a protein and then to a change in what crosses the membrane. The final picture also showed how the vesicle delivers it.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the channel and pump was straightforward, but the densely detailed inset took some interpretation. A brief explanation of how the channel and pump differ would have helped.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final result clarified how the folded transporter reached the membrane: its vesicle joined the membrane and inserted it.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The named slots and the sequence from gene to transporter gave each combination a purpose.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the cell's exchange routes and protein-making work connect to tissues and body systems.",
+        "steps": [
+          4,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "step": 1,
+    "reason": "Drinking water reaches the small intestine, and the absorbing surface has nearby blood vessels.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water will cross the gut lining toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood with less water",
+          "with": "Body with urinary system"
+        },
+        "reason": "The kidneys in the body could follow the water-saving signals already present."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water crossed the gut lining into blood, completing that goal. The remaining goal is to conserve water while making urine.",
+    "reaction": "That matched what I expected.",
+    "step": 2,
+    "reason": "The blood sample already has water-saving signals, and the body contains the kidneys and urinary route.",
+    "choice": {
+      "combine": "Blood with less water",
+      "with": "Body with urinary system"
+    },
+    "expectation": "The kidneys will conserve more water while still sending urine to the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more water to the blood while still making urine. They conserve water but cannot replace water lost from the body.",
+    "reaction": "The contrast between saving water and replacing it was useful and clear.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing drinking water entering the blood with the kidneys conserving water was worthwhile because the two routes do different jobs.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The kidney combination was fairly predictable from the goal and the supplied signal, so it left little to figure out.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The result made the limit clearer: kidneys can save more water, but they cannot make up the missing water.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; the item descriptions and goals explained both pairings.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter if it explored another connection as clearly, though I would hope for more decisions that require figuring something out.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

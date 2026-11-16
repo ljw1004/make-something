@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for mitochondria inside the cell, and the picture places them in its fluid.",
+    "choice": {
+      "combine": "Mitochondria",
+      "with": "Cell"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose",
+          "with": "Cell"
+        },
+        "reason": "The glucose picture also shows how it could enter the cell through its sugar carrier."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; glucose is still needed for that goal.",
+    "reaction": "The cutaway makes their location clear.",
+    "step": 2,
+    "reason": "The glucose matches the cell's sugar carrier, and the goal calls for glucose inside.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Cell"
+    },
+    "expectation": "Glucose will enter the cell through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is inside the cell, completing that goal and revealing the need to supply ATP using oxygen.",
+    "reaction": "The sequence clarifies that glucose is released inside rather than stuck in the carrier.",
+    "step": 3,
+    "reason": "The oxygen picture shows it crossing the cell boundary, and the new goal calls for oxygen to supply ATP.",
+    "choice": {
+      "combine": "Oxygen",
+      "with": "Cell"
+    },
+    "expectation": "Oxygen will enter the cell and help its mitochondria produce ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen helped produce ATP, completing that goal; the pump and protein-building machinery still need preparation.",
+    "reaction": "The used-and-remade cycle makes ATP's role clearer.",
+    "step": 4,
+    "reason": "The pump picture shows it spanning the membrane, and fitting it is an active goal.",
+    "choice": {
+      "combine": "Membrane pump",
+      "with": "Cell"
+    },
+    "expectation": "The pump will be fitted across the cell boundary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "The ribosome and amino acids also appear to belong together for building protein."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, but its ATP-binding site is empty; putting the cell to work is now a goal.",
+    "reaction": "The picture makes it clear that fitting the pump has not activated it yet.",
+    "step": 5,
+    "reason": "The ribosome holds instructions for a protein chain, and the amino acids match its building pieces. Preparing this machinery remains a goal.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids will join the ribosome's protein-building machinery.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "ATP",
+          "with": "Cell"
+        },
+        "reason": "ATP might also put the fitted pump to work."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome and amino acids are prepared, and the new goal is to put the assembly inside the cell.",
+    "reaction": "The locator makes the next placement clear.",
+    "step": 6,
+    "reason": "The goal and picture both place the protein builder in the cell fluid.",
+    "choice": {
+      "combine": "Ribosome with RNA and amino acids",
+      "with": "Cell"
+    },
+    "expectation": "The protein-building assembly will be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein-building assembly is now inside the cell; putting the assembled cell to work remains.",
+    "reaction": "The inset helps connect the RNA message to DNA in the nucleus.",
+    "step": 7,
+    "reason": "The introduction says ATP supports protein construction and the pump, so using it with the assembled cell is a reasonable next step.",
+    "choice": {
+      "combine": "ATP",
+      "with": "Cell"
+    },
+    "expectation": "ATP will help the cell carry out its work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP put the assembled cell to work, supporting both protein building and the membrane pump; all goals are complete.",
+    "reaction": "It was satisfying to see the separate parts working together, especially the pump moving particles toward the more crowded side.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using ATP on the assembled cell was most worthwhile because it connected the earlier preparations to two visible cell jobs.",
+        "steps": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the prepared protein builder inside was clear but predictable: the goal and locator already showed where it belonged.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that the same ATP supply supported both making proteins and moving particles toward the more crowded side of the membrane.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though ATP was a new term whose role became clearer through the respiration result rather than from its name alone.",
+        "steps": [
+          3,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: assembling the cell and then seeing its parts work together made me curious how the game would build toward tissues and organs.",
+        "steps": [
+          1,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

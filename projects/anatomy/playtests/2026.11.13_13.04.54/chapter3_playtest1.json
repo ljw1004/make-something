@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "Prepare the new membrane needed for cell growth and division.",
+    "choice": 1,
+    "expectation": "Phospholipids and proteins should form membrane material; I’m unsure how it will be incorporated into the cell.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also essential, but I’ll prepare the membrane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles provide a membrane supply, and the next goal is to use it to enlarge the cell.",
+    "reaction": "The ER and Golgi inset suggests where the vesicles come from, though their role is not explained.",
+    "step": 2,
+    "reason": "Use the new membrane supply to address the revealed growth goal.",
+    "choice": 1,
+    "expectation": "The vesicles will add membrane to the growing cell, probably by fusing with its surface.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also a goal, but I’ll follow the membrane preparation through first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Vesicle fusion enlarged the cell, but its nuclear DNA still needs copying.",
+    "reaction": "The fusion inset made the membrane addition clear.",
+    "step": 3,
+    "reason": "Copy the nuclear DNA so each eventual daughter can receive a complete genome.",
+    "choice": 1,
+    "expectation": "The cell will use the nucleotides to duplicate its nuclear DNA.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Building the spindle is also necessary, but I’ll copy the DNA first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclear DNA is copied, and the next goal is to use a spindle to form two daughter nuclei.",
+    "reaction": "The joined sister chromatids make the copied chromosomes visible, though S phase is not explained here.",
+    "step": 4,
+    "reason": "Build the spindle needed for the new goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Proteins and duplicated centrosomes will form a spindle that can move chromosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled after DNA copying, but chromosomes have not yet attached; it can now be used on the grown cell.",
+    "reaction": "The opposing centrosomes and microtubules make the spindle’s layout clear, though how it attaches to chromosomes remains to be shown.",
+    "step": 5,
+    "reason": "Use the spindle to form two daughter nuclei; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The spindle will separate sister chromatids so two nuclei can form, although the intermediate attachment steps are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle step produced two nuclei with complete genomes, but the cytoplasm remains connected and must divide.",
+    "reaction": "The distinction between nuclear and cytoplasmic division is clear, though chromosome attachment and separation were skipped.",
+    "step": 6,
+    "reason": "Use actin and myosin to divide the cytoplasm; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the cleavage furrow and separate the cell into two daughters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cytoplasmic division produced two separate stem cells, each with a complete genome; the chapter’s goals are complete.",
+    "reaction": "The final picture plan clearly distinguishes self-renewal from later differentiation, though it does not show how actin and myosin constrict the cell.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle and then dividing the cytoplasm was the most worthwhile sequence: it separated nuclear division from the formation of two cell bodies.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The spindle result skipped chromosome attachment and separation, leaving a gap between its construction and two complete daughter nuclei.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The membrane supply appeared as vesicles beside an ER and Golgi inset, rather than as membrane added directly; fusion then enlarged the cell. The inset did not explain those organelles’ roles.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear goal, although the final steps were the only offered combinations, so they involved little choice rather than discovery of compatibility.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the daughter cells become different tissues, though I would want the next chapter to explain more of the intermediate mechanisms.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

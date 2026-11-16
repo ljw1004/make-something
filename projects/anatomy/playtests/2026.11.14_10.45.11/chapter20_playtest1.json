@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The liver-cell picture shows meal glucose nearby and says the storage signal and machinery are already present.",
+    "choice": {
+      "combine": "Meal glucose",
+      "with": "Liver cells"
+    },
+    "expectation": "The liver cells will store some of the meal glucose.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Insulin-producing pancreatic cells"
+        },
+        "reason": "The picture also suggests blood can receive insulin after a meal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores glucose as linked carbohydrate, and the next goal is to release it between meals.",
+    "reaction": "The picture makes the storage form clear.",
+    "step": 2,
+    "reason": "The after-meal pancreatic cells are shown releasing insulin into the adjacent blood, which should support the muscle-storage goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Insulin-producing pancreatic cells"
+    },
+    "expectation": "The cells will release insulin into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Glucagon-producing pancreatic cells"
+        },
+        "reason": "I could investigate the between-meal message first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood and can carry the after-meal message to muscle.",
+    "reaction": "The routes toward muscle and liver make the message's destination clear.",
+    "step": 3,
+    "reason": "The muscle fibres have receptors for blood-carried insulin and glucose nearby, so this directly follows the muscle-storage goal.",
+    "choice": {
+      "combine": "Insulin in blood",
+      "with": "Muscle fibres beside a blood vessel"
+    },
+    "expectation": "Insulin will help the muscle fibres take in and store glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle stores glucose in linked chains, while insulin remains outside as a signal. The remaining goal is the between-meal release from the liver.",
+    "reaction": "The distinction between the message and stored material is clear.",
+    "step": 4,
+    "reason": "The between-meal pancreatic cells are shown releasing glucagon into blood, like the insulin release earlier.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Glucagon-producing pancreatic cells"
+    },
+    "expectation": "The cells will release glucagon into the blood as a message to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is now in the blood, carrying the between-meal message to the liver.",
+    "reaction": "The contrast with insulin's after-meal message is clear.",
+    "step": 5,
+    "reason": "The liver carbohydrate store contains linked glucose, and glucagon signals the liver to break it down.",
+    "choice": {
+      "combine": "Glucagon in blood",
+      "with": "Liver carbohydrate store"
+    },
+    "expectation": "The liver will break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from its store into the blood, completing the between-meal goal.",
+    "reaction": "It was satisfying to see the stored chains become separate glucose again.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using insulin with muscle was worthwhile because it showed that insulin is a message, while glucose becomes the stored material.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing the two pancreatic messages felt a little repetitive, though the similar actions helped compare their roles.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the liver could break its stored carbohydrate back into glucose and release it into blood between meals.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary: the pictures and goals explained why the messages and stores belonged together.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue because the contrast between storing fuel and releasing it made me curious about how the body handles other changing needs.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "Start skin renewal by supplying the DNA needed before cell division.",
+    "choice": 1,
+    "expectation": "The cell will copy its DNA in preparation for separating chromosomes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Blood-cell renewal also serves the goal, but I want to follow skin-cell division first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosomes have been copied into joined sister chromatids, so I can follow their separation next.",
+    "reaction": "The before-and-after comparison makes the copying step clear.",
+    "step": 2,
+    "reason": "Continue the skin-cell division sequence by separating the copied chromosomes.",
+    "choice": 1,
+    "expectation": "The spindle machinery will separate the sister chromatids toward opposite poles, though the cell may not divide yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This would begin blood renewal, but I prefer to finish the skin-cell sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied chromosomes are now in matching sets at opposite poles, but the cell still has one shared interior.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 3,
+    "reason": "Continue skin renewal by dividing the cell around the separated chromosome sets.",
+    "choice": 1,
+    "expectation": "The division ring will constrict the membrane and produce two cells, each with a chromosome set.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Blood renewal is also part of the goal, but I want to finish this division sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The division ring produced two daughter cells with complete chromosome sets; they can now be connected to the body.",
+    "reaction": "The pinching sequence clearly completes the division process.",
+    "step": 4,
+    "reason": "Connect the new skin cells to the body before moving on to blood renewal.",
+    "choice": 1,
+    "expectation": "The body will gain a skin-renewal component, though the blood-renewal goal may remain unfinished.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "This starts blood-cell renewal, but I prefer to finish connecting the skin cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows new basal skin cells and surface shedding; blood renewal still needs attention.",
+    "reaction": "The inset connects cell division to ongoing skin replacement.",
+    "step": 5,
+    "reason": "Follow the only offered gameplay action to begin blood-cell renewal.",
+    "choice": 1,
+    "expectation": "Erythropoietin will signal the marrow precursors to produce more red blood cells, though the intermediate result is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney's low-oxygen cue leads to a blood-borne signal and maturation of marrow precursors; the developing cells can now be connected to the body.",
+    "reaction": "The sequence makes the kidney-to-marrow connection clear.",
+    "step": 6,
+    "reason": "Follow the only offered gameplay action to connect blood renewal to the body.",
+    "choice": 1,
+    "expectation": "The body will show red-cell renewal alongside skin renewal, though I don't know whether that completes the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Skin and blood renewal are connected to the body, and a new goal asks for bone remodelling.",
+    "reaction": "The kidney-to-marrow link gives blood renewal a clear purpose; the bone goal is a new direction.",
+    "step": 7,
+    "reason": "Follow the only offered gameplay action to begin remodelling the existing bone.",
+    "choice": 1,
+    "expectation": "The bone-removing cells will remove some existing bone, likely preparing the patch for rebuilding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-removing cells have removed old bone in a magnified patch, setting up the formation step.",
+    "reaction": "The removal is clear, though its broader purpose is not yet shown.",
+    "step": 8,
+    "reason": "Follow the only offered gameplay action to rebuild the bone patch.",
+    "choice": 1,
+    "expectation": "Bone-forming cells will lay down new bone in the patch, completing or advancing the remodelling goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch, completing the remodelling goal and the chapter.",
+    "reaction": "The final inset ties renewal back to the arm, though the reason for remodelling remains brief.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The skin-cell division sequence was most worthwhile: the planned comparisons distinguish copied chromosomes, their separation and the final division into two cells.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The bone-removal step was least informative on its own: it showed old bone being removed without yet explaining why remodelling matters.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The kidney-to-marrow connection was interesting: a low-oxygen cue leads to a blood-borne signal and red-cell maturation.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a purpose in the sequence, but the bone-remodelling explanation remained brief. The available combinations guided the choices; I did not discover their compatibility myself.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would not personally choose another chapter: the planned biological connections were clear, but the largely prescribed sequence offered limited meaningful decisions.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

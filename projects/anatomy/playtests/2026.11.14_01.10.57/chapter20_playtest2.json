@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal case and follow how insulin helps muscle take in glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release insulin into the blood, though I'm not sure what the next step will be.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered starting with glucagon, but the after-meal case comes first in the chapter's comparison."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin entered the blood, and the route toward muscle shows what to try next.",
+    "reaction": "The picture makes the message's destination clear.",
+    "step": 2,
+    "reason": "I'll follow insulin to the muscle to complete the after-meal part of the comparison.",
+    "choice": 2,
+    "expectation": "I expect the muscle to take in glucose and store some of it, though I don't know exactly how insulin causes that.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the between-meals case, but I want to finish following insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle stored glucose in chains while insulin stayed outside as a message. The remaining goal is the between-meals case.",
+    "reaction": "The distinction between the message and the stored material is clear.",
+    "step": 3,
+    "reason": "This is the only offered gameplay action, and it starts the glucagon pathway.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release glucagon into the blood, which can then carry the message to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon entered the blood and is headed toward the liver, where it signals the stored carbohydrate to be broken down.",
+    "reaction": "The destination and purpose of the message are clear.",
+    "step": 4,
+    "reason": "This is the only offered gameplay action and follows the glucagon message to the liver store.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood, completing the between-meals pathway and showing how it differs from muscle storage after a meal.",
+    "reaction": "Seeing the liver store shrink made the release easy to follow.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to the muscle was worthwhile because it showed that glucose becomes stored material while insulin remains a message outside the cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing glucagon felt less engaging as a separate step: its destination and purpose were already labelled, and it was the only gameplay action offered.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the insulin message to stay outside the muscle cells while glucose went in and became stored carbohydrate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though I followed the named hormone pairings rather than understanding exactly how the messages cause cells to respond.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I might continue if another chapter connects the body systems in a similarly clear way, though the mostly guided pairings made the choices less engaging.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

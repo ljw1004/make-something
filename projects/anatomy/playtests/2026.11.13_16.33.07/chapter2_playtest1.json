@@ -1,0 +1,164 @@
+[
+  {
+    "step": 1,
+    "reason": "The pump proteins are shown spanning a membrane, so they look ready to fit into the patches.",
+    "choice": {
+      "combine": "Sodium-potassium pump proteins",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump proteins will fit into the membrane patch.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose in the cytosol",
+          "with": "Cytosol with glycolysis enzymes"
+        },
+        "reason": "The enzyme picture also suggests a direct way to start breaking down glucose."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are fitted, and the new goal is to use ATP to move sodium out. I still need to get ATP first.",
+    "reaction": "The new goal makes the pump's purpose clearer.",
+    "step": 2,
+    "reason": "The glucose fits the enzyme pathway shown in the cytosol, and getting ATP from glucose is a goal.",
+    "choice": {
+      "combine": "Glucose in the cytosol",
+      "with": "Cytosol with glycolysis enzymes"
+    },
+    "expectation": "The enzymes will break down glucose and produce ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "Those pieces also match an existing goal, but I want to get ATP for the pump."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown produced ATP and pyruvate in the cytosol, and the new goal points toward the mitochondrion.",
+    "reaction": "The pyruvate arrow makes the next connection clear.",
+    "step": 3,
+    "reason": "The picture points pyruvate toward the mitochondrion, and the new goal calls for food breakdown products and oxygen there.",
+    "choice": {
+      "combine": "Cytosolic ATP and pyruvate",
+      "with": "Mitochondrion"
+    },
+    "expectation": "The mitochondrion will receive the food breakdown product, possibly together with the available oxygen.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosolic ATP and pyruvate",
+          "with": "Membrane with sodium-potassium pumps"
+        },
+        "reason": "The ATP might also let the fitted pumps move sodium out."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate entered the mitochondrion, but the result did not show oxygen entering, so I still need to supply it.",
+    "reaction": "The picture shows pyruvate being processed, though I don't yet understand all the electron-carrier details.",
+    "step": 4,
+    "reason": "The goal calls for oxygen as well as food breakdown products, and oxygen is available in the cytosol.",
+    "choice": {
+      "combine": "Oxygen entering the cytosol",
+      "with": "Mitochondrion supplied with pyruvate"
+    },
+    "expectation": "Oxygen will be supplied to the mitochondrion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completed the mitochondrial supply and produced an ATP supply. The picture connects hydrogen ions moving back across the membrane to ATP production, though the electron-transfer details are new to me.",
+    "reaction": "It's interesting that the mitochondrion uses a difference across its membrane to make ATP.",
+    "step": 5,
+    "reason": "The pump goal calls for ATP, and the mitochondrial ATP supply looks like it can power the fitted pumps.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Membrane with sodium-potassium pumps"
+    },
+    "expectation": "ATP will power the pumps to move sodium out of the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "Assembling ribosomes on a message is another outstanding goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the pump to move sodium out and potassium in, completing the pump goal.",
+    "reaction": "It makes sense that moving sodium against the inward pull takes energy.",
+    "step": 6,
+    "reason": "The remaining goal explicitly calls for assembling ribosomes on an mRNA message, and both pieces are available.",
+    "choice": {
+      "combine": "Ribosome subunits",
+      "with": "mRNA messages from the nucleus"
+    },
+    "expectation": "The ribosome subunits will assemble on an mRNA message.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes assembled on mRNA, revealing a goal to power protein-making.",
+    "reaction": "The amino acids in the picture make the next goal easier to connect to building proteins.",
+    "step": 7,
+    "reason": "The picture shows ATP-supported preparation at the ribosomes, and the mitochondrial ATP supply is available.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Ribosomes on mRNA"
+    },
+    "expectation": "ATP will power protein-making at the prepared ribosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP supported protein-making at the ribosomes, completing the chapter. The picture also distinguishes amino acids for proteins from pyruvate on the fuel route.",
+    "reaction": "It was satisfying to see ATP used for both the pump and making proteins, though the tRNA matching details were new to me.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the sodium-potassium pump was most worthwhile: it connected ATP from food to the work of moving sodium against the inward pull.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The mitochondrial electron-transfer explanation was the hardest passage to follow; the picture showed the steps, but I didn't understand all the carrier details.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a difference in hydrogen ions across a membrane helps drive ATP production.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt completely arbitrary. Supplying pyruvate first followed the picture's arrow, although I didn't understand all the processing inside the mitochondrion.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes, I'd try another chapter to see how these cell parts connect to larger structures. The ATP and pump connection gave me a reason to keep exploring, even though some molecular details were difficult.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

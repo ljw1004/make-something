@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes at the cut can clear debris as part of wound repair.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The wound will be cleared of debris while the vessel remains sealed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Debris is cleared, and the wound now needs supply, surface and support fittings.",
+    "reaction": "The three named slots clarify the remaining repair work.",
+    "step": 2,
+    "reason": "Repair signals point toward the nearby vessel, suggesting they stimulate a blood supply for the wound.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The signals will encourage a vessel response that helps supply the healing wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced a capillary sprout connected to circulation, likely fitting the wound's supply slot.",
+    "reaction": "The connected branch makes the supply route clear.",
+    "step": 3,
+    "reason": "The new capillary sprout should supply the healing wound.",
+    "choice": {
+      "combine": "Capillary sprout",
+      "with": "Body with healing skin[]"
+    },
+    "expectation": "The sprout will fill the wound's supply slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sprout fills the supply slot and forms a connected flow route through the wound.",
+    "reaction": "The completed loop makes the blood supply more concrete.",
+    "step": 4,
+    "reason": "Fibroblasts need RNA messages to make the collagen supporting the wound.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "RNA building blocks"
+    },
+    "expectation": "The fibroblasts will make collagen RNA messages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now have collagen messenger RNA ready for protein production.",
+    "reaction": "The DNA-to-RNA connection is clear in the repair context.",
+    "step": 5,
+    "reason": "Matrix nutrients include amino acids that the fibroblasts can use to make collagen.",
+    "choice": {
+      "combine": "Fibroblasts with collagen instructions",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will produce collagen for wound support.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used the nutrients to make and export collagen, producing new connective tissue for support.",
+    "reaction": "The sequence clearly connects the RNA message to extracellular collagen.",
+    "step": 6,
+    "reason": "The new connective tissue should provide the wound's missing support.",
+    "choice": {
+      "combine": "New connective tissue",
+      "with": "Body with healing skin[Capillary sprout]"
+    },
+    "expectation": "The connective tissue will fill the support slot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue fills the support slot, though the young tissue is not yet as strong as uninjured skin.",
+    "reaction": "The distinction between closure and regained strength is useful.",
+    "step": 7,
+    "reason": "The epidermal edge cells need nutrients to rebuild the wound surface.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The cells will form a new surface layer for the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

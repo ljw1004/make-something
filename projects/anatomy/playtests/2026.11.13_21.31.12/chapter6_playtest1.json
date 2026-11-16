@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The muscle cells can pull, and the connective tissue may help assemble them into tissue for both muscles.",
+    "choice": {
+      "combine": "Muscle cells with pulling proteins",
+      "with": "Supporting connective tissue"
+    },
+    "expectation": "They will form muscle tissue that can be used to build the arm muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells and supporting tissue formed bundles, which appear ready to fill either muscle's covering.",
+    "reaction": "The picture helped me see how individual cells become bundles that transmit a pull.",
+    "step": 2,
+    "reason": "The biceps covering has empty spaces, and the muscle bundles look like the tissue meant to fill them.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Biceps tendons and outer covering"
+    },
+    "expectation": "The bundles will fill the covering to build the biceps.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle bundles",
+          "with": "Triceps tendons and outer covering"
+        },
+        "reason": "The bundles may also fit the triceps covering, but I'll start with the biceps."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bundles filled the biceps covering, making a muscle with tendons ready to attach.",
+    "reaction": "The picture makes the connection from muscle to tendon clearer.",
+    "step": 3,
+    "reason": "The goal asks to connect the biceps across the front of the elbow, and the skeleton provides its attachment points.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps tendons will attach to the skeleton across the front of the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow, and the assembly still needs a back muscle.",
+    "reaction": "The two poses make it clear how shortening the biceps bends the elbow.",
+    "step": 4,
+    "reason": "The triceps covering is the remaining visible part for the back muscle, but I'm unsure what material is still available to fill it.",
+    "choice": {
+      "inspect": "Triceps tendons and outer covering"
+    },
+    "expectation": "The compatibility list should show what can be used to build the triceps.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically used the remaining muscle bundles to build the triceps with its tendons.",
+    "reaction": "The matching construction makes sense for the muscle on the back of the arm.",
+    "step": 5,
+    "reason": "The arm assembly has an empty back-muscle slot, and the triceps belongs across the back of the elbow.",
+    "choice": {
+      "combine": "Triceps with tendons",
+      "with": "Arm assembly"
+    },
+    "expectation": "The triceps and its tendons will attach to the back of the arm assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps filled the back-muscle slot, completing the arm and showing how its pull straightens the elbow while the biceps bends it.",
+    "reaction": "The contrasting poses made the two muscles' different jobs clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the triceps was most worthwhile because it completed the comparison: both muscles pull, but their attachments move the elbow in opposite directions.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the triceps repeated the biceps construction, though the inspection was useful because I wasn't sure the bundles were still available.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was unsure whether muscle bundles remained available, so the inspection automatically building the triceps surprised me.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary: the empty coverings and the front and back attachment goals explained the pairings.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue because seeing the parts assembled into a working elbow made their jobs easier to picture, though another similarly repetitive build might be less interesting.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal situation to follow how muscle gets glucose. The chapter names that goal, though I don't yet know how the pancreas fits into this pairing.",
+    "choice": 1,
+    "expectation": "I expect the body to have more glucose available after a meal; muscle uptake may need another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meals situation also matters, but I'll follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal raised blood glucose and highlighted the pancreas, muscle and liver; I’ll follow the pancreas next.",
+    "reaction": "The highlighted organs make the next connection clearer, though I still don't know what message the pancreas sends.",
+    "step": 2,
+    "reason": "The sensing cells are next to blood vessels and show different messages at different glucose levels, so they seem relevant to the after-meal goal.",
+    "choice": 1,
+    "expectation": "I expect the pancreas cells to respond to the higher glucose with a message, but I don't yet know how it helps muscle.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could explore between meals now, but I want to continue the after-meal route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas releases insulin into blood, and the explanation says it helps muscle take up glucose. I'll follow that route.",
+    "reaction": "The explanation makes the pancreas-to-muscle connection clearer.",
+    "step": 3,
+    "reason": "Combining insulin with skeletal muscle directly follows the after-meal goal.",
+    "choice": 1,
+    "expectation": "I expect the muscle to take up glucose from the blood with insulin's help.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I also considered the between-meals route, but want to finish following the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle took up glucose, and insulin release fell as blood glucose decreased. I'll now follow the between-meals route.",
+    "reaction": "The later drop in insulin makes the response feel connected to the changing glucose level.",
+    "step": 4,
+    "reason": "This is the only available combination and starts the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect blood glucose to fall as cells use it, leading to a response that keeps glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose has fallen while the liver still has stored carbohydrate. I'll follow the pancreas response next.",
+    "reaction": "The separate later view makes the between-meals situation clear.",
+    "step": 5,
+    "reason": "This is the only available combination; the pancreas sensing cells showed different messages at different glucose levels.",
+    "choice": 1,
+    "expectation": "I expect the pancreas to respond to lower glucose with a message, though I don't yet know what it is.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas sends a different message to the liver to release stored glucose, so I'll follow it to the liver.",
+    "reaction": "The labelled arrow makes the message's purpose clear.",
+    "step": 6,
+    "reason": "This is the only available combination and follows the signal to the stored fuel.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood, as shown in the earlier liver chapter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose from its store, and the pancreas's release signal faded as blood glucose rose. Both goals are complete.",
+    "reaction": "Seeing the signal fade made the response feel like a complete cycle.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the pancreas's insulin message to muscle made the after-meal response understandable: muscle takes glucose from blood, and insulin release later decreases.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Starting the between-meals route felt a little repetitive: the falling-glucose setup was clear, but following the only available pair did not involve much choice.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know what message the pancreas would send after a meal; the result introduced insulin and explained its role in muscle glucose uptake.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt without purpose, though several steps had only one available combination, so I was following the offered route rather than figuring out compatibility.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter if it connected more body systems this clearly, though I would hope for more meaningful choices than the mostly single-option sequence here.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

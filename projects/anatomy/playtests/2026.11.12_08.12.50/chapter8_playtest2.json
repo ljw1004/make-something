@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum should divide the heart into right and left sides, preparing the two routes. It is the only available action.",
+    "choice": 1,
+    "expectation": "I expect a heart with separated chambers, still needing valves and vessel connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and exposed inlet and outlet valve slots; the reference panel shows why valves are needed.",
+    "reaction": "The reversing arrows make the purpose of the valves clear.",
+    "step": 2,
+    "reason": "I'll fit the inlet valves first to address one of the two marked slots.",
+    "choice": 1,
+    "expectation": "I expect the ventricular inlets to gain valves, with the outlets still needing them.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The outlet valves are also needed, but either set seems reasonable to fit first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted, and the squeeze and filling frames show how they direct flow. The outlet valves remain to be fitted.",
+    "reaction": "The contrasting frames make the inlet valves' role clear.",
+    "step": 3,
+    "reason": "Fit the outlet valves to complete the remaining valve slot; it is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the ventricular outlets to gain valves that help prevent backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted; the outlet valves limit blood returning from the arteries between beats.",
+    "reaction": "The ejection and return arrows clearly distinguish the outlet valves' role.",
+    "step": 4,
+    "reason": "Add conducting tissue to prepare the heart to pump; it is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the heart to gain electrical pathways that coordinate its contractions, though the details are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conducting tissue gives the heart a timed electrical wave, with atrial contraction followed by ventricular contraction.",
+    "reaction": "The matching wave and squeeze arrows make the coordination clear.",
+    "step": 5,
+    "reason": "Connect the pulmonary loop to begin linking the heart to its routes; it is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the heart to connect to the lung vessel loop, while the systemic route and blood may still need connecting.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary route now connects the right heart to the lung capillaries and back to the left atrium; the body route remains open.",
+    "reaction": "The separate open connection makes the next step clear.",
+    "step": 6,
+    "reason": "Connect the systemic vessels to complete the route toward body tissues; this is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect the systemic network to connect to the heart, with blood and possibly the heart's own vessels still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now connects to separate pulmonary and systemic loops; its own vessels and blood still appear to need adding.",
+    "reaction": "The two-route framework is clear, though this was a predictable connection.",
+    "step": 7,
+    "reason": "Add the heart’s own blood vessels; it is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect coronary vessels to connect to the heart muscle, with blood still to add.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has its own coronary supply and venous return, distinct from blood in the chambers.",
+    "reaction": "The distinction explains why the pump needs its own vessels, though the coronary sinus is not explained.",
+    "step": 8,
+    "reason": "Add blood to the connected circulation; this is the only available gameplay action.",
+    "choice": 1,
+    "expectation": "I expect blood to enter the pulmonary and systemic routes and complete the circulation goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation goal, showing both routes and the coronary branch together.",
+    "reaction": "The route arrows bring the separate constructions together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the heart’s own vessels was most worthwhile: it explained why blood in the chambers cannot supply all the thick heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the systemic network was a predictable, mandatory step; its resulting picture added little explanation beyond showing the two loops.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The separate coronary supply changed my understanding of how the pump itself is fed.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear purpose, though the coronary sinus appeared without an explanation; a brief identification of it would help this audience.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be somewhat interested in continuing to see how circulation connects to other body functions, although this chapter offered few meaningful choices beyond valve order.",
+        "steps": [
+          2,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

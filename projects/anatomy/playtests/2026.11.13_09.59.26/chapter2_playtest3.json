@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier must be installed in a membrane to provide a route for glucose into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will become part of the membrane, ready to transport glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose carrier is installed in the membrane, providing a plausible route for glucose entry.",
+    "reaction": "The membrane placement worked as expected.",
+    "step": 2,
+    "reason": "Glucose can bind the installed carrier to enter the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will move into the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now in the cytosol, ready to enter the cell’s metabolic pathway.",
+    "reaction": "The carrier’s change of shape makes the transport mechanism clear.",
+    "step": 3,
+    "reason": "The living cell interior contains the machinery needed to break down glucose and renew ATP.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose will enter the breakdown pathway, potentially using the available oxygen for aerobic ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown produced pyruvate and some ATP in the cytosol; aerobic ATP renewal still needs the mitochondrial stage.",
+    "reaction": "The distinction between glycolysis and oxygen-dependent steps is clear.",
+    "step": 4,
+    "reason": "Inspecting the glycolysis result should reveal how to continue toward aerobic ATP renewal.",
+    "choice": {
+      "inspect": "Cytosol remaking ATP"
+    },
+    "expectation": "Its available partners should identify the next step toward mitochondrial ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glycolysis result can combine with oxygen or amino acids; oxygen is the more direct route toward aerobic ATP renewal.",
+    "reaction": "The available partners clarify the next step.",
+    "step": 5,
+    "reason": "Oxygen entering the cytosol is available to support the aerobic stage following glycolysis.",
+    "choice": {
+      "combine": "Cytosol remaking ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "The combination will advance pyruvate breakdown and ATP renewal in mitochondria.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "This may address protein growth, but I will follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal connects pyruvate-derived fuel and oxygen to mitochondrial ATP production; powered ion transport remains to be addressed.",
+    "reaction": "The separate roles of fuel, oxygen and the hydrogen-ion gradient are illuminating.",
+    "step": 6,
+    "reason": "The sodium-potassium pump has an ATP-binding site, so the renewed ATP may power its transport cycle.",
+    "choice": {
+      "combine": "Aerobic ATP renewal",
+      "with": "Sodium-potassium pump"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium against their gradients.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cytosol remaking ATP",
+          "with": "Amino acids"
+        },
+        "reason": "This could advance protein synthesis, but I will finish the powered transport pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted pump combination instead automatically made new cell proteins and completed the protein-growth goal; powered ion transport remains.",
+    "reaction": "The automatic switch to protein synthesis was unexpected, though the RNA-to-protein picture is clear.",
+    "step": 7,
+    "reason": "The pump is a membrane protein, so installing it in the lipid membrane is a plausible next step toward powered ion transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be installed in the membrane, ready to use ATP for ion transport.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Sodium-potassium pump"
+        },
+        "reason": "I could check its compatible partners first, but its membrane-spanning structure suggests a direct fit."
+      }
+    ],
+    "lookedAgain": false
+  }
+]

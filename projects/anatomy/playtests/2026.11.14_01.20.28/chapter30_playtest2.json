@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named digestive tract slot, and its picture shows space for the gut below the diaphragm.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract will fit into the lower body, with its upper tube still extending upward.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Repaired skin segment",
+          "with": "Skin covering[]"
+        },
+        "reason": "The matching opening also makes that an understandable independent project."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The gut is in the abdomen, and its upper tube still leads toward the chest and throat. The urinary organs are the remaining named lower-body fitting.",
+    "reaction": "The placement makes the gut's position in the larger body clearer.",
+    "step": 2,
+    "reason": "The lower body has a named slot for the urinary organs, so I can complete that assembly directly.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder will fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, completing that goal.",
+    "reaction": "The separate urinary and digestive outlets make their positions clearer.",
+    "step": 3,
+    "reason": "The skin covering has an opening matching the repaired segment, so this is a clear independent fitting.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment will fit into the matching opening in the skin covering.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm assembly",
+          "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+        },
+        "reason": "The arm and chest also need to be joined, but the skin opening is an explicit match."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment completes the skin covering, and joining the chest to the lower body is now a goal.",
+    "reaction": "It is satisfying to see the small repaired patch retain its place in the full covering.",
+    "step": 4,
+    "reason": "The remaining chest goal names the arm, and its shoulder attachments are supplied, so the arm should fit the breathing apparatus.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The studied arm will attach to the chest at the shoulder.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Breathing apparatus[Diaphragm,Circulation with lung exchange]",
+          "with": "Lower body[Digestive tract,Urinary organs]"
+        },
+        "reason": "The newly revealed goal also calls for joining the chest and lower body."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest; the lymph vessels still need to be joined.",
+    "reaction": "The shoulder connections help show how the arm fits into the larger body.",
+    "step": 5,
+    "reason": "The remaining chest goal explicitly calls for joining the lymph vessels, whose return route connects to a vein near the neck.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly]"
+    },
+    "expectation": "The lymph drainage network will connect to the chest and its blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is aligned with the chest's existing vein, completing the chest goal.",
+    "reaction": "The shared vein connection makes the return route easier to place in the body.",
+    "step": 6,
+    "reason": "The current goal calls for joining the completed chest and lower body.",
+    "choice": {
+      "combine": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly,Lymph drainage network]",
+      "with": "Lower body[Digestive tract,Urinary organs]"
+    },
+    "expectation": "The chest will join above the lower body, with the abdominal organs below the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body now form the trunk and limbs, with a channel ready for the spine.",
+    "reaction": "The diaphragm's position makes the boundary between chest and abdomen clearer.",
+    "step": 7,
+    "reason": "The new goal and the open channel both point to fitting the head and spine to the trunk.",
+    "choice": {
+      "combine": "Head and spine[Eye with optic nerve,Ears]",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine will fit into the trunk's back channel, joining the head and nerves to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are joined to the trunk, leaving the skin covering to fit.",
+    "reaction": "The shared nerve and blood routes make the assembled body feel connected.",
+    "step": 8,
+    "reason": "The new goal calls for fitting the completed skin covering over the assembled body.",
+    "choice": {
+      "combine": "Skin covering[Repaired skin segment]",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering will fit around the body, keeping the repaired segment in its original position.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body while keeping the repaired scar and the earlier structures in place. All chapter goals are complete.",
+    "reaction": "It was satisfying to see the separate structures brought together in one body.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the chest and lower body was most worthwhile: it showed where the diaphragm sits and how routes pass between the regions.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two named lower-body slots was clear but fairly predictable; there was not much to figure out once the slots were shown.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final cutaway brought together blood carrying materials and nerves carrying signals, showing that the same muscle needs both.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The lymph connection was less visually obvious than the named slots, but its return to a neck vein gave it a purpose.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter explored how these connected parts work together. The final assembly made that interesting, though some fitting steps were predictable.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,171 @@
+[
+  {
+    "step": 1,
+    "reason": "The joint lining is pictured fitting inside the sleeve and producing joint fluid, matching the sleeve goal.",
+    "choice": {
+      "combine": "Tough joint sleeve",
+      "with": "Joint lining"
+    },
+    "expectation": "The lining should fit inside the sleeve to make a fluid-lined joint sleeve.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining completed the fluid-filled sleeve, so I can focus on building the bones.",
+    "reaction": "The result matched the picture and was straightforward.",
+    "step": 2,
+    "reason": "The pictures show flexible fibres and hard mineral as complementary parts of bone.",
+    "choice": {
+      "combine": "Tough fibres in bone",
+      "with": "Bone mineral"
+    },
+    "expectation": "The fibres and mineral should form a strong bone material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibres and mineral formed the bone's reinforced material; it still needs living cells and a blood supply.",
+    "reaction": "It was satisfying to see how the flexible fibres and hard mineral fit together.",
+    "step": 3,
+    "reason": "The bone cells are pictured living in spaces within bone, so adding them to the reinforced fibres should build living bone.",
+    "choice": {
+      "combine": "Mineral-reinforced bone fibres",
+      "with": "Bone cells"
+    },
+    "expectation": "The cells should become part of the reinforced bone material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The reinforced fibres cannot currently combine with anything, so adding cells directly was not available.",
+    "reaction": "That was unexpected because the picture showed cells within bone.",
+    "step": 4,
+    "reason": "The bone-cell picture shows channels leading toward a blood vessel, so I’ll try connecting those parts first.",
+    "choice": {
+      "combine": "Bone cells",
+      "with": "Blood vessels"
+    },
+    "expectation": "The vessels may supply the living bone cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Bone cells"
+        },
+        "reason": "Checking their partners could clarify the required step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone cells now have a blood supply; I can try adding them to the reinforced bone material.",
+    "reaction": "The nutrient channels make the blood supply clearer.",
+    "step": 5,
+    "reason": "Living, supplied cells and the reinforced fibres are the remaining pieces needed for the bone goal.",
+    "choice": {
+      "combine": "Bone cells with a blood supply",
+      "with": "Mineral-reinforced bone fibres"
+    },
+    "expectation": "The supplied cells should join the reinforced material to form living arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied cells and reinforced material made living arm bones, revealing the goal of assembling a supported movable joint.",
+    "reaction": "It makes sense now that the cells needed a blood supply before joining the bone material.",
+    "step": 6,
+    "reason": "The cartilage caps are pictured covering the ends of bones so they can slide at the joint.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Cartilage caps"
+    },
+    "expectation": "The cartilage should cover the bone ends to help them slide.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Living arm bones",
+          "with": "Fluid-lined joint sleeve"
+        },
+        "reason": "The sleeve also surrounds the bone ends, but the cartilage looks like it fits directly onto them first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The living arm bones now have smooth cartilage at their facing ends; the sleeve and ligaments remain to support the joint.",
+    "reaction": "The caps fitted as expected.",
+    "step": 7,
+    "reason": "The fluid-lined sleeve is pictured surrounding the bone ends, so it looks like the next part to add.",
+    "choice": {
+      "combine": "Arm bones with cartilage caps",
+      "with": "Fluid-lined joint sleeve"
+    },
+    "expectation": "The sleeve should surround the capped bone ends and provide a fluid-filled space.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm bones with cartilage caps",
+          "with": "Elbow ligaments"
+        },
+        "reason": "The ligaments also connect the bones, but the sleeve appears to enclose the joint first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sleeve now encloses the cartilage-covered bone ends; the ligaments remain to support the joint.",
+    "reaction": "The result clarified how cartilage and joint fluid help the bones move smoothly.",
+    "step": 8,
+    "reason": "The ligament picture shows bands connecting the bones and resisting sideways separation, matching the supported-joint goal.",
+    "choice": {
+      "combine": "Enclosed elbow joint",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments should connect and stabilize the bones around the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the supported movable joint, and all chapter goals are done.",
+    "reaction": "It was satisfying to see the finished elbow bend with its parts in place.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the living bone was most worthwhile: the nutrient channels and finished cutaway showed that bone contains living cells as well as hard material.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add bone cells directly to the reinforced fibres was confusing because the picture showed them inside bone, but the pairing was unavailable.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cells had to be combined with blood vessels before they could join the bone material.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for supplying the cells felt a little arbitrary at first. The vessel picture suggested the next pairing, but it hadn't explained why the direct combination was unavailable.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to try another chapter. Seeing how cartilage, fluid and ligaments contribute different things to a working joint made me curious about what comes next.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to follow how the kidney filters blood, starting with the blood sample and filtering unit.",
+    "choice": 1,
+    "expectation": "I expect fluid and small dissolved substances to enter the nephron, while blood cells remain in the blood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting the ureters would help assemble the urinary organs, but I want to follow filtration first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result confirms that filtration leaves blood cells and most proteins in the vessels; I’ll follow what happens to the filtered fluid.",
+    "reaction": "The distinction between what passes through and what stays in the blood is clear.",
+    "step": 2,
+    "reason": "The transporters seem like the next step in recovering useful substances from the filtered fluid.",
+    "choice": 1,
+    "expectation": "I expect some useful dissolved substances to move from the tubule back into the blood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ureters are needed to assemble the urinary organs, but I want to follow recovery first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tubule recovers glucose and other useful substances, so I’ll follow what happens to the water next.",
+    "reaction": "Recovering almost all filtered glucose makes the kidney’s selective role clearer.",
+    "step": 3,
+    "reason": "The water-permeable tubule is the next available step in following the filtered sample.",
+    "choice": 1,
+    "expectation": "I expect some water to move from the tubule back into the blood, leaving a more concentrated fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water returns to the blood while wastes remain in the tubule, so I’ll follow the remaining fluid into urinary drainage.",
+    "reaction": "The sequence clearly shows recovery before waste leaves.",
+    "step": 4,
+    "reason": "Urinary drainage looks like the next step in tracing the sample toward urine.",
+    "choice": 1,
+    "expectation": "I expect the remaining fluid to become urine and move toward the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid reaches the bladder as urine, completing the filtering and recovery goal. I’ll now connect the urinary organs.",
+    "reaction": "The route from filtered blood to urine is clear, though the last step adds little explanation.",
+    "step": 5,
+    "reason": "The ureters connect the kidneys to the bladder, so fitting them advances the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the ureters to be fitted to the kidney pair, leaving the bladder to connect.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The bladder also needs fitting, but the ureters follow the route from the kidneys."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are fitted, and the result confirms their route from the kidneys to the bladder.",
+    "reaction": "The connection is straightforward, though it repeats the route shown in the previous result.",
+    "step": 6,
+    "reason": "The bladder is the remaining fitting needed to assemble the urinary organs.",
+    "choice": 1,
+    "expectation": "I expect the bladder to connect to the ureters, completing the kidney and bladder assembly.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder is fitted, completing the kidney and bladder assembly; the remaining step is to connect it to the body.",
+    "reaction": "The fitting was straightforward but added no new explanation.",
+    "step": 7,
+    "reason": "Connecting the urinary organs to the body advances the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the assembled urinary organs to join the body's circulation and complete the goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The urinary organs are now connected to the body's circulation, completing the remaining goal.",
+    "reaction": "The final picture ties the kidney's filtering role to the larger body, though the explanation is brief.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Recovering glucose from the filtered sample was most worthwhile: it showed why filtering is followed by selective recovery, rather than simply removing everything that enters the tubule.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the ureters and bladder felt repetitive after the urine had already been shown travelling to the bladder. The bladder fitting added no explanation.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was struck that healthy kidneys normally recover almost all filtered glucose. That made their selective role clearer.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but fitting the urinary organs after already seeing urine reach the bladder felt somewhat redundant.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it continued connecting systems, but the predictable fittings and repeated route reduced my enthusiasm.",
+        "steps": [
+          2,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

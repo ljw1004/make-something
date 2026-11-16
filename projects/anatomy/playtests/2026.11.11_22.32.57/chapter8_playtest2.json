@@ -1,0 +1,164 @@
+[
+  {
+    "step": 1,
+    "reason": "The support cells and connective fibers appear to be complementary parts of the skin's supporting tissue.",
+    "choice": {
+      "combine": "Connective fibers",
+      "with": "Skin support cells"
+    },
+    "expectation": "They will form a supportive layer for the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibers and support cells formed the skin's supporting layer, so I can now work on its surface.",
+    "reaction": "The tug panels make the support layer's role clearer.",
+    "step": 2,
+    "reason": "Cell junctions appear suited to connecting the neighboring surface cells.",
+    "choice": {
+      "combine": "Surface cells",
+      "with": "Cell junctions"
+    },
+    "expectation": "The junctions will join the surface cells into a sheet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The junctions connected the surface cells into a sheet, giving me a layer to combine with the supporting skin layer.",
+    "reaction": "The tug and magnified seam make the junctions' role clear.",
+    "step": 3,
+    "reason": "The connected surface and supporting layers appear to be complementary parts of the skin.",
+    "choice": {
+      "combine": "Connected surface layer",
+      "with": "Supporting skin layer"
+    },
+    "expectation": "The two layers will form a skin structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface layer needed the tough outer layer first, producing a surface barrier; I can now try attaching it to the supporting layer.",
+    "reaction": "I was surprised the outer layer had to be added before the support layer.",
+    "step": 4,
+    "reason": "The surface barrier and supporting skin layer appear to be complementary parts of the skin.",
+    "choice": {
+      "combine": "Surface barrier",
+      "with": "Supporting skin layer"
+    },
+    "expectation": "They will form a layered skin structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The barrier and supporting layer formed layered skin, with vessels supplying the living surface cells from below.",
+    "reaction": "The cross-section makes the connection between the layers clear.",
+    "step": 5,
+    "reason": "The skin needs sensory endings to detect contact.",
+    "choice": {
+      "combine": "Skin sensory endings",
+      "with": "Layered skin"
+    },
+    "expectation": "The endings will give the layered skin a way to sense touch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensory endings made sensitive skin, completing the first goal; the arm now needs protection and supplies.",
+    "reaction": "The fingertip picture connects the protective skin to its sensing role.",
+    "step": 6,
+    "reason": "The sensitive skin should provide the working arm with its protective covering.",
+    "choice": {
+      "combine": "Sensitive skin",
+      "with": "Arm with position feedback"
+    },
+    "expectation": "The skin will cover the arm and connect touch sensing to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensitive skin currently has no available operation as the first item, so I need to check how the arm can receive protection and supplies.",
+    "reaction": "The lack of a compatibility hint is a little confusing.",
+    "step": 7,
+    "reason": "The arm may need its supply network before the skin can be added; inspecting it will reveal its available partners.",
+    "choice": {
+      "inspect": "Arm with position feedback"
+    },
+    "expectation": "The inspection will show what can currently be combined with the arm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm with position feedback",
+          "with": "Body supply network"
+        },
+        "reason": "The supply network appears relevant to the goal, but I am unsure of the required order."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm needed the body supply network first, and inspection automatically combined them into a supplied arm.",
+    "reaction": "The required order is clearer now.",
+    "step": 8,
+    "reason": "The supplied arm still needs the protective and touch-sensitive skin.",
+    "choice": {
+      "combine": "Supplied arm",
+      "with": "Sensitive skin"
+    },
+    "expectation": "The skin will cover the supplied arm and add touch sensing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied arm and sensitive skin formed a living body model, completing the protection and supplies goal. The remaining goal is to hold the glass steady.",
+    "reaction": "The cutaway brings the previously built systems together clearly.",
+    "step": 9,
+    "reason": "The glass is the object the living body model needs to hold.",
+    "choice": {
+      "combine": "Living body model",
+      "with": "Glass of water"
+    },
+    "expectation": "The model will use contact feedback to hold the glass steady.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final combination completed the goal and showed how touch feedback and muscle tension help keep a slipping glass steady.",
+    "reaction": "The slipping-glass sequence made the purpose of contact feedback concrete.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Holding the glass was most worthwhile because it brought touch signals and muscle action together in a familiar task.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to add skin was the most confusing passage: it gave no compatibility hint, leaving the required order unclear until I inspected the arm.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the surface layer needed the tough outer layer before it could join the supporting layer.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding the supply network before the skin felt like a required ordering without a clear explanation for why the skin could not be added first.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it continued to connect familiar actions to the body systems involved; the glass example made those connections meaningful.",
+        "steps": [
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to follow glucose across the intestinal lining toward the liver, matching the first goal.",
+    "choice": 1,
+    "expectation": "I expect glucose to cross the villus into its blood vessels, though the next stage of the route is unclear.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Following fat is also relevant, but I chose to start with the glucose route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose entered a villus blood capillary, confirming the first part of the route I expected.",
+    "reaction": "The picture makes the crossing clear, though the result was expected.",
+    "step": 2,
+    "reason": "Amino acids share the goal of reaching the liver, so I want to follow their route next.",
+    "choice": 1,
+    "expectation": "I expect amino acids to cross the intestinal lining into villus blood, as glucose did.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered following fat next, but want to complete the two routes grouped in the first goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids also entered a villus blood capillary, as expected.",
+    "reaction": "The parallel with glucose is clear, though predictable.",
+    "step": 3,
+    "reason": "Combining the two blood-borne products may advance their shared route toward the liver.",
+    "choice": 2,
+    "expectation": "I expect glucose and amino acids to be grouped for transport toward the liver; the precise next step is unclear.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I considered following fat next, but want to advance the shared blood route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and amino acids now travel together in blood toward the liver, completing their goal.",
+    "reaction": "The result clearly connects the villus capillaries to the liver.",
+    "step": 4,
+    "reason": "The remaining goal concerns fat, so I want to follow its digestion products across the villus.",
+    "choice": 1,
+    "expectation": "I expect the fat digestion products to enter intestinal cells, where they can be packaged for transport.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Packaging materials seem relevant, but I want to bring the fat into the villus first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fat digestion products entered intestinal cells, ready for the packaging step.",
+    "reaction": "The crossing was clear and matched my expectation.",
+    "step": 5,
+    "reason": "Packaging the fat should advance the remaining goal of sending it into lymph.",
+    "choice": 1,
+    "expectation": "I expect the intestinal cells to package the fat into lipoprotein particles that can enter lymph.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lacteal entrance will likely be needed for the lymph route, but packaging seems to come first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fat was rebuilt and packaged into chylomicrons inside the intestinal cells, ready for the lymph route.",
+    "reaction": "The explanation makes the packaging step clearer and introduces a useful name for the particles.",
+    "step": 6,
+    "reason": "The lacteal is the villus's lymph vessel, so combining its entrance with the chylomicrons should advance the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the chylomicrons to enter the lacteal and travel into lymph.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Chylomicrons entered the villus lymph vessel, completing the fat route and showing that lymph carries them onward to the blood.",
+    "reaction": "The final explanation made the difference between the fat and blood routes clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Packaging fat into chylomicrons was the most worthwhile action: it explained what intestinal cells do before fat enters lymph.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Following glucose and amino acids separately felt somewhat repetitive because their crossings had parallel results.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I learned that intestinal cells rebuild fat and package it into chylomicrons before it enters lymph.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining glucose and amino acids already in villus blood felt a little artificial, although the result clearly explained their shared route toward the liver.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how the absorbed nutrients are used, though the predictable sequence of compatible choices limits the gameplay interest.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier fits glucose and can provide its route across the membrane before the cell uses it as fuel.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be incorporated into the membrane, enabling glucose entry.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose",
+          "with": "Glucose carrier"
+        },
+        "reason": "Their matching binding pocket also suggests a direct combination."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose carrier is now installed in the membrane, ready to interact with glucose.",
+    "reaction": "The membrane placement fits the carrier's structure.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and needs to enter the cell to serve as fuel.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will cross into the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol, where enzymes can begin processing it.",
+    "reaction": "The carrier’s changing shape makes the transport mechanism clear.",
+    "step": 3,
+    "reason": "The living cell interior contains the machinery for using glucose and oxygen to renew ATP.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell will use the available glucose and oxygen to connect aerobic respiration with ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was processed into pyruvate and ATP in the cytosol; aerobic ATP renewal still requires the mitochondrial stage.",
+    "reaction": "The distinction between glycolysis and the oxygen-using stage is useful.",
+    "step": 4,
+    "reason": "Pyruvate is labelled as mitochondrial fuel, and the living cell interior contains mitochondria.",
+    "choice": {
+      "combine": "Pyruvate and ATP",
+      "with": "Living cell interior"
+    },
+    "expectation": "Pyruvate will be processed aerobically in the mitochondria, renewing more ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate and oxygen now support aerobic ATP renewal, and protein production has become a goal.",
+    "reaction": "The separate roles of oxygen and fuel are a useful clarification.",
+    "step": 5,
+    "reason": "The sodium-potassium pump belongs in the membrane and has an ATP-binding site, making it the logical next step toward powered ion transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be installed in the membrane, ready to use ATP for ion transport.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Amino acids",
+          "with": "Living cell interior"
+        },
+        "reason": "The cell's ribosomes could use amino acids to address the new protein-production goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sodium-potassium pump is installed in the membrane, positioning its ATP-binding site toward the cytosol.",
+    "reaction": "The contrast with the passive sodium channel is helpful.",
+    "step": 6,
+    "reason": "The installed pump and renewed ATP supply are the visible pieces needed for powered ion transport.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "ATP will power the pump to move sodium and potassium against their gradients.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Membrane with a sodium-potassium pump"
+        },
+        "reason": "I could check its available partners if the ATP supply cannot be combined directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered sodium-potassium transport is complete; making new proteins remains the active goal.",
+    "reaction": "The comparison with passive sodium flow clarifies why the pump needs energy.",
+    "step": 7,
+    "reason": "The cell interior contains ribosomes and existing RNA messages, while amino acids supply protein building blocks.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Living cell interior"
+    },
+    "expectation": "The ribosomes will use amino acids to make new proteins for cell growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids cannot be used directly at the cell interior; the compatibility feedback identifies two ATP-related partners.",
+    "reaction": "The need to combine amino acids with an energy supply first was not obvious.",
+    "step": 8,
+    "reason": "Aerobic ATP renewal is a listed partner and provides energy for making proteins.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The amino acids and ATP supply will support protein production for cell growth.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Amino acids",
+          "with": "Pyruvate and ATP"
+        },
+        "reason": "This is also a listed compatible source of ATP."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ATP supply and amino acids produced new cell proteins, completing the final goal.",
+    "reaction": "The inset clarifies why energy was relevant, though the required pairing was not obvious beforehand.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Aerobic ATP renewal was most worthwhile: the planned picture distinguishes fuel oxidation from oxygen’s role and connects hydrogen-ion flow through ATP synthase to ATP production.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying amino acids at the cell interior was the least satisfying passage: the ribosomes and messages were already shown there, but the required energy-supply pairing emerged only through compatibility feedback.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I expected protein production to start at the cell interior; the feedback instead offered ATP-related partners, and the result showed ATP supporting amino-acid preparation.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining amino acids directly with aerobic ATP renewal felt somewhat arbitrary as an interface action, although the final inset gives the energy connection a purpose.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the constructions connect membrane transport and ATP use in useful ways, and I would be curious to see how later structures build on them.",
+        "steps": [
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

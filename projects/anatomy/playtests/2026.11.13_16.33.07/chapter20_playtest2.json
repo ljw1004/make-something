@@ -1,0 +1,141 @@
+[
+  {
+    "step": 1,
+    "reason": "The water-loss picture suggests it will change the blood sample, beginning the water-saving sequence.",
+    "choice": {
+      "combine": "Water-balance blood sample",
+      "with": "Water loss"
+    },
+    "expectation": "The sample will become more concentrated as it loses water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sample now has less water relative to dissolved particles, so the brain's water sensors are a sensible next step.",
+    "reaction": "The change matches what I expected.",
+    "step": 2,
+    "reason": "The sensors are pictured detecting water balance, so they may respond to the concentrated blood.",
+    "choice": {
+      "combine": "Concentrated blood sample",
+      "with": "Brain water sensors and pituitary"
+    },
+    "expectation": "The brain sensors will detect the more concentrated blood and start a water-saving response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensors triggered ADH release into the blood; the kidney ducts have receptors for it.",
+    "reaction": "I didn't know the signal was called ADH.",
+    "step": 3,
+    "reason": "The collecting ducts are pictured with ADH receptors, so they are the likely target of the signal.",
+    "choice": {
+      "combine": "Blood carrying more ADH",
+      "with": "Responsive kidney collecting ducts"
+    },
+    "expectation": "ADH will act on the ducts and help the kidneys conserve water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH caused more water channels to appear, letting more water return to blood and leaving less in urine.",
+    "reaction": "It helps to see how the signal saves water.",
+    "step": 4,
+    "reason": "The body still needs a water-control route. The pictured nerve endings connect the water-sensing brain regions to the pituitary, so I’ll start there.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Hormone-releasing nerve endings"
+    },
+    "expectation": "The nerve endings will connect the body’s brain water sensors to its pituitary.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Hormone-releasing nerve endings"
+        },
+        "reason": "I could check its partners first, since I’m not sure how the route is assembled."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body model cannot be combined yet, so I need to assemble the water-control route first.",
+    "reaction": "I guessed the order wrong.",
+    "step": 5,
+    "reason": "The nerve endings are part of the pictured route, but I don't know their required partner yet.",
+    "choice": {
+      "inspect": "Hormone-releasing nerve endings"
+    },
+    "expectation": "The compatibility list should show how to start assembling the route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve endings and pituitary vessels form the route that releases ADH into the blood; the inspection combined them automatically.",
+    "reaction": "The compatibility hint cleared up the assembly order.",
+    "step": 6,
+    "reason": "The body still needs a water-control route, and the newly assembled route looks ready to connect to it.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Brain-to-blood hormone route"
+    },
+    "expectation": "The hormone route will connect to the body model so its brain can signal the kidneys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone route is now connected to the body and its kidneys.",
+    "reaction": "The assembly order makes sense now.",
+    "step": 7,
+    "reason": "The remaining goal asks for a drink, and drinking water is pictured being swallowed.",
+    "choice": {
+      "combine": "Body with water-control route",
+      "with": "Drinking water"
+    },
+    "expectation": "The body will take in water to help replace its losses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water entered the circulation, and the picture showed fewer ADH signals as blood concentration approached its usual range. Both goals are complete.",
+    "reaction": "The before-and-after comparison helped connect drinking to the water-saving response.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following ADH to the kidney was most worthwhile: the picture showed extra water channels and water returning to the blood, explaining how the signal saves water.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to attach the nerve endings directly to the body was least worthwhile; it failed without showing what had to be assembled first.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know the water-saving signal was called ADH, or that it causes more water channels to appear in the kidney ducts.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to combine the nerve endings with pituitary blood vessels before attaching them to the body wasn't clear to me until the compatibility hint. Their role made more sense afterward.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing a signal connect the brain and kidneys, then change after a drink, made me curious about other ways body systems work together.",
+        "steps": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action and should start the neural lineage needed for the goal.",
+    "choice": 1,
+    "expectation": "I expect the signals to produce neural progenitors from some of the stem cells while retaining their DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neural progenitors can give rise to neuronal and glial descendants, so I can now follow the neuronal branch.",
+    "reaction": "The separate branch from mesoderm makes the lineage clear.",
+    "step": 2,
+    "reason": "The neuronal differentiation signals are the only offered combination and advance the neuron-building goal.",
+    "choice": 1,
+    "expectation": "I expect neuronal descendants with early process buds, though they may not yet have complete dendrites or axons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The progenitors have differentiated into neuron cell bodies with buds for their processes.",
+    "reaction": "The timeline makes the end of progenitor division clear.",
+    "step": 3,
+    "reason": "Adding dendrites is the only offered combination and advances the goal of building receiving branches.",
+    "choice": 1,
+    "expectation": "I expect branching dendrites to attach to the cell bodies, providing receiving surfaces; axons may still need to be added.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell bodies now have dendrites, leaving axons and terminals to complete the neurons.",
+    "reaction": "The bracket clarifies that the branches belong to the same cell.",
+    "step": 4,
+    "reason": "Adding axons and terminals is the only offered combination and advances the neuron-building goal.",
+    "choice": 1,
+    "expectation": "I expect long axons with terminal branches to attach to the cell bodies, completing the basic neuron structure.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons are complete, and the goal now shifts to connections and support; the signal is a traveling change in membrane voltage.",
+    "reaction": "The successive panels clarify that the signal is not a packet moving inside the axon.",
+    "step": 5,
+    "reason": "Excitatory contacts are the only offered combination and should begin connecting the neurons.",
+    "choice": 1,
+    "expectation": "I expect terminals to release transmitter onto receiving neurons, producing a local voltage change that may help reach firing threshold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have excitatory connections, including two inputs converging on one receiving neuron.",
+    "reaction": "The visible gaps make clear that the connected cells remain separate.",
+    "step": 6,
+    "reason": "Inhibitory contacts are the only offered combination and should add another kind of input to the network.",
+    "choice": 1,
+    "expectation": "I expect inhibitory inputs to reduce the likelihood that a receiving neuron reaches firing threshold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuit now combines excitatory and inhibitory inputs; the illustrated inhibition keeps the neuron below firing threshold.",
+    "reaction": "The paired voltage traces make the contrast clear.",
+    "step": 7,
+    "reason": "Astrocytes are the only offered combination and should add support to the circuit.",
+    "choice": 1,
+    "expectation": "I expect astrocytes to surround synapses and take up potassium and released transmitter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Astrocytes are now interwoven with the circuits, though the result does not show their uptake role.",
+    "reaction": "The added support is visible, but its function remains less clear in this result.",
+    "step": 8,
+    "reason": "Oligodendrocytes are the only offered combination and should add support to the axons.",
+    "choice": 1,
+    "expectation": "I expect oligodendrocytes to form myelin sleeves around axons, with gaps between segments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oligodendrocytes have added myelin to selected axons, and the receptor-vesicle inset suggests a possible mechanism for the upcoming synaptic change.",
+    "reaction": "The distinction between receiving-cell receptor vesicles and sending-terminal transmitter vesicles is useful.",
+    "step": 9,
+    "reason": "Repeated paired activity is the only offered combination and addresses the goal of examining a change at one synapse.",
+    "choice": 1,
+    "expectation": "I expect the highlighted connection to strengthen, possibly through more receptors in the receiving membrane; the exact mechanism is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result shows a strengthened local response at one synapse, while neighboring contacts and the size of traveling impulses remain unchanged; both goals are complete.",
+    "reaction": "The before-and-after comparison makes the specific change satisfying and clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Strengthening one synapse was most worthwhile: equal input, a larger local response and unchanged impulses distinguish the connection’s change from a larger signal everywhere.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding astrocytes was less informative: the resulting illustration places them in the circuit but does not show the uptake role described on the opening board.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The strengthened connection produces a larger local response without making traveling impulses taller.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear overall purpose, but the sequence offered only one combination at each decision, so there was little meaningful choice.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the circuit and synapse comparisons made me curious about how these mechanisms connect to later body functions, although I would hope for more choices and clearer explanations of glial roles.",
+        "steps": [
+          6,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane goal explicitly calls for phospholipids and proteins, both of which are available.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "They should form new membrane material for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids and proteins made vesicles for membrane delivery, revealing a goal to enlarge the cell.",
+    "reaction": "The ER-to-Golgi delivery route is a useful added detail.",
+    "step": 2,
+    "reason": "The new goal calls for using the membrane supply to enlarge the living cell.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles should supply membrane to the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell, but its nuclear DNA still needs copying.",
+    "reaction": "The fusion inset makes the membrane supply's purpose clear.",
+    "step": 3,
+    "reason": "The DNA-copying goal calls for nucleotides, and the grown cell contains the existing DNA and replication enzymes.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The cell should copy its nuclear DNA using the nucleotides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has copied nuclear DNA, and the next goal requires a spindle to separate it into two nuclei.",
+    "reaction": "The joined sister chromatids make the copied state visible.",
+    "step": 4,
+    "reason": "The remaining spindle goal explicitly calls for proteins and duplicated centrosomes.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "The proteins and centrosomes should form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins and centrosomes formed a mitotic spindle; it is ready to be used on the cell with copied DNA.",
+    "reaction": "The preview clarifies that spindle assembly occurs after DNA copying.",
+    "step": 5,
+    "reason": "The remaining goal explicitly calls for using the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle should separate the copied chromosomes to form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied chromosomes into two nuclei, but the cytoplasm remains connected.",
+    "reaction": "The time-strip makes the distinction between nuclear division and cytoplasmic separation clear.",
+    "step": 6,
+    "reason": "The new goal explicitly calls for actin and myosin to divide the cytoplasm of the two-nucleus cell.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin should constrict the cell and separate it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Actin and myosin separated the cytoplasm, completing the daughter stem-cell population and all goals.",
+    "reaction": "The final picture connects cell division with self-renewal and later differentiation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle to form two nuclei was most worthwhile: the planned time-strip distinguishes chromosome separation from the later division of the cytoplasm.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle was fairly predictable because the goal named both ingredients, though the assembly preview added useful context.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The membrane-building result introduced an ER-to-Golgi vesicle delivery route rather than simply making a membrane patch.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but the spindle goal did not explain what centrosomes or tubulin do until after the combination. The planned picture then showed fibres growing from centrosomes.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the final branching arrows make me curious how the stem cells become different cell types.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

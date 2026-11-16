@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with glucose breakdown to obtain ATP for the cell's machinery.",
+    "choice": 3,
+    "expectation": "I expect glycolysis to produce some ATP and breakdown products, though further steps may be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fitting the pump also advances a goal, but starting with ATP may help connect its energy source to its function."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate outside the mitochondrion, revealing a goal to supply the mitochondrion with fuel and oxygen.",
+    "reaction": "The distinction between ATP made in the cytosol and fuel remaining in pyruvate is useful.",
+    "step": 2,
+    "reason": "Continue following glucose breakdown by supplying pyruvate to the mitochondrion.",
+    "choice": 3,
+    "expectation": "I expect the mitochondrion to receive the food breakdown product; oxygen may require a separate step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pump is another goal, but I want to follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate has entered the mitochondrion; oxygen is still needed to complete the supply goal.",
+    "reaction": "The cutaway makes the movement into the mitochondrion clear.",
+    "step": 3,
+    "reason": "Add oxygen to complete the mitochondrial supply goal and continue the fuel pathway.",
+    "choice": 3,
+    "expectation": "I expect the mitochondrion to be supplied with both pyruvate and oxygen, potentially revealing the next respiration step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondrial supply produced ATP, linking oxygen and fuel oxidation to a hydrogen-ion gradient and ATP synthase.",
+    "reaction": "The gradient provides a useful connection between electron transfer and ATP production, though several processes are compressed into one picture.",
+    "step": 4,
+    "reason": "Fit the sodium-potassium pump into the membrane to advance its goal and connect it to the ATP supply.",
+    "choice": 1,
+    "expectation": "I expect the pump proteins to be embedded in the membrane; using ATP may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Assembling ribosomes also advances a goal, but I want to follow the ATP connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are fitted into the membrane, revealing a goal to use ATP to move sodium out.",
+    "reaction": "The absence of transport arrows makes the distinction between fitting and operating the pump clear.",
+    "step": 5,
+    "reason": "Use the mitochondrial ATP supply to power the pump and connect respiration to active transport.",
+    "choice": 3,
+    "expectation": "I expect ATP to power sodium movement out of the cell, probably alongside potassium movement inward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cytosolic ATP could also power the pump, but I want to use the mitochondrial supply I just assembled."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered sodium export and potassium import against their concentration differences, completing the pump goal.",
+    "reaction": "The arrows clearly connect ATP use to transport against the gradients.",
+    "step": 6,
+    "reason": "Assemble ribosomes on mRNA for the remaining goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ribosome subunits to assemble on the mRNA, possibly revealing a protein-making step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are assembled on mRNA, revealing a goal to supply amino acids and ATP for protein production.",
+    "reaction": "The picture usefully shows ribosomes both free in cytosol and at the endoplasmic reticulum.",
+    "step": 7,
+    "reason": "Place amino acids at the ribosomes to provide the building blocks for proteins.",
+    "choice": 2,
+    "expectation": "I expect the amino acids to be available for protein synthesis; ATP will likely need a separate placement.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Mitochondrial ATP is also needed, but I chose to supply the building blocks first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids are positioned at the ribosomes; an ATP source is still needed.",
+    "reaction": "The placement is a straightforward preparation.",
+    "step": 8,
+    "reason": "Supply mitochondrial ATP to complete the ingredients for protein synthesis.",
+    "choice": 2,
+    "expectation": "I expect the ribosomes to use the amino acids and ATP to make proteins.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP is also offered, but I chose the mitochondrial supply to continue the connection to respiration."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein synthesis completed the chapter, showing ATP supporting amino-acid preparation and the RNA message guiding chain order, while pyruvate remains on the fuel route.",
+    "reaction": "The separation of pyruvate from the protein chain is a useful clarification.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using mitochondrial ATP to run the sodium-potassium pump connected respiration to active transport and made the energy cost tangible.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing amino acids at the ribosomes was a necessary but uneventful preparation; its result added little beyond confirming the placement.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The mitochondrial picture compressed electron transfer, oxygen's role, the hydrogen-ion gradient and ATP synthesis into one result. The connection was useful, though dense for a brief passage.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless. Choosing mitochondrial rather than cytosolic ATP was a preference for following the respiration connection, not a demonstrated requirement.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting cell processes through constructions was interesting, although I would hope later explanations unpack dense steps rather than relying on terminology alone.",
+        "steps": [
+          3,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

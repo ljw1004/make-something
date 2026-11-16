@@ -1,0 +1,97 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus is released onto the colon lining, so it should connect to the existing digestive system.",
+    "choice": {
+      "combine": "Body with connected digestion",
+      "with": "Colon mucus"
+    },
+    "expectation": "The body model will show mucus lining the colon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The colon now has a mucus layer, and its lining is shown absorbing water and salts.",
+    "reaction": "The cutaway makes the protective layer's location clear.",
+    "step": 2,
+    "reason": "The wet remainder is already in the colon, where the lining can recover water from it.",
+    "choice": {
+      "combine": "Body with protective colon mucus",
+      "with": "Wet food remainder"
+    },
+    "expectation": "The model will show the remainder in the colon and water being absorbed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus-lined body currently has no available combination, so I will try the remaining colon contents instead.",
+    "reaction": "I was surprised the wet remainder could not be added directly.",
+    "step": 3,
+    "reason": "The microbes and wet remainder occupy the same colon, making their interaction a plausible next step.",
+    "choice": {
+      "combine": "Wet food remainder",
+      "with": "Resident gut microbes"
+    },
+    "expectation": "The microbes will interact with the undigested material.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microbes ferment some fibre into small fatty acids and gas; the resulting colon contents may now connect to the mucus-lined body.",
+    "reaction": "The distinction that not all microbes are helpful adds useful nuance.",
+    "step": 4,
+    "reason": "The fermenting contents belong in the colon, where their products may interact with the lining.",
+    "choice": {
+      "combine": "Fermenting colon contents",
+      "with": "Body with protective colon mucus"
+    },
+    "expectation": "The model will show the microbial products interacting with the colon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final cutaway connects microbial fermentation to fatty-acid uptake, water and salt absorption, and the protective mucus layer; the goal is complete.",
+    "reaction": "It was satisfying to see the separate pieces brought together in one colon model.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the fermenting contents with the body made the exchanges concrete: microbes produce fatty acids that enter lining cells or blood, while the colon recovers water.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add the wet remainder directly to the mucus-lined body was unproductive; the compatibility failure did not explain why that plausible pairing was unavailable.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The wet remainder had to interact with microbes before it could be combined with the body, despite already being located in the colon.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That required ordering felt somewhat arbitrary: the failed attempt did not explain why water recovery could not be shown before fermentation.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the final construction linked microbial activity to the host's tissues and circulation, although I would hope for clearer feedback on plausible combinations.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

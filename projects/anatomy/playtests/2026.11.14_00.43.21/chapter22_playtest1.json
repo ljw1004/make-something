@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and the matching shapes and supplied helper suggest it starts the immune response.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to be activated after recognizing the bacterial fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so the next step is to let it grow in the lymph node.",
+    "reaction": "The matching shapes made the selection understandable.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the node's picture says it supports activated cells as they divide.",
+    "choice": 1,
+    "expectation": "I expect the activated lymphocyte to multiply, possibly producing cells for antibodies and memory.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making and memory cells, completing one goal; now I can work toward clearing the bacteria.",
+    "reaction": "It was helpful to see that division produces both kinds of cells.",
+    "step": 3,
+    "reason": "This is the only offered combination; amino acids are building blocks for proteins, and antibodies are proteins.",
+    "choice": 1,
+    "expectation": "I expect the antibody-making cells to use the amino acids to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies with tips that match the bacteria, so they can now bind to them.",
+    "reaction": "The matching shapes make their role clear.",
+    "step": 4,
+    "reason": "This is the only offered combination, and binding the bacteria should help clear them.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the bacteria's surface knobs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, making them ready for the engulfing cells shown earlier.",
+    "reaction": "The result matched the picture I expected.",
+    "step": 5,
+    "reason": "This is the only offered combination. The white blood cells' picture shows them binding to and surrounding antibody-coated bacteria.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "The final picture clearly showed how the antibody coating helped the cells clear bacteria.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the matching lymphocyte and seeing it produce both antibody-making and memory cells made the response easier to follow.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and attaching the antibodies felt a little repetitive because the matching shapes and results were already predictable.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the activated cell to produce both antibody-making cells and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; each followed the supplied pictures or explanation, though every decision had only one offered combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how memory cells help in a later response, but I would hope for more meaningful choices than the single offered combinations here.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

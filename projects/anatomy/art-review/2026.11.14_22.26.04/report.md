@@ -1,0 +1,24 @@
+# Complete four-chapter artwork comparison
+
+Review consolidation began 14 November 2026 at 22:26:04 Pacific; this timestamp is not an asserted start time for earlier production work.
+
+## Scope and result
+
+The user accepted the revised Star Trek illustrations as an approximation of the required icons and requested the complete four-chapter comparison across all styles. Twelve independent artist subagents refreshed their own directions without inspecting the other artists' work. The accepted Star Trek artwork is reused unchanged. All thirteen directions cover chapters **1, 4, 8 and 18** with blank, ruled or textured backgrounds and anatomy carried by interactive objects. Suitable generated masters were reused; new generations and mechanical extraction/compositing provide compatible constituent families.
+
+The [gallery](../../art-study/gallery.html) contains thirteen contact sheets, **52 separately linked chapter panels** and thirteen playable copies. Each panel shows entry and completion at actual player scale, plus the full inventory enlarged for inspection. Per style this comprises **33 identities, five fitted layers and seven assembled states**: 45 representations, or **585 across the comparison**. Star Trek's separate full-book gallery remains available; other styles retain placeholders outside the selected chapters.
+
+## Verification and corrections
+
+- All thirteen copies pass native lint with **zero errors and six existing mixed-fate warnings**, across 29 chapters including the epilogue and 156 recipes. Parsed semantic comparison passes for every copy; Star Trek uses its existing five-ID alias normalization. The original manuscript remains byte-identical at SHA-256 `d6920c636ce31af51a80b341237c1ba3375d29daf23b71834aeb2eae8ff63229`.
+- All 585 inventory representations decode, have nonempty visible artwork, and use matching canvas dimensions for registered fitted states. The manifest resolver includes relevant hotspot presentations and all selected fitted subsets. Chapter backgrounds contain no anatomical content.
+- **148 current browser chapter routes** pass ordinary pointer combinations, completion, completed-state reload, image loading and page-error checks: all 52 theme/chapter pairs at 390×844; the twelve revised directions additionally at 390×640 and 1280×900, 48 routes each. Unchanged Star Trek had already passed all 28 chapters at all three sizes in its [full-book review](../2026.11.14_21.49.10/report.md). These are checkpoint-started routes, not continuous whole-book sessions or native-touch tests.
+- Artists inspected their own families and partial fitting states. Coordinator inspection and repairs retained the hearing-cell enlargement through every relevant ear stage in modern-student, doctor-poster and classic-1800; made the doctor's mineral installation more visible using its own supplied crystal artwork; corrected researcher arm occlusion; and confirmed watercolor fittings remain unobscured by either receiver base, including faint alpha edges. Relevant chapter routes were repeated after repairs.
+- All thirteen gallery images decode. All **107 unique local gallery links** return successful HTTP responses, including all 52 chapter panels, playable URLs, contact sheets and production notes. Final sheets were rebuilt from the verified captures.
+- The route checker selects visible drag points when items overlap. Where growing movable results extend beyond the scene edge, ordinary pointer repositioning frames them before the final capture. Fixed arm receivers are excluded. No engine behavior was changed.
+
+## Limits and retained evidence
+
+These are comparison candidates. Fine ink annotations, small eardrums, DNA, chemistry symbols and other tiny details still depend on names, context or enlarged inspection. Anatomical projections and located enlargements are deliberately schematic. The work does not establish medical accuracy, student comprehension, preference or improved learning/fun, and no production style has been selected.
+
+Selected masters, available original requests, exact new generation requests, extraction/registration tools, presentation maps, manifests, playable copies and requested contact sheets remain with each theme. Playful collage explicitly discloses four inherited anatomical masters whose original request text was not retained; its new blank-paper request is preserved. The shared [assignment](../../art-study/artist-instructions.md), [asset resolver](../../art-study/checks/comparison-assets.ts), [semantic checker](../../art-study/checks/verify-semantics.ts), [browser route](../../art-study/checks/capture.mjs) and [sheet compositor](../../art-study/contact-sheets.py) retain verification instructions. Raw browser captures, review composites and logs under `runs/anatomy-style-refresh/` are removed after consolidation. No application change, hosting, publication, access change, commit or push was performed.

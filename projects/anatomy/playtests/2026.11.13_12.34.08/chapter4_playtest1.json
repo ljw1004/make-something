@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions explicitly direct stem-cell descendants toward cells that make connective tissue.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "A subset of the stem-cell descendants will become fibroblasts through the staged differentiation process.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The separate muscle lineage also addresses an initial goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast lineage now has collagen RNA messages, suggesting amino acids can supply the building blocks for collagen production.",
+    "reaction": "The link from activated genes to RNA at the rough ER is clear.",
+    "step": 2,
+    "reason": "Collagen is a protein, so the lineage cells need amino acids to make it.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will use the amino acids and collagen messages to produce collagen protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could develop the separate muscle lineage first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them in secretory vesicles; the remaining step is likely secretion and extracellular processing.",
+    "reaction": "The progression from RNA to packaged protein is clear.",
+    "step": 3,
+    "reason": "Extracellular fluid contains the processing enzymes and space where the supporting material can form.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will secrete collagen precursors for processing into extracellular supporting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle lineage first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts secreted and assembled collagen-rich matrix, completing the supporting-material goal; the muscle lineage remains.",
+    "reaction": "The distinction between living cells and their surrounding matrix is useful.",
+    "step": 4,
+    "reason": "The skeletal-muscle conditions explicitly direct a separate subset of stem-cell descendants toward muscle precursors.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "The selected descendants will progress through the staged muscle lineage to muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with muscle-protein messages, but no mature fibres yet.",
+    "reaction": "The shared DNA and different active genes make the contrast between the two lineages clear.",
+    "step": 5,
+    "reason": "As with collagen production, amino acids should supply the building blocks for the proteins specified by these messages.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make muscle proteins and progress toward muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells made muscle proteins and became separate, single-nucleus myoblasts, completing the goal without becoming mature fibres.",
+    "reaction": "The contrast between retained muscle proteins and exported collagen was useful, though the two overlapping picture descriptions felt repetitive.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the collagen-rich extracellular matrix was most worthwhile: the planned sequence connected protein secretion and processing to the material surrounding living cells.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final muscle-precursor result repeated much of its picture description in a second wonder, adding little to the distinction between myoblasts and mature fibres.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The same amino-acid supply produced different proteins in the two lineages because they used different RNA messages; the muscle products remained in cells while collagen was exported.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The muscle-lineage combination followed the same protein-building logic established for collagen.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contrast between the two lineages was clear, and the unfinished development of the myoblasts leaves a question about how mature muscle forms.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

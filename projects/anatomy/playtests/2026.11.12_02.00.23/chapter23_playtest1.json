@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "Clearing debris seems like a useful start to repairing the wound.",
+    "choice": 1,
+    "expectation": "Phagocytes will clear some debris around the sealed wound, preparing the area for repair.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A nearby blood supply also seems useful for repair, but I want to address the wound debris first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleaned around the clot, so I can move on to supporting tissue repair.",
+    "reaction": "The result matched my expectation, though it added little explanation.",
+    "step": 2,
+    "reason": "Repair signals acting on a nearby capillary may help establish the blood supply needed for healing.",
+    "choice": 1,
+    "expectation": "The capillary will grow or extend toward the wound, though I am unsure how the game will represent that.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts could build supporting tissue, but I want to address the blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a new vessel branch connected to the existing circulation, which I can now add to the wound.",
+    "reaction": "The sprout matched my expectation, and its connection to the parent vessel is clear.",
+    "step": 3,
+    "reason": "Adding the sprout to the cleaned wound seems like the next step toward supplying the repair site.",
+    "choice": 1,
+    "expectation": "The wound will gain a growing blood supply, though I am unsure whether the vessel is functional yet.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts could start building support, but I want to connect the new vessel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has connected capillary branches and needs both surface and support layers.",
+    "reaction": "The empty slots make the next tasks clear, though the picture describes completed overlays before they are fitted.",
+    "step": 4,
+    "reason": "Fibroblasts and nutrients seem likely to make the deeper support needed for the wound.",
+    "choice": 1,
+    "expectation": "The fibroblasts will produce collagen-rich connective tissue that can be fitted into the support slot.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Surface cells also need to close the wound, but I want to build the underlying support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts produced new connective tissue, ready to fill the wound's support slot.",
+    "reaction": "The collagen fibres make the tissue's supporting role clear.",
+    "step": 5,
+    "reason": "I want to add the new support to the healing wound.",
+    "choice": 2,
+    "expectation": "The connective tissue will fill the support slot beneath the still-open surface.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The surface also needs repair, but I want to fit the support I just made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new connective tissue now fills the wound's support slot; the surface still needs repair.",
+    "reaction": "The fitting was straightforward.",
+    "step": 6,
+    "reason": "This is the only available combination, and the edge cells should help close the surface.",
+    "choice": 1,
+    "expectation": "The nourished epidermal cells will form a new surface that can be fitted over the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal cells formed a new surface that can fill the remaining slot.",
+    "reaction": "The picture clearly shows the cells extending across the gap.",
+    "step": 7,
+    "reason": "This is the only available combination, and fitting the surface should close the wound.",
+    "choice": 1,
+    "expectation": "The new surface will cover the wound above the connective tissue, completing the closure and support goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface is fitted and the wound is closed and supported; the temporary clot still needs clearing.",
+    "reaction": "The closure matched my expectation.",
+    "step": 8,
+    "reason": "The only available combination addresses the remaining goal of clearing the clot.",
+    "choice": 1,
+    "expectation": "The enzymes will break down the temporary fibrin clot while the repaired tissue remains in place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary fibrin has mostly cleared, leaving closed skin and a scar that is still maturing. Both goals are complete.",
+    "reaction": "The remaining scar made the ending feel more realistic than an instant return to uninjured skin.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building and fitting the connective tissue was worthwhile: the fibroblasts laying collagen made the wound's deeper support concrete.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The early cleaning result was clear but brief, and the later fitting steps felt procedural.",
+        "steps": [
+          1,
+          5,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The healing-skin picture described the completed surface and support overlays before either was fitted, which made the construction's current state confusing.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt entirely purposeless, though combining edge cells with nutrients gave little explanation of how the new surface formed.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing for more connections between body systems, though the predictable fitting steps made this chapter feel more like assembling an illustration than making meaningful decisions.",
+        "steps": [
+          3,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

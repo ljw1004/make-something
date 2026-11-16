@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier fits glucose and must be positioned in the membrane to bring fuel into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be installed in a membrane patch, providing a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, so glucose can now be brought to it.",
+    "reaction": "The membrane placement was as expected.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will cross into the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now in the cytosol, ready to follow its breakdown inside the cell.",
+    "reaction": "The carrier’s change in shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "The living cell interior contains the machinery for glucose breakdown and ATP renewal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose will begin being broken down inside the cell, linking fuel to ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate, which is shown heading toward mitochondria for the next stage.",
+    "reaction": "The distinction that glycolysis itself has no oxygen input is useful.",
+    "step": 4,
+    "reason": "The pyruvate points toward mitochondria, and oxygen is available in the cytosol for aerobic ATP renewal.",
+    "choice": {
+      "combine": "Glycolytic cytosol with ATP and pyruvate",
+      "with": "Living cell interior"
+    },
+    "expectation": "The cell interior will use the pyruvate and available oxygen to continue aerobic ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate-derived fuel and oxygen now support mitochondrial ATP renewal; the remaining fuel goal calls for powered ion transport.",
+    "reaction": "The distinct roles of fuel and oxygen make the aerobic pathway clearer.",
+    "step": 5,
+    "reason": "The sodium-potassium pump is a membrane protein, so installing it is a practical next step toward powered ion transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be installed in a membrane patch, ready to use ATP for ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane with its ATP-binding site facing the cytosol.",
+    "reaction": "The placement was as expected and contrasts with the passive sodium channel.",
+    "step": 6,
+    "reason": "The installed pump needs ATP for powered ion transport, and aerobic ATP renewal is now available.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump will use renewed ATP to move sodium and potassium against their gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered sodium and potassium transport completes the fuel and ion-transport goal; protein growth remains.",
+    "reaction": "The contrast between passive flow and pumping against gradients is clear.",
+    "step": 7,
+    "reason": "Amino acids are protein building blocks, and the cell interior contains ribosomes and existing RNA messages.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Living cell interior"
+    },
+    "expectation": "Ribosomes will use the amino acids to make new proteins for cell growth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids and the existing RNA messages produced new proteins, completing the remaining goal; the result also shows energy-supported steps in protein synthesis.",
+    "reaction": "The connection between energy use and protein building was useful, though the automatic inclusion of glycolytic cytosol was not something I had anticipated.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following pyruvate into aerobic ATP renewal was most worthwhile: the illustration plan distinguishes fuel oxidation from oxygen’s role and connects proton movement to ATP synthesis.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was predictable after installing the glucose carrier, although it established where the pump works.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Protein synthesis automatically included the glycolytic cytosol, making the energy connection explicit in a combination I expected to focus on amino acids and ribosomes.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The automatic use of glycolytic cytosol for protein synthesis was not obvious from the chosen pair, although the resulting energy-coupling inset gives it a purpose.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the contrasting transport mechanisms and linked energy pathways made the constructions informative. The planned illustrations, rather than finished artwork, are what I can judge here.",
+        "steps": [
+          2,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

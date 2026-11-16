@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope is shown enclosing an open space, so it looks ready to hold the DNA.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The envelope will enclose the DNA to make a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "The fats and water may form the cell boundary needed for the transport proteins."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is now enclosed in a nucleus, and the next goal is to put it inside a cell boundary.",
+    "reaction": "The new goal makes the next construction clear.",
+    "step": 2,
+    "reason": "The intro starts with a membrane bag and water, and the lipid picture shows parts that face toward and away from water.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The lipids and water will form a cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids and water formed a membrane bag, giving the nucleus a cell boundary to go inside.",
+    "reaction": "The picture makes the inside and outside of the membrane clear.",
+    "step": 3,
+    "reason": "The new goal explicitly says to put the nucleus inside the cell boundary.",
+    "choice": {
+      "combine": "Nucleus",
+      "with": "Membrane bag"
+    },
+    "expectation": "The nucleus will fit inside the membrane bag.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water-channel protein",
+          "with": "Membrane bag"
+        },
+        "reason": "The water channel also appears ready to fit into the boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is inside the membrane bag, completing that goal; the water and sugar routes remain.",
+    "reaction": "The two nested boundaries are clear from the description.",
+    "step": 4,
+    "reason": "The water-channel protein is pictured spanning a membrane and letting water through, matching one remaining goal.",
+    "choice": {
+      "combine": "Water-channel protein",
+      "with": "Membrane bag"
+    },
+    "expectation": "The water channel will fit into the bag's membrane and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sugar-carrier protein",
+          "with": "Membrane bag"
+        },
+        "reason": "The sugar carrier also appears ready to provide the other route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel now spans the bag's boundary, leaving the sugar route to add.",
+    "reaction": "The arrows make the water route easy to picture.",
+    "step": 5,
+    "reason": "The sugar-carrier protein is pictured spanning a membrane with a sugar-shaped pocket, matching the remaining route.",
+    "choice": {
+      "combine": "Sugar-carrier protein",
+      "with": "Membrane bag"
+    },
+    "expectation": "The sugar carrier will fit into the membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completed the boundary routes and all chapter goals. Its pocket opens to either side, while small molecules such as oxygen can cross the lipid itself.",
+    "reaction": "The different routes through the same boundary were interesting, though I still do not know exactly how the carrier moves sugar.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the membrane bag was most worthwhile because its picture showed how a boundary creates an inside and an outside.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the two transport proteins felt somewhat repetitive: their pictures and the goal made both placements straightforward.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that oxygen can cross the lipid itself, while water channels and sugar carriers provide other routes.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and goals made the pairings clear, even if they did not explain every mechanism.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue to see how this simple cell model connects to tissues and organs, though this chapter's choices were mostly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

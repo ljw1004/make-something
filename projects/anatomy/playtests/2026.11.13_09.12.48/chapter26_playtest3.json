@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The rough edge is described as causing the skin and vessel injury, so the body needs to encounter it first.",
+    "choice": {
+      "combine": "Body with immune memory",
+      "with": "Rough edge"
+    },
+    "expectation": "The body will acquire a small cut that exposes the bleeding site.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut is now present, and the vessel has narrowed; the next step is to address the bleeding.",
+    "reaction": "The narrowed vessel is a useful detail in the injury picture.",
+    "step": 2,
+    "reason": "Platelets at the cut are the most direct next choice for forming an initial plug.",
+    "choice": {
+      "combine": "Cut body",
+      "with": "Platelets at the cut"
+    },
+    "expectation": "Platelets will gather at the damaged vessel and begin a plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug slows the leak; fibrinogen and activated clotting factors remain to reinforce it.",
+    "reaction": "The distinction between slowing the leak and securing the plug is useful.",
+    "step": 3,
+    "reason": "Activated clotting factors can convert soluble fibrinogen into fibrin for a stabilizing mesh.",
+    "choice": {
+      "combine": "Fibrinogen",
+      "with": "Activated clotting factors"
+    },
+    "expectation": "This will produce fibrin that can reinforce the platelet plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibrin threads are available to reinforce the platelet plug.",
+    "reaction": "The thread mesh makes the stabilizing step clear.",
+    "step": 4,
+    "reason": "The fibrin mesh should secure the platelets at the damaged vessel.",
+    "choice": {
+      "combine": "Body with platelet plug",
+      "with": "Fibrin threads"
+    },
+    "expectation": "The fibrin will reinforce the plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibrin mesh secured the platelet plug and stopped the bleeding, although the skin remains open.",
+    "reaction": "The distinction between sealing the vessel and closing the skin was useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reinforcing the platelet plug with fibrin was most worthwhile: the planned cutaway connects the two components to stopping the leak while showing that the skin still needs repair.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Creating the cut was a predictable setup step, though it established the narrowed vessel.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The completed goal sealed the vessel but left the skin open, distinguishing stopped bleeding from healed tissue.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. The conversion of fibrinogen into threads was clear in context, although the activated clotting factors and how they work were not explained in detail.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the open skin closes; the distinction at the end leaves a concrete next question.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

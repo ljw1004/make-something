@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the developing red cells and the materials needed for their oxygen-carrying protein.",
+    "choice": 1,
+    "expectation": "I expect the cells to produce haemoglobin, though further maturation may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Making plasma also advances blood assembly, but I want to start with oxygen transport."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells have matured and assembled haemoglobin, so I can now examine oxygen binding.",
+    "reaction": "The cutaway usefully distinguishes protein production in developing cells from mature cells without nuclei.",
+    "step": 2,
+    "reason": "Combine the red cells with oxygen to pursue the binding goal.",
+    "choice": 1,
+    "expectation": "I expect oxygen to bind to haemoglobin; a further step may be needed to show its release.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is also needed for blood assembly, but I want to follow the red cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The double arrow and explanation establish reversible oxygen binding, completing that goal; blood assembly remains.",
+    "reaction": "The low-oxygen tissue example makes release more concrete.",
+    "step": 3,
+    "reason": "Make plasma as the only offered combination toward assembling blood.",
+    "choice": 1,
+    "expectation": "I expect water and dissolved solutes to form plasma, ready to combine with blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma is ready to combine with the cellular components of blood.",
+    "reaction": "The plasma result was straightforward, though it did not explain the solutes' roles.",
+    "step": 4,
+    "reason": "Add the oxygen-bearing red cells to the plasma as a step toward assembling blood.",
+    "choice": 2,
+    "expectation": "I expect a mixture of plasma and red cells, with white cells and platelets still to add.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "White cells and platelets also belong in blood, but I chose to add the oxygen carriers first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The partial sample contains red cells in plasma but still lacks white cells and platelets.",
+    "reaction": "The picture makes the missing components clear.",
+    "step": 5,
+    "reason": "Add the missing components to assemble the blood sample; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a blood sample containing plasma, red cells, white cells and platelets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding white cells and platelets completed the blood sample and the chapter’s remaining goal.",
+    "reaction": "The final picture clearly distinguishes the components, though it says little about what white cells and platelets do.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining red cells with oxygen was most worthwhile: the planned double arrow and low-oxygen tissue example connected reversible binding to oxygen delivery.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma was straightforward but offered little explanation of the different solutes or their roles.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The red-cell construction moved directly from developing cells to mature, nucleus-free discs; the cutaway clarified that haemoglobin was assembled during development.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though adding the blood components in stages was predictable rather than a meaningful compatibility discovery.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how circulation brings oxygen carriers close to tissues, building on the useful oxygen-binding explanation.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

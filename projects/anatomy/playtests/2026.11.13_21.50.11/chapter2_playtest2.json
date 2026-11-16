@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria inside the cell, and adding them is part of the first goal.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be added inside the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus]",
+          "with": "Ribosomes"
+        },
+        "reason": "The picture also places ribosomes inside the cell, so I could work on the other goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are now inside the cell; the glucose route and protein builders still need attention.",
+    "reaction": "The placement matches the picture, which is satisfying.",
+    "step": 2,
+    "reason": "The carrier spans the membrane and has a pocket for glucose, so it looks like the route into the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier will be fitted into the cell membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria]",
+          "with": "Ribosomes"
+        },
+        "reason": "I could add the protein builders first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal is to feed glucose to the cell to make ATP.",
+    "reaction": "The two-panel picture makes the route into the cell clearer.",
+    "step": 3,
+    "reason": "The glucose matches the installed carrier's pocket, so I'll try feeding it to the cell as the new goal asks.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter the cell and help it make ATP, though I don't know the detailed process.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+          "with": "Ribosomes"
+        },
+        "reason": "I could add the protein builders first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was used to make ATP; the picture links that process to the cell fluid, mitochondria and oxygen. The protein-builder goal remains.",
+    "reaction": "The inset helped me see where glucose is used, though I don't know the detailed steps.",
+    "step": 4,
+    "reason": "The ribosome picture places these protein builders in the cell, matching the remaining goal.",
+    "choice": {
+      "combine": "Cell",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will be added to the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are now in the cell, and the new goal is to give one an RNA instruction.",
+    "reaction": "The enlarged groove makes the next pairing clear.",
+    "step": 5,
+    "reason": "The RNA copy comes from the nucleus, and the ribosome has a groove for an RNA strand.",
+    "choice": {
+      "combine": "Cell",
+      "with": "RNA copy from the nucleus"
+    },
+    "expectation": "The RNA instruction will be given to a ribosome in the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the new goal is to build a protein using the amino acids already in the cell fluid.",
+    "reaction": "The picture makes the connection between the RNA and protein building blocks clearer.",
+    "step": 6,
+    "reason": "The amino acids are a supplied pool rather than an item to select, so I'll check what the ribosome can combine with.",
+    "choice": {
+      "inspect": "Ribosome with RNA"
+    },
+    "expectation": "The compatibility list should show how to start building the protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome with RNA",
+          "with": "ATP"
+        },
+        "reason": "ATP supplies usable energy, but I don't know whether the game requires it for this step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection showed ATP was the missing partner and automatically completed the protein. The picture distinguishes ATP used for the work from amino acids that become the protein.",
+    "reaction": "That connection between the two projects was satisfying; I hadn't been sure ATP was required.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the protein was most worthwhile because it brought together the RNA instruction, amino acids and ATP, and showed their different roles.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the mitochondria and ribosomes was fairly predictable from their pictures, though it helped set up the later steps.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I wasn't sure ATP would be needed to build the protein; the final picture showed it being used without becoming part of the chain.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The ATP pairing wasn't obvious to me beforehand, but the compatibility hint and result gave it a purpose. I didn't find another action particularly arbitrary.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I'd probably continue for another chapter to see how these cell parts connect to larger structures. The final connection was interesting, though some placements were predictable.",
+        "steps": [
+          1,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with membrane growth, one of the three preparations needed for cell division.",
+    "choice": 1,
+    "expectation": "I expect the phospholipids and proteins to contribute to new membrane material, though the exact construction is unclear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also necessary, but I chose to begin with the cell's growing membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane components formed vesicles, revealing a further goal to grow the cell.",
+    "reaction": "The vesicles make a plausible intermediate, though their contribution to growth remains to be shown.",
+    "step": 2,
+    "reason": "Combine the vesicles with the cell to pursue the newly revealed growth goal.",
+    "choice": 1,
+    "expectation": "I expect the vesicles to add membrane to the cell surface, though how the contents grow is less clear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Genome copying is also required, but I want to follow the membrane preparation through first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Vesicle fusion expanded the surface while protein production and organelle growth increased the cell's contents.",
+    "reaction": "The before-and-after description usefully distinguishes membrane addition from growth of the rest of the cell.",
+    "step": 3,
+    "reason": "Copy the genome before it is shared between daughter cells.",
+    "choice": 1,
+    "expectation": "I expect the nucleotides to be used to copy the nuclear DNA, producing a duplicated genome.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The spindle is also needed, but I chose to copy the DNA first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, with sister chromatids remaining together until separation; the spindle remains to be built.",
+    "reaction": "The distinction between genome replication and protein production is useful.",
+    "step": 4,
+    "reason": "Build the chromosome-separating spindle; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect tubulin and motor proteins to form a spindle organized by the centrosomes, ready to help separate chromosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, and the new goal is to give each daughter cell a complete genome.",
+    "reaction": "The picture makes clear that building the spindle has not yet separated the chromosomes.",
+    "step": 5,
+    "reason": "Combine the copied genome with the spindle to begin chromosome separation; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the spindle to interact with the copied chromosomes and help separate their sister chromatids, though further steps may be needed to form daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle has separated matching chromosome sets, but the cell still shares one cytoplasm.",
+    "reaction": "The distinction between chromosome separation and forming two cells is clear.",
+    "step": 6,
+    "reason": "Bring the grown cell body together with its separated chromosomes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the cell to move toward dividing its cytoplasm into two daughter cells, although another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two daughter nuclei have formed, but the cytoplasm remains shared; the cell still needs to divide.",
+    "reaction": "The separate nuclear and cytoplasmic stages are clear.",
+    "step": 7,
+    "reason": "Use the actin and myosin to divide the cell; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect actin and myosin to constrict the cell and separate its cytoplasm into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has divided into two unspecialized daughter stem cells, completing the chapter's goals.",
+    "reaction": "The final picture plan connects division to self-renewal, though it does not show how actin and myosin constrict the cell.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Chromosome separation was most worthwhile: the picture plan and prose distinguish distributing sister chromatids from dividing the shared cytoplasm.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle felt least informative: the picture plan shows fibres but gives little explanation of how they will attach to chromosomes or move them.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The membrane vesicles expanded the surface, while continued protein production and organelle growth accounted separately for the increased contents.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the enlarged cell body with separated chromosome sets felt somewhat abstract because the latter was already described as a view inside that same cell. Its purpose became clearer when two nuclei formed.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the staged distinction between genome copying, chromosome separation and cell division made the constructions educational, even though the final stretch offered only one combination at each decision.",
+        "steps": [
+          3,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

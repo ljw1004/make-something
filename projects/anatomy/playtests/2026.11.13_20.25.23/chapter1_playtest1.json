@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope is shown enclosing a space, so it looks suited to hold the DNA.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The envelope will enclose the DNA to form a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "The fats and water also look like a starting point for building the cell boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is now enclosed in a nucleus, and the next goal is to put it inside the cell boundary.",
+    "reaction": "That matched the picture and made the next task clear.",
+    "step": 2,
+    "reason": "The membrane fats and water look like the pieces for making the cell boundary.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats will form a boundary around water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water formed a membrane bag, giving the nucleus and boundary proteins somewhere to fit.",
+    "reaction": "The picture helped me see how the membrane separates inside from outside, though it also describes parts not yet fitted.",
+    "step": 3,
+    "reason": "The goal says to put the nucleus inside the cell boundary, and the bag is now available.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Nucleus"
+    },
+    "expectation": "The nucleus will fit inside the membrane bag.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane bag",
+          "with": "Water-channel protein"
+        },
+        "reason": "The channel also looks suited to the boundary, but I will place the nucleus first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is now inside the membrane bag, completing that goal.",
+    "reaction": "That fit as expected.",
+    "step": 4,
+    "reason": "The remaining goal calls for routes through the boundary, and the water-channel protein is pictured spanning a membrane.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The water channel will fit into the bag's boundary and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane bag",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also appears to fit the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted into the membrane; the sugar route still needs to be added.",
+    "reaction": "That fit as expected.",
+    "step": 5,
+    "reason": "The sugar carrier is shown spanning a membrane and carrying sugar, matching the remaining route in the goal.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier will fit into the boundary and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier fitted into the membrane, completing the remaining goal and the chapter.",
+    "reaction": "It worked as expected and finished the cell boundary.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane bag was most worthwhile: its picture showed how the fats form an inside and an outside.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The membrane bag's creation picture was confusing because it described several parts that had not been fitted yet.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the bag's picture described later fittings before I had added them.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the pairings felt arbitrary; the goals and pictures made their purposes clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would try another chapter to see how more cell parts fit together, though these first pairings were mostly predictable.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

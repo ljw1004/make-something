@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "The eye's optic nerve leads toward the brain, so placing it in the head directly advances the first goal.",
+    "choice": {
+      "combine": "Eye with optic nerve",
+      "with": "Head and spine[]"
+    },
+    "expectation": "The eye should fit into the head with its nerve leading toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is fitted into the head and its optic nerve reaches the brain; the ears still need placing.",
+    "reaction": "It is satisfying to see the eye connect to the same brain.",
+    "step": 2,
+    "reason": "The ears already have nerve routes toward the brain, so they belong in the head model too.",
+    "choice": {
+      "combine": "Ears",
+      "with": "Head and spine[Eye with optic nerve]"
+    },
+    "expectation": "The ears should fit into the head with their hearing and balance nerves leading toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye and ears are now placed in the head, completing that goal.",
+    "reaction": "The hearing and balance parts fitting together without duplicating the inner ear makes sense.",
+    "step": 3,
+    "reason": "The small intestine ends beside the colon outline, so these are the two gut sections to join.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "The colon should connect to the end of the small intestine.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Repaired skin segment",
+          "with": "Skin covering[]"
+        },
+        "reason": "The matching opening makes this another clear goal to complete."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small intestine and colon now form a continuous digestive tract, completing the gut goal.",
+    "reaction": "The separate food and blood arrows make the connection clear.",
+    "step": 4,
+    "reason": "The repaired skin segment matches the opening in the skin covering.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment should fit into its original position in the covering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment fills its original opening, with its vessels and nerves connected to the surrounding skin. All chapter goals are complete.",
+    "reaction": "It is satisfying that the small scar remains visible rather than becoming the whole skin covering.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the digestive tract was most worthwhile: the separate food and blood arrows made it clear that absorbed material crosses the gut lining.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the eye and ears was clear but fairly predictable; their locations and nerve routes were already shown.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The repaired skin kept its small scar and connected to neighboring vessels and nerves, rather than representing the whole covering.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; each matched a visible location or connection.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter showed how the assembled parts work together. This chapter brought them together clearly, though the fittings themselves were straightforward.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

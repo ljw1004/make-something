@@ -1,0 +1,89 @@
+[
+  {
+    "step": 1,
+    "reason": "The microbes and undigested food are already in the same colon, so their interaction is a plausible starting point for following exchanges.",
+    "choice": {
+      "combine": "Wet food remainder",
+      "with": "Resident gut microbes"
+    },
+    "expectation": "The microbes may act on the undigested material, revealing an exchange in the colon.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The microbes ferment some fibre into small fatty acids and gas; I can now connect these contents to their human habitat.",
+    "reaction": "The distinction that not all microbes are helpful adds useful nuance.",
+    "step": 2,
+    "reason": "The fermenting contents are already located in the body's colon, so combining them with the body may show their effects on the host.",
+    "choice": {
+      "combine": "Fermenting colon contents",
+      "with": "Body with connected digestion"
+    },
+    "expectation": "The model will show how fermentation products interact with the colon or body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Colon mucus",
+          "with": "Body with connected digestion"
+        },
+        "reason": "The mucus also belongs to the colon lining and could establish the habitat first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body model now shows fatty acids entering lining cells and blood, alongside water and salt absorption. The remaining mucus may complete the habitat.",
+    "reaction": "Seeing the microbial products cross into the host makes the exchange clearer.",
+    "step": 3,
+    "reason": "The mucus comes from the colon lining and is the remaining visible component of the habitat.",
+    "choice": {
+      "combine": "Body with fermenting colon contents",
+      "with": "Colon mucus"
+    },
+    "expectation": "The mucus will be added to the colon model, showing its relationship to the microbes and lining.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model shows mucus separating most bacteria from the lining, while water, salts and microbial fatty acids cross it. The goal is complete.",
+    "reaction": "The combined picture makes the host–microbe exchange clearer, though the fatty acids' specific identity remains unexplained.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the fermenting contents with the body was most worthwhile: the planned cutaway connects microbial products to absorption by the host.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the mucus was a fairly predictable final step, though the resulting barrier made its purpose clear.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I appreciated the qualification that microbes differ and are not all helpful, alongside the example of fibre fermentation.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; each used a component already located in the colon.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: tracing a familiar meal into microbial fermentation and host absorption made the system connections interesting, even though the choices were straightforward.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

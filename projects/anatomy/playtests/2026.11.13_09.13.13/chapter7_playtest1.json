@@ -1,0 +1,160 @@
+[
+  {
+    "step": 1,
+    "reason": "The chapter says to guide the stem-cell population through neural development, and the culture is the visible means to do that.",
+    "choice": {
+      "combine": "Unspecialized stem-cell descendants",
+      "with": "Neural induction and maturation culture"
+    },
+    "expectation": "The descendants should develop into neurons and supporting glia.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The culture produced neurons with supporting glia, providing the cells needed to build synaptic arrangements.",
+    "reaction": "The lineage progression is clear, though the specific roles of astrocytes and oligodendrocytes remain unexplained.",
+    "step": 2,
+    "reason": "Excitatory connections should provide a route for inputs to influence a receiving neuron.",
+    "choice": {
+      "combine": "Neurons with supporting glia",
+      "with": "Excitatory synaptic connections"
+    },
+    "expectation": "This should create neurons connected by excitatory synapses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have one excitatory input, ready to test with a spike.",
+    "reaction": "The single-input arrangement makes a useful starting comparison.",
+    "step": 3,
+    "reason": "Testing one spike on this input should reveal the receiving neuron's response.",
+    "choice": {
+      "combine": "One excitatory input",
+      "with": "One spike on each input"
+    },
+    "expectation": "The input should produce an excitatory response, though it may not be enough to make the neuron fire.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "One excitatory spike produces a subthreshold voltage change, accounting for one quiet response; another arrangement is needed to reach threshold.",
+    "reaction": "The threshold trace makes the quiet response clear.",
+    "step": 4,
+    "reason": "A second excitatory connection may let simultaneous inputs add together.",
+    "choice": {
+      "combine": "One excitatory input",
+      "with": "Excitatory synaptic connections"
+    },
+    "expectation": "This should create an arrangement with two excitatory inputs to test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has two excitatory inputs, allowing a simultaneous-input comparison with the single-input test.",
+    "reaction": "The paired arrangement makes the next comparison straightforward.",
+    "step": 5,
+    "reason": "Testing one spike on each input should show whether their effects add enough to reach threshold.",
+    "choice": {
+      "combine": "Two excitatory inputs",
+      "with": "One spike on each input"
+    },
+    "expectation": "The simultaneous excitatory inputs should combine and may make the receiving neuron fire.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two simultaneous excitatory inputs reached threshold and produced a new spike, completing the firing goal and revealing a grey-matter goal.",
+    "reaction": "The distinction between overlapping voltage changes and a fresh outgoing spike is useful.",
+    "step": 6,
+    "reason": "Adding an inhibitory connection to the excitatory arrangement may create the contrasting quiet response and help build the required network.",
+    "choice": {
+      "combine": "Two excitatory inputs",
+      "with": "Inhibitory synaptic connections"
+    },
+    "expectation": "This should create an arrangement with both excitatory and inhibitory inputs to test.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two-excitatory-input arrangement cannot currently be combined with anything, so I need another route to an inhibitory arrangement.",
+    "reaction": "That was unexpected; adding inhibition directly seemed plausible.",
+    "step": 7,
+    "reason": "Inspecting the inhibitory connections should identify their available partners.",
+    "choice": {
+      "inspect": "Inhibitory synaptic connections"
+    },
+    "expectation": "The compatibility list should show how to build an inhibitory input or network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically paired inhibition with the single excitatory input, creating a mixed arrangement to test.",
+    "reaction": "The compatible starting arrangement was more restrictive than I expected.",
+    "step": 8,
+    "reason": "Testing one spike on each input should reveal how inhibition changes the receiving neuron's response.",
+    "choice": {
+      "combine": "Excitation with inhibition",
+      "with": "One spike on each input"
+    },
+    "expectation": "The inhibitory input should reduce the excitatory effect, leaving the receiving neuron quiet.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mixed inputs moved the receiving cell farther from threshold, completing the quiet-response goal.",
+    "reaction": "The downward voltage trace clearly contrasts with the earlier subthreshold rise.",
+    "step": 9,
+    "reason": "The remaining goal calls for joining excitatory and inhibitory networks, so the two arrangements are natural candidates.",
+    "choice": {
+      "combine": "Two excitatory inputs",
+      "with": "Excitation with inhibition"
+    },
+    "expectation": "The arrangements should join into a grey-matter network.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Joining the two arrangements created integrating grey matter and completed the final goal.",
+    "reaction": "The dense mesh brings the earlier inputs together, though the picture does not explain much more about grey matter.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing one excitatory input with two simultaneous inputs made threshold and summation concrete; the outgoing spike was explicitly distinguished from the incoming spikes.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The neural-development result names astrocytes and oligodendrocytes but leaves their distinct roles unexplained. That connection could use more support for this audience.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The mixed inputs produced a voltage dip below rest even though both incoming neurons fired, contrasting with the single excitatory input's subthreshold rise.",
+        "steps": [
+          3,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding inhibition to the two-excitatory-input arrangement failed, while adding it to the single-input arrangement worked. The restriction was not apparent from the biology or the board, although inspection revealed the compatible partner.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the contrasting voltage traces made the network's behavior interesting, and I would be curious to see how these cells contribute to a larger system.",
+        "steps": [
+          3,
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

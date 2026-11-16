@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The breathing motor nerves appear to link the control centres to the breathing muscles.",
+    "choice": {
+      "combine": "Respiratory control centres",
+      "with": "Breathing motor nerves"
+    },
+    "expectation": "They will form a control pathway for breathing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The control centres and nerves formed a breathing drive that can connect to the muscles later.",
+    "reaction": "The result matches the expected pathway.",
+    "step": 2,
+    "reason": "The pleural membranes appear to connect the lungs to the surrounding chest.",
+    "choice": {
+      "combine": "Circulation with lung exchange",
+      "with": "Pleural membranes"
+    },
+    "expectation": "The membranes will connect to the lungs and help prepare them to move with the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circulation cannot currently combine with anything, so I need to assemble other breathing structures first.",
+    "reaction": "The failed attempt makes the required order less clear.",
+    "step": 3,
+    "reason": "The diaphragm and rib cage are the available structures that move during breathing, so I will try joining them.",
+    "choice": {
+      "combine": "Rib cage and intercostal muscles",
+      "with": "Diaphragm"
+    },
+    "expectation": "They will form a chest structure with the muscles needed for breathing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rib cage needed the pleural membranes first, forming a chest interface before adding the diaphragm.",
+    "reaction": "The automatic combination clarified the order after two uncertain attempts.",
+    "step": 4,
+    "reason": "The diaphragm belongs below the rib cage and is a main breathing muscle, so it is a plausible next addition.",
+    "choice": {
+      "combine": "Chest and pleural interface",
+      "with": "Diaphragm"
+    },
+    "expectation": "The diaphragm will join the chest structure to help move it during breathing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diaphragm joined the chest and pleural interface to form the breathing apparatus.",
+    "reaction": "The result matches the expected assembly.",
+    "step": 5,
+    "reason": "The breathing drive should connect the control centres to the assembled breathing muscles.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Breathing drive"
+    },
+    "expectation": "The nerves will connect the control centres to the breathing muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing muscles now have a control pathway, leaving the lungs and circulation to connect to the apparatus.",
+    "reaction": "The chemical feedback adds useful context to the assembly.",
+    "step": 6,
+    "reason": "The controlled breathing apparatus should connect to the lungs to move air through them.",
+    "choice": {
+      "combine": "Controlled breathing apparatus",
+      "with": "Circulation with lung exchange"
+    },
+    "expectation": "The lungs will join the breathing apparatus, allowing controlled breathing to support gas exchange.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs and circulation joined the controlled breathing apparatus, completing the goal and showing how diaphragm movement supports airflow.",
+    "reaction": "The explanation of chest expansion and elastic recoil made the completed assembly more meaningful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the apparatus to the lungs was most worthwhile because the result explained how diaphragm contraction draws air in and elastic recoil helps air flow out.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to attach the pleural membranes directly to the circulation was least satisfying because it gave no indication of the required order.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the rib cage had to join the pleural membranes before the diaphragm; the compatibility feedback revealed that step.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required assembly order felt somewhat arbitrary at first: the lung and membrane descriptions suggested a connection, but the attempted combination gave no explanation for why it was unavailable.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: connecting the breathing muscles, control pathway and lungs made me curious how the body systems will be brought together next.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

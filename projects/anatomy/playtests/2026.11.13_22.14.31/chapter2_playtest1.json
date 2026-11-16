@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "Adding mitochondria starts the energy goal; the chapter says they use glucose.",
+    "choice": 2,
+    "expectation": "I expect the mitochondria to be placed inside the cell, though it may still need a glucose route to use them.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Ribosomes would start the protein-builder goal, but I chose to work on energy first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The placement was expected and clear.",
+    "step": 2,
+    "reason": "The carrier's pocket matches glucose, so adding it should help glucose cross the cell membrane.",
+    "choice": 2,
+    "expectation": "I expect the carrier to fit into the membrane; getting glucose inside may take another step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Adding ribosomes would address the other goal, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal is to feed the cell glucose to make ATP.",
+    "reaction": "The two-panel picture makes the glucose route easier to understand.",
+    "step": 3,
+    "reason": "Glucose matches the carrier, and feeding it to the cell is the new goal. I don't yet know exactly what ATP is.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter the cell and help it make ATP, though I'm unsure how that works.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Adding ribosomes would address the protein-builder goal, but I want to follow the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and oxygen help replenish ATP, which powers work such as building proteins. The protein-builder goal remains.",
+    "reaction": "The inset helped connect glucose use to ATP, though the details are still unclear.",
+    "step": 4,
+    "reason": "Adding ribosomes to the cell addresses the remaining goal. The chapter says they build proteins from amino acids.",
+    "choice": 2,
+    "expectation": "I expect the ribosomes to be placed in the cell; they may still need the RNA copy to build proteins.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The RNA and ribosomes are also a named pairing, but I chose to place the ribosomes in the cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the new goal is to give one an RNA instruction.",
+    "reaction": "The groove makes the next connection clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it matches the new goal.",
+    "choice": 1,
+    "expectation": "I expect the RNA copy to reach a ribosome, possibly allowing it to start building a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the supplied amino acids are available to build a protein.",
+    "reaction": "The matching colors help show how the RNA relates to the building blocks, though the details remain unclear.",
+    "step": 6,
+    "reason": "This is the only offered combination and matches the goal of using ATP to build a protein.",
+    "choice": 1,
+    "expectation": "I expect ATP to power the ribosome in building a protein from the supplied amino acids, though I don't know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The finished protein shows that amino acids form the chain, RNA specifies their order, and ATP supplies energy without becoming part of the protein. All goals are complete.",
+    "reaction": "It was satisfying to see the energy and protein-building paths come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the protein brought the chapter's ideas together: food supplies building material and fuel, while RNA gives an instruction.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the mitochondria was clear but not very interesting on its own; the connection to glucose came later.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know what ATP was at first. Learning that it powers cell work and doesn't become part of the protein changed my understanding.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt completely purposeless, though the details of how ATP helps build a protein remained unclear. The final pairing followed the goal and the only offered option.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because seeing the cell's parts connect to a finished protein made me curious about how they contribute to larger structures.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

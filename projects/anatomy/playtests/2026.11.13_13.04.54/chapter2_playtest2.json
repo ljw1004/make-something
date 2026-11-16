@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "Fit the glucose carrier to the membrane so fuel can enter before being broken down.",
+    "choice": 1,
+    "expectation": "The carrier will be embedded in the membrane, providing a route for glucose; glucose entry may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump supports the ion-transport goal, but establishing a fuel supply seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is now embedded in the membrane, ready to transport glucose.",
+    "reaction": "The result matches the expected preparation.",
+    "step": 2,
+    "reason": "Combine glucose with the carrier to bring fuel into the cell.",
+    "choice": 1,
+    "expectation": "Glucose will enter the cytosol through the carrier, likely moving down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is also needed, but I want to establish the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol and is beside the breakdown enzymes, making fuel processing the next step.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "Place glucose at the breakdown enzymes to advance the ATP-renewal goal.",
+    "choice": 1,
+    "expectation": "The enzymes will begin breaking glucose into smaller products, though this may initially be a preparation.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for ion transport, but I want to continue the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown produced pyruvate and some ATP; pyruvate can now continue toward aerobic metabolism.",
+    "reaction": "The distinction that glycolysis does not directly use oxygen is useful.",
+    "step": 4,
+    "reason": "Combine pyruvate with oxygen to advance the aerobic ATP-renewal goal.",
+    "choice": 1,
+    "expectation": "Pyruvate and oxygen will support mitochondrial ATP production, though the intermediate steps may be simplified.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "ATP can support protein production, but I want to complete the fuel pathway first."
+      },
+      {
+        "choice": 2,
+        "reason": "The pump is needed for ion transport, but fuel processing is already underway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is established, with oxygen accepting electrons and the hydrogen-ion gradient driving ATP synthase. The fuel goal is complete.",
+    "reaction": "The separate roles of fuel and oxygen and the membrane gradient are a useful explanation.",
+    "step": 5,
+    "reason": "Fit the sodium-potassium pump into the membrane to prepare for the ion-transport goal.",
+    "choice": 1,
+    "expectation": "The pump will be embedded in the membrane; using ATP to transport ions may require another step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Aerobic ATP renewal could support protein production, but I want to prepare the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is embedded in the membrane and ready to use cytosolic ATP.",
+    "reaction": "The adjacent passive-channel comparison sets up a useful contrast.",
+    "step": 6,
+    "reason": "Use the established aerobic ATP supply to power the pump and advance the ion-transport goal.",
+    "choice": 2,
+    "expectation": "ATP will drive sodium and potassium transport against their gradients, though the result may simplify the pump cycle.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glycolytic ATP might also power the pump, but aerobic renewal connects it to the fuel pathway just completed."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered pumping moves sodium out and potassium in against their gradients, completing the ion-transport goal. Protein production remains.",
+    "reaction": "The contrast with passive sodium entry makes the pump's role clear.",
+    "step": 7,
+    "reason": "Use the established aerobic ATP supply with amino acids to advance protein production.",
+    "choice": 2,
+    "expectation": "ATP will support preparation of amino acids for assembly into protein at a ribosome, perhaps in a further step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glycolytic ATP may also support protein production, but aerobic renewal connects this action to the completed fuel pathway."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The result completes protein production and all chapter goals, showing ATP-supported amino-acid preparation alongside ribosomes reading existing RNA messages.",
+    "reaction": "The distinct roles of the message, building blocks and ATP are clear, though the connection to DNA is only implicit.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining pyruvate and oxygen to show aerobic ATP renewal was most worthwhile: the planned illustration separates fuel oxidation, oxygen's role and the hydrogen-ion gradient driving ATP synthase.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pump was a predictable preparation rather than an interesting decision on its own, although it set up the useful comparison with passive transport.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The pump result clarified how active transport helps maintain differences that passive sodium movement would reduce.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but choosing aerobic ATP rather than glycolytic ATP for the pump and protein steps felt somewhat arbitrary: both were offered as compatible options.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how these cellular processes connect to larger structures; the fuel-to-ATP and active-versus-passive transport explanations made this chapter worthwhile.",
+        "steps": [
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

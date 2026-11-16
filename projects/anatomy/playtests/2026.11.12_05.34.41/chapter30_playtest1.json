@@ -1,0 +1,164 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin cell needs to copy its DNA before it can divide, and the building blocks are shown arriving at that cell.",
+    "choice": {
+      "combine": "Skin cells preparing to divide",
+      "with": "DNA building blocks"
+    },
+    "expectation": "The cell will copy its chromosomes in preparation for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosomes are copied and joined as sister chromatids, ready for separation.",
+    "reaction": "The before-and-after description makes the copying step clear.",
+    "step": 2,
+    "reason": "The spindle machinery is positioned to separate the copied chromosomes.",
+    "choice": {
+      "combine": "Skin cell with copied chromosomes",
+      "with": "Chromosome-separating machinery"
+    },
+    "expectation": "The machinery will separate the sister chromatids toward opposite sides of the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are separated, but they are still inside one cell, so the membrane must divide next.",
+    "reaction": "The distinction between chromosome separation and cell division is clear.",
+    "step": 3,
+    "reason": "The division ring is positioned midway between the two chromosome sets and can split the cell.",
+    "choice": {
+      "combine": "Skin cell with separated chromosome sets",
+      "with": "Cell membrane division ring"
+    },
+    "expectation": "The ring will constrict the membrane to form two daughter cells, each with a chromosome set.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The division ring formed two daughter cells, each with a complete chromosome set; their descendants can renew the skin surface.",
+    "reaction": "The sequence clearly connects chromosome copying and separation to cell division.",
+    "step": 4,
+    "reason": "Erythropoietin is shown traveling from the kidney to marrow, where the red-cell precursors are located.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Erythropoietin"
+    },
+    "expectation": "The signal will stimulate the precursors to produce new red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal leads the marrow precursors into a red-cell maturation sequence, but the result is still called developing red cells.",
+    "reaction": "The low-oxygen cue makes the reason for the signal clearer.",
+    "step": 5,
+    "reason": "I want to find what the developing cells need next to complete blood renewal.",
+    "choice": {
+      "inspect": "Developing red cells"
+    },
+    "expectation": "The compatibility list should show the next available step for the developing red cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Developing red cells have no available combination, so I will try adding the new skin cells to the body.",
+    "reaction": "I am unsure how the developing red cells will contribute to the goal.",
+    "step": 6,
+    "reason": "The new skin cells and the body appear to be the available pieces for skin renewal.",
+    "choice": {
+      "combine": "New skin cells",
+      "with": "Body with a light-linked clock"
+    },
+    "expectation": "The new cells will be incorporated into the body's skin renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells are now incorporated into the body, showing renewal at the basal layer and shedding at the surface.",
+    "reaction": "That makes the skin-renewal sequence clear, though the red-cell route remains uncertain.",
+    "step": 7,
+    "reason": "Developing red cells may now connect to the updated body even though they had no available combination earlier.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The developing red cells will connect marrow renewal to the body's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing red cells joined the body after skin renewal, completing that goal and revealing bone remodelling as the next goal.",
+    "reaction": "Seeing red cells enter a vessel resolved my uncertainty about their role.",
+    "step": 8,
+    "reason": "Bone-removing cells appear to be the starting point for remodelling an existing patch of bone.",
+    "choice": {
+      "combine": "Body renewing skin and blood",
+      "with": "Bone-removing cells"
+    },
+    "expectation": "The cells will remove some existing bone as the first stage of remodelling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-removing cells have removed old bone from a patch, leaving the bone-forming cells as the next apparent step.",
+    "reaction": "The magnified patch makes the removal stage clear.",
+    "step": 9,
+    "reason": "Bone-forming cells can rebuild the patch after old bone is removed.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will form new bone in the remodelled patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bone-forming cells rebuilt the patch, completing the bone-remodelling goal and the chapter.",
+    "reaction": "The final image connects the renewal processes back to the arm built earlier, which is satisfying.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes and then dividing the cell made the sequence of skin renewal clear. The descriptions distinguish two chromosome sets in one cell from two daughter cells.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the developing red cells returned no available partners, leaving me uncertain about how they would contribute until the body changed.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The developing red cells could join the body after skin renewal, despite having no available combination when I inspected them.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order of adding skin cells before developing red cells was not clear from the biology or the visible goal; I discovered it through compatibility feedback.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the linked descriptions of cell division and bone renewal made the body feel like a connected, changing system, although I would want clearer cues when a combination depends on an earlier step.",
+        "steps": [
+          2,
+          3,
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

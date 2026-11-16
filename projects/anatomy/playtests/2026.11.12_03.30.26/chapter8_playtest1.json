@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum fits the visible gap in the heart chambers and should establish the two sides needed for separate routes.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The partition will divide the heart into right and left sides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and revealed inlet and outlet slots for the valves.",
+    "reaction": "The marked slots make the next step clear.",
+    "step": 2,
+    "reason": "The inlet valves match the ventricular inlets slot and the goal of fitting both valve sets.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves will fit into the ventricular inlets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted, leaving the outlet valves to complete the valve goal.",
+    "reaction": "The explanation makes their role in preventing backflow clear.",
+    "step": 3,
+    "reason": "The outlet valves match the remaining ventricular outlets slot.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves will fit at the ventricular outlets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted, completing the first goal; the heart still needs to be connected to blood and vessels.",
+    "reaction": "The outlet-valve explanation clearly shows how it limits backflow between beats.",
+    "step": 4,
+    "reason": "The conducting tissue belongs to the heart and should help coordinate its pumping before the routes are connected.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Conducting tissue"
+    },
+    "expectation": "The conducting tissue will add electrical coordination to the divided heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The conducting tissue produced a coordinated heart, with an electrical wave reaching the atria before the ventricles.",
+    "reaction": "The sequence connects the electrical pathway to the chambers' pumping.",
+    "step": 5,
+    "reason": "The heart's own vessels supply its muscle, so they are a plausible next addition before connecting the larger routes.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Heart’s own blood vessels"
+    },
+    "expectation": "The coronary vessels will attach to the heart and supply its muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coronary vessels could not be added yet; the heart instead connected to the pulmonary loop, leaving a separate opening toward body tissues.",
+    "reaction": "The automatic connection clarified the next route, though I had expected to supply the heart muscle first.",
+    "step": 6,
+    "reason": "The systemic vessel network matches the open route toward body tissues.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The systemic vessels will connect the heart to a route through body tissues and back.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The systemic network connected to the heart, completing a frame with separate pulmonary and systemic loops.",
+    "reaction": "The two-route arrangement is clear, though the heart's own vessels and blood still need connecting.",
+    "step": 7,
+    "reason": "The heart's own vessels should connect to the circulation frame to supply its muscle.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Heart’s own blood vessels"
+    },
+    "expectation": "The coronary vessels will join the circulation and supply the heart muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coronary vessels now connect the circulation to the heart muscle, showing that the pump needs its own blood supply.",
+    "reaction": "The distinction between blood in the chambers and blood supplying the muscle is useful.",
+    "step": 8,
+    "reason": "Blood is the remaining component needed to connect the heart, vessels and blood.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "The blood will enter the connected circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation and clarified the routes from the right heart to the lungs and from the left heart to the body.",
+    "reaction": "The final route ties the components together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the heart’s own vessels was most worthwhile: it showed why blood in the chambers alone cannot supply the thick heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding blood was a predictable final assembly step, although its result usefully summarized the two routes.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I expected the heart’s own vessels to fit earlier; the compatibility feedback instead connected the pulmonary route first.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The required order for adding the heart’s own vessels was not clear from the available descriptions, though the later result explained their connection to the circulation.",
+        "steps": [
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the constructions connect structures to their jobs, and I would be curious to see how the circulation supports the responsive arm.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

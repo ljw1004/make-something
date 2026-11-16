@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways and air sacs seem like a useful starting point for building the lung's air route.",
+    "choice": 1,
+    "expectation": "I expect a connected airway and air-sac structure, though it may still need an exchange surface and breathing muscles.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lining and capillaries look relevant to oxygen exchange, but I want to build the air route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air route is built, and the result explains how branching gives air access to a large surface. I now want to build the exchange interface.",
+    "reaction": "The explanation of branching and surface area was useful.",
+    "step": 2,
+    "reason": "The thin lining and capillaries seem needed to bring air and blood close enough for oxygen exchange.",
+    "choice": 1,
+    "expectation": "I expect an exchange surface connecting the air side to the blood side while keeping them separate.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Breathing muscles are also needed, but I want to build the exchange surface first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exchange surface explains how oxygen and carbon dioxide cross between air and blood while the two remain separate. I want to fit it to the lung spaces.",
+    "reaction": "The distinction between crossing gases and separate spaces was clear and useful.",
+    "step": 3,
+    "reason": "Adding the exchange surface to the air spaces seems like the next step toward a working lung model.",
+    "choice": 1,
+    "expectation": "I expect lung spaces with an exchange surface, though breathing muscles may still be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The diaphragm and rib muscles should help move air, but I want to connect the exchange surface first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The air route now reaches the exchange surface; air and blood still need to be renewed.",
+    "reaction": "The reminder that exchange depends on continued flow was useful.",
+    "step": 4,
+    "reason": "This is the only offered combination, and the breathing muscles should help renew the air.",
+    "choice": 1,
+    "expectation": "I expect a breathing mechanism that can move air into and out of the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing muscles provide a way to renew air by changing the size of the chest. I can now add them to the exchange lungs.",
+    "reaction": "The explanation of inhaling and quiet exhaling made the muscles' role clear.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it should complete the breathing lung model.",
+    "choice": 1,
+    "expectation": "I expect lungs that can move air in and out across the exchange surfaces; circulation may still need to be connected.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing lung model is complete, and the new goal makes clear that circulation must also be connected to supply the arm.",
+    "reaction": "The distinction between moving air and pumping blood was useful.",
+    "step": 6,
+    "reason": "This is the only offered combination, and it connects the air and blood routes.",
+    "choice": 1,
+    "expectation": "I expect the lungs and circulation to form a system where blood can exchange gases at the lungs and carry oxygen toward tissues.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed circulation shows how the heart connects the lungs and body, carrying oxygen to tissues and returning carbon dioxide toward the lungs.",
+    "reaction": "The complete route was a satisfying connection between breathing and circulation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lungs and circulation was most worthwhile because it showed how oxygen reaches the body and how carbon dioxide returns to the lungs.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining the breathing muscles with the lungs felt predictable: it was the only offered combination, and its purpose was already clear.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The exchange surface clarified that oxygen and carbon dioxide cross thin barriers while air and blood stay in separate spaces.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the offered combinations had clear roles, though several became the only available choice.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because connecting the lung model to circulation made me curious how the remaining body systems support the hand.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

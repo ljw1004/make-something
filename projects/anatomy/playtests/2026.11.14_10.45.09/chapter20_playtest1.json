@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal insulin signal so muscle can store glucose, as the goal describes.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release insulin into the blood; I'm not sure what the next step will be.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Liver storage is also an after-meal goal, but I want to follow the insulin route first."
+      },
+      {
+        "choice": 2,
+        "reason": "Glucagon belongs to the later between-meal scene, so I'll leave it for later."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood and can carry the after-meal message to muscle.",
+    "reaction": "The route to muscle is clear, so the next step makes sense.",
+    "step": 2,
+    "reason": "I'll follow the insulin signal to the muscle fibres to work toward storing glucose.",
+    "choice": 2,
+    "expectation": "I expect insulin to help the muscle take in the glucose already in the nearby blood, possibly storing it.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Liver storage is also an after-meal goal, but I want to finish following the muscle route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle has stored glucose, and insulin stayed outside as a message. The liver storage goal remains.",
+    "reaction": "Seeing the glucose form granules while insulin stays outside makes their different roles clearer.",
+    "step": 3,
+    "reason": "I'll store the meal glucose in the liver before moving to the between-meal scene.",
+    "choice": 2,
+    "expectation": "I expect the liver cells to turn some glucose into a stored form for later use.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glucagon is the between-meal message, so I'll follow it after liver storage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored linked glucose, ready for the between-meal release goal.",
+    "reaction": "The linked granules make it clear how the liver stores glucose for later.",
+    "step": 4,
+    "reason": "The only gameplay action follows the named between-meal glucagon route.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release glucagon into the blood as a message to the liver.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is in the blood and can carry the between-meal message to the liver.",
+    "reaction": "Its contrasting role with insulin is clear.",
+    "step": 5,
+    "reason": "I'll use the only gameplay option to signal the liver to release its stored glucose.",
+    "choice": 1,
+    "expectation": "I expect the liver to break apart some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood, completing the between-meal route. The release signal eases as blood glucose rises.",
+    "reaction": "It was satisfying to see the stored granules become separate glucose molecules again.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucose into liver storage and then back into the blood made the between-meal fuel supply understandable.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing each pancreatic message was fairly predictable from the labels, though it helped connect the two scenes.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The picture showed insulin staying outside muscle cells while glucose became stored granules; the message was not the building material.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The last two actions were the only gameplay options, but their purpose was explained by the between-meal goal.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing the liver release stored glucose made me curious how the body manages fuel in other situations, although the final choices were predictable.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

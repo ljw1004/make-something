@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "reason": "The kidney filter's narrow gaps face the blood sample, matching the goal of filtering blood.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "Small substances should pass into the filter space while blood cells and large proteins remain in the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney pair",
+          "with": "Ureters"
+        },
+        "reason": "The marked outlets also make the bladder route a clear project to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter let useful glucose, salts and water through along with wastes, so the fluid needs a recovery step.",
+    "reaction": "It was surprising that useful substances pass through the filter too.",
+    "step": 2,
+    "reason": "The recovery tube's arrows show useful substances moving from the tube back toward blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "Glucose, some salts and much of the water should return to the blood, leaving waste in the fluid.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney pair",
+          "with": "Ureters"
+        },
+        "reason": "I could start the separate route to the bladder instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Useful substances and much water returned to blood, leaving waste-containing fluid to collect.",
+    "reaction": "The two-stage filter-and-recovery process makes more sense now.",
+    "step": 3,
+    "reason": "The kidney pair has a named slot for ureters, which lead toward the bladder.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters should connect to the kidneys as the first part of the drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect to the kidney outlets, leaving the bladder to complete the route.",
+    "reaction": "The downward route is clear from the picture.",
+    "step": 4,
+    "reason": "The kidney pair has a named bladder slot, and the ureters lead toward it.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder should connect to the ureters and complete the drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters and bladder now form a continuous drainage route; the urinary organs still need connecting to the body.",
+    "reaction": "The route from kidneys to bladder is clear.",
+    "step": 5,
+    "reason": "The new goal calls for connecting the completed kidney pair to the body.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Body with a living colon"
+    },
+    "expectation": "The urinary organs should connect to the body and its circulation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Kidney fluid after recovery",
+          "with": "Kidney pair"
+        },
+        "reason": "The remaining fluid also needs to reach the bladder, but connecting the organs is the newly stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The urinary organs are connected to the body and its blood supply; collecting the remaining urine is still a goal.",
+    "reaction": "The picture makes the route out of the body clear.",
+    "step": 6,
+    "reason": "The remaining fluid needs to reach the bladder, so I’m trying it with the connected urinary system.",
+    "choice": {
+      "combine": "Kidney fluid after recovery",
+      "with": "Body with urinary system"
+    },
+    "expectation": "The remaining waste-containing fluid should travel to the bladder as urine.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Kidney fluid after recovery"
+        },
+        "reason": "I could check its available partners if the body is not the right pairing."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fluid needed the kidney pair rather than the whole body as its partner; the compatibility hint completed the route to the bladder.",
+    "reaction": "I was slightly surprised the connected body was not the accepted partner, but the hint resolved it.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Filtering the blood and then recovering useful substances showed why the kidney cannot simply remove wastes in one step.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the ureters and bladder was clear but fairly predictable because the slots named both parts.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "Useful glucose, salts and water passed through the filter along with wastes, then useful substances and much water returned to blood.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the whole body to collect the fluid seemed reasonable after the urinary organs were connected, but the game required the separate kidney pair instead.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the filter-and-recovery sequence made a familiar organ's job more understandable, and I would be curious to see another body process built this way.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

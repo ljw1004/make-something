@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll connect the motor neurons to the muscle-facing junction to start building the movement pathway.",
+    "choice": 2,
+    "expectation": "I expect a nerve-to-muscle connection, though it may still need to be attached to the arm.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The spindle and sensory fiber should build the feedback pathway, but I'll start with motor output."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor pathway now shows transmitter crossing the nerve–muscle gap and links the signal to calcium release; it still needs connecting to the arm.",
+    "reaction": "The connection to the earlier calcium-driven contraction is useful.",
+    "step": 2,
+    "reason": "I'll attach the motor pathway to the arm to build its movement connection.",
+    "choice": 2,
+    "expectation": "I expect the motor pathway to connect the spinal cord's motor neurons to the arm muscles; feedback will probably need a separate pathway.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I considered building the sensory pathway first, but want to finish connecting motor output."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor pathway is attached to the arm, and the remaining sensory connection slot points to a separate feedback pathway.",
+    "reaction": "The marked empty slot makes the next task clear.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it should begin the sensory connection.",
+    "choice": 1,
+    "expectation": "I expect the sensory fiber to connect to the muscle spindle, though I don't yet know exactly how the resulting pathway will attach to the arm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensory fiber now coils around the spindle, making it ready to connect to the arm's empty sensory slot.",
+    "reaction": "The coiled ending makes the physical connection clear, though its function is not yet explained.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it should fill the arm's sensory connection slot.",
+    "choice": 1,
+    "expectation": "I expect the spindle and sensory fiber to attach to the arm, providing a route for feedback; the exact signal remains unclear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensory connection is fitted into the arm, with arrows showing information traveling toward the central end.",
+    "reaction": "The arrow direction helps distinguish sensory feedback from motor output, though the spindle's signal is still unexplained.",
+    "step": 5,
+    "reason": "This is the only offered combination and should connect both pathways to the central nervous system.",
+    "choice": 1,
+    "expectation": "I expect the arm's motor and sensory pathways to connect with the brain and spinal cord, though the details of feedback may come later.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is connected to the brain and spinal cord, and the spindle is now explained as reporting muscle stretch.",
+    "reaction": "That explanation clarifies the sensory pathway's purpose.",
+    "step": 6,
+    "reason": "The cup is the only offered combination and should set up the load-adjustment scenario.",
+    "choice": 1,
+    "expectation": "I expect the connected arm to hold the cup; the added load will likely come afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connected arm now holds the cup level, setting up the load-adjustment scenario.",
+    "reaction": "The setup is clear, though it has not yet shown the feedback response.",
+    "step": 7,
+    "reason": "Adding the load is the only offered combination and should test how the arm adjusts.",
+    "choice": 1,
+    "expectation": "I expect the extra load to stretch the muscles and prompt an adjustment that steadies the cup, though the details are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The load makes the forearm dip and flexor lengthen, then sensory and motor signals help steady the cup, completing the feedback scenario.",
+    "reaction": "The three-panel plan ties the previously separate pathways to a concrete task.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the load was most worthwhile: the planned panels connect muscle stretch, sensory feedback and motor output to an observable adjustment.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining the spindle and sensory fiber was less engaging on its own: the coiled ending was clear, but the spindle's function was not explained until later.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The later explanation clarified that muscle spindles report stretch; their role was not obvious from the initial spindle picture alone.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary, though several were the only offered combination, so following them did not require discovering compatibility.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would cautiously continue: the final load example usefully connects the constructions, although the intermediate steps were mostly linear. The supplied illustration plans alone do not establish how well students would understand them.",
+        "steps": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

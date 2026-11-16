@@ -1,0 +1,154 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions describe a route from pluripotent cells toward the supporting-tissue lineage.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "The timed conditions should produce fibroblast-lineage cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The separate muscle branch is also a goal, but I can start with the supporting-tissue branch."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen messages, while unspecialized cells remain available for the muscle branch.",
+    "reaction": "The picture makes the link between unchanged DNA and selective gene expression clear.",
+    "step": 2,
+    "reason": "The collagen messages and amino acid supply suggest making collagen proteins next.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to make collagen protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could prepare the muscle branch first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now produce procollagen in secretory vesicles, ready for the extracellular part of the supporting tissue.",
+    "reaction": "The ER and Golgi processing makes the route from RNA to secretion more concrete.",
+    "step": 3,
+    "reason": "Extracellular fluid contains processing enzymes and space between cells, suggesting it is the next place for the fibroblasts' secreted material.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts should secrete procollagen for extracellular processing and supporting tissue formation.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the muscle branch before completing the supporting tissue."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts secreted procollagen, which was processed and assembled into an extracellular matrix; the supporting-tissue goal has not yet been reported complete.",
+    "reaction": "The distinction between secretion and extracellular assembly is useful.",
+    "step": 4,
+    "reason": "The remaining unspecialized cells and muscle differentiation conditions specify the other goal's lineage route.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "The timed conditions should produce muscle progenitor cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with muscle-protein messages, but no mature fibres.",
+    "reaction": "The separate lineage route reinforces how cells with the same DNA can use different genes.",
+    "step": 5,
+    "reason": "The muscle messages and shared amino acid supply suggest making muscle proteins, as in the fibroblast branch.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells should use the amino acids to produce muscle proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Collagen-producing fibroblasts",
+          "with": "Collagen-rich extracellular matrix"
+        },
+        "reason": "The living fibroblasts and their matrix may still need to be brought together to complete the supporting-tissue goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-forming cells are prepared; the remaining goal is to make living supporting tissue.",
+    "reaction": "The contrast between retained muscle proteins and exported collagen clarifies their different roles.",
+    "step": 6,
+    "reason": "Living fibroblasts and their collagen-rich matrix are the two components needed for the supporting tissue.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Collagen-rich extracellular matrix"
+    },
+    "expectation": "The fibroblasts and matrix should form a living supporting tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Combining the fibroblasts with their matrix completed the supporting tissue and the chapter, clarifying that the tissue includes both living cells and extracellular material.",
+    "reaction": "It was satisfying to see the separately constructed cells and matrix come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The parallel uses of amino acids were most worthwhile: the illustration plans connect different RNA messages to exported collagen in fibroblasts and retained muscle proteins in myoblasts.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle precursor result repeats much of its picture description in two passages. The lineage terms, especially paraxial mesoderm and myoblasts, could also use brief explanations for readers new to anatomy.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The matrix alone did not complete the supporting-tissue goal; it needed to be brought together with the living fibroblasts. That emphasized the tissue's cellular and extracellular components.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The final combination felt slightly artificial because the matrix picture already placed living fibroblasts beside it, although explicitly assembling tissue had a clear purpose.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the unfinished muscle branch makes me curious how separate myoblasts become mature fibres, and the contrasting protein destinations made this chapter informative.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

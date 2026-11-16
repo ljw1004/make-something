@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll follow the muscle-development goal first. The picture shows Sonic hedgehog meeting receivers on prepared cells, though I don't yet know how that leads to muscle.",
+    "choice": 1,
+    "expectation": "I expect the signal to help the prepared cells develop toward muscle, but I'm unsure what intermediate step will appear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The tendon signal also matches a goal, but I'll follow the earlier muscle pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signal led to RNA instructions for pulling proteins, so the next step is to build those proteins.",
+    "reaction": "The picture helped connect the outside signal to instructions inside the cells, though the gene-activity details are still unclear.",
+    "step": 2,
+    "reason": "I'll continue the muscle pathway: amino acids are the building blocks for the proteins described in the new goal.",
+    "choice": 2,
+    "expectation": "I expect the cells to use the RNA instructions and amino acids to make pulling proteins.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the tendon pathway, but I want to see the muscle proteins made first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids helped make muscle cells with protein fibres that can slide and shorten the cells. The tendon pathway remains.",
+    "reaction": "Seeing the instructions lead to structures that can shorten the cell was satisfying.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it follows the tendon-development goal.",
+    "choice": 1,
+    "expectation": "I expect TGF-beta2 to help the prepared cells develop toward tendon, though I don't know the intermediate steps.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tendon signal led to RNA instructions for collagen, a tough protein whose fibres still need to be built.",
+    "reaction": "The picture made the connection to a strong tendon clearer, though how the signal works is still unclear.",
+    "step": 4,
+    "reason": "The only offered combination supplies protein building blocks for the new tendon-fibre goal.",
+    "choice": 1,
+    "expectation": "I expect the cells to use the amino acids and RNA instructions to make collagen fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The finished tendon tissue shows collagen fibres assembled outside the cells, contrasting with the pulling proteins inside muscle cells. All goals are complete.",
+    "reaction": "The side-by-side contrast made the different jobs of the two cell groups clearer.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the muscle cells was most worthwhile: the picture connected RNA instructions to fibres that slide and shorten a cell.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The signal steps were less clear about how the messages changed gene activity; I mostly followed the named pairings.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that tendon cells build their tough fibres outside themselves, while muscle cells keep pulling proteins inside.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The signal pairings had stated goals, but exactly how the signals led to the later instructions remained unexplained, so I relied on the compatibility hints.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separate muscle cells are assembled into larger fibres; that was mentioned but not shown yet.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

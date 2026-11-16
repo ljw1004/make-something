@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "DNA nucleotides and the nucleus are the clearest pairing for copying the genome.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Nucleus inside the stem cell"
+    },
+    "expectation": "The nucleotides will be used to copy the cell's DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied, leaving cell growth and spindle construction to address.",
+    "reaction": "The distinction between copying all chromosomes and making proteins is useful.",
+    "step": 2,
+    "reason": "Tubulin and spindle motors should work with the duplicated centrosomes to build the spindle.",
+    "choice": {
+      "combine": "Tubulin and spindle motor proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "A chromosome-separating spindle will form between the organizing centres.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is built, and making two complete daughter cells is now a goal; cell growth remains unfinished.",
+    "reaction": "The spindle picture makes clear that chromosomes have not yet separated.",
+    "step": 3,
+    "reason": "Phospholipids can expand the stem cell's membrane, contributing to its growth.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The cell will gain membrane material, possibly alongside its other growth requirements.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempt instead combined phospholipids with proteins to make membrane vesicles, suggesting an intermediate for cell growth.",
+    "reaction": "The vesicle intermediate was unexpected but fits the membrane-growth goal.",
+    "step": 4,
+    "reason": "The new vesicles may supply membrane to the growing stem cell.",
+    "choice": {
+      "combine": "New membrane vesicles",
+      "with": "Living pluripotent stem cell"
+    },
+    "expectation": "The vesicles will contribute membrane to the cell as it grows.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell body, completing the growth goal; the copied genome and spindle still need to be brought together for division.",
+    "reaction": "The growth picture usefully shows increased cytoplasm and organelles as well as membrane.",
+    "step": 5,
+    "reason": "The spindle must engage the copied chromosomes to separate them between daughter cells.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Nucleus with its genome copied"
+    },
+    "expectation": "The spindle will engage the copied chromosomes, advancing their separation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied chromosomes into matching sets, but the cell still has one shared cytoplasm.",
+    "reaction": "The distinction between chromosome separation and cell division is useful.",
+    "step": 6,
+    "reason": "The separated chromosome sets need to be brought together with the enlarged cell body before division.",
+    "choice": {
+      "combine": "Separated chromosome sets inside the cell",
+      "with": "Enlarged stem-cell body"
+    },
+    "expectation": "The enlarged cell will contain the separated chromosome sets, advancing division into two daughter cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cortical actin and myosin",
+          "with": "Enlarged stem-cell body"
+        },
+        "reason": "Actin and myosin could help divide the cell body, but the separated chromosomes may need to be incorporated first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enlarged cell now has two daughter nuclei, but its cytoplasm remains shared.",
+    "reaction": "The separate nuclear and cytoplasmic stages are clear in the picture.",
+    "step": 7,
+    "reason": "Cortical actin and myosin can constrict the cell to divide its shared cytoplasm.",
+    "choice": {
+      "combine": "Cortical actin and myosin",
+      "with": "Stem cell with two daughter nuclei"
+    },
+    "expectation": "The cell will divide into two daughter stem cells, each with a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Actin and myosin divided the shared cytoplasm, completing the daughter-cell goal; both cells remain pluripotent under the model's self-renewal conditions.",
+    "reaction": "The final picture plan clearly distinguishes two separate cells from the earlier shared cytoplasm.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes was most worthwhile: the picture plan and explanation distinguish sister-chromatid separation from division of the cell itself.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The spindle picture plan shows fibres, but the brief result does not explain how they attach to chromosomes; that connection would help a student unfamiliar with mitosis.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Phospholipids first combined with proteins to make membrane vesicles rather than being added directly to the cell. The vesicles then contributed to growth.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The vesicle intermediate was not obvious from the initial growth goal, although the compatibility feedback revealed it and its later use made sense.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: building division in stages made the distinction between genome copying, chromosome separation and cytoplasmic division interesting.",
+        "steps": [
+          1,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

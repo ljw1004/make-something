@@ -1,0 +1,326 @@
+{
+  "theme": "doctor-poster",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "An inside of its own",
+      "background": "assets/cell-background.jpg",
+      "assets": [
+        {
+          "id": "id:prelude-phospholipids",
+          "label": "Membrane fats (lipids)",
+          "path": "assets/prelude-phospholipids.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:prelude-water",
+          "label": "Water",
+          "path": "assets/prelude-water.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:opening-dna",
+          "label": "DNA",
+          "path": "assets/opening-dna.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:opening-nuclear-envelope",
+          "label": "Nuclear envelope",
+          "path": "assets/opening-nuclear-envelope.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:opening-nucleus",
+          "label": "Nucleus",
+          "path": "assets/opening-nucleus.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:opening-cell",
+          "label": "Membrane bag",
+          "path": "assets/opening-cell.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:opening-cell[id:opening-nucleus]",
+          "label": "Membrane bag: Nucleus fitting",
+          "path": "assets/cell-nucleus-overlay.png",
+          "kind": "fitting"
+        },
+        {
+          "id": "id:opening-cell:state-1",
+          "label": "Membrane bag + Nucleus",
+          "layers": [
+            "assets/opening-cell.png",
+            "assets/cell-nucleus-overlay.png"
+          ],
+          "kind": "assembled"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Hard bones and pulling muscles",
+      "background": "assets/arm-background.jpg",
+      "assets": [
+        {
+          "id": "id:prelude-myoblasts",
+          "label": "Muscle cells",
+          "path": "assets/prelude-myoblasts.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:school-bone-mineral",
+          "label": "Bone mineral",
+          "path": "assets/school-bone-mineral.png",
+          "kind": "item"
+        },
+        {
+          "id": "id:arm-front-tendons",
+          "label": "Front of arm",
+          "path": "assets/arm-front-tendons.png",
+          "kind": "receiver"
+        },
+        {
+          "id": "id:arm-front-tendons[id:school-bone-mineral]",
+          "label": "Front of arm: Bone mineral fitting",
+          "path": "assets/front-mineral.png",
+          "kind": "fitting"
+        },
+        {
+          "id": "id:arm-front-tendons[id:prelude-myoblasts]",
+          "label": "Front of arm: Muscle cells fitting",
+          "path": "assets/front-muscle.png",
+          "kind": "fitting"
+        },
+        {
+          "id": "id:arm-front-tendons:state-1",
+          "label": "Front of arm + Bone mineral",
+          "layers": [
+            "assets/arm-front-tendons.png",
+            "assets/front-mineral.png"
+          ],
+          "kind": "assembled"
+        },
+        {
+          "id": "id:arm-front-tendons:state-2",
+          "label": "Front of arm + Muscle cells",
+          "layers": [
+            "assets/arm-front-tendons.png",
+            "assets/front-muscle.png"
+          ],
+          "kind": "assembled"
+        },
+        {
+          "id": "id:arm-front-tendons:state-3",
+          "label": "Front of arm + Bone mineral + Muscle cells",
+          "layers": [
+            "assets/arm-front-tendons.png",
+            "assets/front-mineral.png",
+            "assets/front-muscle.png"
+          ],
+          "kind": "assembled"
+        },
+        {
+          "id": "id:arm-back-tendons",
+          "label": "Back of arm",
+          "path": "assets/arm-back-tendons.png",
+          "kind": "receiver"
+        },
+        {
+          "id": "id:arm-back-tendons[id:school-bone-mineral]",
+          "label": "Back of arm: Bone mineral fitting",
+          "path": "assets/back-mineral.png",
+          "kind": "fitting"
+        },
+        {
+          "id": "id:arm-back-tendons[id:prelude-myoblasts]",
+          "label": "Back of arm: Muscle cells fitting",
+          "path": "assets/back-muscle.png",
+          "kind": "fitting"
+        },
+        {
+          "id": "id:arm-back-tendons:state-1",
+          "label": "Back of arm + Bone mineral",
+          "layers": [
+            "assets/arm-back-tendons.png",
+            "assets/back-mineral.png"
+          ],
+          "kind": "assembled"
+        },
+        {
+          "id": "id:arm-back-tendons:state-2",
+          "label": "Back of arm + Muscle cells",
+          "layers": [
+            "assets/arm-back-tendons.png",
+            "assets/back-muscle.png"
+          ],
+          "kind": "assembled"
+        },
+        {
+          "id": "id:arm-back-tendons:state-3",
+          "label": "Back of arm + Bone mineral + Muscle cells",
+          "layers": [
+            "assets/arm-back-tendons.png",
+            "assets/back-mineral.png",
+            "assets/back-muscle.png"
+          ],
+          "kind": "assembled"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Vibration into signals",
+      "background": "assets/hearing-background.jpg",
+      "assets": [
+        {
+          "id": "name:Outer ears and canals",
+          "label": "Outer ears and canals",
+          "path": "assets/outer-ears-and-canals.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Eardrums",
+          "label": "Eardrums",
+          "path": "assets/eardrums.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Outer ears with eardrums",
+          "label": "Outer ears with eardrums",
+          "path": "assets/outer-ears-with-eardrums.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Middle-ear bones",
+          "label": "Middle-ear bones",
+          "path": "assets/middle-ear-bones.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Sound-conducting ears",
+          "label": "Sound-conducting ears",
+          "path": "assets/sound-conducting-ears.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Coiled inner-ear chambers and fluid",
+          "label": "Coiled inner-ear chambers and fluid",
+          "path": "assets/coiled-inner-ear-chambers-and-fluid.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Hearing cells with tiny hairs",
+          "label": "Hearing cells with tiny hairs",
+          "path": "assets/hearing-cells-with-tiny-hairs.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Vibration-sensitive inner ears",
+          "label": "Vibration-sensitive inner ears",
+          "path": "assets/vibration-sensitive-inner-ears.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Sound-receiving ears",
+          "label": "Sound-receiving ears",
+          "path": "assets/sound-receiving-ears.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Hearing pathways",
+          "label": "Hearing pathways",
+          "path": "assets/hearing-pathways.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Inner ears with hearing pathways",
+          "label": "Inner ears with hearing pathways",
+          "path": "assets/inner-ears-with-hearing-pathways.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Ears",
+          "label": "Ears",
+          "path": "assets/ears.png",
+          "kind": "item"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Breaking down a meal",
+      "background": "assets/digestion-background.jpg",
+      "assets": [
+        {
+          "id": "name:Starchy food",
+          "label": "Starchy food",
+          "path": "assets/starchy-food.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Saliva",
+          "label": "Saliva",
+          "path": "assets/saliva.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Shorter starch chains",
+          "label": "Shorter starch chains",
+          "path": "assets/shorter-starch-chains.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Digestive enzymes",
+          "label": "Digestive enzymes",
+          "path": "assets/digestive-enzymes.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Meal glucose",
+          "label": "Meal glucose",
+          "path": "assets/meal-glucose.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Protein food",
+          "label": "Protein food",
+          "path": "assets/protein-food.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Meal amino acids",
+          "label": "Meal amino acids",
+          "path": "assets/meal-amino-acids.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Fat food",
+          "label": "Fat food",
+          "path": "assets/fat-food.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Bile",
+          "label": "Bile",
+          "path": "assets/bile.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Small fat droplets",
+          "label": "Small fat droplets",
+          "path": "assets/small-fat-droplets.png",
+          "kind": "item"
+        },
+        {
+          "id": "name:Fat digestion products",
+          "label": "Fat digestion products",
+          "path": "assets/fat-digestion-products.png",
+          "kind": "item"
+        }
+      ]
+    }
+  ]
+}

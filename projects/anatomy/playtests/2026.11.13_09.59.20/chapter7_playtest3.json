@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should develop the cells needed for the neural circuits.",
+    "choice": 1,
+    "expectation": "I expect the culture to produce neurons and possibly supporting glia, though the intermediate stages are uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The culture produced neurons and glia, providing the cells needed to build the synaptic arrangements.",
+    "reaction": "The distinct roles of astrocytes and oligodendrocytes are useful context.",
+    "step": 2,
+    "reason": "The only offered combination adds excitatory connections, a starting point for testing whether inputs make the neuron fire.",
+    "choice": 1,
+    "expectation": "I expect an excitatory circuit with a receiving neuron; I don't yet know whether its input will reach threshold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "There is now a single excitatory input, ready for a baseline test or additional connections.",
+    "reaction": "The single-contact diagram is clear, but it does not yet show the response.",
+    "step": 3,
+    "reason": "Testing one input first should establish a baseline for comparison with additional excitation or inhibition.",
+    "choice": 3,
+    "expectation": "I expect one excitatory spike to raise the receiving neuron's voltage, but I'm unsure whether it will reach threshold.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A second excitatory input may help it fire, but I want to test one first."
+      },
+      {
+        "choice": 2,
+        "reason": "Adding inhibition would be useful for comparison after establishing the excitatory baseline."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "One excitatory input produced a subthreshold voltage change, so I can compare it with combined inputs.",
+    "reaction": "The distinction between receiving a signal and firing a spike is clear.",
+    "step": 4,
+    "reason": "Adding a second excitatory connection should let me test whether simultaneous inputs combine to reach threshold.",
+    "choice": 1,
+    "expectation": "I expect two excitatory inputs to produce a larger voltage rise, possibly enough to trigger a spike.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Inhibition is also worth testing, but I want to establish the effect of added excitation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The receiving neuron now has two excitatory inputs, ready for a simultaneous-spike test.",
+    "reaction": "The two separate contacts make the comparison with the single-input baseline clear.",
+    "step": 5,
+    "reason": "Test both excitatory inputs before adding inhibition, to see whether their combined effect reaches threshold.",
+    "choice": 2,
+    "expectation": "I expect the simultaneous inputs to produce a larger voltage rise and possibly trigger a spike.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Adding inhibition would be useful after testing the two excitatory inputs alone."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Two simultaneous excitatory inputs reached threshold and produced a new spike; a grey-matter goal also appeared.",
+    "reaction": "The contrast with the single subthreshold input makes the combined effect clear.",
+    "step": 6,
+    "reason": "Adding inhibition to the tested two-input arrangement should enable a direct comparison with its firing response.",
+    "choice": 2,
+    "expectation": "I expect an inhibitory connection to reduce the combined excitation, possibly preventing a spike when all inputs fire.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Adding inhibition to one excitatory input is another comparison, but the two-input circuit has already produced a spike."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two-excitatory-input circuit now has an inhibitory contact near the axon origin, ready for comparison.",
+    "reaction": "Its placement is clear, though its effect remains to be tested.",
+    "step": 7,
+    "reason": "Test the same simultaneous excitatory spikes with inhibition added.",
+    "choice": 1,
+    "expectation": "I expect inhibition to reduce the voltage response and possibly prevent the outgoing spike.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Joining the networks may advance the grey-matter goal, but I want to test inhibition first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Inhibition kept the receiving neuron below threshold despite simultaneous spikes on all inputs, completing the comparison goal.",
+    "reaction": "The contrast with the uninhibited circuit is clear, though the small single-excitation example dipping below rest is less explained.",
+    "step": 8,
+    "reason": "The only offered combination joins the excitatory and inhibited networks toward the grey-matter goal.",
+    "choice": 1,
+    "expectation": "I expect a grey-matter arrangement containing both excitatory and inhibitory connections, though its exact structure is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

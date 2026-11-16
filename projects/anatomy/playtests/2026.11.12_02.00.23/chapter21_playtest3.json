@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to begin the antibody response by pairing bacteria with the B cells that recognize their surface protein.",
+    "choice": 1,
+    "expectation": "I expect a matching B cell to bind the bacteria, though it may need further signals before making antibodies.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The messenger cell may help activate immune cells in the lymph node, but I want to follow bacterial recognition first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching B cell has bound bacterial protein and displayed a fragment, so I can bring it to the lymph node for the next stage.",
+    "reaction": "The displayed fragment makes me curious how the B cell will connect with a helper T cell.",
+    "step": 2,
+    "reason": "Place the prepared B cell where the immune cells can interact.",
+    "choice": 4,
+    "expectation": "I expect the B cell to be available in the lymph node, but it may still need a helper T cell signal.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The messenger cell may also be needed, but I want to follow the B cell I just prepared."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The prepared B cell is at the lymph node; another immune cell may be needed for the response.",
+    "reaction": "The placement was straightforward, though it has not yet shown how the cells interact.",
+    "step": 3,
+    "reason": "Bring the messenger cell to the lymph node to help start the helper T-cell response.",
+    "choice": 1,
+    "expectation": "I expect the messenger cell to be available at the lymph node, and it may need to encounter bacteria before activating a helper T cell.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Helper T cells will likely be needed too, but I want to prepare the messenger cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger cell is in the lymph node, and the menu now offers a combination with the bacteria.",
+    "reaction": "I’m curious what the messenger cell will show after encountering them.",
+    "step": 4,
+    "reason": "Combine the bacteria with the messenger cell to prepare it for the immune response.",
+    "choice": 1,
+    "expectation": "I expect the messenger cell to take up bacterial material and display a fragment that a helper T cell can recognize.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Helper T cells will likely be needed, but I want to prepare the messenger cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger displays a bacterial fragment in the lymph node, and the picture clarifies that it collected material at the airway before travelling there.",
+    "reaction": "The linked views make the messenger’s journey clearer.",
+    "step": 5,
+    "reason": "Connect the displayed fragment with helper T cells to continue the immune response.",
+    "choice": 1,
+    "expectation": "I expect a matching helper T cell to recognize the fragment and become activated, possibly requiring further signals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messenger activated matching helper T cells, which can now interact with the B cell displaying a bacterial fragment.",
+    "reaction": "The explanation makes the matching and growth of the helper-cell group clear.",
+    "step": 6,
+    "reason": "Bring the activated helper T cells together with the prepared B cell to continue toward antibody production.",
+    "choice": 1,
+    "expectation": "I expect the helper T cells to activate the matching B cell, leading toward antibody-producing cells and possibly memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helper T cell has signaled the matching B cell, which is now ready for the next stage of the response.",
+    "reaction": "The explanation makes the two cells’ roles clearer.",
+    "step": 7,
+    "reason": "This is the only offered gameplay action and should advance the helped B cells toward the goals.",
+    "choice": 1,
+    "expectation": "I expect the helped B cells to produce antibody-making cells, possibly alongside memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The helped B cells multiplied into antibody-producing plasma cells and memory B cells, providing a route toward both goals.",
+    "reaction": "The branching sequence clearly connects one selected B cell to the two outcomes.",
+    "step": 8,
+    "reason": "Use the antibody-making cells against the airway bacteria to pursue the first goal.",
+    "choice": 1,
+    "expectation": "I expect antibodies produced by the plasma cells to bind matching bacterial surface proteins; the memory cells may remain for the other goal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Adding the cells to the body may establish immune memory, but I want to follow antibody binding first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Matching antibodies have tagged the bacteria, completing the first goal; the remaining action appears to address immune memory.",
+    "reaction": "The explanation clearly distinguishes tagging bacteria from eliminating them.",
+    "step": 9,
+    "reason": "This is the only offered gameplay action and should connect the memory B cells to the body.",
+    "choice": 1,
+    "expectation": "I expect the body to retain memory B cells that can respond to the same bacterial feature later.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now retains memory B cells, completing the second goal. The explanation clarifies that a later response can be faster without guaranteeing complete or lasting protection.",
+    "reaction": "The distinction between immune memory and conscious memory is useful, though the final body picture feels less informative than the cell sequence.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The helped B cells dividing into plasma cells and memory cells was the most worthwhile moment. It connects recognition and helper-cell signaling to both outcomes in a clear sequence.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the B cell and messenger cell at the lymph node felt procedural; those actions did not themselves show an interaction.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The messenger-cell result clarified that it collected bacterial material at the airway and then travelled to the lymph node, even though the combination happened at the node.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining bacteria with a messenger cell already placed at the lymph node initially made the location of their encounter unclear. The resulting picture explained the journey.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the sequence made me curious about how matching cells produce a lasting response, although repeated placement steps slowed it down.",
+        "steps": [
+          2,
+          3,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

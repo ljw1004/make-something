@@ -1,0 +1,102 @@
+[
+  {
+    "step": 1,
+    "reason": "Add phospholipids to support membrane growth as the cell prepares to divide.",
+    "choice": 1,
+    "expectation": "The membrane growth slot will be filled, while cytoplasm growth and DNA replication remain to be prepared.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Copying DNA is also necessary, but I chose to start with the cell boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids are fitted; cytoplasm growth and DNA replication remain.",
+    "reaction": "The fitting was straightforward.",
+    "step": 2,
+    "reason": "Add the new proteins to support cytoplasm growth.",
+    "choice": 1,
+    "expectation": "The cytoplasm growth slot will be filled, leaving DNA replication to prepare.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA replication is also needed, but I chose to finish the growth preparations first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins are fitted, leaving DNA replication to prepare.",
+    "reaction": "The fitting was straightforward.",
+    "step": 3,
+    "reason": "Add the nucleotides to prepare genome replication; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The DNA replication slot will be filled, completing the cell's preparations for growth and genome copying.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The genome is copied into joined sister chromatids, and the goal now is to separate two living cells.",
+    "reaction": "The before-and-after distinction between copied DNA and still-joined chromosomes is useful.",
+    "step": 4,
+    "reason": "Use the spindle to separate the chromosome copies; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The spindle will help move sister chromatids toward opposite poles, preparing the cell for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosome sets are at opposite poles with new nuclear envelopes, but the cytoplasm remains continuous.",
+    "reaction": "The distinction between chromosome separation and cell separation is clear.",
+    "step": 5,
+    "reason": "Use the contractile ring to divide the cell; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "The ring will narrow the cell's equator and separate it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring completed cell separation, producing two living descendants and completing the chapter.",
+    "reaction": "The furrowing sequence clearly distinguishes cell division from chromosome separation.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Copying the genome was most worthwhile: the planned before-and-after inset distinguishes doubled DNA from still-joined sister chromatids.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first two fittings felt repetitive; they showed parts being added without much immediate explanation of growth.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The chromosome sets separated and new nuclear envelopes formed while the cytoplasm remained continuous, making the need for a separate division step clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though fitting proteins directly into the cell simplified cytoplasm growth without explaining the connection in much detail.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the unspecialized descendants supply different branches of the model; that prospect is more compelling than the repetitive early fittings.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

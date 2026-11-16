@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named digestive tract slot, so its placement is clear.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract will fit into the lower body below the diaphragm.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm assembly",
+          "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+        },
+        "reason": "The chest also has a marked attachment for the studied arm."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is fitted in the lower body; the urinary organs still have a named slot there.",
+    "reaction": "It is satisfying to see the gut placed with its liver blood route intact.",
+    "step": 2,
+    "reason": "The remaining lower-body slot explicitly names the urinary organs.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder will fit into the lower body alongside the digestive tract.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Arm assembly",
+          "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+        },
+        "reason": "The chest has a marked attachment for the arm, but I can finish the lower body first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, completing that goal.",
+    "reaction": "The separate urinary and digestive outlets make the placement clearer.",
+    "step": 3,
+    "reason": "The chest has a marked shoulder attachment for the studied arm.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The studied arm will attach to the waiting shoulder on the chest.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lymph drainage network",
+          "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+        },
+        "reason": "The chest also has a waiting connection for the lymph vessels."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to the chest, with its blood vessels and nerves connected at the shoulder.",
+    "reaction": "It is satisfying to see the earlier arm fit into the larger model.",
+    "step": 4,
+    "reason": "The chest has a waiting neck-vein connection for the lymph drainage network.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly]"
+    },
+    "expectation": "The lymph drainage network will connect to the chest at the neck vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is fitted, completing the chest goal and revealing the next goal of joining the chest to the lower body.",
+    "reaction": "The shared neck-vein junction makes the connection clear.",
+    "step": 5,
+    "reason": "Both regions are prepared, and the new goal explicitly says to join them.",
+    "choice": {
+      "combine": "Breathing apparatus[Diaphragm,Circulation with lung exchange,Arm assembly,Lymph drainage network]",
+      "with": "Lower body[Digestive tract,Urinary organs]"
+    },
+    "expectation": "The chest and lower body will join, with the abdominal organs below the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, and the remaining channel is ready for the spine.",
+    "reaction": "The separate routes through the diaphragm make the assembled regions easier to understand.",
+    "step": 6,
+    "reason": "The new goal and the open channel both point to joining the head and spine to the trunk.",
+    "choice": {
+      "combine": "Head and spine[Eye with optic nerve,Ears]",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine will fit into the trunk's back channel, joining the head and nerves to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are joined to the trunk, leaving the skin covering as the new goal.",
+    "reaction": "Seeing nerves and blood routes reach the same body makes their different jobs clearer.",
+    "step": 7,
+    "reason": "The introduction says to fit the outer covering last, and the inside is now joined.",
+    "choice": {
+      "combine": "Skin covering[Repaired skin segment]",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering will fit over the assembled body, retaining the repaired skin segment.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body, with the repaired scar and the assembled organs still visible in the cutaway.",
+    "reaction": "It was satisfying to see the parts brought together without losing the earlier repair.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the chest and lower body was most worthwhile: the result showed where the diaphragm sits and explained that nerves, blood vessels and the food pipe cross between regions by separate routes.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the urinary organs was clear but mostly a named-slot placement, so it gave me less to figure out.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The joined body made the different jobs of nerves and blood clearer: the same muscle needs signals and a supply of materials.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though several placements followed explicit slots or goals rather than requiring much reasoning.",
+        "steps": [
+          1,
+          2,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue if another chapter explored how the assembled systems work together. The final connections were interesting, though the straightforward placements alone would not be much of a draw.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

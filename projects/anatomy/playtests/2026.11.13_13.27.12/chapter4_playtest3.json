@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The stated differentiation sequence connects a subset of the stem-cell population to fibroblasts, which can make supporting material.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "The conditions will guide a subset of the population toward fibroblasts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The other branch is also a stated goal, but either can be started first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "A subset has entered the fibroblast lineage and is transcribing collagen messages; the unspecialized population remains available for the muscle branch.",
+    "reaction": "The unchanged DNA and active collagen genes make the differentiation connection clear.",
+    "step": 2,
+    "reason": "Collagen messages and amino acids suggest the cells can now make collagen protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The fibroblast-lineage cells will use the amino acids to make collagen for supporting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packaged them for secretion; supporting material outside the cells still needs to be made.",
+    "reaction": "The ER and Golgi connection makes the protein-production route clear.",
+    "step": 3,
+    "reason": "Extracellular fluid contains processing enzymes and is the natural destination for the secreted collagen precursors.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will release collagen precursors for processing into supporting material outside the cells.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The muscle branch can also be started now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen precursors were secreted and assembled into extracellular matrix, completing the supporting-material goal.",
+    "reaction": "The sequence makes it clear that tissue includes material made outside the cells.",
+    "step": 4,
+    "reason": "The separate muscle differentiation conditions are the stated route from the remaining stem-cell population to muscle precursors.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "A subset of the stem-cell population will progress toward muscle-forming cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch now has committed cells expressing muscle-protein messages, but they remain individual cells.",
+    "reaction": "The distinction between committed cells and a mature muscle fibre is clear.",
+    "step": 5,
+    "reason": "The muscle messages and available amino acids suggest the cells can produce muscle proteins, as the fibroblast branch produced collagen.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The muscle-lineage cells will use the amino acids to make muscle proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells made muscle proteins and became myoblasts, completing the final goal without yet forming mature fibres.",
+    "reaction": "The distinction between separate precursors and a fused muscle fibre is useful.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making extracellular matrix was most worthwhile: the planned sequence connects gene expression and protein production to secretion and assembly outside the cells, showing that tissue includes extracellular material.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle branch repeated the differentiation-then-protein-production pattern, although the parallel helped contrast the two cell types.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The muscle goal ended with separate myoblasts rather than a mature fibre; the picture makes that developmental limit explicit.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary: the goals and picture descriptions gave each combination a clear purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how these precursors and extracellular materials become organized into tissues; the two branches set up that question clearly.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

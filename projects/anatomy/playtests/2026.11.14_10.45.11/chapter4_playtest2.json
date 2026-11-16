@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "reason": "The bone framework has spaces awaiting mineral, so this directly addresses the goal of strengthening the bones.",
+    "choice": {
+      "combine": "Bone mineral",
+      "with": "Living bone framework"
+    },
+    "expectation": "The mineral will strengthen the living bone framework.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells",
+          "with": "Front tendon attachments"
+        },
+        "reason": "The cells could also begin building a muscle, but strengthening the bones is equally clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral strengthened the bones while leaving the joint able to move; the remaining goal is to build the muscles.",
+    "reaction": "It was useful to see that the joint's soft parts stayed unmineralized.",
+    "step": 2,
+    "reason": "The front attachments have a space for muscle cells, so placing them there should build one of the two muscles.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Front tendon attachments"
+    },
+    "expectation": "The cells will form a muscle between the front tendon attachments.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle cells",
+          "with": "Back tendon attachments"
+        },
+        "reason": "The back attachments also need a muscle; either side seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front muscle is the biceps, and its pull bends the elbow. The back attachment still needs a muscle.",
+    "reaction": "The picture makes it clear how the biceps pulls across the joint.",
+    "step": 3,
+    "reason": "The back attachments have the other space for muscle cells, so they are the next clear place to build.",
+    "choice": {
+      "combine": "Muscle cells",
+      "with": "Back tendon attachments"
+    },
+    "expectation": "The cells will form a muscle behind the elbow that pulls from the opposite side.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps pulls from behind to straighten the elbow, showing how the same kind of muscle cell can produce a different movement because of its attachments.",
+    "reaction": "Seeing the two muscles pull in opposite directions made their jobs clearer.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building both muscles was most worthwhile because their positions explain bending and straightening the elbow.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mineral was clear but less interesting than seeing how the muscles move the joint.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The same kind of muscle cell could help make muscles with opposite effects; the attachments determine the direction of the pull.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary: the spaces and goals made their purposes clear.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because building the arm helped me connect its parts to movement, and I would be curious to see another body system.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

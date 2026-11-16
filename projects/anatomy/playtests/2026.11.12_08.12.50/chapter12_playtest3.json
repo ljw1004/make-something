@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "Start assembling the digestive system by connecting the salivary glands to the mouth.",
+    "choice": 4,
+    "expectation": "The glands will fit into their marked slot on the digestive tube, likely showing their ducts opening into the mouth.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; I can continue assembling the digestive tube.",
+    "reaction": "The fitting was straightforward, though the picture description did not add detail about the glands.",
+    "step": 2,
+    "reason": "The pancreas has a marked connection to the small intestine, so fitting it advances the assembly goal.",
+    "choice": 4,
+    "expectation": "The pancreas will fit into the digestive tube, connecting its duct to the small intestine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted, leaving the liver and gallbladder as the remaining available organ fitting.",
+    "reaction": "Another straightforward fitting, with no added picture detail.",
+    "step": 3,
+    "reason": "Fit the liver and gallbladder to continue the digestive-system assembly.",
+    "choice": 4,
+    "expectation": "They will fit into the marked slot, probably with their bile ducts leading toward the intestine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The organ-fitting goal is complete, and the result clarifies what each organ supplies. I can now work on breaking down the meal.",
+    "reaction": "The summary makes the fittings more meaningful, although the individual fittings added little detail.",
+    "step": 4,
+    "reason": "Start starch digestion with salivary amylase, matching the newly stated role of saliva.",
+    "choice": 1,
+    "expectation": "Amylase will break starch into smaller carbohydrates, though I don't know how far this step will take digestion.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase produced shorter starch chains, so another enzyme step is available to continue their breakdown.",
+    "reaction": "The intermediate makes the stages of starch digestion clear, though it adds little explanation.",
+    "step": 5,
+    "reason": "Continue breaking down the starch while its intermediate is available.",
+    "choice": 1,
+    "expectation": "The starch-digesting enzymes will produce smaller sugars suitable for absorption, though the exact product is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch has been broken down into individual glucose molecules that can cross the intestinal lining; protein and fat digestion remain available.",
+    "reaction": "The two-stage progression to glucose is clear, though the result does not explain the enzymes' individual roles.",
+    "step": 6,
+    "reason": "Break down the protein portion of the meal to advance the absorption goal.",
+    "choice": 1,
+    "expectation": "The protein-digesting enzymes will produce smaller protein fragments or amino acids, though the exact product is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fat digestion also advances the goal, but I chose to handle protein first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced amino acids; fat digestion is the only offered combination remaining.",
+    "reaction": "The product is clear, though the result gives no detail about the digestion process.",
+    "step": 7,
+    "reason": "Use the only offered combination to break down the fat portion of the meal.",
+    "choice": 1,
+    "expectation": "Bile will help disperse the fat, and lipase will break it into smaller products suitable for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion produced fatty acids and monoglycerides, and the chapter's goals are complete. The result distinguishes bile's dispersing role from lipase's digestive role.",
+    "reaction": "That distinction was useful, although monoglycerides were not explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The fat combination was most worthwhile: its planned picture and explanation distinguish dispersing droplets from enzymatic breakdown, including the explicit clarification that bile is not an enzyme.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The individual pancreas fitting was thin: it confirmed placement without adding picture detail or explaining the connection at that point.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The two-stage starch sequence made the intermediate chains visible before individual glucose molecules appeared; the enzymes' separate roles could have been clearer.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The organ fittings had a clear assembly purpose, but their immediate results gave little sense of how the organs connected or worked. The later summary helped.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how these products cross the intestinal lining, though the repetitive fittings and brief explanations make that a qualified yes.",
+        "steps": [
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

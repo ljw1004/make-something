@@ -1,0 +1,84 @@
+[
+  {
+    "step": 1,
+    "reason": "The mitochondria match the cell's empty outline and should advance the ATP goal; this is the only available action.",
+    "choice": 1,
+    "expectation": "I expect to place mitochondria in the cell, preparing it to use fuel and oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now has a mitochondrion, and the picture shows glucose being split before smaller fuel molecules reach it. Oxygen is the next available ingredient for the ATP goal.",
+    "reaction": "The split between processing in the cell fluid and the mitochondrion is a useful detail.",
+    "step": 2,
+    "reason": "Add oxygen to advance the ATP goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect oxygen to enter the cell and help the mitochondrion use the smaller fuel molecules, though ATP may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen and fuel are now shown converging at the mitochondrion, with an inset pointing to ADP and phosphate as the next ingredients.",
+    "reaction": "The inset makes the next step clear, though it does not explain how oxygen helps make ATP.",
+    "step": 3,
+    "reason": "Add ADP and phosphate to pursue the ATP goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the cell to make ATP from ADP and phosphate using energy from fuel processing, though the details may be simplified.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ATP supply is complete, and the new goal is to use it to move particles against a concentration difference.",
+    "reaction": "The returning ADP and phosphate make the energy-transfer cycle clearer.",
+    "step": 4,
+    "reason": "Add the membrane pump to pursue the new goal; it is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the pump to use ATP to move charged particles against their concentration difference, though another step may be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completes the ATP goal and shows how ATP use moves particles against their concentration difference.",
+    "reaction": "The pump cycle usefully connects ATP breakdown back to ATP production.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the membrane pump was most worthwhile: the planned picture connects ATP use to movement from lower to higher particle concentration, while retaining the sugar transporter for comparison.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen was the least illuminating passage: the arrows show it meeting fuel processing at the mitochondrion but do not explain its role.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The first result clarified that glucose is split in the cell fluid before smaller fuel molecules reach the mitochondrion.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but the oxygen step's connection to ATP production remained unexplained. Each decision also had only one offered combination, so there was little opportunity to make meaningful choices.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it developed these relationships further, though the single-option sequence offered little decision-making. The planned pictures appear useful, but this playthrough cannot establish student comprehension or enjoyment.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

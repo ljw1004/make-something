@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "Developing red blood cells need haemoglobin to carry oxygen, and the supplied materials are its building blocks.",
+    "choice": {
+      "combine": "Developing red blood cells",
+      "with": "Haemoglobin building materials"
+    },
+    "expectation": "The cells will make haemoglobin as they develop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells have matured with haemoglobin; the fluid components still need assembling.",
+    "reaction": "The cutaway usefully distinguishes haemoglobin assembly in developing cells from mature cells.",
+    "step": 2,
+    "reason": "Plasma water and solutes are the visible components of the blood's fluid portion.",
+    "choice": {
+      "combine": "Plasma water",
+      "with": "Plasma solutes"
+    },
+    "expectation": "They will form plasma for the blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water and solutes formed plasma, ready to be combined with the blood cells.",
+    "reaction": "The straw-yellow plasma picture makes the fluid component distinct from the cells.",
+    "step": 3,
+    "reason": "Red blood cells suspended in plasma are a natural next step toward the blood sample.",
+    "choice": {
+      "combine": "Plasma",
+      "with": "Red blood cells"
+    },
+    "expectation": "The red cells will be added to the plasma.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma first combined automatically with white cells and platelets; red cells still need to be added.",
+    "reaction": "The required order was unexpected, but the compatibility feedback made progress.",
+    "step": 4,
+    "reason": "Adding the red blood cells should complete the visible blood components.",
+    "choice": {
+      "combine": "Plasma with white cells and platelets",
+      "with": "Red blood cells"
+    },
+    "expectation": "The red cells will join the plasma, white cells and platelets in a blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plasma mixture had no available combination, so adding red cells directly did not work; I will try oxygen with the red cells first.",
+    "reaction": "The restriction is confusing because red cells normally circulate in plasma.",
+    "step": 5,
+    "reason": "Haemoglobin in the red cells can bind oxygen, and oxygen is the remaining uncombined ingredient.",
+    "choice": {
+      "combine": "Red blood cells",
+      "with": "Oxygen molecules"
+    },
+    "expectation": "The red cells will bind oxygen, possibly making them ready to join the plasma mixture.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Red blood cells"
+        },
+        "reason": "Inspection could reveal their available partners, but binding oxygen is plausible enough to try directly."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The red cells now carry oxygen, so I will try adding them to the plasma mixture.",
+    "reaction": "The reversible binding picture clarifies how haemoglobin can release oxygen in tissues.",
+    "step": 6,
+    "reason": "The oxygen-bearing red cells and plasma mixture are the remaining components of the blood sample.",
+    "choice": {
+      "combine": "Oxygen-bearing red blood cells",
+      "with": "Plasma with white cells and platelets"
+    },
+    "expectation": "The oxygen-bearing cells will join the plasma mixture to form a blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen-bearing cells and plasma mixture formed blood, completing the chapter goal.",
+    "reaction": "The final picture brings the distinct blood components together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Binding oxygen to red cells was most worthwhile: the planned inset and explanation show that haemoglobin can both bind and release oxygen, especially where dissolved oxygen is lower.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add red cells to the plasma mixture was confusing: the mixture had no available combination, although red cells normally circulate in plasma.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The first attempt to combine plasma with red cells instead automatically added white cells and platelets.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring oxygen to be added to red cells before assembling the blood sample felt arbitrary; the supplied explanation did not establish why that order was necessary.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the oxygen-binding explanation was useful, and I would be interested to see how circulation brings oxygen carriers close to tissues, though the restrictive combination order was frustrating.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

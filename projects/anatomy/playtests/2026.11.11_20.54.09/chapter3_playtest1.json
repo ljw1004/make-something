@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "I’ll join the bones to start the arm’s framework for the joint.",
+    "choice": 1,
+    "expectation": "I expect an arm framework, though it may still need cartilage and ligaments to form a working joint.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cartilage and joint fluid also seem useful for a smooth joint, but I want to assemble the bones first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bones provide rigid supports, but they still need a joint where they can turn relative to each other.",
+    "reaction": "The distinction between bending bones and movement at a joint is clear.",
+    "step": 2,
+    "reason": "I’ll combine cartilage and joint fluid to prepare the smooth joint surfaces; it’s the only available combination.",
+    "choice": 1,
+    "expectation": "I expect a smooth or lubricated joint surface that can later be fitted to the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cartilage covers bone ends and joint fluid helps them slide; the next goal is to join the framework and attach the muscles.",
+    "reaction": "The explanation makes the purpose of both joint components clear.",
+    "step": 3,
+    "reason": "I’ll fit the smooth surfaces to the arm bones to start joining the framework; it’s the only available combination.",
+    "choice": 1,
+    "expectation": "I expect an arm framework with smooth surfaces at the joint, though it may still need ligaments and muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The joint surfaces allow the forearm to turn, but the articulated bones still need a pulling force.",
+    "reaction": "The distinction between allowing movement and producing it is useful.",
+    "step": 4,
+    "reason": "I’ll add ligaments to the articulated bones; it’s the only available combination and should help hold the joint together.",
+    "choice": 1,
+    "expectation": "I expect a more stable joint that will still need the muscles attached.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments connect the bones and stabilize the joint; the framework now has slots for both opposing pulls.",
+    "reaction": "The distinction between ligaments and the muscle tendons is useful.",
+    "step": 5,
+    "reason": "I’ll attach the bending muscles to fill one of the framework’s pull slots.",
+    "choice": 1,
+    "expectation": "I expect the bending muscles to fit the front pull slot, leaving the rear pull to attach.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The straightening muscles should also fit, but either pull seems reasonable to attach first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front muscles pull through tendons to bend the elbow, and relaxing them does not push the bones back. The opposing muscles still need to be attached.",
+    "reaction": "The explanation of why an opposing pull is needed is useful.",
+    "step": 6,
+    "reason": "I’ll attach the straightening muscles to complete the opposing pulls; it’s the only available combination.",
+    "choice": 1,
+    "expectation": "I expect the straightening muscles to fit the rear pull slot, completing the muscle attachments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The opposing muscles complete the framework: their pulls can bend, straighten and steady the elbow, including while holding a weight still. Coordination remains a separate job.",
+    "reaction": "Holding a weight still without the muscles shortening was a useful addition to the picture of how they work.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Attaching the bending muscles was most worthwhile because the result explained how tendons transmit a pull and why relaxing a muscle does not push the bones back.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the smooth surfaces to the bones felt least engaging as a decision: it was the only combination offered and its result was fairly predictable, though the explanation was useful.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The completed framework showed that muscles can keep pulling without shortening, such as when holding a weight still.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt without purpose. The order of attaching the two muscle groups seemed interchangeable, so choosing the bending muscles first was a preference rather than a meaningful discovery.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the opposing muscles are coordinated. The links between joint structure and muscle pulls were clear, although several choices were predictable.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

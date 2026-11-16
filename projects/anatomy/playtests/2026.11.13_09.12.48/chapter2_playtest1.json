@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "The cell's existing glucose transporter provides a plausible route for the outside glucose, matching the first goal.",
+    "choice": {
+      "combine": "Cell with selective exchange",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose enters the cell through its transporter, allowing its breakdown to begin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the existing carrier and is broken down in the cytosol, producing some ATP and pyruvate for mitochondria.",
+    "reaction": "The distinction between cytosolic breakdown and the mitochondrial stage is useful.",
+    "step": 2,
+    "reason": "Oxygen is shown heading toward mitochondria, where the glucose-derived fuel can support ATP production.",
+    "choice": {
+      "combine": "Cell breaking down glucose",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will support the mitochondrial stage of glucose breakdown and help remake ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Cell breaking down glucose"
+        },
+        "reason": "I could check its available partners before choosing the next stage."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen now receives electrons in the mitochondrial pathway, setting up the next step toward remaking ATP.",
+    "reaction": "The distinction between fuel as an energy source and oxygen as an electron recipient is useful.",
+    "step": 3,
+    "reason": "ADP and phosphate are the depicted ingredients for remaking ATP, matching the current goal.",
+    "choice": {
+      "combine": "Cell with aerobic respiration",
+      "with": "ATP ingredients: ADP and phosphate"
+    },
+    "expectation": "The cell will use energy from respiration to join ADP and phosphate into ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Respiration now remakes ATP via a hydrogen-ion gradient across the mitochondrial inner membrane.",
+    "reaction": "The two-panel depiction makes the link between electron flow and ATP production clearer.",
+    "step": 4,
+    "reason": "The remaining ion pump uses ATP at the cell boundary, matching the goal.",
+    "choice": {
+      "combine": "Cell remaking ATP",
+      "with": "ATP-powered ion pump"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium across the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump uses ATP to move sodium and potassium against their concentration differences, completing the goal and linking ATP production to membrane transport.",
+    "reaction": "It is satisfying to see the energy pathway end in a concrete cellular job.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Remaking ATP was the most worthwhile construction: the planned two-panel illustration connects electron flow, a hydrogen-ion gradient and ATP production rather than relying on the powerhouse slogan.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen was comparatively brief; the planned pathway distinguishes oxygen's role from fuel's, but leaves the intervening electron-transfer machinery mostly implicit.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The ATP-making plan made the connection between electron flow and hydrogen-ion movement more explicit than I expected.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; each ingredient had a visible connection to the goal, although the choices were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting familiar cell biology to a working ion pump suggests that later constructions could make other physiological relationships concrete. This judgment is based on the supplied illustration plans, not finished artwork or evidence of student comprehension.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

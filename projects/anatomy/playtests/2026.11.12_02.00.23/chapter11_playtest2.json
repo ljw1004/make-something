@@ -1,0 +1,93 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it should start a route for excess tissue fluid to enter lymphatic vessels.",
+    "choice": 1,
+    "expectation": "I expect the lymphatic capillaries to collect fluid from the tissue spaces, though I don't know what the resulting item will be called.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries collect excess fluid and proteins, so I can now extend the drainage route.",
+    "reaction": "The explanation makes the first connection clear.",
+    "step": 2,
+    "reason": "This is the only offered combination and should carry the collected fluid onward.",
+    "choice": 1,
+    "expectation": "I expect the collecting vessels to connect with the lymphatic capillaries and provide a route for lymph to flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries now connect to larger collecting vessels with valves, extending the drainage route.",
+    "reaction": "The connection makes sense, though the result adds little explanation.",
+    "step": 3,
+    "reason": "This is the only offered combination; the return ducts should connect the pathway back toward the blood.",
+    "choice": 1,
+    "expectation": "I expect the collecting vessels to connect to ducts that return lymph to veins near the neck.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drainage network now reaches veins near the neck, and movement and breathing help propel lymph through it.",
+    "reaction": "The link between breathing, movement and lymph flow is interesting.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it should connect the drainage network to the arm.",
+    "choice": 1,
+    "expectation": "I expect the arm to gain lymphatic drainage, though it may still need a connection to the blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has lymphatic vessels leading from its tissues toward the larger ducts; it still needs to connect to the supply circuit.",
+    "reaction": "The result matches what I expected, though it adds little explanation.",
+    "step": 5,
+    "reason": "This is the only offered combination, and it should connect the arm and its drainage to the blood supply.",
+    "choice": 1,
+    "expectation": "I expect the arm to join the breathing and circulation circuit, completing the route back to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects the arm to circulation and shows how tissue fluid links delivery, waste return and lymph drainage.",
+    "reaction": "The final tissue inset ties the pieces together clearly.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the arm to the supply circuit was most worthwhile because the result shows how blood, tissue fluid and lymph work together.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the collecting vessels felt least worthwhile on its own: the connection was predictable and the result added little explanation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was interested to learn that body movement and breathing help move lymph through vessels with valves.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the sequence was largely prescribed: each decision offered only one combination.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter for the connections between body systems, but the repeated single-option steps leave little room for meaningful decisions.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with the after-meal situation: the picture says higher glucose prompts pancreatic cells to release insulin.",
+    "choice": 1,
+    "expectation": "I expect insulin to be released into the blood, though I'm not sure how the next muscle step will appear.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lower-glucose message also matters, but I want to follow the after-meal sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin enters the blood and heads toward muscle, so I can follow the after-meal sequence.",
+    "reaction": "The route to muscle makes the next step clear.",
+    "step": 2,
+    "reason": "The muscle picture shows receptors for insulin and glucose nearby, matching the goal of storing glucose.",
+    "choice": 2,
+    "expectation": "I expect the muscle to take in glucose and store some as carbohydrate.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "I could start the lower-glucose sequence, but I want to finish following insulin first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle stored glucose as linked chains while insulin stayed outside; the after-meal goal is complete.",
+    "reaction": "The distinction between the message and the stored material is clear.",
+    "step": 3,
+    "reason": "The only offered combination starts the lower-glucose sequence for the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release the other hormone into the blood; I don't yet know its name.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower-glucose signal produces a blood-carried message that tells the liver to break down its store.",
+    "reaction": "The contrast with insulin's after-meal message makes the two situations clearer.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it follows the message to the liver's stored carbohydrate.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver store became smaller as glucose entered the blood, completing the between-meals sequence. The release signal also eases as blood glucose rises.",
+    "reaction": "It was satisfying to see the stored carbohydrate become available as glucose again.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to the muscle was worthwhile because it showed glucose becoming a store while insulin remained a message outside the cells.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing the second hormone felt somewhat repetitive after releasing insulin, although it set up the contrast between the two situations.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the hormone to remain outside the muscle cells while glucose became the stored material.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless: the pictures and goals explained both sequences, though the last two combinations were the only offered actions.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: comparing the two messages and seeing where the glucose goes made this one understandable, even if some steps were predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "step": 1,
+    "reason": "The glucose carrier needs a membrane setting before it can help bring glucose into the cell.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will be installed in the membrane, providing a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, so glucose can now be paired with it.",
+    "reaction": "The placement follows the carrier's pictured structure clearly.",
+    "step": 2,
+    "reason": "Glucose fits the carrier's binding pocket and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier, moving down its concentration gradient.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has reached the cytosol, where it can be used in metabolism.",
+    "reaction": "The carrier’s changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "The cell interior is the natural place to follow cytosolic glucose breakdown and ATP renewal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Living cell interior"
+    },
+    "expectation": "Glucose will be used in a step toward aerobic ATP renewal, possibly alongside the available oxygen.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced pyruvate and ATP without using oxygen; pyruvate can now proceed toward aerobic metabolism.",
+    "reaction": "The separation between glycolysis and oxygen use is a useful clarification.",
+    "step": 4,
+    "reason": "Pyruvate is shown moving toward mitochondria, and oxygen has already entered the cytosol.",
+    "choice": {
+      "combine": "Glycolytic cytosol with ATP and pyruvate",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "These products will support a further aerobic ATP-renewal step, possibly at the cell interior.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Glycolytic cytosol with ATP and pyruvate"
+        },
+        "reason": "Checking its partners could clarify whether the cell interior is needed for the next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The direct oxygen pairing failed; the glycolytic cytosol can instead be used at the living cell interior.",
+    "reaction": "The compatibility feedback clarifies where the next step belongs.",
+    "step": 5,
+    "reason": "The reported partner is the cell interior, where pyruvate can reach mitochondria.",
+    "choice": {
+      "combine": "Glycolytic cytosol with ATP and pyruvate",
+      "with": "Living cell interior"
+    },
+    "expectation": "This will advance aerobic metabolism, potentially using the available oxygen to renew ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell interior combined pyruvate-derived fuel with available oxygen to show mitochondrial ATP renewal; powered ion transport remains to be connected.",
+    "reaction": "The distinct roles of fuel and oxygen are a useful clarification.",
+    "step": 6,
+    "reason": "The sodium-potassium pump is a membrane protein, so installing it in a lipid patch is a plausible step toward powered transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will be installed in the membrane, ready to use ATP for ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane with its ATP-binding site facing the cytosol, ready to be connected to ATP renewal.",
+    "reaction": "The pump's orientation makes the next connection plausible.",
+    "step": 7,
+    "reason": "Aerobic ATP renewal supplies the energy currency the membrane pump needs for powered ion transport.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump will use renewed ATP to move sodium and potassium against their gradients.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP renewal is now connected to powered sodium-potassium transport; making proteins remains.",
+    "reaction": "The comparison with passive sodium flow makes the pump's role clearer.",
+    "step": 8,
+    "reason": "Amino acids are protein building blocks, and the cell interior contains ribosomes and existing RNA messages.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Living cell interior"
+    },
+    "expectation": "Ribosomes will use the amino acids and existing RNA messages to make new proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell interior used amino acids and the available glycolytic cytosol to make proteins from existing RNA messages, completing the remaining goal.",
+    "reaction": "The picture usefully connects protein synthesis to energy use, although the automatic inclusion of glycolytic cytosol was not something I anticipated.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Aerobic ATP renewal was most worthwhile: the planned picture distinguishes fuel oxidation from oxygen’s role and connects the proton flow through ATP synthase to ATP production. The electron-transfer and H+ arrows are compact descriptions that could use more explanation for this audience.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed direct pairing of glycolytic cytosol with oxygen added little beyond identifying the required cell-interior hotspot; it was not obvious beforehand why the hotspot was necessary.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "Protein construction automatically included glycolytic cytosol, connecting the synthesis result to cellular energy use even though I had selected only amino acids and the cell interior.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the cell interior rather than pairing glycolytic cytosol directly with oxygen felt somewhat arbitrary as an interaction, although the resulting mitochondrial setting had a clear biological purpose.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the carrier, ATP renewal and pump constructions made useful structural and functional connections, and I would be curious to see how later chapters build on them.",
+        "steps": [
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

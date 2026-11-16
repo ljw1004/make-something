@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to provide a route for fuel into the cell.",
+    "choice": 1,
+    "expectation": "I expect the carrier to embed in the membrane and allow glucose to enter, though that may require a later combination.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump serves the ion-transport goal, but I want to establish the fuel supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so glucose can now be combined with it.",
+    "reaction": "The result matches the expected first stage.",
+    "step": 2,
+    "reason": "Bring glucose into the cell to advance the fuel-to-ATP goal.",
+    "choice": 1,
+    "expectation": "I expect glucose to cross into the cytosol through the carrier, down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is also needed, but I want to follow the glucose pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol and is ready for breakdown by the nearby enzymes.",
+    "reaction": "The carrier's changing shape makes its transport mechanism clear.",
+    "step": 3,
+    "reason": "Continue the fuel pathway by placing glucose at the breakdown enzymes.",
+    "choice": 1,
+    "expectation": "I expect glucose to be broken into three-carbon products, with some ATP renewed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for ion transport, but I want to finish tracing fuel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate, which can now be paired with oxygen to continue the aerobic pathway.",
+    "reaction": "The picture usefully distinguishes glycolysis from the oxygen-dependent stages.",
+    "step": 4,
+    "reason": "Continue tracing fuel toward aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "I expect pyruvate and oxygen to support mitochondrial respiration and further ATP renewal, though intermediate steps may be summarized.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "ATP can also support protein production, but I want to complete the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aerobic pathway is complete, and ATP renewal is available for cellular work.",
+    "reaction": "The distinction between fuel oxidation, oxygen's role and the hydrogen-ion gradient is useful.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to advance the ion-transport goal.",
+    "choice": 1,
+    "expectation": "I expect the pump to be embedded in the membrane, with ATP needed in a later step to drive transport.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "ATP renewal could also support protein production, but I will address ion transport first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed and can now be paired with an ATP source to drive ion transport.",
+    "reaction": "The nearby channel inset makes the contrast with passive transport clear.",
+    "step": 6,
+    "reason": "Use the aerobic ATP supply to power the installed pump.",
+    "choice": 2,
+    "expectation": "I expect ATP-driven transport of sodium out and potassium into the cell, against their concentration gradients.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glycolytic ATP is also available, but I chose the completed aerobic supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered pumping moves sodium out and potassium in, completing the ion-transport goal; protein production remains.",
+    "reaction": "The contrast between pumping and passive sodium flow is useful.",
+    "step": 7,
+    "reason": "Use the aerobic ATP supply with amino acids to pursue protein production.",
+    "choice": 2,
+    "expectation": "I expect ATP to support amino-acid preparation and protein synthesis at ribosomes using an existing RNA message.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glycolytic ATP could also support the process, but I chose the aerobic supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein synthesis completes the remaining goal and the chapter; the picture distinguishes the RNA message, amino-acid building blocks and ATP-supported preparation.",
+    "reaction": "The construction ties ATP use to protein production, though it relies on an existing RNA message.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Aerobic ATP renewal was the most worthwhile construction: its illustration plan connects fuel oxidation and oxygen to a hydrogen-ion gradient and ATP synthase, rather than treating them as interchangeable inputs.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was a predictable intermediate step; its main value was setting up the more informative powered-transport result.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The aerobic result explicitly showed hydrogen ions being pumped across the inner mitochondrial membrane and returning through ATP synthase, making the energy-transfer connection more concrete.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although pairing an ATP-renewal construction directly with amino acids compresses several steps; the result explains ATP's supporting role but assumes an existing RNA message.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: the planned comparisons between passive channels and powered pumps, and the connection from fuel to ATP use, made the constructions informative. The compatible-option menu made the route straightforward rather than a compatibility-discovery challenge.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

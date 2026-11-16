@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal calls for fuel and oxygen, and the sugar is a likely fuel for the muscle fibers.",
+    "choice": {
+      "combine": "Muscle fibers",
+      "with": "Food-derived sugar"
+    },
+    "expectation": "The sugar will help supply the fibers for cellular work.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Food-derived sugar",
+          "with": "Oxygen"
+        },
+        "reason": "The two supplies might need to be combined before reaching the fibers."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar is broken down in the cell fluid, producing some ATP and smaller fuel pieces that continue toward a mitochondrion. Oxygen still needs to be supplied.",
+    "reaction": "The intermediate breakdown makes me curious about the next stage.",
+    "step": 2,
+    "reason": "The goal calls for oxygen as well as fuel, and the fibers are now processing sugar.",
+    "choice": {
+      "combine": "Sugar-processing muscle fibers",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will help the fibers use the processed fuel to support cellular work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completes the supply step, and the ATP cycle shows how fuel energy supports repeated muscle work. The next goal is to collect and transmit the fibers’ pulls.",
+    "reaction": "The link between ATP renewal and pulling is helpful.",
+    "step": 3,
+    "reason": "The wrapping is pictured fitting around groups of muscle cells, so it should help collect their pulls.",
+    "choice": {
+      "combine": "ATP-supported muscle fibers",
+      "with": "Connective wrapping"
+    },
+    "expectation": "The wrapping will gather the fibers into a muscle group.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wrapping gathers individual cell pulls into larger pulls along the muscle bundles; tendons still need to be attached.",
+    "reaction": "The arrows make the wrapping's role clear.",
+    "step": 4,
+    "reason": "The front tendons should transmit the bundled muscle pulls toward their attachment points.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Front tendons"
+    },
+    "expectation": "The front tendons will attach to the bundles to help transmit their pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The front tendons formed bending muscles and will need an attachment to move a joint. The rear tendons remain available for the other muscle group.",
+    "reaction": "The tendon’s role is clear, though its eventual attachment remains open.",
+    "step": 5,
+    "reason": "The rear tendons appear to be the remaining pieces needed to form the second muscle group.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Rear tendons"
+    },
+    "expectation": "The rear tendons will attach to the bundles to form the other muscle group.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The rear tendons formed the straightening muscles, completing the goal of collecting and transmitting the fibers’ pulls. Both muscle groups still need attachments to move a joint.",
+    "reaction": "The second tendon step was predictable, and I am curious how the two groups will work around a joint.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding oxygen was most worthwhile: the ATP cycle connected fuel and oxygen to the repeated work of muscle fibers.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the rear tendons felt somewhat repetitive after adding the front tendons, although it completed the second muscle group.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect sugar breakdown in the cell fluid to produce some ATP before the smaller fuel pieces reached a mitochondrion.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "The front and rear tendons were clearly associated with separate muscle groups, but the pictures alone did not explain why the front group bends and the rear group straightens; the bones were still absent.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the muscle groups attach to bones and move a joint. The progression from cellular energy to a larger movement is interesting.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

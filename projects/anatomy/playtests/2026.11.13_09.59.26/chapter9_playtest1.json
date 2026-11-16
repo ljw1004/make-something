@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "Plasma's fluid component should form by dissolving its solutes in water.",
+    "choice": {
+      "combine": "Plasma water",
+      "with": "Plasma solutes"
+    },
+    "expectation": "This should make plasma for assembling blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Developing red blood cells",
+          "with": "Haemoglobin building materials"
+        },
+        "reason": "Making haemoglobin in the developing cells is another plausible starting point."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma is ready for assembling blood; the red-cell component still needs development.",
+    "reaction": "The plasma result was straightforward.",
+    "step": 2,
+    "reason": "Developing red cells have ribosomes, and the materials include the components needed to make haemoglobin.",
+    "choice": {
+      "combine": "Developing red blood cells",
+      "with": "Haemoglobin building materials"
+    },
+    "expectation": "The cells should produce haemoglobin as they develop.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing cells have matured into red blood cells containing haemoglobin, ready for oxygen binding or blood assembly.",
+    "reaction": "The contrast between developing nucleated cells and mature discs is useful.",
+    "step": 3,
+    "reason": "Oxygen should bind to haemoglobin inside the mature red cells.",
+    "choice": {
+      "combine": "Red blood cells",
+      "with": "Oxygen molecules"
+    },
+    "expectation": "The red cells should take up oxygen reversibly.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Red blood cells",
+          "with": "Plasma"
+        },
+        "reason": "I could assemble the blood components first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen binding is complete, and the double arrow shows that haemoglobin can release oxygen as well as bind it. Blood assembly remains.",
+    "reaction": "The link between low tissue oxygen and release is useful.",
+    "step": 4,
+    "reason": "Plasma is the fluid component in which the red cells can be suspended.",
+    "choice": {
+      "combine": "Plasma",
+      "with": "Oxygen-bearing red blood cells"
+    },
+    "expectation": "This should combine the red cells with plasma toward assembling blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plasma now contains oxygen-bearing red cells, but the sample still lacks white cells and platelets.",
+    "reaction": "The partial sample makes the remaining components clear.",
+    "step": 5,
+    "reason": "Adding the white cells and platelets should complete the blood sample.",
+    "choice": {
+      "combine": "Plasma with oxygen-bearing red cells",
+      "with": "White cells and platelets"
+    },
+    "expectation": "The sample should become blood containing plasma, red cells, white cells and platelets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding white cells and platelets completed the blood sample and the remaining goal.",
+    "reaction": "The final picture brings the components together clearly, though it says little about what white cells and platelets do.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Binding oxygen to red cells was most worthwhile: the planned double-arrow inset and explanation connect reversible haemoglobin binding to oxygen release in low-oxygen tissues.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma was straightforward but offered little explanation beyond showing water, solutes and proteins together.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The developing-cell cutaway made the transition from nucleated, protein-making precursors to mature red discs without nuclei especially clear.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The assembly actions had clear purposes, though adding white cells and platelets together left their distinct functions unexplained.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the oxygen-binding explanation connects a simple construction to physiology, and I would be curious to see how circulation brings oxygen to tissues.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

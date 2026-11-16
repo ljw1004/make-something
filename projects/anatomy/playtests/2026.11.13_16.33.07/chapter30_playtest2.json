@@ -1,0 +1,137 @@
+[
+  {
+    "step": 1,
+    "reason": "The turning sensors are shown fitting inside the fluid-filled canals, so these pieces should build one balance organ.",
+    "choice": {
+      "combine": "Curved canals and fluid",
+      "with": "Turning sensors"
+    },
+    "expectation": "The sensors will join the canals to detect head turning.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Weighted membranes",
+          "with": "Tilt and acceleration sensors"
+        },
+        "reason": "These also appear to fit together to make the other balance organ."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The canals and sensors form organs that detect changes in turning through fluid movement. The other balance organ still needs building.",
+    "reaction": "The fluid bending the sensors makes the connection clearer.",
+    "step": 2,
+    "reason": "The picture places the weighted membranes above the tilt and acceleration sensors, suggesting they fit together.",
+    "choice": {
+      "combine": "Weighted membranes",
+      "with": "Tilt and acceleration sensors"
+    },
+    "expectation": "They will form organs that sense tilt and acceleration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The weighted membranes and hair cells form organs that respond to gravity and changes in straight-line motion.",
+    "reaction": "The comparison between tipping and starting to move makes their role clearer.",
+    "step": 3,
+    "reason": "Both kinds of balance organ are built, so I’ll try joining them before connecting their nerve pathways.",
+    "choice": {
+      "combine": "Rotation-sensing organs",
+      "with": "Gravity and acceleration organs"
+    },
+    "expectation": "The two balance organs will form a combined balance system.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Balance nerve pathways"
+        },
+        "reason": "I could check how the organs connect to the brainstem first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both kinds of sensor are now grouped as balance organs; they still need a route to the brainstem.",
+    "reaction": "Putting the two organs together was straightforward.",
+    "step": 4,
+    "reason": "The balance nerve pathways are shown leading from the inner ear to the brainstem, so they should connect to the organs.",
+    "choice": {
+      "combine": "Balance organs",
+      "with": "Balance nerve pathways"
+    },
+    "expectation": "The balance organs will gain nerve connections toward the brainstem.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs now have nerves leading toward the brainstem.",
+    "reaction": "The connection matches the picture, but the reflex routes still need to be added.",
+    "step": 5,
+    "reason": "The reflex connections branch from the brainstem to eye-movement and posture circuits, so they seem like the next link.",
+    "choice": {
+      "combine": "Balance organs with nerves",
+      "with": "Reflex connections"
+    },
+    "expectation": "The balance signals will connect to pathways for eye movement and posture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The balance organs now have pathways toward eye-movement and posture circuits; they still need to connect to the body.",
+    "reaction": "The branching pathways make the two reflex destinations clearer.",
+    "step": 6,
+    "reason": "The body already has the brain, eyes and posture circuits shown in the balance pathway picture.",
+    "choice": {
+      "combine": "Balance organs with reflex pathways",
+      "with": "Body with sight and hearing"
+    },
+    "expectation": "The balance organs and reflex pathways will connect to the existing body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed body shows how balance signals help steady the eyes during a head turn and contribute to posture alongside other information.",
+    "reaction": "The opposite eye movement was a satisfying, clear payoff for connecting the pathways.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the balance pathways to the body was most worthwhile: the final picture showed what the assembled parts actually do for vision and posture.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the two finished balance organs was straightforward, but it added less explanation than building the individual sensors.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the eyes move opposite to a head turn to keep a view steadier. The weighted-membrane comparison also clarified the difference between starting to move and steady motion.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt clearly arbitrary. The pathway connections followed the pictures, although the intermediate nerve and reflex steps mainly showed where the routes went rather than explaining how the reflex works.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the separate sensors connect to a familiar action was interesting, though the middle assembly steps were fairly predictable.",
+        "steps": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

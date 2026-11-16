@@ -1,0 +1,147 @@
+[
+  {
+    "step": 1,
+    "reason": "The lower body has a named slot for the digestive tract, so this directly advances its goal.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract should fit into the lower body, leaving room for the urinary organs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is fitted in the lower body; the urinary organs still have their named slot.",
+    "reaction": "The placement makes sense, especially with the food pipe continuing toward the chest.",
+    "step": 2,
+    "reason": "The urinary organs match the remaining named slot in the lower body.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The kidneys, ureters and bladder should fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, completing that goal.",
+    "reaction": "The separate urinary and digestive outlets make the placement clear.",
+    "step": 3,
+    "reason": "The remaining goal calls for joining the arms to the chest, so I’ll attach the studied arm to the breathing apparatus.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm should attach to the chest at the shoulder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The studied arm is attached to one side of the chest, with its blood vessels and nerves connected.",
+    "reaction": "The shoulder connections make the assembly clearer.",
+    "step": 4,
+    "reason": "The other arm should attach to the opposite side to complete the pair.",
+    "choice": {
+      "combine": "Other arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The second arm should join the other shoulder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both arms are now attached to the chest.",
+    "reaction": "The second arm fitted where expected.",
+    "step": 5,
+    "reason": "The remaining chest goal names the lymph vessels, which return fluid to a vein near the chest.",
+    "choice": {
+      "combine": "Lymph drainage network",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The lymph network should connect to the chest and its blood vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is connected, completing the chest goal and revealing the goal to join the chest and lower body.",
+    "reaction": "Aligning the existing vein junction without duplicating it makes sense.",
+    "step": 6,
+    "reason": "Both regions are prepared, and the new goal explicitly says to join them.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lower body"
+    },
+    "expectation": "The chest should join the lower body at the diaphragm, keeping the fitted organs and arms in place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, and the next goal is to connect the head and spine.",
+    "reaction": "The diaphragm separating the two regions makes their arrangement clearer.",
+    "step": 7,
+    "reason": "The trunk has an open channel for the spine, and the new goal calls for joining the head and nerves.",
+    "choice": {
+      "combine": "Head and spine",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine should fit into the back of the trunk, connecting the head and nerve routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine are connected to the trunk, and the remaining goal is to fit the skin covering.",
+    "reaction": "The nerve and blood routes show how the assembled parts work together.",
+    "step": 8,
+    "reason": "The goal explicitly calls for the skin covering, and the body surface is still open.",
+    "choice": {
+      "combine": "Skin covering",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The covering should fit over the body while keeping its normal openings and repaired segment in place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The covering completed the body while preserving the repaired skin and the organs underneath. All goals are complete.",
+    "reaction": "It was satisfying to see the earlier parts remain visible in the final cutaway.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the chest and lower body was most worthwhile: it showed how the diaphragm separates the regions while routes still connect them.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the second arm was straightforward but repetitive after attaching the first.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The final cutaway showed that the skin and marrow continue making replacement cells, rather than presenting the finished body as static.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The named slots and goals made the placements clear, though they left little need to figure out the order.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter if it explored how the assembled systems work together, though this final assembly had few challenging decisions.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

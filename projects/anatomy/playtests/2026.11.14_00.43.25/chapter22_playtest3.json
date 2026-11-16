@@ -1,0 +1,107 @@
+[
+  {
+    "step": 1,
+    "reason": "The lymphocyte picture shows a receptor matching the antigen knobs, with help already supplied.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte should become activated after recognizing the bacterial fragments.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so it can now use the lymph node's support to multiply.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The lymph node picture says it supports an activated cell as it divides.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte should multiply in the lymph node, producing descendants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The activated cell produced antibody-making cells and memory cells; the remaining goal is to help clear the bacteria.",
+    "reaction": "The split between antibody makers and memory cells is clear.",
+    "step": 3,
+    "reason": "Antibodies are proteins, and the earlier chapters showed cells using amino acids to build proteins.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The antibody-making cells should use the amino acids to make antibodies that match the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made matching antibodies, which can now bind to the bacteria.",
+    "reaction": "The matching shapes make the next pairing clear.",
+    "step": 4,
+    "reason": "The antibodies' tips match the knobs on the bacteria.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies should attach to the bacteria, helping white blood cells recognize them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing white blood cells.",
+    "reaction": "The coating matches the earlier picture of a white blood cell catching a bacterium.",
+    "step": 5,
+    "reason": "The white blood cell picture shows it binding to and engulfing antibody-coated bacteria.",
+    "choice": {
+      "combine": "Antibody-coated bacteria",
+      "with": "Engulfing white blood cells"
+    },
+    "expectation": "The white blood cells should engulf and help clear the coated bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coated bacteria were engulfed and broken down, completing the remaining goal and showing how antibodies help mark a target.",
+    "reaction": "It was satisfying to see the coating lead to the bacteria being cleared.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the matching lymphocyte and seeing its descendants become antibody-making and memory cells connected recognition to a longer-lasting response.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the antibodies was fairly predictable after earlier protein-building examples, though it connected those examples to this chapter.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the activated cell's descendants to include both antibody-making cells and memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the matching pictures and goals made the sequence quite guided rather than a hard puzzle.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably try another chapter to see how its body-system connections build on these, although this chapter's choices were mostly predictable.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

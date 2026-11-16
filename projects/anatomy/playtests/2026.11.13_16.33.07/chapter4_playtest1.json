@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The pictured fibroblast route starts with unspecialized cells and leads to connective-tissue cells, so it looks relevant to making supporting material.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "A subset of the stem cells will follow the pictured route toward fibroblasts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The other pictured route could prepare the muscle-forming cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast route produced cells with active collagen messages, while leaving stem cells for the muscle branch.",
+    "reaction": "The unchanged DNA alongside active collagen genes makes the different-work idea clearer.",
+    "step": 2,
+    "reason": "The messages lead toward ribosomes, and amino acids are the building blocks for proteins. This seems like a way to make collagen, though I don't yet know how it becomes supporting material outside the cells.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will use the amino acids to make collagen protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle branch instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts used amino acids to make collagen precursors, which are packaged for secretion; the supporting material is not outside yet.",
+    "reaction": "The connection from the RNA message to protein production is clearer.",
+    "step": 3,
+    "reason": "The precursors are in secretory vesicles, and extracellular fluid is outside the cells, so this looks like the next step toward supporting material.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will release collagen precursors outside the cells, where they may form supporting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could work on the separate muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen precursors were released and assembled into supporting material outside the cells, completing that goal.",
+    "reaction": "It is clearer that tissue includes material around cells as well as the cells themselves.",
+    "step": 4,
+    "reason": "The remaining goal is to prepare muscle-forming cells, and the pictured muscle conditions show a route from unspecialized cells to muscle precursors.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "A separate subset of stem cells will develop toward muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle conditions produced committed cells with muscle-protein messages, but they are still individual cells rather than mature fibres.",
+    "reaction": "It is clear that this branch uses different genes from the same inherited DNA.",
+    "step": 5,
+    "reason": "The cells have messages for muscle proteins, and amino acids supplied the building blocks for collagen proteins in the other branch.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The muscle-lineage cells will use the amino acids to make muscle proteins and progress toward muscle-forming cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle cells used amino acids to make muscle proteins, completing the goal, but they are still separate precursors rather than mature muscle fibres.",
+    "reaction": "It was useful to see that both branches used the same building blocks for different proteins.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the collagen-rich matrix was most worthwhile: it showed how cells produce supporting material outside themselves, and that tissue includes that material too.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The muscle branch repeated the message-and-amino-acid pairing from the fibroblast branch, so its final step felt somewhat predictable.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected the supporting material to be assembled outside the cells after they released collagen precursors.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The differentiation conditions were named for their destinations, but the changing signals and why they lead to those particular cells weren't explained in much detail. I followed the pictured routes rather than understanding the signals themselves.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, mainly to see how the separate muscle precursors develop into mature fibres; the result says there is more development ahead.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

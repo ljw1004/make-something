@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "The phospholipid picture shows parts of the cell surface, so I’ll check how to assemble them before trying to move substances across it.",
+    "choice": {
+      "inspect": "Phospholipids"
+    },
+    "expectation": "The compatibility list should show how to build the lipid layer.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Phospholipids",
+          "with": "Water"
+        },
+        "reason": "Water is on both sides of the surface, but I’m not sure whether it is used to build the layer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids and water made membrane patches, so I can now test what crosses the lipid layer.",
+    "reaction": "The two layers with their heads facing water make the surface easier to picture.",
+    "step": 2,
+    "reason": "The goal asks for oxygen to enter, and its picture shows more oxygen outside with no carrier attached.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen should cross the lipid layer into the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Water"
+        },
+        "reason": "Water exchange is also a goal, but I want to test oxygen first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the lipid region into the cytosol, so I can now investigate water exchange.",
+    "reaction": "It was useful to see that oxygen can cross without a channel.",
+    "step": 3,
+    "reason": "The goal also asks for water exchange, and the lipid-only patches allow a comparison before adding the water channel.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Water"
+    },
+    "expectation": "The result should show whether water crosses the lipid-only membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lipid-only membrane patches",
+          "with": "Aquaporin water channel"
+        },
+        "reason": "The channel could provide a water route, but I want to see the lipid-only comparison first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water crosses the lipid layer slowly in both directions, with more moving toward the side with more dissolved particles.",
+    "reaction": "The comparison makes me curious how much the channel changes water movement.",
+    "step": 4,
+    "reason": "The aquaporin picture shows a water pore that fits into the membrane, so adding it should let me compare the two routes.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Aquaporin water channel"
+    },
+    "expectation": "The channel should create a membrane patch with a route for water to cross.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The aquaporin made water exchange faster while the net movement still favored the more concentrated side. The oxygen and water goal is complete.",
+    "reaction": "The side-by-side comparison made the channel’s role clearer.",
+    "step": 5,
+    "reason": "The remaining goal asks for a passive sodium route, and the open sodium channel is shown fitting through a membrane.",
+    "choice": {
+      "combine": "Lipid-only membrane patches",
+      "with": "Open sodium channel"
+    },
+    "expectation": "The channel should provide a route for sodium to enter, possibly using the sodium solution as well.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The open channel gave sodium a route into the cell without spending ATP, completing the remaining goal. The lipid regions still kept the ions out.",
+    "reaction": "It was useful to see that a channel provides a route rather than pushing sodium through.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing water crossing the lipid layer with water crossing aquaporin was most worthwhile. It made the channel’s effect on the speed of exchange clear while showing water moving both ways.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting phospholipids was less interesting than the comparisons, although it quickly showed how to make the membrane and automatically assembled it.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that water could cross the lipid layer without a channel, just more slowly in the comparison.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary. The sodium channel pairing followed the named goal and picture, though I was unsure whether the sodium solution would also be needed.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because the membrane comparisons made the structures’ different jobs understandable, and I’m curious how later chapters build on cells.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The enzymes are labelled as helping clotting proteins form threads, directly matching one goal.",
+    "choice": {
+      "combine": "Dissolved clotting protein",
+      "with": "Clotting enzymes"
+    },
+    "expectation": "The enzymes will help the dissolved protein form reinforcing threads.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Skin segment[Sweat gland and duct,Skin nerve endings]",
+          "with": "Rough edge"
+        },
+        "reason": "The rough edge could first create the break where a platelet plug gathers."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes formed protein threads, completing the thread goal; the platelet plug and bleeding still need attention.",
+    "reaction": "The branching mesh makes the reinforcement easier to picture.",
+    "step": 2,
+    "reason": "The rough edge is described as breaking the skin and a blood vessel, creating the injury where platelets can gather.",
+    "choice": {
+      "combine": "Skin segment[Sweat gland and duct,Skin nerve endings]",
+      "with": "Rough edge"
+    },
+    "expectation": "The rough edge will make a break in the skin and its small blood vessel.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Platelets at the cut"
+        },
+        "reason": "I could check how to gather the platelets first, but the injury seems like the practical next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut now reaches a leaking blood vessel, giving the platelets a place to gather.",
+    "reaction": "The picture makes the source of the bleeding clear.",
+    "step": 3,
+    "reason": "The platelets are shown gathering at a torn vessel, matching the plug goal.",
+    "choice": {
+      "combine": "Platelets at the cut",
+      "with": "Skin with a cut"
+    },
+    "expectation": "The platelets will gather at the damaged vessel to form a plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelet plug slows the leak, but the cut remains open; the protein threads can reinforce it.",
+    "reaction": "It is clear that slowing the leak is not the same as closing the surface cut.",
+    "step": 4,
+    "reason": "The chapter says the protein threads reinforce the platelet plug to stop the bleeding.",
+    "choice": {
+      "combine": "Skin with a platelet plug",
+      "with": "Clotting protein threads"
+    },
+    "expectation": "The threads will reinforce the plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein mesh reinforced the platelet plug and stopped the bleeding, but the skin surface still needs to heal.",
+    "reaction": "The distinction between stopping bleeding and healing the cut was useful.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reinforcing the platelet plug was most worthwhile because it brought the two defenses together and showed why stopping the leak is only the first repair.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the cut was the least interesting step: it was a predictable setup for the platelet plug.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The platelet plug slowed the bleeding before the protein threads reinforced it, and the surface remained open even after bleeding stopped.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt particularly arbitrary; the pictures and chapter introduction explained the pairings.",
+        "steps": []
+      },
+      "continue": {
+        "text": "Yes, I would be curious to see how the open skin heals after the bleeding stops, though the combinations here were fairly predictable.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

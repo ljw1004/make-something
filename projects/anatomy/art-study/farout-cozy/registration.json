@@ -1,0 +1,153 @@
+{
+  "hearing": {
+    "canvas": [
+      930,
+      440
+    ],
+    "parts": {
+      "outer": {
+        "position": [
+          0,
+          115
+        ],
+        "size": [
+          272,
+          253
+        ]
+      },
+      "drum": {
+        "position": [
+          270,
+          220
+        ],
+        "size": [
+          62,
+          91
+        ]
+      },
+      "bones": {
+        "position": [
+          316,
+          217
+        ],
+        "size": [
+          138,
+          107
+        ]
+      },
+      "coil": {
+        "position": [
+          439,
+          167
+        ],
+        "size": [
+          210,
+          216
+        ]
+      },
+      "nerve": {
+        "position": [
+          650,
+          215
+        ],
+        "size": [
+          272,
+          187
+        ]
+      },
+      "hair": {
+        "position": [
+          550,
+          0
+        ],
+        "size": [
+          209,
+          207
+        ]
+      }
+    },
+    "states": {
+      "outer-ear": [
+        "outer"
+      ],
+      "eardrum": [
+        "drum"
+      ],
+      "outer-eardrum": [
+        "outer",
+        "drum"
+      ],
+      "ossicles": [
+        "bones"
+      ],
+      "conducting-ear": [
+        "outer",
+        "drum",
+        "bones"
+      ],
+      "cochlea": [
+        "coil"
+      ],
+      "hair-cells": [
+        "hair"
+      ],
+      "sensing-ear": [
+        "coil",
+        "hair"
+      ],
+      "receiving-ear": [
+        "outer",
+        "drum",
+        "bones",
+        "coil",
+        "hair"
+      ],
+      "hearing-pathways": [
+        "nerve"
+      ],
+      "inner-pathways": [
+        "coil",
+        "hair",
+        "nerve"
+      ],
+      "ears": [
+        "outer",
+        "drum",
+        "bones",
+        "coil",
+        "hair",
+        "nerve"
+      ]
+    },
+    "export": "Crop alpha bounds only; never resize assembled stages."
+  },
+  "cell": {
+    "canvas": [
+      337,
+      334
+    ],
+    "nucleusPosition": [
+      89,
+      90
+    ],
+    "water": "Selected lumen pixels from cell master",
+    "lipids": "Left curved bilayer from same cell master"
+  },
+  "arm": {
+    "source": "sources/background-atlas.png",
+    "sourcePanelOrigin": [
+      629,
+      2
+    ],
+    "bounds": [
+      170,
+      0,
+      425,
+      623
+    ],
+    "scale": 2.504012841091493,
+    "receiverLayers": "Complementary left/right portions of one arm; same common canvas.",
+    "independentFittings": 4,
+    "legalPartialCombinations": 16
+  }
+}

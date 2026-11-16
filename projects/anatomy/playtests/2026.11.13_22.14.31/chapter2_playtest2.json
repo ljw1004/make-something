@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to add mitochondria to the cell for the energy goal; the picture places them inside it.",
+    "choice": 2,
+    "expectation": "The mitochondria will be added inside the cell, though glucose may still need a way in.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Ribosomes also belong inside the cell, but I’ll start with the energy goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; I still need a route for glucose.",
+    "reaction": "The cutaway helps me picture where they go.",
+    "step": 2,
+    "reason": "The carrier’s pocket matches glucose, so adding it to the membrane seems like a way to bring glucose in.",
+    "choice": 2,
+    "expectation": "The sugar carrier will fit into the cell membrane; glucose may need a separate step to enter.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Ribosomes are also needed, but I want to finish the glucose route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier provides a route for glucose, and the new goal is to feed the cell to make ATP.",
+    "reaction": "The two-panel picture makes the carrier’s role easier to imagine, though ATP hasn’t been explained yet.",
+    "step": 3,
+    "reason": "I’ll follow the new goal and give glucose to the cell through the carrier.",
+    "choice": 1,
+    "expectation": "Glucose will enter the cell and help it make ATP, though I’m not sure what ATP is yet.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The cell also needs ribosomes, but I want to follow the glucose goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP is made using glucose and powers cell work, including building proteins. I still need to add the protein builders.",
+    "reaction": "The explanation makes ATP's purpose clearer, though the breakdown details are still unfamiliar.",
+    "step": 4,
+    "reason": "The goal says to add protein builders, and the ribosomes' picture places them inside the cell.",
+    "choice": 2,
+    "expectation": "The ribosomes will be fitted into the cell; the RNA copy may be needed separately to guide protein building.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The RNA copy seems to fit through a ribosome, but I want to put the ribosomes in the cell first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are in the cell, and the next goal is to give one an RNA instruction.",
+    "reaction": "The enlarged groove helps me picture where the RNA goes.",
+    "step": 5,
+    "reason": "The only offered combination follows the new goal by bringing the RNA copy to the cell's ribosomes.",
+    "choice": 1,
+    "expectation": "The RNA instruction will reach a ribosome, possibly setting it up to build a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and amino acids are available in the cell fluid for building a protein.",
+    "reaction": "The labels make the amino acids’ role clearer, though I don’t know how the ribosome reads the RNA.",
+    "step": 6,
+    "reason": "The only offered combination follows the goal to use ATP for protein building.",
+    "choice": 1,
+    "expectation": "ATP will power the ribosome to build a protein from the supplied amino acids, using the RNA instruction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The finished protein shows that amino acids form the chain while ATP powers the work without becoming part of it. All goals are complete.",
+    "reaction": "It was satisfying to see the energy and protein-building paths come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the protein brought the chapter together: RNA gives the order, amino acids make the chain, and ATP helps power the work.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the ribosomes felt fairly predictable: their picture already showed where they belonged. The enlarged groove was still helpful.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I didn't initially know what ATP was; making it showed that it powers cell work, including protein building.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, but the final pairing relied on the stated goal and compatible option rather than an explanation of how the machinery uses ATP.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "Yes. I'd try another chapter because seeing the cell's parts connect to a finished protein made me curious about what they build next.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

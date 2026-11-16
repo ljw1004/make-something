@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "Water loss should change the blood sample and begin the water-saving sequence.",
+    "choice": {
+      "combine": "Water-balance blood sample",
+      "with": "Water loss"
+    },
+    "expectation": "The sample will reflect water loss and help trigger a conserving response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sample is now concentrated, so I expect the brain’s water sensors to detect the change.",
+    "reaction": "The result makes the effect of water loss clear.",
+    "step": 2,
+    "reason": "The sensors are described as responding to water balance, so the concentrated sample seems like their next input.",
+    "choice": {
+      "combine": "Concentrated blood sample",
+      "with": "Brain water sensors and pituitary"
+    },
+    "expectation": "The sensors will detect the concentrated blood and start a water-saving signal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensors triggered ADH release into the blood, identifying the signal that can reach the kidney.",
+    "reaction": "The link between concentrated blood and hormone release is clear.",
+    "step": 3,
+    "reason": "The collecting ducts have ADH receptors, so they are the likely target of the blood-borne signal.",
+    "choice": {
+      "combine": "Blood carrying more ADH",
+      "with": "Responsive kidney collecting ducts"
+    },
+    "expectation": "ADH will act on the ducts and help the kidneys conserve water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH increased water recovery in the kidney, completing the water-saving signal goal.",
+    "reaction": "The picture clearly connects the hormone signal to less water left in urine.",
+    "step": 4,
+    "reason": "The nerve endings and blood vessels lie alongside each other in the pituitary, so they seem likely to form the hormone-release route.",
+    "choice": {
+      "combine": "Hormone-releasing nerve endings",
+      "with": "Pituitary blood vessels"
+    },
+    "expectation": "They will form a route for the nerve endings to release hormone into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve endings and vessels form a route that releases ADH into the blood, which carries the signal to the kidneys.",
+    "reaction": "The connection between the brain and blood is clearer now.",
+    "step": 5,
+    "reason": "The body needs a water-control route, and the newly assembled hormone route appears to provide it.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Brain-to-blood hormone route"
+    },
+    "expectation": "The hormone route will connect water control to the body and its kidneys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone route is now connected to the body and its kidneys; the remaining goal also calls for a drink.",
+    "reaction": "The connection is clear, though the assembly repeated the route already shown.",
+    "step": 6,
+    "reason": "Drinking water is the remaining visible item suited to replacing water losses.",
+    "choice": {
+      "combine": "Body with water-control route",
+      "with": "Drinking water"
+    },
+    "expectation": "The body will take in water to help replace its losses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink added water to the body's circulation and completed the remaining goal, linking replacement of water with kidney conservation.",
+    "reaction": "The final picture brings the two responses together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting ADH to the collecting ducts was most worthwhile: it showed how a signal changes kidney water recovery and leaves less water in urine.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the brain-to-blood route to the body felt repetitive because the preceding construction had already shown nerve endings releasing ADH into blood vessels.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The separate construction of the pituitary nerve endings and blood vessels clarified how a signal from the brain reaches the blood.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the item descriptions and goal gave each combination a plausible purpose.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it introduced a new relationship between systems. This chapter's signal-to-kidney sequence was clear, though assembling the route afterward felt repetitive.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

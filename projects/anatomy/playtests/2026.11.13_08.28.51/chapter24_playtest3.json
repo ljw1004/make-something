@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The mucus and ciliated lining look like complementary parts of the airway defense.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Ciliated airway lining"
+    },
+    "expectation": "The mucus should form a particle-catching layer over the airway cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining now has a mucus layer that can trap inhaled material and be moved by cilia.",
+    "reaction": "The connection between the sticky layer and the cilia is clear.",
+    "step": 2,
+    "reason": "The next useful step is to expose the mucus-covered lining to the inhaled particles and bacteria.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "Some particles and bacteria should become trapped in the mucus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Some inhaled material is trapped, but a few particles and bacteria reach the air sacs, so both clearance and lung defense remain relevant.",
+    "reaction": "The illustration makes the limits of the mucus barrier clear.",
+    "step": 3,
+    "reason": "The beating cilia can move the particle-bearing mucus toward the throat.",
+    "choice": {
+      "combine": "Airway lining with trapped particles",
+      "with": "Beating airway cilia"
+    },
+    "expectation": "The cilia will sweep trapped material toward the throat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Airway lining with trapped particles",
+          "with": "Lung macrophages"
+        },
+        "reason": "Macrophages may address the material that reaches the air sacs, but mucus clearance is the more immediate step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cilia now move trapped material toward the throat; material reaching the air sacs still needs a defense.",
+    "reaction": "The coordinated cilia make the clearance mechanism clear.",
+    "step": 4,
+    "reason": "Lung macrophages are shown engulfing bacteria that reach the air sacs.",
+    "choice": {
+      "combine": "Airway lining moving mucus",
+      "with": "Lung macrophages"
+    },
+    "expectation": "The macrophages should deal with some bacteria that escaped the mucus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining had to be connected to the body first; a few microbes still reach an air sac.",
+    "reaction": "The automatic combination clarified the required order.",
+    "step": 5,
+    "reason": "The remaining macrophages can address microbes reaching the air sacs.",
+    "choice": {
+      "combine": "Body moving airway mucus toward the throat",
+      "with": "Lung macrophages"
+    },
+    "expectation": "Macrophages will engulf some microbes in the air sacs, completing the airway defense.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model shows mucus clearance and macrophage engulfment as complementary defenses, neither of which catches every microbe.",
+    "reaction": "The distinction between the two defenses and their limits was satisfying.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Trapping inhaled material and then moving it toward the throat made the relationship between mucus and cilia concrete; the few particles continuing toward the air sacs also showed why another defense matters.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the already-working airway lining to the body was a predictable integration step, though it helped locate the defense in the larger model.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The macrophages could not be added directly to the moving lining; the compatibility feedback instead connected the lining to the body first.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "That ordering initially felt unclear: the picture already showed microbes reaching the air sacs, so adding macrophages seemed purposeful before attaching the lining to the body.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how other immune defenses complement these incomplete barriers, although the combinations here were mostly straightforward.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

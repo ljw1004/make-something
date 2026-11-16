@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The capillary sheet is shaped to wrap around the air sacs, bringing blood close to air for exchange.",
+    "choice": {
+      "combine": "Alveolar sacs",
+      "with": "Pulmonary capillary sheet"
+    },
+    "expectation": "The capillaries should surround the thin-walled air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sacs need surfactant first; they are now stable and may be ready for the capillary sheet.",
+    "reaction": "I was surprised the lining had to come before the capillaries.",
+    "step": 2,
+    "reason": "The capillary mesh is shaped to wrap around air sacs and bring blood close to air.",
+    "choice": {
+      "combine": "Stable air sacs",
+      "with": "Pulmonary capillary sheet"
+    },
+    "expectation": "The capillaries should surround the stabilized air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillaries now surround the sacs, showing oxygen entering blood and carbon dioxide leaving it. The exchange surface still needs to be connected to the circulation.",
+    "reaction": "Seeing the two gases move in opposite directions clarified the exchange.",
+    "step": 3,
+    "reason": "The supporting tissue is pictured around the air sacs, so it looks like a natural next part of the lung assembly.",
+    "choice": {
+      "combine": "Air–blood exchange surface",
+      "with": "Elastic supporting tissue"
+    },
+    "expectation": "The elastic fibres should support the air sacs around the exchange surface.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Air–blood exchange surface",
+          "with": "Blood-filled circulation"
+        },
+        "reason": "Connecting the capillaries to the circulation also directly serves the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The exchange surface now has elastic support that stretches and recoils.",
+    "reaction": "The expanded and recoiled outlines made the support's role clearer.",
+    "step": 4,
+    "reason": "The small bronchioles are described as leading toward the gas-exchanging region, so they seem like the next connection.",
+    "choice": {
+      "combine": "Supported exchange surface",
+      "with": "Small conducting bronchioles"
+    },
+    "expectation": "The bronchioles should connect to the passages leading to the air sacs.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Supported exchange surface",
+          "with": "Blood-filled circulation"
+        },
+        "reason": "Connecting the capillaries to the blood supply directly serves the goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supported exchange surface has no available combination right now, so I need to prepare another component first.",
+    "reaction": "That prerequisite was not obvious from the picture.",
+    "step": 5,
+    "reason": "The large airways have outlets for bronchioles, so those two pieces visibly fit together.",
+    "choice": {
+      "combine": "Large conducting airways",
+      "with": "Small conducting bronchioles"
+    },
+    "expectation": "The bronchioles should attach to the smaller outlets of the large airways.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The large and small airways now form a conducting tree, which may connect to the supported exchange surface.",
+    "reaction": "The comparison made it clearer how narrower bronchioles restrict airflow.",
+    "step": 6,
+    "reason": "The airway tree should lead air to the supported sacs; the earlier attempt suggests the tree had to be assembled first.",
+    "choice": {
+      "combine": "Conducting airway tree",
+      "with": "Supported exchange surface"
+    },
+    "expectation": "The airway tree should connect to the passages leading to the air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airway tree and supported exchange surface now form lungs, ready to connect to the circulation.",
+    "reaction": "The branching airways ending at the sacs make the connection clear.",
+    "step": 7,
+    "reason": "The goal is to connect the lungs to circulating blood, and the circulation includes a pulmonary route.",
+    "choice": {
+      "combine": "Lungs",
+      "with": "Blood-filled circulation"
+    },
+    "expectation": "The pulmonary vessels should connect the lung capillaries to the circulating blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lungs are connected to the circulation, completing the goal. Exchange can continue as long as fresh air reaches the sacs.",
+    "reaction": "It was satisfying to see the air sacs and heart connected into one route.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the air–blood exchange surface was most worthwhile: it showed oxygen entering blood while carbon dioxide moves out.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to attach the bronchioles directly to the supported exchange surface was frustrating because the picture did not make the airway-tree prerequisite obvious.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the capillaries to attach immediately, so I was surprised that the sacs needed surfactant first. Its role in preventing collapse was explained afterward.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Assembling the complete conducting airway tree before connecting it to the exchange surface felt like an unexplained prerequisite, even though the finished connection made sense.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting the lung parts to circulation was satisfying, and I would be curious how fresh air reaches the sacs.",
+        "steps": [
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

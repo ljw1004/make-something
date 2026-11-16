@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "I want to follow the water-saving signal from its trigger, so I'll start with the blood sample and water loss.",
+    "choice": 1,
+    "expectation": "I expect a change in the blood sample that could signal water loss, though I'm unsure how it will be represented.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered assembling the hormone-release pathway first, but wanted to see what triggers it."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrated sample gives me a clear next step: connect the change in blood water balance to the brain's sensors.",
+    "reaction": "The picture makes the effect of water loss clear.",
+    "step": 2,
+    "reason": "I want to follow the signal from the concentrated blood to the brain's water sensors.",
+    "choice": 1,
+    "expectation": "I expect the sensors to respond to the concentrated blood and begin a water-saving signal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered assembling the hormone-release pathway, but want to follow the trigger first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrated blood triggers ADH release, so I can now follow the hormone to the kidney.",
+    "reaction": "The connection from sensing to hormone release is clear, though the release machinery has not yet been assembled.",
+    "step": 3,
+    "reason": "I want to see how ADH affects water recovery in the kidney.",
+    "choice": 1,
+    "expectation": "I expect the collecting ducts to respond to ADH and allow more water to return to the blood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I considered assembling the pituitary release pathway, but want to follow ADH to its target first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH increases water recovery by the kidney, completing the water-saving signal goal.",
+    "reaction": "The link between the hormone and less water in urine is clear.",
+    "step": 4,
+    "reason": "This is the only available combination, and it appears to assemble part of the hormone-release route.",
+    "choice": 1,
+    "expectation": "I expect the nerve endings and blood vessels to form a pathway for releasing a hormone into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone route shows how nerve endings release ADH into the blood, ready to be connected to the body.",
+    "reaction": "The explanation clarifies the release machinery, though it repeats part of the signal already followed.",
+    "step": 5,
+    "reason": "This is the only available combination and should connect the hormone route to the body.",
+    "choice": 1,
+    "expectation": "I expect the body to gain a water-control route linking the brain, blood and kidneys.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has a hormone route linking the brain and kidneys; drinking remains to address the second goal.",
+    "reaction": "The connection is clear, though the result adds little to the preceding explanation.",
+    "step": 6,
+    "reason": "This is the only available combination and should provide the drink needed to replace water losses.",
+    "choice": 1,
+    "expectation": "I expect drinking water to enter the body and help replace lost water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water enters the body through the gut, completing the water-control goal alongside the kidney response.",
+    "reaction": "The final picture ties drinking and water conservation together clearly.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following ADH to the kidney was most worthwhile because it connected a hormone signal to water recovery and less water in urine.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the hormone route to the body felt repetitive because the preceding result had already explained that route.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was mildly surprised that ADH release appeared before I assembled the nerve endings and pituitary blood vessels that explain its release.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The later assembly of the hormone-release route felt somewhat out of sequence, although its purpose became clear from the explanation.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it offered more meaningful choices; this chapter explained water balance clearly, but most actions became a single available combination.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

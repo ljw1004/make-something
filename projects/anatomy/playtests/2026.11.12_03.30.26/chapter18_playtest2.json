@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "The warm conditions suggest starting the heat-loss response in the body.",
+    "choice": {
+      "combine": "Body with living skin",
+      "with": "Warm afternoon"
+    },
+    "expectation": "The body will respond to the warm surroundings, setting up heat loss.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sweat glands",
+          "with": "Warm afternoon"
+        },
+        "reason": "The warmth might instead act directly on the sweat glands."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Warmth is now sensed by the body, suggesting the next step is a response that helps lose heat.",
+    "reaction": "The signal to the brain makes the sequence clearer.",
+    "step": 2,
+    "reason": "Sweat glands are the most direct next choice for the evaporation goal.",
+    "choice": {
+      "combine": "Warming sensed",
+      "with": "Sweat glands"
+    },
+    "expectation": "The warming signal will activate sweating.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Warming sensed",
+          "with": "Skin vessels"
+        },
+        "reason": "Changes in skin blood flow could also be part of the warm response."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warming response first widens skin vessels, bringing more blood near the surface; sweating may follow.",
+    "reaction": "The automatic combination clarified the intended sequence.",
+    "step": 3,
+    "reason": "Sweat glands are the next likely part of the heat-loss response.",
+    "choice": {
+      "combine": "Warm skin circulation",
+      "with": "Sweat glands"
+    },
+    "expectation": "The warm response will activate sweating.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm response now produces sweat; the remaining step is to let it evaporate.",
+    "reaction": "The distinction between sweating and evaporation makes the cooling mechanism clearer.",
+    "step": 4,
+    "reason": "Air at the skin is the visible ingredient associated with evaporation.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat will evaporate and carry heat away from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation cooled the body, and the new goal shifts the sequence to conserving and making heat in the cold.",
+    "reaction": "The fading sweat signal makes the return toward the earlier temperature range clearer.",
+    "step": 5,
+    "reason": "The cold evening is the visible trigger for the next response.",
+    "choice": {
+      "combine": "Cooling body",
+      "with": "Cold evening"
+    },
+    "expectation": "The body will sense the cold and begin a response to conserve heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body has sensed the cold, and the reduced sweat signal begins limiting heat loss.",
+    "reaction": "The parallel with sensing warmth makes the change in conditions easy to follow.",
+    "step": 6,
+    "reason": "Skin vessels helped regulate heat loss in the warm response, so they are a likely next step in conserving heat.",
+    "choice": {
+      "combine": "Cold sensed",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels will narrow, reducing blood flow near the surface and conserving heat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cold sensed",
+          "with": "Skeletal muscle"
+        },
+        "reason": "Muscle activity could help the body make more heat."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrowing skin vessels reduces heat loss, so making heat remains to be addressed.",
+    "reaction": "The distinction between conserving heat and making it is clear.",
+    "step": 7,
+    "reason": "Skeletal muscle is the remaining visible component that could generate heat through shivering.",
+    "choice": {
+      "combine": "Cold skin circulation",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Muscle activity will produce heat in response to the cold.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering completes the cold response: muscle contractions use ATP and produce heat, while narrowed skin vessels reduce heat loss.",
+    "reaction": "The muscle inset connects this response back to cellular energy use in a satisfying way.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining the cold response with skeletal muscle was most worthwhile because it connected shivering to ATP use and heat production, complementing the earlier step that conserved heat.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial warming sequence was somewhat rigid: sweating seemed like a plausible immediate response, but the game first required the skin-vessel step. The compatibility feedback made that sequence clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The cooling result showed the sweat-driving signal fading as core temperature moved toward its earlier range, making the feedback response more visible.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the skin-vessel response before activating sweat glands felt somewhat arbitrary; the descriptions explained both responses but did not make that required order obvious beforehand.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: this one connected sensing, circulation, sweating and muscle work in a clear sequence, though I would hope for more meaningful choices.",
+        "steps": [
+          1,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

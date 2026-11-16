@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "The cell already has a glucose transporter, and glucose is more concentrated outside, so bringing it into the cell fits the goal.",
+    "choice": {
+      "combine": "Cell with selective exchange",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter through the transporter, beginning the fuel-processing sequence.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the existing carrier and is broken down in the cytosol, producing pyruvate for the mitochondria and some ATP.",
+    "reaction": "The cytosolic ATP-production arrow usefully distinguishes the first stage from mitochondrial processing.",
+    "step": 2,
+    "reason": "The pyruvate now enters mitochondria, and oxygen is shown taking a route toward them, making it a plausible next ingredient for ATP production.",
+    "choice": {
+      "combine": "Cell breaking down glucose",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will support mitochondrial processing of the glucose-derived fuel, helping remake ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell breaking down glucose",
+          "with": "ATP ingredients: ADP and phosphate"
+        },
+        "reason": "The ATP ingredients are directly relevant to remaking ATP, but oxygen also appears needed for mitochondrial respiration."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen now receives electrons at the end of the mitochondrial pathway, forming water; the cell is ready for the ATP-remaking step.",
+    "reaction": "The distinction between fuel supplying energy and oxygen receiving electrons is useful.",
+    "step": 3,
+    "reason": "ADP and phosphate are the listed ingredients for remaking ATP, which the current goal requires.",
+    "choice": {
+      "combine": "Cell with aerobic respiration",
+      "with": "ATP ingredients: ADP and phosphate"
+    },
+    "expectation": "The cell will use energy from respiration to join phosphate to ADP and remake ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell now remakes ATP using the hydrogen-ion gradient across the mitochondrial inner membrane.",
+    "reaction": "The two panels clarify how electron flow is linked to ATP production.",
+    "step": 4,
+    "reason": "The remaining goal is to use ATP to pump ions, and the listed pump is designed for that job.",
+    "choice": {
+      "combine": "Cell remaking ATP",
+      "with": "ATP-powered ion pump"
+    },
+    "expectation": "The pump will use ATP to move sodium and potassium across the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump completes the ATP-use goal by moving sodium and potassium against their concentration differences, linking ATP production to work at the cell boundary.",
+    "reaction": "It was satisfying to connect the mitochondrial pathway back to the membrane, although the pump’s alternating binding mechanism remained only briefly depicted.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Remaking ATP was the most worthwhile construction: the planned two-panel illustration connects electron flow, hydrogen-ion pumping and ATP production, while retaining the cytosolic contribution.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding oxygen was relatively predictable, though its explanation was useful. The resulting short pathway does not explain the intermediate steps, so the connection from fuel breakdown to electron transfer remains compressed.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The distinction that fuel supplies energy while oxygen receives electrons and becomes part of water sharpened my understanding of their different roles.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary: each ingredient had a visible connection to the goal. The ion pump’s sodium and potassium binding sites were shown, though how they alternate was not explained.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would choose to continue: building from glucose breakdown to ATP production and then membrane transport made the connections between cell structures worth following. This is a judgment of the supplied text and illustration plans, not evidence of student comprehension.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

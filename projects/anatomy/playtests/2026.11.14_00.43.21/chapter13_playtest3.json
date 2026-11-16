@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "Bile is shown spreading fat into smaller droplets, directly matching one goal.",
+    "choice": 5,
+    "expectation": "I expect smaller fat droplets, with the fat molecules still unchanged.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Protein and digestive enzymes also match a goal, but I want to see the fat droplets first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The droplets expose more surface, and the new goal is to break down the fat molecules.",
+    "reaction": "The difference between spreading fat and breaking its molecules is clearer now.",
+    "step": 2,
+    "reason": "Digestive enzymes match the new fat-breakdown goal, and the smaller droplets expose more surface.",
+    "choice": 4,
+    "expectation": "I expect the enzymes to break the fat molecules into smaller molecules, though I don't know exactly what they will be.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Protein also needs breaking down, but I want to follow the fat process first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion is complete; bile spread the droplets and enzymes split the fat molecules.",
+    "reaction": "Seeing the two different jobs made the sequence clearer.",
+    "step": 3,
+    "reason": "Saliva is shown acting on starch, so I want to follow what happens to starchy food.",
+    "choice": 2,
+    "expectation": "I expect saliva to start breaking down the starch, though I don't know whether it finishes the job.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Protein also needs breaking down, but I want to explore starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva shortened the starch chains, but they still need further breakdown.",
+    "reaction": "That makes saliva's starting role clearer.",
+    "step": 4,
+    "reason": "Digestive enzymes can continue breaking down the shorter chains toward the starch goal.",
+    "choice": 1,
+    "expectation": "I expect smaller sugar molecules, possibly individual glucose units.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein also needs digestion, but I want to finish following starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes finished breaking the starch into glucose, which can cross the intestinal lining.",
+    "reaction": "It is clear how the long chain became separate glucose units.",
+    "step": 5,
+    "reason": "Protein still needs breaking down, and this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break the protein into smaller pieces, possibly amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein was broken into separate amino acids, completing the remaining goal and the chapter.",
+    "reaction": "The protein chain becoming its building blocks was straightforward.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat from large droplets to smaller droplets and then broken molecules was most worthwhile. It made bile's job different from the enzymes' job.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final protein combination was the only offered action and felt predictable, although its result was clear.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I didn't initially know whether saliva would finish digesting starch; it produced shorter chains that needed another step.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt especially arbitrary: the pictures and goals connected each pairing to digestion. Still, the compatible options guided the choices rather than requiring me to discover them.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the small food molecules cross the gut lining and reach cells. The starch and fat sequences made that next connection interesting.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

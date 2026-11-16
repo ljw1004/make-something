@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The after-meal picture shows pancreatic cells releasing insulin into the nearby blood, matching the first goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Insulin-producing pancreatic cells"
+    },
+    "expectation": "The cells should release insulin into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Glucagon-producing pancreatic cells"
+        },
+        "reason": "I could start with the between-meals pathway instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood, and the result points toward the muscle fibres.",
+    "reaction": "The route to muscle makes the next step clear.",
+    "step": 2,
+    "reason": "The muscle picture shows receptors for blood-carried insulin and glucose nearby, matching the goal.",
+    "choice": {
+      "combine": "Insulin in blood",
+      "with": "Muscle fibres beside a blood vessel"
+    },
+    "expectation": "Insulin should help the muscle take in glucose and store some of it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle has stored glucose, completing the insulin goal; the glucagon pathway remains.",
+    "reaction": "It was clear to see that insulin is a message rather than part of the store.",
+    "step": 3,
+    "reason": "The between-meals pancreatic cells contain glucagon and can release it into the blood, matching the remaining goal.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Glucagon-producing pancreatic cells"
+    },
+    "expectation": "The cells should release glucagon into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is now in the blood and is shown travelling toward the liver, so the liver store is the next target.",
+    "reaction": "The message's role in releasing stored glucose is clear.",
+    "step": 4,
+    "reason": "The result says glucagon helps the liver break down stored carbohydrate, matching the remaining goal.",
+    "choice": {
+      "combine": "Glucagon in blood",
+      "with": "Liver carbohydrate store"
+    },
+    "expectation": "The liver should break down some stored carbohydrate and release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood, completing the glucagon pathway and the chapter.",
+    "reaction": "The shrinking store made it clear where the released glucose came from.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following glucagon to the liver was worthwhile because it connected a pancreatic message to stored glucose becoming available between meals.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing the two messages felt somewhat repetitive, although the different meal conditions gave each pathway a purpose.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The muscle store made it clear that insulin stays outside the cells as a message rather than becoming part of the stored carbohydrate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary: the pictures and goals named the connections, though they made the choices fairly predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: seeing the two pathways side by side helped me understand how the body handles glucose at different times, even if the combinations were straightforward.",
+        "steps": [
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

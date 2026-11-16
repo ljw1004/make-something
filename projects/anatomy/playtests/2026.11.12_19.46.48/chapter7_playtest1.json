@@ -1,0 +1,131 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and it starts the neural lineage described in the goal.",
+    "choice": 1,
+    "expectation": "I expect the signals to produce neural progenitors from part of the stem-cell population.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signals produced neural progenitors that can give rise to neurons and glia, separately from the mesodermal branch.",
+    "reaction": "The branching diagram makes the lineage distinction clear.",
+    "step": 2,
+    "reason": "This is the only offered combination and should advance the goal of building neurons.",
+    "choice": 1,
+    "expectation": "I expect the differentiation signals to produce neuronal descendants, perhaps with early process buds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The progenitors differentiated into neuron cell bodies with buds for dendrites and axons.",
+    "reaction": "The timeline clarifies that the division loop ends as the neurons differentiate.",
+    "step": 3,
+    "reason": "This is the only offered combination and adds the receiving branches needed for the goal.",
+    "choice": 1,
+    "expectation": "I expect dendrites to attach to the cell bodies and provide branching receiving surfaces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell bodies now have dendrites, identified as parts of the same cells.",
+    "reaction": "The bracket makes that structural relationship clear.",
+    "step": 4,
+    "reason": "This is the only offered combination and adds the conducting axons needed for the goal.",
+    "choice": 1,
+    "expectation": "I expect axons and terminals to attach to the cell bodies, completing neurons with receiving and conducting processes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have dendrites and axons, and the goal has shifted to connections and support. The panels depict the signal as a successive membrane-voltage change.",
+    "reaction": "The distinction from a packet travelling inside the axon is useful.",
+    "step": 5,
+    "reason": "This is the only offered combination and begins connecting the neurons.",
+    "choice": 1,
+    "expectation": "I expect excitatory contacts to link neurons and show transmitter release changing the receiving cell's voltage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Excitatory connections now link neurons across gaps, with two inputs converging on one receiving neuron.",
+    "reaction": "The convergence is clear, though this result does not show the expected transmitter release.",
+    "step": 6,
+    "reason": "This is the only offered combination and adds inhibitory input to the connected neurons.",
+    "choice": 1,
+    "expectation": "I expect inhibitory contacts to show how inhibition can reduce the effect of excitatory inputs on firing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuit now shows excitatory and inhibitory inputs combining, with inhibition keeping the example neuron below firing threshold.",
+    "reaction": "The paired voltage traces make the difference clear.",
+    "step": 7,
+    "reason": "This is the only offered combination and adds supporting cells to the circuit.",
+    "choice": 1,
+    "expectation": "I expect astrocytes to support synapses, perhaps by taking up potassium and released transmitter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Astrocytes are now interwoven with the circuits, though their expected uptake role is not shown in the result.",
+    "reaction": "I would have liked to see how the astrocytes support the synapses.",
+    "step": 8,
+    "reason": "This is the only offered combination and adds the other supporting cells.",
+    "choice": 1,
+    "expectation": "I expect oligodendrocytes to form myelin sleeves around sections of the axons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oligodendrocytes added myelin around selected axon stretches; the inset also distinguishes receiving-cell receptor vesicles from transmitter vesicles.",
+    "reaction": "The distinction between the two vesicle locations is useful, though how myelin speeds transmission remains unexplained.",
+    "step": 9,
+    "reason": "This is the only offered combination and addresses the goal of examining a change at one synapse.",
+    "choice": 1,
+    "expectation": "I expect repeated paired activity to strengthen the highlighted connection, possibly by adding receptors to the receiving membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Repeated paired activity strengthened one excitatory connection: equal transmitter input now produces a larger local response, while travelling impulses remain the same size. Both goals are complete.",
+    "reaction": "The before-and-after comparison makes the local change distinct from the unchanged impulses.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Strengthening one synapse was most worthwhile: the planned comparison isolates the changed response and leaves a neighboring connection unchanged.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding astrocytes felt least informative: the resulting picture places them among the neurons but does not show their uptake role, although the initial item picture describes it.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The strengthened synapse produces a larger local voltage response without making travelling impulses larger; that distinction changed my understanding of what strengthening means here.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "No action lacked a clear overall purpose, but the sequence was largely prescribed: each decision offered only one combination. The result also says myelin speeds transmission without explaining how.",
+        "steps": [
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the circuit and synapse comparisons were interesting, though I would want more explanation of supporting cells and myelin.",
+        "steps": [
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

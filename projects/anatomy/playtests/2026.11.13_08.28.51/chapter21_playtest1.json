@@ -1,0 +1,148 @@
+[
+  {
+    "step": 1,
+    "reason": "The lipids belong between the outer keratinocyte layers and should help form the skin’s water barrier.",
+    "choice": {
+      "combine": "Keratinocyte layers",
+      "with": "Water-barrier lipids"
+    },
+    "expectation": "This should create a layered skin surface that limits water loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The keratinocytes and lipids formed a renewing epidermal barrier; it now needs supporting skin tissue.",
+    "reaction": "The link between deeper replacement cells and the protective surface is clear.",
+    "step": 2,
+    "reason": "Dermal connective tissue should support the epidermal barrier beneath it.",
+    "choice": {
+      "combine": "Epidermal barrier",
+      "with": "Dermal connective tissue"
+    },
+    "expectation": "The barrier and connective tissue should form the main skin layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The epidermal barrier currently has no available combination, so I need another route to assemble the skin.",
+    "reaction": "The apparent epidermis–dermis pairing was not available, which is a little surprising.",
+    "step": 3,
+    "reason": "Inspecting the dermal tissue should reveal what it can combine with next.",
+    "choice": {
+      "inspect": "Dermal connective tissue"
+    },
+    "expectation": "It should list compatible skin components, possibly including a step needed before adding the epidermis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The dermis first needed blood vessels; the resulting vascular dermis may now accept the epidermal barrier.",
+    "reaction": "The automatic combination clarified the required assembly order.",
+    "step": 4,
+    "reason": "The vascular dermis and epidermal barrier are the two main skin layers, so joining them is a plausible next step.",
+    "choice": {
+      "combine": "Vascular dermis",
+      "with": "Epidermal barrier"
+    },
+    "expectation": "They should form a layered skin structure with a blood supply beneath the barrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin layers are joined, with slots for a sweat outlet and sensory endings.",
+    "reaction": "The marked slots make the remaining assembly clearer.",
+    "step": 5,
+    "reason": "The sweat gland coil and duct appear to form the outlet needed by the skin.",
+    "choice": {
+      "combine": "Sweat gland coil",
+      "with": "Sweat gland duct"
+    },
+    "expectation": "They should form a sweat gland with a duct leading to the surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The coil and duct now form a complete sweat outlet for the skin.",
+    "reaction": "The pore connection makes its route to the surface clear.",
+    "step": 6,
+    "reason": "The assembled gland and duct match the sweat outlet slot in the layered skin.",
+    "choice": {
+      "combine": "Sweat gland and duct",
+      "with": "Layered skin[]"
+    },
+    "expectation": "The gland and duct should fit into the skin, leaving the sensory endings slot open.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sweat gland and duct are fitted into the layered skin; the sensory endings remain to be added.",
+    "reaction": "The outlet fit as expected.",
+    "step": 7,
+    "reason": "The cutaneous sensory endings match the remaining sensory slot.",
+    "choice": {
+      "combine": "Cutaneous sensory endings",
+      "with": "Layered skin"
+    },
+    "expectation": "The nerve endings should fit into the skin, completing its sensory component.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The layered skin now has both the sweat gland and sensory endings, ready to cover the body.",
+    "reaction": "The completed cross-section ties the gland and nerves to their locations.",
+    "step": 8,
+    "reason": "The goal is to cover the body with living skin, and both assembled components are available.",
+    "choice": {
+      "combine": "Body with food and water regulation",
+      "with": "Layered skin"
+    },
+    "expectation": "The skin should cover the body and connect to its existing systems.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed skin covers the body, with its vessels and nerves connected to the existing systems; the goal is complete.",
+    "reaction": "The final inset gives the separate skin components a clear place in the body.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the epidermal barrier was most worthwhile: the planned picture and explanation connect lipids and outer cells to reduced water loss, while introducing renewal from deeper layers.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The attempted epidermis–dermis pairing was frustrating because the apparent anatomical fit was rejected without explaining why the dermis first needed vessels.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected to join the two skin layers immediately; inspecting the dermis instead revealed and automatically performed the blood-vessel step.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring vessels in the dermis before joining it to the epidermis felt like an unexplained assembly-order restriction, even though the resulting vascular dermis has a clear biological purpose.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it offered more connections between structures and functions. This one made renewal and the gland's route to the surface clear, though its assembly order sometimes felt restrictive.",
+        "steps": [
+          1,
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

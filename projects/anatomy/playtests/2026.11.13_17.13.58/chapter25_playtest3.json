@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "The fragment knobs match a recognition protein on one lymphocyte, as described in the introduction.",
+    "choice": {
+      "combine": "Bacterial fragments with antigens",
+      "with": "Resting lymphocytes"
+    },
+    "expectation": "The matching lymphocyte will recognize the bacterial fragments and begin the immune response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active; the introduction suggests it can now multiply in the lymph node.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "The node's picture says it supports activated cells as they multiply.",
+    "choice": {
+      "combine": "Activated matching lymphocyte",
+      "with": "Living lymph node"
+    },
+    "expectation": "The activated lymphocyte will multiply in the node.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphocyte produced both antibody-making cells and memory cells; antibodies are proteins that match the bacterial antigens.",
+    "reaction": "It is helpful to see that one response produces both kinds of cells.",
+    "step": 3,
+    "reason": "Amino acids are protein building blocks, so the antibody-making cells may use them to make antibodies.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make antibodies from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies whose tips match the bacteria's surface knobs.",
+    "reaction": "The matching shapes make the next step clear.",
+    "step": 4,
+    "reason": "The goal is to coat bacteria, and the antibody tips match their surface knobs.",
+    "choice": {
+      "combine": "Matching antibodies",
+      "with": "Bacteria"
+    },
+    "expectation": "The antibodies will attach to and coat the bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, completing the coating goal; immune memory still needs to be given to the body.",
+    "reaction": "The matching shapes worked as expected.",
+    "step": 5,
+    "reason": "The descendants include memory lymphocytes, so connecting them to the body may complete the memory goal.",
+    "choice": {
+      "combine": "Antibody-making and memory cells",
+      "with": "Protected body model"
+    },
+    "expectation": "The body will retain the memory lymphocytes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now contains memory lymphocytes, which can help produce a faster, larger antibody response if the same antigen returns. Both goals are complete.",
+    "reaction": "It was satisfying to see how the first response could help later.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the lymph node to grow descendants was most worthwhile: it showed how one activated cell leads to both antibody-making and memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Coating the bacteria was clear but predictable once the matching shapes had been shown.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the same response produced both antibody-making cells and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary. The pictures and earlier protein-building idea gave the pairings a purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: the final result made me curious about what happens when the same antigen returns.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

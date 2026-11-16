@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum is shaped to separate the heart into right and left sides, preparing its two routes.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The chambers will be divided into right and left sides.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and revealed separate inlet and outlet valve slots.",
+    "reaction": "The reversing arrows make the need for valves clear.",
+    "step": 2,
+    "reason": "The inlet valves match the ventricular inlet slot.",
+    "choice": {
+      "combine": "Divided heart[]",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves will fit between the upper and lower chambers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted and shown preventing backflow into the atria during contraction.",
+    "reaction": "The filling and squeezing frames clarify their role.",
+    "step": 3,
+    "reason": "The outlet valves match the remaining ventricular outlet slot.",
+    "choice": {
+      "combine": "Divided heart[Inlet valves]",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves will fit at the ventricular exits and prevent blood flowing back into the ventricles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted, completing the valve goal; the outlet valves prevent arterial backflow between beats.",
+    "reaction": "The contrasting ejection and return frames clarify their function.",
+    "step": 4,
+    "reason": "The conducting tissue's pacemaker and pathways appear intended to coordinate the heart's contractions before connecting its routes.",
+    "choice": {
+      "combine": "Divided heart[Inlet valves,Outlet valves]",
+      "with": "Conducting tissue"
+    },
+    "expectation": "The heart will gain electrical pathways that coordinate its beating.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has conducting pathways that time atrial and ventricular contractions.",
+    "reaction": "The electrical wave and squeeze arrows make the coordination clear.",
+    "step": 5,
+    "reason": "The pulmonary loop is explicitly shaped to connect the right heart to the lungs and return to the left heart.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The pulmonary vessels will connect the heart to the lung capillary region and back.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary route now connects the right heart to the lung capillaries and returns to the left atrium, leaving the body route open.",
+    "reaction": "The separate open connection makes the next route clear.",
+    "step": 6,
+    "reason": "The systemic vessel network supplies the remaining route through body tissues.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The systemic vessels will connect the heart to body tissues and return blood to it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart is now connected to separate pulmonary and systemic loops.",
+    "reaction": "The two routes are in place, though the result gives little detail about their connections.",
+    "step": 7,
+    "reason": "The heart’s own vessels should supply its muscular wall, completing an important part of the circulation.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Heart’s own blood vessels"
+    },
+    "expectation": "The coronary vessels will connect to the circulation and supply the heart muscle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Circulation frame",
+          "with": "Blood"
+        },
+        "reason": "Adding blood could also advance the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Coronary vessels now supply the heart muscle from the aorta and return blood to the right atrium.",
+    "reaction": "The distinction between chamber blood and the muscle’s own supply is useful.",
+    "step": 8,
+    "reason": "Blood is the remaining component needed to connect the circulation.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "Blood will enter the connected pulmonary, systemic and coronary routes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed both connected circulation routes, with the coronary branch retained and arrows showing the full path through lungs and body.",
+    "reaction": "The final schematic ties the separate routes together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the heart’s own vessels was especially worthwhile: the planned cutaway distinguishes blood in the chambers from the separate supply needed by the thick heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the systemic network felt comparatively thin: the resulting picture description showed two loops but gave little detail about their connections.",
+        "steps": [
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The coronary supply was a useful distinction: chamber blood alone cannot feed all the heart muscle. The coronary sinus is named without an explanation, though its return to the right atrium is shown.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the valve slots and vessel descriptions gave the combinations clear purposes.",
+        "steps": [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested in seeing how the connected circulation supports exchange with tissues; the valve and coronary constructions made structure and function clear.",
+        "steps": [
+          2,
+          3,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

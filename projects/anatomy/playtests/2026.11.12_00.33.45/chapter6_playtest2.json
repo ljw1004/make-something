@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The airways end beside hollow sacs, so joining them should build the route for air.",
+    "choice": {
+      "combine": "Branching airways",
+      "with": "Lung air sacs"
+    },
+    "expectation": "The airways will connect to the lung air sacs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airways now reach the sacs, and the empty slot points to an exchange surface as the next part.",
+    "reaction": "The comparison between small sacs and one large space makes the surface-area benefit clear.",
+    "step": 2,
+    "reason": "The thin exchange lining forms the air-facing side of the sac wall, so it is a plausible fit for the exchange surface.",
+    "choice": {
+      "combine": "Thin exchange lining",
+      "with": "Lung air route"
+    },
+    "expectation": "The lining will be added to the lung air route as part of its exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sacs now have their air-facing lining, and the result identifies the capillary mesh as the missing part.",
+    "reaction": "The picture makes the next connection clear.",
+    "step": 3,
+    "reason": "The capillary mesh surrounds the sacs and provides the blood-facing side of the exchange surface.",
+    "choice": {
+      "combine": "Lung capillary mesh",
+      "with": "Air route with lining"
+    },
+    "expectation": "The mesh will join the lined sacs to form an exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route now has a surface where gases can cross between the separate air and blood spaces.",
+    "reaction": "The opposite oxygen and carbon dioxide arrows make the exchange clear.",
+    "step": 4,
+    "reason": "The vessel circuit should connect blood flow to the lung capillaries so it can receive oxygen.",
+    "choice": {
+      "combine": "Connected vessel circuit",
+      "with": "Lung route with exchange"
+    },
+    "expectation": "The blood circuit will connect to the lung exchange surface.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood now reaches the lung sacs, but the air must be renewed to maintain oxygen transfer.",
+    "reaction": "The shrinking oxygen arrows make the need for breathing clear.",
+    "step": 5,
+    "reason": "The pleural membranes connect the lung side to the chest side, so they appear to be the next part needed for ventilation.",
+    "choice": {
+      "combine": "Pleural membranes",
+      "with": "Blood-supplied lung route"
+    },
+    "expectation": "The membranes will attach to the blood-supplied lung route and prepare it to move with the chest.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pleural sheets now cover the lung, but their chest-facing side still needs attaching to renew the air.",
+    "reaction": "The wet-sheet inset helps explain how the lung can move with the chest while the layers slide.",
+    "step": 6,
+    "reason": "The breathing chest is the remaining part and can attach to the chest-facing pleural sheet.",
+    "choice": {
+      "combine": "Breathing chest",
+      "with": "Blood-supplied lung route with pleura"
+    },
+    "expectation": "The chest will connect to the pleura so its movements can renew air in the lungs.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The breathing chest completed the route: chest expansion renews lung air, and circulation carries oxygen onward to tissues.",
+    "reaction": "The final picture connects breathing to distant cells in a satisfying way.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the blood circuit to the lung exchange surface was worthwhile because the result showed why flowing blood also needs renewed air.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the thin lining felt somewhat routine, though it established one side of the exchange surface.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The shrinking oxygen arrows showed how oxygen transfer falls when air in the sacs is not renewed.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; the pictures and results gave each part a clear role.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue to see how the oxygen-delivering circulation supports the working arm. The final construction connected several earlier systems in a way I found interesting.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

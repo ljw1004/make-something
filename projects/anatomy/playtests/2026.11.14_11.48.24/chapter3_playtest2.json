@@ -1,0 +1,110 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows Sonic hedgehog meeting muscle precursors among the embryonic cells, matching the muscle-development goal.",
+    "choice": {
+      "combine": "Sonic hedgehog protein",
+      "with": "Embryonic cells"
+    },
+    "expectation": "The protein will help the muscle precursors develop further.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "TGF-beta2 protein",
+          "with": "Embryonic cells"
+        },
+        "reason": "That also matches the tendon-development goal, but I chose the earlier muscle signal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signal led muscle precursors to make RNA instructions for pulling proteins; those proteins still need to be built.",
+    "reaction": "The time strip made the connection clearer.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, and the new goal is to build pulling proteins in these cells.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Cells with muscle-protein RNA"
+    },
+    "expectation": "The cells will use the amino acids and RNA instructions to make pulling proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "TGF-beta2 protein",
+          "with": "Embryonic cells"
+        },
+        "reason": "I could follow the tendon signal first, but the muscle cells are ready for their next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids and RNA instructions led to muscle cells containing fibres that can slide to shorten the cells.",
+    "reaction": "The picture made the pulling proteins' job clearer.",
+    "step": 3,
+    "reason": "The TGF-beta2 picture shows it signaling tendon precursors, matching the remaining goal.",
+    "choice": {
+      "combine": "TGF-beta2 protein",
+      "with": "Embryonic cells"
+    },
+    "expectation": "The signal will help the tendon precursors develop further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The signal led tendon cells to make RNA instructions for collagen, a tough protein whose fibres still need to be built.",
+    "reaction": "The rope-like picture helps explain how collagen could strengthen a tendon.",
+    "step": 4,
+    "reason": "Amino acids built the muscle proteins, so they are a likely way to build collagen from these cells' RNA instructions too.",
+    "choice": {
+      "combine": "Amino acids",
+      "with": "Tendon cells with collagen RNA"
+    },
+    "expectation": "The cells will use the amino acids to make collagen fibres around themselves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tendon cells made collagen, released it outside the cells, and assembled it into fibres. The result contrasts those external fibres with muscle cells' internal pulling proteins.",
+    "reaction": "The side-by-side contrast helped me understand how the two cell groups do different jobs.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the tendon tissue was most worthwhile because it connected collagen production to the tough link between developing muscle and cartilage.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second amino-acid combination felt somewhat repetitive after building the muscle proteins, although it showed a useful difference in where the fibres end up.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that muscle cells keep their pulling proteins inside while tendon cells build fibres outside, even though they retain the same DNA set.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The signal names Sonic hedgehog and TGF-beta2 did not explain their jobs by themselves. I followed the pairings shown in the pictures rather than understanding the signaling mechanism.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separate muscle cells become larger fibres, especially because the muscle-cell picture points to a later chapter.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

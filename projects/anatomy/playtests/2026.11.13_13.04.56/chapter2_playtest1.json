@@ -1,0 +1,181 @@
+[
+  {
+    "step": 1,
+    "reason": "The carrier's glucose-binding pocket suggests it can provide the sugar a route across the membrane.",
+    "choice": {
+      "combine": "Glucose carrier",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The carrier will fit into the membrane, preparing a route for glucose to enter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed in the membrane, providing a potential route for glucose.",
+    "reaction": "The fit matches the carrier's pictured structure.",
+    "step": 2,
+    "reason": "Glucose fits the installed carrier and is more concentrated outside the cell.",
+    "choice": {
+      "combine": "Glucose",
+      "with": "Membrane with a glucose carrier"
+    },
+    "expectation": "Glucose will enter the cytosol through the carrier.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now in the cytosol, where the breakdown enzymes can act on it.",
+    "reaction": "The carrier's changing shape made the transport step clear.",
+    "step": 3,
+    "reason": "The enzyme hotspot depicts glucose breakdown in the cytosol, directly advancing the ATP-renewal goal.",
+    "choice": {
+      "combine": "Glucose in cytosol",
+      "with": "Glucose-breakdown enzymes"
+    },
+    "expectation": "The enzymes will break down glucose into three-carbon products and begin ATP renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose breakdown produced pyruvate and ATP; pyruvate is identified as mitochondrial fuel.",
+    "reaction": "The diagram clearly separates glycolysis from oxygen use.",
+    "step": 4,
+    "reason": "Pyruvate points toward mitochondrial ATP renewal, but no mitochondrion is currently listed as a hotspot or item, so its available partners are worth checking.",
+    "choice": {
+      "inspect": "Pyruvate and ATP"
+    },
+    "expectation": "The inspection will show how to use the pyruvate and ATP for the remaining goals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate and ATP can combine with oxygen or amino acids, identifying routes toward aerobic renewal and protein production.",
+    "reaction": "The oxygen connection fits the mitochondrial fuel description.",
+    "step": 5,
+    "reason": "Oxygen and pyruvate are the visible inputs most directly connected to aerobic ATP renewal.",
+    "choice": {
+      "combine": "Pyruvate and ATP",
+      "with": "Oxygen entering the cytosol"
+    },
+    "expectation": "Pyruvate and oxygen will support mitochondrial ATP renewal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pyruvate and ATP",
+          "with": "Amino acids"
+        },
+        "reason": "This may advance protein production, but aerobic renewal is the more direct next step."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is established, with oxygen receiving electrons and a hydrogen-ion gradient driving ATP synthase.",
+    "reaction": "The distinct roles of fuel and oxygen are clearly illustrated.",
+    "step": 6,
+    "reason": "The pump has an ATP-binding site and is intended to transport ions across the membrane, so the renewed ATP supply is a plausible partner.",
+    "choice": {
+      "combine": "Aerobic ATP renewal",
+      "with": "Sodium-potassium pump"
+    },
+    "expectation": "ATP renewal will power the sodium-potassium pump or prepare it for membrane transport.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Pyruvate and ATP",
+          "with": "Amino acids"
+        },
+        "reason": "The previously listed pairing could advance protein production instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The attempted pump pairing instead automatically produced new cell proteins and completed the protein-growth goal. The pump still needs a membrane context.",
+    "reaction": "The automatic protein step was unexpected but followed a listed route.",
+    "step": 7,
+    "reason": "The sodium-potassium pump is a membrane protein, so installing it in the lipid patches is the clearest next step toward ion transport.",
+    "choice": {
+      "combine": "Sodium-potassium pump",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump will fit into the membrane, enabling or preparing ATP-powered ion transport.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed in the membrane, but ion transport has not yet been shown.",
+    "reaction": "The placement makes the contrast with the passive sodium channel clear.",
+    "step": 8,
+    "reason": "The pump is installed, but its available partner for powered transport is not yet clear.",
+    "choice": {
+      "inspect": "Membrane with a sodium-potassium pump"
+    },
+    "expectation": "The inspection will reveal how to activate the pump.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The installed pump can combine with either ATP-containing product, identifying two routes to powered transport.",
+    "reaction": "The compatibility information resolves the missing connection.",
+    "step": 9,
+    "reason": "Aerobic ATP renewal supplies ATP to the membrane-installed pump.",
+    "choice": {
+      "combine": "Membrane with a sodium-potassium pump",
+      "with": "Aerobic ATP renewal"
+    },
+    "expectation": "The pump will use ATP to transport sodium and potassium across the membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane with a sodium-potassium pump",
+          "with": "Pyruvate and ATP"
+        },
+        "reason": "The inspection also listed this ATP source as a compatible partner."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The installed pump used ATP to move sodium outward and potassium inward against their concentration gradients, completing the final goal.",
+    "reaction": "The comparison with the passive sodium channel made the distinction between transport routes clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building aerobic ATP renewal was most worthwhile: the planned illustration connected fuel oxidation, oxygen, the hydrogen-ion gradient and ATP synthase without treating fuel and oxygen as interchangeable.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to pair ATP renewal directly with the pump was confusing: the pump needed installation first, although its ATP-binding site made the attempted connection plausible.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The incompatible pump attempt automatically produced new cell proteins instead. The protein route was compatible, but I had not chosen it as the action to perform.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The pump's membrane-installation requirement had a clear physical purpose, but the automatic switch to protein production felt less directly connected to my attempted action.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions linked familiar cell biology to membrane transport and energy use, and I would be curious to see how those connections extend to tissues and organs.",
+        "steps": [
+          5,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

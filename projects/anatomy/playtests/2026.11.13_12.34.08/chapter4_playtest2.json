@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "The pictured fibroblast conditions provide a clear route from the unspecialized cells to connective-tissue cells.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "A subset of the stem-cell descendants will become fibroblasts capable of making supporting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized daughter stem cells",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The muscle branch is also a clear starting point, but I will pursue the supporting-material goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch now has collagen RNA messages, suggesting it can use amino acids to make collagen.",
+    "reaction": "The link between unchanged DNA and selective gene activity is clear.",
+    "step": 2,
+    "reason": "Collagen messages and amino acids are the apparent ingredients for making the supporting protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The fibroblast-lineage cells will use the amino acids to make collagen protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now have collagen precursors in secretory vesicles, ready for the extracellular step.",
+    "reaction": "The ER-to-Golgi progression makes the protein production route clearer.",
+    "step": 3,
+    "reason": "Extracellular fluid contains the processing enzymes and space where the supporting material can form.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will secrete collagen precursors for processing into supporting material outside the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collagen matrix completes the supporting-material goal; the muscle-forming branch remains.",
+    "reaction": "The sequence from secreted precursors to extracellular fibres is satisfying and clear.",
+    "step": 4,
+    "reason": "The muscle differentiation conditions show a route from the remaining unspecialized descendants to muscle precursors.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "A separate subset of descendants will develop into muscle-lineage precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with muscle-protein messages, but they are not yet mature fibres.",
+    "reaction": "The distinction between commitment and a mature fibre is clear.",
+    "step": 5,
+    "reason": "The muscle messages and shared amino-acid supply suggest protein production is the next step.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make muscle proteins and advance toward muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch produced separate myoblasts with muscle proteins, completing the goal without yet forming mature muscle fibres.",
+    "reaction": "The contrast between retained muscle proteins and exported collagen made the two branches' different jobs clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the extracellular matrix was most worthwhile: the planned sequence connects gene activity and protein production to secretion and assembly outside the cell.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The second differentiation branch repeated the same signal-then-amino-acids pattern, though it provided a useful comparison.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The finished muscle goal stopped at separate, single-nucleus myoblasts rather than a fused mature fibre.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the broadly named differentiation conditions leave the specific signals and how they change gene activity unexplained.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the myoblasts develop into muscle fibres; the distinction between precursors and mature fibres leaves a clear next question.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

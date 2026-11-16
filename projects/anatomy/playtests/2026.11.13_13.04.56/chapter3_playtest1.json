@@ -1,0 +1,117 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane goal explicitly calls for phospholipids and proteins.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "These should prepare new membrane material for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The phospholipids and proteins formed membrane-building vesicles, revealing a goal to enlarge the cell with them.",
+    "reaction": "The vesicles provide a clear connection between the ingredients and membrane growth.",
+    "step": 2,
+    "reason": "The new goal calls for using the membrane supply to enlarge the growing cell.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles should supply membrane as the cell enlarges.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles enlarged the cell, whose nuclear DNA remains uncopied.",
+    "reaction": "The vesicle-fusion inset makes the membrane supply's role clear.",
+    "step": 3,
+    "reason": "The DNA-copying goal calls for nucleotides, and the grown cell contains the uncopied nuclear DNA.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The nucleotides should help copy the cell's nuclear DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclear DNA is copied, and the next goal is to use a spindle to form two daughter nuclei.",
+    "reaction": "The sister-chromatid inset makes the copied state visible.",
+    "step": 4,
+    "reason": "The remaining spindle goal explicitly calls for proteins and duplicated centrosomes.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "The proteins and centrosomes should form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The proteins and centrosomes formed a mitotic spindle; it can now be used on the cell with copied DNA.",
+    "reaction": "The timing caption clarifies that spindle assembly follows DNA copying.",
+    "step": 5,
+    "reason": "The revealed goal calls for using the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle should separate the copied chromosomes to form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied genomes into two nuclei, but the cytoplasm remains connected.",
+    "reaction": "The distinction between nuclear division and cytoplasmic division is clear.",
+    "step": 6,
+    "reason": "The new goal calls for actin and myosin to divide the cytoplasm of the two-nucleus cell.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin should constrict the cell to separate its cytoplasm into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Actin and myosin separated the cytoplasm, completing the chapter with two daughter cells, each containing a complete genome.",
+    "reaction": "The final picture usefully connects cell division to both self-renewal and later differentiation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle and then actin and myosin was most worthwhile: the planned pictures distinguish separating genomes into nuclei from dividing the cytoplasm.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The DNA-copying result was less informative than it could have been: it labels S phase and sister chromatids but does not explain how nucleotides are used to copy DNA.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The spindle result clarified that its assembly occurs during mitosis after DNA copying; it initially has no chromosomes attached.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though combining general new cell proteins with centrosomes simplifies spindle assembly, and the roles of tubulin and the motor protein are not explained.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue to see how the daughter cells become different tissues; the final branching diagram sets up that transition clearly.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

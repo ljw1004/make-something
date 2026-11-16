@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm needs to connect to the circulation that supplies oxygen.",
+    "choice": {
+      "combine": "Responsive arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm will connect to the breathing circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is connected to the circulation, and the accumulating tissue fluid makes the return route the next goal.",
+    "reaction": "The comparison with inadequate return makes the need for drainage clear.",
+    "step": 2,
+    "reason": "The blind-ended lymphatic capillaries appear suited to collecting fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The lymphatic capillaries will collect fluid from between the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue spaces now drain into lymphatic capillaries, so the next step is to connect them to the larger return route.",
+    "reaction": "The flap description makes it clear how fluid and proteins enter.",
+    "step": 3,
+    "reason": "The collecting vessel and duct should carry lymph away from the draining tissue spaces.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The lymphatic capillaries will connect to the collecting vessel and return duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The draining tissue spaces had to be connected to the supplied arm before extending the lymph return route.",
+    "reaction": "That required ordering was surprising, since the collecting vessel also seemed like a plausible next connection.",
+    "step": 4,
+    "reason": "The collecting vessel and return duct should now extend the arm's lymphatic drainage.",
+    "choice": {
+      "combine": "Supplied arm with lymph entry",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The lymphatic capillaries will connect to the collecting vessel and return duct.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied arm with lymph entry has no available combination yet, so the collecting vessel may need another connection first.",
+    "reaction": "The required order is still unclear.",
+    "step": 5,
+    "reason": "The return duct’s open end is shown beside a vein, and the venous junction has an opening for it.",
+    "choice": {
+      "combine": "Collecting lymph vessel and return duct",
+      "with": "Venous junction"
+    },
+    "expectation": "The lymph return duct will connect to the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collecting vessel and duct now connect to venous blood, providing the return route needed for the arm's lymphatic drainage.",
+    "reaction": "The connection clarifies the required order, though it was not obvious earlier.",
+    "step": 6,
+    "reason": "The arm's lymph entry and the completed return route are the remaining parts of the drainage system.",
+    "choice": {
+      "combine": "Supplied arm with lymph entry",
+      "with": "Lymph return route"
+    },
+    "expectation": "The arm's lymphatic capillaries will connect to the route returning lymph to the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects lymph entry to venous return and shows how continued drainage helps keep tissue fluid from accumulating.",
+    "reaction": "The matched views make the relationship between filtration and lymph return satisfying and clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lymph return route to the arm was most worthwhile: the completed picture brings the separate pieces together and shows why the route matters for tissue fluid.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The unsuccessful attempt to add the collecting vessel to the arm felt least worthwhile because the required order was still unclear.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the draining tissue spaces had to join the supplied arm before the collecting vessel could be connected.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "That ordering felt somewhat arbitrary: connecting the collecting vessel directly to the draining capillaries also seemed physically plausible.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter. Following a complete route from tissue fluid back to the blood was interesting, although I would hope future required ordering is clearer.",
+        "steps": [
+          2,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

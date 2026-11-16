@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "Connecting the sensing cells to ADH-producing neurons seems like the first step toward linking water sensing to the kidneys.",
+    "choice": 1,
+    "expectation": "I expect a neural connection involved in regulating ADH release, though the pituitary capillaries may still need to be added.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking water addresses replacement, but I want to build the sensing pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensing cells now connect to ADH-producing neurons, so the pituitary capillaries are the next plausible link.",
+    "reaction": "The result matches my expectation, though it does not yet show hormone release.",
+    "step": 2,
+    "reason": "Add the capillary bed to connect the nerve terminals to the blood.",
+    "choice": 1,
+    "expectation": "I expect a route for ADH to enter the circulation, although kidney effects may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking addresses replacement, but I want to finish the sensing pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH now has a route into the blood, clarifying how the brain can signal kidney collecting ducts.",
+    "reaction": "The switch from nerve activity to a blood-borne hormone is a useful connection.",
+    "step": 3,
+    "reason": "Connect the ADH pathway to the body and its kidneys.",
+    "choice": 1,
+    "expectation": "I expect the pathway to reach the kidney collecting ducts; a water-loss signal may still be needed to show its effect.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking would address replacement, but I want to complete the sensing connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brain-to-blood pathway now reaches collecting-duct cells, completing the control connection.",
+    "reaction": "The receptors and stored vesicles suggest a mechanism, though their role is not yet explained.",
+    "step": 4,
+    "reason": "Show how the connected system responds to water loss before replacing it.",
+    "choice": 1,
+    "expectation": "I expect water loss to increase ADH signalling and kidney water conservation, producing more concentrated urine.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking addresses replacement, but I want to see the response to loss first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water loss led to more collecting-duct water channels and greater water recovery, but conservation cannot replace water already lost.",
+    "reaction": "The distinction between conserving and replacing water is clear and useful.",
+    "step": 5,
+    "reason": "Drinking water is the only offered combination and addresses the remaining replacement goal.",
+    "choice": 1,
+    "expectation": "I expect the water to be absorbed through the intestine and replenish body fluid.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water replenishes body fluids through intestinal absorption, and the inset shows ADH signalling and collecting-duct channels decreasing gradually as plasma concentration returns toward its usual range.",
+    "reaction": "The contrast with kidney conservation is clear, and the gradual feedback makes the picture more informative.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Showing water recovery after evaporative loss was most worthwhile: it connects collecting-duct channels to concentrated urine and distinguishes slowing loss from replacing water.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The initial circuit construction was less engaging because it mainly established a connection without yet showing what the signal did.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The shift from nerve activity to a blood-borne ADH signal clarified how the brain reaches kidney cells.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action seemed purposeless, although the connection between ADH receptors, stored vesicles and the later increase in water channels was suggested rather than explicitly explained.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see another physiological feedback loop built across organs; this chapter made the conservation-versus-replacement distinction useful without requiring a long sequence.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

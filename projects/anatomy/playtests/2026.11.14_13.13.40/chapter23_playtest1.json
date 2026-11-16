@@ -1,0 +1,75 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows drinking water crossing the gut lining into this blood vessel, directly matching the second goal.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Gut-wall blood vessel"
+    },
+    "expectation": "The drinking water will cross the gut lining into the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Blood",
+          "with": "Urinary system[Ureters,Bladder]"
+        },
+        "reason": "I could instead start with the kidney's water-saving response."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drinking water placement completed the gut-to-blood goal, leaving the kidney goal.",
+    "reaction": "The placement was straightforward, though it didn't show more about the crossing.",
+    "step": 2,
+    "reason": "Blood goes through the kidneys, and the chapter says water-saving signals have already reached them.",
+    "choice": {
+      "combine": "Blood",
+      "with": "Urinary system[Ureters,Bladder]"
+    },
+    "expectation": "The kidneys will make urine while returning more water to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney result confirmed that more water returns to the blood while a smaller volume of urine carries wastes onward. Both goals are complete.",
+    "reaction": "The contrast between saving water and replacing it made the two actions clearer.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making concentrated urine was most worthwhile because it showed how the kidneys conserve water while still releasing waste.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing drinking water was less satisfying: it completed the goal without showing more about the crossing in the result.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The result clarified that conserving water already in the body and replacing it with a drink are separate routes.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary; the goals and pictures explained both pairings.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how other body systems connect, though this short chapter's straightforward placements did not offer much of a puzzle.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

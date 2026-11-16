@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "Prepare the additional membrane needed for cell growth and division.",
+    "choice": 1,
+    "expectation": "The phospholipids and proteins will form new membrane material, though I am unsure how it will be incorporated.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also a goal, but I chose to prepare the membrane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane supply is packaged in vesicles routed through the ER and Golgi; it can now enlarge the cell.",
+    "reaction": "The delivery route makes the membrane-building step clearer.",
+    "step": 2,
+    "reason": "Use the newly prepared vesicles to meet the cell-enlargement goal.",
+    "choice": 1,
+    "expectation": "The vesicles will deliver membrane to the cell surface, allowing the cell to grow.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA copying is also necessary, but I want to finish the membrane route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown by adding membrane, but its nuclear DNA still needs copying.",
+    "reaction": "The fusion inset clearly connects vesicle delivery to cell growth.",
+    "step": 3,
+    "reason": "Copy the nuclear DNA so the cell can eventually give each daughter a complete genome.",
+    "choice": 1,
+    "expectation": "The nucleotides will be used to copy the cell's nuclear DNA.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The spindle is also needed, but copying DNA first follows the cell's current state."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grown cell now has copied nuclear DNA, and a spindle is needed to form two daughter nuclei.",
+    "reaction": "The sister-chromatid inset makes the copied state visible.",
+    "step": 4,
+    "reason": "Build the spindle needed for the new goal; it is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The proteins and duplicated centrosomes will form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled as a mitosis preview, but chromosomes have not attached yet.",
+    "reaction": "The timing caption clarifies that spindle assembly follows DNA copying.",
+    "step": 5,
+    "reason": "Use the spindle to form daughter nuclei; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "The spindle will separate the copied chromosomes so two daughter nuclei can form.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied chromosomes have separated into two nuclei, but the cytoplasm remains connected and must divide.",
+    "reaction": "The time-strip clearly distinguishes nuclear division from separation of the cell.",
+    "step": 6,
+    "reason": "Use actin and myosin to divide the cytoplasm; this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the cell at the furrow, separating it into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm has separated into two stem cells, each with a complete genome; the diagram also points toward later self-renewal and differentiation.",
+    "reaction": "The distinction between completed division and later differentiation is clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle to form two nuclei was most worthwhile: the time-strip connects chromosome attachment and separation to complete genomes while showing that the cytoplasm remains connected.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle felt less engaging as a decision because it was the only gameplay action offered, although the timing caption was useful.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The membrane-building step showed a delivery route through the ER and Golgi rather than simply adding lipids directly to the surface.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the broad label 'new cell proteins' leaves the connection to the specific tubulin units in the spindle somewhat implicit.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see how the daughter cells take different paths toward muscle and lining, building on the distinction between division and later differentiation.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

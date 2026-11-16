@@ -1,0 +1,94 @@
+[
+  {
+    "step": 1,
+    "reason": "The upper digestive tract ends beside the colon outline, so their connection is clear.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "They should form one continuous digestive tube.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Head and spine[]",
+          "with": "Eye with optic nerve"
+        },
+        "reason": "Placing the eye is another clear way to begin."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The small intestine now connects to the colon, completing the digestive-tube goal. The head still needs its eye and ears.",
+    "reaction": "It is satisfying to see the separate gut sections form one route.",
+    "step": 2,
+    "reason": "The eye's optic nerve leads toward the brain in the head, so placing it there fits the remaining goal.",
+    "choice": {
+      "combine": "Head and spine[]",
+      "with": "Eye with optic nerve"
+    },
+    "expectation": "The eye should be placed in the head with its nerve leading toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Head and spine[]",
+          "with": "Ears"
+        },
+        "reason": "The ears also belong in the head and could be placed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is in the head and its optic nerve leads to the brain; the ears still need placing.",
+    "reaction": "The supplied second eye makes the head model feel more complete.",
+    "step": 3,
+    "reason": "The ears belong in the head, and their established nerves lead toward the brain.",
+    "choice": {
+      "combine": "Head and spine",
+      "with": "Ears"
+    },
+    "expectation": "The ears should fit into the head with their nerve routes toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ears are in place with their hearing and balance nerves connected to the brain, completing the chapter's goals.",
+    "reaction": "It is satisfying to see the earlier hearing and balance structures kept together in the head.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the upper gut to the colon was most worthwhile: it made the digestive tract a continuous route and clarified that absorbed materials cross its lining.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the eye and ears was straightforward and a little repetitive, though their positions and nerve routes made sense.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I noticed that the head model supplied a second eye when I placed the first one.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the pictures and goals made the connections clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue to see how the digestive tract and head join the rest of the body, though I hope the next chapter offers more than straightforward placement.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

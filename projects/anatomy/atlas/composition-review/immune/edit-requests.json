@@ -1,0 +1,26 @@
+{
+  "airwayBare": "Use case: precise-object-edit. Edit the supplied coated airway epithelium master. Keep EXACTLY the same image dimensions, viewpoint, shallow oblique perspective, connected strip of cells, nuclei, basement tissue, and ciliary fringe. Remove ONLY the pale blue mucus blanket on top, revealing the existing cilia with their naturally free tips and the same top surface perspective. The result is the bare ciliated epithelial strip, no mucus residue, no extra cilia pasted externally, no ghost sheet or added anatomy. Preserve cell heights, silhouette, coherent front and back boundaries and all details. Naturalistic 1800s hand-colored anatomical engraving. Genuinely transparent background, no cast shadow or halo. No labels or diagram.",
+  "antibodySourceTrial": "Use case: precise-object-edit. Input image contains exactly three rod-shaped olive-green bacteria isolated on transparent background. Preserve their EXACT positions, relative sizes, orientations and bacterial body outlines. Add a coating of small pale-ochre Y-shaped antibody proteins bound to ALL THREE bacteria. Each Y's antigen-binding ARM TIP must physically touch and attach to the bacterial surface; its stem points outward. Show several attached antibodies on each rod, on different sides, with no free floating Y anywhere. Antibodies should be small relative to bacteria, each about one-fifth the width of one rod, with engraved texture rather than flat symbols. This is a simplified molecular anatomical illustration, no labels, arrows or diagram. Keep naturalistic fine 1800s copperplate engraving, muted olive and pale golden tissue colors, transparent blank background. Do not enlarge or shrink any bacterium or duplicate a rod. Change ONLY adding bound antibodies; every antibody must have an actual surface contact.",
+  "antibodyExtraction": {
+    "source": "runs/anatomy-composition-review/immune/coated-trial.png",
+    "bounds": [
+      549,
+      118,
+      614,
+      202
+    ],
+    "note": "Only the isolated painted protein is retained; the complete generated coating was rejected for stem-first binding. The selected cutout preserves its exact extraction mask in alpha.",
+    "retained": "sources/antibody.png"
+  },
+  "bacteriaExtraction": {
+    "source": "sources/phagocytes.png",
+    "bounds": [
+      1128,
+      275,
+      1298,
+      427
+    ],
+    "note": "Three existing intracellular rods masked and preserved at source scale."
+  },
+  "mucusClean": "Use case: precise-object-edit. The supplied image is a shallow isolated blue mucus sheet extracted from an airway illustration, but its underside wrongly includes pink curved cilia. Remove EVERY pink/brown hair, curved ciliary filament, cell fragment and tissue trace along the underside. Replace that contaminated underside with a smooth thin continuous translucent PALE BLUE GEL EDGE matching the rest of the sheet. Preserve the same very long shallow oblique film shape, taper, perspective and engraved texture, same geometry and approximate amount. This asset must show ONLY a viscous mucus material sheet, with no living tissue, no hairs, no fringe, no rods, no particles. The lower edge should be a coherent irregular fluid edge, not a comb or torn tissue. Genuinely transparent background; no shadow, label or added object. Naturalistic 1800s fine engraving."
+}

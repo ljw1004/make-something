@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The transporter-bearing cell should admit the arriving glucose, beginning the fuel pathway.",
+    "choice": {
+      "combine": "Cell with sugar transporter",
+      "with": "Glucose and oxygen"
+    },
+    "expectation": "The cell will take in glucose and oxygen for energy production.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Glucose and oxygen",
+          "with": "Mitochondria"
+        },
+        "reason": "The mitochondria are also associated with producing usable energy from fuel."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell instead combined with the fibre structures, establishing the muscle fibre scaffold; the fuel pathway remains to be built.",
+    "reaction": "I was surprised that the attempted fuel combination automatically assembled the fibre instead.",
+    "step": 2,
+    "reason": "Glucose and oxygen are the visible fuel inputs, and mitochondria are associated with releasing usable energy from them.",
+    "choice": {
+      "combine": "Glucose and oxygen",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will use the glucose and oxygen as part of making usable energy.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is split in the cell fluid, and the resulting fuel enters the mitochondrion alongside oxygen; the mitochondria are now fuelled.",
+    "reaction": "The picture clarified that glucose is split before its products enter the mitochondrion.",
+    "step": 3,
+    "reason": "ADP and phosphate are the remaining visible ingredients for making ATP, which the chapter identifies as usable energy.",
+    "choice": {
+      "combine": "Fuelled mitochondria",
+      "with": "ADP and phosphate"
+    },
+    "expectation": "The fuelled mitochondria will use ADP and phosphate to make ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fuelled mitochondria produced an ATP supply, with ADP and phosphate shown returning as ATP is used.",
+    "reaction": "The return arrows helped make the continuing ATP cycle clearer.",
+    "step": 4,
+    "reason": "The thin and thick filaments are the visible parts of the fibre's pulling machinery, so assembling them looks like the next step.",
+    "choice": {
+      "combine": "Thin filaments",
+      "with": "Thick filaments"
+    },
+    "expectation": "The filaments will form a contractile unit for the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The thin and thick filaments formed overlapping sliding filament units, ready to be incorporated into the fibre.",
+    "reaction": "The overlap makes their role in pulling easier to picture.",
+    "step": 5,
+    "reason": "The muscle fibre scaffold has spaces for contractile units, so the sliding filament units appear to fit there.",
+    "choice": {
+      "combine": "Sliding filament units",
+      "with": "Muscle fibre"
+    },
+    "expectation": "The sliding filament units will be installed in the muscle fibre.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sliding filament units are now installed in the muscle fibre.",
+    "reaction": "The scaffold and filament units fit together as expected.",
+    "step": 6,
+    "reason": "A calcium signal acts around the filaments, so it may initiate the fibre's pull.",
+    "choice": {
+      "combine": "Filament-filled muscle fibre",
+      "with": "Calcium signal"
+    },
+    "expectation": "The calcium signal will activate the filaments for contraction.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Filament-filled muscle fibre",
+          "with": "ATP supply"
+        },
+        "reason": "ATP also supplies the pulling machinery, so it might need to be added first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibre needed ATP before the calcium signal could act. ATP lets a myosin head release and reset, while the thin filament's binding site remains covered.",
+    "reaction": "The automatic combination clarified the required order, though I was surprised calcium could not be added yet.",
+    "step": 7,
+    "reason": "The calcium signal is still available and appears to be the next input for activating the ATP-ready fibre.",
+    "choice": {
+      "combine": "ATP-ready muscle fibre",
+      "with": "Calcium signal"
+    },
+    "expectation": "Calcium will expose binding sites and allow the fibre to pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium exposed the binding sites, allowing repeated pulling cycles that shorten the fibre as the filaments slide past each other.",
+    "reaction": "The distinction between the fibre shortening and the filaments remaining the same length was helpful.",
+    "step": 8,
+    "reason": "The remaining calcium-pumping membranes appear to remove the calcium signal so the fibre can relax.",
+    "choice": {
+      "combine": "Shortening muscle fibre",
+      "with": "Calcium-pumping membranes"
+    },
+    "expectation": "The pumps will return calcium to its internal store, allowing the fibre to relax.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The calcium pumps returned calcium to storage using ATP, covering the grip sites and stopping the pull. An outside pull then relaxed the fibre, completing the goal.",
+    "reaction": "It was useful to see that relaxation also requires cellular work.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Activating the fibre with calcium was the most worthwhile step: the description connected exposed grip sites and repeated myosin pulls to the fibre shortening, while making clear that the filaments themselves do not shorten.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Assembling the filament units and placing them in the fibre was fairly predictable. The overlap picture helped, but the installation result added little beyond showing the fibre packed with units.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the calcium signal to act on the filament-filled fibre immediately, but compatibility feedback directed me to add ATP first. The resulting description showed ATP helping a myosin head release and reset.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The requirement to add ATP before calcium was not obvious from the initial item descriptions. The feedback made the sequence playable, though the result did not fully explain why the game required that order.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the chapter connected fuel, ATP, filament movement and relaxation in a way that made me curious how the working fibre contributes to a larger body system. My assessment is based on the text descriptions; the planned illustrations were not available to test.",
+        "steps": [
+          2,
+          3,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

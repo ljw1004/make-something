@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The sticky mucus can catch particles, and the lining's hairs sweep toward the throat, matching the first goal.",
+    "choice": {
+      "combine": "Airway mucus",
+      "with": "Airway lining with sweeping hairs"
+    },
+    "expectation": "The mucus and lining will form a surface that can catch and sweep inhaled particles.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lung white blood cells",
+          "with": "Bacteria in a lung air sac"
+        },
+        "reason": "The picture also suggests the white cells can catch bacteria, but I can build the airway defense first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mucus-covered lining is ready to meet the inhaled particles.",
+    "reaction": "The picture makes the sweeping direction clear.",
+    "step": 2,
+    "reason": "The mucus is sticky, so adding the inhaled particles should show them being caught and swept toward the throat.",
+    "choice": {
+      "combine": "Mucus-covered airway lining",
+      "with": "Inhaled particles and bacteria"
+    },
+    "expectation": "The mucus will catch particles and the hairs will move them toward the throat.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Lung white blood cells",
+          "with": "Bacteria in a lung air sac"
+        },
+        "reason": "That appears to address the other defense, but I can finish the airway route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The airway defense is complete; the remaining goal is to catch bacteria in an air sac.",
+    "reaction": "The moving mucus makes the direction of clearance easy to follow.",
+    "step": 3,
+    "reason": "The picture shows a lung white blood cell reaching around a particle, suggesting it can catch the bacteria in the air sac.",
+    "choice": {
+      "combine": "Lung white blood cells",
+      "with": "Bacteria in a lung air sac"
+    },
+    "expectation": "The white blood cells will catch the bacteria in the air sac.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The white blood cell encloses and breaks apart a bacterium; both defenses now need to be brought into the body.",
+    "reaction": "The second panel makes it clear that catching the bacterium is followed by breaking it apart.",
+    "step": 4,
+    "reason": "Both completed defenses belong in the respiratory system, so I will try joining them before connecting them to the body.",
+    "choice": {
+      "combine": "Airway lining clearing particles",
+      "with": "Lung cells containing bacteria"
+    },
+    "expectation": "The two defenses will combine into a respiratory defense that can be connected to the body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing liver glucose",
+          "with": "Airway lining clearing particles"
+        },
+        "reason": "The airway defense might instead connect to the body first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The defenses do not combine directly; the airway lining connected to the body automatically, leaving the lung-cell defense to add.",
+    "reaction": "The compatibility feedback made the next connection clearer.",
+    "step": 5,
+    "reason": "The remaining defense belongs in the lungs, so I will connect it to the body with the airway defense.",
+    "choice": {
+      "combine": "Body with a clearing airway lining",
+      "with": "Lung cells containing bacteria"
+    },
+    "expectation": "The body will have both the clearing airway lining and the lung cells that catch bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both defenses are now connected to the body: mucus clears the air passages, while white blood cells catch bacteria in air sacs. The result also notes that they do not catch everything.",
+    "reaction": "Seeing the defenses in different places made their roles clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Catching particles in mucus was most worthwhile because the moving panels showed how they travel away from the lungs.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to join the defenses directly was less worthwhile: they had to connect through the body instead, though the feedback handled that automatically.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The white blood cell not only enclosed a bacterium but also broke it apart.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to attach the airway defense to the body before adding the lung-cell defense was not obvious to me, even though the feedback showed the pairing.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the pictures made the two defenses easy to compare, and I would be curious to see how other body defenses work.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

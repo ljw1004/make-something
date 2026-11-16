@@ -1,0 +1,184 @@
+[
+  {
+    "step": 1,
+    "reason": "The cerebral white-matter cutaway has spaces for neural tissue where its grey matter meets the fibre bundles.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Cerebral white matter"
+    },
+    "expectation": "The tissue should form cerebral grey-matter regions connected by the white-matter tracts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neural tissue and white matter formed the cerebrum, with local circuits connected by axon bundles. I can continue assembling the other central regions similarly.",
+    "reaction": "The sensory-area map adds a useful detail beyond the basic assembly.",
+    "step": 2,
+    "reason": "The cerebellar white-matter cutaway also has spaces for grey-matter regions, so neural tissue appears to be the natural partner.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Cerebellar white matter"
+    },
+    "expectation": "The neural tissue should fill the cerebellar grey-matter regions around the connecting white matter.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cerebellum is assembled, with an inset linking movement plans and feedback to motor adjustment. The remaining central tracts appear to need neural tissue too.",
+    "reaction": "The motor-adjustment inset gives the assembly a useful functional context.",
+    "step": 3,
+    "reason": "The diencephalon and brainstem tracts have labelled openings for cell-body regions, making neural tissue a plausible fit.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Diencephalon and brainstem tracts"
+    },
+    "expectation": "Neural tissue should form the thalamus, hypothalamus and brainstem nuclei around the connecting tracts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The diencephalon and brainstem now contain local circuits among their tracts; spinal white matter remains to be assembled.",
+    "reaction": "The temperature-regulation inset gives the hypothalamus a concrete role.",
+    "step": 4,
+    "reason": "The spinal white matter has a central opening for grey matter, so neural tissue is a plausible fit.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Spinal white matter"
+    },
+    "expectation": "Neural tissue should form the spinal grey matter within the surrounding axon tracts.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spinal cord is assembled, completing the central-region goal; the next task is to connect the regions and peripheral routes.",
+    "reaction": "The branching sensory route usefully distinguishes local circuitry from the ascending pathway.",
+    "step": 5,
+    "reason": "The spinal cord could connect to both central and peripheral structures, so checking its available partners will clarify the next assembly step.",
+    "choice": {
+      "inspect": "Spinal cord"
+    },
+    "expectation": "The inspection should show which current structures can connect to the spinal cord.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Spinal cord",
+          "with": "Diencephalon and brainstem"
+        },
+        "reason": "Their central tracts appear continuous, but I am unsure whether the game requires another assembly first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spinal cord has no available partner yet, so another part of the central assembly must come first.",
+    "reaction": "That was unexpected given the continuous tracts shown in the opening.",
+    "step": 6,
+    "reason": "The diencephalon and brainstem tracts connect toward both the cerebrum and cerebellum, so inspecting this region may reveal the required assembly order.",
+    "choice": {
+      "inspect": "Diencephalon and brainstem"
+    },
+    "expectation": "The inspection should identify an available central-region connection.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically connected the cerebrum to the diencephalon and brainstem, leaving cerebellar connecting bundles exposed.",
+    "reaction": "The exposed bundles make the next connection clear.",
+    "step": 7,
+    "reason": "The cerebellum has matching connecting bundles, so it should join the forebrain and brainstem.",
+    "choice": {
+      "combine": "Forebrain and brainstem",
+      "with": "Cerebellum"
+    },
+    "expectation": "The cerebellum should connect to the existing central brain structures.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cerebellum joined the other regions to form a brain, whose lower tracts now match the spinal cord.",
+    "reaction": "The matching cutaway makes the next connection clear.",
+    "step": 8,
+    "reason": "The brain's medulla has tracts that match the spinal cord.",
+    "choice": {
+      "combine": "Brain",
+      "with": "Spinal cord"
+    },
+    "expectation": "The brain and spinal cord should join into a connected central nervous system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brain and spinal cord now form the central nervous system; peripheral routes remain to be connected.",
+    "reaction": "The body outline helps place the central structures anatomically.",
+    "step": 9,
+    "reason": "The sensory axons have dorsal-root and brainstem entry routes that should connect to the central nervous system.",
+    "choice": {
+      "combine": "Central nervous system",
+      "with": "Sensory axons and ganglia"
+    },
+    "expectation": "The sensory routes should join their central entry points while their ganglion cell bodies remain peripheral.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Sensory routes now connect to the central nervous system, with their ganglia outside the spinal cord; motor routes remain to be added.",
+    "reaction": "The branching route makes the sensory connection easier to follow.",
+    "step": 10,
+    "reason": "The peripheral motor axons align with central motor neurons and exit through ventral roots.",
+    "choice": {
+      "combine": "Central nervous system with sensory routes",
+      "with": "Peripheral motor axons"
+    },
+    "expectation": "The motor axons should connect their central origins to peripheral routes while retaining their cell bodies in the central nervous system.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The motor routes completed the nervous system model. The result clarifies that a mixed spinal nerve carries sensory and motor signals on separate axons, which diverge into different roots at the cord.",
+    "reaction": "The root and cell-body distinctions are a satisfying anatomical payoff.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the sensory and motor routes was most worthwhile: the planned cutaways locate their cell bodies and show how separate axons share a mixed spinal nerve.",
+        "steps": [
+          9,
+          10
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the spinal cord produced no available partners, despite its visibly matching central tracts. It clarified the assembly order only indirectly.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The spinal cord could not connect yet; the cerebrum and diencephalon had to be joined before the remaining central structures.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "The required central assembly order felt somewhat arbitrary: the spinal tracts were anatomically continuous, but no explanation was given for why that connection had to wait.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be interested to see the peripheral branches connected to tissues, because this chapter left their endings visibly unconnected. The functional insets were useful, though terms such as diencephalon and medulla received little explanation in the supplied chapter.",
+        "steps": [
+          3,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

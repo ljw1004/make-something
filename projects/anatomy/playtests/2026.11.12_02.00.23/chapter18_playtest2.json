@@ -1,0 +1,87 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action, and muscle activity should establish the warmth needed for the skin responses.",
+    "choice": 1,
+    "expectation": "I expect the body to warm as its muscles work.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body has warmed, so I can now follow either skin response.",
+    "reaction": "The result matched my expectation.",
+    "step": 2,
+    "reason": "I want to see how widening skin vessels helps carry heat outward.",
+    "choice": 1,
+    "expectation": "I expect more blood to flow near the skin surface, helping heat escape.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Sweating also responds to warmth, but I want to follow the blood-vessel response first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Widened skin vessels carry more blood near the surface, as expected; I can now add the sweat response.",
+    "reaction": "The result was clear, though it did not yet show heat escaping.",
+    "step": 3,
+    "reason": "This is the only offered combination and should add the other skin response required by the goal.",
+    "choice": 1,
+    "expectation": "I expect the warmed body to start sweating while retaining increased skin blood flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both skin responses are present; evaporation can carry heat away, and moving air is the remaining combination.",
+    "reaction": "The explanation clarified how sweat removes heat.",
+    "step": 4,
+    "reason": "This is the only offered combination and should help show heat escaping.",
+    "choice": 1,
+    "expectation": "I expect moving air to help sweat evaporate and carry heat away.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Moving air completes the heat-loss sequence, and the result explains that the responses diminish as the body cools and that sweat uses water and salts.",
+    "reaction": "The evaporation explanation made the final construction feel useful, though the sequence was predictable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding sweat was most worthwhile because the result connected both skin responses to heat loss and explained evaporation.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Warming the body was a predictable opening with only one available combination and little additional explanation.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The final result added that cooling reduces the stimulus for the responses and that sweating costs water and salts.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; each contributed to the stated goal. Most steps offered only one combination, so there was little meaningful choice.",
+        "steps": [
+          1,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it connected systems in a less predictable way. This chapter explained cooling clearly, but its combinations left little to decide.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "Glucose is outside the cell, and its existing transporter provides a plausible route in to begin the stated goal.",
+    "choice": {
+      "combine": "Cell with selective exchange",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter through its transporter and begin breaking down inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters through the existing carrier and is broken down in the cytosol, producing some ATP and pyruvate for mitochondria.",
+    "reaction": "The distinction between cytosolic ATP production and the mitochondrial stage is useful.",
+    "step": 2,
+    "reason": "Pyruvate has entered the mitochondria, and the oxygen picture shows a route there, making oxygen a plausible next ingredient for ATP production.",
+    "choice": {
+      "combine": "Cell breaking down glucose",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will support the mitochondrial stage of glucose breakdown, moving the cell toward remaking ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell breaking down glucose",
+          "with": "ATP ingredients: ADP and phosphate"
+        },
+        "reason": "The ATP ingredients are directly relevant to the goal, but oxygen may be needed first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completes the electron-receiving end of the aerobic pathway, while fuel supplies the energy; ATP still needs to be remade and used.",
+    "reaction": "The distinction between oxygen's role and fuel's role is useful.",
+    "step": 3,
+    "reason": "ADP and phosphate are the pictured ingredients for ATP, and aerobic respiration is now underway.",
+    "choice": {
+      "combine": "Cell with aerobic respiration",
+      "with": "ATP ingredients: ADP and phosphate"
+    },
+    "expectation": "The cell will use energy from respiration to remake ATP from ADP and phosphate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Respiration now remakes ATP using the hydrogen-ion gradient across the mitochondrial inner membrane; the remaining goal is to use ATP to pump ions.",
+    "reaction": "The paired panels make the link between electron transport and ATP production clear.",
+    "step": 4,
+    "reason": "The ATP-powered ion pump is the remaining piece directly relevant to the goal.",
+    "choice": {
+      "combine": "Cell remaking ATP",
+      "with": "ATP-powered ion pump"
+    },
+    "expectation": "The pump will use ATP to move ions across the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed pump connects ATP use to moving sodium and potassium against their concentration differences, completing the goal.",
+    "reaction": "It was satisfying to connect ATP production back to work at the cell boundary.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Remaking ATP was most worthwhile: the planned panels connect electron transport, the hydrogen-ion gradient and ATP production rather than relying on the powerhouse slogan.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the pump was a predictable final step once ATP was available, though it usefully connected the chapter back to the membrane.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The explanation distinguished oxygen's role as an electron recipient from fuel's role as the energy source; the water and carbon dioxide endpoints made that distinction concrete.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although adding ADP and phosphate as a separate construction step simplifies an ongoing cellular cycle.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how later constructions connect cellular processes to larger anatomical structures; this chapter made those connections through concise picture plans.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

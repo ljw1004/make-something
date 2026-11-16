@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal route: the picture says higher blood glucose causes pancreatic cells to release insulin.",
+    "choice": 1,
+    "expectation": "I expect the cells to release insulin, which can then help muscle take in glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The lower-glucose route also matches a goal, but I'll follow the after-meal sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin has entered the blood, so I can follow it to muscle.",
+    "reaction": "The route toward muscle makes the next connection clear.",
+    "step": 2,
+    "reason": "I'll place insulin beside the muscle fibres to follow the after-meal signal.",
+    "choice": 3,
+    "expectation": "I expect insulin to reach the muscle; glucose may also need to be placed there before it can be stored.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Glucose also belongs at the muscle, but I'll bring the insulin signal there first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is positioned beside the muscle, and the menu now offers the glucose pairing there.",
+    "reaction": "The placement was straightforward, though it did not show a new biological effect yet.",
+    "step": 3,
+    "reason": "I'll combine glucose with the insulin at the muscle to follow the after-meal storage goal.",
+    "choice": 2,
+    "expectation": "I expect insulin to help the muscle take in glucose, possibly storing some of it.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The lower-glucose route also needs doing, but I'll finish following the muscle route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle has stored glucose, completing the after-meal goal; I can now follow the lower-glucose route.",
+    "reaction": "It was helpful to see that insulin stays outside and acts as a message rather than becoming part of the store.",
+    "step": 4,
+    "reason": "I'll use the lower-glucose blood sample with the pancreatic cells to start the other goal.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release the other hormone, which may help the liver release stored glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The liver store will likely be needed too, but I'll follow the hormone signal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower-glucose sample led to a hormone message carried to the liver, so I can follow it to the stored carbohydrate.",
+    "reaction": "The label makes the hormone's purpose clear.",
+    "step": 5,
+    "reason": "I'll bring the hormone to the liver cells to follow its signal.",
+    "choice": 2,
+    "expectation": "I expect the hormone to reach the liver cells; the carbohydrate store may also need to be placed there to release glucose.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The store is also needed, but I'll bring the signal there first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The hormone is at the liver, and the stored-carbohydrate pairing is now available.",
+    "reaction": "The placement is straightforward, though it has not yet shown glucose being released.",
+    "step": 6,
+    "reason": "I'll combine the store with the hormone at the liver to follow the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the liver to break down some stored carbohydrate and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver released glucose into the blood and the signal eased as glucose rose, completing the second goal.",
+    "reaction": "It was useful to see the stored chains shrink while the hormone stayed outside the cells.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the liver signal through to glucose release showed how a store can supply blood between meals.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing the hormones was straightforward but repetitive; the placements themselves did not show a biological effect.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "It stood out that insulin stays outside the muscle cells and acts as a message rather than becoming part of the stored carbohydrate.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The required hormone placements felt a little like extra interface steps, although their destinations made sense from the pictures.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how other body systems are regulated, though I would hope for fewer repetitive placement steps.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

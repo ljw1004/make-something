@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The muscle messengers meet receivers on the cells and are linked to activating muscle genes, so I'll start that path.",
+    "choice": {
+      "combine": "Chemical messengers for muscle development",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "The messengers will help some cells use their muscle-protein instructions.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "The supporting-cell path also matches a goal, but either group seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle messengers led cells to copy muscle-protein instructions into RNA; the proteins still need to be made.",
+    "reaction": "The picture makes the difference between the RNA instructions and the unfinished proteins clear.",
+    "step": 2,
+    "reason": "Amino acids are protein building blocks, so they should help the cells make the pulling proteins from their RNA instructions.",
+    "choice": {
+      "combine": "Amino acids — protein building blocks",
+      "with": "Cells with muscle-protein RNA"
+    },
+    "expectation": "The cells will use the amino acids to build muscle proteins.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Chemical messengers for supporting cells",
+          "with": "Unspecialized cell population"
+        },
+        "reason": "I could start the supporting-cell path instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells now have pulling proteins that can slide to shorten them; the support-protein goal remains.",
+    "reaction": "The sliding-fibre picture helps explain what the proteins do.",
+    "step": 3,
+    "reason": "The supporting-cell messengers are linked to activating support-protein genes, so they fit the remaining goal.",
+    "choice": {
+      "combine": "Chemical messengers for supporting cells",
+      "with": "Unspecialized cell population"
+    },
+    "expectation": "Some cells will copy support-protein instructions into RNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supporting-cell messengers led to RNA copies of support-protein instructions; the fibres have not been built yet.",
+    "reaction": "The parallel with the muscle cells makes the next step clearer.",
+    "step": 4,
+    "reason": "Amino acids are protein building blocks, and they worked with the muscle-protein RNA cells.",
+    "choice": {
+      "combine": "Amino acids — protein building blocks",
+      "with": "Cells with support-protein RNA"
+    },
+    "expectation": "The cells will use the amino acids to make supporting fibres around them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made supporting fibres around themselves, completing the chapter and showing a contrast with muscle cells keeping pulling proteins inside.",
+    "reaction": "The contrast helped make the different cell jobs understandable.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the two kinds of protein was worthwhile because the pictures showed how cells with the same DNA can do different jobs.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Repeating the messenger-then-amino-acid pattern for supporting cells was somewhat predictable, though it made the comparison clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I noticed that muscle cells keep pulling proteins inside, while supporting cells release proteins to build fibres around themselves.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the messenger pictures and the protein-building-block label gave a reason for each pairing.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because I am curious how the separate muscle cells get assembled into larger fibres.",
+        "steps": [
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

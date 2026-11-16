@@ -1,0 +1,124 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start the supporting-tissue branch by directing descendants toward the fibroblast lineage.",
+    "choice": 1,
+    "expectation": "I expect fibroblast-lineage cells to develop through the pictured stages, though the exact result is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The muscle branch also serves a goal, but I chose to start with supporting tissue."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast branch has active collagen genes and RNA messages; amino acids can now support protein production.",
+    "reaction": "The unchanged DNA and selected gene activity make the differentiation connection clear.",
+    "step": 2,
+    "reason": "Combine the collagen messages with amino acids to advance the supporting-tissue goal.",
+    "choice": 2,
+    "expectation": "I expect the cells to make collagen protein, although further processing may be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch also needs preparation, but I want to continue the fibroblast branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made procollagen and packaged it in secretory vesicles, so extracellular processing seems like the next step.",
+    "reaction": "The ER and Golgi detail clarifies how the RNA message leads to a secreted protein.",
+    "step": 3,
+    "reason": "Combine the fibroblasts with extracellular fluid to advance the supporting-tissue goal.",
+    "choice": 2,
+    "expectation": "I expect procollagen to be secreted and processed outside the cells, perhaps forming collagen fibers.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch remains to be prepared, but I want to continue the fibroblast branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Procollagen has been secreted and assembled into extracellular collagen fibres; combining the matrix with living fibroblasts may complete the tissue.",
+    "reaction": "The progression from gene activity to secreted fibres is clear and satisfying.",
+    "step": 4,
+    "reason": "Combine the fibroblasts with their matrix to finish the supporting-tissue branch.",
+    "choice": 2,
+    "expectation": "I expect a living supporting tissue containing fibroblasts and collagen-rich matrix.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The muscle branch also needs attention, but I want to finish the supporting tissue first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The living supporting tissue is complete; the remaining goal is to prepare muscle-forming cells.",
+    "reaction": "The cell–matrix attachments make the tissue's organization clearer.",
+    "step": 5,
+    "reason": "Follow the only offered combination to begin the muscle branch.",
+    "choice": 1,
+    "expectation": "I expect the descendants to progress toward muscle progenitors through the pictured differentiation stages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch has committed cells with muscle-protein messages, but no mature fibres yet.",
+    "reaction": "The distinction between lineage cells and mature fibres is helpful.",
+    "step": 6,
+    "reason": "Use the only offered combination to supply building blocks for muscle proteins.",
+    "choice": 1,
+    "expectation": "I expect the cells to make muscle proteins from their RNA messages; further development may still be needed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle branch produced separate myoblasts with muscle proteins, completing the goal without yet forming mature fibres.",
+    "reaction": "The distinction between myoblasts and fused muscle fibres is helpful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building supporting tissue from collagen-producing fibroblasts was most worthwhile: the sequence connects selected gene activity, protein secretion and the organization of cells with extracellular matrix.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Combining fibroblasts with the matrix they had just produced felt somewhat repetitive, although the resulting tissue view clarified their arrangement.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The muscle branch stopped at separate myoblasts rather than mature fibres, making the distinction between preparation and completed muscle clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Recombining fibroblasts with their own matrix felt a little artificial, even though its purpose was to show the organized tissue.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue to see how the separate myoblasts develop into muscle; that unfinished construction provides a clear next question.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

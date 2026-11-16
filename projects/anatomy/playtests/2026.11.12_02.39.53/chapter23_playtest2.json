@@ -1,0 +1,150 @@
+[
+  {
+    "step": 1,
+    "reason": "Clearing debris seems like a useful start to repairing the wound.",
+    "choice": 1,
+    "expectation": "The phagocytes will clear some wound debris, preparing the area for repair.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "A capillary response may support repair, but I want to address the wound debris first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleared of debris, so I can move on to supporting tissue repair.",
+    "reaction": "The result matched my expectation, though it added little explanation.",
+    "step": 2,
+    "reason": "A capillary response may help supply the repairing tissue.",
+    "choice": 1,
+    "expectation": "Repair signals will prompt the nearby capillary to contribute to the wound's blood supply.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts and nutrients may build supporting tissue, but I want to establish its blood supply first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a new vessel branch connected to the circulation, ready to contribute to the wound.",
+    "reaction": "The growing branch makes its connection to the existing blood supply clear.",
+    "step": 3,
+    "reason": "Adding the capillary sprout should help supply the wound as it repairs.",
+    "choice": 1,
+    "expectation": "The sprout will become part of the repairing wound and help supply it with blood.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Fibroblasts may build supporting tissue, but I want to connect the new vessel first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout is now connected to the healing wound, which still needs surface and support layers.",
+    "reaction": "The named slots make the remaining repair tasks clear.",
+    "step": 4,
+    "reason": "Fibroblasts and nutrients seem useful for building the wound's supporting tissue.",
+    "choice": 1,
+    "expectation": "The fibroblasts will use the nutrients to make material that supports the healing wound.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Surface cells also need to close the wound, but I want to build support first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts made new connective tissue by laying collagen in the damaged dermis, ready to provide support.",
+    "reaction": "The picture makes the fibroblasts' contribution clear.",
+    "step": 5,
+    "reason": "Adding the new connective tissue should fill the wound's support slot.",
+    "choice": 2,
+    "expectation": "The connective tissue will support the healing wound, while the surface still needs closing.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The edge cells could help close the surface, but I want to add the support tissue first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound now has new connective tissue for support, but still needs its surface closed.",
+    "reaction": "The reminder that young tissue is weaker than uninjured skin adds useful context.",
+    "step": 6,
+    "reason": "This is the only offered combination and should help restore the wound surface.",
+    "choice": 1,
+    "expectation": "The edge cells will use the nutrients to produce a surface layer that can close the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new surface sheet that can fill the remaining wound slot.",
+    "reaction": "The picture clearly shows the surface growing across the gap.",
+    "step": 7,
+    "reason": "This is the only offered combination and should close the wound surface.",
+    "choice": 1,
+    "expectation": "The new surface will cover the gap above the supporting tissue; the temporary clot may still need clearing.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is closed and supported, leaving the temporary clot to be cleared.",
+    "reaction": "The reminder that deeper tissue is still gaining strength makes the closure feel like a stage of repair.",
+    "step": 8,
+    "reason": "This is the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "The enzymes will break down the temporary clot as the wound heals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The temporary clot has mostly been cleared, while the new tissue and maturing scar remain. Both goals are complete.",
+    "reaction": "The distinction between clearing the clot and continued scar maturation made the ending feel like a stage in healing.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and fitting the connective tissue was most worthwhile: it connected fibroblasts laying down collagen with support beneath the wound, while explaining that young tissue is still weaker.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Cleaning the wound was a sensible start, but its result added little explanation beyond the picture.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I appreciated that closing the surface did not mean repair was finished: the deeper tissue was still gaining strength, and the scar would continue to mature.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary. The named surface and support slots made the fittings understandable, though the compatible menu guided the choices.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter: the sequence made the overlapping jobs of wound repair clear, although several fitting steps felt predictable.",
+        "steps": [
+          4,
+          5,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

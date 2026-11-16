@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "reason": "Prepare the new membrane needed for cell growth and division.",
+    "choice": 1,
+    "expectation": "Phospholipids and proteins will form new membrane material, though its exact form is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Copying DNA is also a goal, but I chose to prepare membrane first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane supply is packaged in vesicles routed through the ER and Golgi, and can now enlarge the cell.",
+    "reaction": "The delivery route makes the membrane-building step more concrete.",
+    "step": 2,
+    "reason": "Use the prepared membrane supply to advance the new growth goal.",
+    "choice": 1,
+    "expectation": "The vesicles will deliver membrane to the cell surface, enlarging the cell.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "DNA copying is also required, but I prefer to finish the membrane sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown by adding membrane, but its nuclear DNA still needs copying.",
+    "reaction": "The fusion inset clearly connects vesicle delivery to growth.",
+    "step": 3,
+    "reason": "Copy the nuclear DNA so each eventual daughter can receive a complete genome.",
+    "choice": 1,
+    "expectation": "The nucleotides will be used to copy the cell's nuclear DNA.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The spindle is also needed, but DNA must be copied for chromosome separation to be useful."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied into joined sister copies, ready for spindle-mediated separation.",
+    "reaction": "The old-and-new strand inset makes the copying mechanism clear.",
+    "step": 4,
+    "reason": "Build the spindle needed to separate the copied chromosomes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Proteins and duplicated centrosomes will form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle preview shows tubulin fibres assembling from two centrosomes after DNA copying; it is ready to be applied to the cell.",
+    "reaction": "The timing caption clarifies that this is a preview rather than an already attached spindle.",
+    "step": 5,
+    "reason": "Use the spindle to separate the copied chromosomes; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "The spindle will separate sister copies and help form two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the sister copies into two complete daughter nuclei, but the cytoplasm remains connected.",
+    "reaction": "The time-strip makes the distinction between nuclear and cytoplasmic division clear.",
+    "step": 6,
+    "reason": "Use actin and myosin to divide the cytoplasm; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Actin and myosin will constrict the furrow and separate the cell into two daughters.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm has separated into two daughter stem cells, each with a complete genome; the chapter goals are complete.",
+    "reaction": "The final picture usefully distinguishes self-renewal from later differentiation.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle to form two nuclei was most worthwhile: the planned time-strip connects chromosome separation to complete genomes while showing that the cytoplasm is still joined.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the spindle was a necessary but relatively prescribed step: it was the only combination offered, and its assembly was presented as a preview rather than an interaction with chromosomes.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The membrane supply traveled through the ER and Golgi in vesicles before being added to the surface, giving cell growth a more concrete delivery route than I expected.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the spindle description introduces tubulin without explaining what it is beyond showing paired units forming fibres.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: the separation of nuclear and cytoplasmic division and the prospect of cells taking different paths make the next constructions interesting.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

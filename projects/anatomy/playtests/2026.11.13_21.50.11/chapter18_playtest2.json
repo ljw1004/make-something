@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "The drinking water reaches the small intestine, and the absorbing surface is the gut wall with nearby blood vessels.",
+    "choice": {
+      "combine": "Drinking water",
+      "with": "Intestinal absorbing surface"
+    },
+    "expectation": "Water should cross the intestinal lining toward the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Blood with less water"
+        },
+        "reason": "I could investigate the water-saving route first, but the drinking-water pairing is clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The drink's water crossed the gut wall into blood, completing that goal. The kidney water-saving route remains.",
+    "reaction": "The result matched what I expected.",
+    "step": 2,
+    "reason": "The blood sample already has water-saving signals, and the body contains the kidneys that respond to them.",
+    "choice": {
+      "combine": "Blood with less water",
+      "with": "Body with urinary system"
+    },
+    "expectation": "The kidneys should save more water while still making urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys returned more filtered water to the blood while still producing urine. Both chapter goals are complete; drinking replaces water that the kidneys cannot make.",
+    "reaction": "The contrast between saving water and replacing it was clear and satisfying.",
+    "step": 3,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Comparing the drink crossing into blood with the kidneys returning filtered water was worthwhile: it showed two different ways the body handles water.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Neither action was especially confusing, but the drinking-water pairing was quite predictable from the item descriptions.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "The result made it clear that conserving water still leaves urine containing wastes and salts; it does not replace missing water.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Neither action felt arbitrary: both pairings followed from the named organs and the chapter goals.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the body models connect to another everyday process, though these two pairings offered little challenge.",
+        "steps": [
+          1,
+          2
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

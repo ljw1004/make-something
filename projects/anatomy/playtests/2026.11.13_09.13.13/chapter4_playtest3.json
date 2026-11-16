@@ -1,0 +1,159 @@
+[
+  {
+    "step": 1,
+    "reason": "The fibroblast conditions specify a developmental route for descendants toward supporting tissue.",
+    "choice": {
+      "combine": "Unspecialized stem-cell descendants",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "The timed conditions will produce fibroblast-lineage cells that can help build supporting tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized stem-cell descendants",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "The other specified route would prepare the muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast route produced cells with collagen RNA messages, suggesting amino acids can be used to make collagen.",
+    "reaction": "The connection between selected genes and collagen messages is clear.",
+    "step": 2,
+    "reason": "The cells have collagen messages, and amino acids are the building blocks needed to make the protein.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will use the amino acids to make collagen or a collagen precursor.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized stem-cell descendants",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts now produce procollagen in secretory vesicles, suggesting extracellular processing is next.",
+    "reaction": "The distinction between intracellular procollagen production and extracellular processing is useful.",
+    "step": 3,
+    "reason": "Extracellular fluid contains processing enzymes and surrounds the living cells, making it a plausible place to build the supporting matrix.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will secrete procollagen for extracellular processing into a supporting matrix.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized stem-cell descendants",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could begin the muscle branch instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts secreted procollagen, which was processed into an extracellular matrix; living cells still need to be incorporated into the supporting tissue.",
+    "reaction": "The separation between secretion and extracellular assembly is useful.",
+    "step": 4,
+    "reason": "Living fibroblasts together with their collagen-rich matrix are a plausible supporting tissue.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Collagen-rich extracellular matrix"
+    },
+    "expectation": "The cells and matrix will form a living supporting tissue.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Unspecialized stem-cell descendants",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could prepare the separate muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts and matrix formed living supporting tissue, completing that goal; the muscle branch remains.",
+    "reaction": "The picture makes the relationship between cells and their surrounding matrix clear.",
+    "step": 5,
+    "reason": "The skeletal-muscle conditions specify the developmental route for the remaining goal.",
+    "choice": {
+      "combine": "Unspecialized stem-cell descendants",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "The timed signals will produce muscle-forming progenitor cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle conditions produced committed cells with muscle-protein messages, but not mature fibres.",
+    "reaction": "The distinction between lineage commitment and a mature fibre is clear.",
+    "step": 6,
+    "reason": "Amino acids can supply the building blocks for proteins specified by the muscle messages.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will make muscle proteins and advance toward the muscle-forming goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells made muscle proteins and became separate, single-nucleus myoblasts, completing the goal without forming mature fibres.",
+    "reaction": "The distinction between preparing myoblasts and producing a mature muscle fibre was useful.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building living supporting tissue was most worthwhile: the sequence connected collagen messages to protein production, secretion, extracellular assembly and a tissue containing both cells and matrix.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The parallel muscle branch repeated the signals-then-amino-acids pattern, although the comparison helped show how different messages yield different proteins.",
+        "steps": [
+          1,
+          2,
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "The fibroblasts produced procollagen inside the cell before extracellular processing assembled collagen fibres; the resulting matrix alone was not yet the living tissue.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though terms such as mesenchymal progenitors, paraxial mesoderm and procollagen were not explained in the supplied prose or picture plans.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would be curious to see how the separate myoblasts develop into mature muscle fibres, since this chapter deliberately stops short of fusion.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

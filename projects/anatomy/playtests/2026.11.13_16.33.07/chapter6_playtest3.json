@@ -1,0 +1,170 @@
+[
+  {
+    "step": 1,
+    "reason": "The intro says muscle precursors join, and the pictured fusion proteins sit where adjacent precursors meet.",
+    "choice": {
+      "combine": "Muscle precursor cells",
+      "with": "Muscle-cell fusion proteins"
+    },
+    "expectation": "The precursor cells should join into a longer cell with multiple nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The precursors fused into one muscle fibre with many nuclei and sliding filaments. Its grip sites are still covered, so I will try the calcium signal next.",
+    "reaction": "It is interesting that one muscle fibre is a single cell with many nuclei.",
+    "step": 2,
+    "reason": "The goal is to make the fibre pull, and the calcium pulse is pictured spreading around its filaments.",
+    "choice": {
+      "combine": "Muscle fibre with sliding filaments",
+      "with": "Calcium signal"
+    },
+    "expectation": "The calcium signal should allow the filaments to interact and the fibre to pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium uncovered the grip sites, letting the filaments slide and the fibre shorten. The fibre still needs to become ready again.",
+    "reaction": "It is surprising that the fibre shortens without the filaments themselves shortening.",
+    "step": 3,
+    "reason": "The calcium-pumping membranes have pumps and ATP, suggesting they can return calcium to storage so the fibre can reset.",
+    "choice": {
+      "combine": "Shortening muscle fibre",
+      "with": "Calcium-pumping membranes"
+    },
+    "expectation": "Calcium should be pumped back into storage, allowing the fibre to relax and become ready again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium was pumped back into storage, stopping the pull and leaving the fibre ready again. The new goal is to build and attach both muscles.",
+    "reaction": "I didn't expect relaxation to require ATP too.",
+    "step": 4,
+    "reason": "The biceps sheaths have empty muscle-head spaces, so the relaxed fibre looks like a suitable piece to put into them.",
+    "choice": {
+      "combine": "Relaxed muscle fibre",
+      "with": "Biceps sheaths and tendons"
+    },
+    "expectation": "The fibre should fill the biceps sheaths and help form a muscle with tendons.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Relaxed muscle fibre",
+          "with": "Triceps sheaths and tendons"
+        },
+        "reason": "The triceps also needs fibres; either muscle seems like a reasonable place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibre needed connective layers first; the automatic combination made bundles called fascicles, with enough for both muscles.",
+    "reaction": "I hadn't realized the bundles needed to be prepared before fitting them into the sheaths.",
+    "step": 5,
+    "reason": "The fascicles are bundles of muscle fibres, and the biceps sheaths have empty spaces for them.",
+    "choice": {
+      "combine": "Muscle fascicles",
+      "with": "Biceps sheaths and tendons"
+    },
+    "expectation": "The fascicles should fill the biceps sheaths to form the muscle.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Muscle fascicles",
+          "with": "Triceps sheaths and tendons"
+        },
+        "reason": "The triceps also needs bundles, so I could build it first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fascicles filled the biceps sheaths, forming a biceps with tendons; the triceps still needs to be built.",
+    "reaction": "The picture makes the connection from fibres through connective tissue to tendon clearer.",
+    "step": 6,
+    "reason": "There were enough fascicles for both muscles, and the triceps sheaths also have empty muscle-head spaces.",
+    "choice": {
+      "combine": "Muscle fascicles",
+      "with": "Triceps sheaths and tendons"
+    },
+    "expectation": "The fascicles should fill the triceps sheaths to form the triceps with tendons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fascicles formed the triceps, so both muscles are ready to attach to the arm skeleton.",
+    "reaction": "The three triceps heads converging on one tendon are clear in the picture.",
+    "step": 7,
+    "reason": "The biceps tendons lead toward the shoulder and radius, so I’ll attach it to the arm skeleton first.",
+    "choice": {
+      "combine": "Biceps with tendons",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The biceps should attach across the elbow, leaving the triceps to add.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Triceps with tendons",
+          "with": "Movable arm skeleton"
+        },
+        "reason": "I could attach the triceps first instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the elbow, and the arm assembly still has an empty extensor slot.",
+    "reaction": "The two poses make the biceps pulling to bend the elbow clearer.",
+    "step": 8,
+    "reason": "The triceps is the remaining muscle, and its tendon crosses the opposite side of the elbow, fitting the empty extensor slot.",
+    "choice": {
+      "combine": "Arm assembly",
+      "with": "Triceps with tendons"
+    },
+    "expectation": "The triceps should attach to the arm assembly and provide the opposing pull that straightens the elbow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps filled the remaining slot and showed how its attachment straightens the elbow, completing both goals.",
+    "reaction": "Seeing the two muscles pull from opposite sides made their different jobs clearer.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the fibre shorten and then reset was worthwhile: it connected calcium and ATP to both pulling and relaxation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two muscles was somewhat repetitive once the first sheath had been filled, though the pictures showed their different attachments.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the filaments slide past each other without shortening, and that resetting also uses ATP.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to add extracellular matrix before filling the muscle sheaths was not obvious to me beforehand, though the result explained the connective layers around the bundles.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how these muscles work with other body systems; the connection between their attachments and opposite elbow movements was a useful hook.",
+        "steps": [
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

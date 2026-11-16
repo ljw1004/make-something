@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows blood approaching the kidney filter, so this directly starts the filtering goal.",
+    "choice": {
+      "combine": "Kidney blood sample",
+      "with": "Kidney filter"
+    },
+    "expectation": "Small substances should pass through the filter while blood cells and large proteins stay in the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The filter lets useful glucose and water through along with wastes, so the recovery tube is needed next.",
+    "reaction": "It is interesting that filtering does not separate out just the waste.",
+    "step": 2,
+    "reason": "The recovery tube's picture shows useful substances moving back toward the blood.",
+    "choice": {
+      "combine": "Filtered kidney fluid",
+      "with": "Kidney recovery tube"
+    },
+    "expectation": "The tube should return glucose, some salts and much of the water to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Useful substances returned to the blood, and the remaining waste-containing fluid still needs a route to the bladder.",
+    "reaction": "The two-stage process makes more sense now.",
+    "step": 3,
+    "reason": "The ureters are shown leading from the kidneys toward the bladder, so they should start the drainage route.",
+    "choice": {
+      "combine": "Kidney pair",
+      "with": "Ureters"
+    },
+    "expectation": "The ureters should attach to the kidneys' marked drainage outlets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters are attached to the kidney outlets; the bladder still needs to be fitted.",
+    "reaction": "The downward route is clear now.",
+    "step": 4,
+    "reason": "The bladder is the remaining named slot, and the ureters lead toward it.",
+    "choice": {
+      "combine": "Kidney pair[Ureters]",
+      "with": "Bladder"
+    },
+    "expectation": "The bladder should connect to the ureters, completing the drainage route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidneys now have a continuous route through the ureters to the bladder; the remaining fluid still needs to be collected.",
+    "reaction": "Seeing the whole route connected is satisfying.",
+    "step": 5,
+    "reason": "The remaining fluid contains wastes, and the completed kidney route leads to the bladder.",
+    "choice": {
+      "combine": "Kidney fluid after recovery",
+      "with": "Kidney pair[Ureters,Bladder]"
+    },
+    "expectation": "The remaining fluid should travel through the ureters and collect as urine in the bladder.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The remaining fluid reached the bladder as urine, completing the collection goal.",
+    "reaction": "It is satisfying to see the filtering and drainage routes come together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Recovering useful substances after filtering was most worthwhile: it showed why the kidney cannot simply filter out waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the ureters and bladder was straightforward and a little repetitive, though it made the route clear.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that useful glucose and water pass through the filter along with wastes and must be recovered.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures and named slots explained the pairings.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing a familiar organ work as a connected process was interesting, especially the recovery step.",
+        "steps": [
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

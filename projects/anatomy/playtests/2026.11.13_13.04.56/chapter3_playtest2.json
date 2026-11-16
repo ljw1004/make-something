@@ -1,0 +1,122 @@
+[
+  {
+    "step": 1,
+    "reason": "The membrane goal explicitly calls for phospholipids and proteins.",
+    "choice": {
+      "combine": "Phospholipids",
+      "with": "New cell proteins"
+    },
+    "expectation": "They should form new membrane material for the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles provide the membrane supply needed to enlarge the cell.",
+    "reaction": "The vesicle result makes the membrane-building step clear.",
+    "step": 2,
+    "reason": "The new goal calls for using the membrane supply on the growing cell.",
+    "choice": {
+      "combine": "Membrane-building vesicles",
+      "with": "Living pluripotent stem-cell model"
+    },
+    "expectation": "The vesicles should contribute membrane to the growing cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown, but its nuclear DNA still needs copying.",
+    "reaction": "The vesicle-fusion inset makes the growth step clear.",
+    "step": 3,
+    "reason": "The DNA-copying goal calls for nucleotides, and the grown cell contains the uncopied nucleus.",
+    "choice": {
+      "combine": "DNA nucleotides",
+      "with": "Grown stem-cell model"
+    },
+    "expectation": "The nucleotides should be used to copy the cell's nuclear DNA.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The grown cell now has copied nuclear DNA, and the spindle is needed to form daughter nuclei.",
+    "reaction": "The joined sister chromatids make the copied chromosomes visible.",
+    "step": 4,
+    "reason": "The spindle goal explicitly calls for proteins and duplicated centrosomes.",
+    "choice": {
+      "combine": "New cell proteins",
+      "with": "Duplicated centrosomes"
+    },
+    "expectation": "The proteins and centrosomes should form a chromosome-moving spindle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled and ready to act on the copied chromosomes.",
+    "reaction": "The mitosis time strip clarifies when the spindle assembles.",
+    "step": 5,
+    "reason": "The remaining goal explicitly calls for using the spindle on the grown cell with copied DNA.",
+    "choice": {
+      "combine": "Mitotic spindle",
+      "with": "Grown stem cell with copied nuclear DNA"
+    },
+    "expectation": "The spindle should help separate the copied chromosomes into two daughter nuclei.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle separated the copied genomes into two nuclei, but the cytoplasm remains connected.",
+    "reaction": "The cleavage furrow makes the remaining division step clear.",
+    "step": 6,
+    "reason": "The new goal explicitly calls for actin and myosin to divide the cytoplasm.",
+    "choice": {
+      "combine": "Actin and myosin",
+      "with": "One cell, two daughter nuclei"
+    },
+    "expectation": "Actin and myosin should constrict the cell and separate its cytoplasm into two daughter cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm has separated into two daughter cells, completing the chapter; the illustration also distinguishes self-renewal from later differentiation.",
+    "reaction": "The distinction between two nuclei and two separate cells was satisfying.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Using the spindle and then actin and myosin made nuclear separation and cytoplasmic division distinct stages, with a complete genome in each daughter cell.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The membrane-building combination was straightforward, but the planned picture named the endoplasmic reticulum and Golgi without explaining their roles in supplying membrane.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The spindle produced two daughter nuclei while the cytoplasm remained connected; a separate action was still needed to divide the cell.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the explicit goals made most pairings predictable rather than choices requiring much investigation.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see how the daughter cells become specialized, though I would hope for more meaningful decisions and explanations of unfamiliar structures.",
+        "steps": [
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

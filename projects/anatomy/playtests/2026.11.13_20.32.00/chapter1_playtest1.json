@@ -1,0 +1,114 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope surrounds an open space, so enclosing the DNA looks like a direct way to meet the nucleus goal.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The DNA will be enclosed by the nuclear envelope to form a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is enclosed in a nucleus, and the new goal is to put it inside a cell boundary.",
+    "reaction": "The result matched the picture and made the next goal clear.",
+    "step": 2,
+    "reason": "The membrane fats and water look like the starting materials for the boundary described in the introduction.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats and water will form a cell boundary.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats and water formed a membrane bag, giving the nucleus a cell boundary to go inside.",
+    "reaction": "The picture makes the inside and outside easy to understand.",
+    "step": 3,
+    "reason": "Putting the nucleus in the bag directly matches the new goal.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Nucleus"
+    },
+    "expectation": "The nucleus will be fitted inside the membrane bag.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is now inside the membrane bag, completing that goal. The remaining goal is to add routes for water and sugar.",
+    "reaction": "The nested boundaries are clear from the description.",
+    "step": 4,
+    "reason": "The water-channel protein is described as spanning a membrane and letting water through, so it fits the remaining goal.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The water-channel protein will be fitted into the membrane as a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane bag",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also fits the remaining goal and could be added first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted across the outer membrane; the sugar route still needs to be added.",
+    "reaction": "The arrows make its role as a water route clear.",
+    "step": 5,
+    "reason": "The sugar-carrier protein is described as spanning the membrane and has a pocket shaped for sugar.",
+    "choice": {
+      "combine": "Membrane bag",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier will fit into the membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completed the boundary's routes, and all chapter goals are complete. The result also explains that oxygen can cross the lipid itself.",
+    "reaction": "The different routes through the same boundary were clear and satisfying to put together.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the water channel and sugar carrier was most worthwhile: their pictures connected the parts to two different routes across the boundary.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Putting the nucleus in the bag was straightforward but less interesting than building the boundary routes.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that oxygen can cross the lipid itself, while water and sugar have other routes.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the goals and pictures made the pairings clear. The small RNA strand in the nucleus picture was not explained, though it wasn't needed for a choice.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter to see how these cell parts connect to larger structures, though this chapter's choices were mostly predictable.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The skin cell needs to copy its DNA before dividing, and the building blocks are shown arriving at that cell.",
+    "choice": {
+      "combine": "Skin cells preparing to divide",
+      "with": "DNA building blocks"
+    },
+    "expectation": "The cell will replicate its chromosomes in preparation for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chromosomes have been copied into joined sister chromatids, so the cell is ready for the chromosome-separating machinery.",
+    "reaction": "The before-and-after description makes the copying step clear.",
+    "step": 2,
+    "reason": "The spindle machinery is positioned to separate the copied chromosomes during cell division.",
+    "choice": {
+      "combine": "Skin cell with copied chromosomes",
+      "with": "Chromosome-separating machinery"
+    },
+    "expectation": "The copied chromosomes will be separated toward opposite sides of the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The copied chromosomes are now in matching sets at opposite poles, but the cell still has one shared interior.",
+    "reaction": "The description makes the distinction between chromosome separation and cell division clear.",
+    "step": 3,
+    "reason": "The division ring is positioned to split the cell after its chromosomes separate.",
+    "choice": {
+      "combine": "Skin cell with separated chromosome sets",
+      "with": "Cell membrane division ring"
+    },
+    "expectation": "The ring will divide the cell into two cells, each with a complete chromosome set.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ring divided the cell into two daughter cells, showing how basal cell division can contribute to skin renewal.",
+    "reaction": "The sequence clearly connects chromosome separation to the final split.",
+    "step": 4,
+    "reason": "Erythropoietin is shown travelling from the kidney to marrow, where the red-cell precursors are located.",
+    "choice": {
+      "combine": "Marrow red-cell precursors",
+      "with": "Erythropoietin"
+    },
+    "expectation": "The signal will stimulate the precursors to produce new red blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney signal leads the marrow precursors toward maturation, linking red-cell renewal to a low-oxygen cue.",
+    "reaction": "The connection between the kidney and marrow is interesting.",
+    "step": 5,
+    "reason": "The bone-removing and bone-forming cells are shown working on the same patch of bone.",
+    "choice": {
+      "combine": "Bone-removing cells",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "They will renew bone by removing old matrix and depositing new matrix.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-removing cells cannot currently combine with anything, so the two bone-cell items may need to act at different stages.",
+    "reaction": "I was surprised the two cells could not be combined directly.",
+    "step": 6,
+    "reason": "The body is the common setting for the renewal goal; inspecting it should reveal which renewal pieces can be added now.",
+    "choice": {
+      "inspect": "Body with a light-linked clock"
+    },
+    "expectation": "The compatibility list will show which renewal components can be connected to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells have been connected to the body; blood and bone renewal remain.",
+    "reaction": "The automatic combination makes the next stage clear.",
+    "step": 7,
+    "reason": "The developing red cells appear ready to be added to the body after skin renewal.",
+    "choice": {
+      "combine": "Body renewing skin",
+      "with": "Developing red cells"
+    },
+    "expectation": "The body will show red blood cell renewal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now shows both skin renewal and red cells entering the blood; bone renewal remains.",
+    "reaction": "The kidney-to-marrow connection is clearer in the whole-body model.",
+    "step": 8,
+    "reason": "Bone-removing cells act on old bone, so the body may provide the setting needed for their work.",
+    "choice": {
+      "combine": "Body renewing skin and blood",
+      "with": "Bone-removing cells"
+    },
+    "expectation": "The cells will remove a patch of old bone matrix, preparing it for replacement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-removing cells have acted on a patch of old bone, leaving the bone-forming cells to add replacement matrix.",
+    "reaction": "The staged result explains why combining the two cell types directly did not work.",
+    "step": 9,
+    "reason": "The bone-forming cells are shown depositing new matrix in the hollow left by removal.",
+    "choice": {
+      "combine": "Body with bone being renewed",
+      "with": "Bone-forming cells"
+    },
+    "expectation": "The cells will deposit new bone matrix at the renewed patch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone-forming cells completed the local rebuilding stage, and the model now brings skin, blood and bone renewal together.",
+    "reaction": "The final image of the person raising the arm gives the renewal processes a satisfying connection to the earlier body model.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Separating the copied chromosomes and then dividing the skin cell made two distinct stages clear. The daughter cells then gave the skin-renewal construction a concrete purpose.",
+        "steps": [
+          2,
+          3,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Inspecting the body was useful after the failed bone-cell combination, but the automatic skin-cell fitting made it feel more like a necessary transition than a meaningful choice.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that a low-oxygen cue at the kidney leads to a signal that helps red-cell precursors mature in marrow.",
+        "steps": [
+          4,
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining the two bone-cell types seemed plausible from their descriptions, so the failure felt arbitrary at first. The later results clarified that removal and replacement occur in stages within the body.",
+        "steps": [
+          5,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it developed another relationship as clearly as the kidney-to-marrow signal. Much of this chapter's sequence was predictable, though the constructions helped connect cell activity to renewal in the whole body.",
+        "steps": [
+          4,
+          7,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

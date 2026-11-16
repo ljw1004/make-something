@@ -1,0 +1,126 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture places mitochondria inside the cell, and the goal says to add them.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria should be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are now inside the cell; the glucose route still needs to be added.",
+    "reaction": "The cutaway makes their placement clear.",
+    "step": 2,
+    "reason": "The carrier spans the membrane and its pocket matches glucose, so it looks like the route the goal asks for.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier should be fitted into the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal is to feed glucose to the cell to make ATP.",
+    "reaction": "The two-panel picture makes the carrier's route easier to understand.",
+    "step": 3,
+    "reason": "Glucose matches the installed carrier, and feeding it to the cell is the new goal. I know food supplies energy, though the exact way ATP is made hasn't been explained yet.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose should enter through the carrier and help the cell make ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+          "with": "Ribosomes"
+        },
+        "reason": "Adding protein builders is another goal, but the glucose route is ready now."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose was used to make ATP, which the result says powers work such as building proteins. The protein-builder goal remains.",
+    "reaction": "The inset helped connect glucose and oxygen with ATP production.",
+    "step": 4,
+    "reason": "The ribosome picture places them in the cell fluid, and the remaining goal is to add protein builders.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes should be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are installed, and the new goal is to give one an RNA instruction.",
+    "reaction": "The enlarged groove makes the next pairing clear.",
+    "step": 5,
+    "reason": "The RNA copy carries an instruction from the nucleus, and the ribosome has a groove for it.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein,Ribosomes]",
+      "with": "RNA copy from the nucleus"
+    },
+    "expectation": "The RNA instruction should reach a ribosome so it can help build a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now holds the RNA instruction, and the new goal calls for ATP to build a protein from the supplied amino acids.",
+    "reaction": "The picture makes it clear that the amino acids are already available in the cell fluid.",
+    "step": 6,
+    "reason": "The goal names ATP, and the ribosome now has the instruction needed to build a protein.",
+    "choice": {
+      "combine": "Ribosome with RNA",
+      "with": "ATP"
+    },
+    "expectation": "The ribosome should use ATP and the supplied amino acids to build a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP was used to build a protein from the supplied amino acids; the RNA specified their order, and the chapter is complete.",
+    "reaction": "Seeing ATP used for the work rather than becoming part of the protein made the distinction clearer.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the protein brought the pieces together: RNA gave the order, amino acids formed the chain, and ATP helped power the work.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria was straightforward, but their folded inner membranes were shown without explaining what the folds do.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that glucose was used up to make ATP, rather than staying attached to the membrane; the inset helped connect it with oxygen and the mitochondria.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The final pairing followed the named goal, but exactly how ATP helps the ribosome build a protein was not explained, so that connection felt partly like following a hint.",
+        "steps": [
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to try another chapter: connecting food, cell structures and protein building was interesting, though I would hope for more explanation of unfamiliar details.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

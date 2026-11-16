@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with developing red cells and their haemoglobin, which should lead toward the oxygen-binding goal.",
+    "choice": 1,
+    "expectation": "I expect the cells to make haemoglobin from the supplied materials, though further maturation may be needed.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Making plasma also supports the blood-assembly goal, but I want to follow the oxygen-carrying cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells have matured and assembled haemoglobin, so I can now test oxygen binding.",
+    "reaction": "The developing-cell cutaway makes the transition to nucleus-free red cells clear.",
+    "step": 2,
+    "reason": "Combine the red cells with oxygen to pursue the reversible-binding goal.",
+    "choice": 1,
+    "expectation": "I expect oxygen to bind to haemoglobin in the red cells; a separate step may be needed to show release.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Plasma is needed for blood assembly, but I want to follow the oxygen route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The double arrow and explanation show both oxygen binding and release, completing that goal; blood assembly remains.",
+    "reaction": "The link between low dissolved oxygen in working tissues and oxygen release is useful.",
+    "step": 3,
+    "reason": "Make plasma as the only offered combination toward assembling blood.",
+    "choice": 1,
+    "expectation": "I expect the water and solutes to form plasma, ready to combine with blood cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma is ready to combine with the cellular components of blood.",
+    "reaction": "The straw-yellow drop makes the fluid component easy to distinguish.",
+    "step": 4,
+    "reason": "Add the oxygen-bearing red cells to plasma, continuing the oxygen-carrying route while assembling blood.",
+    "choice": 2,
+    "expectation": "I expect a plasma-and-red-cell mixture that still needs white cells and platelets.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Adding white cells and platelets first also contributes to assembly, but I chose to add the red cells first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The partial sample contains red cells in plasma but still lacks white cells and platelets.",
+    "reaction": "The explicit partial-sample description makes the remaining step clear.",
+    "step": 5,
+    "reason": "Add the missing cellular components; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect a blood sample containing plasma, oxygen-bearing red cells, white cells and platelets.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed sample brings plasma, red cells, white cells and platelets together, finishing the blood-assembly goal.",
+    "reaction": "The final picture clearly distinguishes the components, though it says little about what white cells and platelets do.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Binding oxygen to red cells was most worthwhile: the planned double arrow and explanation connect reversible haemoglobin binding to oxygen release in working tissues.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making plasma and then adding red cells felt relatively procedural; the partial sample clearly showed what remained, but added little explanation beyond the component list.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The oxygen-binding result showed release as well as binding in one step, so no separate release action was needed.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding red cells before white cells and platelets was an arbitrary ordering choice; either component group was offered for plasma, and I had no biological reason to prefer that order.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter to see how circulation brings oxygen carriers close to cells; this chapter establishes that connection but does not show the route.",
+        "steps": [
+          2,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

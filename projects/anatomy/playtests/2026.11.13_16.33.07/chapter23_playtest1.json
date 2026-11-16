@@ -1,0 +1,135 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal concerns the response to glucose after a meal, and the pancreatic cells sit beside blood vessels, so they seem a likely place to sense it.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will detect the glucose-rich blood and begin a response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose-rich blood first had to be connected to the body; the pancreatic sensing cells have not been used yet.",
+    "reaction": "I expected sensing to happen immediately, so the extra connection was a little surprising.",
+    "step": 2,
+    "reason": "The body now has rising blood glucose, and the pancreatic cells are pictured beside its blood vessels, making them a likely next step for sensing it.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreatic cells will sense the rise and start a response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic cells responded to rising glucose by releasing insulin into the blood, with routes shown toward muscle and liver.",
+    "reaction": "It makes more sense now how the pancreas signals other tissues.",
+    "step": 3,
+    "reason": "The picture shows insulin travelling toward muscle, and skeletal muscle is available to connect to that response.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscle will respond to insulin and take up glucose from the blood.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body releasing insulin",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver is also shown as a destination for the insulin signal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helped muscle take up glucose, and the later picture showed less glucose and insulin in the blood. The next goal is to keep glucose available between meals.",
+    "reaction": "It was satisfying to see the response reduce the original rise.",
+    "step": 4,
+    "reason": "Time between meals shows incoming glucose tapering while cells continue using it, matching the new goal.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body will move into a between-meals state with less incoming glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Between meals, blood glucose is falling while the liver still has stored glycogen.",
+    "reaction": "The clock makes the change in glucose supply clear.",
+    "step": 5,
+    "reason": "The pancreatic sensing cells responded to rising glucose earlier, so I expect them to respond to the fall too.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreatic sensing cells"
+    },
+    "expectation": "The pancreas will detect the falling glucose and signal a response that helps keep glucose available.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Body with falling blood glucose",
+          "with": "Liver with glycogen"
+        },
+        "reason": "The liver's stored glycogen could provide glucose, as shown in the earlier liver chapter."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose led pancreatic alpha cells to release glucagon, which travels toward the liver.",
+    "reaction": "The two pancreatic responses now seem connected to different glucose levels.",
+    "step": 6,
+    "reason": "The glucagon route points toward the liver, and the earlier liver chapter showed glycogen releasing glucose.",
+    "choice": {
+      "combine": "Body releasing glucagon",
+      "with": "Liver with glycogen"
+    },
+    "expectation": "The liver will respond by releasing glucose from its glycogen stores into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver broke down stored glycogen and released glucose into the blood; as glucose rose, glucagon release decreased. Both goals are complete.",
+    "reaction": "It was satisfying to see how the between-meals response could ease once glucose rose.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The liver response was most worthwhile: it connected stored glycogen to keeping glucose available between meals and showed the signal easing afterward.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempt was a little confusing: the pancreatic cells seemed ready to sense glucose, but the blood had to be connected to the body first.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the first attempt automatically connected the glucose-rich blood to the body instead of sensing it directly.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "That initial body connection felt somewhat like a required setup rather than a meaningful biological choice, though the result made the situation clear.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the meal and between-meal responses side by side made me curious about how the body handles other changes.",
+        "steps": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

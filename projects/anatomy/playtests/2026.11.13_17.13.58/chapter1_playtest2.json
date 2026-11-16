@@ -1,0 +1,130 @@
+[
+  {
+    "step": 1,
+    "reason": "The fat molecules have water-facing heads and water-avoiding tails, so water may help them form the cell boundary.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The fats will arrange into a membrane with their heads facing the water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Oxygen"
+        },
+        "reason": "The oxygen picture also shows it crossing the membrane’s oily middle, but the boundary may need to be built first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats formed a two-layer membrane, and the result says oxygen can cross its oily middle.",
+    "reaction": "The way the water-facing heads line up is satisfying.",
+    "step": 2,
+    "reason": "The new membrane and the oxygen description directly match the first goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "Oxygen will cross the membrane patch, completing the oxygen boundary goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Water-channel protein"
+        },
+        "reason": "The result also says channels make water cross faster."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crossed the lipid patch and completed the first goal. The remaining goal is to provide routes for water and sugar.",
+    "reaction": "The arrows in both directions are a useful detail.",
+    "step": 3,
+    "reason": "The water-channel protein has a water-sized pore, and the membrane patch provides a place for it.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein will fit into the membrane and provide a faster route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also matches the remaining goal, so either route seems useful to build first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is now in a membrane, with water shown passing through it. The sugar route still needs attention.",
+    "reaction": "The picture makes the channel's role clear.",
+    "step": 4,
+    "reason": "The sugar carrier's pocket matches glucose, and it needs to span a membrane to provide a route.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier will fit into the membrane and provide a route for glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, but the remaining goal has not yet been marked complete.",
+    "reaction": "The two panels help show how the pocket can reach both sides.",
+    "step": 5,
+    "reason": "Glucose matches the carrier's sugar-shaped pocket, so it is the clearest next pairing.",
+    "choice": {
+      "combine": "Membrane with a sugar carrier",
+      "with": "Glucose — a small sugar"
+    },
+    "expectation": "Glucose will use the carrier to cross the membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose used the carrier to enter the cell, completing the remaining goal. The results show that oxygen, water and sugar can cross the boundary by different routes.",
+    "reaction": "Seeing the sugar bind and then be released made the carrier's role clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the membrane from fats and water was most worthwhile: the picture made it clear how the water-facing heads and water-avoiding tails form two layers.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the two proteins was a little repetitive, though their different pictures made their jobs understandable.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The oxygen picture showed movement in both directions, even though more entered the cell. I had expected just oxygen entering.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary. The pictures connected each protein to its molecule, although the game did not explain in detail how the carrier changes which side its pocket faces.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: putting the membrane together was satisfying, and the different routes made me curious about what happens inside the cell next.",
+        "steps": [
+          1,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

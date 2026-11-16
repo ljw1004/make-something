@@ -1,0 +1,52 @@
+{
+  "chapter": 28,
+  "newChestHandoff": {
+    "identity": "id:atlas-final-chest",
+    "title": "Chest region",
+    "kind": "compound",
+    "accepts": [
+      "id:art-arm-assembly",
+      "id:art-lymph-drainage-network"
+    ],
+    "description": "The completed chest now appears at the whole-body model's scale. Its lungs, heart, connected vessels and diaphragm are already present; the opposite arm and ordinary support are supplied. The studied arm has a receiving shoulder and clavicular attachment, and a small upper-thoracic tissue plane awaits the lymph return.",
+    "fromCompletedChapter14": "id:art-breathing-apparatus with Diaphragm and Heart and lungs",
+    "initiallyPresent": true
+  },
+  "replacements": [
+    {
+      "where": "chapter 28 initial items",
+      "old": "Breathing apparatus from chapter full-assembly-regions",
+      "new": "Chest region, id:atlas-final-chest"
+    },
+    {
+      "where": "chapter 28 chest fitted descriptions and regional goal",
+      "old": "Breathing apparatus[Diaphragm, Heart and lungs, Arm assembly, Lymph drainage network]",
+      "new": "Chest region[Arm assembly, Lymph drainage network]"
+    },
+    {
+      "where": "chapter 28 trunk join recipe",
+      "old": "Lower body[Digestive tract, Urinary organs] + Breathing apparatus[Diaphragm, Heart and lungs, Arm assembly, Lymph drainage network] -> Trunk and limbs",
+      "new": "Lower body[Digestive tract, Urinary organs] [transform] + Chest region[Arm assembly, Lymph drainage network] [consume] -> Trunk and limbs"
+    }
+  ],
+  "opening": "The parts you built now return at one whole-body scale. Prepare the head, chest, lower body and skin in whichever order helps you see their connections. The Chest region is the completed breathing apparatus shown at this scale, with its diaphragm, heart and lungs already present. The model supplies unstudied tissues and the opposite arm. Finish each region, join them, then fit the skin covering.",
+  "descriptions": {
+    "id:atlas-final-chest": "The completed chest at whole-body scale contains its heart, lungs and diaphragm, with the opposite arm already attached. The studied arm's shoulder and clavicular attachment remain open, and an upper-thoracic tissue plane awaits the lymph return.",
+    "id:final-ears": "The studied near-side ear represents the completed hearing and balance anatomy at the same scale as the head. It includes its supported outer ear and the small inner structures and cranial connections visible in the temporal preparation.",
+    "id:final-urinary-organs": "The paired kidneys, complete ureters and bladder form a prepared urinary system at the same scale as the posterior abdomen and pelvis. Short renal vessel cuffs retain their hilar attachments.",
+    "name:Lower body": "The adult abdominal and pelvic walls, pelvis and complete legs form one continuous region. Its posterior receiving cavity awaits the gut and urinary organs. No second spine is supplied; the single vertebral column joins with the head. The upper food-pipe continuation belongs to the fitted digestive tract.",
+    "name:Skin covering": "A flexible anatomical-model covering follows the same adult body contour. Its continuous inspection window reveals the torso and studied upper arm. A small opening on the forearm awaits the healed surface piece.",
+    "name:Trunk and limbs": "The completed chest and lower region form one naturally proportioned adult trunk with two complete arms and legs. Their continuous diaphragm-to-abdomen boundary carries the same organs; the head and single posterior vertebral column remain to be joined.",
+    "name:Body beneath the skin": "One continuous adult anatomical body shows the same head, trunk, limbs and organs. The single vertebral column lies posterior to the thoracic and abdominal organs, and its nerves continue into the supplied peripheral routes.",
+    "name:Body": "The covering follows the same adult body. A continuous anatomical window reveals its already assembled internal structures; the healed forearm surface lies flush with its surroundings and retains a modest linear scar."
+  },
+  "compoundDescriptions": {
+    "Chest region[Arm assembly]": "The studied complete arm meets the shoulder girdle and its clavicle meets the manubrium at the same body scale; the opposite arm and completed chest organs remain present.",
+    "Chest region[Lymph drainage network]": "The fine regional lymph return occupies its supported upper-thoracic tissue plane beside the venous junction; the receiving shoulder remains available.",
+    "Chest region[Arm assembly, Lymph drainage network]": "Both adult arms meet the shoulder girdle and the fine lymph return lies within the upper-thoracic tissue planes around the completed cardiopulmonary anatomy.",
+    "Skin covering[Repaired skin segment]": "The small healed forearm surface fills its matching opening flush with the covering. Its modest linear scar remains visible without a magnified tissue block.",
+    "Nervous system model[Eye with optic nerve]": "The studied eye sits within the prepared orbit at the same head scale. Its optic route meets the existing cranial tissue; the far-side eye is supplied.",
+    "Nervous system model[Ears]": "The near-side ear fills its temporal receiving region, representing the completed hearing and balance structures at this scale. Its cranial connections meet the same head; other fitted parts remain."
+  },
+  "editorialNote": "Ten actions remain: two head fittings, two lower-body fittings, two chest fittings, one skin fitting, and three regional joins. The new Chest region is an explicit scale/view handoff of completed chapter-14 anatomy, not another physiological construction. Representative quantities and whole/part synecdoche remain permitted. The final head/spine has one coherent anterior vertebral-body view; the cord stays inside its normal posterior canal rather than showing incompatible laminectomy windows. The near-side ear stands for the completed pair. The repaired skin is shown as a surface patch at whole-body scale."
+}

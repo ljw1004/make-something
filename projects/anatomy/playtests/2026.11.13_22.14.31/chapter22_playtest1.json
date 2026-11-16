@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action. The matching shapes and supplied helper signal suggest the fragments can activate a lymphocyte.",
+    "choice": 1,
+    "expectation": "I expect a matching lymphocyte to become activated, though I don't yet know how it will multiply or make antibodies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching antigen and helper activated one lymphocyte; the node looks like the place to grow its descendants.",
+    "reaction": "The matching shapes made the selection clear.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the node's picture says it supports activated cells multiplying.",
+    "choice": 1,
+    "expectation": "I expect the activated cell to multiply in the node, possibly producing a group that can become antibody-producing and memory cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The node produced both antibody-making cells and memory cells, completing that goal.",
+    "reaction": "The split into antibody-making and memory cells makes the two roles clearer.",
+    "step": 3,
+    "reason": "This is the only offered combination. Antibodies are proteins, and amino acids are their building blocks.",
+    "choice": 1,
+    "expectation": "I expect the cells to use the amino acids to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies with tips matching the bacteria's surface knobs.",
+    "reaction": "The matching shapes make their next use clear.",
+    "step": 4,
+    "reason": "This is the only offered combination; the antibodies' tips match the bacteria.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the bacteria, possibly helping white blood cells engulf them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them coated for the engulfing cells.",
+    "reaction": "The matching shapes made this result predictable.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the white blood cells' picture shows them recognizing antibody-coated bacteria.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf the coated bacteria and help clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "It was satisfying to see how the antibodies helped the cells clear the bacteria.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Growing the activated lymphocyte into antibody-making and memory cells was most worthwhile: it showed two different outcomes of the response.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making antibodies and then coating the bacteria felt predictable, since each step had only one offered combination and the matching shapes showed what would happen.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lymph node supported several days of cell division, producing both antibody-making cells and lasting memory cells.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the helper signal was already supplied, so I followed the matching-shape explanation rather than learning how the helper was activated.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see what memory cells do during a later encounter, although the single-option sequence left little room for meaningful decisions.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

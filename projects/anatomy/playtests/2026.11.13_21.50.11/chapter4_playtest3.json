@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "reason": "The bone picture shows spaces awaiting mineral, and the goal asks for reinforcement.",
+    "choice": {
+      "combine": "Bone framework",
+      "with": "Bone mineral"
+    },
+    "expectation": "The mineral will fill the framework and help the bone resist compression.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Muscle cells with pulling proteins"
+        },
+        "reason": "I could investigate the muscle-bundle goal first, but the bone pairing is clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineral reinforced the living bones, and the next bone goal is to join them at the elbow.",
+    "reaction": "It is useful to see that bone has living cells as well as hard mineral.",
+    "step": 2,
+    "reason": "The new goal explicitly says to join the bones at the elbow, and both parts are available.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Elbow joint"
+    },
+    "expectation": "The elbow joint will connect the arm bones.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Muscle cells with pulling proteins"
+        },
+        "reason": "I could investigate muscle bundles instead, but the bone and elbow pairing is clear."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bones now form a movable arm skeleton; the muscle-bundle goal remains.",
+    "reaction": "The picture clarifies how the joint separates and braces the bones.",
+    "step": 3,
+    "reason": "The remaining goal is to build muscle bundles, but I don't know which available piece will help assemble them.",
+    "choice": {
+      "inspect": "Muscle cells with pulling proteins"
+    },
+    "expectation": "The compatibility list should show how to build the muscle tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically built muscle bundles, including tendon ends, and revealed the goal of connecting them to the skeleton.",
+    "reaction": "The time strip helps explain how separate cells become bundled fibres.",
+    "step": 4,
+    "reason": "The new goal calls for connecting the muscle bundles to the skeleton, and the tendon ends provide that connection.",
+    "choice": {
+      "combine": "Muscle bundles",
+      "with": "Movable arm skeleton"
+    },
+    "expectation": "The tendons will connect the muscle bundles to the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the bundles completed the arm and showed how muscles on opposite sides pull the elbow in opposite directions.",
+    "reaction": "The two views made bending and straightening easier to understand.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the muscles to the skeleton was most worthwhile because it brought the separate pieces together and showed how their pulls move the joint.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Joining the bones at the elbow was fairly predictable, although the picture helped explain the joint.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that both muscles pull, with their positions making the elbow move in opposite directions.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "I needed the compatibility hint to learn that supporting connective tissue would help make muscle bundles; its role wasn't clear to me beforehand. The result explained the supporting tissue and tendon ends.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue because seeing separate tissues put together into a working arm made me curious about how other body systems fit together.",
+        "steps": [
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

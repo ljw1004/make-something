@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The copied instructions and amino acids appear to be the materials the repair cell needs to make collagen.",
+    "choice": {
+      "combine": "Copied collagen instructions",
+      "with": "Skin repair cell"
+    },
+    "expectation": "The cell will use the instructions and available amino acids to make a collagen protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair cell used the RNA instructions and amino acids to make collagen chains; the chains now need processing and export.",
+    "reaction": "The intact RNA template and growing chain make the protein-building step clear.",
+    "step": 2,
+    "reason": "The processing and export membranes are the available structures for preparing and delivering the new collagen.",
+    "choice": {
+      "combine": "New collagen chains",
+      "with": "Processing and export membranes"
+    },
+    "expectation": "The membranes will process the collagen and help export it from the repair cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell processed and exported the collagen, producing supporting fibers that can now replace material in the wound. The membranes had to be used through the cell hotspot.",
+    "reaction": "The automatic correction was helpful, though the required hotspot was not obvious from my first attempt.",
+    "step": 3,
+    "reason": "The new fibers appear to be the support material needed beneath the scrape.",
+    "choice": {
+      "combine": "New supporting fibers",
+      "with": "Body ready to rebuild"
+    },
+    "expectation": "The fibers will fill in the missing support beneath the damaged skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibers filled the deeper gap, while the surface cells still need to close over it.",
+    "reaction": "The cross-section makes the distinction between deeper support and surface closure clear.",
+    "step": 4,
+    "reason": "The cells at the scrape’s edge are positioned to renew the missing surface.",
+    "choice": {
+      "combine": "Skin cells at the scrape’s edge",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The edge cells will help close the surface gap, possibly with the available repair signals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals prompted edge cells to divide and spread; those cells now appear ready to close the remaining surface gap.",
+    "reaction": "The sequence makes the signals’ role clear, though I had guessed they might be included automatically.",
+    "step": 5,
+    "reason": "The spreading cells should now be able to cover the gap in the rebuilding body.",
+    "choice": {
+      "combine": "Spreading surface cells",
+      "with": "Rebuilding body"
+    },
+    "expectation": "The cells will close the surface gap and renew the protective skin layers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The surface gap has closed, while the deeper collagen is still remodeling; closure does not mean repair is finished.",
+    "reaction": "The earlier-and-later comparison made that distinction clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making and exporting collagen was the most worthwhile passage: it connected protein production inside a cell to support outside it.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The processing step was initially confusing because I expected the chains to combine directly with the membranes rather than through the repair cell hotspot.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The RNA template remained intact while amino acids were joined into a collagen chain.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "Using the repair cell hotspot for processing was not obvious to me, although the resulting picture explained the cell's role.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the support and surface repaired separately, with deeper remodeling still underway, made me curious about what happens next.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

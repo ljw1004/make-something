@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll bring glucose through the sugar route first, as the chapter suggests, to start supplying energy for cell work.",
+    "choice": 3,
+    "expectation": "I expect glucose to enter the cell through the carrier, though I'm not sure what the resulting item will be called.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ribosome and amino acids also clearly fit the protein-building goal, but I want to follow the energy route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now inside the cell, ready to follow the energy route.",
+    "reaction": "The carrier moving sugar inside makes sense from its picture.",
+    "step": 2,
+    "reason": "I'll combine the glucose with the cell containing mitochondria to follow the food-and-oxygen process shown in the diagram.",
+    "choice": 1,
+    "expectation": "I expect the cell to use glucose in respiration and produce ATP, though I don't know the intermediate steps.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Building protein also fits a goal, but I want to finish following glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose is supplied, but oxygen still needs to be added to follow the respiration route.",
+    "reaction": "The separate oxygen arrow makes the next step clearer.",
+    "step": 3,
+    "reason": "I'll add oxygen to the glucose-supplied cell, following the food-plus-oxygen diagram.",
+    "choice": 1,
+    "expectation": "I expect respiration to supply ATP for cell work, though there may be another step first.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The ribosome and building blocks fit another goal, but I want to continue the energy route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Respiration supplied ATP, and the picture links it to both the pump and ribosome.",
+    "reaction": "The cycle of ATP being used and remade is interesting.",
+    "step": 4,
+    "reason": "I'll fit the pump into the membrane that already has water and sugar routes, so those routes and the pump can share a boundary.",
+    "choice": 3,
+    "expectation": "I expect the pump to be fitted across that membrane; it may need ATP before it can move particles.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ribosome and amino acids fit the protein-building goal, but I want to prepare the pump first."
+      },
+      {
+        "choice": 1,
+        "reason": "The plain membrane patch could also hold the pump, but the other membrane already has the routes built earlier."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and a new goal asks me to power transport toward the crowded side.",
+    "reaction": "The empty ATP site makes the next pairing clear.",
+    "step": 5,
+    "reason": "I'll add the ATP supply to the pump to pursue the new transport goal.",
+    "choice": 2,
+    "expectation": "I expect ATP to power the pump to move particles toward the crowded side, though I don't know the detailed mechanism.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The ribosome and amino acids still fit the protein-building goal, but I want to finish the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers the pump as it changes shape and moves particles toward the crowded side, completing that goal.",
+    "reaction": "Seeing the pump change shape makes its job clearer.",
+    "step": 6,
+    "reason": "The ribosome and amino acids are the only offered combination, and they match the remaining protein-building goal.",
+    "choice": 1,
+    "expectation": "I expect the ribosome to assemble amino acids into a protein, following the RNA instruction shown in its picture.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome has its building blocks, but powering protein construction is a new goal.",
+    "reaction": "The ATP arrow makes the remaining pairing clear.",
+    "step": 7,
+    "reason": "I'll add ATP to the supplied ribosome to pursue the new goal; it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect ATP to help power protein construction from the amino acids, though I don't know the detailed process.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome used the supplied building blocks and ATP to make proteins following an RNA message; all chapter goals are complete.",
+    "reaction": "The different folded protein shapes made the result more interesting.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the membrane pump was most worthwhile: its changing shape helped show how ATP supports moving particles toward the crowded side.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying the ribosome felt less satisfying than expected because it only put the building blocks beside it; actual construction needed another step.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I expected glucose and the cell with mitochondria to produce ATP immediately, but oxygen had to be added separately first.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt completely purposeless, but choosing between two membranes for the pump was a little unclear: I chose the one with existing routes, yet the result just showed a lipid patch.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: linking food, ATP and a working pump was clear enough to make me curious about what comes next.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

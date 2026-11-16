@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start storing glucose: the picture shows liver cells joining glucose into a carbohydrate.",
+    "choice": 1,
+    "expectation": "I expect the liver cells to make a glucose store; I don't yet know what it will be called.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The vein fits the digestive tube's named slot, but I want to follow the glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver stores some glucose as linked carbohydrate and can break it down later. Next I'll connect the digestive organs.",
+    "reaction": "It makes sense that a store helps supply fuel between meals.",
+    "step": 2,
+    "reason": "The vein matches the digestive tube's named slot, and it's the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the vein to connect the intestine to the liver in the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein is fitted to the digestive tube, so I can now connect it to the body.",
+    "reaction": "The named slot made that fitting straightforward.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it addresses the goal of connecting the digestive organs to the body.",
+    "choice": 1,
+    "expectation": "I expect the digestive tube and its liver vein to join the body model and its circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive organs and liver vein are now connected to the body's circulation, completing the chapter. The colon's inner wall is still unfinished.",
+    "reaction": "It was satisfying to see the digestion route join the body, though the result mostly matched what I expected.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Storing glucose in liver cells was most worthwhile: it connected a meal to the need for fuel between meals, and showed the store could be broken down again.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the vein was the least engaging part: the named slot and only offered combination made it straightforward, and the picture added little to the explanation.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I didn't know what the glucose store would be called. The result described linked glucose as a liver carbohydrate store and explained that it can be broken down later.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt purposeless. The vein fitting was guided by its named slot rather than something I had to figure out independently.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in continuing to see how the unfinished colon wall is assembled, though I'd hope for more meaningful choices than the last two combinations.",
+        "steps": [
+          2,
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

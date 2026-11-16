@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "The goal says to add mitochondria, and the picture places them inside the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus]",
+      "with": "Mitochondria"
+    },
+    "expectation": "The mitochondria will be added to the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondria are inside the cell; it still needs a route for glucose and protein builders.",
+    "reaction": "The placement matched the picture, so it was straightforward.",
+    "step": 2,
+    "reason": "The sugar carrier spans the membrane, so it looks like the route glucose needs to enter the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria]",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The sugar carrier will be fitted into the cell membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is in the membrane, and the new goal is to feed the cell glucose to make ATP.",
+    "reaction": "The two-panel picture makes the carrier's route easier to understand.",
+    "step": 3,
+    "reason": "Glucose matches the carrier's pocket, and the new goal says to feed it to the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Glucose"
+    },
+    "expectation": "Glucose will enter the cell through the carrier and help it make ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell used glucose to make ATP, which the result says can power work such as building proteins.",
+    "reaction": "The picture helped connect glucose and oxygen to ATP production.",
+    "step": 4,
+    "reason": "The remaining goal is to add protein builders, and the ribosomes picture marks their place inside the cell.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein]",
+      "with": "Ribosomes"
+    },
+    "expectation": "The ribosomes will be added inside the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are inside the cell, and the new goal is to use ATP to build a protein.",
+    "reaction": "The picture helps show where RNA and amino acids meet the ribosomes.",
+    "step": 5,
+    "reason": "The goal names ATP and the cell; the intro says amino acids and RNA are already inside.",
+    "choice": {
+      "combine": "Cell[Nucleus,Mitochondria,Sugar-carrier protein,Ribosomes]",
+      "with": "ATP"
+    },
+    "expectation": "The cell will use ATP to build a protein from amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell used ATP to build a protein; the result clarified that amino acids become the protein while ATP supplies energy for the work.",
+    "reaction": "The picture made the different roles of ATP and amino acids clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making protein was most worthwhile because it connected the nucleus, RNA, ribosomes, amino acids and ATP in one picture.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding mitochondria was straightforward but less interesting on its own; the picture already showed where they belonged.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that ATP is used for the work but does not become part of the protein chain.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt entirely arbitrary, although combining ATP with the whole cell followed the named goal more than it explained the detailed machinery.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter because the pictures connected cell parts to what they do, especially how glucose helps supply energy for building protein.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

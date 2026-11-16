@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The light-sensitive cells and relay cells look like complementary parts of the retina, so they are a sensible place to start.",
+    "choice": {
+      "combine": "Light-sensitive cells",
+      "with": "Retina relay cells"
+    },
+    "expectation": "They should form a light-sensing layer that can pass signals onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retinas connect light-sensitive cells to relay cells and nerve fibers; they now need a place in the eyes.",
+    "reaction": "The sensor-to-relay connection makes sense.",
+    "step": 2,
+    "reason": "The eye walls look like the structure that would hold the retinas.",
+    "choice": {
+      "combine": "Retinas",
+      "with": "Eye walls"
+    },
+    "expectation": "The retinas should fit inside the eye walls.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The retinas now line the eye cups, which have three named slots for front fittings.",
+    "reaction": "The marked slots make the next steps clear.",
+    "step": 3,
+    "reason": "The transparent corneas match the clear-front slots.",
+    "choice": {
+      "combine": "Corneas",
+      "with": "Eye cups[]"
+    },
+    "expectation": "The corneas should fit into the clear-front slots.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The corneas now close the fronts of the eye cups and bend incoming light.",
+    "reaction": "Seeing that the cornea also bends light is interesting.",
+    "step": 4,
+    "reason": "The lenses match the named focusing-lens slots.",
+    "choice": {
+      "combine": "Lenses",
+      "with": "Eye cups[Corneas]"
+    },
+    "expectation": "The lenses should fit into the eye cups and help focus light.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lenses are fitted behind the corneas, and their different shapes bend light by different amounts.",
+    "reaction": "The shape comparison helps explain focusing.",
+    "step": 5,
+    "reason": "The irises are rings around pupils, so they match the remaining light-control slots.",
+    "choice": {
+      "combine": "Irises",
+      "with": "Eye cups[Corneas,Lenses]"
+    },
+    "expectation": "The irises should fit into the eye cups and help control incoming light.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed eye cups focus light onto the retinas, while the irises control how much light enters.",
+    "reaction": "The ray diagram ties the fitted parts together clearly.",
+    "step": 6,
+    "reason": "The visual pathways include optic nerves and brain routes, so they should connect the eyes' signals onward.",
+    "choice": {
+      "combine": "Eye cups[Corneas,Lenses,Irises]",
+      "with": "Visual pathways"
+    },
+    "expectation": "The visual pathways should connect the retinas to routes leading toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes now have optic nerve routes toward brain relays; the body and eye-moving muscles still need connecting.",
+    "reaction": "The distinction between incoming light and outgoing nerve signals is clear.",
+    "step": 7,
+    "reason": "The goal calls for moving eyes, and the muscles and nerves are pictured around an eye.",
+    "choice": {
+      "combine": "Eyes with visual pathways",
+      "with": "Eye-moving muscles and nerves"
+    },
+    "expectation": "The muscles and nerves should attach to the eyes so they can move.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes now have muscles and motor nerve routes; they still need connecting to the body.",
+    "reaction": "The opposing pulls remind me of the arm muscles.",
+    "step": 8,
+    "reason": "The goal calls for eyes connected to the body, and both pieces are ready.",
+    "choice": {
+      "combine": "Eyes with pathways and moving muscles",
+      "with": "Body after repair"
+    },
+    "expectation": "The eyes and their pathways should connect to the body's existing brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eyes are connected to the body and brain, and the chapter goal is complete.",
+    "reaction": "It is satisfying to see the assembled eyes aimed at a face, though the brain’s interpretation is only briefly explained.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Fitting the corneas, lenses and irises was most worthwhile because the ray diagram brought their different jobs together: bending light and controlling how much enters.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Attaching the completed eyes to the body was straightforward, but gave less detail about how the visual pathways connect to the brain than I hoped.",
+        "steps": [
+          8
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the cornea bends incoming light too, not just the lens.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the named slots and pictures made the fittings understandable, even if they left few choices.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because connecting the eye parts to their functions was interesting; I would hope for more meaningful choices than simply filling the named slots.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

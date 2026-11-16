@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "reason": "Install the glucose carrier to start bringing fuel into the cell for ATP renewal.",
+    "choice": 1,
+    "expectation": "The carrier will become embedded in the membrane, allowing glucose transport in a later step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump also serves a goal, but I want to establish the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The carrier is installed, so glucose can now be combined with it.",
+    "reaction": "The placement is predictable and clearly shown.",
+    "step": 2,
+    "reason": "Bring glucose into the cell to continue the fuel pathway.",
+    "choice": 1,
+    "expectation": "Glucose will bind the carrier and move into the cytosol, likely down its concentration gradient.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump is needed for the other goal, but I want to follow glucose first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has entered the cytosol through a reusable carrier, so it can now be placed in the cell interior.",
+    "reaction": "The carrier's changing shape makes the transport sequence clear.",
+    "step": 3,
+    "reason": "Continue following glucose toward ATP renewal.",
+    "choice": 1,
+    "expectation": "Placing glucose in the living cell interior will enable its breakdown, though the next stage is uncertain.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump serves the other goal, but I want to finish tracing the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose has undergone glycolysis, remaking some ATP and producing pyruvate directed toward mitochondria; oxygen is not shown as an input to this stage.",
+    "reaction": "The distinction between glycolysis and the oxygen-dependent stages is useful.",
+    "step": 4,
+    "reason": "Combine the cytosolic pathway with entering oxygen to pursue aerobic ATP renewal.",
+    "choice": 1,
+    "expectation": "I expect the pyruvate pathway to connect with oxygen use in mitochondria and further ATP renewal.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The pump addresses the other goal, but I want to finish the fuel pathway first."
+      },
+      {
+        "choice": 3,
+        "reason": "Amino acids may connect ATP use to protein construction, but aerobic renewal is the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Aerobic ATP renewal is established, and a new protein-growth goal has appeared alongside ion transport.",
+    "reaction": "The distinct roles of oxygen and fuel, and the hydrogen-ion flow through ATP synthase, make the pathway more concrete.",
+    "step": 5,
+    "reason": "Install the sodium-potassium pump to work toward the remaining ion-transport goal.",
+    "choice": 1,
+    "expectation": "The pump will be embedded in the membrane, ready for a later ATP-powered transport step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Combining amino acids with aerobic ATP renewal may advance protein growth, but I want to address ion transport first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is installed with its ATP-binding site facing the cytosol, ready to connect to ATP renewal.",
+    "reaction": "The nearby channel inset makes the contrast with passive transport clear.",
+    "step": 6,
+    "reason": "Use the established aerobic ATP supply to power the pump and advance the ion-transport goal.",
+    "choice": 2,
+    "expectation": "The pump will use ATP to move sodium out and potassium in against their concentration gradients.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP production may also power the pump, but aerobic renewal follows the completed fuel pathway."
+      },
+      {
+        "choice": 4,
+        "reason": "Protein growth is also a goal, but I want to finish the pump pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered pumping moves sodium out and potassium in, completing the ion-transport goal; protein growth remains.",
+    "reaction": "The contrast with passive sodium flow makes the pump's role clear.",
+    "step": 7,
+    "reason": "Combine amino acids with ATP renewal to pursue the remaining protein-growth goal.",
+    "choice": 2,
+    "expectation": "I expect amino acids to be assembled into proteins using energy and the existing ribosome messages.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP production might also support protein synthesis, but aerobic renewal follows the pathway already established."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The amino acids became proteins at ribosomes using existing RNA messages, completing the final goal.",
+    "reaction": "The result clearly connects the energy supply to protein production, though GTP appears without explanation.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Aerobic ATP renewal was the most worthwhile construction: its planned picture distinguishes fuel from oxygen and connects hydrogen-ion flow through ATP synthase to ATP production.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the glucose carrier and pump felt predictable, although their planned pictures helped orient the later transport sequences.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The aerobic pathway made the different jobs of fuel and oxygen more concrete, while retaining cytosolic ATP production in the picture.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "The menu offered oxygen combinations with the carrier and pump, but their purpose was unclear from the titles; I did not try them. The compatible options themselves were supplied, so they were not discoveries.",
+        "steps": [
+          2,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how these cell-level processes connect to larger structures. The planned comparisons were informative, even if some installation steps were routine.",
+        "steps": [
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

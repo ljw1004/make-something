@@ -1,0 +1,142 @@
+[
+  {
+    "step": 1,
+    "reason": "The pump needs muscular walls to move blood, so I’ll add heart muscle to the chambers.",
+    "choice": 3,
+    "expectation": "The chambers should gain pumping walls, though they may still need valves and a rhythm source.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Making blood also supports the circuit, but I want to start with the pump."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscular walls provide the force to push blood out; the pump still needs direction control and a rhythm.",
+    "reaction": "The distinction between containing blood and producing pressure is clear.",
+    "step": 2,
+    "reason": "Valves should control the direction of blood flow and complete the other named chamber slot.",
+    "choice": 3,
+    "expectation": "The valves will fit into the chambers and help prevent blood flowing backward; a rhythm source may still be needed.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Making blood would help fill the circuit, but I want to continue building the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valves provide direction control by responding to pressure differences; the pump still needs a rhythm.",
+    "reaction": "The explanation of how valves prevent backward flow was clear.",
+    "step": 3,
+    "reason": "Pacemaker cells seem like the next part needed to make the pump rhythmic.",
+    "choice": 1,
+    "expectation": "They will give the heart chambers a regular rhythm, completing the pump or bringing it closer to completion.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Blood is needed for the circuit, but I want to finish the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has its own repeating electrical rhythm, completing the pump; I need to build the filled circuit next.",
+    "reaction": "The distinction between starting each beat and adjusting the heart’s activity was interesting.",
+    "step": 4,
+    "reason": "Combining plasma and red blood cells should make the blood needed to fill the circuit.",
+    "choice": 1,
+    "expectation": "I expect this to create blood, though it may represent only its main components.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Connecting vessels also builds the circuit, but I want to make its contents first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blood now has a liquid component and red blood cells that carry oxygen; the vessel circuit still needs building.",
+    "reaction": "The distinction between the moving fluid and its oxygen carriers was useful.",
+    "step": 5,
+    "reason": "Connecting arteries to capillary networks is the only offered combination and should advance the circuit.",
+    "choice": 1,
+    "expectation": "I expect a vessel network leading from arteries into capillaries; veins may still be needed for the return route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arteries and capillaries provide an outward route and a place for exchange with tissues; the return route still needs veins.",
+    "reaction": "The distinction between moving blood and exchanging substances was useful.",
+    "step": 6,
+    "reason": "Adding veins is the only offered combination and should complete the return route.",
+    "choice": 1,
+    "expectation": "I expect a connected vessel circuit that carries blood back toward the heart, though it may still need to be filled and connected to the pump.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vessel network now includes a return route to the heart; it still needs blood.",
+    "reaction": "The circuit makes the return journey clear.",
+    "step": 7,
+    "reason": "The only offered combination should fill the vessel circuit with blood.",
+    "choice": 1,
+    "expectation": "I expect a blood-filled circuit, which may still need to be connected to the beating heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuit now contains blood, and the remaining goal is to connect it to the pump.",
+    "reaction": "Filling the circuit was predictable, but it makes the pump’s role clearer.",
+    "step": 8,
+    "reason": "Connecting the beating heart to the filled circuit is the only offered combination and addresses the new goal.",
+    "choice": 1,
+    "expectation": "I expect a working circulation model in which the heart moves blood through the vessels.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting the heart and filled circuit completes the circulation model and shows how the pump and returning route work together to serve distant tissues.",
+    "reaction": "The final connection was predictable, but it tied the separate constructions together clearly.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the capillary networks was most worthwhile: it explained that blood must exchange substances with tissues, not merely pass by them. That connects circulation to the cells' need for supplies.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Filling the circuit felt the most routine. It was a clear and necessary step, but its result was predictable.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I found it interesting that cells in the heart start its repeating electrical rhythm without a separate brain order for every beat.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt clearly arbitrary; each had a stated role in the pump or circuit. Several later choices were the only offered combinations, so they felt more like assembly than decisions.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter to see how circulation connects to the working arm, though I would hope for more meaningful choices. The explanations made the assembled system interesting despite the predictable sequence.",
+        "steps": [
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

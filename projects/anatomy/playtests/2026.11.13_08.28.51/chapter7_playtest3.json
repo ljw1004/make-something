@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The neural-induction environment acts on a subset of the stem-cell population, matching the first stage described in the introduction.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Neural-induction environment"
+    },
+    "expectation": "The signals will produce neural progenitors from some stem-cell descendants.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The stem-cell subset has become neural progenitors, which can give rise to neurons and glia.",
+    "reaction": "The separate neuronal and glial branches make the next stages clearer.",
+    "step": 2,
+    "reason": "The neuronal differentiation signals are described as acting on neural progenitors.",
+    "choice": {
+      "combine": "Neural progenitors",
+      "with": "Neuronal differentiation signals"
+    },
+    "expectation": "The progenitors will develop into neuronal descendants with early process buds.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The progenitors have differentiated into neuron cell bodies with buds for dendrites and axons.",
+    "reaction": "The timeline clarifies that the neurons differentiate after progenitor division.",
+    "step": 3,
+    "reason": "The dendrites have bases that match the cell-body buds and will provide receiving branches.",
+    "choice": {
+      "combine": "Neuron cell bodies",
+      "with": "Dendrites"
+    },
+    "expectation": "The neuron cell bodies will gain branching dendrites for receiving signals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell bodies now have receiving dendrites; axons remain to complete the current goal.",
+    "reaction": "The bracket makes clear that each cell body and its branches form one cell.",
+    "step": 4,
+    "reason": "The axons have proximal ends matching the cell bodies and are needed for conducting signals.",
+    "choice": {
+      "combine": "Cell bodies with dendrites",
+      "with": "Axons and terminals"
+    },
+    "expectation": "The neurons will gain conducting axons and terminals.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have dendrites and axons, and the new goal is to connect and support them.",
+    "reaction": "The successive voltage-change panels clarify how a signal travels along the membrane.",
+    "step": 5,
+    "reason": "Excitatory synaptic contacts can connect the completed neurons and provide receiving inputs.",
+    "choice": {
+      "combine": "Neurons",
+      "with": "Excitatory synaptic contacts"
+    },
+    "expectation": "The neurons will gain excitatory connections that transmit signals between them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The neurons now have excitatory connections converging on a receiving neuron; inhibitory contacts and supporting cells remain to be added.",
+    "reaction": "The visible gaps and converging inputs make the connections clearer.",
+    "step": 6,
+    "reason": "Inhibitory contacts complement the excitatory inputs and show how combined inputs affect firing.",
+    "choice": {
+      "combine": "Neurons with excitatory connections",
+      "with": "Inhibitory synaptic contacts"
+    },
+    "expectation": "The network will gain inhibitory inputs alongside its excitatory connections.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuit now combines excitatory and inhibitory inputs, with inhibition preventing firing in the illustrated comparison.",
+    "reaction": "The paired voltage traces make the effect of inhibition clear.",
+    "step": 7,
+    "reason": "Astrocytes support synapses by taking up potassium and released transmitter, matching the goal of supporting the neurons.",
+    "choice": {
+      "combine": "Neural circuits",
+      "with": "Astrocytes"
+    },
+    "expectation": "The circuits will gain astrocytes supporting their synapses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Astrocytes are now interwoven with the neural circuits; oligodendrocytes remain available for support.",
+    "reaction": "The circuit remains visible, though this picture does not show the astrocytes’ uptake role.",
+    "step": 8,
+    "reason": "Oligodendrocytes form myelin sleeves around axons, supporting the circuits before examining synaptic change.",
+    "choice": {
+      "combine": "Neural circuits with astrocytes",
+      "with": "Oligodendrocytes"
+    },
+    "expectation": "The circuits will gain myelin sleeves around their axons.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circuits now form central neural tissue with glia and myelinated axon stretches; the highlighted synaptic change remains.",
+    "reaction": "The inset distinguishes receiving-cell receptor vesicles from transmitter vesicles in the sending terminal.",
+    "step": 9,
+    "reason": "Repeated paired activity matches the goal of strengthening an existing connection.",
+    "choice": {
+      "combine": "Central neural tissue",
+      "with": "Repeated paired activity"
+    },
+    "expectation": "Repeated coincident activity will strengthen the highlighted synapse, possibly by adding receiving receptors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final result shows that the highlighted synapse responds more strongly to equal input, while neighbouring connections and impulse size remain unchanged. Both goals are complete.",
+    "reaction": "The before-and-after comparison made the specific change satisfying and clear.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Strengthening one synapse was most worthwhile: the planned comparison separates a larger local response from a larger travelling impulse and shows that a neighbouring connection need not change.",
+        "steps": [
+          9
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding astrocytes was less informative than expected: the resulting picture places them among the circuits but does not show the potassium and transmitter uptake described on the initial board.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The final example clarified that increased receptor availability can strengthen a local response without changing the height of travelling impulses.",
+        "steps": [
+          9
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although attaching ready-made dendrites and axons was a simplified construction rather than an explanation of how those processes grow.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how these cellular constructions connect to larger systems; the contrasting voltage traces and localized synaptic change made the circuit meaningful, even though the assembly sequence was fairly predictable.",
+        "steps": [
+          6,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,217 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture shows dividing skin cells using supplies from nearby blood, which directly relates to closing the surface.",
+    "choice": {
+      "combine": "Skin cells at the cut's edge",
+      "with": "Oxygen, glucose and amino acids"
+    },
+    "expectation": "The supplied cells will grow and move across the wound gap.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Protein messengers from the wound"
+        },
+        "reason": "The picture also suggests these start a new blood-vessel branch."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplies produced new skin cells, but the gap is still open; they need to spread over it.",
+    "reaction": "I expected them to close the gap already, so the separate spreading step is a small surprise.",
+    "step": 2,
+    "reason": "The new cells are beside the open wound, so combining them with the body may close the surface.",
+    "choice": {
+      "combine": "New skin cells",
+      "with": "Body with sealed vessel"
+    },
+    "expectation": "The new skin cells will spread across the gap.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Nearby capillary",
+          "with": "Protein messengers from the wound"
+        },
+        "reason": "Their pictures suggest a separate route to rebuilding blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells cannot currently combine with anything, so the wound likely needs another preparation first.",
+    "reaction": "I’m unsure what enables the cells to spread.",
+    "step": 3,
+    "reason": "The picture explicitly points from the wound messengers to a growing vessel branch, supporting the blood-supply goal.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Protein messengers from the wound"
+    },
+    "expectation": "The capillary will grow a new branch toward the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Debris-clearing white blood cells",
+          "with": "Body with sealed vessel"
+        },
+        "reason": "Clearing debris near the clot may also prepare the wound for repair."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The messengers started a capillary branch, but it still extends toward another vessel rather than showing a completed blood supply.",
+    "reaction": "The growing branch makes the blood-supply repair clearer.",
+    "step": 4,
+    "reason": "The support-building cells are shown releasing fibres, and amino acids are protein building blocks.",
+    "choice": {
+      "combine": "Support-building skin cells",
+      "with": "Protein building blocks"
+    },
+    "expectation": "The cells will make supporting protein fibres for the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Debris-clearing white blood cells",
+          "with": "Body with sealed vessel"
+        },
+        "reason": "Clearing debris may also prepare the wound for repair."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made supporting fibres, but the deeper gap is still open.",
+    "reaction": "Like the new skin cells, the fibres seem to need another repair step.",
+    "step": 5,
+    "reason": "Debris-clearing cells are shown beside the clot, so they may prepare the wound for the new tissue.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Debris-clearing white blood cells"
+    },
+    "expectation": "The white blood cells will clear broken fragments from the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "inspect": "Body with sealed vessel"
+        },
+        "reason": "I could check what the wound can combine with first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Clearing debris revealed slots for blood supply, surface and support, giving the new repair materials a place to go.",
+    "reaction": "The named slots make the next steps clearer.",
+    "step": 6,
+    "reason": "The new skin cells fit the surface gap that still needs closing.",
+    "choice": {
+      "combine": "New skin cells",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The new cells will fill the surface slot and spread across the wound.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "New supporting protein fibres",
+          "with": "Body with a debris-cleared wound"
+        },
+        "reason": "The fibres may fill the support slot instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new skin cells closed the surface gap, while the deeper tissue still needs support and blood supply.",
+    "reaction": "It is satisfying to see the surface close after clearing the debris.",
+    "step": 7,
+    "reason": "The new protein fibres match the wound's support slot and can help rebuild the deeper tissue.",
+    "choice": {
+      "combine": "New supporting protein fibres",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The fibres will fill the support slot beneath the new skin.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Capillary sprout",
+          "with": "Body with a debris-cleared wound"
+        },
+        "reason": "The sprout may also fit the supply slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new fibres filled part of the deeper wound; the supply slot still needs attention.",
+    "reaction": "The deeper repair is taking shape, though it is not finished.",
+    "step": 8,
+    "reason": "The capillary sprout is the available piece that matches the wound's blood-supply slot.",
+    "choice": {
+      "combine": "Capillary sprout",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The sprout will connect into the wound's blood supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary branch joined another vessel, completing the blood supply and revealing that the temporary clot must be cleared.",
+    "reaction": "The connected blood route makes the repair feel more complete.",
+    "step": 9,
+    "reason": "The clot-clearing enzymes are shown cutting protein threads, matching the new goal.",
+    "choice": {
+      "combine": "Clot-clearing enzymes",
+      "with": "Body with a debris-cleared wound"
+    },
+    "expectation": "The enzymes will break down the temporary clot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes cleared most of the temporary clot threads, leaving closed skin, supporting fibres and a small scar. All goals are complete.",
+    "reaction": "It was satisfying to see the temporary clot give way to repaired tissue, though the scar keeps changing.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the capillary sprout was worthwhile because the picture showed it joining another vessel and bringing supplies to the repaired tissue.",
+        "steps": [
+          3,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to put the new skin cells directly on the wound was frustrating: they could not combine with anything yet, and I did not know the wound needed clearing first.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the newly made skin cells to close the gap immediately, but they stayed at its edge until debris was cleared and they were added to the wound.",
+        "steps": [
+          1,
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "The need to clear debris before adding the new skin cells was not obvious to me at first, even though clearing the wound made sense once the slots appeared.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: seeing the surface, support and blood supply come together made me curious about how another body process would fit together.",
+        "steps": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

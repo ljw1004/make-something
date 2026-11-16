@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "The arterial wall is unlined, and the lining cells are shown forming a surface for blood to flow past.",
+    "choice": {
+      "combine": "Blood-facing lining cells",
+      "with": "Arterial wall"
+    },
+    "expectation": "The cells should line the elastic wall and make an artery.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tiny capillary tubes",
+          "with": "Nearby body cells"
+        },
+        "reason": "The picture also suggests bringing the exchange vessels close to the cells."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining completed the elastic arteries, so I can work on the exchange vessels next.",
+    "reaction": "The result matched the picture, which was satisfying.",
+    "step": 2,
+    "reason": "The goal and picture both place the tiny capillaries beside body cells for exchange.",
+    "choice": {
+      "combine": "Tiny capillary tubes",
+      "with": "Nearby body cells"
+    },
+    "expectation": "The capillaries should lie close to the cells so materials can pass between them.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Venous wall",
+          "with": "One-way valve flaps"
+        },
+        "reason": "The valve picture also suggests a way to build the return route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary bed shows how thin vessels exchange materials with nearby cells; the return route remains.",
+    "reaction": "The picture made the exchange clear.",
+    "step": 3,
+    "reason": "The valve flaps are pictured inside a vein, matching the goal of a one-way return route.",
+    "choice": {
+      "combine": "Venous wall",
+      "with": "One-way valve flaps"
+    },
+    "expectation": "The flaps should fit into the venous wall to help blood flow back in one direction.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The venous wall needed a lining before the valves; the automatic combination made thin-walled veins.",
+    "reaction": "I had overlooked the unlined surface, but the hint made the next step clearer.",
+    "step": 4,
+    "reason": "The return-route goal still needs one-way valves, and the flaps are pictured inside a vein.",
+    "choice": {
+      "combine": "Thin-walled veins",
+      "with": "One-way valve flaps"
+    },
+    "expectation": "The flaps should fit into the lined veins and help prevent backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valves completed the return route, and the new goal is to join the three vessel routes.",
+    "reaction": "The muscle-and-valve picture helped explain how blood moves back.",
+    "step": 5,
+    "reason": "Arteries carry blood outward and capillaries provide the next route for exchange, so joining them is a sensible start.",
+    "choice": {
+      "combine": "Arterial vessels",
+      "with": "Capillary bed"
+    },
+    "expectation": "The arteries should connect to the capillary bed, with the venous return joining afterward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arteries now connect to the capillaries, with open ends ready for the return route.",
+    "reaction": "The open ends make the next connection clear.",
+    "step": 6,
+    "reason": "The venous return should connect the exchange bed back toward the heart, completing the three routes.",
+    "choice": {
+      "combine": "Distribution and exchange bed",
+      "with": "Venous return"
+    },
+    "expectation": "The veins should join the collecting ends of the capillary bed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The veins connected to the exchange bed, completing the route away from and back toward the heart.",
+    "reaction": "Seeing the three routes form one continuous network was satisfying.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining capillaries to body cells was most worthwhile because it showed what moves between blood and cells, and why the vessels need thin walls.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Lining the venous wall was a little repetitive after lining the artery, though I had overlooked that it was needed.",
+        "steps": [
+          1,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I expected to add the valves directly, but the vein needed its lining first. The automatic hint made that prerequisite clear.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "The lining requirement was easy to miss, but it made sense once the hint pointed it out; no action felt completely purposeless.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting the routes into a whole network was satisfying, and I would be curious to see how it connects to the heart.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

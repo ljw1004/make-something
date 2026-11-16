@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with starch: the saliva picture shows an enzyme fitting the starch chain, so this seems like a first step in breaking it down.",
+    "choice": 3,
+    "expectation": "I expect saliva to begin breaking the starch into smaller pieces, though I don't know how small they will be.",
+    "alternatives": [
+      {
+        "choice": 5,
+        "reason": "Bile spreading fat droplets also matches a goal, but I want to follow the starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva made shorter chains, so I can continue breaking down the starch.",
+    "reaction": "The result was expected, but it makes the next step clear.",
+    "step": 2,
+    "reason": "Digestive enzymes fit starch chains, and the goal is to make small molecules.",
+    "choice": 2,
+    "expectation": "I expect the shorter chains to break down further, possibly into glucose.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Bile spreading fat is another goal, but I want to finish the starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch is now separate glucose units that can cross the intestinal lining, so I can move on to protein.",
+    "reaction": "It was satisfying to see the chain become individual glucose units.",
+    "step": 3,
+    "reason": "The protein picture shows an amino-acid chain, and the enzyme picture shows enzymes fitting protein chains.",
+    "choice": 2,
+    "expectation": "I expect the protein to break into smaller pieces, possibly individual amino acids.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Bile spreading fat is also a goal, but I want to finish breaking down protein first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein became separate amino acids, completing the starch and protein goal; I can now focus on fat.",
+    "reaction": "The result matched what I expected.",
+    "step": 4,
+    "reason": "Bile is shown spreading fat into smaller droplets, which matches the remaining goal.",
+    "choice": 2,
+    "expectation": "I expect bile to spread the fat into smaller droplets without breaking the fat molecules themselves.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Enzymes can also act on fat, but bile directly matches the current goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Bile made smaller droplets with more exposed surface, and the new goal is to break down the fat molecules.",
+    "reaction": "The contrast between spreading droplets and breaking molecules is clear.",
+    "step": 5,
+    "reason": "The only offered combination uses digestive enzymes on the droplets, matching the new goal.",
+    "choice": 1,
+    "expectation": "I expect the enzymes to break the fat molecules into smaller molecules; I don't know exactly which ones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The last result completed the fat goal and clarified that bile spreads droplets while enzymes break fat molecules apart.",
+    "reaction": "The distinction between those two jobs was satisfying and easy to follow.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Spreading fat with bile and then using enzymes was most worthwhile because it showed two different jobs, not just two ways of breaking fat down.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Breaking down protein was clear but felt predictable after seeing starch become smaller units.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The smaller fat droplets exposed more surface, even though bile hadn't broken the fat molecules apart.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the final enzyme pairing was the only offered action rather than a discovery.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: following food from larger molecules to smaller ones was clear, and I'd be curious to see what happens after digestion.",
+        "steps": [
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

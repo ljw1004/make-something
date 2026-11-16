@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the lung route: the labels show blood leaving the right heart for the lungs.",
+    "choice": 1,
+    "expectation": "I expect the right side to connect to the lung vessels, with a route toward the left heart still open.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The left heart and body network also have matching labels, but I'll start with the lungs."
+      },
+      {
+        "choice": 3,
+        "reason": "The heart muscle needs its own supply too, but I want to build a main route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route is connected to the right heart, with open ends for the left heart and returning body blood.",
+    "reaction": "The labeled open ends make the next connections clear.",
+    "step": 2,
+    "reason": "I'll build the body route next; the left heart's outlet is labeled for the body.",
+    "choice": 1,
+    "expectation": "I expect the left heart to connect to the body vessels, leaving connections to the lung route open.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The heart muscle also needs its own blood supply, but I'll finish the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The left heart now connects to the body vessels, with labeled openings for the lung and right-heart routes.",
+    "reaction": "The matching labels make the overall route easier to follow.",
+    "step": 3,
+    "reason": "I'll join the two main routes now that their open ends match.",
+    "choice": 2,
+    "expectation": "I expect a connected route from the right heart through the lungs, left heart and body, then back to the right heart.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The heart muscle needs its own vessel network too, but I want to connect the main routes first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The two routes now form a complete loop through the heart twice, while its two sides stay separate.",
+    "reaction": "Seeing the whole lap in order makes the two routes clearer.",
+    "step": 4,
+    "reason": "I'll build the heart muscle's own vessel network; it's the only offered combination and addresses the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the heart arteries to connect to the capillaries and veins, forming a supply route for the heart muscle.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle now has a vessel network with labeled connections to the main artery and right heart.",
+    "reaction": "The open-end labels make its place in the larger route clear.",
+    "step": 5,
+    "reason": "I'll connect the heart's own vessels to the two-route model; it's the only offered combination and matches the new goal.",
+    "choice": 1,
+    "expectation": "I expect the heart muscle's vessels to connect to the main body artery and return blood to the right heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart muscle's vessels connect from the main artery back to the right heart, completing the model.",
+    "reaction": "It was interesting that the pump needs its own delivery route rather than taking blood directly from its chambers.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the two main routes made the whole lap clear: blood passes through the heart twice, with the two sides separated.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the two separate routes felt a little repetitive, although their labels made the connections clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The heart muscle has its own vessels branching from the main artery and returning to the right heart.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the labels and goals explained the pairings. The final two combinations were also the only offered actions.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue: connecting the routes helped me understand the whole system, and I would be curious to see how another system fits together.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

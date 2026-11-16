@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action. The matching shapes and nearby helper cells suggest it starts the lymphocyte response described in the chapter.",
+    "choice": 1,
+    "expectation": "I expect the matching lymphocyte to become activated, though I'm not sure exactly how the helper cells take part.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matching lymphocyte is active, so the next step is to bring it to the node where it can grow.",
+    "reaction": "The matching shapes made the selection easy to follow, though the helpers' role is still unclear.",
+    "step": 2,
+    "reason": "The lymph node is described as supporting activated cells as they multiply, and this is the only offered gameplay action.",
+    "choice": 1,
+    "expectation": "I expect to place the activated lymphocyte in the lymph node so it can multiply, though that may take another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph node step produced both antibody-making cells and memory cells, completing that goal.",
+    "reaction": "The several-day division explains how one matching cell can produce both kinds of descendants.",
+    "step": 3,
+    "reason": "This is the only offered gameplay action. Amino acids are protein building blocks, so they should help the cells make antibodies.",
+    "choice": 1,
+    "expectation": "I expect the cells to make antibodies that match the bacterial antigens.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cells made antibodies with tips that match the bacteria, so I can now try attaching them.",
+    "reaction": "The matching shapes make the connection easy to follow.",
+    "step": 4,
+    "reason": "This is the only offered gameplay action, and antibodies are described as binding matching antigens.",
+    "choice": 1,
+    "expectation": "I expect the antibodies to attach to the bacteria and help white blood cells clear them.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The antibodies attached to the bacteria, leaving them ready for the engulfing cells.",
+    "reaction": "The coated bacteria match the earlier picture of how the white blood cell binds them.",
+    "step": 5,
+    "reason": "This is the only offered gameplay action, and the white blood cells are shown catching antibody-coated bacteria.",
+    "choice": 1,
+    "expectation": "I expect the white blood cells to engulf and break down the coated bacteria.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The engulfing cells took in and broke down the coated bacteria, completing the remaining goal.",
+    "reaction": "Seeing the antibodies mark bacteria for another cell made their purpose clearer.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the antibody-producing and memory cells was most worthwhile: it showed how one matching cell can produce descendants with different roles.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and attaching the antibodies was understandable but a little predictable, with only one gameplay action offered each time.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The lymph node step produced both antibody-making cells and memory cells after several days of division; I had expected placement might be a separate step.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action seemed purposeless, but the helper cells' exact role in activating the lymphocyte remained unclear.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how memory cells respond later, although this chapter offered few meaningful choices because each step had only one gameplay option.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

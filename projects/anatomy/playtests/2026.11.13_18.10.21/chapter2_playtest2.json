@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "The ribosome picture shows its protein chain made from pieces matching the amino acids, so these belong together.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids should help prepare the ribosome to build a protein.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Membrane pump"
+        },
+        "reason": "The pump picture also shows it fitting across a membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome now has building blocks, and the new goal and ATP arrow show that protein construction needs energy.",
+    "reaction": "The new goal makes the next part of the protein project clearer.",
+    "step": 2,
+    "reason": "The pump picture shows it fitting across a membrane, matching the boundary goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Membrane pump"
+    },
+    "expectation": "The pump should be fitted across the cell boundary.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell with mitochondria",
+          "with": "Glucose inside the cell"
+        },
+        "reason": "The mitochondria picture links food and oxygen to ATP, which the ribosome needs."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and its empty ATP site suggests it needs energy to move particles toward the crowded side.",
+    "reaction": "The new goal makes the pump's purpose clearer.",
+    "step": 3,
+    "reason": "The mitochondria picture links food and oxygen to ATP, which both remaining jobs appear to need.",
+    "choice": {
+      "combine": "Cell with mitochondria",
+      "with": "Glucose inside the cell"
+    },
+    "expectation": "The cell should use glucose, possibly with the available oxygen, to produce ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell with mitochondria",
+          "with": "Oxygen entering the cell"
+        },
+        "reason": "Oxygen is also shown as an ingredient in the process that supplies ATP."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has glucose, but the separate oxygen arrow suggests it still needs oxygen to make ATP.",
+    "reaction": "The separate routes make the next step clearer.",
+    "step": 4,
+    "reason": "The picture shows oxygen entering separately, and the earlier diagram links both food and oxygen to ATP.",
+    "choice": {
+      "combine": "Cell supplied with glucose",
+      "with": "Oxygen entering the cell"
+    },
+    "expectation": "The cell should use the glucose and oxygen to produce ATP.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell made an ATP supply, and the picture points to both the pump and ribosome as uses for it.",
+    "reaction": "Seeing both jobs connected to the ATP supply makes the remaining goals clearer.",
+    "step": 5,
+    "reason": "The pump has an empty ATP site, and its goal is to power transport.",
+    "choice": {
+      "combine": "ATP supply",
+      "with": "Membrane with a pump"
+    },
+    "expectation": "ATP should power the pump to move particles toward the crowded side.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "ATP supply",
+          "with": "Ribosome supplied with building blocks"
+        },
+        "reason": "The ribosome also needs ATP for protein construction."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the pump to move particles toward the more crowded side; protein construction remains.",
+    "reaction": "The picture makes the pump's job clearer.",
+    "step": 6,
+    "reason": "The supplied ribosome has building blocks and its picture showed ATP powering protein-making work.",
+    "choice": {
+      "combine": "ATP supply",
+      "with": "Ribosome supplied with building blocks"
+    },
+    "expectation": "ATP should power the ribosome to build a protein from the amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome made proteins using the supplied building blocks and ATP, completing the chapter. The result connects their instructions to DNA.",
+    "reaction": "It was satisfying to see the separate food, energy and instruction pieces come together.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making ATP was most worthwhile because it connected food and oxygen to both the pump and protein construction.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying glucose separately felt like a predictable preparation step, though its picture helped show oxygen entering by a separate route.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The pump moved particles toward the more crowded side, which helped me understand why it needed energy.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt especially arbitrary; the pictures and goals explained the pairings well enough to follow them.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would probably continue: seeing ATP used for two different cell jobs made me curious about how other body structures fit together.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "step": 1,
+    "reason": "The DNA building blocks match positions alongside existing DNA, so they seem useful for copying the cell's instructions.",
+    "choice": {
+      "combine": "DNA building blocks",
+      "with": "Working cell"
+    },
+    "expectation": "The cell will use the building blocks to copy its DNA.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Working cell"
+        },
+        "reason": "The fats could also help make the extra membrane."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has copied its DNA; making extra membrane is the remaining visible goal.",
+    "reaction": "The picture helps me see that each old DNA strand pairs with a new one.",
+    "step": 2,
+    "reason": "The membrane fats are the visible material for making extra membrane in the growing cell.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The cell will use the fats to make extra membrane.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new membrane is ready in sacs but has not yet joined the cell boundary; division is now the goal.",
+    "reaction": "I hadn't expected the new membrane to be stored in sacs first.",
+    "step": 3,
+    "reason": "The membrane supply is ready to join the cell, which should help it divide.",
+    "choice": {
+      "combine": "New membrane supply",
+      "with": "Cell with copied DNA"
+    },
+    "expectation": "The membrane will join the cell and help it finish dividing into two cells with DNA copies.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The membrane joined the growing cell, and the copied chromosomes separated so each daughter cell received a complete set. The repeated sequence explains the resulting cell population.",
+    "reaction": "It was satisfying to see the membrane supply and DNA copies come together in one division sequence.",
+    "step": 4,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Finishing division was most worthwhile because the sequence connected cell growth, chromosome separation and the two resulting cells.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the membrane supply felt less informative on its own; the picture showed sacs forming but did not explain much about the membrane-making structures.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the new membrane first appeared in sacs rather than immediately enlarging the cell boundary.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the membrane-making structures were not explained in detail.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see what the unspecialized cells become; division produced a population, but it has not yet shown what those cells will do.",
+        "steps": [
+          3
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

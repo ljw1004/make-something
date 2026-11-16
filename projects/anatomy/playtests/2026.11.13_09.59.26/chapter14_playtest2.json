@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "reason": "The salivary glands are a named empty slot in the digestive tube, and their ducts open into the mouth.",
+    "choice": {
+      "combine": "Salivary glands",
+      "with": "Digestive tube[]"
+    },
+    "expectation": "The glands will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; the other named organs still need connecting.",
+    "reaction": "The fitting was straightforward.",
+    "step": 2,
+    "reason": "The pancreas is another named slot, with a duct leading to the small intestine.",
+    "choice": {
+      "combine": "Pancreas",
+      "with": "Digestive tube[Salivary glands]"
+    },
+    "expectation": "The pancreas will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder remain to be connected.",
+    "reaction": "Another straightforward fitting.",
+    "step": 3,
+    "reason": "The liver and gallbladder are a named slot, and their bile ducts lead toward the intestine.",
+    "choice": {
+      "combine": "Liver and gallbladder",
+      "with": "Digestive tube[Salivary glands,Pancreas]"
+    },
+    "expectation": "The liver and gallbladder will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The three glandular organs are fitted, completing the first goal; the meal still needs breaking down.",
+    "reaction": "The summary usefully connects each organ to digestion.",
+    "step": 4,
+    "reason": "Salivary amylase is shown beside starch chains and begins starch digestion.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Salivary amylase"
+    },
+    "expectation": "The amylase will begin breaking the starch into smaller carbohydrates.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase shortened the starch chains; further digestion should make them ready for absorption.",
+    "reaction": "The intermediate result makes the staged breakdown clear.",
+    "step": 5,
+    "reason": "The pancreatic and intestinal enzymes are the visible next step for digesting starch.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Starch-digesting enzymes"
+    },
+    "expectation": "The enzymes will break the shorter chains into absorbable sugars.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch has been broken down into individual glucose molecules; protein and fat still need digestion.",
+    "reaction": "The two-stage starch breakdown is clear.",
+    "step": 6,
+    "reason": "The protein-digesting enzymes are shown beside protein chains and should break down the protein food.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Protein-digesting enzymes"
+    },
+    "expectation": "The protein will be broken into smaller pieces suitable for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protein has been broken down into amino acids; fat remains to be digested.",
+    "reaction": "The result makes the protein building blocks visible.",
+    "step": 7,
+    "reason": "Bile and lipase are shown working on dietary fat droplets.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile and lipase"
+    },
+    "expectation": "The fat will be broken down into products suitable for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  }
+]

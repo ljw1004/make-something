@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The pancreas sensing cells are shown responding to glucose levels, so the glucose-rich blood is a sensible starting point for the after-meal goal.",
+    "choice": {
+      "combine": "Glucose-rich blood after a meal",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas cells will respond to the higher glucose level with a message that can help muscle take up glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The blood first had to be connected to the body; the pancreas, muscle and liver are now highlighted.",
+    "reaction": "I expected the pancreas to respond directly, so that extra step surprised me.",
+    "step": 2,
+    "reason": "The pancreas sensing cells are shown detecting glucose levels, and the body's blood glucose is now rising.",
+    "choice": {
+      "combine": "Body with rising blood glucose",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas cells will respond to the rising glucose with a message that helps muscle take it up.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas releases insulin into the blood, and the result explains that insulin helps muscle take up glucose.",
+    "reaction": "The message's job is clearer now.",
+    "step": 3,
+    "reason": "The insulin route leads toward muscle, matching the after-meal goal.",
+    "choice": {
+      "combine": "Body releasing insulin",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "The muscle will take up glucose from the blood in response to insulin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle takes glucose from the blood, and the pancreas later releases less insulin. The after-meal goal is complete.",
+    "reaction": "Seeing the insulin response decrease afterward makes the sequence clearer.",
+    "step": 4,
+    "reason": "The remaining goal concerns time between meals, so I will try that with the current body.",
+    "choice": {
+      "combine": "Body taking up glucose into muscle",
+      "with": "Time between meals"
+    },
+    "expectation": "The body will move to a lower-glucose state between meals, possibly leading to release of stored fuel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed after-meal body has no available combination, so I need another starting point for the between-meals goal.",
+    "reaction": "I expected the two situations to follow directly, so that was surprising.",
+    "step": 5,
+    "reason": "Inspecting the time-between-meals item should reveal how to start the remaining sequence.",
+    "choice": {
+      "inspect": "Time between meals"
+    },
+    "expectation": "The compatibility list will show what can be paired with the between-meals situation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meals sequence starts with a separate view of the original body, where blood glucose is falling and the liver still has stored carbohydrate.",
+    "reaction": "The separate view explains why my previous combination did not work.",
+    "step": 6,
+    "reason": "The pancreas sensing cells respond differently to lower glucose, so they are the next plausible pairing.",
+    "choice": {
+      "combine": "Body with falling blood glucose",
+      "with": "Pancreas sensing cells"
+    },
+    "expectation": "The pancreas will release a message that helps make stored fuel available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas sends a different blood-carried message to the liver, labelled to release stored glucose.",
+    "reaction": "The labelled arrow makes the next step clear.",
+    "step": 7,
+    "reason": "The message points to the liver, where the stored carbohydrate can be broken down into glucose.",
+    "choice": {
+      "combine": "Body signalling the liver",
+      "with": "Liver with a carbohydrate store"
+    },
+    "expectation": "The liver will release glucose from its store into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver releases glucose into the blood, and the pancreas's release message weakens as glucose rises. Both goals are complete.",
+    "reaction": "It was satisfying to see how the between-meals response changes as glucose becomes available.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following the pancreas's signal to the liver was most worthwhile: it connected falling blood glucose to releasing stored fuel and showed the signal weakening afterward.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to move directly from the after-meal body to the between-meals situation was confusing because that body had no available combination.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I expected the two situations to follow directly, but the hint showed that the between-meals sequence starts from a separate view of the original body.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "Having to combine glucose-rich blood with the body before the pancreas could sense it felt like an extra prerequisite; the picture made the pancreas pairing seem plausible immediately.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue for another chapter: comparing the two responses and seeing their signals fade made me curious about other ways the body adjusts.",
+        "steps": [
+          3,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

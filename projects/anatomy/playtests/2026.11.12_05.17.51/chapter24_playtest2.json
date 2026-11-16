@@ -1,0 +1,154 @@
+[
+  {
+    "step": 1,
+    "reason": "Phagocytes are shown engulfing debris near the cut, so they seem a useful first step in clearing the wound.",
+    "choice": {
+      "combine": "Body with sealed vessel",
+      "with": "Phagocytes"
+    },
+    "expectation": "The phagocytes will begin clearing debris from the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The wound is cleared of debris and now needs supply, surface and support fitted.",
+    "reaction": "The named slots make the next stages clear.",
+    "step": 2,
+    "reason": "Repair signals point to the nearby vessel, suggesting they help establish the wound's blood supply.",
+    "choice": {
+      "combine": "Nearby capillary",
+      "with": "Repair signals"
+    },
+    "expectation": "The signals will prompt the capillary to grow toward the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repair signals produced a capillary sprout connected to the existing circulation, which looks suitable for the supply slot.",
+    "reaction": "The connection to the parent vessel makes the new supply easier to picture.",
+    "step": 3,
+    "reason": "The capillary sprout appears to provide the wound's blood supply.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Capillary sprout"
+    },
+    "expectation": "The sprout will fit the supply slot and bring blood toward the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary sprout now forms a connected flow route that can supply the developing tissue.",
+    "reaction": "The completed loop makes the supply role clear.",
+    "step": 4,
+    "reason": "Fibroblasts need raw materials to build the wound's supporting matrix.",
+    "choice": {
+      "combine": "Fibroblasts",
+      "with": "Matrix nutrients"
+    },
+    "expectation": "The fibroblasts will use the nutrients to build supporting tissue.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fibroblasts used the materials to make new connective tissue, which appears to fill the support slot.",
+    "reaction": "The collagen fibres make the support role clear.",
+    "step": 5,
+    "reason": "The new connective tissue should support the damaged dermis.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New connective tissue"
+    },
+    "expectation": "The connective tissue will fit the support slot in the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The connective tissue fills the support role, though the new tissue is not yet as strong as uninjured skin.",
+    "reaction": "The distinction between closing the wound and restoring strength is useful.",
+    "step": 6,
+    "reason": "The epidermal edge cells appear to need nutrients to rebuild the wound surface.",
+    "choice": {
+      "combine": "Epidermal edge cells",
+      "with": "Cell nutrients"
+    },
+    "expectation": "The cells will use the nutrients to form a new surface layer.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The edge cells formed a new epidermal sheet that appears ready for the surface slot.",
+    "reaction": "The sheet extending across the gap makes the closure easy to picture.",
+    "step": 7,
+    "reason": "The new surface should close the remaining gap in the healing skin.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "New surface"
+    },
+    "expectation": "The new surface will fill the surface slot and close the wound.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The new surface spans the gap, completing the wound's closure, support and supply; the temporary clot still needs clearing.",
+    "reaction": "It is useful that the result distinguishes a closed surface from deeper tissue still gaining strength.",
+    "step": 8,
+    "reason": "Clot-clearing enzymes are shown breaking down fibrin, so they should clear the temporary clot.",
+    "choice": {
+      "combine": "Body with healing skin",
+      "with": "Clot-clearing enzymes"
+    },
+    "expectation": "The enzymes will break down the fibrin in the clot.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The enzymes cleared most of the temporary fibrin, completing the chapter while leaving a scar that is still maturing.",
+    "reaction": "The remaining scar makes the repair feel like a continuing process rather than an instant return to uninjured skin.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the capillary sprout was most worthwhile: the described flow loop and nutrient arrows made the wound's need for a blood supply concrete.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making and fitting the new surface felt predictable after the named slots and earlier support construction, although the picture description made closure clear.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The distinction between a closed surface and deeper tissue still gaining strength changed my understanding of what completing the wound means.",
+        "steps": [
+          5,
+          7,
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt particularly arbitrary; the item descriptions and named slots gave each combination a clear purpose.",
+        "steps": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      "continue": {
+        "text": "I would be interested in another chapter if it explored a new relationship with a concrete sequence like the wound's supply and repair. The repeated build-and-slot pattern could become less engaging if it continued unchanged.",
+        "steps": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

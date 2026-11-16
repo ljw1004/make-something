@@ -1,0 +1,146 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum is shaped to divide the heart into the two sides needed for separate routes.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The partition should create separate right and left sides of the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart, and the empty slots show where the two valve sets belong.",
+    "reaction": "The reference picture makes the need for valves clearer.",
+    "step": 2,
+    "reason": "The inlet valves match the heart's ventricular inlet slot.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves should fit between the upper and lower chambers.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted and close against backward flow during a squeeze; the outlet slot remains.",
+    "reaction": "The filling and squeezing pictures make their role clear.",
+    "step": 3,
+    "reason": "The outlet valves match the remaining ventricular outlet slot.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves should fit at the ventricular exits and help prevent backward flow.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted, and the outlet valves limit blood flowing back from the arteries between beats.",
+    "reaction": "The two valve sets' different positions and timing make their roles clearer.",
+    "step": 4,
+    "reason": "The pulmonary loop is pictured connecting the right side of the heart to the lungs and returning to the left side.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The lung route should connect to the divided heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary loop could not attach yet; the heart first gained conducting tissue that coordinates its squeezes.",
+    "reaction": "I didn't expect the electrical pathways to be needed before connecting the lung route.",
+    "step": 5,
+    "reason": "The pulmonary loop still has a pictured route from the heart to the lungs and back, so I'll try it with the coordinated heart.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The lung route should now connect to the heart.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pulmonary loop is connected from the right heart through the lungs to the left atrium; the body route remains open.",
+    "reaction": "The picture makes the two routes easier to distinguish.",
+    "step": 6,
+    "reason": "The systemic vessel network leads through body tissues and back, matching the open connection.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The body vessel route should connect to the heart alongside the lung route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart is now connected to separate lung and body vessel loops.",
+    "reaction": "The two routes are now visible together.",
+    "step": 7,
+    "reason": "The circulation frame needs blood to carry oxygen through its connected vessels.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Blood"
+    },
+    "expectation": "Blood should enter the connected circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart's own vessels had to be connected before adding blood; they supply the heart muscle separately from its chambers.",
+    "reaction": "I hadn't realized the chamber blood alone couldn't feed the thick heart muscle.",
+    "step": 8,
+    "reason": "The connected circulation still needs blood to carry oxygen through the routes.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "Blood should enter the connected circulation.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood now fills the connected lung and body routes, completing the circulation and the chapter goals.",
+    "reaction": "Seeing the full route through both sides of the heart helped put the pieces together.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the heart’s own vessels was worthwhile: it explained why the thick heart muscle needs its own blood supply, separate from blood in the chambers.",
+        "steps": [
+          7
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the two valve sets was clear, but matching each named valve to its slot felt fairly predictable.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that blood in the heart chambers cannot by itself feed all the heart muscle.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "Conducting tissue makes sense for coordinating squeezes, but needing to add it before connecting the lung route was not clear beforehand.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue: connecting the lung and body routes and discovering the heart’s own supply made me curious how the circulation supports the rest of the body.",
+        "steps": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

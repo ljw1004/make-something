@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The nuclear envelope has an open space, and the goal says to enclose DNA in a nucleus.",
+    "choice": {
+      "combine": "DNA",
+      "with": "Nuclear envelope"
+    },
+    "expectation": "The envelope should surround the DNA and form a nucleus.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Membrane fats (lipids)",
+          "with": "Water"
+        },
+        "reason": "The water-facing heads and water-avoiding tails suggest these may help form the cell’s outer enclosure."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is enclosed in a nucleus, which now needs a cell boundary around it.",
+    "reaction": "The RNA copy leaving through a pore is an interesting detail.",
+    "step": 2,
+    "reason": "The lipid heads face water while their tails avoid it, suggesting that lipids and water can form the cell’s outer enclosure.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Water"
+    },
+    "expectation": "The lipids should arrange into a boundary around water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lipids formed a water-filled membrane bag. The remaining goals are to add the nucleus and routes for water and sugar.",
+    "reaction": "Seeing the heads face water on both sides makes the boundary easier to picture.",
+    "step": 3,
+    "reason": "The goal says to put the nucleus inside the cell boundary, and the membrane bag encloses an interior.",
+    "choice": {
+      "combine": "Nucleus",
+      "with": "Membrane bag"
+    },
+    "expectation": "The nucleus should be fitted inside the membrane bag.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water-channel protein",
+          "with": "Membrane bag"
+        },
+        "reason": "The pictured protein could provide a route for water through the boundary."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nucleus is now inside the membrane bag; the boundary still needs routes for water and sugar.",
+    "reaction": "The separate inner and outer enclosures are clear in the picture.",
+    "step": 4,
+    "reason": "The water-channel protein is pictured spanning a membrane and letting water through, matching part of the remaining goal.",
+    "choice": {
+      "combine": "Water-channel protein",
+      "with": "Membrane bag"
+    },
+    "expectation": "The water channel should fit into the outer membrane and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sugar-carrier protein",
+          "with": "Membrane bag"
+        },
+        "reason": "The sugar carrier also appears to fit the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel is fitted into the boundary; the sugar route still needs to be added.",
+    "reaction": "The arrows make the water route easy to picture.",
+    "step": 5,
+    "reason": "The sugar-carrier protein has a sugar-shaped pocket and is pictured spanning a membrane, matching the remaining goal.",
+    "choice": {
+      "combine": "Sugar-carrier protein",
+      "with": "Membrane bag"
+    },
+    "expectation": "The carrier should fit into the outer membrane and provide a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completes the boundary's routes and all chapter goals. The result also explains that oxygen can cross the lipid itself.",
+    "reaction": "The carrier's pocket opening to either side helped me picture how it provides a route.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining lipids with water was most worthwhile: the picture showed how their heads and tails form a boundary with water on both sides.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the two membrane proteins felt somewhat repetitive, although each had a clear purpose.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that a copy of a DNA instruction could leave the nucleus through a pore while the DNA stayed inside.",
+        "steps": [
+          1
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the goals and pictures made the pairings clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue: building the cell was straightforward, and I would be curious to see what other parts are added, though the last two fittings were repetitive.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

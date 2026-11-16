@@ -1,0 +1,162 @@
+[
+  {
+    "step": 1,
+    "reason": "The lineage environment is meant to guide stem-cell descendants toward bone-forming cells.",
+    "choice": {
+      "combine": "Unspecialized daughter stem cells",
+      "with": "Bone-lineage environment"
+    },
+    "expectation": "The cells will develop toward a bone-forming lineage.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lineage conditions produced bone cells, including matrix-producing osteoblasts and embedded osteocytes.",
+    "reaction": "The distinction between osteoblasts and osteocytes is useful.",
+    "step": 2,
+    "reason": "Mineral should reinforce the collagen framework of the arm bones.",
+    "choice": {
+      "combine": "Arm bone collagen framework",
+      "with": "Calcium phosphate mineral"
+    },
+    "expectation": "The mineral will form a strengthened bone framework.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineralised framework now combines collagen's toughness with resistance to compression.",
+    "reaction": "The contrast between collagen and mineral roles is useful.",
+    "step": 3,
+    "reason": "Living bone needs cells within its mineralised matrix.",
+    "choice": {
+      "combine": "Mineralised arm bone framework",
+      "with": "Bone cells"
+    },
+    "expectation": "The bone cells will be incorporated into the arm bone framework.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mineralised framework currently has no available combination, so I need another route to living bone.",
+    "reaction": "I am unsure why the cells cannot be added to the framework yet.",
+    "step": 4,
+    "reason": "Inspecting the bone cells should reveal their available partners.",
+    "choice": {
+      "inspect": "Bone cells"
+    },
+    "expectation": "The compatibility list will show how to develop the bone cells further.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bone cells first needed a blood supply; the result shows nutrients reaching osteocytes through small channels.",
+    "reaction": "The distinction between the vessel and the nutrient channels is helpful, though the required order was not obvious.",
+    "step": 5,
+    "reason": "The supplied bone cells may now be ready to join the mineralised framework.",
+    "choice": {
+      "combine": "Bone cells linked to a blood supply",
+      "with": "Mineralised arm bone framework"
+    },
+    "expectation": "The supplied cells and framework will form living arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied cells joined the mineralised framework, completing the living arm bones and revealing the joint goal.",
+    "reaction": "The vessel and channel distinction makes the bone's nutrient supply clearer.",
+    "step": 6,
+    "reason": "The synovial membrane is described as lining the inside of the fibrous sleeve.",
+    "choice": {
+      "combine": "Fibrous joint sleeve",
+      "with": "Synovial membrane"
+    },
+    "expectation": "The membrane will line the sleeve to form the joint capsule.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The synovial membrane lined the fibrous sleeve, completing the capsule goal.",
+    "reaction": "The lining's contribution to joint fluid is clear.",
+    "step": 7,
+    "reason": "Articular cartilage should cover the bone ends where they meet at the joint.",
+    "choice": {
+      "combine": "Living arm bones",
+      "with": "Articular cartilage"
+    },
+    "expectation": "The cartilage will form smooth coverings on the arm bone ends.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cartilage now covers the facing elbow surfaces, preparing the bones for the joint.",
+    "reaction": "The sliding-surface inset makes the cartilage's role clear.",
+    "step": 8,
+    "reason": "The lined capsule should surround the cartilage-covered bone ends at the elbow.",
+    "choice": {
+      "combine": "Cartilage-covered arm bones",
+      "with": "Synovial capsule"
+    },
+    "expectation": "The capsule will enclose the joint between the arm bones.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capsule now encloses the cartilage-covered elbow, with fluid helping its surfaces glide.",
+    "reaction": "The connection between the lining, fluid and movement is clear.",
+    "step": 9,
+    "reason": "The elbow ligaments should reinforce and restrain the enclosed joint.",
+    "choice": {
+      "combine": "Enclosed elbow",
+      "with": "Elbow ligaments"
+    },
+    "expectation": "The ligaments will support the elbow while allowing movement.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ligaments completed the movable arm skeleton, showing elbow bending alongside resistance to sideways movement. All chapter goals are complete.",
+    "reaction": "The final cutaway connects support and movement clearly.",
+    "step": 10,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Building the supplied living bone was worthwhile: the planned cutaway distinguishes vessels from the tiny channels that carry nutrients toward embedded bone cells.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The failed attempt to add bone cells directly to the mineralised framework was frustrating because the required order was not apparent.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I did not expect the bone cells to need a blood-supply combination before joining the framework. The resulting picture clarified how nutrients reach osteocytes.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Requiring the blood supply to be linked to the cells before they could join the framework felt like an unexplained ordering constraint, even though the supply itself had a clear purpose.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions connect tissue structure to function, especially in the supplied bone and fluid-lined joint, though I would hope future ordering constraints are clearer.",
+        "steps": [
+          4,
+          5,
+          8,
+          9
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

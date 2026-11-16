@@ -1,0 +1,186 @@
+[
+  {
+    "step": 1,
+    "reason": "The septum is shaped to separate the heart's right and left sides, matching the two routes in the chapter.",
+    "choice": {
+      "combine": "Cardiac muscle chambers",
+      "with": "Heart septum"
+    },
+    "expectation": "The partition should divide the chambers into right and left sides.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cardiac muscle chambers",
+          "with": "Inlet valves"
+        },
+        "reason": "The inlet valves also visibly fit the chambers and address a stated goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The septum divided the heart and revealed separate inlet and outlet valve slots.",
+    "reaction": "The reversing arrows make the need for valves clearer.",
+    "step": 2,
+    "reason": "The inlet valves match the named ventricular inlet slots.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Inlet valves"
+    },
+    "expectation": "The inlet valves should fit between the upper and lower chambers.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Divided heart",
+          "with": "Outlet valves"
+        },
+        "reason": "The outlet valves also match an empty slot."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inlet valves are fitted and close against backward flow when the ventricles squeeze.",
+    "reaction": "The filling and squeezing views make their job clear.",
+    "step": 3,
+    "reason": "The outlet valves match the remaining ventricular outlet slots.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Outlet valves"
+    },
+    "expectation": "The outlet valves should fit at the ventricular exits.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Both valve sets are fitted; the outlet valves limit blood returning from the arteries between beats.",
+    "reaction": "The two valve sets now have distinct, clear jobs.",
+    "step": 4,
+    "reason": "The conducting tissue's picture shows a pacemaker and electrical pathways in the heart, so it looks like the next part to add.",
+    "choice": {
+      "combine": "Divided heart",
+      "with": "Conducting tissue"
+    },
+    "expectation": "The heart should gain its electrical signalling pathways.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Divided heart",
+          "with": "Pulmonary vessel loop"
+        },
+        "reason": "The loop visibly connects the heart to the lung route, which also supports the remaining goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart now has conducting pathways that coordinate the upper and lower chamber squeezes.",
+    "reaction": "The timed wave makes the conducting tissue's purpose clearer.",
+    "step": 5,
+    "reason": "The pulmonary loop is pictured connecting the right side of the heart to the lungs and returning to the left side.",
+    "choice": {
+      "combine": "Coordinated heart",
+      "with": "Pulmonary vessel loop"
+    },
+    "expectation": "The lung vessel loop should connect to both sides of the heart.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Coordinated heart",
+          "with": "Systemic vessel network"
+        },
+        "reason": "The systemic vessels also need to connect the heart to a body route."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lung route now runs from the right heart back to the left atrium, leaving a separate connection for body tissues.",
+    "reaction": "The open connection makes the next route clear.",
+    "step": 6,
+    "reason": "The systemic vessel network is the route through body tissues and matches the open connection.",
+    "choice": {
+      "combine": "Heart with pulmonary route",
+      "with": "Systemic vessel network"
+    },
+    "expectation": "The systemic vessels should connect the heart to the body tissue route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The heart is now connected to separate lung and body vessel loops.",
+    "reaction": "The two routes are now easy to distinguish.",
+    "step": 7,
+    "reason": "The remaining goal asks to connect the heart, vessels and blood, so blood belongs in the circulation frame.",
+    "choice": {
+      "combine": "Circulation frame",
+      "with": "Blood"
+    },
+    "expectation": "Blood should fill the connected heart and vessel routes.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Circulation frame",
+          "with": "Heart’s own blood vessels"
+        },
+        "reason": "The heart muscle also needs its own blood supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood could not be added yet; the circulation first needed the heart muscle's own vessels, which were added automatically.",
+    "reaction": "I hadn't expected the heart's separate blood supply to be required first, but its purpose is clear now.",
+    "step": 8,
+    "reason": "The heart and its vessel routes are connected, so I expect blood can now be added to complete the remaining goal.",
+    "choice": {
+      "combine": "Coronary-connected circulation",
+      "with": "Blood"
+    },
+    "expectation": "Blood should enter the connected circulation, including the heart's own supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Adding blood completed the circulation and showed the separate routes through the lungs and the body, including the heart muscle's own supply.",
+    "reaction": "The arrows made the complete route satisfying to follow.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the lung and body routes was most worthwhile because the final picture showed how blood returns to the heart after each trip.",
+        "steps": [
+          5,
+          6,
+          8
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the two valve sets was clear but a little repetitive, since both were named slots.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I didn't expect the heart's own vessels to be required before adding blood. The explanation that blood in the chambers cannot feed all the thick heart muscle made their purpose clear.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "The order requiring the heart's own vessels before blood felt a little arbitrary: their purpose was understandable, but I hadn't realized they were a prerequisite.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because connecting the pieces into two complete routes made me curious how circulation supports other body systems.",
+        "steps": [
+          6,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

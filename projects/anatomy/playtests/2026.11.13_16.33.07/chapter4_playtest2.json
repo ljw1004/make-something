@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "reason": "The picture names fibroblast conditions as the route from unspecialized cells to connective-tissue cells, which may help make the supporting material.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Fibroblast differentiation conditions"
+    },
+    "expectation": "A subset of the stem cells will develop toward fibroblasts.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "That named route should prepare the other cell branch and also serves a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblast route produced cells with active collagen messages, while the original stem-cell population remains available for the muscle branch.",
+    "reaction": "The unchanged DNA alongside active collagen genes makes the different-work idea clearer.",
+    "step": 2,
+    "reason": "The cells have collagen messages heading toward ribosomes, and amino acids are the building blocks for proteins.",
+    "choice": {
+      "combine": "Fibroblast-lineage cells with collagen messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will use the amino acids to make collagen or its precursor.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could start the separate muscle branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts have made collagen precursors and packed them into secretory vesicles, suggesting the next step is outside the cells.",
+    "reaction": "The picture connects the collagen messages to protein production clearly.",
+    "step": 3,
+    "reason": "The goal asks for supporting material outside cells, and the extracellular fluid picture shows processing enzymes in that space.",
+    "choice": {
+      "combine": "Collagen-producing fibroblasts",
+      "with": "Extracellular fluid"
+    },
+    "expectation": "The fibroblasts will release collagen precursors into the fluid to form supporting material.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Daughter stem-cell population",
+          "with": "Skeletal-muscle differentiation conditions"
+        },
+        "reason": "I could begin the separate muscle branch instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibroblasts released collagen, forming supporting material outside the cells and completing that goal.",
+    "reaction": "It is helpful to see that tissue includes material around cells as well as the cells themselves.",
+    "step": 4,
+    "reason": "The picture names skeletal-muscle conditions as the route from unspecialized cells to muscle precursors, matching the remaining goal.",
+    "choice": {
+      "combine": "Daughter stem-cell population",
+      "with": "Skeletal-muscle differentiation conditions"
+    },
+    "expectation": "A separate subset of stem cells will develop into muscle precursors.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle conditions produced individual muscle-lineage cells with messages for muscle proteins, but not mature muscle fibres.",
+    "reaction": "This parallels the fibroblast branch while showing different genes in use.",
+    "step": 5,
+    "reason": "As with the collagen messages, the muscle protein messages need amino acid building blocks.",
+    "choice": {
+      "combine": "Muscle-lineage cells with muscle messages",
+      "with": "Amino acids"
+    },
+    "expectation": "The cells will use the amino acids to make muscle proteins and advance toward muscle-forming cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The muscle-lineage cells used amino acids to make muscle proteins, becoming separate muscle precursors rather than mature fibres. Both goals are complete.",
+    "reaction": "The comparison with collagen helped show how different messages can use the same building blocks.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making collagen-rich material outside the fibroblasts was most worthwhile because it showed that tissue includes supporting material around cells, not just cells themselves.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making muscle proteins felt a little repetitive after the similar collagen step, although the comparison had a purpose.",
+        "steps": [
+          2,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I was interested that cells with the same DNA could use different messages and make different proteins from the same amino-acid supply.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "The named differentiation conditions made the pairings clear, but I did not understand exactly how the changing signals directed each cell type.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the separate muscle precursors develop into muscle fibres; the final picture says they still have more development ahead.",
+        "steps": [
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

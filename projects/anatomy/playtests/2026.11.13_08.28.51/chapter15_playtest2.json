@@ -1,0 +1,136 @@
+[
+  {
+    "step": 1,
+    "reason": "The digestive tube has a named slot for the salivary glands, whose ducts open into the mouth.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Salivary glands"
+    },
+    "expectation": "The salivary glands will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The salivary glands are fitted; the pancreas and liver remain to be connected.",
+    "reaction": "The named slot made that straightforward.",
+    "step": 2,
+    "reason": "The pancreas has a named slot and a duct leading to the small intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Pancreas"
+    },
+    "expectation": "The pancreas will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreas is fitted; the liver and gallbladder remain to be connected.",
+    "reaction": "That was straightforward.",
+    "step": 3,
+    "reason": "The liver and gallbladder match another named slot, with bile ducts leading toward the intestine.",
+    "choice": {
+      "combine": "Digestive tube",
+      "with": "Liver and gallbladder"
+    },
+    "expectation": "The liver and gallbladder will be fitted to the digestive tube.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glands, pancreas, liver and gallbladder are fitted, completing the first goal; the meal still needs breaking down.",
+    "reaction": "The summary usefully connects each organ to its digestive contribution.",
+    "step": 4,
+    "reason": "Salivary amylase is shown beside starch and begins its digestion.",
+    "choice": {
+      "combine": "Starchy food",
+      "with": "Salivary amylase"
+    },
+    "expectation": "The amylase will begin breaking down the starch.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Salivary amylase shortened the starch chains; further digestion is needed for absorption.",
+    "reaction": "The shorter chains make the first digestion stage clear.",
+    "step": 5,
+    "reason": "The pancreatic and intestinal enzymes should continue breaking down the starch chains.",
+    "choice": {
+      "combine": "Shorter starch chains",
+      "with": "Starch-digesting enzymes"
+    },
+    "expectation": "The chains will be broken into smaller sugars suitable for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch is now individual glucose molecules, ready for absorption; protein and fat still need digestion.",
+    "reaction": "The progression from starch chains to glucose is clear.",
+    "step": 6,
+    "reason": "Protein-digesting enzymes are shown acting on protein chains, so they are the natural next pairing.",
+    "choice": {
+      "combine": "Protein food",
+      "with": "Protein-digesting enzymes"
+    },
+    "expectation": "The protein will be broken into smaller components for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced amino acids; fat remains to be broken down.",
+    "reaction": "The protein-to-amino-acid result is straightforward.",
+    "step": 7,
+    "reason": "Bile and lipase are shown acting on dietary fat droplets.",
+    "choice": {
+      "combine": "Fat food",
+      "with": "Bile and lipase"
+    },
+    "expectation": "The fat will be prepared and broken down into smaller components for absorption.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion produced fatty acids and monoglycerides, completing the chapter; the explanation distinguishes bile's dispersal role from lipase's enzymatic action.",
+    "reaction": "That distinction was useful, though monoglycerides were not explained.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Breaking starch down in two stages was worthwhile: the planned pictures trace chains becoming individual glucose molecules, connecting digestion to absorption.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the three named organ slots was clear but repetitive, with little decision-making beyond matching names.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The final explanation clarified that bile disperses fat rather than acting as an enzyme; lipase performs the breakdown.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though the portal vessel slot remained unfilled when the chapter ended and its later connection was not explained here.",
+        "steps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the digestion products cross the gut lining and where the portal vessel fits; this chapter prepares for absorption but stops before showing it.",
+        "steps": [
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

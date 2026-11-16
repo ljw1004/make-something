@@ -1,0 +1,113 @@
+[
+  {
+    "step": 1,
+    "reason": "Bile is shown spreading a large fat droplet into smaller ones, directly matching one goal.",
+    "choice": 5,
+    "expectation": "I expect smaller fat droplets, with the fat molecules unchanged.",
+    "alternatives": [
+      {
+        "choice": 4,
+        "reason": "Enzymes also seem suited to breaking down protein, but I chose the clearly pictured fat-spreading step first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fat is now in smaller droplets, and the new goal is to break down its molecules.",
+    "reaction": "The extra exposed surface makes me curious how the enzymes will work on it.",
+    "step": 2,
+    "reason": "The enzymes are shown breaking bonds in fat, so they seem useful for the new goal.",
+    "choice": 4,
+    "expectation": "I expect the enzymes to break fat molecules into smaller molecules; I don't know exactly what they will be called.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Breaking down protein also matches a goal, but I want to follow the fat process through."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fat digestion is complete; bile spread the droplets while enzymes split the fat molecules.",
+    "reaction": "Seeing those two different jobs made the sequence clearer.",
+    "step": 3,
+    "reason": "Saliva is shown acting on starch in chewed bread, so I want to follow that route next.",
+    "choice": 2,
+    "expectation": "I expect saliva to start breaking the starch chain into smaller pieces, though I don't know whether it finishes the job.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Protein also needs breaking down, but I want to see what saliva does to starch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Saliva shortened the starch chains, but they still need breaking down into small molecules.",
+    "reaction": "The result makes saliva's starting role clear.",
+    "step": 4,
+    "reason": "Digestive enzymes are shown breaking starch bonds, so I'll continue the starch route.",
+    "choice": 1,
+    "expectation": "I expect the shorter chains to be broken into smaller sugars, possibly glucose.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Protein also needs digestion, but I want to finish the starch sequence first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The starch route produced separate glucose molecules that can cross the intestinal lining; protein still needs breaking down.",
+    "reaction": "The separate glucose units make the result easy to connect to the original starch chain.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the picture shows enzymes breaking protein chains.",
+    "choice": 1,
+    "expectation": "I expect the protein to be broken into smaller pieces, perhaps amino acids.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein digestion produced separate amino acids and completed the remaining goal.",
+    "reaction": "The separate building blocks made the result easy to understand, though it was what I expected.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following fat from large droplets to smaller droplets and then broken molecules was most worthwhile. It made bile's job different from the enzymes' job clear.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The final protein combination was the least engaging: it was the only offered combination and its result was fairly predictable from the picture.",
+        "steps": [
+          5
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected spreading fat into droplets and breaking its molecules to be two separate jobs. The enzyme appearing at the droplet surface helped explain the sequence.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt particularly arbitrary; the pictures connected the ingredients to their jobs, even when I was following an offered pairing.",
+        "steps": [
+          1,
+          3,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I might continue to see how the small food molecules get from the gut to the rest of the body. The digestion sequences were clear, although the final choice was predictable.",
+        "steps": [
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only available action. The pictures show that the fat molecules interact with water, so it seems like a starting point for the cell boundary.",
+    "choice": 1,
+    "expectation": "I expect the fats and water to form some kind of membrane boundary, though I don't know exactly how.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats formed a two-layer boundary, with their water-facing heads on the outside. I can now work on routes across it.",
+    "reaction": "The picture made the layers easier to understand.",
+    "step": 2,
+    "reason": "Oxygen can cross the oily middle, so adding it seems like a direct way to address the first goal.",
+    "choice": 1,
+    "expectation": "I expect oxygen to cross the membrane patch without a protein route.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The water channel should help water cross faster, but I chose to address oxygen first."
+      },
+      {
+        "choice": 3,
+        "reason": "The sugar carrier looks like a route for sugar, but I chose the oxygen goal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the intact membrane in both directions, with more entering, and the first goal is complete.",
+    "reaction": "The arrows made the movement clear.",
+    "step": 3,
+    "reason": "The water-channel picture shows a pore that fits water, so adding it should help with the remaining goal.",
+    "choice": 1,
+    "expectation": "I expect the protein to form a faster route for water through the membrane.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The sugar carrier should provide the other route, but I chose water first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water channel spans the membrane and lets water pass in both directions; sugar still needs a route.",
+    "reaction": "The picture makes the channel's job clear.",
+    "step": 4,
+    "reason": "Adding the sugar carrier to the patch that already has a water channel seems like a way to give both substances routes.",
+    "choice": 2,
+    "expectation": "I expect a membrane with both a water channel and a sugar carrier, though I'm not sure whether that completes the goal.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "A separate patch could also hold the sugar carrier, but I chose to put both routes together."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier completed the remaining goal, showing that water and sugar use different routes through the boundary.",
+    "reaction": "The carrier's two panels helped explain its route, though the result didn't clearly show the water channel still present.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the membrane patch was most worthwhile: the picture explained how the fat layers face water and why the middle differs.",
+        "steps": [
+          1
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the water channel felt a little predictable after its picture had already shown what it did.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I hadn't expected oxygen to cross in both directions, with more arrows pointing inward.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "I chose to add the sugar carrier to the patch with the water channel, but the resulting name and picture didn't make it clear whether both were still together.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I'd probably continue for another chapter to see how other cell parts fit together; the membrane pictures made the connections understandable, even if some steps were predictable.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

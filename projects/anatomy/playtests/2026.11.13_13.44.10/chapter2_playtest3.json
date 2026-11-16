@@ -1,0 +1,149 @@
+[
+  {
+    "step": 1,
+    "reason": "The pump proteins have membrane-spanning regions, so they should fit into the lipid patches.",
+    "choice": {
+      "combine": "Sodium-potassium pump proteins",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pumps will be fitted into the membrane, completing that goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are installed, and the new goal makes ATP production relevant to moving sodium out.",
+    "reaction": "The distinction between installing the pump and actually transporting ions is clear.",
+    "step": 2,
+    "reason": "The glycolysis hotspot identifies glucose as its starting ingredient and shows ADP and phosphate alongside the pathway.",
+    "choice": {
+      "combine": "Glucose in the cytosol",
+      "with": "Cytosol with glycolysis enzymes"
+    },
+    "expectation": "Glycolysis will break down glucose and produce ATP in the cytosol.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced cytosolic ATP and pyruvate, and the new goal directs pyruvate and oxygen toward the mitochondrion.",
+    "reaction": "The oxygen-free pathway and pyruvate arrow make the next connection clear.",
+    "step": 3,
+    "reason": "The pyruvate arrow points to the mitochondrion, and oxygen is also available for the newly revealed goal.",
+    "choice": {
+      "combine": "Cytosolic ATP and pyruvate",
+      "with": "Mitochondrion"
+    },
+    "expectation": "The mitochondrion will receive the food breakdown products, possibly using the available oxygen as well.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "That pairing also directly addresses an existing goal, but I want to follow the pyruvate pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate has entered the mitochondrial matrix; oxygen still needs to be supplied to complete the goal.",
+    "reaction": "The inset connects pyruvate processing to electron carriers at the inner membrane.",
+    "step": 4,
+    "reason": "The supplied mitochondrion still needs oxygen, which is available in the cytosol.",
+    "choice": {
+      "combine": "Oxygen entering the cytosol",
+      "with": "Mitochondrion supplied with pyruvate"
+    },
+    "expectation": "Oxygen will reach the mitochondrion and complete its supply goal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completed the mitochondrial supply, producing ATP through electron transfer and a proton gradient.",
+    "reaction": "The picture clarifies oxygen's role as an electron acceptor rather than the fuel.",
+    "step": 5,
+    "reason": "The membrane pumps need ATP to move sodium back out, and the mitochondrial ATP supply is now available.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Membrane with sodium-potassium pumps"
+    },
+    "expectation": "ATP will power the pumps to move sodium out of the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome subunits",
+          "with": "mRNA messages from the nucleus"
+        },
+        "reason": "That directly addresses the remaining ribosome assembly goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the installed pumps, moving sodium out and potassium in against their concentration differences.",
+    "reaction": "The contrast with passive sodium entry makes the need for energy clear.",
+    "step": 6,
+    "reason": "Ribosome subunits and mRNA messages directly match the remaining assembly goal.",
+    "choice": {
+      "combine": "Ribosome subunits",
+      "with": "mRNA messages from the nucleus"
+    },
+    "expectation": "Ribosomes will assemble on the mRNA messages.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are assembled on mRNA, and the new goal calls for energy to support protein-making.",
+    "reaction": "The picture connects the message and amino acid supply, though the RNA adapters are not named.",
+    "step": 7,
+    "reason": "The prepared ribosomes need power, and the mitochondrial ATP supply is available.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Ribosomes on mRNA"
+    },
+    "expectation": "ATP will support protein-making at the assembled ribosomes.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP supported amino-acid preparation and protein-making at the ribosomes, completing the chapter; the picture also distinguishes pyruvate’s fuel route from the protein chain.",
+    "reaction": "The matching tRNA and mRNA detail made the earlier unnamed RNA adapters clearer.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the mitochondrion was most worthwhile: the illustration plan connects electron transfer, oxygen, the hydrogen-ion gradient and ATP synthase rather than treating oxygen as fuel.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Installing the pump was comparatively routine: its membrane-spanning shape made the pairing predictable, and the initial picture showed no transport yet. The later ATP-powered action gave it more meaning.",
+        "steps": [
+          1,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The protein-making picture clarified that ATP supports amino-acid preparation and that pyruvate stays on a separate fuel route, rather than becoming part of the protein chain.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although the initial ribosome picture referred to unnamed RNA adapters; the final picture identified tRNA and showed its matching role.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the constructions connected familiar cell processes through ATP, while the contrast between passive transport and energy-dependent pumping gave the sequence a useful point.",
+        "steps": [
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

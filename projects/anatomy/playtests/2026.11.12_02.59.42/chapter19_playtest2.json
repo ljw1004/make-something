@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "This is the only offered action, and it should connect the meal's glucose to the body.",
+    "choice": 1,
+    "expectation": "I expect a body with elevated blood glucose after the meal, ready for a regulatory response.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The meal's glucose is now represented in the body, so the sensing cells are the next available step.",
+    "reaction": "The result matched my expectation; nothing especially surprising yet.",
+    "step": 2,
+    "reason": "This is the only offered combination, and the pancreatic cells may detect the rising glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to sense the elevated glucose and initiate a response, though I am unsure how the game will show it.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pancreatic beta cells release insulin into the blood, with a route toward muscle and liver; the muscle is the next available connection.",
+    "reaction": "The pathway is clear so far, though the result was predictable.",
+    "step": 3,
+    "reason": "This is the only offered combination, and it should show how skeletal muscle responds to insulin.",
+    "choice": 1,
+    "expectation": "I expect insulin to help muscle cells take up glucose from the blood, though I am unsure how much detail the result will show.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin helps muscle take up glucose, and the later inset shows insulin release decreasing as blood glucose falls. The new goal shifts attention to the time between meals.",
+    "reaction": "The change in insulin release makes the response clearer, though it followed the expected pathway.",
+    "step": 4,
+    "reason": "This is the only offered combination, and advancing between meals should show why the body needs another source of blood glucose.",
+    "choice": 1,
+    "expectation": "I expect incoming glucose to decrease while cells continue using it, setting up a response that keeps glucose available.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Blood glucose is falling between meals while the liver still has glycogen, setting up a response to maintain the supply.",
+    "reaction": "The result matches the expected transition and makes the liver's stored glycogen relevant.",
+    "step": 5,
+    "reason": "This is the only offered combination, and the pancreatic cells may respond to falling glucose.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to trigger a signal that helps raise blood glucose, possibly by prompting the liver to release stored glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Falling blood glucose is followed by glucagon release from pancreatic alpha cells, with the signal travelling toward the liver.",
+    "reaction": "The parallel with insulin is clear, though the response was predictable.",
+    "step": 6,
+    "reason": "This is the only offered combination, and it should show how the liver responds to glucagon.",
+    "choice": 1,
+    "expectation": "I expect glucagon to prompt the liver to break down glycogen and release glucose into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver breaks down glycogen and releases glucose; as blood glucose rises, glucagon release decreases. This completes the between-meals feedback response.",
+    "reaction": "The result matched my expectation, and the sequence made the feedback clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The liver response was most worthwhile: it connected stored glycogen to blood glucose between meals and showed glucagon release decreasing afterward.",
+        "steps": [
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the meal's glucose to the body felt like a predictable setup, with little new information on its own.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "Nothing was especially surprising. The reduced insulin and glucagon release as glucose changed helped clarify the feedback.",
+        "steps": [
+          3,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although every decision offered only one combination, so I was following the available path rather than choosing among approaches.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would be mildly interested in another chapter if it developed a new relationship, but the predictable sequence and lack of meaningful choices would make me hesitant.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

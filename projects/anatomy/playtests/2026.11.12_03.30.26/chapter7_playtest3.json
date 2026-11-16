@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The thick arterial wall appears to need the thin cellular lining to make an artery.",
+    "choice": {
+      "combine": "Endothelial lining",
+      "with": "Arterial wall"
+    },
+    "expectation": "This should form a lined artery.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lining and arterial wall formed arterial vessels; I can now build the rest of the route.",
+    "reaction": "The stretching and recoiling picture makes the artery’s elastic wall more concrete.",
+    "step": 2,
+    "reason": "Valve folds belong inside veins and should help form the venous part of the route.",
+    "choice": {
+      "combine": "Venous wall",
+      "with": "Venous valve folds"
+    },
+    "expectation": "This should make a vein with valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vein needed an endothelial lining before the valve folds; thin-walled veins are now available.",
+    "reaction": "The automatic correction made the missing lining clear.",
+    "step": 3,
+    "reason": "The valve folds should now fit inside the formed veins.",
+    "choice": {
+      "combine": "Thin-walled veins",
+      "with": "Venous valve folds"
+    },
+    "expectation": "This should make veins with valves.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The valve folds completed venous return, showing how valves and muscle compression help blood move toward the heart.",
+    "reaction": "The picture makes the valves’ role in preventing backflow clear.",
+    "step": 4,
+    "reason": "The capillary branches likely need the same cellular lining used for the arteries and veins.",
+    "choice": {
+      "combine": "Endothelial lining",
+      "with": "Capillary-scale branches"
+    },
+    "expectation": "This should form a capillary network for exchange with tissues.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The capillary bed completes the exchange section needed between the arterial and venous routes.",
+    "reaction": "The explanation connects the thin walls to exchange with tissue fluid.",
+    "step": 5,
+    "reason": "Arteries carry blood toward capillary beds, so joining these is a natural next step.",
+    "choice": {
+      "combine": "Arterial vessels",
+      "with": "Capillary bed"
+    },
+    "expectation": "This should connect the arterial vessels to the capillary bed.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arteries and capillaries now form a distribution and exchange bed; the remaining step appears to be connecting venous return.",
+    "reaction": "The branching picture makes the route to a broad area of tissue easier to picture.",
+    "step": 6,
+    "reason": "Veins carry blood away from capillary beds, completing the route through tissues.",
+    "choice": {
+      "combine": "Distribution and exchange bed",
+      "with": "Venous return"
+    },
+    "expectation": "This should connect the exchange bed to the venous return route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Connecting venous return completed the systemic vessel network and clarified the route from arteries through capillaries to veins.",
+    "reaction": "It was satisfying to see the separate vessel sections form a complete route.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the arteries to the capillary bed was worthwhile because the branching picture connected distribution to exchange near tissue cells.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the lined artery and vein felt somewhat repetitive, although it established that both have an inner lining.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The vein needed a lining before its valves could be added. The compatibility feedback made that sequence clear.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Trying the valve folds with the venous wall seemed physically reasonable, so requiring the lining first initially felt somewhat arbitrary; the feedback explained the available next step.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, because building the route made the different vessel roles easier to connect, and I am curious how it will join the rest of the body.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "step": 1,
+    "reason": "Developing red cells need haemoglobin to carry oxygen, and the listed materials are its building blocks.",
+    "choice": {
+      "combine": "Developing red blood cells",
+      "with": "Haemoglobin building materials"
+    },
+    "expectation": "The cells will make haemoglobin and develop toward oxygen-carrying red cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The developing cells matured into red blood cells containing haemoglobin; the blood sample still needs its fluid components.",
+    "reaction": "The cutaway usefully connects haemoglobin production with maturation.",
+    "step": 2,
+    "reason": "Plasma solutes belong dissolved in plasma water, forming the fluid component of blood.",
+    "choice": {
+      "combine": "Plasma water",
+      "with": "Plasma solutes"
+    },
+    "expectation": "The water and solutes will form plasma for the blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The water and solutes formed plasma, ready to combine with the blood cells.",
+    "reaction": "The straw-yellow drop makes the fluid component easy to distinguish from the cells.",
+    "step": 3,
+    "reason": "Red blood cells suspended in plasma are a natural next step toward assembling the blood sample.",
+    "choice": {
+      "combine": "Plasma",
+      "with": "Red blood cells"
+    },
+    "expectation": "The red cells will be suspended in plasma as part of the blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Plasma must receive white cells and platelets before the red cells can be added; that first combination happened automatically.",
+    "reaction": "The required order was not obvious from the biology, but the compatibility feedback resolved it.",
+    "step": 4,
+    "reason": "Adding the red cells should complete the blood sample's cellular components.",
+    "choice": {
+      "combine": "Plasma with white cells and platelets",
+      "with": "Red blood cells"
+    },
+    "expectation": "The red cells will join the plasma, white cells and platelets in a blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The plasma mixture could not be combined further as the first operand, so the red cells may need another step first.",
+    "reaction": "The required assembly order remains unclear.",
+    "step": 5,
+    "reason": "Checking the red cells will reveal their available next step without assuming the assembly order.",
+    "choice": {
+      "inspect": "Red blood cells"
+    },
+    "expectation": "The compatibility list should show how to prepare or add the red cells to the sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The inspection automatically added oxygen to the red cells, revealing that oxygen-bearing cells are the next component to try in the sample.",
+    "reaction": "The reversible binding illustration clarifies how haemoglobin can both pick up and release oxygen.",
+    "step": 6,
+    "reason": "The oxygen-bearing red cells are now prepared to join the plasma mixture; using them first may expose their available operation.",
+    "choice": {
+      "combine": "Oxygen-bearing red blood cells",
+      "with": "Plasma with white cells and platelets"
+    },
+    "expectation": "The oxygen-bearing red cells will join the plasma, white cells and platelets to form the blood sample.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The oxygen-bearing red cells joined the plasma mixture, completing the blood sample and the chapter goal.",
+    "reaction": "The final picture brings the components together clearly, though the assembly order took some figuring out.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Inspecting the red cells revealed oxygen binding and release, connecting haemoglobin’s structure to oxygen delivery in tissues. The planned double-arrow inset makes that reversibility concrete.",
+        "steps": [
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Trying to add red cells to the plasma mixture failed without explaining what preparation was missing. The compatibility feedback on the preceding attempt was more helpful.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The red cells had to bind oxygen before joining the sample. The result also distinguished reversible oxygen binding from the final blood composition.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "Adding white cells and platelets before red cells, and preparing oxygen-bearing red cells before assembling blood, felt like game-imposed ordering rather than an explained biological necessity.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would continue for the concise structure–function connections, especially oxygen binding, though I would hope later assembly steps make their required order clearer.",
+        "steps": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

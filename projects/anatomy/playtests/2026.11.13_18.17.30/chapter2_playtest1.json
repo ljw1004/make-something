@@ -1,0 +1,174 @@
+[
+  {
+    "step": 1,
+    "reason": "Glucose matches the sugar carrier's pocket, and the chapter says to bring it through the boundary.",
+    "choice": {
+      "combine": "Membrane with a sugar carrier",
+      "with": "Glucose — a small sugar"
+    },
+    "expectation": "The carrier should help glucose enter the cell.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "Their pictures also show a clear match for preparing protein building."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose is now inside the cell, ready to follow the respiration process.",
+    "reaction": "The picture made the carrier's job clear.",
+    "step": 2,
+    "reason": "The mitochondria picture connects food and oxygen to ATP for cell work, so glucose is a sensible next ingredient.",
+    "choice": {
+      "combine": "Cell with mitochondria",
+      "with": "Glucose inside the cell"
+    },
+    "expectation": "The cell should use glucose in a process that helps produce ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "That visibly matched pair could prepare the protein-building machinery instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The glucose is supplied, and the picture shows oxygen entering separately for the route toward the mitochondrion.",
+    "reaction": "The separate oxygen arrow clarifies what to try next.",
+    "step": 3,
+    "reason": "The cell's picture connects food and oxygen with ATP production, and oxygen is already entering the cell.",
+    "choice": {
+      "combine": "Cell supplied with glucose",
+      "with": "Oxygen entering the cell"
+    },
+    "expectation": "Adding oxygen should advance the process that produces ATP.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "Their matching pictures suggest another way to advance a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose and oxygen produced an ATP supply, completing the energy goal; the picture points toward the pump and ribosome.",
+    "reaction": "It is helpful to see where the ATP will be used.",
+    "step": 4,
+    "reason": "The pump picture shows it fitting across a membrane, matching the boundary goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Membrane pump"
+    },
+    "expectation": "The pump should be fitted across the cell membrane.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "Their matching pictures suggest a way to prepare protein building instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted, and a new goal calls for powering transport toward the crowded side.",
+    "reaction": "The empty ATP site makes the next step clear.",
+    "step": 5,
+    "reason": "The pump's ATP site and the ATP supply picture both suggest using ATP to power it.",
+    "choice": {
+      "combine": "Membrane with a pump",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP should power the pump to move particles toward the crowded side.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Ribosome — protein builder",
+          "with": "Amino acids — protein building blocks"
+        },
+        "reason": "Their matching pictures suggest a way to prepare protein building instead."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered the pump, completing the transport goal; preparing the protein-building machinery remains.",
+    "reaction": "The changing pump shape makes the powered movement easier to picture.",
+    "step": 6,
+    "reason": "The amino acids match the pieces of the protein shown with the ribosome.",
+    "choice": {
+      "combine": "Ribosome — protein builder",
+      "with": "Amino acids — protein building blocks"
+    },
+    "expectation": "The amino acids should help prepare the ribosome to build a protein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosome has building blocks, and the new goal is to power protein construction.",
+    "reaction": "The ATP arrow makes the next step clear.",
+    "step": 7,
+    "reason": "The picture points from ATP toward the ribosome's protein-making work.",
+    "choice": {
+      "combine": "Ribosome supplied with building blocks",
+      "with": "ATP supply"
+    },
+    "expectation": "ATP should power the ribosome to construct new proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered protein construction, completing the final goal. The result connects food for materials, ATP for energy, and DNA for instructions.",
+    "reaction": "Seeing the finished chains fold into different shapes was interesting.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Powering the membrane pump was most worthwhile: the changing shape and movement toward the crowded side made a specific use of ATP easier to picture.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Supplying glucose and then adding oxygen felt like a predictable two-step setup before the more interesting ATP result.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the pump moves particles toward the more crowded side, using ATP as its shape changes.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt especially arbitrary; the pictures and goals pointed to the pairings, though I followed the ATP arrow for protein construction without knowing the detailed mechanism.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how these cell parts connect to larger structures, especially if the pictures keep showing what each combination does.",
+        "steps": [
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

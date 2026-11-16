@@ -1,0 +1,112 @@
+[
+  {
+    "step": 1,
+    "reason": "Connecting the sensing cells to the ADH-producing neurons seems like a useful first step toward the kidney response.",
+    "choice": 1,
+    "expectation": "I expect a pathway linking water sensing to ADH-producing cells, though it may need further connections to affect the kidney.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking water addresses replacement, but I want to build the sensing pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sensing cells are now connected to ADH-producing neurons, but their terminals still need a route into the blood.",
+    "reaction": "The circuit is a clear first link, though it does not yet show the kidney response.",
+    "step": 2,
+    "reason": "Add the pituitary capillaries to connect the nerve terminals to circulation.",
+    "choice": 1,
+    "expectation": "I expect ADH released from the terminals to have access to the blood, though the kidney connection may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking water addresses replacement, but I want to finish the sensing pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pathway now carries ADH from pituitary terminals into blood, identifying kidney collecting ducts as a target.",
+    "reaction": "The change from a nerve signal to a blood-borne hormone is a useful connection.",
+    "step": 3,
+    "reason": "Connect the ADH pathway to the body to reach the kidneys.",
+    "choice": 1,
+    "expectation": "I expect the brain-to-blood pathway to be linked to the kidney collecting ducts, though a water-loss signal may still be needed to show its effect.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking water should address replacement, but I want to complete the sensing connection first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ADH pathway now reaches collecting-duct cells, completing the sensing connection; the response to water loss remains to be shown.",
+    "reaction": "The receptor and stored vesicles make me curious how the duct changes.",
+    "step": 4,
+    "reason": "Apply water loss to see how the connected system conserves water.",
+    "choice": 1,
+    "expectation": "I expect increased ADH signalling to make collecting ducts reclaim more water, reducing water loss in urine.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Drinking would show replacement, but I want to see conservation first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Water loss led to more collecting-duct water channels and greater water recovery, but conservation cannot replace water already lost.",
+    "reaction": "The distinction between conserving and replacing water is clear and useful.",
+    "step": 5,
+    "reason": "Drinking water is the only offered combination and should show replacement.",
+    "choice": 1,
+    "expectation": "I expect drinking water to enter the digestive tract and be absorbed into the body, though the result may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water is absorbed into circulation, and the inset shows the water-control response easing gradually as plasma becomes less concentrated. Both goals are complete.",
+    "reaction": "The distinction between intestinal absorption and the separate urine route is useful; the feedback inset also closes the loop.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Water loss producing more collecting-duct channels was the most worthwhile construction: it connects hormonal control to water recovery and distinguishes conservation from replacement.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the sensing circuit to the pituitary was a fairly predictable assembly step, although its explanation of the nerve-to-blood signal was useful.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The final picture showed the response easing gradually after drinking, rather than simply showing water entering the body.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but the initial brain-circuit construction did not explain how sensing changes ADH activity; that connection became clearer through later results.",
+        "steps": [
+          1,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: linking a familiar act like drinking to hormones, kidney channels and feedback made the system interesting, though the compatible-options menu made the assembly choices fairly guided.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

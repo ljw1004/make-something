@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "reason": "Warm-condition signals reach the skin vessels, whose muscular walls can change their opening and affect heat loss.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The vessels should widen, bringing more blood near the surface to release heat.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm signal widens skin vessels, increasing heat transfer to the cooler surroundings; I can now pursue the sweat response.",
+    "reaction": "The heat arrows make the direction of transfer clear.",
+    "step": 2,
+    "reason": "Warm-condition signals also reach the sweat glands, which can help cool the body.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Sweat glands"
+    },
+    "expectation": "The glands should produce sweat for evaporative cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm signal produces liquid sweat; evaporation into the surrounding air is still needed for cooling.",
+    "reaction": "The distinction between sweat production and evaporation is clear.",
+    "step": 3,
+    "reason": "Air at the skin provides the surroundings into which the sweat can evaporate.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat should evaporate into the air, carrying heat away from the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation completes the warming response, and humid air reduces evaporation. I will now build the cold response.",
+    "reaction": "The distinction between liquid sweat and evaporative cooling was useful.",
+    "step": 4,
+    "reason": "Cold-condition signals reach skin vessels, whose muscular walls can narrow to reduce heat loss.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels should constrict, reducing blood flow near the surface and heat loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Cold signals narrow skin vessels, reducing heat loss without producing new heat; I will try the muscle response next.",
+    "reaction": "The distinction between conserving and producing heat is clear.",
+    "step": 5,
+    "reason": "Cold-condition signals also reach skeletal motor pathways, suggesting a shivering response.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Muscle activity should produce heat and help oppose cooling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering uses ATP and produces heat, complementing the reduced heat loss from narrowed skin vessels; both temperature goals are complete.",
+    "reaction": "The contrast between producing heat and conserving it was clear.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Evaporating sweat was most worthwhile: the picture plan distinguishes liquid sweat from cooling and shows how humid air reduces evaporation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Producing sweat was a predictable intermediate step, though it made the later evaporation distinction useful.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The humid-air comparison added a useful qualification: sweating does not cool as effectively when less water evaporates.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt arbitrary; the signals and physical roles of the available parts gave each combination a clear purpose.",
+        "steps": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would continue: comparing heat loss, conservation and production made the constructions informative, although the combinations were mostly predictable.",
+        "steps": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

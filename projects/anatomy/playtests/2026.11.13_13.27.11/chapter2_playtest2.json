@@ -1,0 +1,151 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with glucose breakdown to supply ATP for the cell's work.",
+    "choice": 3,
+    "expectation": "The glycolysis enzymes will break down glucose and produce some ATP, likely leaving products for further processing.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fitting the pump addresses a goal, but starting with ATP production seems useful first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate in the cytosol and revealed a goal to supply the mitochondrion.",
+    "reaction": "The reminder that ATP production begins without oxygen is useful.",
+    "step": 2,
+    "reason": "Follow the pyruvate into the mitochondrion to advance the new goal.",
+    "choice": 3,
+    "expectation": "Pyruvate will supply fuel for mitochondrial ATP production; oxygen may need a separate step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pump is another goal, but I want to follow the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate has entered the mitochondrion; oxygen remains to be supplied.",
+    "reaction": "The cutaway makes the fuel's path clear, though the result adds little explanation.",
+    "step": 3,
+    "reason": "Add oxygen to advance the mitochondrial supply goal.",
+    "choice": 3,
+    "expectation": "The mitochondrion will be supplied with both pyruvate and oxygen, potentially enabling further ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The mitochondrion now supplies ATP; oxygen accepts electrons, and a hydrogen-ion gradient drives ATP synthase.",
+    "reaction": "The picture connects oxygen use to ATP production, although the electron-transfer steps are compressed.",
+    "step": 4,
+    "reason": "Fit the pump into the membrane to advance the remaining pump goal.",
+    "choice": 1,
+    "expectation": "The pump proteins will be embedded in the membrane; using ATP to move ions may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Assembling ribosomes also advances a goal, but I want to follow ATP toward cellular work first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are embedded in the membrane, and a new goal calls for ATP-powered sodium export.",
+    "reaction": "The distinction between fitting the pump and operating it is clear.",
+    "step": 5,
+    "reason": "Use the mitochondrial ATP supply to power the pump and advance the new goal.",
+    "choice": 3,
+    "expectation": "The pump will use ATP to move sodium out, and likely potassium in.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cytosolic ATP could also power the pump, but I chose to follow the mitochondrial supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers sodium export and potassium import against their concentration differences, completing the pump goal.",
+    "reaction": "The contrast with passive sodium entry makes the need for energy clear.",
+    "step": 6,
+    "reason": "Assemble ribosomes on mRNA to advance the remaining goal; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "Ribosome subunits will assemble on the mRNA, potentially preparing it for protein synthesis.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are assembled on mRNA, revealing a goal to supply amino acids and ATP for protein synthesis.",
+    "reaction": "The picture shows both free and ER-associated ribosomes, though it does not explain their different destinations.",
+    "step": 7,
+    "reason": "Supply the amino acids needed as protein building blocks.",
+    "choice": 2,
+    "expectation": "Amino acids will be placed at the ribosomes; ATP will probably still need to be supplied.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Mitochondrial ATP is also needed, but I chose to supply the building blocks first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Amino acids are positioned at the ribosomes; an ATP supply remains to be added.",
+    "reaction": "The placement is straightforward but adds no explanation.",
+    "step": 8,
+    "reason": "Supply mitochondrial ATP to advance protein synthesis.",
+    "choice": 2,
+    "expectation": "The ribosomes will use the supplied energy and amino acids to make proteins from the mRNA messages.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Cytosolic ATP is also offered, but I chose to follow the mitochondrial supply."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The supplied amino acids and ATP produced proteins whose sequences follow the mRNA; pyruvate remained on the separate fuel route. All goals are complete.",
+    "reaction": "The separation of fuel and protein-building routes is a useful clarification, though the ER destinations remain unexplained.",
+    "step": 9,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the mitochondrion was most worthwhile: the planned cutaway connects electron transfer, the hydrogen-ion gradient and ATP synthesis, while distinguishing oxygen's role from food's.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Placing amino acids at the ribosomes was straightforward but added no explanation; it felt more like preparation than a meaningful decision.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "The protein result explicitly separates pyruvate from the protein chain and shows that some proteins enter or span the ER, although it does not explain how their destinations are determined.",
+        "steps": [
+          8
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, but choosing mitochondrial over cytosolic ATP at the pump and ribosomes had no explained consequence. Both were offered as compatible supplies.",
+        "steps": [
+          5,
+          8
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter: connecting ATP production to membrane transport and protein synthesis was interesting, although I would want more explanation of compressed steps and ER destinations.",
+        "steps": [
+          3,
+          5,
+          8
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

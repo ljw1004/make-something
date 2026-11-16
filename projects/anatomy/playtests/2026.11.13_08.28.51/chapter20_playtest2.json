@@ -1,0 +1,120 @@
+[
+  {
+    "step": 1,
+    "reason": "The blood sample and water loss suggest the first step in showing how reduced body water is detected.",
+    "choice": {
+      "combine": "Water-balance blood sample",
+      "with": "Water loss"
+    },
+    "expectation": "The sample will become more concentrated as water is lost.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sample is more concentrated, so the next step is to connect it to the brain's water sensors.",
+    "reaction": "The result matched the expected change.",
+    "step": 2,
+    "reason": "The sensors should detect the change in blood concentration and begin the water-saving response.",
+    "choice": {
+      "combine": "Concentrated blood sample",
+      "with": "Brain water sensors and pituitary"
+    },
+    "expectation": "The sensors will respond to the concentrated blood and initiate a pituitary signal.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The concentrated sample triggered ADH release into the blood; the responsive collecting ducts are the next likely target.",
+    "reaction": "The sensor-to-hormone connection is clear, though ADH has not yet been defined.",
+    "step": 3,
+    "reason": "The collecting ducts have receptors for ADH, so they should respond to the hormone in blood.",
+    "choice": {
+      "combine": "Blood carrying more ADH",
+      "with": "Responsive kidney collecting ducts"
+    },
+    "expectation": "ADH will make the collecting ducts conserve more water.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ADH increased water recovery through collecting-duct channels, completing the first goal. The remaining goal calls for a body-wide control route and drinking water.",
+    "reaction": "The contrast between the duct fluid and surrounding tissue makes the water movement clearer.",
+    "step": 4,
+    "reason": "The hormone-releasing nerve endings and pituitary blood vessels are positioned to connect the brain's signal to the bloodstream.",
+    "choice": {
+      "combine": "Hormone-releasing nerve endings",
+      "with": "Pituitary blood vessels"
+    },
+    "expectation": "They will form a route for releasing the water-saving hormone into blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerve endings and vessels formed the hormone-release route, which can now be connected to the body.",
+    "reaction": "The route makes the link between the brain and blood more concrete.",
+    "step": 5,
+    "reason": "The body needs the newly constructed hormone route to complete its water-control system.",
+    "choice": {
+      "combine": "Body with urinary system",
+      "with": "Brain-to-blood hormone route"
+    },
+    "expectation": "The body will gain a connected brain-to-kidney water-control route.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The body now has a brain-to-kidney hormone route; the remaining goal also calls for a drink.",
+    "reaction": "The connection follows the earlier ADH pathway as expected.",
+    "step": 6,
+    "reason": "Drinking water should complete the remaining water-replacement goal.",
+    "choice": {
+      "combine": "Body with water-control route",
+      "with": "Drinking water"
+    },
+    "expectation": "The body will take in water to help replace its losses.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Drinking water entered the circulation, and the comparison showed ADH signalling decreasing as plasma concentration approached its usual range. Both goals are complete.",
+    "reaction": "The feedback connection was a useful conclusion rather than just adding a drink to the model.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting ADH to the collecting ducts was most worthwhile: the planned illustration links receptors and additional water channels to water moving toward more concentrated surrounding tissue and back into blood.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate construction and attachment of the brain-to-blood route repeated a connection already introduced when concentrated blood triggered ADH release, although it made the anatomy more concrete.",
+        "steps": [
+          2,
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final comparison added a feedback connection: as plasma concentration approached its usual range, fewer ADH signals left the pituitary.",
+        "steps": [
+          6
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though constructing the pituitary route separately after ADH had already appeared in blood felt somewhat artificial. ADH was also used without being expanded or defined.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: the water-channel mechanism and the final feedback comparison made the system connections interesting, even if the separate route-building felt repetitive.",
+        "steps": [
+          3,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

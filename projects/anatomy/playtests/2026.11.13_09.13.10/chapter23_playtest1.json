@@ -1,0 +1,109 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal condition to see how pancreatic cells respond to abundant glucose.",
+    "choice": 1,
+    "expectation": "I expect the beta cells to release insulin into the blood, initiating glucose storage or uptake.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The between-meals response is also relevant, but I prefer to follow the meal first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The beta cells released insulin, which reaches both muscle and liver; I can follow either target.",
+    "reaction": "The separate branches make the next choices clear.",
+    "step": 2,
+    "reason": "I'll follow insulin to skeletal muscle to see how it handles glucose after a meal.",
+    "choice": 2,
+    "expectation": "I expect insulin to increase glucose uptake by muscle, possibly with some glucose stored as glycogen.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "The liver is another insulin target, but I'll follow muscle first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin increases muscle glucose transport, and its release weakens as blood glucose falls; I will follow its liver branch next.",
+    "reaction": "The transporter and feedback details make the response clearer.",
+    "step": 3,
+    "reason": "The liver is the other target of the after-meal insulin signal.",
+    "choice": 2,
+    "expectation": "I expect insulin to promote glucose storage as glycogen in the liver.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The between-meals response also matters, but I want to finish the after-meal branch first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin favours liver glycogen storage and reduces glucose output, completing the after-meal goal; the between-meals response remains.",
+    "reaction": "The distinction from muscle transporter insertion is useful.",
+    "step": 4,
+    "reason": "This is the only offered combination, and it starts the between-meals branch.",
+    "choice": 1,
+    "expectation": "I expect pancreatic alpha cells to release glucagon into the blood, signalling the liver to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The between-meal condition increases glucagon release and decreases insulin; the remaining action follows glucagon to the liver.",
+    "reaction": "The contrasting alpha- and beta-cell responses make the comparison clear.",
+    "step": 5,
+    "reason": "This is the only offered combination and follows the glucagon signal to its liver target.",
+    "choice": 1,
+    "expectation": "I expect glucagon to promote glycogen breakdown and glucose release into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon promotes liver glycogen breakdown and glucose release, with stimulation diminishing as glucose rises; both goals are complete.",
+    "reaction": "The feedback completes the comparison clearly, though the result was expected.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following insulin to muscle was worthwhile: the transporter change connects a bloodborne signal to glucose uptake and feedback.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The pancreatic sensing steps were predictable from the two conditions, although they established the comparison.",
+        "steps": [
+          1,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The liver panel explicitly distinguished its glucose entry from muscle's transporter insertion, sharpening the comparison between insulin targets.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, but the final two were the only offered combinations, so they involved little choice.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue for another chapter if it offered a similarly clear comparison, though the predictable, mostly guided combinations limit the gameplay interest.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

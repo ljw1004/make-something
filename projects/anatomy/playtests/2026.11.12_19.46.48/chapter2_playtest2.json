@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action adds a glucose transporter to the cell boundary, addressing the goal of bringing glucose in.",
+    "choice": 1,
+    "expectation": "I expect the transporter to become part of the membrane, allowing glucose to enter in a later step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The transporter is now in the membrane, so glucose can be added next.",
+    "reaction": "The result matched my expectation; the carrier’s placement beside the ion channel is clear.",
+    "step": 2,
+    "reason": "The only offered combination brings glucose to its transporter, advancing the goal.",
+    "choice": 1,
+    "expectation": "I expect glucose to enter the cell through the transporter, though its subsequent breakdown may require another step.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucose enters and is split into pyruvate in the cytosol, producing some ATP before the mitochondrial stage.",
+    "reaction": "The distinction between cytosolic breakdown and the mitochondrial stage is useful and clear.",
+    "step": 3,
+    "reason": "The only offered combination connects glucose breakdown to mitochondria, as the goal asks.",
+    "choice": 1,
+    "expectation": "I expect the cell model to show pyruvate reaching the mitochondria; oxygen and further ATP production may come later.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fuel now enters the mitochondria, completing the first goal and revealing the goal of remaking ATP and pumping ions.",
+    "reaction": "The retained cytosolic arrows make the connection between stages clear.",
+    "step": 4,
+    "reason": "The only offered combination adds oxygen, which is needed for aerobic ATP production.",
+    "choice": 1,
+    "expectation": "I expect oxygen to reach the mitochondria and support ATP production, possibly with another step needed to add ADP and phosphate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen is shown receiving electrons and forming water, while carbon dioxide leaves earlier fuel-breakdown steps; the next step can address ATP formation.",
+    "reaction": "The distinction between oxygen’s role and fuel’s energy supply is useful.",
+    "step": 5,
+    "reason": "The only offered combination adds ADP and phosphate to advance the ATP-remaking goal.",
+    "choice": 1,
+    "expectation": "I expect the model to show ATP being made from ADP and phosphate during respiration, though the mechanism is not yet clear.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The model now shows ATP being remade from ADP and phosphate, with contributions from both cytosolic and mitochondrial processes.",
+    "reaction": "The recycling arrows are clear, though the energy-transfer mechanism remains broad.",
+    "step": 6,
+    "reason": "The only offered combination adds the ion pump to address the remaining goal of using ATP to pump ions.",
+    "choice": 1,
+    "expectation": "I expect ATP to power the membrane pump moving ions across the boundary, though the precise directions may be shown in the result.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The completed model connects ATP use to pumping sodium and potassium against their concentration differences, completing the chapter’s goals.",
+    "reaction": "The contrast with the earlier passive sodium channel makes the pump’s purpose clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Adding the ion pump was most worthwhile: it connected respiration and ATP recycling to a concrete job at the membrane, contrasting active pumping with channel-mediated movement.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Connecting the fuel molecules to mitochondria felt least engaging as a separate action: it was the only offered combination and mostly extended an already visible pathway.",
+        "steps": [
+          3
+        ]
+      },
+      "surprise": {
+        "text": "The oxygen step clarified that oxygen receives electrons and becomes part of water, rather than serving as the fuel itself.",
+        "steps": [
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "No action seemed purposeless, but the ATP-making energy-transfer arrows left the mechanism broad; how the mitochondrial pathway drives ATP formation was not explained.",
+        "steps": [
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue to see how the cell-level constructions connect to tissues and organs. The linked picture plans were useful, though the choices here were largely predetermined.",
+        "steps": [
+          2,
+          4,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,108 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with the after-meal insulin signal so the muscle can store glucose, as the goal describes.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release insulin into the blood; I'm not sure what step comes next.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Storing glucose in the liver is another clear after-meal task, but I chose the insulin route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Insulin is now in the blood, so I can follow its route to the muscle.",
+    "reaction": "The picture makes the signal's trip from pancreas to muscle clear.",
+    "step": 2,
+    "reason": "I'll combine the insulin with the muscle fibres to work toward storing glucose there.",
+    "choice": 2,
+    "expectation": "I expect insulin to help the muscle take in glucose and perhaps store it; I'm not sure if storage happens in this step.",
+    "alternatives": [
+      {
+        "choice": 3,
+        "reason": "Liver storage is also an after-meal goal, but I want to follow the insulin route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Muscle has stored glucose in linked chains, while insulin stayed outside as a signal. Next I can work on liver storage.",
+    "reaction": "The distinction between the message and the stored material is clear.",
+    "step": 3,
+    "reason": "I'll combine meal glucose with liver cells to complete the other after-meal storage goal.",
+    "choice": 2,
+    "expectation": "I expect the liver cells to store the meal glucose, perhaps in linked chains like muscle.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Glucagon is the between-meal message, but I want to store glucose in the liver first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver has stored linked glucose, and the new goal is to release it between meals.",
+    "reaction": "The stored chains make the connection to the earlier muscle store clear.",
+    "step": 4,
+    "reason": "I'll follow the only offered combination to get the between-meal glucagon message into the blood.",
+    "choice": 1,
+    "expectation": "I expect the pancreatic cells to release glucagon into the blood, which may then signal the liver to release glucose.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glucagon is now in the blood and can signal the liver to break down its store.",
+    "reaction": "The contrast with the after-meal insulin message is clear.",
+    "step": 5,
+    "reason": "I'll follow the only offered combination to release glucose from the liver store.",
+    "choice": 1,
+    "expectation": "I expect glucagon to prompt the liver to break the stored chains into glucose and release it into the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The liver store released glucose into the blood, completing the between-meal goal. The release signal then eases as blood glucose rises.",
+    "reaction": "It was satisfying to see the stored chains become separate glucose molecules again.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Releasing glucose from the liver was most worthwhile because it connected after-meal storage to the need for fuel between meals.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Releasing glucagon felt less engaging as a separate step: the picture and goal had already made its purpose clear, and it was the only offered combination.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The muscle result clarified that insulin stays outside as a message rather than becoming part of the stored carbohydrate.",
+        "steps": [
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though the last two combinations were the only offered actions rather than meaningful choices.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how another body system connects to these fuel pathways, though I'd hope for more choices than the final sequence offered.",
+        "steps": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

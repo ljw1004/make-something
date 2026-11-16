@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "reason": "Copying the genome is essential before the cell divides, and the cell model and nucleotides are the relevant starting pieces.",
+    "choice": 2,
+    "expectation": "I expect the nuclear DNA to be copied using the nucleotides, though I don't know how the game will represent the copies.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Preparing membrane is also a goal, but I chose genome copying first."
+      },
+      {
+        "choice": 3,
+        "reason": "Building the spindle is needed too, but copying the DNA seems a useful place to start."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The DNA is copied, and the new goal makes clear that a grown cell and spindle are needed to form daughter nuclei.",
+    "reaction": "The sister-chromatid inset is a useful connection between DNA copying and chromosome division.",
+    "step": 2,
+    "reason": "Build the spindle needed for the newly revealed goal.",
+    "choice": 2,
+    "expectation": "I expect the proteins and duplicated centrosomes to form a chromosome-moving spindle.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "New membrane is also needed, but I chose to prepare the spindle first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spindle is assembled, but chromosomes are not attached; the cell still needs to grow before the newly revealed division goal.",
+    "reaction": "The timing caption helps place spindle assembly after DNA copying.",
+    "step": 3,
+    "reason": "Prepare new membrane for cell growth; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect phospholipids and proteins to form new membrane material, though the exact representation is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The vesicles provide the membrane supply needed to enlarge the cell.",
+    "reaction": "The ER and Golgi inset places the membrane supply in a cellular context.",
+    "step": 4,
+    "reason": "Use the membrane supply to grow the copied-DNA cell; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the vesicles to add membrane to the cell, producing a larger cell ready for division.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cell has grown and retains copied DNA, so it is ready for the spindle step.",
+    "reaction": "The labels make the two preparations easy to track.",
+    "step": 5,
+    "reason": "Use the spindle on the grown cell to form daughter nuclei; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect the spindle to separate sister chromatids and form two daughter nuclei, though the exact depiction is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nuclei have formed, but the connected cytoplasm still needs to divide.",
+    "reaction": "The shallow furrow clearly distinguishes nuclear division from cytoplasmic separation.",
+    "step": 6,
+    "reason": "Use actin and myosin to divide the cytoplasm; this is the only offered combination.",
+    "choice": 1,
+    "expectation": "I expect actin and myosin to constrict the furrow and separate the cell into two daughters, each with a nucleus.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cytoplasm has separated into two stem cells, each with a complete genome; the chapter is complete.",
+    "reaction": "The distinction between self-renewal and later differentiation makes the outcome clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Forming two daughter nuclei before dividing the cytoplasm was the most worthwhile passage: the connected cell and shallow furrow made those separate events clear.",
+        "steps": [
+          5,
+          6
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Preparing membrane and then adding it felt somewhat repetitive, especially with only one combination offered at each step. The ER and Golgi inset also locates the vesicles without explaining their roles.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The spindle was shown as assembling during mitosis after DNA copying, even though I selected its construction before enlarging the cell. That timing caption helped distinguish the model's preparation sequence from cellular timing.",
+        "steps": [
+          2,
+          4
+        ]
+      },
+      "arbitrary": {
+        "text": "Combining generic new cell proteins with duplicated centrosomes to make a spindle felt somewhat compressed: the result labels tubulin and a motor protein, but does not explain how they assemble into the spindle.",
+        "steps": [
+          2
+        ]
+      },
+      "continue": {
+        "text": "I would continue into another chapter: the separate nuclear and cytoplasmic division steps were informative, and the promised differentiation into lining, muscle and nerve cells offers an interesting next direction.",
+        "steps": [
+          5,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

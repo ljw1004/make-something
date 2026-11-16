@@ -1,0 +1,129 @@
+[
+  {
+    "step": 1,
+    "reason": "The skull picture shows it enclosing the brain, directly matching the protection goal.",
+    "choice": {
+      "combine": "Brain",
+      "with": "Skull"
+    },
+    "expectation": "The skull will protect the brain while leaving openings at its base.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Spinal cord",
+          "with": "Backbone"
+        },
+        "reason": "The backbone also visibly surrounds the structure it protects."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The brain is now protected by the skull; the spinal cord still needs its protection.",
+    "reaction": "The cutaway showing membranes and fluid was a useful extra detail.",
+    "step": 2,
+    "reason": "The backbone picture shows it surrounding the spinal cord, matching the other part of the protection goal.",
+    "choice": {
+      "combine": "Spinal cord",
+      "with": "Backbone"
+    },
+    "expectation": "The backbone will surround and protect the spinal cord.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sensory nerve fibres",
+          "with": "Motor nerve fibres"
+        },
+        "reason": "The incoming and outgoing routes also need to be joined."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The spinal cord is protected, and a new goal asks me to connect it to the protected brain.",
+    "reaction": "The side openings explain how nerve branches can still reach the body.",
+    "step": 3,
+    "reason": "The new goal directly names the two protected structures that need connecting.",
+    "choice": {
+      "combine": "Brain inside the skull",
+      "with": "Spinal cord inside the backbone"
+    },
+    "expectation": "The protected brain and spinal cord will connect.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Sensory nerve fibres",
+          "with": "Motor nerve fibres"
+        },
+        "reason": "Joining the incoming and outgoing routes is also a goal."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The protected brain and spinal cord are connected; the incoming and outgoing nerve routes still need joining.",
+    "reaction": "The idea that local cord circuits can produce rapid responses was surprising.",
+    "step": 4,
+    "reason": "The sensory and motor fibres are the named incoming and outgoing routes, so joining them directly matches the remaining goal.",
+    "choice": {
+      "combine": "Sensory nerve fibres",
+      "with": "Motor nerve fibres"
+    },
+    "expectation": "The incoming and outgoing nerve routes will be joined.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The incoming and outgoing fibres share a nerve covering but remain separate; the new goal is to connect those nerves to the brain and spinal cord.",
+    "reaction": "The separate fibres carrying signals in opposite directions are a useful detail.",
+    "step": 5,
+    "reason": "The new goal directly names the nerves and the connected brain and spinal cord.",
+    "choice": {
+      "combine": "Nerves carrying signals both ways",
+      "with": "Brain and spinal cord"
+    },
+    "expectation": "The nerves will connect to the brain and spinal cord, providing routes for signals to and from the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The nerves now connect the protected brain and spinal cord to the body, completing all the chapter goals.",
+    "reaction": "It was satisfying to see the protection and signal routes come together in one model.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the sensory and motor fibres was most worthwhile: the picture made clear that incoming and outgoing signals travel along separate fibres within one nerve.",
+        "steps": [
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Protecting the brain and spinal cord was clear but predictable; both pairings were shown directly in the pictures.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The spinal cord can produce rapid responses through local circuits without waiting for a conscious decision. I would have liked to see an example of one.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, though joining the sensory and motor fibres was guided mainly by the named goal rather than a detailed explanation of how the nerve is assembled.",
+        "steps": [
+          4
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue, especially to see an example of how a signal produces a response. The assembled model gives me a useful starting point.",
+        "steps": [
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

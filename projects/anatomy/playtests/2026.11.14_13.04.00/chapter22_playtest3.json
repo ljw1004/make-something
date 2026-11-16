@@ -1,0 +1,100 @@
+[
+  {
+    "step": 1,
+    "reason": "I'll start with filtering blood to see what enters the kidney tube and what stays behind.",
+    "choice": 1,
+    "expectation": "I expect water and other small substances, including glucose and waste, to pass through while blood cells and large proteins stay in the vessels.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ureters would start the route to the bladder, but I want to follow filtering first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Filtering let useful glucose through along with waste, so the next step is to follow recovery.",
+    "reaction": "It's interesting that the filter doesn't just remove waste.",
+    "step": 2,
+    "reason": "The recovery tube is the next part of the filtering goal, and its picture shows useful substances returning to blood.",
+    "choice": 1,
+    "expectation": "I expect glucose, some salts and much of the water to return to blood, leaving some fluid and waste to continue onward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The ureters would build the urine route, but I want to finish following the filtered fluid first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The kidney recovered useful substances and much water, leaving urine to follow its collecting route. I can now build the route to the bladder.",
+    "reaction": "It makes sense that the filter takes useful things through too, and the tube takes them back.",
+    "step": 3,
+    "reason": "The ureters connect the kidneys toward the bladder, so I'll build the route in that order.",
+    "choice": 1,
+    "expectation": "I expect the two ureters to attach to the kidneys, with the bladder still to be added.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "I could add the bladder first, but following the route from the kidneys seems clearer."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ureters now connect the kidney outlets toward the bladder position, leaving the bladder to add.",
+    "reaction": "The squeezing arrows help explain how urine moves along the tubes.",
+    "step": 4,
+    "reason": "Adding the bladder is the only available combination and completes the route from the kidneys.",
+    "choice": 1,
+    "expectation": "I expect the bladder to attach to both ureters and collect urine.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The bladder completes the route from both kidneys, and the chapter's goals are complete.",
+    "reaction": "Seeing the same fluid follow the whole route made the connection clear.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Following filtered fluid into the recovery tube was most worthwhile: it showed why the kidney takes useful substances and water back instead of just filtering out waste.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the bladder was straightforward and the only available combination, so it felt less like a decision, even though it completed the model.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "The filter lets useful glucose through along with waste; the recovery tube then takes useful substances back.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "None felt arbitrary: the pictures and goals explained the filter, recovery tube and urine route. The compatible menu still supplied the pairings.",
+        "steps": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "continue": {
+        "text": "Yes, I would try another chapter: following the kidney's filter-and-recovery process was interesting, and the route to the bladder made the result concrete.",
+        "steps": [
+          1,
+          2,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

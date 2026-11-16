@@ -1,0 +1,118 @@
+[
+  {
+    "step": 1,
+    "reason": "The oxygen picture shows it crossing the oily middle of a membrane, so the membrane fats seem like a direct starting point.",
+    "choice": {
+      "combine": "Membrane fats (lipids)",
+      "with": "Oxygen"
+    },
+    "expectation": "This should make a boundary that lets oxygen enter.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Water-channel protein",
+          "with": "Water"
+        },
+        "reason": "The pictured pore suggests a water route, but the boundary seems useful to establish first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fats combined with water to form a membrane patch; its description says oxygen can cross its oily middle.",
+    "reaction": "I was surprised water was needed to make the patch first.",
+    "step": 2,
+    "reason": "Now that the boundary exists, oxygen seems like the direct match for the first goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Oxygen"
+    },
+    "expectation": "This should show oxygen entering through the membrane and complete the oxygen goal.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Water-channel protein"
+        },
+        "reason": "The channel also belongs in the boundary, but I want to finish the oxygen route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen crosses the membrane in both directions, with more entering, completing the first goal.",
+    "reaction": "The two-way arrows were interesting; crossing isn't only inward.",
+    "step": 3,
+    "reason": "The water-channel protein is pictured as a pore, so fitting it into the membrane should help create the water route.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Water-channel protein"
+    },
+    "expectation": "The protein should become part of the membrane and provide a route for water.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Cell membrane patch",
+          "with": "Sugar-carrier protein"
+        },
+        "reason": "The sugar carrier also belongs in the membrane, but I can work on the water route first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The channel spans the membrane and lets water pass both ways, completing the water-route goal.",
+    "reaction": "It is satisfying to see the pictured pore fitted into the boundary.",
+    "step": 4,
+    "reason": "The sugar-carrier picture shows a protein spanning the membrane, so it seems like the direct match for the remaining goal.",
+    "choice": {
+      "combine": "Cell membrane patch",
+      "with": "Sugar-carrier protein"
+    },
+    "expectation": "The carrier should fit into the membrane and prepare a route for sugar.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The sugar carrier fits into the membrane, and its pocket opens to each side in turn. That completes the last goal and shows another route through the boundary.",
+    "reaction": "The changing pocket was interesting, although the picture does not show sugar actually moving through it.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Making the water channel was worthwhile because fitting the pictured pore into the membrane made the protein route easy to understand.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the sugar carrier was a bit predictable after fitting the water channel, though its changing pocket made it distinct.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the fats first needed water to form the membrane patch, and that oxygen crosses in both directions with more entering.",
+        "steps": [
+          1,
+          2
+        ]
+      },
+      "arbitrary": {
+        "text": "The initial need to combine fats with water was not obvious to me before the compatibility hint, even though the resulting picture explained how the layers face water.",
+        "steps": [
+          1
+        ]
+      },
+      "continue": {
+        "text": "I would try another chapter: the pictures made the different membrane routes understandable, and I am curious how other cell parts fit together.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

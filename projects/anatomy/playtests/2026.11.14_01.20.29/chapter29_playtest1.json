@@ -1,0 +1,216 @@
+[
+  {
+    "step": 1,
+    "reason": "The eye belongs in the head, and its optic nerve leads toward the brain already there.",
+    "choice": {
+      "combine": "Eye with optic nerve",
+      "with": "Head and spine[]"
+    },
+    "expectation": "The eye should fit into the head and connect toward the brain.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Repaired skin segment",
+          "with": "Skin covering[]"
+        },
+        "reason": "The matching opening also makes that fitting clear, but I’ll start with the head."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The eye is in the head, with its optic nerve leading into the brain. The ears are the other part needed for the head goal.",
+    "reaction": "It is satisfying to see the eye connect to the same brain.",
+    "step": 2,
+    "reason": "The ears belong in the head, and their hearing and balance nerves already lead toward the brain.",
+    "choice": {
+      "combine": "Ears",
+      "with": "Head and spine[Eye with optic nerve]"
+    },
+    "expectation": "The ears should fit into the head with their nerve routes toward the brain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head now has both the eye and ears, completing that goal.",
+    "reaction": "It is clear how their existing nerve routes connect to the brain.",
+    "step": 3,
+    "reason": "The small intestine ends beside the colon outline, so these should join into a continuous digestive tract for the lower body.",
+    "choice": {
+      "combine": "Upper digestive tract",
+      "with": "Colon"
+    },
+    "expectation": "The colon should join the end of the upper digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The upper digestive tract and colon now form a continuous digestive tract that can fit into the lower body.",
+    "reaction": "The separate food and blood arrows make the connection clearer.",
+    "step": 4,
+    "reason": "The lower body has a named digestive tract slot, so the completed tract should fit there.",
+    "choice": {
+      "combine": "Digestive tract",
+      "with": "Lower body[]"
+    },
+    "expectation": "The digestive tract should be placed in the lower body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The digestive tract is in the lower body; the urinary organs still have a named slot there.",
+    "reaction": "The food pipe continuing toward the chest makes the regions' connection clearer.",
+    "step": 5,
+    "reason": "The lower body has a urinary organs slot, and the kidneys, ureters and bladder are already assembled.",
+    "choice": {
+      "combine": "Urinary organs",
+      "with": "Lower body[Digestive tract]"
+    },
+    "expectation": "The urinary organs should fit into the lower body alongside the digestive tract.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lower body now contains both the digestive tract and urinary organs, with separate outlets.",
+    "reaction": "The separate routes are clear in the picture.",
+    "step": 6,
+    "reason": "The repaired skin segment matches the named opening in the skin covering; the covering itself can be fitted last.",
+    "choice": {
+      "combine": "Repaired skin segment",
+      "with": "Skin covering[]"
+    },
+    "expectation": "The repaired segment should fill the matching opening in the skin covering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The repaired segment fills its matching opening, and the next goal is to join the chest and lower body.",
+    "reaction": "It is helpful that the small scar stays in its original location.",
+    "step": 7,
+    "reason": "The breathing apparatus forms the chest, and the lower body's upper edge lies just below its diaphragm.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lower body"
+    },
+    "expectation": "The chest and lower body should join at the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest cannot yet join the lower body; its compatibility list shows the arm and lymph network as available partners.",
+    "reaction": "I expected the regions to join directly, so the extra preparation was surprising.",
+    "step": 8,
+    "reason": "The lymph drainage network returns fluid to a vein near the neck, and the chest is listed as a compatible partner. I’m following that hint to prepare it.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The lymph drainage network should connect to the chest model.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Breathing apparatus",
+          "with": "Arm assembly"
+        },
+        "reason": "The arm is also listed as compatible, so it could be attached first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph network is now fitted to the chest, with its existing junction aligned to the vein. The arm was the other compatible partner shown.",
+    "reaction": "The shared vein connection makes the fitting clearer.",
+    "step": 9,
+    "reason": "The compatibility list showed that the arm assembly can fit the chest, so I’ll attach it before trying to join the regions again.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Arm assembly"
+    },
+    "expectation": "The arm assembly should attach to the chest model.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is attached and the chest and lower body preparation goal is complete, so I can try joining the regions again.",
+    "reaction": "The shoulder connections make the arm's placement clear.",
+    "step": 10,
+    "reason": "The newly completed preparation may have removed the obstacle to joining the chest and lower body.",
+    "choice": {
+      "combine": "Breathing apparatus",
+      "with": "Lower body"
+    },
+    "expectation": "The prepared chest and lower body should join at the diaphragm.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The chest and lower body are joined, leaving a channel for the spine and a new goal to connect the head.",
+    "reaction": "The diaphragm makes the boundary between chest and abdomen clear.",
+    "step": 11,
+    "reason": "The trunk has an open channel for the spine already attached to the head.",
+    "choice": {
+      "combine": "Head and spine",
+      "with": "Trunk and limbs"
+    },
+    "expectation": "The spine should fit into the trunk, joining the head and its nerve routes to the body.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The head and spine now join the trunk, and the remaining goal is to fit the skin covering.",
+    "reaction": "The shared nerve and blood routes help connect the separate regions.",
+    "step": 12,
+    "reason": "The prepared skin covering is meant to go over the assembled body last.",
+    "choice": {
+      "combine": "Skin covering",
+      "with": "Body beneath the skin"
+    },
+    "expectation": "The skin covering should fit over the body, keeping the repaired segment in place.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The skin covering completed the body, with the repaired scar and the assembled organs still in place. All goals are complete.",
+    "reaction": "The final cutaway is satisfying because it shows the separate parts working together.",
+    "step": 13,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Joining the head and spine to the trunk made the nerve and blood routes feel like connections across one body rather than separate pieces.",
+        "steps": [
+          11
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The first attempt to join the chest and lower body was frustrating: their matching edges made the pairing seem ready, but the required preparation was not clear beforehand.",
+        "steps": [
+          7
+        ]
+      },
+      "surprise": {
+        "text": "I was surprised that the chest first needed the arm and lymph network fitted before it could join the lower body.",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "arbitrary": {
+        "text": "The order requiring those chest fittings before joining the regions felt somewhat arbitrary, even though their eventual locations made sense.",
+        "steps": [
+          7,
+          8,
+          9
+        ]
+      },
+      "continue": {
+        "text": "I would probably continue for another chapter if it explored how the assembled systems work together. Seeing the nerve and blood routes come together was more interesting than just filling named slots.",
+        "steps": [
+          11,
+          12
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm and nervous system have matching peripheral connections, directly addressing the current goal.",
+    "choice": {
+      "combine": "Arm assembly[Biceps with tendons,Triceps with tendons]",
+      "with": "Nervous system model"
+    },
+    "expectation": "Peripheral nerves should connect the central nervous system to the arm muscles.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm now has motor and sensory connections; the next goal is tissue blood supply and fluid return.",
+    "reaction": "The spindle-to-spinal-circuit closeup makes the two-way connection clearer.",
+    "step": 2,
+    "reason": "The breathing apparatus contains the circulation, and the innervated framework contains the arm tissues that need its blood supply.",
+    "choice": {
+      "combine": "Innervated body framework",
+      "with": "Breathing apparatus[Diaphragm,Circulation with lung exchange]"
+    },
+    "expectation": "The circulation should connect to the arm tissues, while the nervous system remains connected to the body.",
+    "alternatives": [
+      {
+        "choice": {
+          "combine": "Tissue spaces",
+          "with": "Lymphatic capillaries"
+        },
+        "reason": "These also directly suggest the fluid-return route, but blood supply is a natural first connection."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The circulation now supplies arm and neural tissues, and nervous pathways also reach the breathing muscles. The remaining issue is returning excess tissue fluid.",
+    "reaction": "The comparison showing fluid accumulating with inadequate return makes the next connection clear.",
+    "step": 3,
+    "reason": "Blind-ended lymphatic capillaries can collect fluid from the tissue spaces.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries should take up excess fluid from between the cells.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The tissue fluid and some proteins now enter lymphatic capillaries; the lymph still needs a route back to the veins.",
+    "reaction": "The flap illustration clearly shows how fluid enters the blind-ended vessels.",
+    "step": 4,
+    "reason": "The collecting vessel and return duct should carry lymph onward from the draining capillaries.",
+    "choice": {
+      "combine": "Draining tissue spaces",
+      "with": "Collecting lymph vessel and return duct"
+    },
+    "expectation": "The lymphatic capillaries should connect to the collecting vessel and duct, leaving the duct ready to join the vein.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Lymph now has a collecting route to the duct outlet, but the venous junction remains open.",
+    "reaction": "The marked neck-vein outlet makes the next connection clear.",
+    "step": 5,
+    "reason": "The return duct needs to join the vein to complete the fluid-return route.",
+    "choice": {
+      "combine": "Tissue lymph entry with collecting route",
+      "with": "Venous junction"
+    },
+    "expectation": "The duct should connect to the vein, returning lymph to the bloodstream.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage network now returns tissue fluid to a neck vein; it still needs connecting to the supplied body framework.",
+    "reaction": "The continuous arrows make the return route easy to follow.",
+    "step": 6,
+    "reason": "The completed lymph route should connect to the body framework and its tissue circulation.",
+    "choice": {
+      "combine": "Supplied body framework",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The lymph network should integrate with the body’s tissue spaces and circulation, completing fluid return.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph route is integrated with the circulation, completing the model and showing how continued return helps keep tissue fluid roughly steady.",
+    "reaction": "The matched before-and-after views make the purpose of lymph return clear.",
+    "step": 7,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the circulation to the body was most worthwhile: the planned insets link blood supply, respiratory drive and fluid accumulation when return is inadequate.",
+        "steps": [
+          2
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "The separate collecting-duct and venous-junction combinations felt somewhat repetitive, though each made a distinct part of the route visible.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The lymphatic entry illustration showed proteins entering alongside tissue fluid, not just water.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "Nothing felt purposeless, although assembling the return route in several separate combinations was predictable.",
+        "steps": [
+          4,
+          5,
+          6
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting the systems and seeing the consequences of inadequate fluid return was more engaging than simply assembling named structures.",
+        "steps": [
+          2,
+          6
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

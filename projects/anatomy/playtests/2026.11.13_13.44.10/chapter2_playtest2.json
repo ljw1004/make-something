@@ -1,0 +1,134 @@
+[
+  {
+    "step": 1,
+    "reason": "Glucose fits the glycolysis enzyme pocket, directly addressing the ATP goal.",
+    "choice": {
+      "combine": "Glucose in the cytosol",
+      "with": "Cytosol with glycolysis enzymes"
+    },
+    "expectation": "Glycolysis will break down glucose and produce ATP in the cytosol.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced cytosolic ATP and pyruvate without oxygen, and the new goal points toward mitochondrial respiration.",
+    "reaction": "The pyruvate arrow makes the next connection clear.",
+    "step": 2,
+    "reason": "The new goal calls for food breakdown products and oxygen at the mitochondrion; pyruvate is the indicated breakdown product.",
+    "choice": {
+      "combine": "Cytosolic ATP and pyruvate",
+      "with": "Mitochondrion"
+    },
+    "expectation": "Pyruvate will enter the mitochondrion, potentially bringing in the available oxygen as well.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate has entered the mitochondrial matrix, but oxygen still needs to be supplied.",
+    "reaction": "The electron-carrier inset connects pyruvate processing to the inner membrane.",
+    "step": 3,
+    "reason": "The remaining mitochondrial goal explicitly requires oxygen.",
+    "choice": {
+      "combine": "Oxygen entering the cytosol",
+      "with": "Mitochondrion supplied with pyruvate"
+    },
+    "expectation": "Oxygen will be supplied to the mitochondrion for respiration.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completed the mitochondrial supply, showing how electron transfer and a proton gradient support ATP production.",
+    "reaction": "The connection between oxygen accepting electrons and ATP synthase is useful.",
+    "step": 4,
+    "reason": "The pump proteins have a membrane-spanning region, so fitting them into the lipid patches directly addresses the pump goal.",
+    "choice": {
+      "combine": "Sodium-potassium pump proteins",
+      "with": "Lipid-only membrane patches"
+    },
+    "expectation": "The pump proteins will be fitted into the membrane patches.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pumps are fitted in the membrane, and the new goal calls for ATP-powered sodium export.",
+    "reaction": "The absence of transport arrows makes the distinction between fitting and operating the pump clear.",
+    "step": 5,
+    "reason": "The new goal directly calls for ATP to power the fitted pumps.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Membrane with sodium-potassium pumps"
+    },
+    "expectation": "ATP will power the pumps to move sodium out of the cell.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powered sodium export and potassium import against their concentration differences; the ribosome goal remains.",
+    "reaction": "The contrast with passive sodium entry is clear.",
+    "step": 6,
+    "reason": "Ribosome subunits and mRNA messages directly match the remaining assembly goal.",
+    "choice": {
+      "combine": "Ribosome subunits",
+      "with": "mRNA messages from the nucleus"
+    },
+    "expectation": "Ribosome subunits will assemble on an mRNA message.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The ribosomes are assembled on mRNA, and the new goal calls for ATP-supported protein production.",
+    "reaction": "The inset clarifies that ATP helps prepare amino acids for delivery.",
+    "step": 7,
+    "reason": "The mitochondrial ATP supply can provide energy to the prepared ribosomes.",
+    "choice": {
+      "combine": "Mitochondrial ATP supply",
+      "with": "Ribosomes on mRNA"
+    },
+    "expectation": "ATP will support protein-making at the ribosomes.",
+    "alternatives": [],
+    "lookedAgain": true
+  },
+  {
+    "effect": "Protein production completed the chapter, linking ATP-supported amino acid preparation to translation while keeping pyruvate on the separate fuel route.",
+    "reaction": "The distinction between fuel and protein building blocks is useful.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the pyruvate-fed mitochondrion was most worthwhile: the picture plan connects electron transfer, the hydrogen-ion gradient and ATP synthase.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pump was straightforward, though separating installation from operation made the sequence clear.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final protein picture explicitly separates pyruvate's fuel route from the amino acids in the protein chain.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless. The term RNA adapters appears before the final picture identifies tRNA, so that connection could be clearer.",
+        "steps": [
+          6,
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would choose to continue: connecting ATP production to membrane transport and protein-making made the constructions informative.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

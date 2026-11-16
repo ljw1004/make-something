@@ -1,0 +1,105 @@
+[
+  {
+    "step": 1,
+    "reason": "Warm-condition signals reach the skin, where blood vessels can adjust heat loss.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The skin vessels should widen, increasing heat transfer to the cooler air.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Widened skin vessels carry more blood near the surface, transferring heat to cooler surroundings. I will explore the other warm response.",
+    "reaction": "The explicit heat-flow arrows make the cooling mechanism clear.",
+    "step": 2,
+    "reason": "Warm nerve signals also reach sweat glands, which can help cool the body.",
+    "choice": {
+      "combine": "Warm-condition nerve signals",
+      "with": "Sweat glands"
+    },
+    "expectation": "The glands should produce sweat that can cool the skin as it evaporates.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The warm signal produces liquid sweat; evaporation remains to be shown.",
+    "reaction": "The distinction between sweating and evaporation is useful.",
+    "step": 3,
+    "reason": "Air at the skin provides the surroundings needed for sweat to evaporate.",
+    "choice": {
+      "combine": "Sweating body",
+      "with": "Air at the skin"
+    },
+    "expectation": "Sweat should evaporate into the air, carrying heat away from the skin.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Evaporation completes the warm response, with less evaporation in humid air; the cold response remains.",
+    "reaction": "Separating sweat production from evaporation makes the cooling mechanism clearer.",
+    "step": 4,
+    "reason": "Cold signals reach the skin vessels, which can reduce heat loss by narrowing.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skin vessels"
+    },
+    "expectation": "The vessels should narrow, reducing blood flow near the surface and heat loss.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Narrowing skin vessels reduces heat loss without producing heat; the cold response still needs another component.",
+    "reaction": "The distinction between conserving and producing heat is clear.",
+    "step": 5,
+    "reason": "Cold signals also reach skeletal motor pathways, suggesting a muscle response.",
+    "choice": {
+      "combine": "Cold-condition nerve signals",
+      "with": "Skeletal muscle"
+    },
+    "expectation": "Muscle activity should produce heat, likely through shivering.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Shivering completes the cold response: repeated muscle contractions produce heat, complementing reduced heat loss through narrowed skin vessels.",
+    "reaction": "The contrast between making heat and conserving it was clear and satisfying.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Combining sweat with air was most worthwhile: the planned comparison distinguishes producing sweat from cooling by evaporation and shows why humid air reduces evaporation.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Producing liquid sweat was a fairly predictable intermediate step, though it set up the useful evaporation comparison.",
+        "steps": [
+          2
+        ]
+      },
+      "surprise": {
+        "text": "The temperature traces show both cooling and shivering easing as temperature returns toward its earlier range, making the feedback connection visible.",
+        "steps": [
+          3,
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless; the signals and target tissues made the combinations reasonably clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would choose to continue if another chapter developed similarly concrete comparisons: the heat-flow and evaporation explanations connected familiar responses to their mechanisms without requiring specialist terminology.",
+        "steps": [
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "step": 1,
+    "reason": "Start with glucose breakdown to follow the fuel toward ATP, which the pump will need.",
+    "choice": 3,
+    "expectation": "Glycolysis will break down glucose in the cytosol and yield some ATP, possibly alongside products for the mitochondrion.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "Fitting the pump addresses another goal, but starting with its energy supply seems useful."
+      },
+      {
+        "choice": 2,
+        "reason": "Ribosome assembly is also a goal, but I want to follow the glucose pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Glycolysis produced ATP and pyruvate without an oxygen input, and the new goal points toward the mitochondrion.",
+    "reaction": "The pyruvate arrow makes the next connection clear.",
+    "step": 2,
+    "reason": "Follow the breakdown products into the mitochondrion to advance the new goal.",
+    "choice": 3,
+    "expectation": "Pyruvate will be supplied to the mitochondrion, though oxygen may require a separate step.",
+    "alternatives": [
+      {
+        "choice": 1,
+        "reason": "The pump still needs fitting, but I want to continue the fuel pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Pyruvate enters the matrix and is processed, releasing CO₂ and transferring electrons to carriers; oxygen is still needed for the goal.",
+    "reaction": "The electron-carrier inset makes me curious about the inner membrane's role.",
+    "step": 3,
+    "reason": "Supply oxygen to continue the mitochondrial pathway and address the current goal.",
+    "choice": 3,
+    "expectation": "Oxygen will reach the supplied mitochondrion, potentially allowing further ATP production.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Oxygen completes electron transfer, allowing a hydrogen-ion gradient to drive mitochondrial ATP production; the mitochondrion goal is complete.",
+    "reaction": "The connection between electron transfer and ATP synthase is a useful payoff.",
+    "step": 4,
+    "reason": "Fit the pump into the membrane to advance the remaining pump goal.",
+    "choice": 1,
+    "expectation": "The pump proteins will become embedded in the lipid membrane; using ATP may require another step.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Ribosome assembly is also a remaining goal, but I want to connect ATP production to the pump first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The pump is fitted but not yet transporting ions; the new goal calls for ATP to move sodium out.",
+    "reaction": "The missing transport arrows make the next task clear.",
+    "step": 5,
+    "reason": "Use the mitochondrial ATP supply to connect the completed energy pathway to pump-driven transport.",
+    "choice": 3,
+    "expectation": "ATP will power the pump to move sodium outward, likely with potassium moving inward.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Cytosolic ATP could also power the pump, but I want to use the mitochondrial supply I just made."
+      },
+      {
+        "choice": 1,
+        "reason": "Ribosome assembly remains a goal, but I want to finish the pump pathway first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP powers the pump to move sodium out and potassium in, completing the transport goal.",
+    "reaction": "The contrast with passive sodium entry makes the energy requirement clear.",
+    "step": 6,
+    "reason": "Ribosome assembly is the remaining goal and the only offered combination.",
+    "choice": 1,
+    "expectation": "The subunits will assemble on the mRNA, forming ribosomes ready to make proteins.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Ribosomes are assembled on mRNA, and the new goal is to power protein-making.",
+    "reaction": "The RNA-adapter inset connects ATP to preparation, though it leaves the delivery mechanism brief.",
+    "step": 7,
+    "reason": "Use cytosolic ATP to power the prepared ribosomes and advance the new goal.",
+    "choice": 1,
+    "expectation": "ATP will support amino-acid delivery and protein production at the ribosomes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Mitochondrial ATP is another available source, but I already used it for the pump."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Protein production completes the chapter; the result shows tRNA matching mRNA and keeps pyruvate separate from the protein chain.",
+    "reaction": "The final picture usefully clarifies how the message guides a protein, although the delivery mechanism remains brief.",
+    "step": 8,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Supplying oxygen to the mitochondrion was the strongest payoff: the planned diagram connects electron transfer, the hydrogen-ion gradient and ATP synthase.",
+        "steps": [
+          2,
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Fitting the pump was a necessary but relatively uneventful intermediate step; its purpose became clearer once ATP powered transport.",
+        "steps": [
+          4,
+          5
+        ]
+      },
+      "surprise": {
+        "text": "The final protein-making picture explicitly separates pyruvate from the protein chain while showing tRNA matching an mRNA triplet.",
+        "steps": [
+          7
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though choosing between the two ATP supplies was not explained as a meaningful difference; I chose cytosolic ATP partly because I had already used mitochondrial ATP.",
+        "steps": [
+          7
+        ]
+      },
+      "continue": {
+        "text": "I would continue: linking ATP production to transport and protein-making made the constructions worthwhile, though I would want similarly clear explanations of abbreviated mechanisms.",
+        "steps": [
+          3,
+          5,
+          7
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

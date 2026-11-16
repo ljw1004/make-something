@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "reason": "The only available action follows the stem-cell population toward skeletal-muscle precursors.",
+    "choice": 1,
+    "expectation": "I expect a population of muscle precursors, though the exact stage is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The selected cells are myoblasts, ready to fuse into skeletal muscle fibres.",
+    "reaction": "The label makes the precursor stage clear.",
+    "step": 2,
+    "reason": "The only offered combination follows the stated fusion pathway.",
+    "choice": 1,
+    "expectation": "I expect the myoblasts to fuse into a multinucleated muscle fibre or an intermediate.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Fusion produced multinucleated fibres with space for the pulling machinery.",
+    "reaction": "The retained nuclei make the fusion result clear.",
+    "step": 3,
+    "reason": "The only offered combination adds the filaments needed for the fibre to pull.",
+    "choice": 1,
+    "expectation": "I expect organized actin and myosin filaments inside the fibre, though a calcium signal may still be needed to activate pulling.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibre now has organized filaments and reset myosin heads, but actin's grip sites remain covered.",
+    "reaction": "The covered sites make the need for an activation signal clear.",
+    "step": 4,
+    "reason": "The only offered combination supplies the calcium signal needed to activate the filaments.",
+    "choice": 1,
+    "expectation": "I expect calcium to uncover actin's grip sites so myosin can attach and pull.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "Calcium exposes the grip sites, allowing ATP-dependent cycling and filament sliding; the filaments themselves do not shorten.",
+    "reaction": "The distinction between fibre shortening and filament shortening is useful.",
+    "step": 5,
+    "reason": "The only offered combination should return calcium to storage so the fibre can become ready again.",
+    "choice": 1,
+    "expectation": "I expect ATP-powered pumps to remove calcium from around the filaments, allowing the grip sites to be covered again.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "ATP-powered calcium storage stops pulling, and an outside pull lengthens the fibre; the goal now shifts to building and attaching muscles.",
+    "reaction": "It is useful to see that relaxation requires ATP and that lengthening needs an outside pull.",
+    "step": 6,
+    "reason": "The only offered combination adds extracellular matrix, apparently a step toward assembling muscle tissue.",
+    "choice": 1,
+    "expectation": "I expect the matrix to support or organize the fibres into muscle tissue, though its exact role here is uncertain.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The matrix organizes fibres into fascicles with connective layers, providing enough bundles for both muscles.",
+    "reaction": "The distinction between the fibre membrane and surrounding connective layer is helpful.",
+    "step": 7,
+    "reason": "Both muscles are needed; I’ll assemble the biceps first.",
+    "choice": 1,
+    "expectation": "I expect the fascicles to fill the biceps sheaths and connect with its tendon routes.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The triceps is also needed, but either muscle seems reasonable to build first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps now has two filled heads and tendons, with force transmitted through connective tissue.",
+    "reaction": "The force-path inset clarifies how the fibres pull on the tendon.",
+    "step": 8,
+    "reason": "Both muscles are needed, so I’ll assemble the triceps before attaching them.",
+    "choice": 1,
+    "expectation": "I expect fascicles to fill the three triceps heads and connect to their tendon.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "Attaching the biceps now is also useful, but I prefer to build both muscles first."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps now has three filled heads and a common tendon leading toward the ulna.",
+    "reaction": "The repeated force-path inset reinforces the connection, though it is familiar from the biceps.",
+    "step": 9,
+    "reason": "Both muscles need attachment; I’ll attach the biceps first.",
+    "choice": 1,
+    "expectation": "I expect the biceps tendons to attach to the shoulder and radius across the elbow.",
+    "alternatives": [
+      {
+        "choice": 2,
+        "reason": "The triceps also needs attachment, but either order seems reasonable."
+      }
+    ],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The biceps is attached across the front of the elbow and pulls on the radius to flex it; the extensor slot remains empty.",
+    "reaction": "The two poses make the biceps’ action clear.",
+    "step": 10,
+    "reason": "The only offered combination fills the extensor slot with the triceps.",
+    "choice": 1,
+    "expectation": "I expect the triceps to attach across the elbow so its pull can extend the joint.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The triceps fills the extensor slot; its posterior attachment makes its pull extend the elbow, completing the chapter.",
+    "reaction": "The contrasting attachment positions clearly explain how similar muscle pulls produce opposite movements.",
+    "step": 11,
+    "report": {
+      "mostWorthwhile": {
+        "text": "The calcium-triggered sliding cycle was most worthwhile: the planned sequence connects ATP use to pulling and distinguishes fibre shortening from filament shortening.",
+        "steps": [
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Building the triceps repeated the biceps assembly and force-path inset, making that passage less engaging.",
+        "steps": [
+          7,
+          8
+        ]
+      },
+      "surprise": {
+        "text": "Relaxation also requires ATP to pump calcium back into storage, while an outside pull lengthens the fibre.",
+        "steps": [
+          5
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, though choosing which muscle to assemble or attach first was an arbitrary ordering choice; both were needed.",
+        "steps": [
+          7,
+          9
+        ]
+      },
+      "continue": {
+        "text": "Yes. I would continue to see how the assembled arm works in a broader system; the connection between muscle attachments and opposite movements was interesting.",
+        "steps": [
+          9,
+          10
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

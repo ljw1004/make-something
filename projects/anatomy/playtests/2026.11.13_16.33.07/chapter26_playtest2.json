@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "reason": "The rough edge is meant to break the skin and a vessel, so the body needs to encounter it before the bleeding can be stopped.",
+    "choice": {
+      "combine": "Body with immune memory",
+      "with": "Rough edge"
+    },
+    "expectation": "The body will get a small cut that exposes the damaged vessel.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The cut is present and the damaged vessel has narrowed; platelets at the cut look like the next step toward stopping the bleeding.",
+    "reaction": "The cut happened as expected.",
+    "step": 2,
+    "reason": "Platelets are cell fragments at the damaged vessel, so I expect them to help form an initial plug.",
+    "choice": {
+      "combine": "Cut body",
+      "with": "Platelets at the cut"
+    },
+    "expectation": "Platelets will gather at the damaged vessel and begin limiting the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The platelets formed a plug that slows the leak; fibrinogen and activated clotting factors remain to be used.",
+    "reaction": "The plug makes sense as an initial way to limit bleeding.",
+    "step": 3,
+    "reason": "The activated clotting factors and fibrinogen are the remaining clotting ingredients. I'm guessing they work together to strengthen the plug.",
+    "choice": {
+      "combine": "Fibrinogen",
+      "with": "Activated clotting factors"
+    },
+    "expectation": "The clotting factors will change fibrinogen into material that helps reinforce the platelet plug.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The clotting factors turned fibrinogen into fibrin threads, pictured forming a mesh among platelets.",
+    "reaction": "The mesh looks like a useful way to reinforce the plug.",
+    "step": 4,
+    "reason": "The fibrin mesh appears suited to strengthening the platelet plug at the cut.",
+    "choice": {
+      "combine": "Body with platelet plug",
+      "with": "Fibrin threads"
+    },
+    "expectation": "The threads will reinforce the platelet plug and stop the bleeding.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The fibrin mesh reinforced the platelet plug and stopped the bleeding, though the skin remains open.",
+    "reaction": "It was satisfying to see how the threads and plug worked together; I noticed the wound itself still needs to heal.",
+    "step": 5,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Reinforcing the platelet plug was most worthwhile because it showed how the mesh helps stop the leak, while distinguishing that from closing the skin.",
+        "steps": [
+          2,
+          3,
+          4
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Making the cut was straightforward but less interesting than seeing the clot form.",
+        "steps": [
+          1
+        ]
+      },
+      "surprise": {
+        "text": "I had guessed the clotting factors and fibrinogen worked together, but the result showed the fine threads that form a mesh.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "No action felt purposeless, although I was guessing about how the clotting factors and fibrinogen worked together before trying them.",
+        "steps": [
+          3
+        ]
+      },
+      "continue": {
+        "text": "I would continue to see how the still-open skin heals after the vessel is sealed; stopping the bleeding feels like only part of the story.",
+        "steps": [
+          4
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]

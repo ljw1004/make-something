@@ -1,0 +1,103 @@
+[
+  {
+    "step": 1,
+    "reason": "The arm has vessels, and the breathing apparatus includes the circulation that can supply them.",
+    "choice": {
+      "combine": "Responsive arm",
+      "with": "Breathing apparatus"
+    },
+    "expectation": "The arm will connect to the circulation for oxygen and nutrient supply.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The arm is now connected to the circulation, and the result shows fluid and protein in the tissue spaces that need a return route.",
+    "reaction": "The tissue inset makes the remaining goal clearer.",
+    "step": 2,
+    "reason": "The lymphatic capillaries lie among tissue cells, so they seem like the starting point for collecting excess fluid.",
+    "choice": {
+      "combine": "Tissue spaces",
+      "with": "Lymphatic capillaries"
+    },
+    "expectation": "The capillaries will collect excess fluid from the tissue spaces.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymphatic capillaries collect fluid and proteins from the tissue spaces; the collecting vessels seem to be the next part of the return route.",
+    "reaction": "The inward arrows make the collection step clear.",
+    "step": 3,
+    "reason": "Collecting lymphatic vessels should carry fluid onward from the capillaries.",
+    "choice": {
+      "combine": "Fluid-collecting tissue",
+      "with": "Collecting lymphatic vessels"
+    },
+    "expectation": "The collecting vessels will connect to the lymphatic capillaries and carry the collected fluid onward.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The collecting vessels carry lymph onward, with muscle movement and valves helping it flow forward. The return ducts appear to be the next connection.",
+    "reaction": "The explanation of how lymph moves is useful.",
+    "step": 4,
+    "reason": "The return ducts join large veins, so they should connect the lymph pathways back to the blood.",
+    "choice": {
+      "combine": "Lymph return pathways",
+      "with": "Lymphatic return ducts"
+    },
+    "expectation": "The ducts will complete the route from the tissue spaces back to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The lymph drainage network now reaches veins near the neck; it still needs to be connected to the supplied arm.",
+    "reaction": "The complete route is clear from the description.",
+    "step": 5,
+    "reason": "Connecting the drainage network to the arm should bring tissue fluid back into its circulation.",
+    "choice": {
+      "combine": "Arm with blood supply",
+      "with": "Lymph drainage network"
+    },
+    "expectation": "The arm will have both a blood supply and a route for excess tissue fluid to return to the blood.",
+    "alternatives": [],
+    "lookedAgain": false
+  },
+  {
+    "effect": "The final connection completes the route from tissue spaces through lymph vessels and ducts back to the bloodstream, alongside the arm’s blood supply.",
+    "reaction": "It is satisfying to see the supply and return routes connected in one model.",
+    "step": 6,
+    "report": {
+      "mostWorthwhile": {
+        "text": "Connecting the collecting vessels was most worthwhile because the description explained how muscle movement and valves help move lymph forward.",
+        "steps": [
+          3
+        ]
+      },
+      "leastWorthwhile": {
+        "text": "Adding the return ducts was a straightforward connection, but its result added little explanation beyond the route already suggested by their description.",
+        "steps": [
+          4
+        ]
+      },
+      "surprise": {
+        "text": "I found it useful that lymph vessels can contract as well as being squeezed by nearby muscle.",
+        "steps": [
+          3
+        ]
+      },
+      "arbitrary": {
+        "text": "None of the actions felt arbitrary; the item descriptions made each connection reasonably clear.",
+        "steps": []
+      },
+      "continue": {
+        "text": "I would continue if another chapter developed these connections through a new situation. The explanations were useful, though this chapter’s sequence was mostly predictable.",
+        "steps": [
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    "lookedAgain": false
+  }
+]
