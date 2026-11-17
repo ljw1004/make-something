@@ -6,7 +6,7 @@ You are Augustine, Aquinas, Martin Luther. How will you respond to the arguments
 
 > NOTE: Dating and setting: [CUHK’s primary-text introduction](https://www.cuhk.edu.hk/crs/tobias/primary_docs_ch11.html) identifies an anonymous Cathar author in northern Italy; [David d’Avray’s source study](https://discovery.ucl.ac.uk/id/eprint/1476999/1/Cathars%20from%20non-Catholic%20Sources%20DISCOVERY%20VERSION.pdf) reports Thouzellier’s c. 1250 dating. The Book of Two Principles represents a particular position within disputed Cathar traditions. [The Lyon library’s contributed manuscript record](https://www.occitanica.eu/items/show/11763) gives 1280–1330, while [IRHT’s catalogue](https://initiale.irht.cnrs.fr/codex/2627) gives the mid-thirteenth century and a tentative origin; the ritual scene imagines a minister in a household in Languedoc in 1300, without claiming that this was the manuscript’s place or date of production. “Lyon” names its present repository, not a documented performance there. [The Aquinas works catalogue](https://www.thomas-von-aquin.de/thomas-von-aquin/schriften/index.html) places Summa I in Rome by 1268 and III in Paris/Naples, 1271/2–1273. The scenes choose definite years within historical fiction; uncertainties about the underlying texts remain in these source notes. The comparisons are editorial. The fire/water example follows medieval accounts of natural forms, not modern chemistry.
 
-## `wound-meal` Augustine, Hippo, 421 AD — Where does evil come from?
+## `wound-and-greed` Augustine, Hippo, 421 AD — Where does evil come from?
 
 background: ![Augustine’s study](assets/theology-augustine-study.webp)
 
@@ -36,20 +36,20 @@ Augustine is a Christian bishop in Roman North Africa, writing a short handbook 
   What disappears when a wound heals?
 
   The body becomes healthy again, is repaired. No separate evil substance escapes.
-- `case-i-take-the-meal-my-neighbour-needs` Consider: I take the meal my neighbour needs
-  - from chapter `world-that-harms`: Augustine example: I take the meal my neighbour needs
-  - from chapter `trinity`: Consider: I take the meal my neighbour needs
-  - from chapter `cathar-rite`: Augustine example: I take the meal my neighbour needs
+- `gold-before-justice` Consider: I prize gold more than justice
+  - from chapter `world-that-harms`: Augustine example: I prize gold more than justice
+  - from chapter `trinity`: Consider: I prize gold more than justice
+  - from chapter `cathar-rite`: Augustine example: I prize gold more than justice
 
-  What makes taking food wrong? Answer: it's my choice that is missing goodness.
-- `fair-share` Enjoying food is good; my neighbour is still owed a share
-  - from chapter `world-that-harms`: Augustine: Enjoying food is good; my neighbour is still owed a share
-  - from chapter `trinity`: Enjoying food is good; my neighbour is still owed a share
-  - from chapter `cathar-rite`: Augustine: Enjoying food is good; my neighbour is still owed a share
+  Gold attracts me. I want it so much that I put getting it ahead of treating people justly. Is the evil in the gold, or in my love of it?
 
-  Food and comfort are *good*. When I steal a meal, I'm seeking the good that food and comfort provide. But does that mean stealing is good?
+- `justice-above-gold` Gold is good; justice deserves greater love
+  - from chapter `world-that-harms`: Augustine: Gold is good; justice deserves greater love
+  - from chapter `trinity`: Gold is good; justice deserves greater love
+  - from chapter `cathar-rite`: Augustine: Gold is good; justice deserves greater love
 
-  Answer: no, because my neighbor is still owed their share. Taking their food places my comfort ahead of what I owe them.
+  Gold is part of a good creation. But not every good deserves the same place in our love. Justice deserves far greater love than gold.
+
 - `genesis-creation-was-very-good` Genesis: creation was “very good”
 
   Genesis says that God saw creation was “very good.”
@@ -66,21 +66,22 @@ Augustine is a Christian bishop in Roman North Africa, writing a short handbook 
 
   *A wound is damage to a body, not a separate evil thing*
 
-- `the-wrong-is-taking-what-another-is-owed` Stealing food puts my comfort before my neighbour’s need
-  - from chapter `world-that-harms`: Augustine: Stealing food puts my comfort before my neighbour’s need
-  - from chapter `trinity`: Stealing food puts my comfort before my neighbour’s need
-  - from chapter `cathar-rite`: Augustine: Stealing food puts my comfort before my neighbour’s need
+- `greed-not-gold` Greed is a fault in loving gold, not a fault in gold
+  - from chapter `world-that-harms`: Augustine: Greed is a fault in loving gold, not a fault in gold
+  - from chapter `trinity`: Greed is a fault in loving gold, not a fault in gold
+  - from chapter `cathar-rite`: Augustine: Greed is a fault in loving gold, not a fault in gold
 
-  If food and comfort are good, why is stealing a meal wrong?
+  If gold is good, what makes greed wrong?
 
-  Answer: the wrong is choosing my comfort over what I owe them.
+  I prize gold above justice, although justice deserves greater love. The gold has not become an evil substance. My choice is wrong because I put a lesser good above a greater one.
 
-  *Stealing food puts my comfort before my neighbour’s need*
+  *Greed is a fault in loving gold, not a fault in gold*
 
 - `being-hurt-is-not-the-same-as-doing-wrong` Being hurt is not the same as doing wrong
-  A wound damages health, which is a loss of goodness. Stealing a neighbour’s meal is also a loss of goodness, this time in the choice to put personal comfort above what another person is owed.
 
-  Although they're both loss of goodness, they're different kinds: having a wound doesn't mean you're guilty.
+  A wound damages bodily health. Greed damages the order of our love: we prize gold above justice.
+
+  Both involve goodness damaged or missing, but in different ways. Being wounded does not mean making a wrongful choice.
 
   *Being hurt is not the same as doing wrong*
 
@@ -98,11 +99,13 @@ Augustine is a Christian bishop in Roman North Africa, writing a short handbook 
 
 **Combinations**
 - `case-a-cut-body-has-lost-its-health` [preserve] + `healed-body` [preserve] -> `health-lost` (tutorial)
-- `case-i-take-the-meal-my-neighbour-needs` [preserve] + `fair-share` [preserve] -> `the-wrong-is-taking-what-another-is-owed`
-- `health-lost` + `the-wrong-is-taking-what-another-is-owed` [preserve] -> `being-hurt-is-not-the-same-as-doing-wrong`
+- `gold-before-justice` [preserve] + `justice-above-gold` [preserve] -> `greed-not-gold`
+- `health-lost` + `greed-not-gold` [preserve] -> `being-hurt-is-not-the-same-as-doing-wrong`
 - `health-lost` + `genesis-creation-was-very-good` [preserve] -> `augustine-loss`
 
 > NOTE: Source `aug-evil`: [Augustine, Enchiridion §§9–15, 23–27, 42–52](https://www.newadvent.org/fathers/1302.htm). Created goodness, evil as privation, and the fallen will. §§26–27 and 42–48 describe inherited corruption and condemnation, distinct from an infant’s own acts; “inherited condition” must not be reduced to a learned habit or only bodily illness.
+
+> NOTE: Source `aug-gold`: [Augustine, City of God XII.8](https://www.newadvent.org/fathers/120112.htm). Augustine’s own example of gold loved at the expense of justice, paraphrased as a first-person hypothetical. The wound/greed comparison is editorial.
 
 > NOTE: Source `genesis`: [Genesis 1:31, King James Version](https://www.biblegateway.com/passage/?search=Genesis%201%3A31&version=KJV). Brief excerpt from the creation account; not an independent demonstration of the theological claim.
 
@@ -112,7 +115,7 @@ background: ![Augustine’s study — evening](assets/theology-grace-alcove.webp
 
 *Augustine, Hippo, 421 AD*
 
-A person doesn't return the meal they stole. Why do they keep choosing to do wrong? Why does the church baptize infants who have made no such wrong choice?
+Peter promises to remain faithful to Jesus, then denies knowing him. Why is a sincere promise not enough? And why does the church baptize infants who have made no such wrong choice?
 
 > NOTE: Source context: Augustine’s grace controversy · the scene is set in 421 and reopens his earlier grace writings, including the 418 treatise.
 
@@ -122,19 +125,19 @@ A person doesn't return the meal they stole. Why do they keep choosing to do wro
 
 **Items**
 
-- `case-i-know-i-should-return-the-stolen-meal` Consider: I know I should return the stolen meal
-  - from chapter `world-that-harms`: Augustine example: I know I should return the stolen meal
-  - from chapter `trinity`: Consider: I know I should return the stolen meal
-  - from chapter `cathar-rite`: Augustine example: I know I should return the stolen meal
+- `peters-promise` Consider: Peter promises to remain faithful to Jesus
+  - from chapter `world-that-harms`: Augustine example: Peter promises to remain faithful to Jesus
+  - from chapter `trinity`: Consider: Peter promises to remain faithful to Jesus
+  - from chapter `cathar-rite`: Augustine example: Peter promises to remain faithful to Jesus
 
-  I know I should return the meal I stole from my neighbour. But I still keep it. Would explaining my duty again change anything?
+  Peter, one of Jesus's disciples, promises that he will remain faithful even if everyone else falls away. He wants to stand by Jesus. Will that resolve be enough?
 
-- `failed-promise` Consider: I promise to return the meal, then keep it for myself
-  - from chapter `world-that-harms`: Augustine example: I promise to return the meal, then keep it for myself
-  - from chapter `trinity`: Consider: I promise to return the meal, then keep it for myself
-  - from chapter `cathar-rite`: Augustine example: I promise to return the meal, then keep it for myself
+- `failed-promise` Consider: Peter denies knowing Jesus
+  - from chapter `world-that-harms`: Augustine example: Peter denies knowing Jesus
+  - from chapter `trinity`: Consider: Peter denies knowing Jesus
+  - from chapter `cathar-rite`: Augustine example: Peter denies knowing Jesus
 
-  I promise to return the meal I stole from my neighbour. Then I keep it for myself. I knew what was right and promised to do it, but still chose my own comfort.
+  When Jesus is arrested, Peter denies knowing him. The disciple who promised faithfulness does the very thing he meant to avoid.
 
 - `paul-the-good-that-i-would-i-do-not` Paul: I do not do the good I want to do
 
@@ -145,7 +148,9 @@ A person doesn't return the meal they stole. Why do they keep choosing to do wro
   - from chapter `trinity`: God can help us want what is right, not just teach it
   - from chapter `cathar-rite`: Augustine: God can help us want what is right, not just teach it
 
-  Knowing what is right may not make us want to do it. God's grace works within us: it awakens love and helps us both want and do what is right.
+  After Peter's denial, Jesus turns towards him and Peter weeps. This is more than a reminder reaching his ears: Christ touches his heart inwardly and brings him to repentance.
+
+  God's grace works within us, awakening love and helping us both want and do what is right.
 
 - `augustines-church-baptizes-infants-for-forgiveness` The church baptizes infants for the forgiveness of sins
   - from chapter `world-that-harms`: Augustine’s church baptizes infants for the forgiveness of their sins
@@ -163,29 +168,29 @@ A person doesn't return the meal they stole. Why do they keep choosing to do wro
 
   A child therefore needs forgiveness even before making a wrongful choice.
 
-- `knowing-doing-gap` I know what is right, but still choose otherwise
-  - from chapter `world-that-harms`: Augustine: I know what is right, but still choose otherwise
-  - from chapter `trinity`: I know what is right, but still choose otherwise
-  - from chapter `cathar-rite`: Augustine: I know what is right, but still choose otherwise
+- `knowing-doing-gap` Wanting and promising to do right do not ensure that we do it
+  - from chapter `world-that-harms`: Augustine: Wanting and promising to do right do not ensure that we do it
+  - from chapter `trinity`: Wanting and promising to do right do not ensure that we do it
+  - from chapter `cathar-rite`: Augustine: Wanting and promising to do right do not ensure that we do it
 
-  Why do I fail to do what I know is right?
+  Why does Peter's promise fail?
 
-  I know I should return the meal I stole from my neighbour. I promise to return it, then keep it for myself. Paul describes a similar failure: “The good that I would I do not”—I do not do the good I want to do.
+  Peter wants to remain faithful to Jesus, yet denies knowing him. Paul describes the gap between wanting good and doing it: “The good that I would I do not.”
 
-  Knowing, wanting and promising are not enough to ensure that I act.
+  Knowing, wanting and promising are not enough to ensure that we act.
 
-  *I know what is right, but still choose otherwise*
+  *Wanting and promising to do right do not ensure that we do it*
 
 - `aided-choice` God helps us want and do what is right
   - from chapter `world-that-harms`: Augustine: God helps us want and do what is right
   - from chapter `trinity`: God helps us want and do what is right
   - from chapter `cathar-rite`: Augustine: God helps us want and do what is right
 
-  What helps me do right when knowing and promising are not enough?
+  What helps when our own resolve fails?
 
-  I promise to return a stolen meal, then keep it for myself. I need more than another lesson about duty. God's grace works within me, awakening love and helping me want and do what is right.
+  Peter promises faithfulness, then denies Jesus. Christ's inward help brings him to repentance. Peter does the repenting, but he does not recover through willpower alone.
 
-  God helps me make the choice; the choice and action are still mine.
+  Grace is more than another lesson about duty. God works within our willing and acting; the choice and action are still ours.
 
   *God helps us want and do what is right*
 
@@ -220,30 +225,32 @@ A person doesn't return the meal they stole. Why do they keep choosing to do wro
   Imagine two infants, one ill and one healthy. Neither has chosen to do wrong. Illness does not show that one is more guilty than the other.
 
 **Combinations**
-- `case-i-know-i-should-return-the-stolen-meal` [preserve] + `failed-promise` -> `knowing-doing-gap`
+- `peters-promise` [preserve] + `failed-promise` -> `knowing-doing-gap`
 - `paul-the-good-that-i-would-i-do-not` [preserve] + `failed-promise` -> `knowing-doing-gap`
 - `knowing-doing-gap` [preserve] + `love-help` [preserve] -> `aided-choice`
 - `two-infants` [preserve] + `augustines-church-baptizes-infants-for-forgiveness` [preserve] -> `why-forgive-an-infant-who-has-not-chosen-wrong`
 - `why-forgive-an-infant-who-has-not-chosen-wrong` [preserve] + `adam-condition` [preserve] -> `condition-not-act`
 
-> NOTE: Source `aug-grace`: [Augustine, On the Grace of Christ I](https://www.newadvent.org/fathers/15061.htm). Grace as inward help for willing and acting, beyond nature and instruction alone.
+> NOTE: Source `aug-grace`: [Augustine, On the Grace of Christ I](https://www.newadvent.org/fathers/15061.htm). Grace as inward help for willing and acting, beyond nature and instruction alone. I.49–50 uses Peter’s denial and repentance, citing Ambrose; Augustine understands Christ’s look as inward action upon Peter’s will. His Tractates on John 66.1 also distinguishes Peter’s genuine desire from his strength. These are scriptural cases interpreted by Augustine, not invented incidents.
+
+> NOTE: Source `aug-infants`: [Augustine, Letter 98.5](https://www.newadvent.org/fathers/1102098.htm) reports infants brought for baptism to restore or preserve bodily health. The ill/well pair is our controlled illustration of that practice, not two recorded children. It varies health while holding the absence of personal wrongdoing constant; no invented outcome is needed.
 
 > NOTE: Source `romans`: [Romans 7:19, King James Version](https://www.biblegateway.com/passage/?search=Romans%207%3A19&version=KJV). Short excerpt about willing and doing. Pairing this verse with Augustine's grace argument is an editorial comparison; the linked On the Grace of Christ I supports inward help beyond teaching without supplying a specific reading of this verse.
 
-## `world-that-harms` An anonymous Cathar author, northern Italy, 1250 AD — Who made a world that harms?
+## `world-that-harms` An anonymous Cathar author, northern Italy, 1250 AD — Who caused the angels to fall?
 
 background: ![Medieval manuscript study](assets/theology-medieval-disputation-desk.webp)
 
 *An anonymous Cathar author, northern Italy, 1250 AD*
 
-The unnamed author of the Book of Two Principles is a Cathar Christian. He believes God is wholly good. Yet the world feeds us and destroys us. *Could a good God be the source of both?*
+The unnamed author of the Book of Two Principles is a Cathar Christian. He believes God is wholly good. Yet some angels turn against God and become demons. *If God made everything about them, where could their evil come from?*
 
-[If skipped] Augustine calls evil damage to something good. The Cathar author argues that evil must have a source of its own. Could a wholly good God knowingly make a world that harms us?
+[If skipped] Augustine calls evil damage to something good. The Cathar author argues that evil must have a source of its own. Could a wholly good God knowingly give the angels everything that made their fall inevitable?
 
 > NOTE: Source context: Book of Two Principles · northern Italy, thirteenth century.
 
 **Goals**
-- Does foreseeing harm make you responsible? -- `a-knowing-maker-is-not-merely-a-knowing-spectator`
+- Is the creator of the angels merely a spectator? -- `a-knowing-maker-is-not-merely-a-knowing-spectator`
 - Does evil have a source of its own? -- `origins-dispute`
 
 **Items**
@@ -259,19 +266,23 @@ The unnamed author of the Book of Two Principles is a Cathar Christian. He belie
 
   This is a premise of the argument. The fact that suffering exists does not by itself establish it.
 
-- `case-the-same-world-feeds-people-and-destroys-them` Consider: the same world feeds people and destroys them
-  - from chapter `fire-and-harm`: Cathar author example: the same world feeds people and destroys them
+- `angels-fall` Consider: good angels turn against God
+  - from chapter `fire-and-harm`: Cathar author example: good angels turn against God
 
-  Fertile land feeds a household. A storm destroys its home. The same world keeps people alive and kills them. How can its source be wholly good? (The disaster does not show that its victims deserved it.)
+  Angels are heavenly spirits. Some turn against God and become demons. If they began good, where did their corruption come from? Can goodness alone produce evil?
 
-- `two-principles-a-maker-knowingly-chose-this-harmful-world` The creator knew this world would cause harm
-  - from chapter `fire-and-harm`: Cathar author: The creator knew this world would cause harm
+- `every-cause-of-the-fall` Suppose God supplied every cause of the angels’ fall
+  - from chapter `fire-and-harm`: Cathar author: Suppose God supplied every cause of the angels’ fall
 
-  Suppose a creator knows that the world will harm its inhabitants, but makes it anyway. The creator has made the conditions that cause the harm. Can the creator escape responsibility by saying, “I only knew it would happen”?
+  Suppose God alone made the angels and everything that determined their actions. He knew they would become demons, yet gave them the very character and conditions that made this unavoidable.
 
-- `an-observer-can-foresee-harm-without-making-its-cause` An observer can foresee harm without causing it
+  On that account, could he blame them for a fall they could not escape?
 
-  Does knowing that a disaster will happen make you its cause? A spectator might foresee it without doing anything to bring it about. Foreseeing harm and causing harm are different.
+- `watching-a-walker` Consider: watching someone walk does not make them walk
+
+  A person in a house sees someone walking along a road. Seeing the walker does not cause the walk.
+
+  An opponent offers this comparison: God's knowledge of the angels' fall need not cause it either. Could they fall by their own choice?
 
 - `the-writer-turns-the-tree-saying-into-a-rule` A good tree cannot bear evil fruit—nor a good cause produce evil
   - from chapter `fire-and-harm`: Cathar author: A good tree cannot bear evil fruit—nor a good cause produce evil
@@ -287,24 +298,24 @@ The unnamed author of the Book of Two Principles is a Cathar Christian. He belie
 - `two-principles-good-and-evil-must-have-opposed-sources` Good and evil must come from opposing sources
   - from chapter `fire-and-harm`: Cathar author: Good and evil must come from opposing sources
 
-  Why would good and evil need separate sources?
+  Where could the angels' evil come from?
 
-  Start with the principle that an ultimate source is either good or evil and produces only its own kind—like Matthew's good tree, which cannot bear evil fruit. Yet the world both feeds people and destroys them.
+  A wholly good source can produce only good, like a good tree that cannot bear evil fruit. Yet good angels become evil.
 
-  If that principle is right, neither a good source nor an evil one can explain both. Good and evil must therefore have opposing sources. God can then remain wholly good, but cannot be the creator of everything.
+  On this principle, their corruption cannot come entirely from the good God or from creatures whose whole nature comes from him. It requires an opposing source of evil.
 
   *Good and evil must come from opposing sources*
 
-- `a-knowing-maker-is-not-merely-a-knowing-spectator` A creator who foresees harm is more than a bystander
-  - from chapter `fire-and-harm`: Cathar author: A creator who foresees harm is more than a bystander
+- `a-knowing-maker-is-not-merely-a-knowing-spectator` Making every cause of a fall is more than watching it
+  - from chapter `fire-and-harm`: Cathar author: Making every cause of a fall is more than watching it
 
-  Is a creator who foresees harm responsible for it?
+  Is God like someone watching a traveller?
 
-  A spectator can foresee a disaster without causing it. But a creator who knowingly makes a harmful world has made the conditions for the harm.
+  The observer does not give the traveller the strength to walk. But suppose God supplied the angels with every cause of a fall he knew was unavoidable.
 
-  The creator cannot claim a spectator's innocence: making the world is more than watching it.
+  Then he did more than observe it. Saying that knowledge alone causes nothing would leave his part as creator unanswered.
 
-  *A creator who foresees harm is more than a bystander*
+  *Making every cause of a fall is more than watching it*
 
 - `origins-dispute` Augustine: evil is damaged goodness. Cathar author: evil has a separate source
 
@@ -312,7 +323,7 @@ The unnamed author of the Book of Two Principles is a Cathar Christian. He belie
 
   Augustine says no: evil is a loss of goodness, as a wound is a loss of bodily health.
 
-  But suppose an ultimate source can produce only its own kind, good or evil. Then the world's good and evil must come from different sources.
+  But suppose an ultimate source can produce only its own kind, good or evil. Then the goodness and corruption of the angels must have different sources.
 
   The disagreement is about what produces evil, and whether a wholly good God can be the creator of everything.
 
@@ -320,16 +331,16 @@ The unnamed author of the Book of Two Principles is a Cathar Christian. He belie
 
 **Combinations**
 - `matthew-a-good-tree-cannot-bring-forth-evil-fruit` [preserve] + `two-principles-no-evil-can-come-from-a-wholly` -> `the-writer-turns-the-tree-saying-into-a-rule`
-- `the-writer-turns-the-tree-saying-into-a-rule` [preserve] + `case-the-same-world-feeds-people-and-destroys-them` -> `two-principles-good-and-evil-must-have-opposed-sources`
-- `two-principles-a-maker-knowingly-chose-this-harmful-world` [preserve] + `an-observer-can-foresee-harm-without-making-its-cause` [preserve] -> `a-knowing-maker-is-not-merely-a-knowing-spectator`
+- `the-writer-turns-the-tree-saying-into-a-rule` [preserve] + `angels-fall` -> `two-principles-good-and-evil-must-have-opposed-sources`
+- `every-cause-of-the-fall` [preserve] + `watching-a-walker` [preserve] -> `a-knowing-maker-is-not-merely-a-knowing-spectator`
 - `two-principles-good-and-evil-must-have-opposed-sources` + `augustine-loss` [preserve] -> `origins-dispute`
-- `two-principles-no-evil-can-come-from-a-wholly` + `case-the-same-world-feeds-people-and-destroys-them` -> `two-principles-good-and-evil-must-have-opposed-sources`
+- `two-principles-no-evil-can-come-from-a-wholly` + `angels-fall` -> `two-principles-good-and-evil-must-have-opposed-sources`
 
 > NOTE: Source `two-principles`: [Book of Two Principles, translated selections](https://www.cuhk.edu.hk/crs/tobias/primary_docs_ch11.html). A surviving radical-dualist argument from thirteenth-century Italy; use the translated primary text, not the page’s unqualified proposed Manichaean genealogy. Part I.2 assumes a first principle must be good or evil and produce its own kind; this extra premise is needed for the opposed-sources inference.
 
 > NOTE: Source `matthew-tree`: [Matthew 7:18, King James Version](https://www.biblegateway.com/passage/?search=Matthew%207%3A18&version=KJV). Public-domain translation supplies the visible biblical quotation; the medieval treatise’s interpretation is separately attributed.
 
-> NOTE: Source `two-principles-full`: [Book of Two Principles I.8–10, III.1–2 and V.1–6, translated primary text](https://gnosis.org/library/cathar-two-principles.htm). Online transcription based on Wakefield and Evans, with editor changes; primary text located through the search index because direct fetch failed. Use the actual argument, not the archive’s triumphalist introduction. I.9 gives the watcher analogy and I.10 its reply; V exposes disagreement among dualist groups.
+> NOTE: Source `two-principles-full`: [Book of Two Principles I.7–10, III.1–2 and V.1–6, translated primary text](https://gnosis.org/library/cathar-two-principles.htm). Online transcription based on Wakefield and Evans, with editor changes; primary text located through the search index because direct fetch failed. Use the actual argument, not the archive’s triumphalist introduction. The angels and walker are the source’s own cases: I.8 argues that a sole creator supplied all causes making the fall unavoidable, I.9 gives the opposing watcher analogy, and I.10 replies. The compressed conditional preserves that causal premise rather than treating foreknowledge alone as causation; V exposes disagreement among dualist groups.
 
 ## `fire-and-harm` Thomas Aquinas, Rome, 1267 AD — Can something good cause harm?
 
@@ -386,15 +397,15 @@ Thomas Aquinas is a Dominican friar writing the Summa, his account of Christian 
 
   *Harmful effects do not require a separate evil source*
 
-- `limited-answer` The fire example explains harm, but leaves the creator’s responsibility open
+- `limited-answer` The fire example explains natural harm, not the angels’ fall
 
-  Does the fire example settle the creator's responsibility?
+  Does the fire example answer the angels argument?
 
-  Fire can destroy water while acting according to its nature. In this account of nature, no separate evil source is needed to explain the damage.
+  Fire destroys water while acting according to its nature. Natural harm can therefore come from something good in its own nature, without a separate evil source.
 
-  But the Cathar author objects that a creator who knowingly made these conditions is more than a spectator. The fire example explains how the harm occurs. By itself, it does not settle whether the creator is responsible for that harm.
+  But angels make choices. The Cathar author asks whether a creator supplied every cause of their unavoidable fall. Explaining fire's action does not settle that question about evil choices and their creator.
 
-  *The fire example explains harm, but leaves the creator’s responsibility open*
+  *The fire example explains natural harm, not the angels’ fall*
 
 **Combinations**
 - `aquinas-fire-does-what-fire-doesit-heats-and-burns` [preserve] + `water-lost` [preserve] -> `fire-can-work-well-as-fire-while-harming-something`
@@ -423,10 +434,10 @@ Return to Augustine in Hippo. Christians speak of Father, Son and Holy Spirit. *
 
 **Items**
 
-- `teacher-pupil` Consider: a teacher instructs a pupil; both are human
-  - from chapter `cathar-rite`: Augustine example: a teacher instructs a pupil; both are human
+- `human-father-son` Consider: a human father and son share the same nature
+  - from chapter `cathar-rite`: Augustine example: a human father and son share the same nature
 
-  A teacher gives a lesson; a pupil receives it. Their roles are different, but both are equally human. Being taught does not make the pupil a lesser kind of human.
+  A human father has a human son. Being the son does not make him a lesser kind of creature: both are human. “Father” and “son” distinguish their relationship, not their humanity.
 
 - `does-being-son-mean-being-a-lesser-kind-of` Does being God’s Son mean being less divine?
 
@@ -451,9 +462,9 @@ Return to Augustine in Hippo. Christians speak of Father, Son and Holy Spirit. *
 
   Does being God's Son mean being less divine?
 
-  A teacher and pupil have different roles, but both are equally human. Likewise, “Father” and “Son” name a relationship; being called Son does not by itself mean being less divine.
+  A human son shares his father's human nature. Likewise, being called Son need not mean having a nature inferior to the Father's.
 
-  The teacher and pupil show why different roles need not mean unequal natures. They do not explain how Father and Son can be one God.
+  The comparison explains equality of nature. It does not explain how Father and Son are one God, or make the eternal Son younger than the Father.
 
   *Being God’s Son does not mean being less divine*
 
@@ -480,11 +491,13 @@ Return to Augustine in Hippo. Christians speak of Father, Son and Holy Spirit. *
   *One God as Father, Son and Holy Spirit*
 
 **Combinations**
-- `teacher-pupil` [preserve] + `does-being-son-mean-being-a-lesser-kind-of` [preserve] -> `augustine-the-name-son-does-not-mean-a-lesser`
+- `human-father-son` [preserve] + `does-being-son-mean-being-a-lesser-kind-of` [preserve] -> `augustine-the-name-son-does-not-mean-a-lesser`
 - `three-humans` [preserve] + `one-divine-being` [preserve] -> `augustine-one-godnot-three-gods-sharing-a-kind`
 - `jesus-father-glorify-thy-son` [preserve] + `augustine-one-godnot-three-gods-sharing-a-kind` [preserve] -> `trinity-bounded`
 
 > NOTE: Source `aug-trinity`: [Augustine, On the Trinity V.1,5–9](https://www.newadvent.org/fathers/130105.htm). Primary text, public-domain translation. Relative names, one divine being, and limits of creaturely comparison.
+
+> NOTE: Source `aug-father-son`: [Augustine, Sermon 139 (NT 89), §§2–3](https://www.newadvent.org/fathers/160389.htm). His human father/son example explains sameness of nature; §3 distinguishes human age from the Son’s eternity. The three-human limit follows [On the Trinity VII.4](https://www.newadvent.org/fathers/130107.htm).
 
 > NOTE: Source `aquinas-trinity`: [Aquinas, Summa I q.28 aa.1–3](https://www.newadvent.org/summa/1028.htm). Relations and divine unity. Explicitly reopens Augustine; not three members of a species.
 
@@ -774,7 +787,7 @@ Martin Luther is a friar and university teacher in Wittenberg, challenging indul
 - `coin-not-control` [preserve] + `luther-repentance-means-a-lifetime-of-turning-away-from` [preserve] -> `luther-a-paid-guarantee-cannot-replace-a-changed-life`
 - `sellers-claim-reported-by-luther-a-coin-frees-a` [preserve] + `papal-penalty-limit` [preserve] -> `coin-not-control`
 
-> NOTE: Source `theses`: [Luther, Ninety-Five Theses (1517), Taylor edition](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml). Especially theses 1, 27–28, 35–36, 43 and 62; indulgences concern penalties, not a legitimate purchase of guilt’s forgiveness.
+> NOTE: Source `theses`: [Luther, Ninety-Five Theses (1517), Taylor edition](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml). Especially theses 1, 27–28, 35–36, 43–46 and 62; indulgences concern penalties, not a legitimate purchase of guilt’s forgiveness. The one-coin household is our concrete adaptation of thesis 46’s explicit rule to reserve household necessities before spending on indulgences, not an incident in Luther’s life. The scarcity isolates that actual choice without inventing motives or an outcome.
 
 ## `free-service` Martin Luther, Wittenberg, 1520 — If salvation is a gift, why do good?
 
@@ -782,7 +795,7 @@ background: ![Wittenberg study — later session](assets/theology-liberty-bench.
 
 *Martin Luther, Wittenberg, 1520*
 
-Luther says that faith in Christ makes us right with God. Good deeds do not earn that acceptance. *Then why feed a hungry family? And is going without food yourself any help to them?*
+Luther says that faith in Christ makes us right with God. Good deeds do not earn that acceptance. *Then why feed a hungry family? And what is bodily discipline for?*
 
 [If skipped] For Luther, helping a neighbour meets their need; it does not earn God's acceptance. Other writers will dispute the role of good deeds.
 
@@ -790,7 +803,7 @@ Luther says that faith in Christ makes us right with God. Good deeds do not earn
 
 **Goals**
 - Why help if help does not earn salvation? -- `care-not-purchase`
-- next: Has fasting done the neighbour’s work? -- `practice-not-price`
+- next: What should bodily discipline prepare us to do? -- `practice-not-price`
 - Are these writers asking the same question about grace? -- `two-grace-questions`
 
 **Items**
@@ -805,10 +818,12 @@ Luther says that faith in Christ makes us right with God. Good deeds do not earn
 
   Christ served us freely. We can serve our neighbours freely in turn. Their need gives us a reason to help. Helping does not earn God's acceptance.
 
-- `body-practice` Consider: a person fasts for discipline but leaves supper unprepared
-  - from chapter `marburg`: Luther example: a person fasts for discipline but leaves supper unprepared
+- `body-practice` Fasting and work can train the body to obey faith
+  - from chapter `marburg`: Luther: Fasting and work can train the body to obey faith
 
-  Someone fasts—goes without food—to discipline their appetite. But they leave the family's supper unprepared. The fast may train them. Has it fed anyone else?
+  Faith does not end our struggle with selfish appetites. Fasting, work and other discipline can help us put faith ahead of selfish appetites.
+
+  The measure is what serves that purpose. Exhausting or injuring the body does not make a person right with God.
 
 - `care-not-purchase` Feeding the household serves others; it does not buy God’s acceptance
   - from chapter `marburg`: Luther: Feeding the household serves others; it does not buy God’s acceptance
@@ -833,23 +848,23 @@ Luther says that faith in Christ makes us right with God. Good deeds do not earn
 
   *Augustine: what helps me do right? Luther: what makes me right with God?*
 
-- `practice-not-price` Going without food can train a person; the household still needs its meal
-  - from chapter `marburg`: Luther: Going without food can train a person; the household still needs its meal
+- `practice-not-price` Discipline prepares us for service; it does not earn salvation
+  - from chapter `marburg`: Luther: Discipline prepares us for service; it does not earn salvation
 
-  Has fasting fed the family?
+  What is bodily discipline for?
 
-  Someone goes without food to discipline their appetite, but leaves supper unprepared. Fasting may train them; their family is still hungry.
+  Fasting and work can restrain selfish appetites. But faith also frees us to serve others: the hungry household needs food.
 
-  Christ's free service gives us a reason to help others freely. Discipline should help us serve them, not take the place of serving them. Neither fasting nor feeding the family earns God's acceptance.
+  Care for and discipline the body so that it can work for those in need. Discipline prepares us for service; neither the training nor the service buys God's acceptance.
 
-  *Going without food can train a person; the household still needs its meal*
+  *Discipline prepares us for service; it does not earn salvation*
 
 **Combinations**
 - `feed-before-letter` [preserve] + `christ-serves` [preserve] -> `care-not-purchase`
 - `gift-acceptance` [preserve] + `aided-choice` [preserve] -> `two-grace-questions`
 - `body-practice` [preserve] + `care-not-purchase` -> `practice-not-price`
 
-> NOTE: Source `liberty-public-domain`: [Luther, Concerning Christian Liberty (1520), Project Gutenberg primary text](https://www.gutenberg.org/cache/epub/1911/pg1911-images.html). Public-domain English text checked for gift, faith, service and bodily discipline. The discipline discussion excludes works as righteousness before God; the bishop comparison denies their making the Christian more holy. Original paraphrases, not quotations from the separate modern Hanover translation.
+> NOTE: Source `liberty-public-domain`: [Luther, Concerning Christian Liberty (1520), Project Gutenberg primary text](https://www.gutenberg.org/cache/epub/1911/pg1911-images.html). Public-domain English text checked for gift, faith, service and bodily discipline. The discipline discussion excludes works as righteousness before God; the bishop comparison denies their making the Christian more holy. The bodily-discipline and neighbour-service sections explicitly connect training and caring for the body with work for those in need; no neglected-supper incident is invented. Original paraphrases, not quotations from the separate modern Hanover translation.
 
 ## `marburg` Luther and Zwingli, Marburg, 1529 — What can they sign together?
 
@@ -1092,230 +1107,234 @@ background: ![Reformation study](assets/theology-prayer-and-provenance-bench.web
 
 *John Calvin, Geneva, 1559*
 
-John Calvin is a reformer in Geneva, revising his Institutes of the Christian Religion. A parent wants to ask the dead saint Stephen to pray for a child. Calvin allows asking a living friend, but objects to addressing a dead saint. *Why should the listener matter?*
+John Calvin is a reformer in Geneva, revising his Institutes of the Christian Religion. Augustine once asked the departed Stephen and Paul to pray for the Church. Calvin allows believers to ask one another for prayer, but objects to addressing dead saints. *Why should the listener matter?*
 
-A chapel also wants to honour a painting of Stephen and a bone said to be his. Saints’ remains honoured in worship are called *relics*. The bone is wrapped in a packet marked **P4**, inside a box marked **C17**. The label names Stephen, but there is no history showing where the bone came from. *Is it really his—and would that make honouring it right?*
+Calvin also reports two troubling examples: images of Stephen’s attackers honoured as saints, and Peter’s supposed brain exposed as a stone. Saints’ remains honoured in worship are called *relics*. Would correcting mistakes like these make the devotion right?
 
 > NOTE: Source context: Calvin · Institutes, 1559; his 1543 relic treatise reopened.
 
 **Goals**
 - Does changing the listener change the request? -- `saint-warrant-question`
 - next: Can the water analogy answer Calvin’s objection? -- `agency-not-permission`
-- Why does Calvin reject this use of the painting? -- `calvin-panel-answer`
-- What do we know about this bone’s history? -- `fragment-gap`
-- (three goals are a lot but okay here because the changed prayer recipient and instrument comparison form one sequence, while the painting and fragment pose separate questions)
+- Would identifying the figures correctly make honouring them right? -- `calvin-panel-answer`
+- How could a stone be honoured as Peter’s remains? -- `reverence-and-scrutiny`
+- (three goals are a lot but okay here because the changed prayer recipient and instrument comparison form one sequence, while the images and supposed relic pose separate questions)
 
 **Items**
 
-- `friend-request` I may ask a living friend to pray for my child
-  - from chapter `trent-reply`: Calvin: I may ask a living friend to pray for my child
+- `friend-request` Believers may ask one another to pray for the Church
+  - from chapter `trent-reply`: Calvin: Believers may ask one another to pray for the Church
 
-  A parent may ask a living friend to pray for a child. The friend can hear what the child needs, and Scripture supports believers praying for one another.
+  Christians may ask one another to pray for the Church. Living believers can hear the request, and Scripture supports their mutual prayer.
 
-  Christ alone opens the way to God. The friend prays through Christ; the friend does not become another saviour.
+  Christ alone opens the way to God. Those who pray for us do not become additional saviours.
 
-- `saint-request` Consider: to a dead saint: “Stephen, pray for my child”
-  - from chapter `trent-reply`: Calvin example: to a dead saint: “Stephen, pray for my child”
+- `saint-request` Consider: Augustine asks dead saints to pray for the Church
+  - from chapter `trent-reply`: Calvin example: Augustine asks dead saints to pray for the Church
 
-  A parent says to the dead saint, “Stephen, pray for my child.” The parent is asking Stephen to pray to God, not to save the child by his own power. Is this like asking a living friend?
+  In a sermon, Augustine addresses Stephen and Paul, both long dead. He says they hear his words and asks them to pray for the Church's peace.
 
-- `stephen-panel` Consider: a painting of Stephen is proposed for honour during prayer
-  - from chapter `trent-reply`: Calvin example: a painting of Stephen is proposed for honour during prayer
+  He asks for their prayers, not for salvation by their own power. Is this like asking living believers?
 
-  A chapel painting shows Stephen, a saint who has died, remaining faithful. Someone wants to honour him through the picture during prayer. Is that a proper use of a painting?
+- `stephen-and-attackers` Consider: Stephen’s attackers are mistaken for saints and honoured
+  - from chapter `trent-reply`: Calvin example: Stephen’s attackers are mistaken for saints and honoured
+
+  Calvin recalls a childhood festival in his parish. Images of Stephen and the men stoning him were all decorated. Some worshippers mistook the attackers for Stephen's companions and offered candles to them too.
+
+  They intended to honour saints, but had mistaken whom the images showed.
 
 - `calvin-pictures` Pictures are allowed, but not devotional honour before them
   - from chapter `trent-reply`: Calvin: Pictures are allowed, but not devotional honour before them
 
   Must all pictures be rejected? No: painting and sculpture are allowed within limits. But giving religious honour before a picture is forbidden, even if the honour is meant for the person it shows.
 
-- `stephen-fragment` Consider: a bone labelled “Stephen” lies in box C17
-  - from chapter `trent-reply`: Calvin example: a bone labelled “Stephen” lies in box C17
+- `peters-supposed-brain` Consider: Peter’s supposed brain was revered in a shrine
+  - from chapter `trent-reply`: Calvin example: Peter’s supposed brain was revered in a shrine
 
-  Box C17 contains a bone. An unsigned label says it belonged to Stephen, the biblical saint. If genuine, it would be a *relic*: a saint's remains treated with religious reverence. But the box comes with no history. What does the label prove?
+  Calvin reports that an object in Geneva was honoured as the apostle Peter's brain. While it remained in its shrine, questioning its identity was treated as blasphemy.
 
-- `fragment-inspection` Consider: the bone’s wrapping is marked P4; its label has no date
-  - from chapter `trent-reply`: Calvin example: the bone’s wrapping is marked P4; its label has no date
+- `pumice-report` Consider: Calvin reports that the supposed brain was pumice
+  - from chapter `trent-reply`: Calvin example: Calvin reports that the supposed brain was pumice
 
-  The bone is wrapped in a packet marked P4, inside a box marked C17. These marks identify the packet and box. The label naming Stephen has no date, and nothing says when the packet entered the box or where the bone came from.
+  Calvin says that examination revealed the supposed relic to be pumice: a porous stone, not human remains.
 
-  > NOTE: The fragment, box C17 and packet P4 are an invented case. Their marks are clues for a custody inquiry, not real archaeological findings.
+  His account contrasts the confidence surrounding the shrine with what inspection disclosed.
 
-- `calvin-even-genuine` Even a real saint’s bone should not receive religious honour
-  - from chapter `trent-reply`: Calvin: Even a real saint’s bone should not receive religious honour
+- `calvin-even-genuine` Even genuine relics should not receive religious honour
+  - from chapter `trent-reply`: Calvin: Even genuine relics should not receive religious honour
 
-  Suppose a bone really does belong to a saint. Should it receive religious honour?
+  Would genuine remains make the practice right?
 
-  No. Reverence for relics can lead people to give bones the worship owed to God. That is *idolatry*. Proving that the bone is genuine does not remove that danger.
+  No. Religious devotion to relics transfers to creatures the honour owed to God. This is *idolatry*, whether the relic is genuine or false.
 
-- `saint-warrant-question` May we ask a dead saint to pray, and how could he hear us?
-  - from chapter `trent-reply`: Calvin: May we ask a dead saint to pray, and how could he hear us?
+  Honour the saints by following their example; leave their bodies buried until the resurrection.
 
-  Why is asking the dead Stephen to pray different from asking a living friend?
+- `saint-warrant-question` May we ask dead saints to pray, and how could they hear us?
+  - from chapter `trent-reply`: Calvin: May we ask dead saints to pray, and how could they hear us?
 
-  The friend can hear what a child needs, and Scripture supports prayer among living believers. The parent asks Stephen for the same thing: prayer to God, not salvation from Stephen himself.
+  Why distinguish living believers from departed saints?
 
-  But what authorizes addressing a dead saint? And how would Stephen know the child's need? Calling on departed saints also obscures Christ's unique role in opening the way to God.
+  Living believers can hear a request, and Scripture supports their mutual prayer. Augustine asks Stephen and Paul for prayer too, but he also assumes that they hear his sermon.
 
-  *May we ask a dead saint to pray, and how could he hear us?*
+  What authorizes addressing the dead, and how would they know our needs? Calling on departed saints also obscures the access to God that Christ alone provides.
+
+  *May we ask dead saints to pray, and how could they hear us?*
 
 - `agency-not-permission` God’s use of water does not show he permits prayers to saints
   - from chapter `trent-reply`: Calvin: God’s use of water does not show he permits prayers to saints
 
-  Does God using water in baptism justify asking a dead saint to pray?
+  Does God using water in baptism justify addressing departed saints?
 
-  Aquinas says God appointed water baptism to give grace, or new life in the soul. But a parent asking the dead Stephen to pray raises different questions: may we address him, and can he hear us?
+  Aquinas says God appointed water baptism to give grace. Augustine's request to Stephen and Paul raises different questions: may we address them, and can they hear us?
 
-  Water does not need to hear a request. God's use of water therefore answers neither question. Nor does it answer the objection that calling on departed saints obscures Christ's unique role in opening the way to God.
+  Water need not hear a request. Its appointed use therefore establishes neither permission to address saints nor their knowledge of our prayers.
 
   *God’s use of water does not show he permits prayers to saints*
 
-- `calvin-panel-answer` A painting may show Stephen, but should not be used to honour him in worship
-  - from chapter `trent-reply`: Calvin: A painting may show Stephen, but should not be used to honour him in worship
+- `calvin-panel-answer` Correctly naming an image would not make devotional honour right
+  - from chapter `trent-reply`: Calvin: Correctly naming an image would not make devotional honour right
 
-  May a painting of Stephen be used to honour him during prayer?
+  Would explaining the picture solve the problem?
 
-  The picture shows Stephen remaining faithful. Showing his life can be allowed, but giving religious honour before an image is forbidden—even when the honour is meant for the person it shows.
+  The worshippers mistook Stephen's attackers for saints. Teaching could correct that mistake. But religious honour before images is forbidden even when the person represented is correctly identified.
 
-  The proposed use of the painting is the problem. Saying “I honour Stephen, not the paint” does not remove it.
+  A picture may tell a true story. That does not authorize devotion before it.
 
-  *A painting may show Stephen, but should not be used to honour him in worship*
+  *Correctly naming an image would not make devotional honour right*
 
-- `fragment-gap` The label says Stephen; the bone’s history is missing
+- `reverence-and-scrutiny` Reverence can shield a false relic from questioning
 
-  What do we still need to know about the supposed bone of Stephen?
+  How could a stone be honoured as Peter's remains?
 
-  The bone is wrapped in packet P4 inside box C17. An unsigned, undated label names Stephen. The marks P4 and C17 could help us match the packet and box to written records.
+  In Calvin's account, the supposed brain was revered while questioning it was treated as blasphemy. Inspection then revealed pumice.
 
-  Who put the packet in this box, and when? Where did the bone come from before that? Without that history, the label cannot establish whose bone it is.
+  The devotion had protected the claim from scrutiny. Reverence did not make it true.
 
-  *The label says Stephen; the bone’s history is missing*
+  *Reverence can shield a false relic from questioning*
 
-- `authenticity-not-permission` Even if the bone is Stephen’s, it should not receive religious honour
-  - from chapter `trent-reply`: Calvin: Even if the bone is Stephen’s, it should not receive religious honour
+- `authenticity-not-permission` Replacing a false relic would not cure the wrongful devotion
+  - from chapter `trent-reply`: Calvin: Replacing a false relic would not cure the wrongful devotion
 
-  Would proving that the bone is Stephen's make it right to honour it?
+  Would replacing the stone with Peter's actual remains answer the objection?
 
-  The label names Stephen, but no record explains how packet P4 entered box C17 or where the bone came from. Its identity is still unproved.
+  Inspection exposes a false claim. But religious devotion to genuine relics also gives creatures the honour owed to God.
 
-  Even a genuine saint's bone should not receive religious honour: reverence for bones can lead to giving them the worship owed to God. Proof would settle whose bone it is, but would not remove that objection.
+  Finding the right remains would correct the identity. It would not make this devotion right.
 
-  *Even if the bone is Stephen’s, it should not receive religious honour*
+  *Replacing a false relic would not cure the wrongful devotion*
 
 **Combinations**
 - `friend-request` [preserve] + `saint-request` [preserve] -> `saint-warrant-question`
 - `saint-warrant-question` [preserve] + `instrumental-baptism` -> `agency-not-permission`
-- `stephen-panel` [preserve] + `calvin-pictures` [preserve] -> `calvin-panel-answer`
-- `stephen-fragment` [preserve] + `fragment-inspection` [preserve] -> `fragment-gap`
-- `fragment-gap` + `calvin-even-genuine` -> `authenticity-not-permission`
+- `stephen-and-attackers` [preserve] + `calvin-pictures` [preserve] -> `calvin-panel-answer`
+- `peters-supposed-brain` [preserve] + `pumice-report` [preserve] -> `reverence-and-scrutiny`
+- `reverence-and-scrutiny` + `calvin-even-genuine` -> `authenticity-not-permission`
+
+> NOTE: The prayer case follows [Augustine, Sermon 316.5](https://www.augustinus.it/latino/discorsi/discorso_455_testo.htm). Its invocation of Stephen and Paul is explicit. Calvin’s questions are applied editorially; this is not a documented response to that sermon. The same passage’s “picture” is not used as evidence of a physical artwork, since that interpretation is disputed.
 
 > NOTE: Source `images-calvin-1559`: [Calvin, Institutes I.11 §§9–13 (1559), Beveridge translation](https://www.ccel.org/ccel/calvin/institutes.iii.xii.html). Painting and sculpture, devotional honour, and instituted signs. Calvin’s polemical historical allegations are not independent findings. Especially §§12–13.
 
-> NOTE: Source `images-calvin-relics-1543`: [Calvin, Treatise on Relics (1543), Krasinski translation, second edition 1870](https://www.gutenberg.org/cache/epub/32136/pg32136-images.html). Calvin begins at printed p.217; the preceding dissertation and numbered translator notes are not his text. His opening argument at pp.217–222 objects to relic devotion leading to idolatry. Catalogue pp.254–256; admission concerning commissioners pp.276–277; genuine-or-false distinction p.278. Reports are attributed, not authenticated.
+> NOTE: Source `images-calvin-relics-1543`: [Calvin, Treatise on Relics (1543), Krasinski translation, second edition 1870](https://www.gutenberg.org/cache/epub/32136/pg32136-images.html). Calvin begins at printed p.217; the preceding dissertation and numbered translator notes are not his text. His opening argument at pp.217–222 objects to relic devotion leading to idolatry. The Geneva brain/pumice report is p.224; the childhood Stephen-image account is p.281. These replace the invented chapel and relic dossier. Genuine-or-false objection p.278; burial until resurrection pp.279–280; following saints’ example pp.217–218. Neither report becomes an inspection performed by the player. Reports are attributed, not authenticated.
 
 > NOTE: Source `calvin-prayer`: [Calvin, Institutes III.20 §§19–27](https://www.ccel.org/ccel/calvin/institutes.v.xxi.html). Primary text, Beveridge translation. Distinguishes mutual prayer among the living from invoking departed saints; challenges scriptural warrant and knowledge of particular prayers.
 
-## `trent-reply` Catholic bishops, Trent, 1563 — What would new evidence change?
+## `trent-reply` Catholic bishops, Trent, 1563 — Reform the devotion or reject it?
 
 background: ![Reformation study — next day](assets/theology-reply-records-desk.webp)
 
 *Catholic bishops, Trent, 1563*
 
-The bishops at Trent defend asking saints to pray and honouring images and relics. Calvin objects to these practices. They now consider the supposed relic of Stephen: a bone wrapped in packet **P4**, inside box **C17**. The label names the saint, but the bone’s origin is unproved.
+The bishops at Trent defend asking saints to pray and honouring images and relics. They also demand an end to superstition and abuses. Saints served God through their bodies, and those bodies await resurrection.
 
-An archivist brings records saying who moved the packet and who later kept the box. For the bishops, a saint’s remains can deserve religious honour; Calvin objects even to genuine relics. *Do these records prove the bone belonged to Stephen? And would proving that settle whether to honour it?*
+Calvin's reported mistakes raise a sharper question: *should false claims end the practice, or call for its reform?*
 
-[If skipped] The records tell us more about who kept the bone. They do not prove it belonged to Stephen or secure a bishop's recognition of it as a relic. The disagreement about honouring saints' remains continues.
+[If skipped] Trent rejects abuses while defending honour for saints' images and remains. Calvin rejects the religious devotion even when the object is correctly identified. Better identification does not settle that disagreement.
 
 > NOTE: Source context: Council of Trent · Catholic bishops, 1563; Calvin’s objections retained.
 
 **Goals**
-- (three goals are a lot but okay here because the same prayer, painting and fragment each receive a different kind of new evidence or argument)
-- What does “through Christ” answer about this request? -- `prayer-disagreement`
-- Does the bow cease to be devotional if the paint has no power? -- `panel-still-disputed`
-- Would proving the bone's identity settle the dispute? -- `a-better-history-for-the-bone-would-not-remove`
+- (three goals are a lot but okay here because prayer, images and relics each receive a distinct reply)
+- Does “through Christ” answer the objection to invoking saints? -- `prayer-disagreement`
+- Can instruction correct the misuse of images? -- `panel-still-disputed`
+- Should abuses end relic devotion, or call for reform? -- `reform-or-reject`
 
 **Items**
 
-- `saints-not-saviours` Ask saints in heaven to pray for our needs through Christ, the only saviour
-  - from chapter `ending`: Trent: Ask saints in heaven to pray for our needs through Christ, the only saviour
+- `saints-not-saviours` Ask saints in heaven for prayer through Christ, the only saviour
+  - from chapter `ending`: Trent: Ask saints in heaven for prayer through Christ, the only saviour
 
-  Why ask saints to pray if Christ is the only saviour?
+  Saints in heaven pray for us. Asking their help is good and useful: the benefits come from God through Christ, the only redeemer and saviour.
 
-  Saints in heaven can pray for our needs and help us through Christ. A parent asking Stephen to pray for a child is asking for help through the sole saviour, not making Stephen another saviour.
+  Asking Stephen and Paul for prayer need not make them rival saviours. The Church receives this practice from its ancient tradition.
 
-- `trent-image-honour` Consider: I bow before Stephen’s picture to honour him, not the paint
-  - from chapter `ending`: Trent example: I bow before Stephen’s picture to honour him, not the paint
+- `trent-image-honour` Teach whom images show; honour passes to the saint, not the material
+  - from chapter `ending`: Trent: Teach whom images show; honour passes to the saint, not the material
 
-  Suppose someone bows before Stephen's picture as an act of religious honour. The honour is meant for Stephen; the worshipper denies that the paint has any divinity or power. Does directing the honour to the person make the bow acceptable?
+  Sacred images teach the stories of faith and the saints' examples. Their meaning should be explained and misleading uses corrected.
 
-  > NOTE: The bow is a proposed application in the existing invented painting case, not a recorded historical event or a ruling approving this particular image. Trent XXV discusses kissing images, uncovering the head and prostration; Calvin I.11.9–11 rejects devotional honour before images and the defence that honour passes beyond the material object.
+  Honour shown before a saint's image is directed to the saint represented. The material itself has no divinity or power. This is why kissing an image or bowing before it can be allowed.
 
-- `case-update-a-1532-transfer-names-packet-p4-and` Consider: a 1532 record places packet P4 in box C17
-  - from chapter `ending`: Trent example: a 1532 record places packet P4 in box C17
+- `bodies-and-resurrection` Saints’ bodies belonged to Christ and will rise again
+  - from chapter `ending`: Trent: Saints’ bodies belonged to Christ and will rise again
 
-  Suppose an archivist finds two entries. The first records sexton Martin moving packet P4 from Agnes's chest into box C17 in 1532. It calls the contents “Stephen's bone”. The second records keeper Anne receiving the sealed box in 1551.
+  Saints' bodies were members of Christ and dwellings of the Holy Spirit. God will raise and glorify them, and grants benefits through them. They therefore deserve honour.
 
-  Neither entry says how Agnes got the bone. They add to its history, but recognizing it as a saint's relic still requires examination and a bishop's approval.
+  That does not excuse superstition or false claims. Abuses must be removed; new relics and miracles require investigation and a bishop's approval.
 
-  > NOTE: These people, marks, dates and custody entries are fictional evidence for this case, not an actual relic history. The record supports only the stated transfers, not identification with the biblical Stephen.
+- `prayer-disagreement` Whether God permits prayers to saints, and whether saints hear them, remains disputed
 
-- `prayer-disagreement` Calvin still asks whether we may address saints and how they could know our prayers
+  Does asking for prayer through Christ answer Calvin?
 
-  Does “through Christ” answer Calvin's objections to asking saints for prayer?
+  Augustine addresses Stephen and Paul for the Church's peace. Saints in heaven can help us through Christ; asking their prayers does not make them other saviours.
 
-  A parent asks the saint Stephen in heaven to pray for a child through Christ, the only saviour. The request seeks Stephen's prayer, not salvation from Stephen himself.
+  Calvin disputes whether we may address them at all and how they could hear. He does not accept the Church's tradition as sufficient warrant. Calling the prayer help “through Christ” does not settle those questions.
 
-  But Calvin disputes whether we may address Stephen at all and asks how he could know the child's need. God's use of water in baptism does not establish permission to address saints or explain how they learn our requests. Calling on them through Christ leaves those questions open.
+  *Whether God permits prayers to saints, and whether saints hear them, remains disputed*
 
-  Calvin also holds that calling on departed saints obscures the access to God that Christ alone provides.
+- `panel-still-disputed` Correcting mistaken identity leaves image honour disputed
 
-  *Calvin still asks whether we may address saints and how they could know our prayers*
+  What would teaching the worshippers change?
 
-- `panel-still-disputed` Trent and Calvin dispute bowing before pictures, even without power in the paint
+  Explaining Stephen's story could stop them mistaking his attackers for saints. Images should teach true faith, and honour should go to the holy person represented, not the material.
 
-  If the paint has no power, is bowing before Stephen's picture acceptable?
+  Calvin rejects religious honour before images even when both points are understood. Instruction can correct the mistaken identity; it does not reconcile the two accounts of devotion.
 
-  The bow is meant to honour Stephen, not to treat the paint as divine or powerful.
+  *Correcting mistaken identity leaves image honour disputed*
 
-  Calvin allows pictures within limits, but rejects religious honour before them even when it is directed to the person shown. The painting can teach about Stephen's life; the bow remains disputed.
+- `reform-relic-devotion` Reject false relics while honouring the bodies of saints
 
-  *Trent and Calvin dispute bowing before pictures, even without power in the paint*
+  Does a false relic discredit all honour for saints' remains?
 
-- `record-not-ruling` Records trace the bone’s recent history, but do not prove it was Stephen’s
+  If Calvin's Geneva report is right, the object was stone, not Peter's remains. It has no claim to the honour due to a saint's body.
 
-  Do the new records prove that the bone belonged to Stephen?
+  But saints' bodies belonged to Christ and await resurrection. Exposing a false claim does not remove that reason to honour their actual remains. The practice needs examination and reform, not abandonment.
 
-  They fill a gap: packet P4 was moved from Agnes's chest into box C17 in 1532. The sealed box reached another keeper in 1551.
+  *Reject false relics while honouring the bodies of saints*
 
-  But how did Agnes get the bone? Nothing here proves its earlier history or identity. Recognizing it as a saint's relic still requires examination and a bishop's approval. A record of transfer is not that approval.
+- `reform-or-reject` Trent would reform relic devotion; Calvin rejects the practice
 
-  *Records trace the bone’s recent history, but do not prove it was Stephen’s*
+  Is identifying genuine relics enough?
 
-- `a-better-history-for-the-bone-would-not-remove` Proving whose bone it is would not resolve Calvin’s objection to honouring it
+  False claims and superstition must be rejected. But saints' bodies belonged to Christ, served God and await resurrection: there is reason to honour their true remains.
 
-  Would proving that the bone is Stephen's settle whether to honour it?
+  Calvin objects even then. He sees the religious devotion itself as giving creatures the honour owed to God.
 
-  The records trace packet P4 into box C17 in 1532 and the sealed box to another keeper in 1551. They do not prove whose bone it held.
+  Both can reject a false relic. They still disagree about what honouring a true one means.
 
-  Even if the bone were proved to be Stephen's, Calvin would reject religious honour for it: he fears giving bones the worship owed to God. But saints' bodies belong to Christ and await resurrection: this gives reason to honour them.
-
-  Proof would answer whose bone it is. It would not by itself answer whether it should receive religious honour.
-
-  *Proving whose bone it is would not resolve Calvin’s objection to honouring it*
+  *Trent would reform relic devotion; Calvin rejects the practice*
 
 **Combinations**
 - `saints-not-saviours` [preserve] + `agency-not-permission` [preserve] -> `prayer-disagreement`
 - `calvin-panel-answer` [preserve] + `trent-image-honour` [preserve] -> `panel-still-disputed`
-- `fragment-gap` + `case-update-a-1532-transfer-names-packet-p4-and` [preserve] -> `record-not-ruling`
-- `record-not-ruling` + `calvin-even-genuine` -> `a-better-history-for-the-bone-would-not-remove`
-- `record-not-ruling` + `authenticity-not-permission` [preserve] -> `a-better-history-for-the-bone-would-not-remove`
+- `reverence-and-scrutiny` + `bodies-and-resurrection` [preserve] -> `reform-relic-devotion`
+- `reform-relic-devotion` + `calvin-even-genuine` -> `reform-or-reject`
+- `reform-relic-devotion` + `authenticity-not-permission` [preserve] -> `reform-or-reject`
 
-> NOTE: Source `images-trent-1563`: [Council of Trent, Session XXV (3–4 December 1563), Waterworth 1848, pp.233–236](https://history.hanover.edu/texts/trent/ct25.html). Decree on invocation, relics and images. Distinguish image-honour, holy bodies, new-relic recognition and episcopal approval of unusual images. The fictional case receives no invented real ruling.
+> NOTE: Source `images-trent-1563`: [Council of Trent, Session XXV (3–4 December 1563), Waterworth 1848, pp.233–236](https://history.hanover.edu/texts/trent/ct25.html). Decree on invocation, relics and images. Distinguish image-honour, holy bodies, new-relic recognition and episcopal approval of unusual images. The comparisons apply Trent’s teaching to Calvin’s reported cases; the council is not claimed to have investigated or ruled on those particular objects. Its affirmative reasons for honouring saints’ bodies and its rejection of abuses supply the reply, without invented custody records.
 
 ## `ending` You, your reading desk, 2026 — What remains open?
 *You, your reading desk, 2026*
 
-The records place packet P4 in box C17 in 1532. We still do not know whose bone it held. Even proof that it belonged to Stephen would leave Calvin and Trent divided about giving it religious honour.
+A supposed relic turns out to be stone in Calvin’s account. Trent’s teaching gives reasons to reject false claims while honouring saints’ actual remains. Calvin rejects that religious devotion even when the remains are genuine. Their disagreement is about worship, not just getting the label right.
 
 You have followed arguments about evil, grace, God and worship. Sometimes new evidence or a new distinction changes the answer. Sometimes it makes the disagreement clearer. What would change your mind?

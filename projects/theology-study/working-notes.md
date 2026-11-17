@@ -1,5 +1,97 @@
 # Theology: working notes
 
+## Inventions and source replacements — 16 November 2026
+
+The user requested a stricter provenance review: identify invented situations, cases and conclusions, seek actual source examples, and hold necessary inventions to a particularly high authenticity standard. During the work they rejected P4/C17 as weak and authorized different disputes and conclusions when better sources warranted them. The [design brief](../../stories/theology/design-brief.md) owns this standard. The revisions below are implemented locally, without commits or pushes.
+
+### Review method and baseline counts
+
+Fifteen fresh reviewers each received one chapter, including the ending, without inherited conversation or earlier verdicts. They read the manuscript and standing brief, traced dependencies, checked primary texts online, classified every derived result and researched replacements. One used the conversation’s agent tool; fourteen used fresh, ephemeral CLI sessions after the tool’s thread limit was reached. The integrating editor checked coverage and the principal passages. Two further fresh reviewers, one for chapter 13 and one for chapter 14, explored different disputes after the user broadened the scope. They did not receive earlier verdicts.
+
+The audited baseline has SHA-256 `835eb1d8fccfebca130449a1b41cfe3632755dfe46d4ae23d202ecfa3eea5228`. It contained **11 materially constructed case families: five invented illustrations and six close adaptations or concretizations**. Recurring cases count once: the meal includes its broken promise, the artwork includes the bow, and the relic dossier includes its keepers and two records. This excludes incidental imagined details and the separately identified historical-fiction desks. A scriptural narrative or source author’s hypothetical counts as sourced, not as an independently verified event.
+
+All **52 distinct baseline combination results** were matched against the shared parser, covering all 57 recipes and their alternatives. Their classification yielded **18 source paraphrases, 14 editorial applications and 20 editorial comparisons or syntheses**. An application uses a sourced doctrine on our case; a comparison assembles claims across passages or authors. These 34 editorial results are **not 34 invented doctrines**. Boundaries are interpretive, and these counts describe the baseline rather than a reclassification of the revised text.
+
+| Baseline chapter | Source paraphrases | Applications | Comparisons/syntheses |
+|---|---:|---:|---:|
+| 1 | 2 | 1 | 1 |
+| 2 | 0 | 3 | 1 |
+| 3 | 1 | 2 | 1 |
+| 4 | 1 | 0 | 2 |
+| 5 | 1 | 1 | 1 |
+| 6 | 0 | 0 | 1 |
+| 7 | 2 | 0 | 1 |
+| 8 | 3 | 0 | 0 |
+| 9 | 2 | 1 | 1 |
+| 10 | 0 | 2 | 1 |
+| 11 | 4 | 0 | 4 |
+| 12 | 1 | 0 | 2 |
+| 13 | 1 | 3 | 1 |
+| 14 | 0 | 1 | 3 |
+| 15 | 0 | 0 | 0 |
+| **Total** | **18** | **14** | **20** |
+
+### Cases and adopted replacements
+
+**Nine of the eleven constructed families were replaced or reworked around actual source examples and arguments. Two closely grounded adaptations remain.** Source reports establish what an author says happened; they do not independently authenticate relics or miracles. Necessary attribution belongs in the text; detailed provenance belongs in author notes.
+
+| Original family | Baseline provenance | Adopted treatment and source |
+|---|---|---|
+| Stolen neighbour’s meal and failed promise, chapters 1–2 | **Invented.** Theft, deprived neighbour, promised restitution and failure were ours. | Replaced with Augustine’s **gold preferred to justice**, [City of God XII.8](https://www.newadvent.org/fathers/120112.htm), and **Peter’s promise, denial and inward repentance**, [On the Grace of Christ I.49–50](https://www.newadvent.org/fathers/15061.htm), with sincere desire versus strength in [Tractate on John 66.1](https://www.newadvent.org/fathers/1701066.htm). No invented continuity between them. |
+| Two infants, one ill and one well, chapter 2 | **Adaptation.** The staged pair is ours. | **Retained.** [Letter 98.5](https://www.newadvent.org/fathers/1102098.htm) reports infants brought for baptism to restore or preserve bodily health. Our pair varies physical health while holding absence of personal wrongdoing constant. It needs no invented outcome or motive. Added precise provenance to the manuscript. |
+| Fertile land feeds a household; a storm destroys its home, chapter 3 | **Invented.** The household and disaster were ours. | Replaced with the **angels’ corruption**, the actual case in [Book of Two Principles I.7–10, 13–15](https://gnosis.org/library/cathar-two-principles.htm). The chapter now asks who caused the angels to fall. |
+| Spectator foresees a disaster, chapter 3 | **Adaptation.** The source’s walker had become a disaster case. | Restored the **observer watching a person walk**, [Two Principles I.9](https://gnosis.org/library/cathar-two-principles.htm). Present observation supplies the objection’s knowledge/causation distinction; the creator reply remains alongside it. |
+| Knowing creator of a harmful world, chapter 3 | **Adaptation.** A general harmful world replaced the source’s angels. | Restored the stronger conditional premise: the sole creator supplies **every cause making the angels’ fall unavoidable**, [Two Principles I.7–10](https://gnosis.org/library/cathar-two-principles.htm). Foreknowledge alone does not supply that premise. Chapter 4 now expressly distinguishes Aquinas’s explanation of natural harm from this question about evil choices. |
+| Teacher and pupil share humanity, chapter 5 | **Adaptation.** The lesson scene was ours. | Replaced with Augustine’s **human father and son**, [Sermon 139 (NT 89), §§2–3](https://www.newadvent.org/fathers/160389.htm). The analogy explains equality of nature, not divine unity or temporal birth. |
+| One coin, no supper, indulgence letter, chapters 9–10 and 12 | **Adaptation.** Not an incident in which Luther fed a family. | **Retained.** [Thesis 46](https://editions.mml.ox.ac.uk/editions/luther-95-theses/luther-95-theses-eng.shtml) explicitly requires reserving household necessities before buying indulgences. Scarcity isolates precisely that choice without fabricating a historical action, motive or outcome. Added the exact source and status. |
+| Fasting while leaving supper unprepared, chapter 10 | **Invented.** Luther does not supply this neglected supper. | Removed the incident. Use his actual argument that discipline restrains appetite and bodily care enables work for those in need, [Christian Liberty, bodily-discipline and neighbour-service discussions](https://www.projectwittenberg.org/pub/resources/text/wittenberg/luther/web/cclib-3.html). The result joins discipline to free service rather than contrasting two invented meals. |
+| Parent asks a friend, then Stephen, to pray for a child, chapters 13–14 | **Adaptation.** The particular request was ours. | Replaced with **Augustine asking Stephen and Paul to pray for the Church**, [Sermon 316.5](https://www.augustinus.it/latino/discorsi/discorso_455_testo.htm), compared with living believers’ mutual prayer. Calvin’s objection remains an editorial application, not a documented response to that sermon. |
+| Stephen painting and later bow, chapters 13–14 | **Invented particular artwork; adapted gesture.** | Replaced with **Calvin’s childhood account of Stephen’s attackers being mistaken for saints and offered candles**, [Treatise on Relics, p.281](https://www.ccel.org/ccel/calvin/treatise_relics.v.html). Trent’s reply distinguishes correcting mistaken identity from defending honour directed to the represented saint. No invented bow or council verdict. |
+| Stephen bone, P4/C17, Agnes, Martin, Anne and 1532/1551 transfers, chapters 13–15 | **Invented throughout.** One dossier with two invented evidence developments. | Replaced with **Calvin’s Geneva brain/pumice report**, [Treatise, p.224](https://www.ccel.org/ccel/calvin/treatise_relics.v.html). The first inference concerns reverence shielding a claim from scrutiny. [Trent XXV](https://history.hanover.edu/texts/trent/ct25.html) supplies affirmative reasons to honour saints’ bodies and reject abuses. The conclusion and ending now ask **reform the devotion or reject it?** rather than staging an invented custody inquiry. |
+
+### Why these disputes changed
+
+The initial relic leads included **Bishop Projectus carrying Stephen’s relics to Tibilis**, [City of God XXII.8](https://www.newadvent.org/fathers/120122.htm), and **Matrona’s custody and Theodosius’s transfer of John the Baptist’s head**, [Sozomen VII.21](https://www.newadvent.org/fathers/26027.htm), which Calvin cites. These are actual source narratives. They were not adopted: using them merely as partial custody records would subordinate their religious meaning to our old puzzle. The new case uses Calvin’s own challenge and lets Trent’s own positive theology determine the reply. The council is not claimed to have adjudicated the Geneva report.
+
+Augustine’s invocation in Sermon 316 is secure textual evidence, but its reference to a *picture* is disputed: it may mean a physical artwork or a rhetorical description. [Appleby, pp.66–67 and n.228](https://escholarship.org/content/qt6fv1d3fn/qt6fv1d3fn.pdf) records both interpretations. The revision therefore uses the invocation and sources its artwork case elsewhere. Likewise, Augustine’s autobiographical food theft in *Confessions* I.19 supplies neither a hungry neighbour nor a promise to return food; the famous pear theft was not driven by need. Merely finding a famous theft would not repair the old example.
+
+Source examples already doing their work remain: Augustine’s wound/healing (*Enchiridion* 11); Aquinas’s fire/water and axe/bed (*Summa* I q.49 a.1 and III q.62 a.1); Zwingli’s ring (*On the Lord’s Supper*, Third Article); Luther’s unbelieving recipient (*Large Catechism* V.16–18, 33–35); the Lyon ritual’s prescription; and the actual Marburg articles. Aquinas himself compares baptismal instrumentality with Eucharistic conversion. No invented historical incidents are needed to replace those examples.
+
+### Revision checks
+
+The editor updated affected openings, goals, local/inherited titles, all associated readings, source notes, later comparisons and the ending. Misleading internal identities were renamed consistently. **The combination graph is unchanged after those identity renames: 15 chapters, 113 items, 57 recipes and 52 result cards.** The earlier preference for preserving structure happened to remain achievable despite the changed disputes.
+
+Nine new independent chapter reviewers checked the rewritten chapters **1–5, 10 and 13–15**, including goals, each local/inherited title, primitive and result reading, every recipe and alternatives, relevant dependencies, provenance and primary passages. All nine passed the substantive-authenticity check. They received the current manuscript and brief, not earlier verdicts. Chapter 9 gained provenance notes only; chapters 6–8 and 11–12 retain their audited text.
+
+Separate fresh **Terra** readers examined the complete title inventory and complete card inventory, without the other layer or recipes. They recovered the intended chapter distinctions. Adopted three concise clarifications: identify the saints as dead in the invocation title, state the disputed permission/hearing questions plainly, and remove an unclear pronoun from the discipline card. Two further isolated Terra probes recovered those meanings. A suggested change to the unchanged bread-observation title was declined: the reader already understood the appearance/substance distinction, and the title reports an appearance rather than settling the question. A residual query about the discipline card’s purpose did not change the reader’s interpretation and warranted no added detail.
+
+**Final manuscript SHA-256:** `5715c0e632d7ded3a5957d95f361dc1e230d505902bb1c446ec74dd0e75c67d4`. Lint: **0 errors, 0 warnings**. Parsed graph comparison passes after consistent identity renames. The shared checkpoint planner completes the story in a 124-action legal witness, whose action history replays exactly. At **390 × 844**, browser checks passed for the eight rewritten playable chapters: arrivals, loaded backgrounds, unclipped card text, encyclopedia openings, a representative drag and resulting popup. The ending passed too; sampled boards and readings were visually inspected. Chapters 10, 13 and 14 were rechecked after the comprehension clarifications. No browser errors occurred. These checks do not measure sustained play or human enjoyment.
+
+The baseline source audit covered all fifteen chapters and all 52 results without missing or duplicate assignments. Some *Two Principles* passages were available through indexed primary text rather than direct retrieval. These are source-informed editorial checks, not observed acceptance by human seminarians or lecturers. Individual prompts, reports, copied source, screenshots and verification scratch were discarded after this synthesis. No commits or pushes were made.
+
+## Chapter authenticity review — 16 November 2026
+
+The user requested a fresh reviewer for each chapter, judging whether the theological and philosophical arguments capture their central thrust well enough for a seminarian or theology lecturer to accept the simplification. Reviewers were explicitly asked to accept deliberate selection, modern language and concise explanations, and to recommend changes only for substantive distortions. Concise textual repairs preserving the combinations were preferred. The [design brief](../../stories/theology/design-brief.md#let-the-arguments-earn-their-force) now owns this authenticity standard.
+
+**Method:** Fifteen fresh agents, each with no inherited conversation or previous review verdicts, reviewed one chapter apiece, including the goal-free ending. Each received the current manuscript, project philosophy and design brief, and examined the assigned opening, goals, every item and local/inherited title, popup and encyclopedia reading, every combination including alternative routes, and source notes. Relevant inherited inputs and downstream uses supplied context. Reviewers checked primary texts online and returned a verdict, any proposed concise replacements, and supporting sources. The integrating editor read the complete manuscript and considered the findings; this was an informed authenticity review, not a blind comprehension test or playtest.
+
+**Outcome:** All fifteen reviewers recommended no substantive changes. The manuscript remains byte-for-byte unchanged. In particular:
+
+| Chapters | Retained judgment |
+|---|---|
+| 1–2: Augustine on evil and grace | The wound and meal examples fairly convey privation and disordered choice; inward grace and inherited sin retain Augustine’s stronger claims. |
+| 3–4: Cathar argument and Aquinas’s reply | The opposing-sources premise and knowing-maker objection are explicit; the fire example answers a limited question without claiming to settle the creator’s responsibility. |
+| 5: Trinity | The comparisons distinguish equal nature, real relations and divine unity without presenting an analogy as proof. |
+| 6–8: Cathar rite, baptism and Communion | Material enactment does not establish divine authority; the instrumental baptism analogy and change of Eucharistic substance preserve Aquinas’s distinctions. |
+| 9–10: Luther on indulgences and service | Penalties remain distinct from forgiveness; household care, repentance and freely given service accurately express the selected arguments. |
+| 11: Marburg | The three Communion accounts, reception versus benefit, and agreement without doctrinal convergence remain distinct. |
+| 12: Trent on justification | Prior grace, unearned initial justification and growth in received righteousness are accurately contrasted with Luther’s argument about works. |
+| 13–15: Calvin, Trent’s reply and ending | Invocation, image honour and relic devotion retain the opposing reasons; evidence of custody, identity and permission to honour remain separate questions. |
+
+The manuscript’s source notes retain the primary-text references checked. The sharp chapter 12 comparison was checked against [Trent VI, chapters V–X and canon XXIV](https://history.hanover.edu/texts/trent/ct06.html) and [Luther’s Christian Liberty](https://ccel.org/ccel/luther/christianliberty.iii.html), including its bishop analogy. For the concluding dispute, reviewers checked [Trent XXV](https://history.hanover.edu/texts/trent/ct25.html), Calvin’s *Institutes* I.11 and III.20, and his [Treatise on Relics](https://ccel.org/ccel/calvin/treatise_relics/treatise_relics.v.html), distinguishing Calvin’s text from the translator’s material. Where direct retrieval of the full *Book of Two Principles* failed, reviewers checked indexed primary-text passages alongside the accessible translated selections; one alternative ritual catalogue record was inaccessible. Those access limits do not constitute independent verification of the inaccessible catalogue’s dating.
+
+**Verification:** Manuscript SHA-256 remains `835eb1d8fccfebca130449a1b41cfe3632755dfe46d4ae23d202ecfa3eea5228`. Byte comparison confirms no manuscript changes: 15 chapters, 113 items and 57 recipes. Theology lint passes with **0 errors and 0 warnings**; the shared checkpoint planner completes the story and its action history replays exactly. No browser retest was needed because prose, presentation and mechanics were unchanged. These are source-informed AI judgments, not observed acceptance by human seminarians or lecturers. No commits or pushes were made.
+
 ## Straightforward readings and the relic case — 11 November 2026
 
 The user asked for the remaining chapters to follow their chapter 1 rewrites and chapter 2 opening: clearer, more direct sentences, with less tortuous explanation. This pass rewrites **104 readings in chapters 2–14**, the openings of chapters 3–15 and selected titles. Chapter 1 and the chapter 2 opening remain unchanged. The [design brief](../../stories/theology/design-brief.md) now distinguishes definite historical-fiction settings from uncertain source dates, permits simple primitives to omit redundant closing titles, and requires recurring cases to be introduced before their tracking labels.
