@@ -56,6 +56,7 @@ test('opening, hotspot and goals cues take priority; either first placement leav
   await expect(cue(page, 'drag')).toBeVisible();
   await drag(page, tile(page, 'A'), tile(page, 'B'));
   await expect(cue(page, 'hotspot')).toBeVisible();
+  await expect(cue(page, 'hotspot').locator('.tutorial-label')).toHaveText('Some combinations happen at a hotspot');
   await expect(page.locator('.tutorial-path')).toHaveCount(2);
   await expect(page.locator('.tutorial-copy')).toHaveText(['D', 'E']);
   // Another successful mechanic must not dismiss the two-item hotspot lesson.
@@ -80,6 +81,21 @@ test('opening, hotspot and goals cues take priority; either first placement leav
   expect((await accomplishments(page)).hotspotDone).toBe(true);
 });
 
+test('an available hotspot lesson defers the encyclopedia, and only the latest result can teach it', async ({page}) => {
+  const text = story.replace('- C\n- D', '- C\n\n  ---\n\n  Extra reading for C.\n\n- D')
+    .replace('- F\n- G', '- F\n\n  The same reading in both places.\n\n- G');
+  await open(page, text);
+  await drag(page, tile(page, 'A'), tile(page, 'B'));
+  await expect(cue(page, 'hotspot')).toBeVisible();
+  expect((await accomplishments(page)).encyclopediaDone).toBe(false);
+  await drag(page, tile(page, 'D'), station(page, 'Bench'));
+  await drag(page, tile(page, 'E'), tile(page, 'D'));
+  await page.getByRole('button', {name: 'Continue', exact: true}).click();
+  await expect(cue(page, 'goals')).toBeVisible();
+  await expect(tile(page, 'C')).toBeVisible();
+  expect((await accomplishments(page)).encyclopediaDone).toBe(false);
+});
+
 test('paired animation parks its first ghost through the second gesture, yields to touch and supports reduced motion', async ({browser}) => {
   const context = await browser.newContext({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true});
   const page = await context.newPage();
@@ -100,6 +116,7 @@ test('paired animation parks its first ghost through the second gesture, yields 
   for (const path of await page.locator('.tutorial-path').all()) await expect(path).toBeVisible();
   const session = await context.newCDPSession(page), a = (await tile(page, 'D').boundingBox())!;
   await session.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [{x: a.x + a.width / 2, y: a.y + a.height / 2}]});
+  await expect(page.locator('.tutorial-label')).toBeHidden();
   for (const path of await page.locator('.tutorial-path').all()) await expect(path).toBeHidden();
   await session.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: target.x + target.width / 2, y: target.y + target.height / 2}]});
   await session.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});

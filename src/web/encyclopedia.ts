@@ -3,12 +3,13 @@ import type { State } from '../engine/types.ts';
 import { label } from '../engine/game.ts';
 import {browserReadings} from './item-readings.ts';
 
-export interface EncyclopediaHistory { wonder?: string; selected?: string }
+export interface EncyclopediaHistory { wonder?: string; selected?: string; latestResult?: string }
 
 /** Browser reading history is separate from engine discovery acknowledgments. */
 export function restoreEncyclopediaHistory(value: unknown): EncyclopediaHistory {
   if (!value || typeof value !== 'object') return {};
   return {
+    latestResult: 'latestResult' in value && typeof value.latestResult === 'string' ? value.latestResult : undefined,
     wonder: 'wonder' in value && typeof value.wonder === 'string' ? value.wonder : undefined,
     selected: 'selected' in value && typeof value.selected === 'string' ? value.selected : undefined,
   };
@@ -16,6 +17,7 @@ export function restoreEncyclopediaHistory(value: unknown): EncyclopediaHistory 
 
 export function remapEncyclopediaHistory(history: EncyclopediaHistory, items: Map<string, string>): EncyclopediaHistory {
   return {
+    latestResult: history.latestResult && items.get(history.latestResult),
     wonder: history.wonder ? items.get(history.wonder) ?? history.wonder : undefined,
     selected: history.selected ? items.get(history.selected) ?? history.selected : undefined,
   };

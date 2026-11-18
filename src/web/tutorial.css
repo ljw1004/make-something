@@ -5,12 +5,27 @@
 .tutorial-path{stroke:#305b59;stroke-width:2;stroke-dasharray:5 6}
 .tutorial-arrow{stroke:#305b59;stroke-width:2.5;filter:drop-shadow(0 0 2px #fffaf0)}
 .tutorial-target{stroke:#305b59;stroke-width:2;fill:none;filter:drop-shadow(0 0 2px #fffaf0)}
-[data-tutorial="goals"] .tutorial-path-edge,[data-tutorial="goals"] .tutorial-path,[data-tutorial="goals"] .tutorial-arrow{display:none}
+.tutorial-overlay:not([data-tutorial="drag"]) .tutorial-target{stroke:#946918}
 .tutorial-goals-target .objective-line{animation:tutorial-goals-pulse 2.6s ease-in-out infinite}
 @keyframes tutorial-goals-pulse{0%,35%,100%{background-color:#fffaf0e8;box-shadow:0 0 10px #fffaf000}12%{background-color:#fff;box-shadow:0 0 10px #fffaf066}}
 .tutorial-ghost{position:absolute;left:0;top:0;filter:drop-shadow(0 3px 5px #17312a55)}
 /* Match the source button's vertically centered contents without cloning an interactive control. */
 .tutorial-overlay .tutorial-copy{display:flex;flex-direction:column;justify-content:center;position:static!important;margin:0!important;transform-origin:0 0;animation:none!important;transition:none!important;outline:none!important}
+.tutorial-label{
+  position:absolute;top:0;left:0;width:max-content;max-width:min(18rem,var(--label-room,calc(100% - 16px)));
+  padding:4px 8px;border:1px solid #ae812c;border-inline-start:3px solid #dba32d;border-radius:3px;
+  --label-shadow:0 0 5px 1px rgb(0 0 0 / 32%);
+  background:#fff3d1;color:#302000;box-shadow:var(--label-shadow);
+  font-size:12px;line-height:1.4;text-align:center;text-wrap:balance;
+}
+@media(prefers-reduced-motion:no-preference){
+  .tutorial-label{animation:tutorial-label-pulse 5.2s ease-in-out infinite}
+}
+/* Echo the goal reminder's quick amber peak and 800ms fade at the label's edge. */
+@keyframes tutorial-label-pulse{
+  0%,15.4%,100%{box-shadow:0 0 0 0 #ffd24a00,0 0 0 0 #ffc94d00,var(--label-shadow)}
+  3.4%{box-shadow:0 0 0 2px #ffd24a,0 0 8px 2px #ffc94d99,var(--label-shadow)}
+}
 .tutorial-gesture{position:absolute;left:0;top:0;width:0;height:0}
 .tutorial-gesture>svg{position:absolute;width:64px;height:64px;left:-20px;top:-20px;overflow:visible;filter:drop-shadow(0 1px 2px #17282066)}
 .tutorial-contact{fill:#fffaf055;stroke:#fffaf0;stroke-width:2.5;transform-origin:0 0;transition:transform .18s,fill .18s}
@@ -21,11 +36,11 @@
 [data-modality="mouse"] .tutorial-contact{stroke:#305b59;fill:none;opacity:.7}
 .tutorial-press .tutorial-contact{transform:scale(.65);fill:#fffaf099}
 .tutorial-press .tutorial-cursor{transform:scale(.88)}
-[data-tutorial="goals"] .tutorial-contact{stroke:#305b59;fill:none}
-[data-tutorial="goals"]:is([data-modality="mouse"],[data-modality="touch"],[data-modality="pen"]) .tutorial-contact{display:none}
-[data-tutorial="goals"]:is([data-modality="touch"],[data-modality="pen"]) .tutorial-hand{display:block}
-[data-tutorial="goals"] .tutorial-pointer{transform-origin:0 0;animation:tutorial-tap 2.6s infinite}
-[data-tutorial="goals"] .tutorial-ripple{display:block;animation:tutorial-ripple 2.6s infinite}
+.tutorial-tapping .tutorial-contact{stroke:#305b59;fill:none}
+.tutorial-tapping:is([data-modality="mouse"],[data-modality="touch"],[data-modality="pen"]) .tutorial-contact{display:none}
+.tutorial-tapping:is([data-modality="touch"],[data-modality="pen"]) .tutorial-hand{display:block}
+.tutorial-tapping .tutorial-pointer{transform-origin:0 0;animation:tutorial-tap 2.6s infinite}
+.tutorial-tapping .tutorial-ripple{display:block;animation:tutorial-ripple 2.6s infinite}
 /* One quick press/release, with the ripple continuing beneath the lifting finger. */
 @keyframes tutorial-tap{
   0%{opacity:0;transform:scale(1.08);animation-timing-function:cubic-bezier(.2,0,0,1)}
@@ -39,5 +54,20 @@
   12%{opacity:.85;transform:scale(.3);animation-timing-function:cubic-bezier(0,0,.2,1)}
   31%,100%{opacity:0;transform:scale(1)}
 }
-.tutorial-interacting>svg,.tutorial-interacting .tutorial-ghost,.tutorial-interacting .tutorial-gesture,.tutorial-still .tutorial-ghost,.tutorial-still .tutorial-gesture{display:none}
+.tutorial-overlay[data-tutorial="encyclopedia"] .tutorial-pointer{animation-name:tutorial-double-tap}
+.tutorial-overlay[data-tutorial="encyclopedia"] .tutorial-ripple{animation-name:tutorial-double-ripple}
+/* The two contacts land 234ms apart, within the item's double-tap window. */
+@keyframes tutorial-double-tap{
+  0%{opacity:0;transform:scale(1.08)}
+  6%,16%,25%{opacity:1;transform:scale(1)}
+  11%,20%{opacity:1;transform:scale(.85);animation-timing-function:ease-out}
+  40%,100%{opacity:0;transform:scale(1.04)}
+}
+@keyframes tutorial-double-ripple{
+  0%,10.99%,19.99%{opacity:0;transform:scale(.3)}
+  11%,20%{opacity:.85;transform:scale(.3);animation-timing-function:ease-out}
+  19%{opacity:0;transform:scale(.8)}
+  39%,100%{opacity:0;transform:scale(1)}
+}
+.tutorial-interacting .tutorial-label,.tutorial-interacting>svg,.tutorial-interacting .tutorial-ghost,.tutorial-interacting .tutorial-gesture,.tutorial-still .tutorial-ghost,.tutorial-still .tutorial-gesture{display:none}
 @media(prefers-reduced-motion:reduce){.tutorial-gesture *{animation:none!important;transition:none!important}.tutorial-goals-target .objective-line{animation:none;background-color:#fff}}

@@ -204,7 +204,7 @@ function updateTutorialCue() {
   }
   // Keep the chosen demonstration stable until the player finishes their gesture.
   if (drag || hotspotPress) return;
-  const {dragDone, hotspotDone, goalsDone} = tutorialProgress.completion;
+  const {dragDone, hotspotDone, goalsDone, encyclopediaDone} = tutorialProgress.completion;
   if (!dragDone && state.chapter === 0) {
     try {
       const action = tutorialAction(story, state);
@@ -236,6 +236,12 @@ function updateTutorialCue() {
         }
       }
     } catch { /* An incomplete live draft must not interrupt play. */ }
+  }
+  const result = encyclopediaHistory.latestResult;
+  if (!encyclopediaDone && result && state.tokens[result]?.status === 'available' &&
+      browserReadings(story, state, result).some(reading => reading.encyclopedia && reading.encyclopedia !== reading.popup)) {
+    const target = panel(state.tokens[result].chapter)?.querySelector<HTMLElement>(`[data-item="${CSS.escape(result)}"],[data-hotspot="${CSS.escape(result)}"]`);
+    if (target && tutorialOverlay.show({kind: 'encyclopedia', target})) return;
   }
   if (!goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
     const target = surface.querySelector<HTMLElement>('.objective-overlay:not(:disabled)');
@@ -598,6 +604,7 @@ function dismissReading() {
 function read(id: string) {
   flushPreview();
   if (!browserReadings(story, state, id).some(reading => reading.encyclopedia.trim())) return false;
+  tutorialProgress?.finish('encyclopediaDone');
   openEncyclopedia(id, true);
   return true;
 }
@@ -623,6 +630,7 @@ function jumpToCheckpoint(index: number) {
     next.pending = next.pending.filter(notice => notice.kind === 'chapter');
     withArtwork(currentArtwork(story, next), () => {
       resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
+      encyclopediaHistory.latestResult = undefined;
       state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
       closeDialog(); render(true, true, true); rememberInteraction(); save();
     });
@@ -675,10 +683,14 @@ function commit(action: Action) { try {
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
     state = next; noteChapterAction(chapterSession, action);
     inputTrace?.record('commit:applied',{action});
-    if (action.type === 'combine') tutorialProgress?.finish('dragDone');
+    const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
+    if (action.type === 'combine') {
+      // Fitting a slot updates an existing compound. Its new reading can qualify too.
+      encyclopediaHistory.latestResult = born ?? recipeFor(story, before, action)?.result.id;
+      tutorialProgress?.finish('dragDone');
+    }
     if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
     if (previous !== state.chapter) clearCreationLabels();
-    const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
     if (born) announceCreation(born);
     closeDialog(); render(previous !== state.chapter, true, false, before);
     if (born) {
@@ -703,6 +715,7 @@ function commit(action: Action) { try {
           ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
           :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
         token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
+        scheduleTutorialUpdate();
       }
     }
     if (previous !== state.chapter) authoring.revealCurrentChapter();
@@ -809,6 +822,7 @@ function restartStory() {
 function restartChapter() {
   const next = structuredClone(chapterSession.entry);
   withArtwork(currentArtwork(story, next), () => {
+    encyclopediaHistory.latestResult = undefined;
     clearCreationLabels(); resetGoalView(); closeDialog(); state = next;
     itemOrder = restoreItemOrder(Object.keys(state.tokens), chapterSession.itemOrder);
     if (editedSnapshot) state.actions = [];

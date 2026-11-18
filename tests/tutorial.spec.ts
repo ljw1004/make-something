@@ -91,6 +91,7 @@ test('drag demonstration follows both operands and yields to any real drag, canc
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
   await open(page); await expect(cue(page, 'drag')).toBeVisible();
   await expect(cue(page, 'drag')).toHaveAttribute('data-modality', 'mouse');
+  await expect(cue(page, 'drag').locator('.tutorial-label')).toBeHidden();
   expect(await page.locator('.tutorial-overlay [data-item],.tutorial-overlay button').count()).toBe(0);
   for (const item of ['A', 'B', 'D']) {
     const before = await page.locator('.tutorial-path').getAttribute('d'), box = (await tile(page, item).boundingBox())!;
@@ -122,7 +123,7 @@ test('any combination completes dragging; wonders delay goals, and both accompli
   await page.reload(); await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.getByRole('button', {name: 'Continue', exact: true}).click();
   await expect(cue(page, 'goals')).toBeVisible();
-  await expect(page.locator('.tutorial-overlay')).toHaveText('');
+  await expect(cue(page, 'goals').locator('.tutorial-label')).toHaveText('Click for chapter instructions');
   await page.getByRole('button', {name: 'Read this chapter'}).click();
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.getByRole('button', {name: 'Restart this chapter'}).click();
@@ -222,7 +223,15 @@ test('touch Start selects a contact ring and a real touch drag remains unobstruc
   await session.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
   await expect(tile(page, 'C')).toHaveCount(1);
   await page.getByRole('button', {name: 'Continue', exact: true}).tap();
-  await expect(cue(page, 'goals')).toBeVisible();
+  const label = cue(page, 'goals').locator('.tutorial-label');
+  await expect(label).toHaveText('Tap for chapter instructions');
+  await expect(label).toBeVisible();
+  const gesture = (await page.locator('.tutorial-gesture').boundingBox())!, bounds = (await label.boundingBox())!;
+  expect(bounds.y + bounds.height).toBeCloseTo(gesture.y - 26, 0);
+  await page.mouse.click(2, 2);
+  await expect(label).toHaveText('Click for chapter instructions');
+  await page.touchscreen.tap(2, 2);
+  await expect(label).toHaveText('Tap for chapter instructions');
   await page.emulateMedia({reducedMotion: 'reduce'});
   await expect(page.locator('.tutorial-gesture')).toBeHidden();
   await expect(page.locator('.tutorial-arrow')).toBeHidden();

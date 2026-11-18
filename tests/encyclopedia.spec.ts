@@ -51,6 +51,7 @@ for (const variant of [
     await expect(flour).toBeVisible();
     if (variant.popup) {
       await expect(page.locator('dialog.wonder .reading-text')).toHaveText(variant.popup);
+      await expect(page.locator('.tutorial-overlay')).toBeHidden();
       await page.reload();
       await expect(page.locator('dialog.wonder .reading-text')).toHaveText(variant.popup);
       await page.getByRole('button', {name: 'Continue', exact: true}).click();
@@ -58,12 +59,25 @@ for (const variant of [
       await expect(page.locator('dialog')).toHaveCount(0);
     }
     await expect(flour.locator('.reading-indicator')).toHaveCount(variant.entry ? 1 : 0);
+    const instruction = page.locator('[data-tutorial="encyclopedia"] .tutorial-label');
+    if (variant.entry) {
+      await expect(flour).toHaveAccessibleDescription('Double-click for encyclopedia');
+      await expect(instruction).toBeVisible();
+      await expect(page.locator('.tutorial-pointer')).toHaveCSS('animation-name', 'tutorial-double-tap');
+      await expect(page.locator('.tutorial-ripple')).toHaveCSS('animation-name', 'tutorial-double-ripple');
+      await page.getByRole('button', {name: 'Read this chapter'}).click();
+      await expect(instruction).toBeHidden();
+      await page.getByRole('button', {name: 'Close', exact: true}).click();
+      await expect(instruction).toBeVisible();
+      await expect(flour).toHaveAccessibleDescription('Double-click for encyclopedia');
+    } else await expect(instruction).toBeHidden();
     await flour.dblclick();
     if (variant.entry) {
       await expect(page.locator('.encyclopedia-reading')).toHaveText('A longer explanation with a source.');
       await expect(page.locator('.encyclopedia-reading a')).toHaveAttribute('href', 'https://example.com/flour');
       await expect(page.locator('.encyclopedia-list a')).toHaveText(['Grain', 'Stone', 'Flour']);
       await page.getByRole('button', {name: 'Close', exact: true}).click();
+      await expect(instruction).toBeHidden();
     } else {
       await expect(page.locator('dialog')).toHaveCount(0);
     }
@@ -73,6 +87,29 @@ for (const variant of [
     await expect(page.getByRole('button', {name: 'Encyclopedia', exact: true})).toHaveCount(variant.entry ? 1 : 0);
   });
 }
+
+test('an unfinished encyclopedia cue survives reload with reduced motion and a direct reading completes it', async ({ page }) => {
+  await page.setViewportSize({width: 320, height: 600});
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  await openFixture(page, manuscript.replace('A flour explanation.', '---\n\n  Milling separates the bran.'));
+  await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+  const label = page.locator('[data-tutorial="encyclopedia"] .tutorial-label');
+  await expect(label).toHaveText('Double-click for encyclopedia');
+  await expect(label).toBeVisible();
+  await expect(page.locator('.tutorial-gesture')).toBeHidden();
+  await expect(page.locator('.tutorial-target')).toBeVisible();
+  const bounds = (await label.boundingBox())!, target = (await page.locator('[data-item="name:Flour"]').boundingBox())!;
+  expect(bounds.x).toBeGreaterThanOrEqual(8);
+  expect(bounds.x + bounds.width).toBeLessThanOrEqual(312);
+  expect(bounds.y + bounds.height).toBeCloseTo(target.y + target.height / 2 - 26, 0);
+  await page.reload();
+  await expect(label).toBeVisible();
+  await page.locator('[data-item="name:Flour"]').dblclick();
+  await page.getByRole('button', {name: 'Close', exact: true}).click();
+  await page.reload();
+  await expect(page.locator('[data-tutorial="goals"] .tutorial-label')).toBeVisible();
+  await expect(label).toBeHidden();
+});
 
 test('only the reopened chapter dismisses on backdrop clicks, with a top-right Close and right-aligned recovery', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });

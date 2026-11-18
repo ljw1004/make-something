@@ -3,7 +3,9 @@ import './tutorial.css';
 type Modality = 'mouse' | 'touch' | 'pen' | 'unknown';
 type Cue = {kind: 'drag'; source: HTMLElement; target: HTMLElement}
   | {kind: 'hotspot'; sources: HTMLElement[]; target: HTMLElement; receiver?: HTMLElement}
-  | {kind: 'goals'; target: HTMLElement};
+  | {kind: 'goals' | 'encyclopedia'; target: HTMLElement};
+const tapRippleRadius = 26;
+const dragContactRadius = 12;
 interface Point {x: number; y: number}
 interface Track {ghost: HTMLDivElement; path: SVGPathElement; edging: SVGPathElement; arrow: SVGPathElement}
 const svgNS = 'http://www.w3.org/2000/svg';
@@ -16,6 +18,7 @@ export class TutorialOverlay {
   private root = document.createElement('div');
   private svg = document.createElementNS(svgNS, 'svg');
   private gesture = document.createElement('div');
+  private label = document.createElement('div');
   private tracks: Track[] = [];
   private cue?: Cue;
   private frame = 0;
@@ -34,19 +37,35 @@ export class TutorialOverlay {
     this.svg.append(this.outline);
     this.gesture.className = 'tutorial-gesture';
     this.gesture.innerHTML = `<svg viewBox="-20 -20 64 64">
-      <circle class="tutorial-ripple" r="26"/>
+      <circle class="tutorial-ripple" r="${tapRippleRadius}"/>
       <g class="tutorial-pointer">
-        <circle class="tutorial-contact" r="12"/>
+        <circle class="tutorial-contact" r="${dragContactRadius}"/>
         <path class="tutorial-cursor" d="M0 0 0 27 7 20 13 33 19 30 13 18 23 18Z"/>
         <path class="tutorial-hand" transform="rotate(-18)" d="M-4 24V4a4 4 0 0 1 8 0v13c0-5 8-5 8 1v1c0-5 8-3 8 2v2c0-5 8-3 8 2v6c0 6-4 10-7 13H5c-4 0-7-2-9-5l-9-11c-3-4 2-8 5-5l4 4ZM4 17v8m8-6v7m8-3v5"/>
       </g>
     </svg>`;
-    this.root.append(this.svg, this.gesture); host.append(this.root);
+    this.label.className = 'tutorial-label';
+    this.label.id = 'tutorial-instruction';
+    this.root.append(this.svg, this.gesture, this.label); host.append(this.root);
   }
 
   modality(pointerType: string) {
     const mode: Modality = pointerType === 'mouse' || pointerType === 'touch' || pointerType === 'pen' ? pointerType : 'unknown';
+    if (this.root.dataset.modality === mode) return;
     this.root.dataset.modality = mode;
+    if (this.cue) this.updateLabel(this.cue.kind);
+  }
+
+  private updateLabel(kind: Cue['kind']) {
+    const mouse = this.root.dataset.modality === 'mouse';
+    const labels = {
+      drag: '',
+      hotspot: 'Some combinations happen at a hotspot',
+      goals: mouse ? 'Click for chapter instructions' : 'Tap for chapter instructions',
+      encyclopedia: mouse ? 'Double-click for encyclopedia' : 'Double-tap for encyclopedia',
+    };
+    this.label.textContent = labels[kind];
+    this.label.hidden = !labels[kind];
   }
 
   dragging(active: boolean) {
@@ -58,6 +77,9 @@ export class TutorialOverlay {
   /** The controller can fall through to a lower-priority cue when this one cannot be shown. */
   show(cue?: Cue): boolean {
     if (cue && !this.destination(cue)) return false;
+    if (this.cue && this.cue.target !== cue?.target && this.cue.target.getAttribute('aria-describedby') === this.label.id) {
+      this.cue.target.removeAttribute('aria-describedby');
+    }
     if (this.cue?.kind === 'goals' && (cue?.kind !== 'goals' || cue.target !== this.cue.target)) {
       this.cue.target.classList.remove('tutorial-goals-target');
     }
@@ -71,6 +93,10 @@ export class TutorialOverlay {
     const changed = this.appearance !== appearance || this.cue?.kind !== cue.kind || this.cue.target !== cue.target ||
       receiver(this.cue) !== receiver(cue) || elements.length !== previous.length || elements.some((source, index) => source !== previous[index]);
     this.appearance = appearance; this.cue = cue; this.root.dataset.tutorial = cue.kind;
+    this.root.classList.toggle('tutorial-tapping', cue.kind === 'goals' || cue.kind === 'encyclopedia');
+    if (changed) this.updateLabel(cue.kind);
+    if (this.label.hidden) cue.target.removeAttribute('aria-describedby');
+    else cue.target.setAttribute('aria-describedby', this.label.id);
     if (cue.kind === 'goals') cue.target.classList.add('tutorial-goals-target');
     if (changed) {
       this.epoch = performance.now(); this.clearTracks();
@@ -117,10 +143,31 @@ export class TutorialOverlay {
     };
     if (document.hidden || ![cue.target, receiver(cue), ...sources(cue)].every(visible)) return;
     const target = receiver(cue).getBoundingClientRect();
-    if (cue.kind !== 'goals') return {x: target.x + target.width / 2, y: target.y + target.height / 2};
-    // Goals can be clipped by overlapping items. Demonstrate a genuinely clickable point.
+    if (cue.kind === 'drag' || cue.kind === 'hotspot') return {x: target.x + target.width / 2, y: target.y + target.height / 2};
+    // An overlapping object can intercept a tap. Aim at an uncovered point.
     const points = [0.5, 0.25, 0.75, 0.1, 0.9].flatMap(x => [0.5, 0.25, 0.75].map(y => ({x: target.x + x * target.width, y: target.y + y * target.height})));
     return points.find(p => cue.target.contains(document.elementFromPoint(p.x, p.y)));
+  }
+
+  private positionLabel(cue: Cue, host: DOMRect, point: Point) {
+    const margin = 8, gap = 9;
+    // Goals live in the HUD. Items can also belong to an earlier, differently framed scene.
+    const panel = cue.target.closest('.chapter-panel') ?? this.host.querySelector('.chapter-panel:last-child');
+    const scene = panel?.getBoundingClientRect() ?? host;
+    const xMin = Math.max(host.left, scene.left) - host.left + margin;
+    const xMax = Math.min(host.right, scene.right) - host.left - margin;
+    const sceneTop = cue.kind === 'goals' ? (host.height - scene.height) / 2 : scene.top - host.top;
+    const yMin = Math.max(0, sceneTop) + margin;
+    const yMax = Math.min(host.height, sceneTop + scene.height) - margin;
+    this.label.style.setProperty('--label-room', `${Math.max(0, xMax - xMin)}px`);
+    const {width, height} = this.label.getBoundingClientRect();
+    const left = Math.max(xMin, Math.min(xMax - width, point.x - width / 2));
+    const clearance = cue.kind === 'hotspot' ? dragContactRadius + 2 : tapRippleRadius;
+    const above = point.y - clearance - height;
+    const below = point.y + 44 + gap;
+    const placeBelow = above < yMin && below + height <= yMax;
+    const top = Math.max(yMin, Math.min(yMax - height, placeBelow ? below : above));
+    this.label.style.transform = `translate(${left}px, ${top}px)`;
   }
 
   private draw = (now: number) => {
@@ -166,10 +213,11 @@ export class TutorialOverlay {
         copy.style.transform = `scale(${source.width / parseFloat(copy.style.width)},${source.height / parseFloat(copy.style.height)})`;
       });
       this.gesture.style.transform = `translate(${gesturePosition.x}px,${gesturePosition.y}px)`;
-      // CSS coordinates the goals tap and ripple independently of the longer drag demonstration.
-      this.gesture.style.opacity = String(cue.kind === 'goals' ? 1 : opacity);
-      this.gesture.classList.toggle('tutorial-press', cue.kind !== 'goals' && phase >= .12 && phase < .6);
-      this.outline.style.opacity = String(reduced || this.interacting || cue.kind === 'goals' ? .65 : .45 + opacity * .4);
+      if (!this.label.hidden && !this.interacting) this.positionLabel(cue, host, reduced ? end : gesturePosition);
+      const tapping = cue.kind === 'goals' || cue.kind === 'encyclopedia';
+      this.gesture.style.opacity = String(tapping ? 1 : opacity);
+      this.gesture.classList.toggle('tutorial-press', !tapping && phase >= .12 && phase < .6);
+      this.outline.style.opacity = String(reduced || this.interacting || tapping ? .65 : .45 + opacity * .4);
     }
     this.frame = requestAnimationFrame(this.draw);
   };

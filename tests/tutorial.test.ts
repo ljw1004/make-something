@@ -56,14 +56,16 @@ test('tutorial accomplishments persist independently per manuscript and reset wi
   const storage = () => ({getItem: (key: string) => records.get(key) ?? null, setItem: (key: string, value: string) => {records.set(key, value);}, removeItem: (key: string) => {records.delete(key);}});
   const first = new TutorialProgress('https://example.test/one.md', assert.fail, storage);
   first.finish('goalsDone');
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: true});
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: true, encyclopediaDone: false});
   first.finish('dragDone');
   const second = new TutorialProgress('https://example.test/two.md', assert.fail, storage);
-  assert.deepEqual(second.completion, {dragDone: false, hotspotDone: false, goalsDone: false});
+  assert.deepEqual(second.completion, {dragDone: false, hotspotDone: false, goalsDone: false, encyclopediaDone: false});
   first.finish('hotspotDone');
+  first.finish('encyclopediaDone');
+  assert.equal(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion.encyclopediaDone, true);
   assert.equal(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion.hotspotDone, true);
   second.finish('dragDone'); first.reset();
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: false});
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: false, encyclopediaDone: false});
   assert.equal(new TutorialProgress('https://example.test/two.md', assert.fail, storage).completion.dragDone, true);
   assert.equal(records.get('game'), 'keep'); assert.equal(records.get('draft'), 'keep');
   const warnings: string[] = [];
@@ -72,7 +74,7 @@ test('tutorial accomplishments persist independently per manuscript and reset wi
   unavailable.reset(); assert.equal(unavailable.completion.dragDone, false);
   assert.equal(warnings.length, 3);
   records.set(first.key, JSON.stringify({dragDone: true, goalsDone: true}));
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: true, hotspotDone: false, goalsDone: true}, 'old accomplishments survive the new lesson');
+  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: true, hotspotDone: false, goalsDone: true, encyclopediaDone: false}, 'old accomplishments survive the new lesson');
 });
 
 const hotspotFixture = (extra = '') => parseStory(`# Hotspot lesson
