@@ -4,6 +4,10 @@ This is the guide to designing, writing and revising stories. Start from the [ga
 
 Before revising a story, read its active `design-brief.md`. It owns the story’s lasting purpose, voice, pacing, physical premises and visual direction. This guide owns the development process and reusable story techniques; the [icon guide](icon-guide.md) owns detailed graphics production, and [UX](ux.md) owns interface behavior. The [repository layout](../README.md#story-layout) reserves the brief filename outside manuscript discovery.
 
+## Work within the existing engine and format
+
+Treat the game engine, linter and story Markdown format as fixed when writing or revising a story. If a requested effect cannot be expressed and pass lint under the current rules, explain the limitation and any story-level options. Changing engine behavior, relaxing a lint rule or extending the Markdown syntax requires the user’s explicit go-ahead for that specific change. Discussing a possible change is part of deciding whether to approve it.
+
 ## Require a worthwhile hook
 
 **Make Something Worthwhile is the acceptance criterion.** Before developing a premise, identify something the player would have reason to make or understand beyond completing this game's recipes. Name the substance of that value: a useful construction, a recognisable real-world process, a durable idea, or a compelling story whose experience earns the attention it asks for. A setting, a combination mechanic, an educational label and a target recipe count do not supply that hook.

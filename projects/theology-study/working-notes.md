@@ -1,5 +1,100 @@
 # Theology: working notes
 
+## Popup length survey — 17 November 2026
+
+Measured the displayed prose of each item’s popup, including its motivating question, quotations and italic closing title. Counts treat contractions and hyphenated words as single words and omit Markdown punctuation. Each distinct result counts once even when several recipes create it. The counts describe the inventory rather than the number of words any particular playthrough encounters.
+
+Of 114 items, 113 have a nonempty popup half. Of these, 52 are combination results that can actually trigger a discovery popup. The longest 40% of those 52 comprised 22 results including the tie at 72 words. They fell from 1,834 to 1,319 words in total, a 28% reduction. The median across all 52 discoveries fell from 67 to 57.5 words and the maximum from 121 to 71. The broader review also covered the longest 40% of all authored popup halves (46 entries, starting at 56 words). In all, 35 result readings were shortened. The table retains the original ranking.
+
+| Chapter | Item | Before | After |
+|---|---|---:|---:|
+| 10 | God helps me do good, but my good deeds cannot earn his acceptance | 121 | 63 |
+| 7 | Using water or hands does not prove that a rite comes from God | 98 | 65 |
+| 4 | Harmful effects do not require a separate evil source | 97 | 52 |
+| 12 | Good deeds done with God’s help can deepen the holiness he has given us | 94 | 59 |
+| 6 | Using bodies in worship does not prove who created them | 91 | 66 |
+| 5 | One God as Father, Son and Holy Spirit | 90 | 65 |
+| 7 | In baptism, God works through water to give new life within the soul | 86 | 65 |
+| 2 | Infants inherit sin whether they are ill or well | 84 | 58 |
+| 3 | Calling evil a loss of goodness still leaves the angels’ corruption to explain | 84 | 61 |
+| 12 | Feeding a hungry family cannot earn our first acceptance by God | 84 | 54 |
+| 14 | The Church teaches that we may ask the saints to pray for us through Christ | 84 | 64 |
+| 3 | A good tree cannot bear evil fruit—nor a good cause produce evil | 77 | 63 |
+| 11 | Does the bread become Christ’s body, remain bread alongside his body, or point to him in heaven? | 77 | 61 |
+| 4 | The fire example explains natural harm, not the angels’ fall | 76 | 65 |
+| 4 | Fire can work as it should while harming something else | 75 | 55 |
+| 13 | Permission to ask the living for prayer does not extend to the dead | 75 | 69 |
+| 14 | Root out abuses and honour the genuine remains of saints | 75 | 64 |
+| 14 | Reject false relics while honouring the bodies of saints | 75 | 57 |
+| 14 | We can correct mistaken worship while honouring the saint an image truly depicts | 74 | 60 |
+| 12 | Accepting God’s help does not earn the first gift of being made right with God | 73 | 54 |
+| 9 | A seller cannot guarantee God’s mercy for a coin | 72 | 50 |
+| 10 | Feeding the household serves others; it does not buy God’s acceptance | 72 | 49 |
+| 13 | God’s use of water does not show he permits prayers to saints | 71 | 71 |
+| 8 | Baptism’s water is God’s tool; bread in Communion becomes Christ’s body | 70 | 50 |
+| 9 | Buying promised release from punishment cannot replace your own repentance | 70 | 70 |
+| 5 | Father, Son and Spirit are one God, not three similar gods | 67 | 50 |
+| 9 | Serving God does not give us control over his gifts | 67 | 53 |
+| 11 | Do we receive Christ’s body with the bread, or does the bread point to his body in heaven? | 67 | 58 |
+| 8 | What was bread becomes Christ’s body; bread’s look and taste remain | 66 | 66 |
+| 3 | Making every cause of a fall is more than watching it | 65 | 65 |
+| 3 | Good and evil must come from opposing sources | 65 | 65 |
+| 5 | Being God’s Son does not mean being less divine | 65 | 65 |
+| 10 | Discipline prepares us for service; it does not earn salvation | 64 | 50 |
+| 11 | If Christ’s body is present, does the bread remain bread? | 64 | 47 |
+| 2 | God helps us want and do what is right | 63 | 63 |
+| 1 | Evil is goodness damaged or missing, not a separate thing | 62 | 62 |
+| 11 | We confess Father, Son and Holy Spirit as one God | 60 | 45 |
+| 2 | Wanting and promising to do right do not ensure that we do it | 59 | 45 |
+| 8 | “This is my body” means the bread becomes Christ’s body | 59 | 43 |
+| 11 | We agree on the Trinity and still disagree about Christ’s bodily presence | 59 | 59 |
+| 11 | The bread points to Christ’s body in heaven | 59 | 42 |
+| 11 | Even an unbelieving guest receives Christ’s body with the bread | 59 | 33 |
+| 2 | Why would an infant need forgiveness without choosing wrong? | 58 | 41 |
+| 6 | Hands and a Gospel book are laid on a believer to give God’s Spirit | 58 | 58 |
+| 13 | Correctly naming an image would not make devotional honour right | 58 | 58 |
+| 11 | An unbelieving guest receives Christ’s body but misses the gift of forgiveness | 56 | 45 |
+
+Edits concentrated on repeated statements of the conclusion and comparisons that posed the same question more than once. Some longer readings retained their length because each sentence supplies a distinct premise, such as the contrast between water’s appointed use in baptism and a departed saint’s ability to hear a prayer. A fresh reader of the discovery texts led to narrower framing for the rite comparison and the limits of the fire analogy. The titles, italic closings and encyclopedia entries were preserved. Two real phone-width discoveries passed, and the same action history completed and replayed. Lint returned no errors and the existing unused-declaration warning for the final Amen item.
+
+## The shared desk at Marburg — 17 November 2026
+
+The current speakers at Marburg are both Luther and Zwingli. Revised eight chapter 11 titles to express a participant’s reasoning directly or put their shared question in the players’ hands. Moved attribution on sixteen items from Luther’s earlier chapters to the first Trent desk. There the individual claims carry their author’s name and the joint dispute carries the Marburg attribution. The [design brief](../../stories/theology/design-brief.md#two-ways-to-understand-the-story) records the convention.
+
+Fresh title-only and popup-only readers understood the two positions and the joint confession. Their feedback sharpened the question about receiving Christ’s body with the bread. A check of all item names from their chapter of introduction through the last historical desk found no instances naming a current speaker. A phone-width browser verified labels at Marburg and Trent and the closing title after an actual discovery. Story lint, all encyclopedia-body comparisons and exact legal replay passed. Manuscript SHA-256 is `69c5237bffb4378cc6720c8662338f4c26fff89c9dc343a447b9da3bf09af690`.
+
+## Titles at the speaker’s desk — 17 November 2026
+
+Reviewed the local titles across all fourteen playable chapters after the user identified two Luther items that read like outside commentary. Local comparisons now express the desk’s own conclusion or its open question. Individual speakers still have attribution where needed at the joint Marburg desk. The inherited labels identify whose conclusion the player is carrying, including when the player returns to a previous speaker. The italic conclusions of affected popups follow the local titles.
+
+Fresh Terra readers separately examined local titles and popup prose. Their feedback led to a more precise description of the disagreement at Marburg, a clearer question about shared belief in the Trinity, and closer alignment between the arguments and the local conclusions about asking saints for prayer and honouring sacred images. Verification compared all encyclopedia bodies and recipes to the preceding manuscript, checked title transitions across changes of speaker, and reproduced the 124-action completion and replay. Phone-width browser checks confirmed both example Luther labels across the change to Marburg and later desks. Story lint returned zero errors and warnings. Manuscript SHA-256 is `cfaf89cca27807c45b6dfd91352cab5ecce76454cdeff0b3419244d408c64778`.
+
+## Standalone encyclopedia articles — 17 November 2026
+
+The user approved the *Book of Two Principles* example as a pattern for the entire encyclopedia. Each of the 113 articles now opens with its own descriptive title and introduces the people, source and question needed to read it on its own. The [design brief](../../stories/theology/design-brief.md#two-ways-to-understand-the-story) records the standing guidance.
+
+Fourteen independent writers each received one chapter, its existing entries and source notes, and the approved example. Fourteen different blind reviewers read the resulting articles in shuffled order, with neutral identifiers. They saw only the text the encyclopedia would display, including its authored heading. For each article they gave their own reading of the claim and identified any material gap in context, reasoning or attribution. The fifteenth chapter is the ending and has no entries.
+
+Review led to substantive revisions in six chapters. The Cathar entry about a sole creator now states the premise that made the angels’ fall inevitable. The Trinity entry identifies the interpretation of Jesus’ prayer in John. Luther’s indulgence entry explains the power of the keys and the scope of his claim about intercession. His Communion entry gives the unbelieving guest’s outcome and explains its basis in Christ’s words over the bread. Calvin’s Geneva shrine entry tells the reader what he reported finding inside. The Trent entry explains how help sought through the saints depends on Christ while leaving the outcome of individual petitions open. Fresh follow-up readings informed the revisions to the angels, John, indulgences and Communion articles. These were editorial comprehension judgments by agents. The earlier record covers primary-source verification.
+
+The manuscript changed only within the encyclopedia halves of the 113 wonder blocks. All article titles and source links render. Lint returned zero errors and warnings. The same 124 actions completed and replayed the story. At 390 × 844, a browser opened one article per playable chapter and verified its visible heading, horizontal fit and access to the last citation by scrolling. Final manuscript SHA-256 is `36ade93062fa2a984a57f4bf21d79a9754082140b8cfc08d0b85ccb0f632ef90`.
+
+## Source-led encyclopedia — 17 November 2026
+
+The user asked for encyclopedia cards that explain the actual source material, add helpful context, and include selected short quotations with references or links. All **113 items** now have an independently authored encyclopedia entry, separated from their existing creation popup by the format’s wonder divider. The [design brief](../../stories/theology/design-brief.md#two-ways-to-understand-the-story) owns the distinction between concise desk-voice popups and accessible editorial explanation. No interface change was needed.
+
+The new entries give precise primary-text references and links, explain the argument in its source context, and cite both sides of comparisons. Examples include Augustine’s father–son analogy, the Lyon ritual’s apostolic claim, Aquinas’s account of instrumental action, the actual Marburg agreement, Luther’s bishop analogy, and Trent’s positive reasons for honouring saints’ bodies. Eighteen brief quotation excerpts are used selectively, with translation credits; the short appeal to Stephen and Paul is explicitly our translation of Augustine’s Latin. The ill/healthy infant pair and single-coin household remain identified adaptations. Calvin’s recollections remain attributed reports. These changes do not introduce new cases or revise the previous provenance counts.
+
+**Method and reviewer instructions:** Fourteen fresh, ephemeral chapter editors each received only their assigned chapter and the brief, then checked primary texts online and drafted every local item’s encyclopedia entry. A second set of fourteen fresh chapter reviewers received the revised chapter and brief, without earlier reports. Each checked all entries for central-thrust authenticity, self-contained explanation, precise references, quotation wording and translation credit, supported context, and honest treatment of adaptations or editorial comparisons. Instructions excluded exhaustive qualifications, stylistic nits and expansion for its own sake. The integrating editor read all entries, removed redundant provenance disclaimers and a repeated quotation fragment, and checked representative source passages directly. A final PDF check corrected the opening-page anchor for Augustine’s Sermon 316. The unchanged goal-free ending has no encyclopedia entries and needed no assignment.
+
+**Source-review outcome:** All fourteen independent reviewers passed all assigned entries, with no substantive corrections required. Every quotation and its translation identification was checked; comparisons were checked against both sources.
+
+**Comprehension check:** Two fresh Terra readers received only the encyclopedia text and speaker context, in chapter groups 1–7 and 8–14. They read all 113 entries without titles, popups, recipes, brief, prior verdicts or browsing. Both recovered the central chapter arguments and disputes and identified no necessary clarification or disruption from references and quotations. The unchanged title and popup layers did not need another comprehension pass.
+
+**Verification:** Baseline manuscript SHA-256 `5715c0e632d7ded3a5957d95f361dc1e230d505902bb1c446ec74dd0e75c67d4`; revised manuscript SHA-256 `c8129015f59619fc8dcf9453918bb6357ce29f515a59d42a62aaf9cd599c75cc`. The shared parser confirms all 113 encyclopedia readings changed while creation popups, titles, chapter introductions, goals, recipes and all other gameplay semantics remain unchanged. Source-coordinate metadata was excluded from the comparison. The 15-chapter, 57-recipe story completes with the same 124-action witness, which replays exactly. Lint reports **0 errors and 0 warnings**. Phone-width browser checks opened a representative entry in every playable chapter, verified source-link targets and absence of horizontal text overflow, and checked a real discovery popup followed by the separate encyclopedia reading. Representative cards were visually inspected; no browser errors occurred. These checks do not measure sustained play or human learning.
+
+**Evidence limits and retention:** The reviews use accessible editions and transcriptions rather than a manuscript-level critical collation. The full *Book of Two Principles* link uses a readable mirror acknowledging minor editorial changes to Wakefield–Evans; its modern introduction is not evidence for the medieval author’s argument, and no quotation from that adapted translation is used. The Lyon ritual was checked against its online critical text and an English rendering; Zwingli’s online text is an OCR transcription. Some older Gutenberg/Gnosis links failed, so the encyclopedia links to accessible alternatives. These are source-informed AI reviews, not observed acceptance by human seminarians or lecturers. Individual packets, prompts, reports, copied source, logs and screenshots were discarded after retaining these instructions and outcomes. Changes remain local for review.
+
 ## Inventions and source replacements — 16 November 2026
 
 The user requested a stricter provenance review: identify invented situations, cases and conclusions, seek actual source examples, and hold necessary inventions to a particularly high authenticity standard. During the work they rejected P4/C17 as weak and authorized different disputes and conclusions when better sources warranted them. The [design brief](../../stories/theology/design-brief.md) owns this standard. The revisions below are implemented locally, without commits or pushes.

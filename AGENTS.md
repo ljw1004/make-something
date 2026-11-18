@@ -2,6 +2,7 @@
 
 - Use the [game's philosophy](README.md#philosophy) in design, story, artwork, engineering and evaluation work. It states the chosen title and the educational purpose that guides the project. This philosophy is meant to be creative inspiration, not straightjacket.
 - Start with the [README](README.md) for layout, commands and the documentation map. Update the document that owns a rule; link to it elsewhere instead of duplicating it.
+- For story work, follow the [fixed engine and format rule](docs/story-authoring.md#work-within-the-existing-engine-and-format). Changes to the engine, linter or story Markdown format require the user’s explicit go-ahead.
 - Read the [specification](docs/story-format-spec.md) before changing story semantics and the [authoring guide](docs/story-authoring.md) and the story's `design-brief.md`, when present, before changing stories. The specification supersedes conflicting historical rules.
 - Follow [engineering](docs/engineering.md) for implementation and testing, [UX](docs/ux.md) for player interaction, and [fun and evaluation](docs/fun-and-evaluation.md) for experience claims.
 - Maintain [UX](docs/ux.md#maintaining-this-document) as the complete, authoritative record of current player and authoring UX decisions. Update it in the same change as any adopted or revised UX decision, replace superseded guidance in place, and include the motivation when known. Keep dates, supersession history and verification evidence in notes or the archive, and unresolved proposals in the backlog; do not create competing UX rule lists.
