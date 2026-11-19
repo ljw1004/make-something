@@ -74,9 +74,29 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await expect(title).toHaveText(first!);
     const client = await context.newCDPSession(page);
     await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:290,y:220}]});
+    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:230,y:220}]});
+    const translated = () => page.locator('.carousel-slide:not([hidden])').evaluateAll(slides => slides.map(slide =>
+      ['.carousel-art','.carousel-bar','.carousel-description'].map(selector => slide.querySelector(selector)!.getBoundingClientRect().x)));
+    await expect.poll(translated).toEqual([[-60,-60,-60],[330,330,330]]);
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:90,y:220}]});
+    await expect.poll(translated).toEqual([[-200,-200,-200],[190,190,190]]);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+    await expect(active).toHaveCount(1);
     await expect(title).not.toHaveText(first!);
+    await expect.poll(translated).toEqual([[0,0,0]]);
+    const second = await title.textContent();
+    await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:160,y:220}]});
+    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:186,y:220}]});
+    await expect.poll(translated).toEqual([[-364,-364,-364],[26,26,26]]);
+    await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+    await expect(active).toHaveCount(1);
+    await expect(title).toHaveText(second!);
+    await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:100,y:220}]});
+    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:250,y:220}]});
+    await expect.poll(translated).toEqual([[-240,-240,-240],[150,150,150]]);
+    await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+    await expect(active).toHaveCount(1);
+    await expect(title).toHaveText(first!);
     await page.getByRole('button', {name:'Cookbook', exact:true}).tap();
     await expect(title).toHaveText('Cookbook');
     await active.getByRole('link').tap();
@@ -84,4 +104,22 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await expect(page.locator('.tutorial-overlay')).toHaveAttribute('data-modality', 'touch');
     await expect(page.getByRole('button', {name:'Begin'})).toBeVisible();
   } finally { await context.close(); }
+});
+
+test('theology banner sits near mid-screen and the full smaller abstract is readable', async ({page}) => {
+  await page.goto('/?slide=stories/theology/theology.md');
+  const carousel = page.locator('.carousel-slide:not([hidden])');
+  await expect(carousel.getByRole('heading')).toHaveText('Theology');
+  for (const viewport of [{width:417,height:911}, {width:320,height:568}]) {
+    await page.setViewportSize(viewport);
+    await expect.poll(() => carousel.evaluate(el => {
+      const bar = el.querySelector('.carousel-bar')!.getBoundingClientRect();
+      const abstract = el.querySelector<HTMLElement>('.carousel-description')!;
+      return {
+        nearMiddle: (bar.y + bar.height / 2) / innerHeight < .56 && bar.y / innerHeight > .4,
+        fullAbstract: abstract.scrollHeight <= abstract.clientHeight,
+        compactType: parseFloat(getComputedStyle(abstract).fontSize) <= 17,
+      };
+    })).toEqual({nearMiddle:true,fullAbstract:true,compactType:true});
+  }
 });

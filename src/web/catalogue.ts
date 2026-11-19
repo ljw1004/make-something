@@ -56,9 +56,25 @@ if (bookmark) {
     frame!.style.width = `${geometry.width}px`;
     frame!.style.height = `${geometry.height}px`;
   }
+  const wrap = (index: number) => (index + slides.length) % slides.length;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let incoming: number | undefined;
+  let settling = 0;
+  let settleDestination = 0;
+
   function show(index: number, remember = true) {
-    current = (index + slides.length) % slides.length;
-    slides.forEach((slide, position) => { slide.hidden = position !== current; });
+    clearTimeout(settling); settling = 0; incoming = undefined;
+    current = wrap(index);
+    slides.forEach((slide, position) => {
+      slide.hidden = slide.inert = position !== current;
+      slide.style.removeProperty('transform');
+      slide.classList.remove('is-settling');
+    });
+    // Ask the browser for the immediate neighbors before the player swipes.
+    for (const index of [wrap(current - 1), wrap(current + 1)]) {
+      const art = slides[index].querySelector<HTMLImageElement>('.carousel-art');
+      if (art) art.loading = 'eager';
+    }
     dots.forEach((dot, position) => {
       if (position === current) dot.setAttribute('aria-current', 'true');
       else dot.removeAttribute('aria-current');
@@ -69,12 +85,54 @@ if (bookmark) {
       history.replaceState(history.state, '', chooser);
     }
   }
+
+  function translate(index: number, pixels: number) {
+    slides[index].style.transform = `translateX(${pixels}px)`;
+  }
+  function track(delta: number) {
+    const width = frame!.clientWidth;
+    const direction = delta < 0 ? 1 : -1;
+    const next = wrap(current + direction);
+    if (!width || next === current) return;
+    if (incoming !== next) {
+      if (incoming !== undefined) slides[incoming].hidden = true;
+      incoming = next;
+      slides[next].hidden = false;
+    }
+    const offset = Math.max(-width, Math.min(width, delta));
+    translate(current, offset);
+    translate(next, offset + direction * width);
+  }
+  function settle(advance: boolean, delta: number) {
+    if (incoming === undefined) return;
+    const next = incoming, direction = delta < 0 ? 1 : -1;
+    const destination = advance ? next : current;
+    if (reducedMotion.matches) { show(destination, advance); return; }
+    for (const index of [current, next]) slides[index].classList.add('is-settling');
+    // Commit the finger-tracked position before applying the settle target.
+    void frame!.offsetWidth;
+    const travel = direction * frame!.clientWidth;
+    translate(current, advance ? -travel : 0);
+    translate(next, advance ? 0 : travel);
+    settleDestination = destination;
+    settling = window.setTimeout(() => show(destination, advance), 240);
+  }
+
   const initial = storyLinks.findIndex(link => link.dataset.story === chooser.searchParams.get('slide'));
   show(Math.max(0, initial), false);
   slides.forEach(slide => slide.querySelector('img.carousel-art')?.addEventListener('load', measure));
   new ResizeObserver(measure).observe(app);
-  carousel.querySelector('.carousel-prev')?.addEventListener('click', () => show(current - 1));
-  carousel.querySelector('.carousel-next')?.addEventListener('click', () => show(current + 1));
+  slides.forEach(slide => {
+    for (const [name, step] of [['prev', -1], ['next', 1]] as const) {
+      const selector = `.carousel-${name}`;
+      const button = slide.querySelector<HTMLButtonElement>(selector)!;
+      button.addEventListener('click', () => {
+        const focused = document.activeElement === button;
+        show(current + step);
+        if (focused) slides[current].querySelector<HTMLButtonElement>(selector)?.focus();
+      });
+    }
+  });
   dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
   carousel.addEventListener('keydown', event => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
@@ -83,21 +141,40 @@ if (bookmark) {
     show(current + (event.key === 'ArrowLeft' ? -1 : 1));
     if (document.activeElement === oldLink || !carousel.contains(document.activeElement)) storyLinks[current].focus();
   });
-  let press: { id: number; x: number; y: number; control: Element | null } | undefined;
+  let press: { id: number; x: number; y: number; control: Element | null; axis?: 'x' | 'y'; delta: number } | undefined;
   let cancelledClick: Element | null = null;
   carousel.addEventListener('pointerdown', event => {
     if (!event.isPrimary || event.button !== 0) return;
+    if (settling) {
+      // A fresh interaction can interrupt the tail of an animation.
+      show(settleDestination, settleDestination !== current);
+      if ((event.target as Element).closest('.carousel-slide[hidden]')) return;
+    }
     cancelledClick = null;
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]') ?? undefined;
-    if (link) link.href = storyLink(current, event.pointerType === 'touch' ? 'touch' : 'mouse').href;
-    press = {id: event.pointerId, x: event.clientX, y: event.clientY, control: (event.target as Element).closest('button, a[data-story]')};
+    if (link) link.href = storyLink(storyLinks.indexOf(link), event.pointerType === 'touch' ? 'touch' : 'mouse').href;
+    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, control: (event.target as Element).closest('button, a[data-story]')};
+  });
+  window.addEventListener('pointermove', event => {
+    if (press?.id !== event.pointerId) return;
+    const dx = event.clientX - press.x, dy = event.clientY - press.y;
+    if (!press.axis) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+      press.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+    }
+    if (press.axis === 'x') {
+      press.delta = dx;
+      track(dx);
+    }
   });
   window.addEventListener('pointerup', event => {
     if (press?.id !== event.pointerId) return;
     const dx = event.clientX - press.x, dy = event.clientY - press.y;
-    if (Math.abs(dx) >= 45 && Math.abs(dx) > 1.35 * Math.abs(dy)) {
+    const advance = Math.abs(dx) >= 45 && (press.axis === 'x' || !press.axis && Math.abs(dx) > 1.35 * Math.abs(dy));
+    if (press.axis === 'x' || advance) {
       cancelledClick = press.control;
-      show(current + (dx < 0 ? 1 : -1));
+      if (advance) track(dx);
+      settle(advance, advance ? dx : press.delta);
     } else if (event.pointerType === 'touch' && Math.hypot(dx, dy) < 12 && press.control?.contains(event.target as Node)) {
       // Commit a touch tap on release, even when the browser withholds its
       // compatibility click immediately after a swipe. Do not double-activate.
@@ -107,7 +184,11 @@ if (bookmark) {
     }
     press = undefined;
   });
-  window.addEventListener('pointercancel', event => { if (press?.id === event.pointerId) press = undefined; });
+  window.addEventListener('pointercancel', event => {
+    if (press?.id !== event.pointerId) return;
+    settle(false, press.delta);
+    press = undefined;
+  });
   carousel.addEventListener('click', event => {
     if (cancelledClick?.contains(event.target as Node) && event.detail > 0) { event.preventDefault(); event.stopPropagation(); cancelledClick = null; return; }
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]');

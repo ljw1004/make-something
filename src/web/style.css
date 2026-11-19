@@ -271,25 +271,27 @@ dialog button,dialog select{min-height:44px}
 /* Landing catalogue, framed to the same artwork dimensions as the game. */
 #app.catalogue-page:has(.story-carousel){background:#000;overflow:hidden}
 .story-carousel{position:absolute;inset:0;display:grid;place-items:center;background:#000;touch-action:pan-y pinch-zoom}
-.carousel-frame{position:relative;width:100%;height:100%;overflow:hidden;color:white;--carousel-bar-top:65%}
+.carousel-frame{position:relative;width:100%;height:100%;overflow:hidden;color:white;--carousel-bar-top:47%;--carousel-settle:240ms;container-type:size}
 .carousel-slide{position:absolute;inset:0}
+.carousel-slide.is-settling{transition:transform var(--carousel-settle) cubic-bezier(.22,.7,.27,1)}
+@media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
-.carousel-bar,.carousel-arrow,.carousel-dots,.carousel-description{position:absolute}
-.carousel-bar{top:var(--carousel-bar-top);inset-inline:0;border-radius:clamp(10px,2.5cqh,18px);background:#30453e;box-shadow:0 1px 12px #0009;text-align:center;z-index:2}
-.carousel-frame{container-type:size}
+.carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - 2cqh);display:flex;flex-direction:column;isolation:isolate}
+.carousel-panel::before{content:'';position:absolute;z-index:-1;pointer-events:none;inset:-12px -4px -4px;border-radius:26px;background:linear-gradient(180deg,transparent,#0008 19px,#000b 45%,#0008 72%,transparent);filter:blur(7px)}
+.carousel-bar{position:relative;flex:none;border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;box-shadow:0 0 10px #0008}
 .carousel-bar a{display:grid;gap:2px;align-content:center;min-height:clamp(58px,12cqh,106px);padding:5px 49px;color:#fff;text-decoration:none}
 .carousel-bar h2{font-size:clamp(17px,4.7cqh,42px);line-height:1.08;font-weight:500;margin:0;text-wrap:balance}
 .carousel-action{display:flex;align-items:center;justify-content:center;gap:.35em;font-size:clamp(13px,2.9cqh,26px);line-height:1.1}
 .carousel-action svg{width:1.05em;height:1.05em}
-.carousel-arrow{top:calc(var(--carousel-bar-top) + (clamp(58px,12cqh,106px) - 44px) / 2);z-index:3;display:grid;place-items:center;color:white;border:0;border-radius:8px;background:none;width:44px;height:44px;padding:10px;box-shadow:none}
+.carousel-arrow{position:absolute;top:50%;translate:0 -50%;display:grid;place-items:center;color:white;border:0;border-radius:8px;background:none;width:44px;height:44px;padding:10px;box-shadow:none}
 .carousel-arrow:hover{background:#ffffff20}
 .carousel-arrow svg{width:25px;height:25px}
 .carousel-prev{left:3px}.carousel-next{right:3px}
-.carousel-dots{z-index:3;left:0;right:0;top:calc(var(--carousel-bar-top) - 32px);display:flex;justify-content:center}
+.carousel-dots{position:absolute;z-index:3;left:0;right:0;top:calc(var(--carousel-bar-top) - 32px);display:flex;justify-content:center}
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
 .carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:0 0 5px #000d}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{inset-inline:0;top:calc(var(--carousel-bar-top) + clamp(58px,12cqh,106px));max-height:calc(100% - var(--carousel-bar-top) - clamp(58px,12cqh,106px));overflow:auto;text-align:center;padding:10px min(5%,28px) 24px;background:linear-gradient(#000a 0%,#0009 65%,transparent 100%);text-shadow:0 1px 5px #000,0 0 11px #000;color:white;font-size:clamp(13px,2.8cqh,24px);line-height:1.28;overscroll-behavior:contain}
+.carousel-description{min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:0 1px 4px #000,0 0 8px #000;color:white;font-size:clamp(12px,1.9cqh,17px);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
