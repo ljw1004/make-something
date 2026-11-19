@@ -4,6 +4,9 @@ import { goalChains } from '../engine/analysis.ts';
 import { act, newGame, restore } from '../engine/game.ts';
 import { restoreItemOrder } from './item-order.ts';
 
+import {hasChapterCombination} from './chapter-recovery.ts';
+export {chapterRecovery, hasChapterCombination} from './chapter-recovery.ts';
+
 /** Browser-only arrival snapshot: geometry is not part of the logical replay. */
 export interface ChapterSession { entry: State; combined: boolean; itemOrder?: string[] }
 export function captureChapter(state: State, itemOrder?: string[]): ChapterSession {
@@ -36,12 +39,6 @@ export function restoreChapterSession(story: Story, state: State, raw: unknown):
     return {entry,combined:hasChapterCombination(state,saved),itemOrder:restoreItemOrder(Object.keys(entry.tokens),saved.itemOrder)};
   } catch { return; }
 }
-/** Legacy movement flags are not evidence of a combination in this chapter. */
-export function hasChapterCombination(state: State, saved?: {combined?: unknown}): boolean {
-  if(typeof saved?.combined==='boolean')return saved.combined;
-  const arrival=state.actions.findLastIndex(action=>action.type==='advance');
-  return state.actions.slice(arrival+1).some(action=>action.type==='combine');
-}
 export function isNoopMove(state: State, action: Action): boolean {
   if(action.type!=='move')return false;
   const token=state.tokens[action.item];
@@ -49,9 +46,6 @@ export function isNoopMove(state: State, action: Action): boolean {
 }
 export function noteChapterAction(session: ChapterSession, action: Action): void {
   if(action.type==='combine')session.combined=true;
-}
-export function chapterRecovery(session: ChapterSession): 'chapter'|'story' {
-  return session.combined?'chapter':'story';
 }
 /** Show one stage per goal chain, retaining finished chains as checked rows. */
 export function displayedGoals(story: Story, state: State): {goal:Goal;done:boolean}[] {

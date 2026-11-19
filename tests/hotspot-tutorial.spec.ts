@@ -48,7 +48,11 @@ async function drag(page: Page, source: Locator, target: Locator) {
   await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, {steps: 5}); await page.mouse.up();
 }
 async function accomplishments(page: Page) {
-  return page.evaluate(() => JSON.parse(localStorage.getItem(Object.keys(localStorage).find(key => key.startsWith('combination-tutorial-'))!) ?? '{}'));
+  return page.evaluate(() => {
+    const manuscript = encodeURIComponent(new URL('/hotspot-tutorial/story.md', location.href).href);
+    return {...JSON.parse(localStorage.getItem('combination-tutorial-v1:' + manuscript) ?? '{}'),
+      dragDone:localStorage.getItem('combination-tutorial-drag-v2:' + manuscript) === 'true'};
+  });
 }
 
 test('opening, hotspot and goals cues take priority; either first placement leaves only the remaining move', async ({page}) => {

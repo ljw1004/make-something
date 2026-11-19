@@ -117,7 +117,7 @@ test('drag demonstration follows both operands and yields to any real drag, canc
   expect(errors).toEqual([]);
 });
 
-test('any combination completes dragging; lessons survive chapter restart, reload and opening another story', async ({page}) => {
+test('any combination completes dragging; lessons survive chapter restart and reload but a new story has its own opening drag', async ({page}) => {
   await open(page); await combine(page, 'A', 'D');
   await expect(tile(page, 'E')).toHaveCount(1); await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.reload(); await expect(page.locator('.tutorial-overlay')).toBeHidden();
@@ -133,7 +133,7 @@ test('any combination completes dragging; lessons survive chapter restart, reloa
   await page.goto('/make-something.html?story=tutorial-two/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
-  await expect(page.locator('.tutorial-overlay')).toBeHidden();
+  await expect(cue(page, 'drag')).toBeVisible();
 });
 
 for (const reducedMotion of ['no-preference','reduce'] as const) test(`goals retain their backing and contrast during pickup and dragging (${reducedMotion})`, async ({page}) => {
@@ -179,7 +179,7 @@ test('early goals clicks count, and confirmed story restart from chapter one cle
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.getByRole('button', {name: 'Read this chapter'}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
-  await expect(page.getByText(/item positions and tutorial progress/)).toBeVisible();
+  await expect(page.getByText(/resets the tutorial progress for this story/)).toBeVisible();
   await page.getByRole('button', {name: 'Cancel', exact: true}).click();
   await page.getByRole('button', {name: 'Close', exact: true}).click();
   await expect(page.locator('.tutorial-overlay')).toBeHidden();
@@ -273,4 +273,86 @@ test('a tutorial-only storage failure remains visible after a successful game sa
   await page.getByRole('button', {name: 'Continue', exact: true}).click();
   await expect(page.locator('.save-alert')).toContainText('Tutorial progress could not be saved');
   await expect(cue(page, 'goals')).toBeVisible();
+});
+
+test('carousel arrivals share advanced tutorials; direct entry and restart stay story-scoped', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  for (const path of ['cookbook/cookbook', 'mars/mars'])
+    await page.route(`**/stories/${path}.md`, route => route.fulfill({contentType:'text/markdown',body:story}));
+  const button = (name: string) => page.getByRole('button', {name, exact:true});
+  const openCarousel = async (name: string) => {
+    await page.goto('/');
+    await button(name).click();
+    await page.locator('.carousel-slide:not([inert]) a[data-story]').click();
+    await button('Begin').click();
+  };
+  const combineOpening = async () => {
+    await expect(cue(page, 'drag')).toBeVisible();
+    await combine(page, 'A', 'B');
+    await button('Continue').click();
+  };
+  await openCarousel('Cookbook');
+  await combineOpening();
+  await expect(cue(page, 'goals')).toBeVisible();
+  await button('Read this chapter').click();
+  await page.getByRole('link', {name:'Home',exact:true}).click();
+
+  await openCarousel('Mission to Mars');
+  await combineOpening();
+  await expect(cue(page, 'goals')).toBeHidden();
+  await page.reload();
+  await expect(tile(page, 'C')).toBeVisible();
+  await expect(cue(page, 'goals')).toBeHidden();
+
+  await page.goto('/');
+  await page.goto('/make-something.html?story=stories/mars/mars.md');
+  await expect(tile(page, 'C')).toBeVisible();
+  await expect(cue(page, 'drag')).toBeHidden();
+  await expect(cue(page, 'goals')).toBeVisible();
+  await button('Read this chapter').click();
+  await button('Restart chapter').click();
+  await button('Begin').click();
+  await button('Read this chapter').click();
+  await button('Restart story').click();
+  await button('Restart story').click();
+  await expect(button('Start')).toBeVisible();
+  await page.reload();
+  await expect(button('Start')).toBeVisible();
+
+  const flags = await page.evaluate(() => {
+    const key = (path: string) => encodeURIComponent(new URL(path, location.href).href);
+    return {
+      sharedGoals: JSON.parse(localStorage.getItem('combination-tutorial-v1:' + key('index.html'))!).goalsDone,
+      direct: localStorage.getItem('combination-tutorial-v1:' + key('stories/mars/mars.md')),
+      firstMars: localStorage.getItem('combination-tutorial-drag-v2:' + key('stories/mars/mars.md')),
+      firstCookbook: localStorage.getItem('combination-tutorial-drag-v2:' + key('stories/cookbook/cookbook.md')),
+      cookbookSave: !!localStorage.getItem('combination-progress-v2:' + key('stories/cookbook/cookbook.md')),
+    };
+  });
+  expect(flags).toEqual({sharedGoals:true, direct:null, firstMars:null, firstCookbook:'true', cookbookSave:true});
+  await openCarousel('Mission to Mars');
+  await combineOpening();
+  await expect(cue(page, 'goals')).toBeHidden();
+});
+
+test('a successful later-chapter combination does not mark the opening drag complete', async ({page}) => {
+  const first = story.split('## Second')[0];
+  await open(page, first + `## Second
+Keep exploring.
+**Goals**
+- Make F -- F
+**Items**
+- X
+- Y
+- F
+**Combinations**
+- X [preserve] + Y [preserve] -> F
+`);
+  await expect(cue(page, 'drag')).toBeVisible();
+  await jumpToChapter(page, 'Second', true);
+  await page.getByRole('button', {name:'Begin',exact:true}).click();
+  await combine(page, 'X', 'Y');
+  await expect(tile(page, 'F')).toBeVisible();
+  expect(await page.evaluate(() => Object.keys(localStorage)
+    .some(key => key.startsWith('combination-tutorial-drag-v2:')))).toBe(false);
 });

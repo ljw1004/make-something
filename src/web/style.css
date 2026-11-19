@@ -308,11 +308,12 @@ dialog button,dialog select{min-height:44px}
   --carousel-backdrop-bottom-feather: clamp(24px, 5cqh, 40px);
   --carousel-backdrop-edge-blur: 10px;
   --carousel-settle: 240ms;
+  --carousel-arrow-settle: 500ms;
   position:relative;width:100%;height:100%;overflow:hidden;color:white;container-type:size
 }
 .carousel-slide{position:absolute;inset:0}
 .carousel-slide.is-settling{transition:transform var(--carousel-settle) cubic-bezier(.22,.7,.27,1)}
-.carousel-slide.is-arrow-settling{transition-duration:300ms}
+.carousel-slide.is-arrow-settling{transition-duration:var(--carousel-arrow-settle)}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
 .carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - 2cqh);display:flex;flex-direction:column;isolation:isolate}

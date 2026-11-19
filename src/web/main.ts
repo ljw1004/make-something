@@ -394,12 +394,13 @@ async function start() {
   surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
   try {
     documentURL = resolveStoryURL(location.href);
-    tutorialProgress = new TutorialProgress(catalogueURL.href, error => {tutorialSaveError = error; renderSaveError();});
     const path = new URL(documentURL).pathname;
     // Only the former story.md route may inherit a folder-keyed legacy save.
     storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
     legacySaveKey = legacyProgressKey(documentURL);
     const {fromCarousel, modality, skipCover} = entryContext ??= readCarouselLaunch(documentURL, catalogueURL);
+    tutorialProgress = new TutorialProgress({manuscript: documentURL, catalogue: fromCarousel ? catalogueURL.href : undefined},
+      error => {tutorialSaveError = error; renderSaveError();});
     if (modality) tutorialOverlay.modality(modality);
     const drafts = new DraftStore(documentURL);
     const document = await loadStoryDocument(documentURL, drafts);
@@ -574,7 +575,12 @@ void document.fonts.ready.then(() => {
   if (footer) fitChapterFooter(footer);
 });
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
-function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. This also resets the shared tutorials. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
+function confirmRestart() {
+  const lessons = entryContext?.fromCarousel
+    ? 'This resets the opening drag lesson for this story but keeps the tutorials shared across the carousel.'
+    : 'This resets the tutorial progress for this story but does not change the tutorials shared across the carousel.';
+  modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
+}
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
   () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
   detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
@@ -728,7 +734,7 @@ function commit(action: Action) { try {
     if (action.type === 'combine') {
       // Fitting a slot updates an existing compound. Its new reading can qualify too.
       encyclopediaHistory.latestResult = born ?? recipeFor(story, before, action)?.result.id;
-      tutorialProgress?.finish('dragDone');
+      if (before.chapter === 0) tutorialProgress?.finish('dragDone');
     }
     if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
     if (previous !== state.chapter) clearCreationLabels();
@@ -902,7 +908,7 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
     const geometry=boardGeometry(chapter);
     return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
       const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon);
-      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" title="${escape(applicable?'Double-click or double-tap to read':'Drag to combine or move')}">${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" ${applicable?'title="Double-click or double-tap to read"':''}>${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
   }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
   const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);

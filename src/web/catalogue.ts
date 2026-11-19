@@ -2,6 +2,7 @@ import { escape } from './markdown.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
 import {cacheCarouselLaunch} from './carousel-launch.ts';
 import {viewportBoard} from './board-geometry.ts';
+import {catalogueStoryStarted} from './chapter-recovery.ts';
 import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
 import {selectedStory, selectStory} from './carousel-selection.ts';
 
@@ -20,7 +21,7 @@ function refreshLinks() {
     const manuscript = new URL(link.dataset.story!, root).href;
     const legacy = legacyProgressKey(manuscript);
     let started = false;
-    try { started = !!(localStorage.getItem(storyProgressKey(manuscript)) ?? (legacy ? localStorage.getItem(legacy) : null)); }
+    try { started = catalogueStoryStarted(localStorage.getItem(storyProgressKey(manuscript)) ?? (legacy ? localStorage.getItem(legacy) : null)); }
     catch { /* A blocked storage area should not block access to the stories. */ }
     link.querySelector('[data-launch-label]')!.textContent = started ? 'Continue' : 'Start';
   });
@@ -104,7 +105,10 @@ if (bookmark) {
     translate(current, advance ? -travel : 0);
     translate(next, advance ? 0 : travel);
     settleDestination = destination;
-    settling = window.setTimeout(() => { show(destination, advance); after?.(); }, after ? 300 : 240);
+    // Use the CSS duration so the end of the slide stays in sync when tuned.
+    const duration = getComputedStyle(slides[current]).transitionDuration.split(',')[0].trim();
+    const milliseconds = parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
+    settling = window.setTimeout(() => { show(destination, advance); after?.(); }, milliseconds);
   }
 
   function advanceByArrow(step: number, focus?: string) {

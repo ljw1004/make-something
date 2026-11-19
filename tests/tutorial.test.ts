@@ -54,27 +54,60 @@ test('lint requires one opening marker and a legal first drag without preparatio
 test('tutorial accomplishments persist independently per manuscript and reset without touching progress or drafts', () => {
   const records = new Map<string, string>([['game', 'keep'], ['draft', 'keep']]);
   const storage = () => ({getItem: (key: string) => records.get(key) ?? null, setItem: (key: string, value: string) => {records.set(key, value);}, removeItem: (key: string) => {records.delete(key);}});
-  const first = new TutorialProgress('https://example.test/one.md', assert.fail, storage);
+  const first = new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage);
   first.finish('goalsDone');
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: true, encyclopediaDone: false});
+  assert.deepEqual(new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: true, encyclopediaDone: false});
   first.finish('dragDone');
-  const second = new TutorialProgress('https://example.test/two.md', assert.fail, storage);
+  const second = new TutorialProgress({manuscript: 'https://example.test/two.md'}, assert.fail, storage);
   assert.deepEqual(second.completion, {dragDone: false, hotspotDone: false, goalsDone: false, encyclopediaDone: false});
   first.finish('hotspotDone');
   first.finish('encyclopediaDone');
-  assert.equal(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion.encyclopediaDone, true);
-  assert.equal(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion.hotspotDone, true);
+  assert.equal(new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage).completion.encyclopediaDone, true);
+  assert.equal(new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage).completion.hotspotDone, true);
   second.finish('dragDone'); first.reset();
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: false, encyclopediaDone: false});
-  assert.equal(new TutorialProgress('https://example.test/two.md', assert.fail, storage).completion.dragDone, true);
+  assert.deepEqual(new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage).completion, {dragDone: false, hotspotDone: false, goalsDone: false, encyclopediaDone: false});
+  assert.equal(new TutorialProgress({manuscript: 'https://example.test/two.md'}, assert.fail, storage).completion.dragDone, true);
   assert.equal(records.get('game'), 'keep'); assert.equal(records.get('draft'), 'keep');
   const warnings: string[] = [];
-  const unavailable = new TutorialProgress('unavailable', message => warnings.push(message), () => {throw Error('Unavailable');});
+  const unavailable = new TutorialProgress({manuscript: 'unavailable'}, message => warnings.push(message), () => {throw Error('Unavailable');});
   unavailable.finish('dragDone'); assert.equal(unavailable.completion.dragDone, true);
   unavailable.reset(); assert.equal(unavailable.completion.dragDone, false);
   assert.equal(warnings.length, 3);
   records.set(first.key, JSON.stringify({dragDone: true, goalsDone: true}));
-  assert.deepEqual(new TutorialProgress('https://example.test/one.md', assert.fail, storage).completion, {dragDone: true, hotspotDone: false, goalsDone: true, encyclopediaDone: false}, 'old accomplishments survive the new lesson');
+  assert.deepEqual(new TutorialProgress({manuscript: 'https://example.test/one.md'}, assert.fail, storage).completion, {dragDone: true, hotspotDone: false, goalsDone: true, encyclopediaDone: false}, 'old accomplishments survive the new lesson');
+});
+
+test('carousel shares advanced flags only, and neither reset erases the other advanced scope', () => {
+  const records = new Map<string, string>();
+  const storage = () => ({getItem: (key: string) => records.get(key) ?? null,
+    setItem: (key: string, value: string) => {records.set(key, value);}, removeItem: (key: string) => {records.delete(key);}});
+  const one = 'https://example.test/one.md', two = 'https://example.test/two.md';
+  const catalogue = 'https://example.test/index.html';
+  const direct = (manuscript: string) => new TutorialProgress({manuscript}, assert.fail, storage);
+  const shared = (manuscript: string) => new TutorialProgress({manuscript, catalogue}, assert.fail, storage);
+  records.set(shared(one).key, JSON.stringify({dragDone:true, hotspotDone:true}));
+  records.set(direct(one).key, JSON.stringify({dragDone:true, encyclopediaDone:true}));
+  assert.equal(shared(one).completion.dragDone, true, 'attributable legacy drag survives');
+  assert.equal(shared(two).completion.dragDone, false, 'old shared drag does not propagate');
+  assert.equal(shared(two).completion.hotspotDone, true, 'old shared advanced lesson survives');
+  assert.equal(direct(two).completion.hotspotDone, false);
+  const first = shared(one), second = shared(two);
+  first.finish('goalsDone');
+  second.finish('encyclopediaDone');
+  assert.equal(shared(two).completion.goalsDone, true);
+  assert.equal(shared(one).completion.encyclopediaDone, true);
+  second.finish('dragDone');
+  assert.equal(direct(two).completion.dragDone, true);
+  first.reset();
+  assert.deepEqual(shared(one).completion, {dragDone:false, hotspotDone:true, goalsDone:true, encyclopediaDone:true});
+  assert.equal(shared(one).completion.encyclopediaDone, true, 'reset leaves shared disk progress intact');
+  assert.deepEqual(direct(one).completion, {dragDone:false, hotspotDone:false, goalsDone:false, encyclopediaDone:true});
+  assert.equal(shared(two).completion.dragDone, true);
+  direct(one).reset();
+  assert.equal(direct(one).completion.encyclopediaDone, false);
+  assert.equal(shared(one).completion.goalsDone, true);
+  assert.equal(shared(one).completion.hotspotDone, true);
+  assert.equal(shared(two).completion.dragDone, true);
 });
 
 const hotspotFixture = (extra = '') => parseStory(`# Hotspot lesson

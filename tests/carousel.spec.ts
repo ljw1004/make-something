@@ -17,7 +17,7 @@ Make a kit.
 The kit is ready.
 `;
 
-test('Start skips the cover, final Home preserves progress, and Restart clears shared tutorial flags', async ({page}) => {
+test('Start skips the cover, final Home preserves progress, and Restart keeps shared tutorial flags', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType:'text/markdown', body:story}));
   await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType:'text/markdown', body:story}));
@@ -58,7 +58,10 @@ test('Start skips the cover, final Home preserves progress, and Restart clears s
   await expect(active.getByRole('heading')).toHaveText('Mission to Mars');
   await expect(active.getByRole('link')).toContainText('Continue');
   const tutorialKey = await page.evaluate(() => 'combination-tutorial-v1:' + encodeURIComponent(new URL('index.html', location.href).href));
-  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!).dragDone, tutorialKey)).toBe(true);
+  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!).goalsDone, tutorialKey)).toBe(true);
+  const dragKeys = await page.evaluate(() => ['mars/mars', 'cookbook/cookbook'].map(path =>
+    'combination-tutorial-drag-v2:' + encodeURIComponent(new URL('stories/' + path + '.md', location.href).href)));
+  expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), dragKeys)).toEqual(['true', null]);
   await page.getByRole('button', {name:'Cookbook', exact:true}).click();
   await active.getByRole('link').click();
   await page.getByRole('button', {name:'Begin'}).click();
@@ -66,7 +69,8 @@ test('Start skips the cover, final Home preserves progress, and Restart clears s
   await page.getByRole('button', {name:/Restart story/}).click();
   await page.getByRole('button', {name:'Restart story', exact:true}).click();
   await expect(page.getByRole('button', {name:'Start', exact:true})).toBeVisible();
-  expect(await page.evaluate(key => localStorage.getItem(key), tutorialKey)).toBeNull();
+  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!).goalsDone, tutorialKey)).toBe(true);
+  expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), dragKeys)).toEqual(['true', 'false']);
   await page.reload();
   await expect(page.getByRole('button', {name:'Start', exact:true})).toBeVisible();
   await page.goto('/');
@@ -225,7 +229,7 @@ test('arrow buttons slide in both directions quickly, retain focus and accept re
     function frame() {
       const value = getComputedStyle(first).transform;
       const x = value === 'none' ? 0 : new DOMMatrix(value).m41;
-      if (direction * x > 2 && Math.abs(x) < first.clientWidth - 2) resolve(getComputedStyle(first).transitionDuration === '0.21s');
+      if (direction * x > 2 && Math.abs(x) < first.clientWidth - 2) resolve(getComputedStyle(first).transitionDuration === '0.5s');
       else if (remaining-- > 0) requestAnimationFrame(frame);
       else resolve(false);
     }
@@ -302,4 +306,42 @@ test('the single carousel backdrop follows the visible abstract and stays below 
   const constrained = await layer();
   expect(constrained.height).toBeLessThan(long.height);
   expect(constrained.height).toBeCloseTo(constrained.panelHeight + 14, 0);
+});
+
+test('a move-only first chapter says Start but keeps saved positions; combining changes it to Continue', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const unfinished = story.replace('- Kit\n','- Kit\n- Spare\n')
+    .replace('- Build -- Kit','- Build -- Kit\n- Find -- Spare')
+    .replace('-> Kit','-> Kit\n- Kit [preserve] + Tool [preserve] -> Spare');
+  await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType:'text/markdown',body:unfinished}));
+  await page.goto('/');
+  const card = page.locator('a[data-story="stories/cookbook/cookbook.md"]');
+  await expect(card).toContainText('Start');
+  await card.click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+
+  const item = page.locator('[data-item="name:Frame"]'), starting = (await item.boundingBox())!;
+  await page.mouse.move(starting.x + starting.width / 2, starting.y + starting.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(85, 450, {steps:5});
+  await page.mouse.up();
+  const moved = (await item.boundingBox())!;
+  expect(Math.abs(moved.y - starting.y)).toBeGreaterThan(30);
+  const goals = page.getByRole('button',{name:'Read this chapter'});
+  const home = page.getByRole('link',{name:'Home',exact:true});
+  await goals.click();
+  await expect(page.getByRole('button',{name:'Restart story',exact:true})).toBeVisible();
+  await home.click();
+  await expect(card).toContainText('Start');
+  await card.click();
+  await expect(item).toBeVisible();
+  expect((await item.boundingBox())!.x).toBeCloseTo(moved.x, 0);
+  expect((await item.boundingBox())!.y).toBeCloseTo(moved.y, 0);
+
+  await item.dragTo(page.locator('[data-item="name:Tool"]'));
+  await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
+  await goals.click();
+  await expect(page.getByRole('button',{name:'Restart chapter',exact:true})).toBeVisible();
+  await home.click();
+  await expect(card).toContainText('Continue');
 });
