@@ -17,7 +17,8 @@ test('heading images retain authored placement and provenance while the story ti
   assert.equal(image.url, 'assets/icon.png');
   assert.equal(text.slice(image.source.span!.from, image.source.span!.to), '![A small 🌍](assets/icon.png)');
   const html = renderCatalogue([{path: 'stories/shared/story.md', ...story}]);
-  assert.match(html, /<h2 class="story-title"><img src="stories\/shared\/assets\/icon.png" alt="A small 🌍"> A living world<\/h2>/);
+  assert.match(html, /<h2 class="story-title">A living world<\/h2>/);
+  assert.match(html, /class="carousel-art"[^>]+src="stories\/shared\/cover.webp"/);
   assert.equal((html.match(/<img /g) ?? []).length, 1);
   assert(!html.includes('background:'));
 });
@@ -38,8 +39,8 @@ test('story icon lint requires a heading image, accepts any square size, and che
   assert.equal(storyIconDiagnostics(story, [{url: 'one.png', width: 0, height: 0}])[0].code, 'story-icon-image');
 });
 
-test('catalogue heading art resolves under hosting prefixes and cannot execute authored HTML or URLs', () => {
-  const html = renderCatalogue([{path: 'stories/shared/story.md', title: 'Title', heading: '![icon](icon.png) <script>oops</script> ![bad](javascript:alert)', description: ''}]);
+test('catalogue cover art resolves under hosting prefixes and cannot execute authored HTML or URLs', () => {
+  const html = renderCatalogue([{path: 'stories/shared/story.md', title: 'Title', cover: 'icon.png', description: '<script>oops</script> ![bad](javascript:alert)'}]);
   assert(!html.includes('<script>'));
   assert(!html.includes('src="javascript:'));
   assert.equal(new URL(html.match(/src="([^"]+)"/)![1], 'https://example.org/game/index.html').pathname, '/game/stories/shared/icon.png');

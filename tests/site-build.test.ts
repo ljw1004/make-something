@@ -41,7 +41,8 @@ test('root builds preserve sources, retire only owned bundles and serve fresh de
     assert.doesNotMatch(read('index.html'), /rel="stylesheet"|catalogue-styles/);
     assert.match(read('index.html'), /href="make-something.html\?story=stories\/shared\/story.md"/);
     assert.match(read('index.html'), /src="stories\/shared\/assets\/cover.svg"/);
-    assert.doesNotMatch(read('index.html'), /background:|start\.svg/);
+    assert.doesNotMatch(read('index.html'), /background:/);
+    assert.match(read('index.html'), /class="carousel-art"[^>]+src="stories\/shared\/assets\/start.svg"/);
     assert.doesNotMatch(read('index.html'), /Excluded brief|stories.json|\/catalogue.js|story-catalogue/);
     assert.doesNotMatch(read('make-something.html'), /\/player.js/);
     for (const style of ['fast','detailed']) {

@@ -35,17 +35,15 @@ async function open(page:Page,wide=false){
 }
 const box=(page:Page,selector:string)=>page.locator(selector).last().boundingBox();
 
-test('the cream catalogue scrolls at the browser edge on phones, tablets and desktops',async({page})=>{
+test('the carousel uses a full-height phone scene and centered black desktop gutters', async ({page}) => {
   await page.goto('/index.html');
-  for(const size of [{width:390,height:664},{width:1024,height:768},{width:1600,height:1000}]){
-    await page.setViewportSize(size);
-    const layout=await page.locator('#app').evaluate(el=>{
-      const chooser=el.querySelector<HTMLElement>('.chooser')!,style=getComputedStyle(el);
-      return {width:el.getBoundingClientRect().width,x:el.getBoundingClientRect().x,background:style.backgroundColor,overflow:style.overflowY,contentOverflow:getComputedStyle(chooser).overflowY,scrollable:el.scrollHeight>el.clientHeight};
-    });
-    expect(layout).toEqual({width:size.width,x:0,background:'rgb(243, 237, 223)',overflow:'auto',contentOverflow:'visible',scrollable:expect.any(Boolean)});
-    expect(await page.locator('#app').evaluate(el=>{el.scrollTop=el.scrollHeight;return el.scrollTop>0;})).toBe(layout.scrollable);
-  }
+  await expect.poll(async () => (await box(page, '.carousel-frame'))?.width).toBe(390);
+  await expect.poll(async () => (await box(page, '.carousel-frame'))?.height).toBe(844);
+  await page.setViewportSize({width: 1600, height: 1000});
+  await expect.poll(async () => (await box(page, '.carousel-frame'))?.x).toBeGreaterThan(0);
+  const frame = (await box(page, '.carousel-frame'))!;
+  expect(frame.x + frame.width / 2).toBeCloseTo(800, 0);
+  expect(await page.locator('#app').evaluate(el => getComputedStyle(el).backgroundColor)).toBe('rgb(0, 0, 0)');
 });
 
 test('phones fill all portrait widths, desktops enlarge the full scene and its cards, landscape phones fit',async({page})=>{

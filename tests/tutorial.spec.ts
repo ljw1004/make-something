@@ -117,7 +117,7 @@ test('drag demonstration follows both operands and yields to any real drag, canc
   expect(errors).toEqual([]);
 });
 
-test('any combination completes dragging; wonders delay goals, and both accomplishments survive chapter restart and reload', async ({page}) => {
+test('any combination completes dragging; lessons survive chapter restart, reload and opening another story', async ({page}) => {
   await open(page); await combine(page, 'A', 'D');
   await expect(tile(page, 'E')).toHaveCount(1); await expect(page.locator('.tutorial-overlay')).toBeHidden();
   await page.reload(); await expect(page.locator('.tutorial-overlay')).toBeHidden();
@@ -133,7 +133,7 @@ test('any combination completes dragging; wonders delay goals, and both accompli
   await page.goto('/make-something.html?story=tutorial-two/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
-  await expect(cue(page, 'drag')).toBeVisible();
+  await expect(page.locator('.tutorial-overlay')).toBeHidden();
 });
 
 for (const reducedMotion of ['no-preference','reduce'] as const) test(`goals retain their backing and contrast during pickup and dragging (${reducedMotion})`, async ({page}) => {

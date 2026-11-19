@@ -40,6 +40,7 @@ import {DragTrace} from './drag-trace.ts';
 import {DragEdgeScroll} from './drag-scroll.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
 import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
+import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
 import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
@@ -58,9 +59,6 @@ const dialogLayer = document.createElement('div'); dialogLayer.className = 'game
 app.append(dialogLayer);
 const tutorialOverlay = new TutorialOverlay(app);
 let tutorialProgress: TutorialProgress | undefined;
-// Generated checkpoint history cannot establish tutorial accomplishments on reload.
-// It does not prevent the player from seeing or completing a tutorial there.
-let tutorialCheckpoint = false;
 let hotspotTutorialRecipe: string | undefined;
 let tutorialSaveError = '', progressSaveError = '';
 let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
@@ -154,7 +152,7 @@ const imageGeometry = (image?: string) => viewportBoard(app.clientWidth, app.cli
 const boardGeometry = (chapter = state.chapter) => imageGeometry(background(story, chapter));
 const elementGeometry = (element: HTMLElement) => boardGeometry(Number(element.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
 const name = (id: string) => label(story, state, id);
-const key = () => `combination-progress-v2:${encodeURIComponent(documentURL)}`;
+const key = () => storyProgressKey(documentURL);
 const asset = (path: string) => {
   try { return resolveStoryAsset(path, authoring.assetBaseURL); }
   catch { return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E'; }
@@ -189,7 +187,7 @@ function rememberInteraction() {
 function save() {
   if (!storyStarted) return;
   saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, chapterSession, itemOrder, editedSnapshot, tutorialCheckpoint, encyclopedia: encyclopediaHistory,
+    hash, state, chapterSession, itemOrder, editedSnapshot, encyclopedia: encyclopediaHistory,
     anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, scrollTop: anchor.scrollTop, viewportHeight: anchor.viewportHeight, dialog: anchor.dialog, encyclopedia: anchor.encyclopedia },
   })), showSaveError);
 }
@@ -391,11 +389,14 @@ async function start() {
   surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
   try {
     documentURL = resolveStoryURL(location.href);
-    tutorialProgress = new TutorialProgress(documentURL, error => {tutorialSaveError = error; renderSaveError();});
+    tutorialProgress = new TutorialProgress(catalogueURL.href, error => {tutorialSaveError = error; renderSaveError();});
     const path = new URL(documentURL).pathname;
     // Only the former story.md route may inherit a folder-keyed legacy save.
     storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
-    legacySaveKey = path.endsWith('/story.md') ? `combination-markdown-v1:${storyID}` : '';
+    legacySaveKey = legacyProgressKey(documentURL);
+    const launch = new URL(location.href).searchParams.get('launch');
+    const fromCarousel = launch === 'mouse' || launch === 'touch';
+    if (fromCarousel) tutorialOverlay.modality(launch);
     const drafts = new DraftStore(documentURL);
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
@@ -418,7 +419,6 @@ async function start() {
     try {
       const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
       encyclopediaHistory = restoreEncyclopediaHistory(saved?.encyclopedia);
-      tutorialCheckpoint = saved?.tutorialCheckpoint === true;
       if (saved?.anchor && typeof saved.anchor.text === 'string') {
         const source = recoverPreviewStory(parse(saved.anchor.text));
         const prior = restoreLiveState(source, saved.anchor.state);
@@ -444,17 +444,13 @@ async function start() {
       encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
       chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
     }
-    storyStarted = loaded;
+    storyStarted = loaded || fromCarousel;
     if (!loaded) encyclopediaHistory = {};
-    // Older saves record combinations but not deliberate goals clicks. Infer only the former.
-    if (loaded && !tutorialCheckpoint) {
-      if (state.actions.some(action => action.type === 'combine')) tutorialProgress.finish('dragDone');
-      if (state.actions.some(completesHotspotTutorial)) tutorialProgress.finish('hotspotDone');
-    }
-    await itemArtwork.prepare(loaded ? currentArtwork(story, state) : coverArtwork(story), asset);
+    await itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
     starting = false;
     render(!loaded);
-    setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
+    if (loaded && fromCarousel && state.completed) scrollToCurrentChapter();
+    else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
     if (!anchor) rememberInteraction();
     checkText(parsed, previewText);
     authoring.setAvailable(desktopDebug.matches);
@@ -507,12 +503,23 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
     const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
   } else bookResize.disconnect();
   if (focused?.closest('.story-editor')) focused.focus({ preventScroll: true });
-  else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+  else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>('button, a[href]')?.focus({ preventScroll: true });
   return dialog;
+}
+function endingHome(acknowledge = false) {
+  const url = new URL(catalogueURL);
+  const prefix = new URL('./', catalogueURL).pathname;
+  const path = new URL(documentURL).pathname;
+  if (path.startsWith(prefix)) url.searchParams.set('slide', decodeURIComponent(path.slice(prefix.length)));
+  return `<a class="ending-home"${acknowledge ? ' data-command="ending-home"' : ''} href="${escape(url.href)}">Home</a>`;
 }
 function pendingContent() {
   const notice = state.pending[0];
-  return notice ? `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions"><button data-command="dismiss">${notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button></div>` : '';
+  if (!notice) return '';
+  const action = notice.kind === 'chapter' && state.completed
+    ? endingHome(true)
+    : `<button data-command="dismiss">${notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button>`;
+  return `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions">${action}</div>`;
 }
 function showPending() {
   if (!storyStarted || dialogContext || !state?.pending.length) return;
@@ -529,12 +536,14 @@ function chapterContent() {
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
   const encyclopedia = encyclopediaEntries(story, state).length >= 3
     ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label">Encyclopedia</span></button>` : '';
+  const header = '<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>';
+  if (state.completed) return `${header}${readingBody(text, asset)}${encyclopedia ? `<div class="chapter-actions">${encyclopedia}</div>` : ''}<div class="chapter-actions">${endingHome()}<button class="recovery-action" data-command="confirm-reset-story">Restart</button></div>`;
   const restart = recovery === 'chapter' ? 'Restart this chapter' : 'Restart this story';
   const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
-  return `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
+  return `${header}${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
 }
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
-function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries, item positions and tutorial progress. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
+function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. This also resets the shared tutorials. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
   () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
   detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
@@ -631,7 +640,7 @@ function jumpToCheckpoint(index: number) {
     withArtwork(currentArtwork(story, next), () => {
       resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
       encyclopediaHistory.latestResult = undefined;
-      state = next; itemOrder = []; editedSnapshot = false; storyStarted = true; tutorialCheckpoint = true;
+      state = next; itemOrder = []; editedSnapshot = false; storyStarted = true;
       closeDialog(); render(true, true, true); rememberInteraction(); save();
     });
   } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
@@ -799,7 +808,7 @@ function beginStory() {
   if (storyStarted) return;
   flushPreview();
   withArtwork(currentArtwork(story, state), () => {
-    storyStarted = true; tutorialCheckpoint = false; resetGoalView();
+    storyStarted = true; resetGoalView();
     render(true); rememberInteraction(); save();
   });
 }
@@ -809,7 +818,10 @@ function restartStory() {
     resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
     storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
     encyclopediaHistory = {}; encyclopediaScroll = 0;
-    tutorialCheckpoint = false; tutorialProgress?.reset();
+    tutorialProgress?.reset();
+    const url = new URL(location.href);
+    url.searchParams.delete("launch");
+    history.replaceState(history.state, "", url);
     // A landing is not a saved game. Removing the old save also makes reload stay here.
     saveProgress(() => {
       localStorage.removeItem(key());
@@ -1044,6 +1056,11 @@ app.addEventListener('click',e=>{
   if(command==='debug'){toggleDebugPanel();return;}
   flushPreview();
   if(command==='start-story')beginStory();
+  else if(command==='ending-home'){
+    state = act(story, state, {type:'dismiss'});
+    closeDialog(); rememberInteraction(); save();
+    location.assign((target as HTMLAnchorElement).href);
+  }
   else if(command==='dismiss')commit({type:'dismiss'});
   else if(command==='advance')commit({type:'advance'});
   else if(command==='close')dismissReading();

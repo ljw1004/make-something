@@ -74,7 +74,7 @@ export function sitePages(): Plugin {
         const stories = resolve(root, 'stories');
         const entries = storyIds(stories).map(path => {
           const { story } = loadStory(resolve(stories, path));
-          return { path: `stories/${path}`, title: story.title, heading: story.heading, description: story.description };
+          return { path: `stories/${path}`, title: story.title, cover: story.cover ?? story.chapters[0]?.image, description: story.description };
         });
         return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries))
           .replace('<!-- terminal-catalogue -->', () => renderTerminalCatalogue(entries));

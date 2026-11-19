@@ -82,13 +82,12 @@ test('standalone catalogue adds Home, survives reload and returns without losing
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.goto('/');
   const card = page.locator('[data-story="stories/cookbook/cookbook.md"]');
-  await expect(card).toHaveAttribute('href', /&home=show$/);
+  await expect(card).toHaveAttribute('href', /&home=show&launch=mouse$/);
   await card.click();
   const home = page.getByRole('link', {name: 'Home', exact: true});
   await expect(home).toBeVisible();
   await page.reload();
   await expect(home).toBeVisible();
-  await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));
   await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
@@ -113,12 +112,12 @@ test('ordinary browser visits never gain Home, even with a copied catalogue-app 
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.goto('/index.html');
   const card = page.locator('[data-story="stories/cookbook/cookbook.md"]');
-  await expect(card).toHaveAttribute('href', 'make-something.html?story=stories/cookbook/cookbook.md');
+  await expect(card).toHaveAttribute('href', /make-something.html\?story=stories%2Fcookbook%2Fcookbook.md&launch=mouse$/);
   await card.click();
-  await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
+  await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeVisible();
   await expect(page.locator('.story-home')).toHaveCount(0);
   await page.goto(page.url() + '&home=show');
-  await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
+  await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeVisible();
   await expect(page.locator('.story-home')).toHaveCount(0);
 });
 

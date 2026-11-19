@@ -1,8 +1,8 @@
 import { posix } from 'node:path';
-import { escape, markdown, markdownInline } from '../web/markdown.ts';
+import { escape, markdown } from '../web/markdown.ts';
 import { resolveStoryAsset } from '../web/story-document.ts';
 
-export interface CatalogueEntry { path: string; title: string; heading?: string; description: string }
+export interface CatalogueEntry { path: string; title: string; description: string; cover?: string }
 
 /** Catalogue prose still belongs to its manuscript, not the catalogue directory. */
 function catalogueAsset(storyPath: string): (reference: string) => string {
@@ -24,11 +24,23 @@ export function catalogueDescription(description: string, storyPath: string): st
 }
 
 export function renderCatalogue(entries: CatalogueEntry[]): string {
-  return `<main class="chooser"><h1>Make Something Worthwhile</h1><nav>${entries.map(entry => {
-    const href = `make-something.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
-    const heading = markdownInline(entry.heading ?? entry.title, catalogueAsset(entry.path));
-    return `<a href="${escape(href)}" data-story="${escape(entry.path)}"><h2 class="story-title">${heading}</h2>${catalogueDescription(entry.description, entry.path)}</a>`;
-  }).join('')}</nav></main>`;
+  if (!entries.length) return '<main class="chooser"><h1>Make Something Worthwhile</h1><p>No stories are available.</p></main>';
+  const arrow = (left: boolean) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${left ? 'm15 4-8 8 8 8' : 'm9 4 8 8-8 8'}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const play = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg>';
+  return `<main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
+    <nav class="carousel-dots" aria-label="Choose a story">${entries.map((entry, index) => `<button type="button" aria-label="${escape(entry.title)}" ${index === 0 ? 'aria-current="true"' : ''}></button>`).join('')}</nav>
+    <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story">${arrow(true)}</button>
+    <button type="button" class="carousel-arrow carousel-next" aria-label="Next story">${arrow(false)}</button>
+    ${entries.map((entry, index) => {
+      const href = `make-something.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
+      const cover = entry.cover ? catalogueAsset(entry.path)(entry.cover) : '';
+      return `<section class="carousel-slide"${index ? ' hidden' : ''} aria-label="${escape(entry.title)}">
+        ${cover ? `<img class="carousel-art" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} src="${escape(cover)}" alt="" draggable="false">` : ''}
+        <div class="carousel-bar"><a href="${escape(href)}" data-story="${escape(entry.path)}"><h2 class="story-title">${escape(entry.title)}</h2><span class="carousel-action"><span data-launch-label>Start</span>${play}</span></a></div>
+        <div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div>
+      </section>`;
+    }).join('')}</div></main>`;
+
 }
 
 /** Numbered terminal choices share the catalogue's manuscripts and authored prose. */

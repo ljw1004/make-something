@@ -21,37 +21,14 @@ test('CLI decodes square, non-square and broken heading artwork without requirin
   } finally { await checker.close(); rmSync(directory, {recursive: true, force: true}); }
 });
 
-test('catalogue heading icons load at 64 CSS pixels on narrow and wide screens without JavaScript', async ({browser}) => {
+test('catalogue cover images and story titles render without JavaScript', async ({browser}) => {
   const context = await browser.newContext({javaScriptEnabled: false});
-  const page = await context.newPage();
   try {
-    for (const width of [320, 960]) {
-      await page.setViewportSize({width, height: 844});
-      await page.goto('/');
-      await expect(page.locator('link[rel="stylesheet"]')).toHaveCount(0);
-      const cards = page.locator('a[data-story]');
-      const icons = cards.locator('.story-title img');
-      expect(await icons.count()).toBe(await cards.count());
-      expect(await icons.count()).toBeGreaterThan(0);
-      for (const icon of await icons.all()) {
-        await expect(icon).toBeVisible();
-        expect(await icon.evaluate((image: HTMLImageElement) => ({loaded: image.complete && image.naturalWidth > 0, square: image.naturalWidth === image.naturalHeight, width: image.getBoundingClientRect().width, height: image.getBoundingClientRect().height}))).toEqual({loaded: true, square: true, width: 64, height: 64});
-        const alignment = await icon.evaluate(image => {
-          // A zero-height inline box exposes the line's actual text baseline.
-          const probe = document.createElement('span');
-          probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
-          image.after(probe);
-          const artwork = image.getBoundingClientRect(), baseline = probe.getBoundingClientRect();
-          const result = {display: getComputedStyle(image).display, gap: Math.abs(artwork.bottom - baseline.top), toLeft: artwork.right <= baseline.left};
-          probe.remove();
-          return result;
-        });
-        expect(alignment.display).toBe('inline');
-        expect(alignment.gap).toBeLessThan(1);
-        expect(alignment.toLeft).toBe(true);
-      }
-      expect(await page.evaluate(() => document.querySelector('.chooser')!.scrollWidth <= innerWidth)).toBe(true);
-    }
+    const page = await context.newPage();
+    await page.goto('/');
+    const cookbook = page.locator('.carousel-slide').filter({has: page.getByRole('heading', {name:'Cookbook', exact:true})});
+    await expect(cookbook).toBeVisible();
+    await expect.poll(() => cookbook.locator('.carousel-art').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   } finally { await context.close(); }
 });
 

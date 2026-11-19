@@ -28,7 +28,7 @@ test('catalogue cards are usable HTML without JavaScript or a catalogue data req
     await expect(mars).toBeVisible();
     await expect(mars).toHaveAttribute('href', 'make-something.html?story=stories/mars/mars.md');
     expect(requests.some(url => url.includes('stories.json'))).toBe(false);
-    await expect.poll(() => page.locator('.chooser img').evaluateAll(images => images.every(image => (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
+    await expect.poll(() => page.locator('.carousel-art').first().evaluateAll(images => images.every(image => (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
   } finally { await context.close(); }
 });
 
