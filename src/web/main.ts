@@ -50,7 +50,7 @@ import {addStoryHome, setHomeScreenIdentity} from './home-screen.ts';
 const app = document.querySelector<HTMLDivElement>('#app')!;
 guardGameInput(app);
 const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
-addStoryHome(app, catalogueURL.href);
+const storyHome = addStoryHome(app, catalogueURL.href);
 const iconNames = new IconNames();
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -389,6 +389,7 @@ async function start() {
   surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
   try {
     documentURL = resolveStoryURL(location.href);
+    storyHome.href = storyCatalogueURL(documentURL);
     tutorialProgress = new TutorialProgress(catalogueURL.href, error => {tutorialSaveError = error; renderSaveError();});
     const path = new URL(documentURL).pathname;
     // Only the former story.md route may inherit a folder-keyed legacy save.
@@ -506,12 +507,18 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
   else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>('button, a[href]')?.focus({ preventScroll: true });
   return dialog;
 }
-function endingHome(acknowledge = false) {
+function storyCatalogueURL(manuscript: string) {
   const url = new URL(catalogueURL);
-  const prefix = new URL('./', catalogueURL).pathname;
-  const path = new URL(documentURL).pathname;
-  if (path.startsWith(prefix)) url.searchParams.set('slide', decodeURIComponent(path.slice(prefix.length)));
-  return `<a class="ending-home"${acknowledge ? ' data-command="ending-home"' : ''} href="${escape(url.href)}">Home</a>`;
+  const root = new URL('./', catalogueURL);
+  const story = new URL(manuscript);
+  if (story.origin === root.origin && story.pathname.startsWith(root.pathname)) {
+    try { url.searchParams.set('slide', decodeURIComponent(story.pathname.slice(root.pathname.length))); }
+    catch { /* An undecodable path has no catalogue card. */ }
+  }
+  return url.href;
+}
+function endingHome(acknowledge = false) {
+  return `<a class="ending-home"${acknowledge ? ' data-command="ending-home"' : ''} href="${escape(storyHome.href)}">Home</a>`;
 }
 function pendingContent() {
   const notice = state.pending[0];

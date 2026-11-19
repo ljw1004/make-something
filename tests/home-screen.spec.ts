@@ -77,11 +77,17 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
   expect((await browserManifest(page)).id).not.toBe(first.id);
 });
 
-test('standalone catalogue adds Home, survives reload and returns without losing story progress', async ({page}) => {
+test('standalone catalogue adds Home, survives reload and returns to the active story without losing progress', async ({page}) => {
   await standaloneWindow(page);
-  await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
+  const unfinished = manuscript
+    .replace('- Kit\n', '- Kit\n- Spare\n')
+    .replace('- Build -- Kit', '- Build -- Kit\n- Find -- Spare')
+    + '- Kit [preserve] + Tool [preserve] -> Spare\n';
+  await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType: 'text/markdown', body: unfinished}));
   await page.goto('/');
-  const card = page.locator('[data-story="stories/cookbook/cookbook.md"]');
+  await expect(page.locator('.carousel-slide:not([hidden]) h2')).toHaveText('Cookbook');
+  await page.getByRole('button', {name: 'Mission to Mars', exact: true}).click();
+  const card = page.locator('[data-story="stories/mars/mars.md"]');
   await expect(card).toHaveAttribute('href', /&home=show&launch=mouse$/);
   await card.click();
   const home = page.getByRole('link', {name: 'Home', exact: true});
@@ -97,13 +103,16 @@ test('standalone catalogue adds Home, survives reload and returns without losing
   expect(box!.x).toBeLessThan(25);
   expect(box!.y).toBeLessThan(25);
   await expect(page.locator('.chapter-panel h2')).toHaveCount(0);
-  await home.focus(); await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/index.html$/);
+  await expect(page.getByRole('button', {name: 'Continue story'})).toHaveCount(0);
+  await home.click();
+  await expect(page).toHaveURL(/\/index.html\?slide=stories%2Fmars%2Fmars\.md$/);
+  await expect(page.locator('.carousel-slide:not([hidden]) h2')).toHaveText('Mission to Mars');
+  await expect(card).toContainText('Continue');
   await card.click();
   await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
   await expect(home).toBeVisible();
   // Visiting that same story directly in another installed context has no Home.
-  await page.goto('/make-something.html?story=stories/cookbook/cookbook.md');
+  await page.goto('/make-something.html?story=stories/mars/mars.md');
   await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
   await expect(home).toHaveCount(0);
 });
@@ -123,12 +132,12 @@ test('ordinary browser visits never gain Home, even with a copied catalogue-app 
 
 test('Apple standalone detection also carries Home through legacy catalogue bookmarks and load errors', async ({page}) => {
   await standaloneWindow(page, true);
-  await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({status: 404, body: 'Missing'}));
-  await page.goto('/index.html#cookbook');
-  await expect(page).toHaveURL(/make-something.html\?story=stories%2Fcookbook%2Fcookbook.md&home=show$/);
+  await page.route('**/stories/mars/mars.md', route => route.fulfill({status: 404, body: 'Missing'}));
+  await page.goto('/index.html#mars');
+  await expect(page).toHaveURL(/make-something.html\?story=stories%2Fmars%2Fmars.md&home=show$/);
   await expect(page.getByText('Story could not be loaded')).toBeVisible();
   await page.getByRole('link', {name: 'Home', exact: true}).click();
-  await expect(page.getByRole('heading', {level: 1})).toHaveText('Make Something Worthwhile');
+  await expect(page.locator('.carousel-slide:not([hidden]) h2')).toHaveText('Mission to Mars');
 });
 
 test('display-mode changes update catalogue links and the story Home control', async ({page}) => {

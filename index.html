@@ -278,11 +278,10 @@ dialog button,dialog select{min-height:44px}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
 .carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - 2cqh);display:flex;flex-direction:column;isolation:isolate}
-.carousel-panel::before{content:'';position:absolute;z-index:-1;pointer-events:none;inset:-12px -4px -4px;border-radius:26px;background:linear-gradient(180deg,transparent,#0008 19px,#000b 45%,#0008 72%,transparent);filter:blur(7px)}
-.carousel-bar{position:relative;flex:none;border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;box-shadow:0 0 10px #0008}
+.carousel-bar{position:relative;flex:none;border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;box-shadow:0 0 0 1px #0008,0 0 6px 2px #0008}
 .carousel-bar a{display:grid;gap:2px;align-content:center;min-height:clamp(58px,12cqh,106px);padding:5px 49px;color:#fff;text-decoration:none}
 .carousel-bar h2{font-size:clamp(17px,4.7cqh,42px);line-height:1.08;font-weight:500;margin:0;text-wrap:balance}
-.carousel-action{display:flex;align-items:center;justify-content:center;gap:.35em;font-size:clamp(13px,2.9cqh,26px);line-height:1.1}
+.carousel-action{display:flex;align-items:center;justify-content:center;gap:.35em;font-size:clamp(10px,1.5cqh,13px);font-weight:400;line-height:1.15}
 .carousel-action svg{width:1.05em;height:1.05em}
 .carousel-arrow{position:absolute;top:50%;translate:0 -50%;display:grid;place-items:center;color:white;border:0;border-radius:8px;background:none;width:44px;height:44px;padding:10px;box-shadow:none}
 .carousel-arrow:hover{background:#ffffff20}
@@ -292,20 +291,20 @@ dialog button,dialog select{min-height:44px}
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
 .carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:0 0 5px #000d}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:0 1px 4px #000,0 0 8px #000;color:white;font-size:clamp(12px,1.9cqh,17px);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
+.carousel-description{min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:0 1px 1px #000e,0 0 1.5px #000d;color:white;font-weight:400;font-size:clamp(12px,1.75cqh,16px);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
 .carousel-description img{display:block;max-width:100%;max-height:15cqh;margin:auto;object-fit:contain}
 .ending-home{display:inline-flex;align-items:center;min-height:44px;color:#746b5c;font-size:12px;text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
 .ending-home:hover{color:#35382f;text-decoration-color:currentColor}
-</style><noscript><style>#app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-C_tHLwOG.js"></script>
+</style><noscript><style>#app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-BBpyH6Re.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-DbWZas9U.js">
-  <link rel="modulepreload" crossorigin href="./assets/progress-keys-DvX4kJ3P.js">
+  <link rel="modulepreload" crossorigin href="./assets/progress-keys-BMkmt_gy.js">
 </head><body><div class="status-bar-color" aria-hidden="true"></div><div id="app" class="catalogue-page"><main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
-    <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" aria-current="true"></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" ></button></nav>
     <section class="carousel-slide" aria-label="Cookbook">
         <img class="carousel-art" fetchpriority="high" src="stories/cookbook/assets/rework/backgrounds/breakfast.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" aria-current="true"></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" ></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/cookbook/cookbook.md" data-story="stories/cookbook/cookbook.md"><h2 class="story-title">Cookbook</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -315,6 +314,7 @@ dialog button,dialog select{min-height:44px}
         </div>
       </section><section class="carousel-slide" hidden aria-label="Creation">
         <img class="carousel-art" loading="lazy" src="stories/creation/assets/backgrounds/c01-deep.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" ></button><button type="button" aria-label="Creation" aria-current="true"></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" ></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/creation/creation.md" data-story="stories/creation/creation.md"><h2 class="story-title">Creation</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -324,6 +324,7 @@ dialog button,dialog select{min-height:44px}
         </div>
       </section><section class="carousel-slide" hidden aria-label="History of ideas">
         <img class="carousel-art" loading="lazy" src="stories/ideas/assets/atlas-mesopotamian-watch-archive.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" ></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" aria-current="true"></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" ></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/ideas/ideas.md" data-story="stories/ideas/ideas.md"><h2 class="story-title">History of ideas</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -333,6 +334,7 @@ dialog button,dialog select{min-height:44px}
         </div>
       </section><section class="carousel-slide" hidden aria-label="Mission to Mars">
         <img class="carousel-art" loading="lazy" src="stories/mars/assets/live-feedback/cover-before-crash.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" ></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" aria-current="true"></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" ></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/mars/mars.md" data-story="stories/mars/mars.md"><h2 class="story-title">Mission to Mars</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -342,6 +344,7 @@ dialog button,dialog select{min-height:44px}
         </div>
       </section><section class="carousel-slide" hidden aria-label="Settlement">
         <img class="carousel-art" loading="lazy" src="stories/settlement/assets/backgrounds/01.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" ></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" aria-current="true"></button><button type="button" aria-label="Theology" ></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/settlement/settlement.md" data-story="stories/settlement/settlement.md"><h2 class="story-title">Settlement</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -351,6 +354,7 @@ dialog button,dialog select{min-height:44px}
         </div>
       </section><section class="carousel-slide" hidden aria-label="Theology">
         <img class="carousel-art" loading="lazy" src="stories/theology/assets/theology-augustine-study.webp" alt="" draggable="false">
+        <nav class="carousel-dots" aria-label="Choose a story"><button type="button" aria-label="Cookbook" ></button><button type="button" aria-label="Creation" ></button><button type="button" aria-label="History of ideas" ></button><button type="button" aria-label="Mission to Mars" ></button><button type="button" aria-label="Settlement" ></button><button type="button" aria-label="Theology" aria-current="true"></button></nav>
         <div class="carousel-panel">
           <div class="carousel-bar"><a href="make-something.html?story=stories/theology/theology.md" data-story="stories/theology/theology.md"><h2 class="story-title">Theology</h2><span class="carousel-action"><span data-launch-label>Start</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg></span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>

@@ -66,4 +66,5 @@ export function addStoryHome(app: HTMLElement, catalogueURL: string) {
     if (requested && standalone) { if (!home.isConnected) app.append(home); }
     else home.remove();
   });
+  return home;
 }

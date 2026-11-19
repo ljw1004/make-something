@@ -12,7 +12,6 @@ setHomeScreenIdentity({
 const carousel = app.querySelector<HTMLElement>('.story-carousel');
 const frame = app.querySelector<HTMLElement>('.carousel-frame');
 const slides = [...app.querySelectorAll<HTMLElement>('.carousel-slide')];
-const dots = [...app.querySelectorAll<HTMLButtonElement>('.carousel-dots button')];
 const storyLinks = [...app.querySelectorAll<HTMLAnchorElement>('a[data-story]')];
 const originalLinks = storyLinks.map(link => link.getAttribute('href')!);
 let standalone = false;
@@ -75,10 +74,6 @@ if (bookmark) {
       const art = slides[index].querySelector<HTMLImageElement>('.carousel-art');
       if (art) art.loading = 'eager';
     }
-    dots.forEach((dot, position) => {
-      if (position === current) dot.setAttribute('aria-current', 'true');
-      else dot.removeAttribute('aria-current');
-    });
     measure();
     if (remember) {
       chooser.searchParams.set('slide', storyLinks[current].dataset.story!);
@@ -133,13 +128,22 @@ if (bookmark) {
       });
     }
   });
-  dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
+  slides.forEach(slide => slide.querySelectorAll<HTMLButtonElement>('.carousel-dots button').forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const focused = document.activeElement === dot;
+      show(index);
+      if (focused) slides[current].querySelector<HTMLButtonElement>('.carousel-dots [aria-current]')?.focus();
+    });
+  }));
   carousel.addEventListener('keydown', event => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
-    const oldLink = storyLinks[current];
+    const previousFocus = document.activeElement;
     show(current + (event.key === 'ArrowLeft' ? -1 : 1));
-    if (document.activeElement === oldLink || !carousel.contains(document.activeElement)) storyLinks[current].focus();
+    const replacement = previousFocus?.matches('.carousel-dots button') ? '.carousel-dots [aria-current]'
+      : previousFocus?.matches('.carousel-prev') ? '.carousel-prev'
+      : previousFocus?.matches('.carousel-next') ? '.carousel-next' : 'a[data-story]';
+    slides[current].querySelector<HTMLElement>(replacement)?.focus();
   });
   let press: { id: number; x: number; y: number; control: Element | null; axis?: 'x' | 'y'; delta: number } | undefined;
   let cancelledClick: Element | null = null;
