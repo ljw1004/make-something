@@ -45,12 +45,13 @@ import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
-import {addStoryHome, setHomeScreenIdentity} from './home-screen.ts';
+import {setHomeScreenIdentity} from './home-screen.ts';
+import {readCarouselLaunch} from './carousel-launch.ts';
+import {carouselStoryPath, selectStory} from './carousel-selection.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 guardGameInput(app);
 const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
-const storyHome = addStoryHome(app, catalogueURL.href);
 const iconNames = new IconNames();
 let inputTrace:DragTrace|undefined;
 const workspace = document.querySelector<HTMLElement>('#workspace')!;
@@ -70,6 +71,7 @@ let expectedScroll = 0;
 let previewTimer: ReturnType<typeof setTimeout> | undefined;
 let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
 let storyStarted = false;
+let entryContext: ReturnType<typeof readCarouselLaunch> | undefined;
 let dialogContext: DialogContext | undefined;
 let dialogOpener: HTMLElement | undefined;
 let encyclopediaScroll = 0;
@@ -259,6 +261,9 @@ function renderSaveError() {
 }
 function updateEditingIndicators() {
   if (!authoring) return;
+  // The Vite development server runs the authored -dev template (also at the
+  // local pretty URL). The built player never exposes developer controls.
+  if (!import.meta.env.DEV) { updateTutorial(); return; }
   let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
   if (!toggle) {
     toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
@@ -389,15 +394,13 @@ async function start() {
   surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
   try {
     documentURL = resolveStoryURL(location.href);
-    storyHome.href = storyCatalogueURL(documentURL);
     tutorialProgress = new TutorialProgress(catalogueURL.href, error => {tutorialSaveError = error; renderSaveError();});
     const path = new URL(documentURL).pathname;
     // Only the former story.md route may inherit a folder-keyed legacy save.
     storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
     legacySaveKey = legacyProgressKey(documentURL);
-    const launch = new URL(location.href).searchParams.get('launch');
-    const fromCarousel = launch === 'mouse' || launch === 'touch';
-    if (fromCarousel) tutorialOverlay.modality(launch);
+    const {fromCarousel, modality, skipCover} = entryContext ??= readCarouselLaunch(documentURL, catalogueURL);
+    if (modality) tutorialOverlay.modality(modality);
     const drafts = new DraftStore(documentURL);
     const document = await loadStoryDocument(documentURL, drafts);
     authoring = new AuthoringSession(document, drafts, workspace, {
@@ -445,7 +448,7 @@ async function start() {
       encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
       chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
     }
-    storyStarted = loaded || fromCarousel;
+    storyStarted = loaded || !!skipCover;
     if (!loaded) encyclopediaHistory = {};
     await itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
     starting = false;
@@ -454,7 +457,7 @@ async function start() {
     else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
     if (!anchor) rememberInteraction();
     checkText(parsed, previewText);
-    authoring.setAvailable(desktopDebug.matches);
+    authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators(); save();
     if (loaded) {
       const source = story;
@@ -471,6 +474,7 @@ function closeDialog() {
   const editing = document.activeElement?.closest('.story-editor');
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   bookResize.disconnect();
+  chapterFooterResize.disconnect();
   dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
   if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
   dialogOpener = undefined;
@@ -503,30 +507,30 @@ function modal(content: string, kind = 'ordinary', context: DialogContext = { ki
     bookResize.observe(dialog); syncBookLayout();
     const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
   } else bookResize.disconnect();
+  chapterFooterResize.disconnect();
+  const footer = dialog.querySelector<HTMLElement>('.chapter-actions');
+  if (footer) {
+    fitChapterFooter(footer);
+    chapterFooterResize.observe(footer);
+    for (const control of footer.children) chapterFooterResize.observe(control);
+  }
   if (focused?.closest('.story-editor')) focused.focus({ preventScroll: true });
-  else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>('button, a[href]')?.focus({ preventScroll: true });
+  else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>(context.kind === 'chapter' ? '.chapter-close' : 'button, a[href]')?.focus({ preventScroll: true });
   return dialog;
 }
-function storyCatalogueURL(manuscript: string) {
-  const url = new URL(catalogueURL);
-  const root = new URL('./', catalogueURL);
-  const story = new URL(manuscript);
-  if (story.origin === root.origin && story.pathname.startsWith(root.pathname)) {
-    try { url.searchParams.set('slide', decodeURIComponent(story.pathname.slice(root.pathname.length))); }
-    catch { /* An undecodable path has no catalogue card. */ }
-  }
-  return url.href;
-}
-function endingHome(acknowledge = false) {
-  return `<a class="ending-home"${acknowledge ? ' data-command="ending-home"' : ''} href="${escape(storyHome.href)}">Home</a>`;
+const popupHomeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h5v-7h4v7h5V9"/></svg>';
+const popupRestartIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 1 1 2 7M3 5v6h6"/></svg>';
+function popupHome(placement: 'ending' | 'chapter') {
+  return entryContext?.fromCarousel
+    ? `<a class="popup-home" href="${escape(catalogueURL.href)}"${placement === 'ending' ? ' data-command="ending-home"' : ''}>${placement === 'chapter' ? popupHomeIcon : ''}<span class="popup-action-label">Home</span>${placement === 'ending' ? popupHomeIcon : ''}</a>`
+    : '';
 }
 function pendingContent() {
   const notice = state.pending[0];
   if (!notice) return '';
-  const action = notice.kind === 'chapter' && state.completed
-    ? endingHome(true)
-    : `<button data-command="dismiss">${notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button>`;
-  return `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions">${action}</div>`;
+  const ending = notice.kind === 'chapter' && state.completed;
+  const action = `<button data-command="dismiss">${ending ? 'End' : notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button>`;
+  return `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions${ending ? ' ending-actions' : ''}">${action}${ending ? popupHome('ending') : ''}</div>`;
 }
 function showPending() {
   if (!storyStarted || dialogContext || !state?.pending.length) return;
@@ -539,16 +543,36 @@ function openPendingReading() {
   if (notice.kind === 'wonder') encyclopediaHistory.wonder = notice.item;
 }
 function chapterContent() {
-  const recovery = chapterRecovery(chapterSession);
+  const recovery = state.completed ? 'story' : chapterRecovery(chapterSession);
   const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
   const encyclopedia = encyclopediaEntries(story, state).length >= 3
-    ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label">Encyclopedia</span></button>` : '';
-  const header = '<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>';
-  if (state.completed) return `${header}${readingBody(text, asset)}${encyclopedia ? `<div class="chapter-actions">${encyclopedia}</div>` : ''}<div class="chapter-actions">${endingHome()}<button class="recovery-action" data-command="confirm-reset-story">Restart</button></div>`;
-  const restart = recovery === 'chapter' ? 'Restart this chapter' : 'Restart this story';
+    ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon popup-action-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label popup-action-label">Encyclopedia</span></button>` : '';
+  const header = `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>`;
+  const restart = recovery === 'chapter' ? 'Restart chapter' : 'Restart story';
   const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
-  return `${header}${readingBody(text, asset)}<div class="chapter-actions">${encyclopedia}<button class="recovery-action" data-command="${command}">${restart} <span aria-hidden="true">↻</span></button></div>`;
+  return `${header}${readingBody(text, asset)}<div class="chapter-actions"><button class="recovery-action" data-command="${command}"><span class="popup-action-icon" aria-hidden="true">${popupRestartIcon}</span><span class="popup-action-label">${restart}</span></button>${popupHome('chapter')}${encyclopedia}</div>`;
 }
+function fitChapterFooter(footer: HTMLElement) {
+  // Measure the natural one-line controls with their glyphs, even if the
+  // previous narrower layout hid the labels. The row itself stays full-width.
+  footer.classList.remove('icons-only');
+  const controls = [...footer.children];
+  const gap = parseFloat(getComputedStyle(footer).columnGap) || 0;
+  const widths = controls.map(node => node.getBoundingClientRect().width);
+  // With all three controls, Home is centered on the whole row.
+  const natural = widths.length === 3
+    ? Math.max(widths[0], widths[2]) * 2 + widths[1] + gap * 2
+    : widths.reduce((sum, width) => sum + width, 0) + gap * Math.max(0, widths.length - 1);
+  footer.classList.toggle('icons-only', natural > footer.getBoundingClientRect().width + .01);
+}
+const chapterFooterResize = new ResizeObserver(entries => {
+  const footer = entries[0]?.target.closest<HTMLElement>('.chapter-actions');
+  if (footer) fitChapterFooter(footer);
+});
+void document.fonts.ready.then(() => {
+  const footer = dialogLayer.querySelector<HTMLElement>('.chapter-actions');
+  if (footer) fitChapterFooter(footer);
+});
 function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
 function confirmRestart() { modal('<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. This also resets the shared tutorials. Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>', 'ordinary', { kind: 'confirm' }); }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
@@ -625,6 +649,7 @@ function read(id: string) {
   return true;
 }
 function toggleDebugPanel() {
+  if (!import.meta.env.DEV) return;
   if (desktopDebug.matches) { authoring.toggle(); return; }
   if (mobileDebug.isOpen) { mobileDebug.close(); return; }
   flushPreview(); cancelGesture('debug-panel'); feedback.clear();
@@ -634,7 +659,7 @@ function toggleDebugPanel() {
 desktopDebug.addEventListener('change', () => {
   if (!authoring) return;
   mobileDebug.close();
-  authoring.setAvailable(desktopDebug.matches);
+  authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
   updateEditingIndicators();
 });
 function jumpToCheckpoint(index: number) {
@@ -826,9 +851,7 @@ function restartStory() {
     storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
     encyclopediaHistory = {}; encyclopediaScroll = 0;
     tutorialProgress?.reset();
-    const url = new URL(location.href);
-    url.searchParams.delete("launch");
-    history.replaceState(history.state, "", url);
+    if (entryContext) entryContext.skipCover = false;
     // A landing is not a saved game. Removing the old save also makes reload stay here.
     saveProgress(() => {
       localStorage.removeItem(key());
@@ -1057,8 +1080,10 @@ app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;
   const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
+  if (element.closest('a.popup-home')) selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
   const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
-  const command=target.dataset.command;if(target instanceof HTMLAnchorElement)e.preventDefault();
+  const command=target.dataset.command;
+  if(target instanceof HTMLAnchorElement && command !== 'ending-home')e.preventDefault();
   if(command==='retry'){void start();return;}
   if(command==='debug'){toggleDebugPanel();return;}
   flushPreview();
@@ -1066,7 +1091,6 @@ app.addEventListener('click',e=>{
   else if(command==='ending-home'){
     state = act(story, state, {type:'dismiss'});
     closeDialog(); rememberInteraction(); save();
-    location.assign((target as HTMLAnchorElement).href);
   }
   else if(command==='dismiss')commit({type:'dismiss'});
   else if(command==='advance')commit({type:'advance'});
@@ -1088,13 +1112,31 @@ function escapeDialog() {
   else dismissReading();
 }
 dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); escapeDialog(); } });
-let pressedDialogBackdrop = false;
-dialogLayer.addEventListener('pointerdown', event => { pressedDialogBackdrop = event.target === dialogLayer; });
-dialogLayer.addEventListener('pointerup', event => { pressedDialogBackdrop &&= event.target === dialogLayer; });
-dialogLayer.addEventListener('pointercancel', () => { pressedDialogBackdrop = false; });
+// Goals readings close on a tap over the backdrop or noninteractive prose.
+// A drag to select text, scrolling, or using a control isn't a dismissal.
+function chapterDismissTarget(target: EventTarget | null) {
+  return dialogContext?.kind === 'chapter' && target instanceof Element &&
+    !target.closest('button, a[href], input, select, textarea, label, summary, details, [contenteditable], [tabindex]');
+}
+let chapterPress: {id: number; x: number; y: number} | undefined;
+let chapterTap = false;
+dialogLayer.addEventListener('pointerdown', event => {
+  chapterTap = false;
+  chapterPress = event.isPrimary && event.button === 0 && chapterDismissTarget(event.target)
+    ? {id:event.pointerId, x:event.clientX, y:event.clientY} : undefined;
+});
+dialogLayer.addEventListener('pointermove', event => {
+  if (chapterPress?.id === event.pointerId && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) > 8) chapterPress = undefined;
+});
+dialogLayer.addEventListener('pointerup', event => {
+  if (chapterPress?.id !== event.pointerId) return;
+  chapterTap = chapterDismissTarget(event.target) && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) <= 8;
+  chapterPress = undefined;
+});
+dialogLayer.addEventListener('pointercancel', () => { chapterPress = undefined; chapterTap = false; });
 dialogLayer.addEventListener('click', event => {
-  const dismiss = pressedDialogBackdrop && event.target === dialogLayer && dialogContext?.kind === 'chapter';
-  pressedDialogBackdrop = false;
+  const dismiss = chapterTap && event.detail > 0 && chapterDismissTarget(event.target);
+  chapterTap = false;
   if (dismiss) {
     flushPreview();
     if (dialogContext?.kind === 'chapter') dismissReading();

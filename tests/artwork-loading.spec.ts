@@ -167,7 +167,7 @@ test('a resumed chapter restart prepares retired starting items that were not ne
   await expect(page.locator('[data-item="name:C"]')).toBeVisible();
   expect(requested).toBe(false);
   await page.getByRole('button', {name: 'Read this chapter'}).click();
-  await page.getByRole('button', {name: 'Restart this chapter'}).click();
+  await page.getByRole('button', {name: 'Restart chapter'}).click();
   await expect.poll(() => requested).toBe(true);
   await expect(a).toHaveCount(0);
   restore.release();

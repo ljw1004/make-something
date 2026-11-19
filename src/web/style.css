@@ -182,19 +182,35 @@ dialog button,dialog select{min-height:44px}
 .location-hud .objective-line{background:#fffaf08c;box-shadow:none;text-shadow:0 1px 2px #fffaf0cc}
 /* Reopened chapter prose has a quiet close control and a single compact footer. */
 .game-dialog-layer dialog.chapter-popup{display:flex;flex-direction:column;overflow:hidden;padding:12px 16px}
-.chapter-popup-header{display:flex;justify-content:flex-end;flex:none;margin:-6px -8px 0 0}
+.chapter-popup-header{display:flex;align-items:center;justify-content:space-between;flex:none;margin:-6px -8px 0 0}
+.chapter-popup-header .chapter-close{margin-left:auto}
 .chapter-popup .reading-text{min-height:0;overflow-y:auto;overscroll-behavior:contain}
 .chapter-popup .reading-text>:first-child{margin-top:0}
 .chapter-popup .reading-text>:last-child{margin-bottom:0}
-.chapter-actions{display:flex;align-items:center;flex:none;gap:8px;margin-top:12px}
-.chapter-actions .chapter-encyclopedia,.chapter-actions .recovery-action{border:0;background:transparent;box-shadow:none;color:#746b5c;font-size:12px;padding:4px 0}
-.chapter-encyclopedia{display:inline-flex;align-items:center;flex:none;gap:6px;text-decoration:none}
-.chapter-book-icon{display:grid;place-items:center;flex:none}
+.chapter-actions{display:flex;align-items:center;justify-content:space-between;flex:none;gap:8px;margin-top:12px}
+.chapter-actions button,.popup-home{border:0;background:transparent;box-shadow:none;color:#746b5c;font-size:12px;padding:4px 0}
+.chapter-encyclopedia,.recovery-action,.popup-home{display:inline-flex;align-items:center;gap:6px;min-height:44px;text-decoration:none}
+.chapter-popup :is(.chapter-encyclopedia,.recovery-action,.popup-home){gap:3px}
+.chapter-actions :is(button,a){flex:none;text-align:left;white-space:nowrap}
+.chapter-actions .chapter-encyclopedia{text-align:right}
+.chapter-actions:not(.icons-only) .chapter-encyclopedia:nth-child(2){margin-inline-start:auto}
+.chapter-actions:not(.icons-only):has(.popup-home):has(.chapter-encyclopedia){display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+.chapter-actions:not(.icons-only):has(.popup-home):has(.chapter-encyclopedia)>:first-child{justify-self:start}
+.chapter-actions:not(.icons-only):has(.popup-home):has(.chapter-encyclopedia)>:last-child{justify-self:end}
+.chapter-actions.icons-only{justify-content:center;gap:clamp(8px,3cqw,14px)}
+.chapter-actions.icons-only :is(button,a){min-width:44px;justify-content:center}
+.chapter-actions.icons-only :is(.recovery-action,.popup-home) svg{width:20px;height:20px}
+.chapter-actions.icons-only .chapter-book-icon .open-book{width:22px;height:20px}
+.chapter-actions.icons-only .popup-action-label{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.popup-action-icon{display:grid;place-items:center;flex:none}
 .chapter-book-icon .open-book{width:20px;height:18px;filter:saturate(.45)}
-.chapter-actions .recovery-action{margin-left:auto;min-width:0;text-align:right}
-.chapter-book-label,.chapter-actions .recovery-action{text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
-.chapter-encyclopedia:hover,.chapter-actions .recovery-action:hover{color:#35382f}
-.chapter-encyclopedia:hover .chapter-book-label,.chapter-actions .recovery-action:hover{text-decoration-color:currentColor}
+:is(.recovery-action,.popup-home) svg{width:16px;height:16px;flex:none}
+.chapter-book-label,:is(.recovery-action,.popup-home)>span{text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
+:is(.chapter-encyclopedia,.recovery-action,.popup-home):hover{color:#35382f}
+:is(.chapter-encyclopedia,.recovery-action,.popup-home):hover>span{text-decoration-color:currentColor}
+.ending-actions{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.ending-actions button{grid-column:2}
+.ending-actions .popup-home{grid-column:3;justify-self:end}
 @container game (max-width:359px){.game-dialog-layer dialog.chapter-popup{padding-inline:12px}}
 /* The final goal stays anchored above the incoming arrow, fading without blocking it. */
 .goals-leaving{animation:goals-depart var(--goal-exit-duration) ease-out both;pointer-events:none}
@@ -271,29 +287,70 @@ dialog button,dialog select{min-height:44px}
 /* Landing catalogue, framed to the same artwork dimensions as the game. */
 #app.catalogue-page:has(.story-carousel){background:#000;overflow:hidden}
 .story-carousel{position:absolute;inset:0;display:grid;place-items:center;background:#000;touch-action:pan-y pinch-zoom}
-.carousel-frame{position:relative;width:100%;height:100%;overflow:hidden;color:white;--carousel-bar-top:47%;--carousel-settle:240ms;container-type:size}
+/* Carousel tuning: cqh units follow the artwork frame rather than the window. */
+.carousel-frame {
+  --carousel-title-size: clamp(17px, 3.7cqh, 42px);
+  --carousel-title-weight: 500;
+  --carousel-title-shadow: none;
+  --carousel-action-size: clamp(10px, 1.5cqh, 13px);
+  --carousel-action-weight: 400;
+  --carousel-action-shadow: none;
+  --carousel-action-icon-size: 1.05em;
+  --carousel-abstract-size: clamp(12px, 1.75cqh, 16px);
+  --carousel-abstract-weight: 400;
+  --carousel-abstract-shadow: 0 1px 1px #000e, 0 0 1.5px #000d;
+  --carousel-dot-glow: 0 0 5px #000d;
+  --carousel-bar-top: 47%;
+  --carousel-bar-inset: clamp(7px, 2.3%, 16px);
+  --carousel-backdrop-color: rgb(0 0 0 / .51);
+  --carousel-backdrop-top-reach: 14px;
+  --carousel-backdrop-top-feather: 19px;
+  --carousel-backdrop-bottom-feather: clamp(24px, 5cqh, 40px);
+  --carousel-backdrop-edge-blur: 10px;
+  --carousel-settle: 240ms;
+  position:relative;width:100%;height:100%;overflow:hidden;color:white;container-type:size
+}
 .carousel-slide{position:absolute;inset:0}
 .carousel-slide.is-settling{transition:transform var(--carousel-settle) cubic-bezier(.22,.7,.27,1)}
+.carousel-slide.is-arrow-settling{transition-duration:300ms}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
 .carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - 2cqh);display:flex;flex-direction:column;isolation:isolate}
-.carousel-bar{position:relative;flex:none;border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;box-shadow:0 0 0 1px #0008,0 0 6px 2px #0008}
-.carousel-bar a{display:grid;gap:2px;align-content:center;min-height:clamp(58px,12cqh,106px);padding:5px 49px;color:#fff;text-decoration:none}
-.carousel-bar h2{font-size:clamp(17px,4.7cqh,42px);line-height:1.08;font-weight:500;margin:0;text-wrap:balance}
-.carousel-action{display:flex;align-items:center;justify-content:center;gap:.35em;font-size:clamp(10px,1.5cqh,13px);font-weight:400;line-height:1.15}
-.carousel-action svg{width:1.05em;height:1.05em}
+/* One softly feathered backdrop, bounded by the bar and visible abstract. */
+.carousel-panel::before {
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  inset:calc(-1 * var(--carousel-backdrop-top-reach)) var(--carousel-bar-inset) 0;
+  border-radius:24px;
+  background:linear-gradient(to bottom, transparent, var(--carousel-backdrop-color) var(--carousel-backdrop-top-feather),
+    var(--carousel-backdrop-color) calc(100% - var(--carousel-backdrop-bottom-feather)), transparent);
+  filter:blur(var(--carousel-backdrop-edge-blur));
+}
+.carousel-bar {
+  position:relative;flex:none;margin-inline:var(--carousel-bar-inset);
+  border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;
+}
+.carousel-bar a{
+   display:grid;gap:2px;align-content:center;min-height:clamp(58px,12cqh,106px);padding:5px 49px;color:#fff;text-decoration:none;
+min-height: clamp(48px, 9cqh, 78px);
+padding: 2px 49px; /* Keep the horizontal room for the arrows */
+gap: 0;
+}
+.carousel-bar h2{font-size:var(--carousel-title-size);line-height:1.08;font-weight:var(--carousel-title-weight);text-shadow:var(--carousel-title-shadow);margin:0;text-wrap:balance}
+.carousel-action{display:flex;align-items:center;justify-content:center;gap:.35em;font-size:var(--carousel-action-size);font-weight:var(--carousel-action-weight);text-shadow:var(--carousel-action-shadow);line-height:1.15}
+.carousel-action svg{width:var(--carousel-action-icon-size);height:var(--carousel-action-icon-size)}
 .carousel-arrow{position:absolute;top:50%;translate:0 -50%;display:grid;place-items:center;color:white;border:0;border-radius:8px;background:none;width:44px;height:44px;padding:10px;box-shadow:none}
 .carousel-arrow:hover{background:#ffffff20}
 .carousel-arrow svg{width:25px;height:25px}
+.carousel-repeat-arrows{position:absolute;inset:0;z-index:4;pointer-events:none}
+.carousel-repeat-arrows[hidden]{display:none}
+.carousel-repeat-arrows button{position:absolute;pointer-events:auto;opacity:0;padding:0}
 .carousel-prev{left:3px}.carousel-next{right:3px}
 .carousel-dots{position:absolute;z-index:3;left:0;right:0;top:calc(var(--carousel-bar-top) - 32px);display:flex;justify-content:center}
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
-.carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:0 0 5px #000d}
+.carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:var(--carousel-dot-glow)}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:0 1px 1px #000e,0 0 1.5px #000d;color:white;font-weight:400;font-size:clamp(12px,1.75cqh,16px);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
+.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:var(--carousel-abstract-shadow);color:white;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
 .carousel-description img{display:block;max-width:100%;max-height:15cqh;margin:auto;object-fit:contain}
-.ending-home{display:inline-flex;align-items:center;min-height:44px;color:#746b5c;font-size:12px;text-decoration:underline;text-decoration-color:#746b5c66;text-underline-offset:3px}
-.ending-home:hover{color:#35382f;text-decoration-color:currentColor}

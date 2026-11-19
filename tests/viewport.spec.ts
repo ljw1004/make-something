@@ -167,7 +167,7 @@ test('older pickups scroll after an edge hold, remain free until dropped, then l
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Probe"]'));
   await expect(page.locator('[data-item="name:Offcut"]')).toBeVisible();
   await page.getByRole('button', {name:'Read this chapter'}).click();
-  await page.getByRole('button', {name:'Restart this chapter'}).click();
+  await page.getByRole('button', {name:'Restart chapter'}).click();
   await page.getByRole('button', {name:'Begin',exact:true}).click();
   await expectCurrentFits(page, 2);
   await expect(page.locator('.chapter-panel[data-chapter="0"] [data-item="name:Frame"]')).toHaveCount(1);

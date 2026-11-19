@@ -994,7 +994,7 @@ Build a two-stage construction.
   await expect(page.locator('[data-item="name:D"]')).toHaveCount(1);
 
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart this chapter' }).click();
+  await page.getByRole('button', { name: 'Restart chapter' }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await expect(page.locator('[data-item="name:C"]')).toHaveCount(0);
   await expect(page.getByRole('textbox', { name: 'Story Markdown' })).toContainText('Complete the chain');

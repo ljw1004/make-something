@@ -1,7 +1,9 @@
 import { escape } from './markdown.ts';
-import {observeStandalone, setHomeScreenIdentity} from './home-screen.ts';
+import {setHomeScreenIdentity} from './home-screen.ts';
+import {cacheCarouselLaunch} from './carousel-launch.ts';
 import {viewportBoard} from './board-geometry.ts';
 import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
+import {selectedStory, selectStory} from './carousel-selection.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const root = new URL('./', location.href);
@@ -13,19 +15,8 @@ const carousel = app.querySelector<HTMLElement>('.story-carousel');
 const frame = app.querySelector<HTMLElement>('.carousel-frame');
 const slides = [...app.querySelectorAll<HTMLElement>('.carousel-slide')];
 const storyLinks = [...app.querySelectorAll<HTMLAnchorElement>('a[data-story]')];
-const originalLinks = storyLinks.map(link => link.getAttribute('href')!);
-let standalone = false;
-observeStandalone(value => { standalone = value; refreshLinks(); });
-
-function storyLink(index: number, launch?: string) {
-  const url = new URL(originalLinks[index], location.href);
-  if (standalone) url.searchParams.set('home', 'show');
-  if (launch) url.searchParams.set('launch', launch);
-  return url;
-}
 function refreshLinks() {
-  storyLinks.forEach((link, index) => {
-    link.href = storyLink(index, 'mouse').href;
+  storyLinks.forEach(link => {
     const manuscript = new URL(link.dataset.story!, root).href;
     const legacy = legacyProgressKey(manuscript);
     let started = false;
@@ -34,6 +25,7 @@ function refreshLinks() {
     link.querySelector('[data-launch-label]')!.textContent = started ? 'Continue' : 'Start';
   });
 }
+refreshLinks();
 window.addEventListener('pageshow', refreshLinks);
 window.addEventListener('storage', refreshLinks);
 
@@ -43,10 +35,9 @@ if (bookmark) {
   const matches = storyLinks.filter(link => link.dataset.story!.split('/').at(-1)!.replace(/\.md$/i, '') === bookmark);
   const link = storyLinks.find(link => link.dataset.story === bookmark || link.dataset.story === `stories/${bookmark}`)
     ?? (matches.length === 1 ? matches[0] : undefined);
-  if (link) location.replace(storyLink(storyLinks.indexOf(link)).href);
+  if (link) location.replace(link.href);
   else app.innerHTML = `<main class="chooser"><h1>Stories unavailable</h1><p>Unknown story: ${escape(bookmark)}.</p></main>`;
 } else if (carousel && frame && slides.length) {
-  const chooser = new URL(location.href);
   let current = 0;
   function measure() {
     const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
@@ -60,14 +51,20 @@ if (bookmark) {
   let incoming: number | undefined;
   let settling = 0;
   let settleDestination = 0;
+  const repeatArrows = document.createElement('div');
+  repeatArrows.className = 'carousel-repeat-arrows';
+  repeatArrows.setAttribute('aria-hidden', 'true');
+  repeatArrows.hidden = true;
+  frame.append(repeatArrows);
+  const pendingSteps: {step: number; focus?: string}[] = [];
 
   function show(index: number, remember = true) {
-    clearTimeout(settling); settling = 0; incoming = undefined;
+    clearTimeout(settling); settling = 0; incoming = undefined; repeatArrows.hidden = true;
     current = wrap(index);
     slides.forEach((slide, position) => {
       slide.hidden = slide.inert = position !== current;
       slide.style.removeProperty('transform');
-      slide.classList.remove('is-settling');
+      slide.classList.remove('is-settling', 'is-arrow-settling');
     });
     // Ask the browser for the immediate neighbors before the player swipes.
     for (const index of [wrap(current - 1), wrap(current + 1)]) {
@@ -75,10 +72,7 @@ if (bookmark) {
       if (art) art.loading = 'eager';
     }
     measure();
-    if (remember) {
-      chooser.searchParams.set('slide', storyLinks[current].dataset.story!);
-      history.replaceState(history.state, '', chooser);
-    }
+    if (remember) selectStory(root, storyLinks[current].dataset.story!);
   }
 
   function translate(index: number, pixels: number) {
@@ -98,23 +92,66 @@ if (bookmark) {
     translate(current, offset);
     translate(next, offset + direction * width);
   }
-  function settle(advance: boolean, delta: number) {
+  function settle(advance: boolean, delta: number, after?: () => void) {
     if (incoming === undefined) return;
     const next = incoming, direction = delta < 0 ? 1 : -1;
     const destination = advance ? next : current;
-    if (reducedMotion.matches) { show(destination, advance); return; }
-    for (const index of [current, next]) slides[index].classList.add('is-settling');
+    if (reducedMotion.matches) { show(destination, advance); after?.(); return; }
+    for (const index of [current, next]) slides[index].classList.add('is-settling', ...(after ? ['is-arrow-settling'] : []));
     // Commit the finger-tracked position before applying the settle target.
     void frame!.offsetWidth;
     const travel = direction * frame!.clientWidth;
     translate(current, advance ? -travel : 0);
     translate(next, advance ? 0 : travel);
     settleDestination = destination;
-    settling = window.setTimeout(() => show(destination, advance), 240);
+    settling = window.setTimeout(() => { show(destination, advance); after?.(); }, after ? 300 : 240);
   }
 
-  const initial = storyLinks.findIndex(link => link.dataset.story === chooser.searchParams.get('slide'));
-  show(Math.max(0, initial), false);
+  function advanceByArrow(step: number, focus?: string) {
+    if (settling) { pendingSteps.push({step, focus}); return; }
+    const width = frame!.clientWidth;
+    const target = wrap(current + step);
+    if (!width || target === current) return;
+    if (!reducedMotion.matches) {
+      // The arrows travel with their cards. Retain the resting hit areas
+      // during the short transition so a quick second press is not lost.
+      const origin = frame!.getBoundingClientRect();
+      repeatArrows.replaceChildren();
+      for (const [name, repeatStep] of [['prev', -1], ['next', 1]] as const) {
+        const selector = `.carousel-${name}`;
+        const source = slides[current].querySelector<HTMLButtonElement>(selector)!;
+        const box = source.getBoundingClientRect();
+        const repeat = document.createElement('button');
+        repeat.type = 'button'; repeat.tabIndex = -1;
+        Object.assign(repeat.style, {left:`${box.x - origin.x}px`,top:`${box.y - origin.y}px`,width:`${box.width}px`,height:`${box.height}px`});
+        repeat.addEventListener('mousedown', event => event.preventDefault());
+        repeat.addEventListener('click', () => advanceByArrow(repeatStep, document.activeElement === source ? selector : focus));
+        repeatArrows.append(repeat);
+      }
+      repeatArrows.hidden = false;
+    }
+    const direction = -step;
+    track(direction);
+    // Start at zero displacement; track() used the sign to select the neighbor.
+    translate(current, 0);
+    translate(target, step * width);
+    settle(true, direction, () => {
+      if (focus) slides[current].querySelector<HTMLElement>(focus)?.focus({preventScroll: true});
+      const next = pendingSteps.shift();
+      if (next) advanceByArrow(next.step, next.focus);
+    });
+  }
+
+  function restoreSlide() {
+    pendingSteps.length = 0;
+    const find = (path: string | null) => storyLinks.findIndex(link => link.dataset.story === path);
+    const saved = find(selectedStory(root));
+    // Old links can seed a fresh carousel without mutating their address.
+    const legacy = saved < 0 ? find(new URL(location.href).searchParams.get('slide')) : -1;
+    show(Math.max(0, saved, legacy), legacy >= 0);
+  }
+  restoreSlide();
+  window.addEventListener('pageshow', event => { if (event.persisted) restoreSlide(); });
   slides.forEach(slide => slide.querySelector('img.carousel-art')?.addEventListener('load', measure));
   new ResizeObserver(measure).observe(app);
   slides.forEach(slide => {
@@ -122,15 +159,14 @@ if (bookmark) {
       const selector = `.carousel-${name}`;
       const button = slide.querySelector<HTMLButtonElement>(selector)!;
       button.addEventListener('click', () => {
-        const focused = document.activeElement === button;
-        show(current + step);
-        if (focused) slides[current].querySelector<HTMLButtonElement>(selector)?.focus();
+        advanceByArrow(step, document.activeElement === button ? selector : undefined);
       });
     }
   });
   slides.forEach(slide => slide.querySelectorAll<HTMLButtonElement>('.carousel-dots button').forEach((dot, index) => {
     dot.addEventListener('click', () => {
       const focused = document.activeElement === dot;
+      pendingSteps.length = 0;
       show(index);
       if (focused) slides[current].querySelector<HTMLButtonElement>('.carousel-dots [aria-current]')?.focus();
     });
@@ -139,28 +175,27 @@ if (bookmark) {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
     const previousFocus = document.activeElement;
-    show(current + (event.key === 'ArrowLeft' ? -1 : 1));
     const replacement = previousFocus?.matches('.carousel-dots button') ? '.carousel-dots [aria-current]'
       : previousFocus?.matches('.carousel-prev') ? '.carousel-prev'
       : previousFocus?.matches('.carousel-next') ? '.carousel-next' : 'a[data-story]';
-    slides[current].querySelector<HTMLElement>(replacement)?.focus();
+    advanceByArrow(event.key === 'ArrowLeft' ? -1 : 1, replacement);
   });
-  let press: { id: number; x: number; y: number; control: Element | null; axis?: 'x' | 'y'; delta: number } | undefined;
+  let press: { id: number; x: number; y: number; control: Element | null; axis?: 'x' | 'y'; repeat?: boolean; delta: number } | undefined;
   let cancelledClick: Element | null = null;
   carousel.addEventListener('pointerdown', event => {
     if (!event.isPrimary || event.button !== 0) return;
-    if (settling) {
+    const repeatingArrow = (event.target as Element).closest('.carousel-repeat-arrows button');
+    if (settling && !repeatingArrow) {
+      pendingSteps.length = 0;
       // A fresh interaction can interrupt the tail of an animation.
       show(settleDestination, settleDestination !== current);
       if ((event.target as Element).closest('.carousel-slide[hidden]')) return;
     }
     cancelledClick = null;
-    const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]') ?? undefined;
-    if (link) link.href = storyLink(storyLinks.indexOf(link), event.pointerType === 'touch' ? 'touch' : 'mouse').href;
-    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, control: (event.target as Element).closest('button, a[data-story]')};
+    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, repeat: !!repeatingArrow, control: (event.target as Element).closest('button, a[data-story]')};
   });
   window.addEventListener('pointermove', event => {
-    if (press?.id !== event.pointerId) return;
+    if (press?.id !== event.pointerId || press.repeat) return;
     const dx = event.clientX - press.x, dy = event.clientY - press.y;
     if (!press.axis) {
       if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
@@ -174,6 +209,12 @@ if (bookmark) {
   window.addEventListener('pointerup', event => {
     if (press?.id !== event.pointerId) return;
     const dx = event.clientX - press.x, dy = event.clientY - press.y;
+    if (press.repeat) {
+      cancelledClick = press.control;
+      if (Math.hypot(dx, dy) < 12 && press.control instanceof HTMLButtonElement) press.control.click();
+      press = undefined;
+      return;
+    }
     const advance = Math.abs(dx) >= 45 && (press.axis === 'x' || !press.axis && Math.abs(dx) > 1.35 * Math.abs(dy));
     if (press.axis === 'x' || advance) {
       cancelledClick = press.control;
@@ -183,19 +224,24 @@ if (bookmark) {
       // Commit a touch tap on release, even when the browser withholds its
       // compatibility click immediately after a swipe. Do not double-activate.
       cancelledClick = press.control;
-      if (press.control instanceof HTMLAnchorElement) location.assign(press.control.href);
+      if (press.control instanceof HTMLAnchorElement) {
+        cacheCarouselLaunch(new URL(press.control.dataset.story!, root).href, press.control.href, 'touch');
+        location.assign(press.control.href);
+      }
       else if (press.control instanceof HTMLButtonElement) press.control.click();
     }
     press = undefined;
   });
   window.addEventListener('pointercancel', event => {
     if (press?.id !== event.pointerId) return;
-    settle(false, press.delta);
+    if (!press.repeat) settle(false, press.delta);
     press = undefined;
   });
   carousel.addEventListener('click', event => {
     if (cancelledClick?.contains(event.target as Node) && event.detail > 0) { event.preventDefault(); event.stopPropagation(); cancelledClick = null; return; }
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]');
-    if (link && event.detail === 0) link.href = storyLink(current, 'mouse').href;
+    if (link && !event.defaultPrevented && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+      cacheCarouselLaunch(new URL(link.dataset.story!, root).href, link.href, event instanceof PointerEvent && event.pointerType === 'touch' ? 'touch' : 'mouse');
+    }
   }, true);
 }

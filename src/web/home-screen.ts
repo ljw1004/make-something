@@ -46,25 +46,3 @@ export function setHomeScreenIdentity(identity: HomeScreenIdentity) {
     document.head.append(manifest);
   }).catch(() => { /* Invalid draft artwork needs no substitute installation identity. */ });
 }
-
-/** Both paths report the current window, never another tab's installation. */
-export function observeStandalone(update: (standalone: boolean) => void) {
-  const mode = matchMedia('(display-mode: standalone)');
-  const refresh = () => update(mode.matches || (navigator as Navigator & {standalone?: boolean}).standalone === true);
-  mode.addEventListener('change', refresh);
-  window.addEventListener('pageshow', refresh);
-  refresh();
-}
-
-export function addStoryHome(app: HTMLElement, catalogueURL: string) {
-  const requested = new URL(location.href).searchParams.get('home') === 'show';
-  const home = document.createElement('a');
-  home.className = 'story-home'; home.href = catalogueURL;
-  home.setAttribute('aria-label', 'Home'); home.title = 'Home';
-  home.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h5v-7h4v7h5V9"/></svg>';
-  observeStandalone(standalone => {
-    if (requested && standalone) { if (!home.isConnected) app.append(home); }
-    else home.remove();
-  });
-  return home;
-}

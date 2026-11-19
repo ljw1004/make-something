@@ -111,7 +111,7 @@ test('an unfinished encyclopedia cue survives reload with reduced motion and a d
   await expect(label).toBeHidden();
 });
 
-test('only the reopened chapter dismisses on backdrop clicks, with a top-right Close and right-aligned recovery', async ({ page }) => {
+test('only the reopened chapter dismisses on prose or backdrop taps, with a top-right Close and left-aligned recovery', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
   await page.goto('/make-something.html?story=library-fixture/story.md');
@@ -130,11 +130,12 @@ test('only the reopened chapter dismisses on backdrop clicks, with a top-right C
   const popup = (await dialog.boundingBox())!, x = (await close.boundingBox())!;
   expect(x.x).toBeGreaterThan(popup.x + popup.width / 2);
   expect(x.y - popup.y).toBeLessThan(12);
-  const recovery = (await page.getByRole('button', { name: 'Restart this story', exact: true }).boundingBox())!;
+  const recovery = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
   const footer = (await page.locator('.chapter-actions').boundingBox())!;
-  expect(recovery.x + recovery.width).toBeCloseTo(footer.x + footer.width, 0);
+  expect(recovery.x).toBeCloseTo(footer.x, 0);
   await page.locator('.chapter-popup .reading-text').click();
-  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveCount(0);
+  await goals.click();
   // A text-selection gesture ending outside must not become a backdrop dismissal.
   const prose = (await page.locator('.chapter-popup .reading-text').boundingBox())!;
   await page.mouse.move(prose.x + 10, prose.y + 10); await page.mouse.down();
@@ -152,10 +153,10 @@ test('only the reopened chapter dismisses on backdrop clicks, with a top-right C
   await expect(page.getByRole('button', { name: 'Continue', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await goals.click();
-  await expect(page.getByRole('button', { name: 'Restart this chapter' })).toBeVisible();
-  const restart = (await page.getByRole('button', { name: 'Restart this chapter' }).boundingBox())!;
+  await expect(page.getByRole('button', { name: 'Restart chapter' })).toBeVisible();
+  const restart = (await page.getByRole('button', { name: 'Restart chapter' }).boundingBox())!;
   const row = (await page.locator('.chapter-actions').boundingBox())!;
-  expect(restart.x + restart.width).toBeCloseTo(row.x + row.width, 0);
+  expect(restart.x).toBeCloseTo(row.x, 0);
 });
 
 test('the compact chapter row opens the book through either its icon or label and keeps long prose scrollable', async ({ page }) => {
@@ -172,18 +173,32 @@ test('the compact chapter row opens the book through either its icon or label an
   await body.evaluate(el => { el.scrollTop = el.scrollHeight; });
   await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeInViewport();
   await expect(book).toBeInViewport();
-  const left = (await book.boundingBox())!, row = (await page.locator('.chapter-actions').boundingBox())!;
-  const right = (await page.getByRole('button', { name: 'Restart this story', exact: true }).boundingBox())!;
-  expect(left.x).toBeCloseTo(row.x, 0);
-  expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
-  expect(right.x).toBeGreaterThan(left.x + left.width);
-  expect(left.y + left.height / 2).toBeCloseTo(right.y + right.height / 2, 0);
+  const bookBox = (await book.boundingBox())!, row = (await page.locator('.chapter-actions').boundingBox())!;
+  const restart = (await page.getByRole('button', { name: 'Restart story', exact: true }).boundingBox())!;
+  expect(restart.x).toBeCloseTo(row.x, 0);
+  expect(bookBox.x + bookBox.width).toBeCloseTo(row.x + row.width, 0);
+  expect(bookBox.y + bookBox.height / 2).toBeCloseTo(restart.y + restart.height / 2, 0);
   const prose = (await body.boundingBox())!;
-  expect(row.y).toBeGreaterThanOrEqual(prose.y + prose.height);
+  expect(bookBox.y).toBeGreaterThanOrEqual(prose.y + prose.height);
   expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('underline');
   await label.hover();
   expect(await label.evaluate(el => getComputedStyle(el).textDecorationLine)).toBe('underline');
   expect(await book.evaluate(el => getComputedStyle(el).borderWidth)).toBe('0px');
+  const restartControl = page.getByRole('button', {name:'Restart story', exact:true});
+  await expect(restartControl.locator('.popup-action-icon')).toBeVisible();
+  await expect(book.locator('.popup-action-icon')).toBeVisible();
+  await page.addStyleTag({content:'.chapter-actions{width:176px}'});
+  await expect(page.locator('.chapter-actions')).toHaveClass(/icons-only/);
+  await expect(restartControl.locator('.popup-action-icon')).toBeVisible();
+  await expect(book.locator('.popup-action-icon')).toBeVisible();
+  await expect(restartControl).toBeVisible();
+  await expect(book).toBeVisible();
+  await book.click();
+  await expect(page.getByRole('dialog', {name:'Encyclopedia',exact:true})).toBeVisible();
+  await page.getByRole('button', {name:'Close',exact:true}).click();
+  await page.evaluate(() => [...document.querySelectorAll('style')].find(node => node.textContent?.includes('width:176px'))?.remove());
+  await goals.click();
+  await expect(book.locator('.popup-action-icon')).toBeVisible();
   await book.locator('.chapter-book-icon').click();
   await expect(page.getByRole('dialog', { name: 'Encyclopedia', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
@@ -195,6 +210,8 @@ test('the compact chapter row opens the book through either its icon or label an
   await page.keyboard.press('Tab');
   // Chromium exposes the scrollable prose as a keyboard scroll target.
   await expect(body).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(restartControl).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(book).toBeFocused();
   expect(await book.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('none');
@@ -227,7 +244,7 @@ test('retired discoveries unlock the manual encyclopedia; reading, Index, page-l
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.locator('dialog')).toHaveCount(0);
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart this chapter' }).click();
+  await page.getByRole('button', { name: 'Restart chapter' }).click();
   await expect(page.locator('dialog button')).toHaveCount(1);
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
@@ -496,7 +513,7 @@ test('story restart clears wonder history and the previous selection', async ({ 
   await page.locator('[data-item="name:Stone"]').dblclick();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart this chapter' }).click();
+  await page.getByRole('button', { name: 'Restart chapter' }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();
@@ -504,7 +521,7 @@ test('story restart clears wonder history and the previous selection', async ({ 
   await expect(page.locator('.encyclopedia-list [aria-current]')).toHaveText('Stone');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
-  await page.getByRole('button', { name: 'Restart this story', exact: true }).click();
+  await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();

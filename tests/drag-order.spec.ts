@@ -118,7 +118,7 @@ test('live renaming and draft reload preserve stacking; chapter reset restores a
   expect(await a.boundingBox()).toEqual(placed);
   expect(await topAt(page, overlap)).toBe('name:A');
   await page.getByRole('button', {name: 'Read this chapter'}).click();
-  await page.getByRole('button', {name: 'Restart this chapter'}).click();
+  await page.getByRole('button', {name: 'Restart chapter'}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   expect(await a.boundingBox()).toEqual(arrival);
   expect(await zIndex(a)).toBeLessThan(await zIndex(renamed));
