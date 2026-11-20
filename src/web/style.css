@@ -303,15 +303,9 @@ dialog button,dialog select{min-height:44px}
   --carousel-action-icon-size: 1.05em;
   --carousel-abstract-size: clamp(12px, 1.75cqh, 16px);
   --carousel-abstract-weight: 400;
-  --carousel-abstract-shadow: 0 1px 1px #000e, 0 0 1.5px #000d;
   --carousel-dot-glow: 0 0 5px #000d;
   --carousel-bar-top: 47%;
   --carousel-bar-inset: clamp(7px, 2.3%, 16px);
-  --carousel-backdrop-color: rgb(0 0 0 / .31);
-  --carousel-backdrop-top-reach: 14px;
-  --carousel-backdrop-top-feather: 19px;
-  --carousel-backdrop-bottom-feather: clamp(24px, 5cqh, 40px);
-  --carousel-backdrop-edge-blur: 10px;
   --carousel-settle: 240ms;
   --carousel-arrow-settle: 500ms;
   --carousel-footer-height: 44px;
@@ -334,16 +328,20 @@ dialog button,dialog select{min-height:44px}
 .carousel-slide.is-arrow-settling{transition-duration:var(--carousel-arrow-settle)}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
-.carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - max(2cqh, var(--carousel-footer-space, 0px)));display:flex;flex-direction:column;isolation:isolate}
-/* One softly feathered backdrop, bounded by the bar and visible abstract. */
-.carousel-panel::before {
-  content:"";position:absolute;z-index:-1;pointer-events:none;
-  inset:calc(-1 * var(--carousel-backdrop-top-reach)) var(--carousel-bar-inset) 0;
-  border-radius:24px;
-  background:linear-gradient(to bottom, transparent, var(--carousel-backdrop-color) var(--carousel-backdrop-top-feather),
-    var(--carousel-backdrop-color) calc(100% - var(--carousel-backdrop-bottom-feather)), transparent);
-  filter:blur(var(--carousel-backdrop-edge-blur));
+.carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - max(2cqh, var(--carousel-footer-space, 0px)));display:flex;flex-direction:column}
+.carousel-description-frame{position:relative;display:flex;flex-direction:column;min-height:0}
+.carousel-description-frame::before,.carousel-footer a::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  mask-composite:intersect;
 }
+.carousel-description-frame::before{
+  bottom:var(--carousel-blur-bottom, 20px);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  mask-image:linear-gradient(transparent,#000 8px,#000 calc(100% - 3px),transparent),
+    linear-gradient(to right,transparent,#000 14px,#000 calc(100% - 14px),transparent);
+}
+:is(.carousel-description,.carousel-footer a){color:#fff}
+.carousel-slide[data-ink="dark"] :is(.carousel-description,.carousel-footer a){color:#000}
 .carousel-bar {
   position:relative;flex:none;margin-inline:var(--carousel-bar-inset);
   border-radius:clamp(10px,2.5cqh,18px);background:#30453e;text-align:center;
@@ -368,7 +366,7 @@ gap: 0;
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
 .carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:var(--carousel-dot-glow)}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:var(--carousel-abstract-shadow);color:white;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain}
+.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
@@ -377,14 +375,18 @@ gap: 0;
   position:absolute;z-index:2;left:50%;translate:-50% 0;bottom:var(--carousel-footer-bottom);
   display:flex;gap:2px;pointer-events:none
 }
-.carousel-footer::before {
-  content:"";position:absolute;inset:13px 0;border-radius:10px;background:rgb(0 0 0 / .14);filter:blur(7px)
-}
 .carousel-footer a {
   position:relative;display:grid;place-items:center;min-width:44px;min-height:var(--carousel-footer-height);
-  padding-inline:9px;pointer-events:auto;color:#fff;font-size:11px;text-shadow:0 1px 2px #000a, 0 0 3px #0007;
+  padding-inline:9px;pointer-events:auto;font-size:11px;
   text-decoration:underline;text-underline-offset:2px
 }
+.carousel-footer a::before{
+  inset:12px 3px;
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+  mask-image:linear-gradient(transparent,#000 4px,#000 calc(100% - 4px),transparent),
+    linear-gradient(to right,transparent,#000 6px,#000 calc(100% - 6px),transparent);
+}
+.carousel-footer a > span{position:relative}
 .carousel-footer a:focus-visible{outline:1px solid #fff;outline-offset:-6px;border-radius:8px}
 
 /* The chapter and catalogue stay dark behind the two sides of the story flip. */

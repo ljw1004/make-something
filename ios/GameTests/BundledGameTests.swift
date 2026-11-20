@@ -64,6 +64,17 @@ final class BundledGameTests: XCTestCase {
         defer { window.isHidden = true }
         game.openCatalogue()
         try await wait("!!document.querySelector('link[rel=manifest]')", in: game)
+        for title in ["Cookbook", "Settlement"] {
+            _ = try await game.evaluateJavaScript("document.querySelector('.carousel-slide:not([hidden]) .carousel-dots button[aria-label=\(title)]').click()")
+            try await wait("""
+                (() => {
+                  const card = document.querySelector('.carousel-slide:not([hidden])');
+                  return card?.ariaLabel === '\(title)' && card.dataset.ink === 'dark' &&
+                    Array.from(card.querySelectorAll('.carousel-description, .carousel-footer a'), label =>
+                      getComputedStyle(label).color).join('|') === 'rgb(0, 0, 0)|rgb(0, 0, 0)|rgb(0, 0, 0)';
+                })()
+                """, in: game)
+        }
         let links = try await game.evaluateJavaScript("Array.from(document.querySelectorAll('a[data-story]'), a => a.href)")
         let urls = try XCTUnwrap(links as? [String])
         XCTAssertFalse(urls.isEmpty)

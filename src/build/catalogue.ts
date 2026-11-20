@@ -54,11 +54,11 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story">${arrow(true)}</button>
             <button type="button" class="carousel-arrow carousel-next" aria-label="Next story">${arrow(false)}</button>
           </div>
-          <div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div>
+          <div class="carousel-description-frame"><div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div></div>
         </div>
         <nav class="carousel-footer" aria-label="App information" hidden>
-          <a href="https://unto.me/make-something/support.html" target="_blank" rel="noopener noreferrer">Support</a>
-          <a href="https://unto.me/make-something/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+          <a href="https://unto.me/make-something/support.html" target="_blank" rel="noopener noreferrer"><span>Support</span></a>
+          <a href="https://unto.me/make-something/privacy.html" target="_blank" rel="noopener noreferrer"><span>Privacy</span></a>
         </nav>
       </section>`;
     }).join('')}</div></main>`;

@@ -1,6 +1,7 @@
 import { escape } from './markdown.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
 import {cacheCarouselLaunch} from './carousel-launch.ts';
+import {watchCarouselContrast} from './carousel-contrast.ts';
 import {holdFlip, leaveWithFlip, plainNavigation, takeFlip, warmStoryNavigation} from './story-flip.ts';
 import {viewportBoard} from './board-geometry.ts';
 import {catalogueStoryStarted} from './chapter-recovery.ts';
@@ -49,6 +50,7 @@ if (bookmark) {
       frame.querySelectorAll('.carousel-footer a').forEach(link => link.removeAttribute('target'));
     }
   }
+  const contrast = watchCarouselContrast(frame);
 
   let current = 0;
   function measure() {
@@ -84,6 +86,7 @@ if (bookmark) {
       if (art) art.loading = 'eager';
     }
     measure();
+    contrast.schedule();
     if (remember) selectStory(root, storyLinks[current].dataset.story!);
   }
 
@@ -99,6 +102,7 @@ if (bookmark) {
       if (incoming !== undefined) slides[incoming].hidden = true;
       incoming = next;
       slides[next].hidden = false;
+      contrast.schedule();
     }
     const offset = Math.max(-width, Math.min(width, delta));
     translate(current, offset);
@@ -172,7 +176,10 @@ if (bookmark) {
     if (art) art.loading = 'eager';
     // If cover decoding stalls, animate the selected card rather than exposing
     // the entire face untransformed on timeout.
-    const reveal = () => void returning.reveal();
+    const reveal = () => {
+      contrast.refresh();
+      void returning.reveal().then(contrast.schedule);
+    };
     const timeout = window.setTimeout(reveal, 750);
     void (art?.decode().catch(() => {}) ?? Promise.resolve()).then(() => {
       clearTimeout(timeout);

@@ -283,57 +283,66 @@ test('the development carousel keeps its footer above the edge and opens links s
     await page.getByRole('button', {name:'Theology', exact:true}).tap();
     await expect(page.locator('.carousel-slide:visible h2')).toHaveText('Theology');
     expect(await footer.boundingBox()).toEqual(position);
+    const active = page.locator('.carousel-slide:not([hidden])');
+    await expect(active).toHaveAttribute('data-ink', /dark|light/);
+    const color = await active.locator('.carousel-description').evaluate(el => getComputedStyle(el).color);
     for (const name of ['Support', 'Privacy']) {
       const link = footer.getByRole('link', {name});
-      await expect(link).toHaveCSS('color', 'rgb(255, 255, 255)');
+      await expect(link).toHaveCSS('color', color);
       await expect(link).toHaveCSS('text-decoration-line', 'underline');
       const [popup] = await Promise.all([page.waitForEvent('popup'), link.tap()]);
       await expect(popup).toHaveURL(`https://unto.me/make-something/${name.toLowerCase()}.html`);
       await popup.close();
+      await expect(link).toHaveCSS('color', color);
     }
     await expect(page).toHaveURL(address);
   } finally { await context.close(); }
 });
 
-test('the single carousel backdrop follows the visible abstract and stays below white text', async ({page}) => {
+test('the carousel blur follows visible text and keeps long descriptions scrollable', async ({page}) => {
   await page.setViewportSize({width:320,height:568});
   await page.goto('/');
   const active = page.locator('.carousel-slide:not([inert])');
   const layer = () => active.evaluate(slide => {
-    const panel = slide.querySelector<HTMLElement>('.carousel-panel')!;
+    const panel = slide.querySelector<HTMLElement>('.carousel-description-frame')!;
     const backdrop = getComputedStyle(panel, '::before');
     const abstract = slide.querySelector<HTMLElement>('.carousel-description')!;
     const panelBox = panel.getBoundingClientRect();
+    const clip = abstract.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(abstract.querySelector('p')!);
+    const lastLine = Math.max(...Array.from(range.getClientRects())
+      .filter(rect => rect.top < clip.bottom && rect.bottom > clip.top)
+      .map(rect => Math.min(rect.bottom, clip.bottom)));
     const coveredHeight = parseFloat(backdrop.height);
     return {
       bounded: panelBox.top + parseFloat(backdrop.top) > 0 && panelBox.bottom < innerHeight,
       height: coveredHeight,
       panelHeight: panelBox.height,
-      lowerEdge: backdrop.bottom,
+      edgeToText: panelBox.bottom - parseFloat(backdrop.bottom) - lastLine,
       actual: {
-        aboveArt: getComputedStyle(panel).isolation,
-        behindText: [backdrop.zIndex, getComputedStyle(abstract).zIndex],
+        textLayer: getComputedStyle(abstract).zIndex,
         noPointerInterception: backdrop.pointerEvents,
-        gradient: backdrop.backgroundImage.startsWith('linear-gradient('),
-        textColor: getComputedStyle(abstract).color,
-        extraBarShadow: getComputedStyle(slide.querySelector('.carousel-bar')!).boxShadow,
+        feathered: backdrop.maskImage.startsWith('linear-gradient('),
+        blur: backdrop.backdropFilter,
+        tint: backdrop.backgroundColor,
+        shadow: getComputedStyle(abstract).textShadow,
       },
     };
   });
   const short = await layer();
   expect(short.bounded).toBe(true);
-  expect(short.lowerEdge).toBe('0px');
-  expect(short.height).toBeCloseTo(short.panelHeight + 14, 0);
+  expect(Math.abs(short.edgeToText)).toBeLessThan(3);
+  expect(short.height).toBeLessThan(short.panelHeight - 15);
   await page.getByRole('button', {name:'Theology',exact:true}).click();
   await expect(active.getByRole('heading')).toHaveText('Theology');
-  await page.addStyleTag({content:'.carousel-frame{--carousel-backdrop-color:#000}'});
   const long = await layer();
   expect(long.bounded).toBe(true);
   expect(long.height).toBeGreaterThan(short.height + 45);
-  expect(long.height).toBeCloseTo(long.panelHeight + 14, 0);
+  expect(Math.abs(long.edgeToText)).toBeLessThan(3);
   expect(long.actual).toEqual({
-    aboveArt:'isolate', behindText:['-1','1'], noPointerInterception:'none', gradient:true,
-    textColor:'rgb(255, 255, 255)', extraBarShadow:'none',
+    textLayer:'1', noPointerInterception:'none', feathered:true,
+    blur:'blur(3px)', tint:'rgba(0, 0, 0, 0)', shadow:'none',
   });
   // A constrained window still scrolls the abstract and bounds the backdrop
   // by the visible panel, not by the full scrollable document.
@@ -345,7 +354,36 @@ test('the single carousel backdrop follows the visible abstract and stays below 
   await expect.poll(() => prose.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
   const constrained = await layer();
   expect(constrained.height).toBeLessThan(long.height);
-  expect(constrained.height).toBeCloseTo(constrained.panelHeight + 14, 0);
+  expect(Math.abs(constrained.edgeToText)).toBeLessThan(3);
+});
+
+test('the subtitle chooses ink for the card and the footer links have separate blurs', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const cover = (art: string) => `<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844">${art}</svg>`;
+  await page.route('**/backgrounds/breakfast.webp', route => route.fulfill({contentType:'image/svg+xml', body:cover(`
+    <rect width="390" height="844" fill="white"/>
+    <rect x="185" width="20" height="650" fill="black"/>
+    <rect x="195" y="740" width="195" height="104" fill="black"/>`)}));
+  await page.route('**/settlement/assets/backgrounds/01.webp', route => route.fulfill({contentType:'image/svg+xml', body:cover(`
+    <rect width="390" height="844" fill="black"/>`)}));
+  await page.goto('/');
+  const active = page.locator('.carousel-slide:not([hidden])');
+  const description = active.locator('.carousel-description');
+  const support = active.getByRole('link', {name:'Support'});
+  const privacy = active.getByRole('link', {name:'Privacy'});
+  await expect(description).toHaveCSS('color', 'rgb(0, 0, 0)');
+  await expect(support).toHaveCSS('color', 'rgb(0, 0, 0)');
+  await expect(privacy).toHaveCSS('color', 'rgb(0, 0, 0)');
+  for (const link of [support, privacy]) {
+    await expect(link).toHaveCSS('text-shadow', 'none');
+    expect(await link.evaluate(el => getComputedStyle(el, '::before').backdropFilter)).toBe('blur(2px)');
+  }
+  expect(await active.locator('.carousel-footer').evaluate(el => getComputedStyle(el, '::before').backdropFilter)).toBe('none');
+  await active.getByRole('button', {name:'Settlement', exact:true}).click();
+  await expect(active).toHaveAttribute('data-ink', 'light');
+  await expect(description).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await expect(support).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await expect(privacy).toHaveCSS('color', 'rgb(255, 255, 255)');
 });
 
 test('a move-only first chapter says Start but keeps saved positions; combining changes it to Continue', async ({page}) => {
