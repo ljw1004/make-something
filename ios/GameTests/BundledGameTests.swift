@@ -4,6 +4,11 @@ import XCTest
 
 @MainActor
 final class BundledGameTests: XCTestCase {
+    private func findGame(in view: UIView) -> GameWebView? {
+        if let game = view as? GameWebView { return game }
+        return view.subviews.lazy.compactMap { self.findGame(in: $0) }.first
+    }
+
     private func wait(_ script: String, in game: GameWebView) async throws {
         let deadline = Date().addingTimeInterval(15)
         while Date() < deadline {
@@ -15,6 +20,34 @@ final class BundledGameTests: XCTestCase {
         throw NSError(domain: "BundledGame", code: 1, userInfo: [
             NSLocalizedDescriptionKey: "Timed out waiting for \(script). Page: \(state ?? "")"
         ])
+    }
+
+    func testNativeArtworkAndStatusBarBlurUseTheWindowEdges() async throws {
+        let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
+        let game = try XCTUnwrap(scene.windows.lazy.compactMap { self.findGame(in: $0) }.first)
+        try await wait("!!document.querySelector('.carousel-art')?.naturalWidth", in: game)
+        let window = try XCTUnwrap(game.window)
+        XCTAssertEqual(game.convert(game.bounds, to: window), window.bounds)
+
+        let viewport = try await game.evaluateJavaScript("""
+            (() => {
+              const blur = document.querySelector('.status-bar-color');
+              const rect = blur.getBoundingClientRect();
+              const style = getComputedStyle(blur);
+              const surface = document.querySelector('#app').getBoundingClientRect();
+              return {surfaceHeight: surface.height, blurTop: rect.top, blurBottom: rect.bottom,
+                      blurWidth: rect.width, filter: style.backdropFilter || style.webkitBackdropFilter,
+                      mask: style.maskImage, pointerEvents: style.pointerEvents};
+            })()
+            """)
+        let layout = try XCTUnwrap(viewport as? [String: Any])
+        XCTAssertEqual(try XCTUnwrap(layout["surfaceHeight"] as? CGFloat), window.bounds.height, accuracy: 1)
+        XCTAssertEqual(layout["blurTop"] as? CGFloat, 0)
+        XCTAssertEqual(try XCTUnwrap(layout["blurBottom"] as? CGFloat), window.safeAreaInsets.top, accuracy: 1)
+        XCTAssertEqual(try XCTUnwrap(layout["blurWidth"] as? CGFloat), window.bounds.width, accuracy: 1)
+        XCTAssertEqual(layout["filter"] as? String, "blur(1px)")
+        XCTAssertTrue((layout["mask"] as? String)?.hasPrefix("linear-gradient(") == true)
+        XCTAssertEqual(layout["pointerEvents"] as? String, "none")
     }
 
     func testProductionCatalogueAndBoards() async throws {

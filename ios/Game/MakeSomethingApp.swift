@@ -5,7 +5,7 @@ struct MakeSomethingApp: App {
     var body: some Scene {
         WindowGroup {
             GameView()
-                .background(Color(uiColor: .systemBackground))
+                .ignoresSafeArea(.container)
         }
     }
 }

@@ -10,6 +10,9 @@ import subprocess
 from urllib.parse import parse_qs, unquote, urlsplit
 
 
+GAME_PAGES = ("index.html", "make-something.html")
+
+
 class GamePage(HTMLParser):
     def __init__(self, path, root):
         super().__init__()
@@ -48,7 +51,7 @@ def resource(root, source, address):
 
 def audit(root):
     stories = set()
-    for name in ("index.html", "make-something.html"):
+    for name in GAME_PAGES:
         page = GamePage(root / name, root)
         page.feed(page.path.read_text())
         stories.update(page.stories)
@@ -60,6 +63,19 @@ def audit(root):
             resource(root, story, image)
     for asset in json.loads((root / "assets/build-files.json").read_text()):
         resource(root, root / "index.html", asset)
+
+
+def enable_full_bleed(root):
+    viewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    native_viewport = viewport.replace('">', ', viewport-fit=cover">')
+    stylesheet = Path(__file__).with_name("native-layout.css").read_text()
+    for name in GAME_PAGES:
+        page = root / name
+        html = page.read_text()
+        if html.count(viewport) != 1:
+            raise ValueError(f"Expected one production viewport tag in {name}")
+        page.write_text(html.replace(viewport, native_viewport)
+                        .replace("</head>", f"<style>\n{stylesheet}</style>\n</head>", 1))
 
 
 def write_build_version(derived, info_template):
@@ -81,6 +97,7 @@ if __name__ == "__main__":
     website = (Path(os.environ["TARGET_BUILD_DIR"]) / os.environ["UNLOCALIZED_RESOURCES_FOLDER_PATH"] / "Website").resolve()
     website.mkdir(parents=True, exist_ok=True)
     subprocess.run(["/usr/bin/rsync", "-a", "--delete", "--exclude=.DS_Store", "--exclude=._*",
-                    "index.html", "make-something.html", "assets", "stories", str(website)], cwd=repo, check=True)
+                    *GAME_PAGES, "assets", "stories", str(website)], cwd=repo, check=True)
+    enable_full_bleed(website)
     audit(website)
     write_build_version(Path(os.environ["DERIVED_FILE_DIR"]), repo / "ios/Game/Info.plist")

@@ -33,6 +33,10 @@ final class GameWebView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         uiDelegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.bounces = false
+        if #available(iOS 26.0, *) {
+            scrollView.topEdgeEffect.isHidden = true
+            scrollView.bottomEdgeEffect.isHidden = true
+        }
         #if DEBUG
         isInspectable = true
         #endif
