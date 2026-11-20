@@ -41,6 +41,10 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
           </div>
           <div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div>
         </div>
+        <nav class="carousel-footer" aria-label="App information" hidden>
+          <a href="https://unto.me/make-something/support.html" target="_blank" rel="noopener noreferrer">Support</a>
+          <a href="https://unto.me/make-something/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+        </nav>
       </section>`;
     }).join('')}</div></main>`;
 

@@ -314,14 +314,27 @@ dialog button,dialog select{min-height:44px}
   --carousel-backdrop-edge-blur: 10px;
   --carousel-settle: 240ms;
   --carousel-arrow-settle: 500ms;
+  --carousel-footer-height: 44px;
+  /* The centered frame's bottom gutter already clears part of the safe area. */
+  --carousel-footer-safe-area: env(safe-area-inset-bottom, 0px);
+  --carousel-footer-bottom: max(12px, calc(var(--carousel-footer-safe-area) + 4px - (100dvh - 100cqh) / 2));
   position:relative;width:100%;height:100%;overflow:hidden;color:white;container-type:size
+}
+@supports (-webkit-touch-callout:none) {
+  @media (display-mode:standalone) {
+    /* iOS Home Screen apps can reach the screen edge with a zero reported inset. */
+    .carousel-frame{--carousel-footer-safe-area:max(34px, env(safe-area-inset-bottom, 0px))}
+  }
+}
+.carousel-slide:has(> .carousel-footer:not([hidden])) {
+  --carousel-footer-space: calc(var(--carousel-footer-height) + var(--carousel-footer-bottom));
 }
 .carousel-slide{position:absolute;inset:0}
 .carousel-slide.is-settling{transition:transform var(--carousel-settle) cubic-bezier(.22,.7,.27,1)}
 .carousel-slide.is-arrow-settling{transition-duration:var(--carousel-arrow-settle)}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
-.carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - 2cqh);display:flex;flex-direction:column;isolation:isolate}
+.carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - max(2cqh, var(--carousel-footer-space, 0px)));display:flex;flex-direction:column;isolation:isolate}
 /* One softly feathered backdrop, bounded by the bar and visible abstract. */
 .carousel-panel::before {
   content:"";position:absolute;z-index:-1;pointer-events:none;
@@ -360,6 +373,19 @@ gap: 0;
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
 .carousel-description img{display:block;max-width:100%;max-height:15cqh;margin:auto;object-fit:contain}
+.carousel-footer {
+  position:absolute;z-index:2;left:50%;translate:-50% 0;bottom:var(--carousel-footer-bottom);
+  display:flex;gap:2px;pointer-events:none
+}
+.carousel-footer::before {
+  content:"";position:absolute;inset:13px 0;border-radius:10px;background:rgb(0 0 0 / .14);filter:blur(7px)
+}
+.carousel-footer a {
+  position:relative;display:grid;place-items:center;min-width:44px;min-height:var(--carousel-footer-height);
+  padding-inline:9px;pointer-events:auto;color:#fff;font-size:11px;text-shadow:0 1px 2px #000a, 0 0 3px #0007;
+  text-decoration:underline;text-underline-offset:2px
+}
+.carousel-footer a:focus-visible{outline:1px solid #fff;outline-offset:-6px;border-radius:8px}
 
 /* The chapter and catalogue stay dark behind the two sides of the story flip. */
 :root.story-flip-active{background:#000}

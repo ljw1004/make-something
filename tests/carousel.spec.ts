@@ -22,10 +22,11 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType:'text/markdown', body:story}));
   await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType:'text/markdown', body:story}));
   const active = page.locator('.carousel-slide:visible');
+  const launch = active.locator('a[data-story]');
   await page.goto('/');
   await page.getByRole('button', {name:'Mission to Mars', exact:true}).click();
-  await expect(active.getByRole('link')).toContainText('Start');
-  await active.getByRole('link').click();
+  await expect(launch).toContainText('Start');
+  await launch.click();
   await expect(page.getByRole('button', {name:'Begin'})).toBeVisible();
   await page.getByRole('button', {name:'Begin'}).click();
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));
@@ -43,8 +44,8 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await page.getByRole('link', {name:'Home', exact:true}).click();
   await expect(page).toHaveURL(/\/index.html$/);
   await expect(active.getByRole('heading')).toHaveText('Mission to Mars');
-  await expect(active.getByRole('link')).toContainText('Continue');
-  await active.getByRole('link').click();
+  await expect(launch).toContainText('Continue');
+  await launch.click();
   await expect(page.getByRole('dialog')).toContainText('The kit is ready.');
   await page.getByRole('button', {name:'End', exact:true}).click();
   await expect(page.getByText('The End', {exact:true})).toBeVisible();
@@ -58,14 +59,14 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await home.click();
   await expect(page).toHaveURL(/\/index.html$/);
   await expect(active.getByRole('heading')).toHaveText('Mission to Mars');
-  await expect(active.getByRole('link')).toContainText('Continue');
+  await expect(launch).toContainText('Continue');
   const tutorialKey = await page.evaluate(() => 'combination-tutorial-v1:' + encodeURIComponent(new URL('index.html', location.href).href));
   expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!).goalsDone, tutorialKey)).toBe(true);
   const dragKeys = await page.evaluate(() => ['mars/mars', 'cookbook/cookbook'].map(path =>
     'combination-tutorial-drag-v2:' + encodeURIComponent(new URL('stories/' + path + '.md', location.href).href)));
   expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), dragKeys)).toEqual(['true', null]);
   await page.getByRole('button', {name:'Cookbook', exact:true}).click();
-  await active.getByRole('link').click();
+  await launch.click();
   await page.getByRole('button', {name:'Begin'}).click();
   await page.getByRole('button', {name:'Read this chapter'}).click();
   await page.getByRole('button', {name:/Restart story/}).click();
@@ -77,7 +78,7 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await expect(page.getByRole('button', {name:'Begin', exact:true})).toBeVisible();
   await page.goto('/');
   await page.getByRole('button', {name:'Mission to Mars', exact:true}).click();
-  await expect(active.getByRole('link')).toContainText('Continue');
+  await expect(launch).toContainText('Continue');
 });
 
 test('carousel wraps, swipes across the artwork, and launches a touch tutorial', async ({browser}) => {
@@ -101,42 +102,48 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await expect(title).toHaveText(first!);
     await expect(page).toHaveURL(address);
     const client = await context.newCDPSession(page);
-    await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:290,y:220}]});
-    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:230,y:220}]});
+    const privacy = (await active.getByRole('link', {name:'Privacy', exact:true}).boundingBox())!;
+    const x = Math.round(privacy.x + privacy.width / 2);
+    const y = Math.round(privacy.y + privacy.height / 2);
+    await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x,y}]});
+    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:x-60,y}]});
     const translated = () => page.locator('.carousel-slide:not([hidden])').evaluateAll(slides => slides.map(slide =>
-      ['.carousel-art','.carousel-bar','.carousel-dots','.carousel-description'].map(selector => {
+      ['.carousel-art','.carousel-bar','.carousel-dots','.carousel-description','.carousel-footer'].map(selector => {
         const node = slide.querySelector<HTMLElement>(selector)!;
-        return node.getBoundingClientRect().x - (selector === '.carousel-bar' ? parseFloat(getComputedStyle(node).marginLeft) : 0);
+        const bounds = node.getBoundingClientRect();
+        if (selector === '.carousel-footer') return Math.round(bounds.x + (bounds.width - slide.clientWidth) / 2);
+        return bounds.x - (selector === '.carousel-bar' ? parseFloat(getComputedStyle(node).marginLeft) : 0);
       })));
-    await expect.poll(translated).toEqual([[-60,-60,-60,-60],[330,330,330,330]]);
+    await expect.poll(translated).toEqual([Array(5).fill(-60), Array(5).fill(330)]);
     expect(await page.locator('.carousel-slide:not([hidden]) .carousel-dots [aria-current="true"]').evaluateAll(dots =>
       dots.map(dot => dot.getAttribute('aria-label')))).toEqual([first, 'Creation']);
-    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:90,y:220}]});
-    await expect.poll(translated).toEqual([[-200,-200,-200,-200],[190,190,190,190]]);
+    await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:x-200,y}]});
+    await expect.poll(translated).toEqual([Array(5).fill(-200), Array(5).fill(190)]);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
     await expect(active).toHaveCount(1);
     await expect(title).not.toHaveText(first!);
-    await expect.poll(translated).toEqual([[0,0,0,0]]);
+    await expect.poll(translated).toEqual([Array(5).fill(0)]);
+    expect(context.pages()).toEqual([page]);
     await expect(page).toHaveURL(address);
     await page.reload();
     await expect(title).toHaveText('Creation');
     const second = await title.textContent();
     await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:160,y:380}]});
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:186,y:380}]});
-    await expect.poll(translated).toEqual([[-364,-364,-364,-364],[26,26,26,26]]);
+    await expect.poll(translated).toEqual([Array(5).fill(-364), Array(5).fill(26)]);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
     await expect(active).toHaveCount(1);
     await expect(title).toHaveText(second!);
     await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:100,y:220}]});
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:250,y:220}]});
-    await expect.poll(translated).toEqual([[-240,-240,-240,-240],[150,150,150,150]]);
+    await expect.poll(translated).toEqual([Array(5).fill(-240), Array(5).fill(150)]);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
     await expect(active).toHaveCount(1);
     await expect(title).toHaveText(first!);
     await page.getByRole('button', {name:'Cookbook', exact:true}).tap();
     await expect(title).toHaveText('Cookbook');
     await expect(page).toHaveURL(address);
-    await active.getByRole('link').tap();
+    await active.locator('a[data-story]').tap();
     await expect(page).toHaveURL(/\/make-something.html\?story=stories\/cookbook\/cookbook\.md$/);
     await expect(page.locator('.tutorial-overlay')).toHaveAttribute('data-modality', 'touch');
     await expect(page.getByRole('button', {name:'Begin'})).toBeVisible();
@@ -255,6 +262,33 @@ test('arrow buttons slide in both directions quickly, retain focus and accept re
   await expect(previous).toBeFocused();
   await expect(page.locator('.carousel-slide.is-settling')).toHaveCount(0);
   await expect(page).toHaveURL(/\/$/);
+});
+
+test('the development carousel keeps its footer above the edge and opens links separately on touch', async ({browser}) => {
+  const context = await browser.newContext({isMobile:true, hasTouch:true, viewport:{width:390,height:844}});
+  try {
+    const page = await context.newPage();
+    await context.route('https://unto.me/make-something/*.html', route => route.fulfill({body:'App information'}));
+    await page.goto('/index-dev.html');
+    const address = page.url();
+    const footer = page.getByRole('navigation', {name:'App information'});
+    const position = await footer.boundingBox();
+    expect(position).not.toBeNull();
+    expect(position!.y + position!.height).toBeLessThan(844);
+
+    await page.getByRole('button', {name:'Theology', exact:true}).tap();
+    await expect(page.locator('.carousel-slide:visible h2')).toHaveText('Theology');
+    expect(await footer.boundingBox()).toEqual(position);
+    for (const name of ['Support', 'Privacy']) {
+      const link = footer.getByRole('link', {name});
+      await expect(link).toHaveCSS('color', 'rgb(255, 255, 255)');
+      await expect(link).toHaveCSS('text-decoration-line', 'underline');
+      const [popup] = await Promise.all([page.waitForEvent('popup'), link.tap()]);
+      await expect(popup).toHaveURL(`https://unto.me/make-something/${name.toLowerCase()}.html`);
+      await popup.close();
+    }
+    await expect(page).toHaveURL(address);
+  } finally { await context.close(); }
 });
 
 test('the single carousel backdrop follows the visible abstract and stays below white text', async ({page}) => {

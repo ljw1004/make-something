@@ -35,9 +35,11 @@ final class BundledGameTests: XCTestCase {
               const rect = blur.getBoundingClientRect();
               const style = getComputedStyle(blur);
               const surface = document.querySelector('#app').getBoundingClientRect();
+              const footer = document.querySelector('.carousel-slide:not([hidden]) .carousel-footer').getBoundingClientRect();
               return {surfaceHeight: surface.height, blurTop: rect.top, blurBottom: rect.bottom,
                       blurWidth: rect.width, filter: style.backdropFilter || style.webkitBackdropFilter,
-                      mask: style.maskImage, pointerEvents: style.pointerEvents};
+                      mask: style.maskImage, pointerEvents: style.pointerEvents,
+                      footerHeight: footer.height, footerInset: surface.bottom - footer.bottom};
             })()
             """)
         let layout = try XCTUnwrap(viewport as? [String: Any])
@@ -48,6 +50,8 @@ final class BundledGameTests: XCTestCase {
         XCTAssertEqual(layout["filter"] as? String, "blur(1px)")
         XCTAssertTrue((layout["mask"] as? String)?.hasPrefix("linear-gradient(") == true)
         XCTAssertEqual(layout["pointerEvents"] as? String, "none")
+        XCTAssertGreaterThanOrEqual(try XCTUnwrap(layout["footerHeight"] as? CGFloat), 44)
+        XCTAssertGreaterThanOrEqual(try XCTUnwrap(layout["footerInset"] as? CGFloat), window.safeAreaInsets.bottom + 3)
     }
 
     func testProductionCatalogueAndBoards() async throws {
@@ -73,23 +77,32 @@ final class BundledGameTests: XCTestCase {
         }
     }
 
-    func testCatalogueHandoffWorkerStorageAndCitation() async throws {
+    func testCatalogueHandoffWorkerStorageAndExternalLinks() async throws {
         let store = WKWebsiteDataStore.nonPersistent()
+        let support = expectation(description: "Hand support link to iOS once")
+        let privacy = expectation(description: "Hand privacy link to iOS once")
         let citation = expectation(description: "Hand citation to iOS once")
-        citation.assertForOverFulfill = true
+        [support, privacy, citation].forEach { $0.assertForOverFulfill = true }
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
         let controller = UIViewController()
         window.rootViewController = controller
         var game = GameWebView(dataStore: store) { url in
-            XCTAssertEqual(url.absoluteString, "https://example.org/reading")
-            citation.fulfill()
+            switch url.absoluteString {
+            case "https://unto.me/make-something/support.html": support.fulfill()
+            case "https://unto.me/make-something/privacy.html": privacy.fulfill()
+            case "https://example.org/reading": citation.fulfill()
+            default: XCTFail("Unexpected external URL: \(url)")
+            }
         }
         controller.view = game
         window.makeKeyAndVisible()
         defer { window.isHidden = true }
         game.openCatalogue()
-        try await wait("!!document.querySelector('link[rel=manifest]')", in: game)
+        try await wait("!!document.querySelector('.carousel-slide:not([hidden]) .carousel-footer:not([hidden])')", in: game)
+        _ = try await game.evaluateJavaScript("document.querySelectorAll('.carousel-slide:not([hidden]) .carousel-footer a').forEach(link => link.click())")
+        await fulfillment(of: [support, privacy], timeout: 3)
+        XCTAssertEqual(game.url, BundledWebsite.catalogue)
         _ = try await game.evaluateJavaScript("document.querySelector('a[data-story]').click()")
         try await wait("!!document.querySelector('dialog[open] button')", in: game)
         _ = try await game.evaluateJavaScript("document.querySelector('dialog[open] button').click()")

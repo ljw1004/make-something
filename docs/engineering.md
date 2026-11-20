@@ -23,7 +23,7 @@ This document owns implementation boundaries, technical constraints and testing 
 
 ### Native iOS player
 
-The Xcode target serves the production web build from a bundled `Website/` directory through a `WKURLSchemeHandler`. Preserve the `msw://app/` authority and manuscript paths across updates because the full URL identifies a save. WebKit omits the referrer on these navigations, so the player recognizes its own expiring, same-tab carousel handoff. The native response policy restricts subresources to the bundle and inline content. Main-frame player and catalogue navigations stay inside the view, and user-activated HTTP(S) citations go to the system URL opener. Build and device-check instructions live in the [README](../README.md#iphone-and-ipad-app).
+The Xcode target serves the production web build from a bundled `Website/` directory through a `WKURLSchemeHandler`. Preserve the `msw://app/` authority and manuscript paths across updates because the full URL identifies a save. WebKit omits the referrer on these navigations, so the player recognizes its own expiring, same-tab carousel handoff. The native response policy restricts subresources to the bundle and inline content. Main-frame player and catalogue navigations stay inside the view, and user-activated HTTP(S) links go to the system URL opener. Build and device-check instructions live in the [README](../README.md#iphone-and-ipad-app).
 
 ### Browser text terminals
 

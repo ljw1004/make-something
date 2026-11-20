@@ -60,18 +60,18 @@ final class GameWebView: WKWebView, WKNavigationDelegate, WKUIDelegate {
            ["/index.html", "/make-something.html"].contains(url.path) {
             decisionHandler(.allow)
         } else {
-            openCitation(action)
+            openExternalLink(action)
             decisionHandler(.cancel)
         }
     }
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration,
                  for action: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        openCitation(action)
+        openExternalLink(action)
         return nil
     }
 
-    private func openCitation(_ action: WKNavigationAction) {
+    private func openExternalLink(_ action: WKNavigationAction) {
         guard action.navigationType == .linkActivated, action.sourceFrame.isMainFrame,
               BundledWebsite.contains(action.sourceFrame.request.url),
               let url = action.request.url, ["https", "http"].contains(url.scheme) else { return }

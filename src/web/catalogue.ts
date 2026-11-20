@@ -40,6 +40,16 @@ if (bookmark) {
   if (link) location.replace(link.href);
   else app.innerHTML = `<main class="chooser"><h1>Stories unavailable</h1><p>Unknown story: ${escape(bookmark)}.</p></main>`;
 } else if (carousel && frame && slides.length) {
+  const standalone = matchMedia('(display-mode: standalone)').matches;
+  const native = location.protocol === 'msw:';
+  if (import.meta.env.DEV || native || standalone) {
+    frame.querySelectorAll<HTMLElement>('.carousel-footer').forEach(footer => { footer.hidden = false; });
+    if (standalone && !native) {
+      // Let the browser apply its out-of-scope navigation behavior.
+      frame.querySelectorAll('.carousel-footer a').forEach(link => link.removeAttribute('target'));
+    }
+  }
+
   let current = 0;
   function measure() {
     const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
@@ -211,7 +221,7 @@ if (bookmark) {
       if ((event.target as Element).closest('.carousel-slide[hidden]')) return;
     }
     cancelledClick = null;
-    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, repeat: !!repeatingArrow, control: (event.target as Element).closest('button, a[data-story]')};
+    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, repeat: !!repeatingArrow, control: (event.target as Element).closest('button, a[data-story], .carousel-footer a')};
   });
   window.addEventListener('pointermove', event => {
     if (press?.id !== event.pointerId || press.repeat) return;
@@ -239,7 +249,8 @@ if (bookmark) {
       cancelledClick = press.control;
       if (advance) track(dx);
       settle(advance, advance ? dx : press.delta);
-    } else if (event.pointerType === 'touch' && Math.hypot(dx, dy) < 12 && press.control?.contains(event.target as Node)) {
+    } else if (event.pointerType === 'touch' && Math.hypot(dx, dy) < 12 &&
+      press.control?.matches('button, a[data-story]') && press.control.contains(event.target as Node)) {
       // Commit a touch tap on release, even when the browser withholds its
       // compatibility click immediately after a swipe. Do not double-activate.
       cancelledClick = press.control;
