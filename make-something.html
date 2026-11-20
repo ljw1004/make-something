@@ -15,9 +15,9 @@
     // player validates and consumes the same one-shot marker independently.
     try {
       const pending = JSON.parse(sessionStorage.getItem('make-something-entry-v1') || 'null');
-      const referrer = new URL(document.referrer);
+      const referrer = new URL(document.referrer || (location.protocol === 'msw:' ? pending?.launch?.source : ''));
       const directory = new URL('./', location.href);
-      const sameCatalogue = referrer.origin === directory.origin &&
+      const sameCatalogue = referrer.protocol === directory.protocol && referrer.host === directory.host &&
         ['', 'index.html', 'index-dev.html'].some(page => referrer.pathname === new URL(page, directory).pathname);
       const navigation = performance.getEntriesByType('navigation')[0];
       if (pending?.launch?.entry === 'carousel' && pending.launch.destination === location.href &&
@@ -32,10 +32,10 @@
       }
     } catch { /* Direct loading and the player remain available without storage. */ }
   </script>
-  <script type="module" crossorigin src="./assets/make-something-BUXhw7KK.js"></script>
+  <script type="module" crossorigin src="./assets/make-something-BLx2i_he.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-DbWZas9U.js">
-  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Bn7Xz13H.js">
-  <link rel="modulepreload" crossorigin href="./assets/placement-hints-BF7Pdfuf.js">
+  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Cox9btQL.js">
+  <link rel="modulepreload" crossorigin href="./assets/placement-hints-CTdErv94.js">
   <link rel="stylesheet" crossorigin href="./assets/make-something-C5Eztp1y.css">
 </head>
 <body data-catalogue="./index.html">

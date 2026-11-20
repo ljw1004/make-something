@@ -102,7 +102,7 @@ export function takeFlip(journey: Journey): {spinnerAt?: number} | undefined {
     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
     if (supportsFlip() && navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
       marker?.journey === journey && marker.destination === clean(location.href) &&
-      marker.expires > Date.now() && !!document.referrer && marker.source === clean(document.referrer))
+      marker.expires > Date.now() && (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:'))
       return {spinnerAt:typeof marker.spinnerAt === 'number' ? marker.spinnerAt : undefined};
   } catch { /* Private storage or a bad marker must not block navigation. */ }
 }

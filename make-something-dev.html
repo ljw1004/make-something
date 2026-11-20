@@ -29,9 +29,9 @@
     // player validates and consumes the same one-shot marker independently.
     try {
       const pending = JSON.parse(sessionStorage.getItem('make-something-entry-v1') || 'null');
-      const referrer = new URL(document.referrer);
+      const referrer = new URL(document.referrer || (location.protocol === 'msw:' ? pending?.launch?.source : ''));
       const directory = new URL('./', location.href);
-      const sameCatalogue = referrer.origin === directory.origin &&
+      const sameCatalogue = referrer.protocol === directory.protocol && referrer.host === directory.host &&
         ['', 'index.html', 'index-dev.html'].some(page => referrer.pathname === new URL(page, directory).pathname);
       const navigation = performance.getEntriesByType('navigation')[0];
       if (pending?.launch?.entry === 'carousel' && pending.launch.destination === location.href &&

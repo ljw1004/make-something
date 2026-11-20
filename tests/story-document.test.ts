@@ -33,6 +33,17 @@ test('portable story paths and artwork resolve from their own documents, rejecti
   }
 });
 
+test('the installed player resolves its own bundle and keeps remote artwork on web stories only', () => {
+  const story = resolveStoryURL('msw://app/make-something.html?story=stories/mars/mars.md');
+  assert.equal(story, 'msw://app/stories/mars/mars.md');
+  assert.equal(resolveStoryAsset('icon.png', story), 'msw://app/stories/mars/icon.png');
+  for (const base of ['msw://other', 'msw://app:80', 'msw://name@app', 'file:///app']) {
+    assert.throws(() => resolveStoryURL(base + '/make-something.html'));
+  }
+  assert.throws(() => resolveStoryAsset('https://other.test/icon.png', story));
+  assert.throws(() => resolveStoryAsset('msw://app/icon.png', url));
+});
+
 test('stories sharing artwork keep independent drafts, while routes to the same file share a draft', () => {
   const storage = new Storage();
   const otherURL = resolveStoryURL('https://example.test/work/make-something.html?story=mars/alternate.md');

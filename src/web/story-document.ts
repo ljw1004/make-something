@@ -42,23 +42,24 @@ export interface StoryDocument {
   recoveries: DraftRecord[];
 }
 
-function httpURL(input: string | URL): URL {
+function storyResourceURL(input: string | URL): URL {
   const url = new URL(input);
-  if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) {
-    throw new Error('Story and artwork URLs must use HTTP or HTTPS without embedded credentials.');
+  const bundled = url.protocol === 'msw:' && url.host === 'app';
+  if ((!bundled && !['http:', 'https:'].includes(url.protocol)) || url.username || url.password) {
+    throw new Error('Choose a web or bundled game URL without embedded credentials.');
   }
   return url;
 }
 
 /** Identity includes the full story URL, so equal folder names on different paths cannot collide. */
 export function canonicalStoryURL(input: string | URL): string {
-  const url = httpURL(input);
+  const url = storyResourceURL(input);
   url.hash = '';
   return url.href;
 }
 
 export function resolveStoryURL(pageURL: string | URL): string {
-  const page = httpURL(pageURL);
+  const page = storyResourceURL(pageURL);
   const selectors = page.searchParams.getAll('story');
   const path = selectors[0] ?? 'story.md';
   if (selectors.length > 1 || !/\.md$/i.test(path) || path !== path.trim() ||
@@ -69,7 +70,12 @@ export function resolveStoryURL(pageURL: string | URL): string {
 }
 
 export function resolveStoryAsset(reference: string, storyURL: string): string {
-  return httpURL(new URL(reference, canonicalStoryURL(storyURL))).href;
+  const base = storyResourceURL(storyURL);
+  const asset = storyResourceURL(new URL(reference, base));
+  if ((asset.protocol === 'msw:' || base.protocol === 'msw:') && base.protocol !== asset.protocol) {
+    throw new Error('Bundled stories use bundled artwork.');
+  }
+  return asset.href;
 }
 
 function browserStorage(): DraftStorage | undefined {

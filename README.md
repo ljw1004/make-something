@@ -63,6 +63,14 @@ Deploy the generated root pages, `assets/` and `stories/` together, preserving t
 
 Root output is intentional: Vite's warning that `build.outDir` equals the root is expected. The build requires `emptyOutDir: false` and never clears the repository. After successful output, it deletes only obsolete bundles listed in `assets/build-files.json` by the previous build. Keep that generated inventory in Git with the bundles; unrelated files are left alone. Edit the `-dev.html` templates and source code, then rebuild the generated pages.
 
+### iPhone and iPad app
+
+Open [MakeSomething.xcodeproj](ios/MakeSomething.xcodeproj) in Xcode, choose the **MakeSomething** scheme and an iPhone or iPad simulator, and press **Run**. The target supports iOS 17 and later. A checkout includes the production web build. After editing web code or catalogue metadata, run `npm run build` before building in Xcode. Each Xcode build copies the two player-facing HTML pages, `assets/` and `stories/` into the app and audits the packaged catalogue, manuscripts, artwork and bundle inventory.
+
+Use **Product → Test** for the native WebKit integration checks. For a device release check, install a fresh build and switch on airplane mode with Wi-Fi off before first launch. Open Cookbook, combine Grain with Millstone, feel the impact, return Home and verify **Continue**. Quit and relaunch, resume, and confirm Flour is still on the board. Check an encyclopedia citation with connectivity restored and return to the same board.
+
+For device signing, select your Apple team under **Signing & Capabilities**. Confirm the bundle identifier before creating its App Store Connect record. The marketing version lives in the target’s `MARKETING_VERSION` setting. Every Xcode app build increments a per-Mac counter shared by simulator runs, device builds and archives. It lives in `~/Library/Application Support/<bundle identifier>/Xcode/builds.sqlite3` and survives Clean Build Folder. For TestFlight or App Store distribution, choose **Product → Archive** and the Organizer’s **App Store Connect** distribution method. Xcode manages the upload build number across archives and machines. The [command-line export options](ios/Packaging/ExportOptions.plist) also enable this option. [Apple’s version and build guidance](https://developer.apple.com/documentation/xcode/preparing-your-app-for-distribution)
+
 ### Browser text terminals
 
 The [story simulator](simulator-story.html) (fast mode) and [interaction simulator](simulator-interactions.html) (detailed mode) are full-page, keyboard-operated demonstrations of the same text engine used by the human CLI and AI playtester. They use a centered 100-character monospace column, light text on black, simple Markdown styling and persistent text-only scrollback. The [UX contract](docs/ux.md#browser-terminals) describes their layout and input behavior.

@@ -11,8 +11,8 @@
     const navigation = performance.getEntriesByType('navigation')[0];
     const remaining = marker?.expires - Date.now();
     if (!location.hash && marker?.journey === 'home' &&
-        marker.destination === clean(location.href) && document.referrer &&
-        marker.source === clean(document.referrer) && remaining > 0 && remaining <= 15000 &&
+        marker.destination === clean(location.href) &&
+        (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:') && remaining > 0 && remaining <= 15000 &&
         navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
         !matchMedia('(prefers-reduced-motion: reduce)').matches &&
         typeof HTMLElement.prototype.animate === 'function' &&

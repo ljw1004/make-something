@@ -1,5 +1,5 @@
 type Modality = 'mouse' | 'touch';
-interface CarouselLaunch { entry: 'carousel'; manuscript: string; destination: string; modality: Modality }
+interface CarouselLaunch { entry: 'carousel'; source?: string; manuscript: string; destination: string; modality: Modality }
 const stateKey = 'makeSomethingCarouselEntry';
 const pendingKey = 'make-something-entry-v1';
 
@@ -11,7 +11,7 @@ const valid = (value: unknown, manuscript: string, destination: string): value i
 
 /** Transfer click-only context within this tab without adding it to the story URL. */
 export function cacheCarouselLaunch(manuscript: string, destination: string, modality: Modality) {
-  const launch: CarouselLaunch = {entry:'carousel', manuscript, destination, modality};
+  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality};
   try { sessionStorage.setItem(pendingKey, JSON.stringify({launch, expires:Date.now() + 30_000})); }
   catch { /* The real link still opens the normal story route. */ }
 }
@@ -31,10 +31,15 @@ export function readCarouselLaunch(manuscript: string, catalogue: URL) {
   const remembered = history.state?.[stateKey];
   if (valid(remembered, manuscript, destination)) return {fromCarousel:true, modality:remembered.modality};
   if (!pending || !Number.isFinite(pending.expires) || pending.expires! < Date.now() ||
-    !valid(pending.launch, manuscript, destination) || !document.referrer) return {fromCarousel:false};
-  const referrer = new URL(document.referrer);
+    !valid(pending.launch, manuscript, destination)) return {fromCarousel:false};
+  // WebKit omits the HTTP referrer on app-scheme navigation. The in-tab
+  // launch record already identifies the catalogue that initiated this click.
+  const source = document.referrer || (catalogue.protocol === 'msw:' ? pending.launch.source : '');
+  if (!source) return {fromCarousel:false};
+  let referrer: URL;
+  try { referrer = new URL(source); } catch { return {fromCarousel:false}; }
   const root = new URL('./', catalogue);
-  if (referrer.origin !== root.origin || ![root.pathname, catalogue.pathname, new URL('index-dev.html', root).pathname].includes(referrer.pathname)) return {fromCarousel:false};
+  if (referrer.protocol !== root.protocol || referrer.host !== root.host || ![root.pathname, catalogue.pathname, new URL('index-dev.html', root).pathname].includes(referrer.pathname)) return {fromCarousel:false};
 
   try { history.replaceState({...history.state, [stateKey]:pending.launch}, ''); }
   catch { /* Preserve context for the current page even if history is unavailable. */ }
