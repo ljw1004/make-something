@@ -396,3 +396,18 @@ test('phone swipes can revisit history but cannot scroll below the current chapt
     await expectCurrentFits(page, 2);
   } finally { await context.close(); }
 });
+
+test('desktop scrollback reserves no scrollbar gutter but still scrolls by wheel', async ({page}) => {
+  await page.setViewportSize({width:1440,height:790});
+  await enterField(page);
+  const viewport = page.locator('.viewport');
+  expect(await viewport.evaluate(el => ({
+    scrollbar: getComputedStyle(el).scrollbarWidth,
+    gutter: (el as HTMLElement).offsetWidth - el.clientWidth,
+  }))).toEqual({scrollbar:'none',gutter:0});
+  await page.mouse.move(1320,350);
+  await page.mouse.wheel(0,-400);
+  await expect.poll(() => scrollTop(page)).toBeLessThan(790);
+  await page.mouse.wheel(0,1200);
+  await expect.poll(() => scrollTop(page)).toBe(790);
+});

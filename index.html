@@ -33,6 +33,11 @@ button,select{font:inherit;color:inherit}button{cursor:pointer}
 #app{height:100dvh;position:relative;overflow:hidden;container:game / inline-size}
 /* The world is the whole viewport; the HUD never takes layout height. */
 .viewport{overflow-anchor:none;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior:none}
+/* Game scrollback stays scrollable without a visible scrollbar or gutter. */
+.viewport,.carousel-description{scrollbar-width:none}
+.viewport::-webkit-scrollbar,.carousel-description::-webkit-scrollbar{display:none}
+.chapter-sliding .viewport{overflow-y:hidden;touch-action:none}
+.chapter-sliding .location-hud,.chapter-sliding .chapter-next{visibility:hidden}
 .board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y;isolation:isolate}.location-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.hotspot{position:absolute;transform:translate(-50%,-50%);user-select:none;-webkit-user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;-webkit-touch-callout:none;overflow-wrap:anywhere}.hotspot{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:none}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.pressed{outline:3px solid #163d46;outline-offset:3px;box-shadow:0 0 0 3px #fffaf0!important}.possible{border-color:#063e53!important;outline:2px dashed #fffaf0!important;outline-offset:4px;box-shadow:0 0 0 2px #fffaf0,0 0 0 5px #063e53,0 4px 12px #14252c88!important}.will-create,.will-place{outline:3px solid #6b2e04!important;outline-offset:3px;background:#ffe2a0!important;box-shadow:0 0 0 3px #fffaf0,0 0 0 6px #b25108,0 5px 16px #29190088!important}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{pointer-events:none;animation:none!important;transition:none!important}.born{animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
 /* Goals sit beneath objects; the debug control remains reachable above them. */
 .hud-stack{z-index:2}
@@ -351,14 +356,53 @@ gap: 0;
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
 .carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:var(--carousel-dot-glow)}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:var(--carousel-abstract-shadow);color:white;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#fff6 transparent}
+.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;text-shadow:var(--carousel-abstract-shadow);color:white;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
 .carousel-description img{display:block;max-width:100%;max-height:15cqh;margin:auto;object-fit:contain}
-</style><noscript><style>#app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-BnkDXnlE.js"></script>
+
+/* The chapter and catalogue stay dark behind the two sides of the story flip. */
+:root.story-flip-active{background:#000}
+[data-story-flip="waiting"]{visibility:hidden}
+
+
+.story-flip-loading {
+  position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
+  pointer-events:none;background:#000;color:#f6efe2;
+}
+.story-flip-loading::before {
+  content:"";width:24px;height:24px;border:2px solid #f6efe255;
+  border-top-color:currentColor;border-radius:50%;animation:story-flip-spin .7s linear infinite;
+}
+@keyframes story-flip-spin { to { transform:rotate(1turn) } }
+@media (prefers-reduced-motion:reduce){.story-flip-loading::before{animation:none}}
+</style><style>:root.carousel-home-bootstrap{background:#000}:root.carousel-home-bootstrap #app{visibility:hidden}</style><script>
+  // The generated catalogue contains a visible default card before its module
+  // runs. Keep it dark only on a matching, one-shot Home navigation.
+  try {
+    const clean = address => { const url = new URL(address); url.hash = ''; return url.href; };
+    const marker = JSON.parse(sessionStorage.getItem('make-something-flip-v1') || 'null');
+    const navigation = performance.getEntriesByType('navigation')[0];
+    const remaining = marker?.expires - Date.now();
+    if (!location.hash && marker?.journey === 'home' &&
+        marker.destination === clean(location.href) && document.referrer &&
+        marker.source === clean(document.referrer) && remaining > 0 && remaining <= 15000 &&
+        navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+        typeof HTMLElement.prototype.animate === 'function' &&
+        CSS.supports('transform', 'perspective(1400px) rotateY(45deg)')) {
+      const root = document.documentElement;
+      root.classList.add('carousel-home-bootstrap');
+      const clear = () => root.classList.remove('carousel-home-bootstrap');
+      // If the script never arrives, leave the static catalogue usable.
+      const timeout = setTimeout(clear, remaining);
+      addEventListener('pagehide', () => { clearTimeout(timeout); clear(); }, {once:true});
+    }
+  } catch { /* The normal catalogue remains visible without browser storage. */ }
+</script><noscript><style>#app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-2YOQnLhP.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-DbWZas9U.js">
-  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-D57t1rWl.js">
+  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Bn7Xz13H.js">
 </head><body><div class="status-bar-color" aria-hidden="true"></div><div id="app" class="catalogue-page"><main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
     <section class="carousel-slide" aria-label="Cookbook">
         <img class="carousel-art" fetchpriority="high" src="stories/cookbook/assets/rework/backgrounds/breakfast.webp" alt="" draggable="false">

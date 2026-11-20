@@ -1,6 +1,7 @@
 import { escape } from './markdown.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
 import {cacheCarouselLaunch} from './carousel-launch.ts';
+import {holdFlip, leaveWithFlip, plainNavigation, takeFlip, warmStoryNavigation} from './story-flip.ts';
 import {viewportBoard} from './board-geometry.ts';
 import {catalogueStoryStarted} from './chapter-recovery.ts';
 import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
@@ -154,7 +155,21 @@ if (bookmark) {
     const legacy = saved < 0 ? find(new URL(location.href).searchParams.get('slide')) : -1;
     show(Math.max(0, saved, legacy), legacy >= 0);
   }
+  const returning = takeFlip('home') ? holdFlip(frame) : undefined;
   restoreSlide();
+  if (returning) {
+    const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
+    if (art) art.loading = 'eager';
+    // If cover decoding stalls, animate the selected card rather than exposing
+    // the entire face untransformed on timeout.
+    const reveal = () => void returning.reveal();
+    const timeout = window.setTimeout(reveal, 750);
+    void (art?.decode().catch(() => {}) ?? Promise.resolve()).then(() => {
+      clearTimeout(timeout);
+      // The timeout may already have started (or completed) this animation.
+      if (frame.dataset.storyFlip === 'waiting') reveal();
+    });
+  }
   window.addEventListener('pageshow', event => { if (event.persisted) restoreSlide(); });
   slides.forEach(slide => slide.querySelector('img.carousel-art')?.addEventListener('load', measure));
   new ResizeObserver(measure).observe(app);
@@ -230,7 +245,8 @@ if (bookmark) {
       cancelledClick = press.control;
       if (press.control instanceof HTMLAnchorElement) {
         cacheCarouselLaunch(new URL(press.control.dataset.story!, root).href, press.control.href, 'touch');
-        location.assign(press.control.href);
+        warmStoryNavigation(press.control.href);
+        if (!leaveWithFlip(frame, press.control.href, 'launch')) location.assign(press.control.href);
       }
       else if (press.control instanceof HTMLButtonElement) press.control.click();
     }
@@ -244,8 +260,13 @@ if (bookmark) {
   carousel.addEventListener('click', event => {
     if (cancelledClick?.contains(event.target as Node) && event.detail > 0) { event.preventDefault(); event.stopPropagation(); cancelledClick = null; return; }
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]');
-    if (link && !event.defaultPrevented && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+    if (link && plainNavigation(event, link)) {
       cacheCarouselLaunch(new URL(link.dataset.story!, root).href, link.href, event instanceof PointerEvent && event.pointerType === 'touch' ? 'touch' : 'mouse');
+      warmStoryNavigation(link.href);
+      if (leaveWithFlip(frame, link.href, 'launch')) event.preventDefault();
     }
   }, true);
 }
+
+// The correct card is now selected; its own waiting marker keeps it hidden.
+document.documentElement.classList.remove('carousel-home-bootstrap');

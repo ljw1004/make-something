@@ -48,6 +48,7 @@ import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
 import {readCarouselLaunch} from './carousel-launch.ts';
+import {holdFlip, leaveWithFlip, plainNavigation, takeFlip} from './story-flip.ts';
 import {carouselStoryPath, selectStory} from './carousel-selection.ts';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
@@ -69,6 +70,10 @@ interface Anchor { text: string; story: Story; state: State; chapterSession: Cha
 let anchor: Anchor;
 let itemOrder: string[] = [];
 let expectedScroll = 0;
+let finishIncomingStoryFlip: ((leaving?: boolean) => void) | undefined;
+// Presentation only: engine progression and arrival layout are committed once,
+// before scrolling. Keep fractions so resize/redraw can replace the viewport.
+let chapterSlide: {state: State; story: Story; from: number; to: number; position: number; started: number; frame: number} | undefined;
 let previewTimer: ReturnType<typeof setTimeout> | undefined;
 let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
 let storyStarted = false;
@@ -93,7 +98,7 @@ let preloadedState: State | undefined, preloadedStory: Story | undefined, preloa
 function cancelArtworkWait() {
   pendingArtwork = undefined;
   clearTimeout(artworkStatusTimer); app.querySelector('.artwork-loading')?.remove();
-  surface.removeAttribute('aria-busy'); surface.inert = !!dialogContext; dialogLayer.inert = false;
+  surface.removeAttribute('aria-busy'); surface.inert = !!dialogContext || !!finishIncomingStoryFlip; dialogLayer.inert = false;
 }
 function actionError(error: unknown) {
   modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);
@@ -185,7 +190,7 @@ reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) sett
 
 function rememberInteraction() {
   if (!state) return;
-  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: app.querySelector('.viewport')?.scrollTop ?? 0, viewportHeight: app.clientHeight, dialog: dialogContext && {...dialogContext}, encyclopedia: {...encyclopediaHistory} };
+  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: chapterSlide ? chapterSlide.to * app.clientHeight : app.querySelector('.viewport')?.scrollTop ?? 0, viewportHeight: app.clientHeight, dialog: dialogContext && {...dialogContext}, encyclopedia: {...encyclopediaHistory} };
 }
 function save() {
   if (!storyStarted) return;
@@ -200,7 +205,7 @@ function updateTutorial() {
 }
 function updateTutorialCue() {
   tutorialOverlay.dragging(!!drag || !!hotspotPress);
-  if (!storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
+  if (chapterSlide || app.dataset.storyFlip || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
     tutorialOverlay.show(); return;
   }
   // Keep the chosen demonstration stable until the player finishes their gesture.
@@ -381,6 +386,38 @@ function anchorScroll() {
 }
 function scrollToCurrentChapter() { setScroll(Math.max(0, (state.visited.length - 1) * app.clientHeight)); }
 
+function finishChapterSlide(arrive = true) {
+  const slide = chapterSlide;
+  if (!slide) return;
+  cancelAnimationFrame(slide.frame); chapterSlide = undefined;
+  surface.inert = !!dialogContext || !!pendingArtwork;
+  surface.classList.remove('chapter-sliding');
+  if (arrive && state === slide.state && story === slide.story) {
+    scrollToCurrentChapter(); showPending(); rememberInteraction(); save();
+    scheduleTutorialUpdate();
+  }
+}
+function animateChapterSlide() {
+  const slide = chapterSlide;
+  if (!slide) return;
+  surface.inert = true; surface.classList.add('chapter-sliding');
+  setScroll(slide.position * app.clientHeight);
+  slide.started = performance.now();
+  const tick = (now: number) => {
+    if (chapterSlide !== slide) return;
+    if (state !== slide.state || story !== slide.story) { finishChapterSlide(false); return; }
+    const progress = Math.min(1, (now - slide.started) / 350);
+    if (progress === 1 || reducedMotion.matches || document.hidden) { finishChapterSlide(); return; }
+    const eased = progress * progress * (3 - 2 * progress);
+    slide.position = slide.from + (slide.to - slide.from) * eased;
+    setScroll(slide.position * app.clientHeight);
+    slide.frame = requestAnimationFrame(tick);
+  };
+  slide.frame = requestAnimationFrame(tick);
+}
+reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) finishChapterSlide(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) finishChapterSlide(); });
+
 function updateHomeScreenIdentity(parsed: Story) {
   const startURL = new URL(location.href);
   startURL.search = ''; startURL.hash = '';
@@ -391,8 +428,10 @@ function updateHomeScreenIdentity(parsed: Story) {
   });
 }
 async function start() {
+  let flip: ReturnType<typeof holdFlip> | undefined;
   starting = true;
-  surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
+  surface.replaceChildren();
+  document.documentElement.classList.remove('story-flip-bootstrap');
   try {
     documentURL = resolveStoryURL(location.href);
     const path = new URL(documentURL).pathname;
@@ -400,6 +439,9 @@ async function start() {
     storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
     legacySaveKey = legacyProgressKey(documentURL);
     const {fromCarousel, modality, skipCover} = entryContext ??= readCarouselLaunch(documentURL, catalogueURL);
+    const journey = skipCover ? takeFlip('launch') : undefined;
+    if (skipCover) flip = holdFlip(app, 'launch', journey?.spinnerAt);
+    else surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
     tutorialProgress = new TutorialProgress({manuscript: documentURL, catalogue: fromCarousel ? catalogueURL.href : undefined},
       error => {tutorialSaveError = error; renderSaveError();});
     if (modality) tutorialOverlay.modality(modality);
@@ -457,17 +499,38 @@ async function start() {
     render(!loaded, !loaded || !skipCover);
     if (skipCover || (loaded && fromCarousel && state.completed)) scrollToCurrentChapter();
     else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
-    if (skipCover) showChapterEntry();
-    if (!anchor || skipCover) rememberInteraction();
+    let entryShown = false, leavingFromPopup = false;
+    if (flip) await flip.reveal(!!journey, {board:surface, onStart(settle) {
+      surface.inert = true;
+      finishIncomingStoryFlip = (leaving = false) => {
+        leavingFromPopup = leaving;
+        settle();
+        finishIncomingStoryFlip = undefined;
+        surface.inert = !!dialogContext || !!pendingArtwork;
+      };
+      entryShown = true;
+      showChapterEntry(true);
+    }});
+    // Home can settle the incoming half early and immediately start the
+    // opposite journey. Do not replace that outgoing face or its saved state.
+    finishIncomingStoryFlip?.();
+    if (!leavingFromPopup) {
+      if (skipCover && !entryShown) showChapterEntry();
+      else if (entryShown) showPending();
+      if (!anchor || skipCover) rememberInteraction();
+      save();
+    }
     checkText(parsed, previewText);
     authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
-    updateEditingIndicators(); save();
+    updateEditingIndicators();
     if (loaded) {
       const source = story;
       const scrollback = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
       if (scrollback) void scrollback.then(() => { if (story === source) render(false, false); });
     }
   } catch (error) {
+    finishIncomingStoryFlip?.();
+    flip?.release();
     starting = false;
     surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;
   }
@@ -478,7 +541,7 @@ function closeDialog() {
   if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
   bookResize.disconnect();
   chapterFooterResize.disconnect();
-  dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = false; dialogContext = undefined;
+  dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = !!chapterSlide || !!finishIncomingStoryFlip; dialogContext = undefined;
   if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
   dialogOpener = undefined;
   updateTutorial();
@@ -542,14 +605,15 @@ function chapterEntryContent(text: string, command: 'dismiss' | 'close') {
   const body = text.trim() ? readingBody(text, asset) : `<h1>${escape(story.chapters[state.chapter].name)}</h1>`;
   return `${body}<div class="dialog-actions${ending ? ' ending-actions' : ''}"><button data-command="${command}">${ending ? 'End' : 'Begin'}</button>${ending ? popupHome('ending') : ''}</div>`;
 }
-function showChapterEntry() {
-  if (state.pending[0]?.kind === 'chapter') { showPending(); return; }
+function showChapterEntry(duringIncomingFlip = false) {
+  if (state.pending[0]?.kind === 'chapter') { showPending(duringIncomingFlip); return; }
   // Re-reading an introduction is presentation only. Do not dismiss an
   // already queued discovery or add a synthetic action to the save history.
   modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', { kind: 'entry' });
 }
-function showPending() {
-  if (!storyStarted || dialogContext || !state?.pending.length) return;
+function showPending(duringIncomingFlip = false) {
+  if ((app.dataset.storyFlip && !duringIncomingFlip) || !storyStarted || dialogContext || !state?.pending.length) return;
+  if (chapterSlide && state.pending[0].kind !== 'chapter') return;
   openPendingReading();
 }
 function openPendingReading() {
@@ -728,7 +792,7 @@ function preferredPosition(id: string, hotspot: string | undefined, chapter: num
   return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied, geometry.bounds);
 }
 function commit(action: Action) { try {
-  if (pendingArtwork) return;
+  if (pendingArtwork || (chapterSlide && !(action.type === 'dismiss' && dialogContext?.kind === 'pending' && state.pending[0]?.kind === 'chapter'))) return;
   inputTrace?.record('commit:start',{action});
   flushPreview();
   if (action.type === 'move' && action.hotspot) {
@@ -745,6 +809,8 @@ function commit(action: Action) { try {
     const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
     const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
     state = next; noteChapterAction(chapterSession, action);
+    // Dismissing the incoming reading is allowed without interrupting the board.
+    if (chapterSlide && action.type === 'dismiss') chapterSlide.state = state;
     inputTrace?.record('commit:applied',{action});
     const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
     if (action.type === 'combine') {
@@ -756,7 +822,13 @@ function commit(action: Action) { try {
     if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
     if (previous !== state.chapter) clearCreationLabels();
     if (born) announceCreation(born);
-    closeDialog(); render(previous !== state.chapter, true, false, before);
+    closeDialog();
+    if (action.type === 'advance' && previous !== state.chapter && !reducedMotion.matches && !document.hidden) {
+      const from = (app.querySelector('.viewport')?.scrollTop ?? expectedScroll) / app.clientHeight;
+      chapterSlide = {state, story, from, to: state.visited.length - 1, position: from, started: 0, frame: 0};
+    }
+    render(previous !== state.chapter, true, false, before);
+    if (action.type === 'advance') animateChapterSlide();
     if (born) {
       let token=state.tokens[born],element=tile(born);
       if(element){
@@ -902,10 +974,13 @@ function fixedHTML(chapter:number,id:string){
 }
 function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
   if (starting) return;
+  if (chapterSlide && (chapterSlide.state !== state || chapterSlide.story !== story)) finishChapterSlide(false);
   scheduleArtwork();
   inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
   if (!storyStarted) { renderLanding(); return; }
   state = dismissTextOnlyWonders(story, state);
+  // Rendering may acknowledge hidden-only notices without changing the arrival.
+  if (chapterSlide) chapterSlide.state = state;
   itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
   const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
   const scroll=(oldHeight!==app.clientHeight?expectedScroll:app.querySelector('.viewport')?.scrollTop??0)*app.clientHeight/oldHeight;
@@ -924,7 +999,11 @@ function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:
       return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" ${applicable?'title="Double-click or double-tap to read"':''}>${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
     }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
   }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
-  const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}};setScroll(arrival?Math.max(0,(state.visited.length-1)*app.clientHeight):scroll);
+  const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(chapterSlide||Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}}
+  // Measure the destination panel against the fixed HUD at its settled offset.
+  // animateChapterSlide restores the starting offset in the same task, before paint.
+  if (arrival) scrollToCurrentChapter();
+  else setScroll(chapterSlide ? chapterSlide.position * app.clientHeight : scroll);
   for(const element of surface.querySelectorAll<HTMLElement>('.icon-thing,.hotspot-icon'))iconNames.measure(element);
   if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
   for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
@@ -995,6 +1074,7 @@ function dropAt(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>,destination:Retu
   }
 }
 app.addEventListener('pointerdown',e=>{
+  if (chapterSlide) return;
   tutorialOverlay.modality(e.pointerType);
   const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');
   if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
@@ -1095,22 +1175,42 @@ app.addEventListener('lostpointercapture',e=>{
 });
 app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
 app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
+// Also reject queued/synthetic activation, rather than relying only on inert.
+app.addEventListener('click', e => {
+  // A quick second press where the arrow was must not become a Begin click
+  // if the new dialog happens to place its button under the same point.
+  if ((chapterSlide || finishIncomingStoryFlip) && (!dialogLayer.contains(e.target as Node) || e.detail > 1)) {
+    e.preventDefault(); e.stopImmediatePropagation();
+  }
+}, true);
+app.addEventListener('keydown', e => {
+  if (((chapterSlide || finishIncomingStoryFlip) && !dialogLayer.contains(e.target as Node)) || (e.repeat && (e.key === 'Enter' || e.key === ' '))) e.preventDefault();
+}, true);
 app.addEventListener('click',e=>{
   if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
   const element=e.target as Element;
   const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
-  if (element.closest('a.popup-home')) selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
+  const home = element.closest<HTMLAnchorElement>('a.popup-home');
+  if (home) {
+    if (!plainNavigation(e, home)) return;
+    selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
+    flushPreview();
+    finishIncomingStoryFlip?.(true);
+    finishChapterSlide();
+    if (home.dataset.command === 'ending-home' && dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
+    closeDialog(); rememberInteraction(); save();
+    e.preventDefault();
+    if (leaveWithFlip(app, home.href, 'home')) updateTutorial();
+    else location.assign(home.href);
+    return;
+  }
   const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
   const command=target.dataset.command;
-  if(target instanceof HTMLAnchorElement && command !== 'ending-home')e.preventDefault();
+  if(target instanceof HTMLAnchorElement)e.preventDefault();
   if(command==='retry'){void start();return;}
   if(command==='debug'){toggleDebugPanel();return;}
   flushPreview();
   if(command==='start-story')beginStory();
-  else if(command==='ending-home'){
-    if (dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
-    closeDialog(); rememberInteraction(); save();
-  }
   else if(command==='dismiss')commit({type:'dismiss'});
   else if(command==='advance')commit({type:'advance'});
   else if(command==='close')dismissReading();
@@ -1130,7 +1230,7 @@ function escapeDialog() {
   else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail && !bookIsSpread()) backToEncyclopediaIndex();
   else dismissReading();
 }
-dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); escapeDialog(); } });
+dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); if (!event.repeat) escapeDialog(); } });
 // Goals readings close on a tap over the backdrop or noninteractive prose.
 // A drag to select text, scrolling, or using a control isn't a dismissal.
 function chapterDismissTarget(target: EventTarget | null) {
