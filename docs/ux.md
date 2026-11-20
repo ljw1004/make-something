@@ -45,7 +45,9 @@ The archived edition preserves the prototypes' original interactions and text, w
 
 ## Native iOS app
 
-Open the installed app at the story carousel. Play uses the bundled production game, with its illustrated stories and encyclopedia readings available from the first launch offline. Progress and the selected story persist within the app between launches. A player who taps an external encyclopedia citation hands that URL to iOS and can return to the same game. Keep system indicators and controls clear of one another in portrait and landscape. A successful combination gives a light native impact on supported hardware.
+Open the installed app at the story carousel. Play uses the bundled production game, with its illustrated stories and encyclopedia readings available from the first launch offline. Progress and the selected story persist within the app between launches. A player who taps an external encyclopedia citation hands that URL to iOS and can return to the same game. Keep system indicators and controls clear of one another in portrait and landscape.
+
+A successful combination gives a light native impact on supported hardware. **Haptics** is on by default. Players can turn it off in **Settings → Apps → Make Something**. Keep this occasional preference in iOS Settings to leave the carousel uncluttered. A change applies to the next combination when play resumes.
 
 ## Artwork loading
 

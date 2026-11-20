@@ -2,11 +2,18 @@ import UIKit
 import WebKit
 
 private final class CombinationHaptics: NSObject, WKScriptMessageHandler {
+    private static let enabledKey = "combinationHapticsEnabled"
     private let feedback = UIImpactFeedbackGenerator(style: .light)
+
+    override init() {
+        super.init()
+        UserDefaults.standard.register(defaults: [Self.enabledKey: true])
+    }
 
     func userContentController(_ controller: WKUserContentController, didReceive message: WKScriptMessage) {
         guard message.frameInfo.isMainFrame, BundledWebsite.contains(message.frameInfo.request.url),
-              let event = message.body as? [String: String], event["type"] == "combination" else { return }
+              let event = message.body as? [String: String], event["type"] == "combination",
+              UserDefaults.standard.bool(forKey: Self.enabledKey) else { return }
         feedback.impactOccurred()
     }
 }
