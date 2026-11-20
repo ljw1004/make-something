@@ -341,7 +341,7 @@ dialog button,dialog select{min-height:44px}
   mask-image:linear-gradient(transparent,#000 8px,#000 calc(100% - 3px),transparent),
     linear-gradient(to right,transparent,#000 14px,#000 calc(100% - 14px),transparent);
 }
-:is(.carousel-description,.carousel-footer a){color:#fff}
+:is(.carousel-description,.carousel-footer a){color:#fff;font-size:var(--carousel-abstract-size)}
 .carousel-slide[data-ink="dark"] :is(.carousel-description,.carousel-footer a){color:#000}
 .carousel-bar {
   position:relative;flex:none;margin-inline:var(--carousel-bar-inset);
@@ -367,7 +367,7 @@ gap: 0;
 .carousel-dots button{display:grid;place-items:center;padding:0;border:0;box-shadow:none;background:none;width:23px;height:32px;color:white}
 .carousel-dots button::after{content:'';border:1px solid #fff;width:10px;height:10px;border-radius:50%;box-shadow:var(--carousel-dot-glow)}
 .carousel-dots button[aria-current]::after{background:#fff}
-.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;font-weight:var(--carousel-abstract-weight);font-size:var(--carousel-abstract-size);line-height:1.38;overscroll-behavior:contain}
+.carousel-description{position:relative;z-index:1;min-height:0;overflow:auto;text-align:center;padding:10px min(5%,28px) 20px;font-weight:var(--carousel-abstract-weight);line-height:1.38;overscroll-behavior:contain}
 .carousel-description p{margin:0 0 .4em}
 .carousel-description p:last-child{margin-bottom:0}
 .carousel-description a{color:inherit}
@@ -378,7 +378,7 @@ gap: 0;
 }
 .carousel-footer a {
   position:relative;display:grid;place-items:center;min-width:44px;min-height:var(--carousel-footer-height);
-  padding-inline:9px;pointer-events:auto;font-size:11px;
+  padding-inline:9px;pointer-events:auto;
   text-decoration:underline;text-underline-offset:2px
 }
 .carousel-footer a::before{

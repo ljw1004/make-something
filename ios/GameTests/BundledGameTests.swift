@@ -35,11 +35,15 @@ final class BundledGameTests: XCTestCase {
               const rect = blur.getBoundingClientRect();
               const style = getComputedStyle(blur);
               const surface = document.querySelector('#app').getBoundingClientRect();
-              const footer = document.querySelector('.carousel-slide:not([hidden]) .carousel-footer').getBoundingClientRect();
+              const slide = document.querySelector('.carousel-slide:not([hidden])');
+              const footer = slide.querySelector('.carousel-footer').getBoundingClientRect();
+              const subtitleSize = getComputedStyle(slide.querySelector('.carousel-description')).fontSize;
+              const footerSizes = Array.from(slide.querySelectorAll('.carousel-footer a'), link => getComputedStyle(link).fontSize);
               return {surfaceHeight: surface.height, blurTop: rect.top, blurBottom: rect.bottom,
                       blurWidth: rect.width, filter: style.backdropFilter || style.webkitBackdropFilter,
                       mask: style.maskImage, pointerEvents: style.pointerEvents,
-                      footerHeight: footer.height, footerInset: surface.bottom - footer.bottom};
+                      footerHeight: footer.height, footerInset: surface.bottom - footer.bottom,
+                      subtitleSize, footerSizes};
             })()
             """)
         let layout = try XCTUnwrap(viewport as? [String: Any])
@@ -52,6 +56,8 @@ final class BundledGameTests: XCTestCase {
         XCTAssertEqual(layout["pointerEvents"] as? String, "none")
         XCTAssertGreaterThanOrEqual(try XCTUnwrap(layout["footerHeight"] as? CGFloat), 44)
         XCTAssertGreaterThanOrEqual(try XCTUnwrap(layout["footerInset"] as? CGFloat), window.safeAreaInsets.bottom + 3)
+        let subtitleSize = try XCTUnwrap(layout["subtitleSize"] as? String)
+        XCTAssertEqual(layout["footerSizes"] as? [String], [subtitleSize, subtitleSize])
     }
 
     func testProductionCatalogueAndBoards() async throws {

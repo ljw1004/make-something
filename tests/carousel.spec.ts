@@ -285,10 +285,14 @@ test('the development carousel keeps its footer above the edge and opens links s
     expect(await footer.boundingBox()).toEqual(position);
     const active = page.locator('.carousel-slide:not([hidden])');
     await expect(active).toHaveAttribute('data-ink', /dark|light/);
-    const color = await active.locator('.carousel-description').evaluate(el => getComputedStyle(el).color);
+    const {color, fontSize} = await active.locator('.carousel-description').evaluate(el => {
+      const {color, fontSize} = getComputedStyle(el);
+      return {color, fontSize};
+    });
     for (const name of ['Support', 'Privacy']) {
       const link = footer.getByRole('link', {name});
       await expect(link).toHaveCSS('color', color);
+      await expect(link).toHaveCSS('font-size', fontSize);
       await expect(link).toHaveCSS('text-decoration-line', 'underline');
       const [popup] = await Promise.all([page.waitForEvent('popup'), link.tap()]);
       await expect(popup).toHaveURL(`https://unto.me/make-something/${name.toLowerCase()}.html`);
