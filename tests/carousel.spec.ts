@@ -93,7 +93,7 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     const first = await title.textContent();
     await page.getByRole('button', {name:first!, exact:true}).focus();
     await page.keyboard.press('ArrowRight');
-    await expect(page.getByRole('button', {name:'Creation', exact:true})).toBeFocused();
+    await expect(page.getByRole('button', {name:'Settlement', exact:true})).toBeFocused();
     await page.keyboard.press('ArrowLeft');
     await expect(page.getByRole('button', {name:first!, exact:true})).toBeFocused();
     await page.getByRole('button', {name:'Previous story'}).click();
@@ -116,7 +116,7 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
       })));
     await expect.poll(translated).toEqual([Array(5).fill(-60), Array(5).fill(330)]);
     expect(await page.locator('.carousel-slide:not([hidden]) .carousel-dots [aria-current="true"]').evaluateAll(dots =>
-      dots.map(dot => dot.getAttribute('aria-label')))).toEqual([first, 'Creation']);
+      dots.map(dot => dot.getAttribute('aria-label')))).toEqual([first, 'Settlement']);
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:x-200,y}]});
     await expect.poll(translated).toEqual([Array(5).fill(-200), Array(5).fill(190)]);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
@@ -126,7 +126,7 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     expect(context.pages()).toEqual([page]);
     await expect(page).toHaveURL(address);
     await page.reload();
-    await expect(title).toHaveText('Creation');
+    await expect(title).toHaveText('Settlement');
     const second = await title.textContent();
     await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:160,y:380}]});
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:186,y:380}]});
@@ -175,19 +175,23 @@ test('carousel selections preserve the address and history and persist by manusc
   await page.goto('/index.html?utm_source=example');
   const address = page.url();
   const active = page.locator('.carousel-slide:visible');
+  expect(await active.locator('.carousel-dots button').evaluateAll(dots =>
+    dots.map(dot => dot.getAttribute('aria-label')))).toEqual([
+    'Cookbook', 'Settlement', 'Creation', 'Mission to Mars', 'Theology', 'History of ideas',
+  ]);
   const mark = await page.evaluate(() => {
     history.replaceState({testMarker:true}, '');
     return history.length;
   });
   await page.getByRole('button', {name:'Previous story'}).click();
-  await expect(active.getByRole('heading')).toHaveText('Theology');
-  await expect(page).toHaveURL(address);
-  await page.getByRole('button', {name:'History of ideas', exact:true}).click();
   await expect(active.getByRole('heading')).toHaveText('History of ideas');
+  await expect(page).toHaveURL(address);
+  await page.getByRole('button', {name:'Theology', exact:true}).click();
+  await expect(active.getByRole('heading')).toHaveText('Theology');
   expect(await page.evaluate(() => [history.length, history.state])).toEqual([mark,{testMarker:true}]);
   await expect(page).toHaveURL(address);
   await page.reload();
-  await expect(active.getByRole('heading')).toHaveText('History of ideas');
+  await expect(active.getByRole('heading')).toHaveText('Theology');
   await expect(page).toHaveURL(address);
   await page.evaluate(() => localStorage.setItem('make-something-carousel-v1:/', 'stories/removed/removed.md'));
   await page.reload();
@@ -201,7 +205,7 @@ test('carousel continues navigating when storage is blocked', async ({page}) => 
   const active = page.locator('.carousel-slide:visible');
   await expect(active.getByRole('heading')).toHaveText('Cookbook');
   await page.getByRole('button', {name:'Next story'}).click();
-  await expect(active.getByRole('heading')).toHaveText('Creation');
+  await expect(active.getByRole('heading')).toHaveText('Settlement');
   await expect(page).toHaveURL(/\/$/);
 });
 
@@ -248,7 +252,7 @@ test('arrow buttons slide in both directions quickly, retain focus and accept re
   await page.keyboard.press('Enter');
   expect(await first).toBe(true);
   await page.mouse.click(hit.x + hit.width / 2, hit.y + hit.height / 2);
-  await expect(active).toHaveText('History of ideas');
+  await expect(active).toHaveText('Creation');
   await expect(visible).toHaveCount(1);
   await expect(next).toBeFocused();
 
@@ -257,7 +261,7 @@ test('arrow buttons slide in both directions quickly, retain focus and accept re
   const reverse = sample(1);
   await page.keyboard.press('Enter');
   expect(await reverse).toBe(true);
-  await expect(active).toHaveText('Creation');
+  await expect(active).toHaveText('Settlement');
   await expect(visible).toHaveCount(1);
   await expect(previous).toBeFocused();
   await expect(page.locator('.carousel-slide.is-settling')).toHaveCount(0);
