@@ -73,7 +73,7 @@ The [evidence index](<2026.10.30 authenticity improvements/authenticity-evidence
 
 ### App icon
 
-[`2026.11.06 app icon/`](<2026.11.06 app icon/README.md>) retains the original circular mosaic sun and the later [shared square-icon pass](<2026.11.06 app icon/2026.11.06-shared-icons/README.md>): selected teal app and Creation masters, the requested ivory comparison, exact generation requests, export commands and concise outcomes. The root [icon.png](../icon.png) is the opaque 256px favicon shared by the catalogue and player and used for the catalogue's home-screen icon; the [UX identity contract](../docs/ux.md#catalogue-and-story-identity) owns its current use.
+[`2026.11.06 app icon/`](<2026.11.06 app icon/README.md>) retains the original circular mosaic sun and the later [shared square-icon pass](<2026.11.06 app icon/2026.11.06-shared-icons/README.md>): selected teal app and Creation masters, the requested ivory comparison, exact generation requests, export commands and concise outcomes. See the [UX identity contract](../docs/ux.md#catalogue-and-story-identity) for the current shared artwork.
 
 ### Contraptions study — abandoned
 

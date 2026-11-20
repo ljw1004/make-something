@@ -5,7 +5,7 @@ Completed 6 November 2026. The user selected the Creation square mosaic unchange
 ## Retained artwork
 
 - [creation-square.png](creation-square.png): selected 1254 × 1254 opaque master; exported to [Creation's icon](../../../stories/creation/icon.png). Extends the earlier circular mosaic into the corners, retaining the star, wave, branching life, fish and bird. The [story brief](../../../stories/creation/design-brief.md#visual-intent) owns its lasting intent.
-- [main-teal.png](main-teal.png): selected 1254 × 1254 opaque master; exported to the root [icon.png](../../../icon.png). A simple gold-and-ivory mosaic sun on deep teal.
+- [main-teal.png](main-teal.png): selected 1254 × 1254 opaque master; exported to the original root `icon.png`. A simple gold-and-ivory mosaic sun on deep teal.
 - [main-ivory.png](main-ivory.png): unselected alternative retained as one of the three explicitly requested draft deliverables. It keeps the same sun composition with an ivory ground and teal rays.
 - [requests.json](requests.json): exact built-in image-generation requests, original output locations and retained input paths. The literal generation paths describe the working checkout; `retained_input` resolves the preserved references here.
 

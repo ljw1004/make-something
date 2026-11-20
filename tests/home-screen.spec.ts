@@ -32,7 +32,8 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
   const origin = new URL(page.url()).origin;
   const catalogue = await browserManifest(page);
   expect(catalogue).toMatchObject({name: 'Make Something', id: origin + '/index.html', startUrl: origin + '/', scope: origin + '/'});
-  expect(catalogue.icons).toEqual([{url: origin + '/icon.png', sizes: '256x256', type: ''}]);
+  expect(catalogue.icons).toEqual([{url: origin + '/assets/homescreen.png', sizes: '1024x1024', type: ''}]);
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href', catalogue.icons![0].url);
   await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', 'Make Something');
 
   await page.route('**/stories/cookbook/*.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
@@ -48,7 +49,7 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
   await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', first.name!);
   await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href', first.icons![0].url);
   await expect(page).toHaveTitle('Make Something Worthwhile');
-  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', './icon.png');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', './assets/appicon.png');
 
   await page.goto(first.startUrl!);
   expect((await browserManifest(page)).id).toBe(first.id);

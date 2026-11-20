@@ -10,7 +10,7 @@ import {selectedStory, selectStory} from './carousel-selection.ts';
 const app = document.querySelector<HTMLDivElement>('#app')!;
 const root = new URL('./', location.href);
 setHomeScreenIdentity({
-  name: 'Make Something', icon: new URL('icon.png', root).href,
+  name: 'Make Something', icon: new URL('assets/homescreen.png', root).href,
   id: new URL('index.html', root).href, startURL: root.href, scope: root.href, themeColor: '#000000',
 });
 const carousel = app.querySelector<HTMLElement>('.story-carousel');

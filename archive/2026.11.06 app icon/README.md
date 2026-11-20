@@ -3,11 +3,11 @@
 Completed 6 November 2026, with a later shared-icon revision on the same date. The user first selected **E — Mosaic sun**, a gold and ivory sun on a teal and midnight-blue circular field. They subsequently selected the simpler sun on an opaque teal square in the [shared-icon pass](2026.11.06-shared-icons/README.md), together with Creation's square mosaic. The [UX identity contract](../../docs/ux.md#catalogue-and-story-identity) owns current use.
 
 - [icon-master.png](icon-master.png): the original 1254 × 1254 transparent PNG, copied byte-for-byte from the built-in image tool's first selected output and retained as the revision's reference.
-- [../../icon.png](../../icon.png): the current opaque 256 × 256 runtime export, shared by the catalogue and player favicons and the catalogue's home-screen icon.
+- The 6 November build used a 256 × 256 export of the square teal master for the shared favicon and catalogue home-screen icon.
 - [2026.11.06-shared-icons/](2026.11.06-shared-icons/README.md): selected full-resolution square masters, requested ivory alternative, exact requests, export commands and review outcomes.
 - [generation-request.json](generation-request.json): the exact built-in image-generation request. The user's alchemy, hand and mosaic references remained conversation attachments; this generation used the written prompt without image inputs.
 
-Reproduce the runtime export from the repository root on macOS:
+Reproduce the 6 November export from the repository root on macOS:
 
 ```sh
 sips --resampleHeightWidth 256 256 'archive/2026.11.06 app icon/2026.11.06-shared-icons/main-teal.png' --out icon.png
