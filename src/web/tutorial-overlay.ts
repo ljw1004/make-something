@@ -165,7 +165,7 @@ export class TutorialOverlay {
     const clearance = cue.kind === 'hotspot' ? dragContactRadius + 2 : tapRippleRadius;
     const above = point.y - clearance - height;
     const below = point.y + 44 + gap;
-    const placeBelow = above < yMin && below + height <= yMax;
+    const placeBelow = cue.kind !== 'hotspot' && above < yMin && below + height <= yMax;
     const top = Math.max(yMin, Math.min(yMax - height, placeBelow ? below : above));
     this.label.style.transform = `translate(${left}px, ${top}px)`;
   }
@@ -213,7 +213,8 @@ export class TutorialOverlay {
         copy.style.transform = `scale(${source.width / parseFloat(copy.style.width)},${source.height / parseFloat(copy.style.height)})`;
       });
       this.gesture.style.transform = `translate(${gesturePosition.x}px,${gesturePosition.y}px)`;
-      if (!this.label.hidden && !this.interacting) this.positionLabel(cue, host, reduced ? end : gesturePosition);
+      // The hotspot caption describes the destination, not the moving demonstration.
+      if (!this.label.hidden && !this.interacting) this.positionLabel(cue, host, end);
       const tapping = cue.kind === 'goals' || cue.kind === 'encyclopedia';
       this.gesture.style.opacity = String(tapping ? 1 : opacity);
       this.gesture.classList.toggle('tutorial-press', !tapping && phase >= .12 && phase < .6);

@@ -1,4 +1,4 @@
-export type DialogContext = { kind: 'pending' | 'chapter' | 'confirm' | 'error' }
+export type DialogContext = { kind: 'pending' | 'entry' | 'chapter' | 'confirm' | 'error' }
   | { kind: 'encyclopedia'; item?: string; detail?: boolean };
 
 /** Saved authoring anchors may predate direct item reads opening the book. */
@@ -13,6 +13,6 @@ export function restoreDialogContext(value: unknown): DialogContext | undefined 
     item: 'item' in value && typeof value.item === 'string' ? value.item : undefined,
     detail: 'detail' in value && value.detail === true,
   };
-  if (value.kind === 'pending' || value.kind === 'chapter' || value.kind === 'confirm' || value.kind === 'error') return { kind: value.kind };
+  if (value.kind === 'pending' || value.kind === 'entry' || value.kind === 'chapter' || value.kind === 'confirm' || value.kind === 'error') return { kind: value.kind };
   return undefined;
 }

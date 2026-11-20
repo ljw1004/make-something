@@ -523,7 +523,6 @@ test('story restart clears wonder history and the previous selection', async ({ 
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
-  await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   await page.getByRole('button', { name: 'Encyclopedia', exact: true }).click();

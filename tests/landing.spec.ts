@@ -91,7 +91,7 @@ test('resize and live editing cannot expose gameplay before Start or create prog
   await expect(page.locator('.reading-text')).toContainText('Edited introduction.');
 });
 
-test('confirmed story restart in a new chapter clears earlier progress and returns to Start', async ({ page }) => {
+test('confirmed story restart in a new chapter clears earlier progress and opens the first chapter', async ({ page }) => {
   await openFixture(page);
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
@@ -109,9 +109,14 @@ test('confirmed story restart in a new chapter clears earlier progress and retur
   await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
   await page.getByRole('button', { name: 'Restart story', exact: true }).click();
-  await expectLanding(page);
-  expect(await progressKeys(page)).toEqual([]);
-  await page.reload(); await expectLanding(page);
+  await expect(page.getByRole('dialog')).toContainText('Workshop introduction.');
+  await expect(page.locator('[data-item="name:Kit"]')).toHaveCount(0);
+  await expect(page.locator('[data-item="name:Frame"]')).toHaveCount(1);
+  await expect(page.getByRole('button', { name: 'Start', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Home', exact: true })).toHaveCount(0);
+  expect(await progressKeys(page)).toHaveLength(1);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Begin', exact: true })).toBeVisible();
 });
 
 test('explicit cover and chapter backgrounds stay separate from leading reading images', async ({ page }) => {
@@ -157,3 +162,34 @@ test('an explicit debug checkpoint bypasses Start even for chapter one', async (
   await expect(page.locator('[data-item="name:Frame"]')).toHaveCount(1);
   await expect(page.getByText('Generated checkpoint', { exact: true })).toHaveCount(0);
 });
+
+for (const bridge of ['absent', 'ready', 'throws', 'unsupported'] as const) {
+  test(`a successful combination gives optional haptic feedback (bridge: ${bridge})`, async ({page}) => {
+    await page.addInitScript(mode => {
+      const calls: unknown[] = [];
+      Object.defineProperty(window, 'hapticCalls', {value: calls});
+      Object.defineProperty(navigator, 'vibrate', {value: mode === 'unsupported' ? undefined : (ms: number) => calls.push(ms)});
+      if (mode === 'ready' || mode === 'throws') {
+        Object.defineProperty(window, 'webkit', {value: {messageHandlers: {makeSomethingHaptics: {
+          postMessage: (event: unknown) => {
+            if (mode === 'throws') throw new Error('bridge unavailable');
+            calls.push(event);
+          },
+        }}}});
+      }
+    }, bridge);
+    const calls = () => page.evaluate(() => (window as Window & {hapticCalls?: unknown[]}).hapticCalls);
+    await openFixture(page);
+    await page.getByRole('button', {name:'Start', exact:true}).click();
+    await page.getByRole('button', {name:'Begin', exact:true}).click();
+    const frame = page.locator('[data-item="name:Frame"]');
+    await frame.dragTo(page.locator('.viewport'), {targetPosition:{x:200, y:500}});
+    expect(await calls()).toEqual([]);
+    await frame.dragTo(page.locator('[data-item="name:Tool"]'));
+    await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
+    expect(await calls()).toEqual(bridge === 'ready' ? [{type:'combination'}] : bridge === 'unsupported' ? [] : [20]);
+    await page.reload();
+    await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
+    expect(await calls()).toEqual([]);
+  });
+}

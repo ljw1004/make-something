@@ -186,10 +186,8 @@ test('early goals clicks count, and confirmed story restart from chapter one cle
   await page.getByRole('button', {name: 'Read this chapter'}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
-  await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
+  await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeVisible();
   await page.reload();
-  await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
-  await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await expect(cue(page, 'drag')).toBeVisible();
   await combine(page, 'A', 'B'); await page.getByRole('button', {name: 'Continue', exact: true}).click();
@@ -315,9 +313,9 @@ test('carousel arrivals share advanced tutorials; direct entry and restart stay 
   await button('Read this chapter').click();
   await button('Restart story').click();
   await button('Restart story').click();
-  await expect(button('Start')).toBeVisible();
+  await expect(button('Begin')).toBeVisible();
   await page.reload();
-  await expect(button('Start')).toBeVisible();
+  await expect(button('Begin')).toBeVisible();
 
   const flags = await page.evaluate(() => {
     const key = (path: string) => encodeURIComponent(new URL(path, location.href).href);

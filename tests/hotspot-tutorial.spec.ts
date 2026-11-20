@@ -107,8 +107,14 @@ test('paired animation parks its first ghost through the second gesture, yields 
   await open(page, story.replace(' (tutorial)', ''));
   await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 100));
   await expect(cue(page, 'hotspot')).toBeVisible();
+  const label = cue(page, 'hotspot').locator('.tutorial-label');
+  const stationBox = (await station(page, 'Bench').boundingBox())!;
+  const initialLabel = (await label.boundingBox())!;
+  expect(initialLabel.x + initialLabel.width / 2).toBeCloseTo(stationBox.x + stationBox.width / 2);
+  expect(initialLabel.y + initialLabel.height).toBeLessThan(stationBox.y + stationBox.height / 2);
   // Pause in the second drag: the first ghost has arrived and remains visible.
   await page.clock.runFor(3600);
+  expect(await label.boundingBox()).toEqual(initialLabel);
   const first = (await page.locator('.tutorial-ghost').nth(0).boundingBox())!;
   const target = (await station(page, 'Bench').boundingBox())!;
   expect(first.x + first.width / 2).toBeCloseTo(target.x + target.width / 2);
@@ -116,6 +122,7 @@ test('paired animation parks its first ghost through the second gesture, yields 
   expect(await page.locator('.tutorial-ghost').nth(0).evaluate(el => Number((el as HTMLElement).style.opacity))).toBeGreaterThan(.4);
   expect(await page.locator('.tutorial-ghost').nth(1).evaluate(el => Number((el as HTMLElement).style.opacity))).toBeGreaterThan(.1);
   await page.emulateMedia({reducedMotion: 'reduce'}); await page.clock.runFor(32);
+  expect(await label.boundingBox()).toEqual(initialLabel);
   for (const ghost of await page.locator('.tutorial-ghost').all()) await expect(ghost).toBeHidden();
   for (const path of await page.locator('.tutorial-path').all()) await expect(path).toBeVisible();
   const session = await context.newCDPSession(page), a = (await tile(page, 'D').boundingBox())!;
@@ -150,7 +157,6 @@ test('an unfinished lesson follows the next chapter; completion survives chapter
   await page.getByRole('button', {name: 'Read this chapter'}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
   await page.getByRole('button', {name: 'Restart story', exact: true}).click();
-  await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await drag(page, tile(page, 'A'), tile(page, 'B'));
   await expect(cue(page, 'hotspot')).toBeVisible();

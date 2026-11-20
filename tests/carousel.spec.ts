@@ -45,6 +45,8 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await expect(active.getByRole('heading')).toHaveText('Mission to Mars');
   await expect(active.getByRole('link')).toContainText('Continue');
   await active.getByRole('link').click();
+  await expect(page.getByRole('dialog')).toContainText('The kit is ready.');
+  await page.getByRole('button', {name:'End', exact:true}).click();
   await expect(page.getByText('The End', {exact:true})).toBeVisible();
   await page.getByRole('button', {name:'Read this chapter'}).click();
   const home = page.getByRole('link', {name:'Home', exact:true});
@@ -68,11 +70,11 @@ test('Start skips the cover, final Home preserves progress, and Restart keeps sh
   await page.getByRole('button', {name:'Read this chapter'}).click();
   await page.getByRole('button', {name:/Restart story/}).click();
   await page.getByRole('button', {name:'Restart story', exact:true}).click();
-  await expect(page.getByRole('button', {name:'Start', exact:true})).toBeVisible();
+  await expect(page.getByRole('button', {name:'Begin', exact:true})).toBeVisible();
   expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!).goalsDone, tutorialKey)).toBe(true);
   expect(await page.evaluate(keys => keys.map(key => localStorage.getItem(key)), dragKeys)).toEqual(['true', 'false']);
   await page.reload();
-  await expect(page.getByRole('button', {name:'Start', exact:true})).toBeVisible();
+  await expect(page.getByRole('button', {name:'Begin', exact:true})).toBeVisible();
   await page.goto('/');
   await page.getByRole('button', {name:'Mission to Mars', exact:true}).click();
   await expect(active.getByRole('link')).toContainText('Continue');
@@ -334,6 +336,8 @@ test('a move-only first chapter says Start but keeps saved positions; combining 
   await home.click();
   await expect(card).toContainText('Start');
   await card.click();
+  await expect(page.getByRole('dialog')).toContainText('Make a kit.');
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
   await expect(item).toBeVisible();
   expect((await item.boundingBox())!.x).toBeCloseTo(moved.x, 0);
   expect((await item.boundingBox())!.y).toBeCloseTo(moved.y, 0);
@@ -344,4 +348,52 @@ test('a move-only first chapter says Start but keeps saved positions; combining 
   await expect(page.getByRole('button',{name:'Restart chapter',exact:true})).toBeVisible();
   await home.click();
   await expect(card).toContainText('Continue');
+});
+
+test('Continue reopens an acknowledged later chapter before any saved discovery', async ({page}) => {
+  const twoChapters = story.replace('## Ending\nThe kit is ready.', `## Field
+The workshop is behind you.
+
+**Items**
+- Probe
+- Sample
+
+  You found a sample.
+
+- Spare
+
+**Goals**
+- Make the spare -- Spare
+
+**Combinations**
+- Kit [preserve] + Probe [preserve] -> Sample
+- Sample [preserve] + Probe [preserve] -> Spare
+`);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType:'text/markdown', body:twoChapters}));
+  const launch = async () => {
+    await page.goto('/');
+    await page.getByRole('button', {name:'Mission to Mars', exact:true}).click();
+    await page.locator('.carousel-slide:visible a[data-story]').click();
+  };
+  const begin = page.getByRole('button', {name:'Begin', exact:true});
+  const reading = page.getByRole('dialog');
+  await launch();
+  await begin.click();
+  await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));
+  await page.getByRole('button', {name:'Continue story'}).click();
+  await expect(reading).toContainText('The workshop is behind you.');
+  await begin.click();
+  await page.locator('[data-item="name:Kit"]').dragTo(page.locator('[data-item="name:Probe"]'));
+  await expect(reading).toContainText('You found a sample.');
+
+  await launch();
+  await expect(reading).toContainText('The workshop is behind you.');
+  await begin.click();
+  await expect(reading).toContainText('You found a sample.');
+  await page.getByRole('button', {name:'Continue', exact:true}).click();
+  await expect(page.locator('[data-item="name:Sample"]')).toBeVisible();
+  await page.reload();
+  await expect(page.locator('[data-item="name:Sample"]')).toBeVisible();
+  await expect(reading).toHaveCount(0);
 });

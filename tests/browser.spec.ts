@@ -104,7 +104,8 @@ test('manual recovery controls are conditional and story restart requires confir
   await page.reload();await page.getByRole('button',{name:'Read this chapter'}).click();
   await expect(page.getByRole('button',{name:'Restart chapter'})).toHaveCount(0);
   await page.getByRole('button',{name:'Restart story',exact:true}).click();await page.getByRole('button',{name:'Restart story',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();await expect(page.locator('dialog')).toHaveCount(0);await expect(page.locator('[data-item]')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Begin',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Start',exact:true})).toHaveCount(0);
 });
 
 test('a card covering centered goals keeps native pointer precedence',async({page})=>{

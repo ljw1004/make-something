@@ -1,3 +1,4 @@
+import { combinationHaptic } from './haptics.ts';
 import {validCentre} from '../story/coordinates.ts';
 import {coordinateEntries} from '../lint/coordinates.ts';
 import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
@@ -453,10 +454,11 @@ async function start() {
     if (!loaded) encyclopediaHistory = {};
     await itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
     starting = false;
-    render(!loaded);
-    if (loaded && fromCarousel && state.completed) scrollToCurrentChapter();
+    render(!loaded, !loaded || !skipCover);
+    if (skipCover || (loaded && fromCarousel && state.completed)) scrollToCurrentChapter();
     else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
-    if (!anchor) rememberInteraction();
+    if (skipCover) showChapterEntry();
+    if (!anchor || skipCover) rememberInteraction();
     checkText(parsed, previewText);
     authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators(); save();
@@ -529,9 +531,22 @@ function popupHome(placement: 'ending' | 'chapter') {
 function pendingContent() {
   const notice = state.pending[0];
   if (!notice) return '';
-  const ending = notice.kind === 'chapter' && state.completed;
-  const action = `<button data-command="dismiss">${ending ? 'End' : notice.kind === 'chapter' ? 'Begin' : 'Continue'}</button>`;
-  return `${readingBody(notice.kind === 'wonder' ? browserItemText(notice.markdown) : notice.markdown, asset)}<div class="dialog-actions${ending ? ' ending-actions' : ''}">${action}${ending ? popupHome('ending') : ''}</div>`;
+  if (notice.kind === 'chapter') return chapterEntryContent(notice.markdown, 'dismiss');
+  return `${readingBody(browserItemText(notice.markdown), asset)}<div class="dialog-actions"><button data-command="dismiss">Continue</button></div>`;
+}
+function chapterIntroduction() {
+  return chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
+}
+function chapterEntryContent(text: string, command: 'dismiss' | 'close') {
+  const ending = state.completed;
+  const body = text.trim() ? readingBody(text, asset) : `<h1>${escape(story.chapters[state.chapter].name)}</h1>`;
+  return `${body}<div class="dialog-actions${ending ? ' ending-actions' : ''}"><button data-command="${command}">${ending ? 'End' : 'Begin'}</button>${ending ? popupHome('ending') : ''}</div>`;
+}
+function showChapterEntry() {
+  if (state.pending[0]?.kind === 'chapter') { showPending(); return; }
+  // Re-reading an introduction is presentation only. Do not dismiss an
+  // already queued discovery or add a synthetic action to the save history.
+  modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', { kind: 'entry' });
 }
 function showPending() {
   if (!storyStarted || dialogContext || !state?.pending.length) return;
@@ -545,7 +560,7 @@ function openPendingReading() {
 }
 function chapterContent() {
   const recovery = state.completed ? 'story' : chapterRecovery(chapterSession);
-  const text = chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
+  const text = chapterIntroduction();
   const encyclopedia = encyclopediaEntries(story, state).length >= 3
     ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon popup-action-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label popup-action-label">Encyclopedia</span></button>` : '';
   const header = `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>`;
@@ -579,7 +594,7 @@ function confirmRestart() {
   const lessons = entryContext?.fromCarousel
     ? 'This resets the opening drag lesson for this story but keeps the tutorials shared across the carousel.'
     : 'This resets the tutorial progress for this story but does not change the tutorials shared across the carousel.';
-  modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the cover page and Start button. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
+  modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the first chapter’s introduction. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
 }
 const bookSwipe = new EncyclopediaSwipe(dialogLayer,
   () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
@@ -688,7 +703,8 @@ function refreshDialog() {
   if (dialogContext?.kind === 'pending') {
     if (state.pending.length) openPendingReading();
     else closeDialog();
-  } else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
+  } else if (dialogContext?.kind === 'entry') modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', dialogContext);
+  else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
   else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
   if (!dialogContext) showPending();
 }
@@ -732,6 +748,7 @@ function commit(action: Action) { try {
     inputTrace?.record('commit:applied',{action});
     const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
     if (action.type === 'combine') {
+      combinationHaptic();
       // Fitting a slot updates an existing compound. Its new reading can qualify too.
       encyclopediaHistory.latestResult = born ?? recipeFor(story, before, action)?.result.id;
       if (before.chapter === 0) tutorialProgress?.finish('dragDone');
@@ -852,19 +869,15 @@ function beginStory() {
 }
 function restartStory() {
   cancelArtworkWait();
-  withArtwork(coverArtwork(story), () => {
+  const next = newGame(story);
+  withArtwork(currentArtwork(story, next), () => {
     resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
-    storyStarted = false; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
+    storyStarted = true; state = next; chapterSession = captureChapter(state); itemOrder = []; editedSnapshot = false;
     encyclopediaHistory = {}; encyclopediaScroll = 0;
     tutorialProgress?.reset();
-    if (entryContext) entryContext.skipCover = false;
-    // A landing is not a saved game. Removing the old save also makes reload stay here.
-    saveProgress(() => {
-      localStorage.removeItem(key());
-      if (legacySaveKey) localStorage.removeItem(legacySaveKey);
-    }, showSaveError);
-    render(); rememberInteraction();
-    surface.querySelector<HTMLElement>('.story-start')?.focus({ preventScroll: true });
+    if (legacySaveKey) saveProgress(() => localStorage.removeItem(legacySaveKey!), showSaveError);
+    render(true); showChapterEntry(); rememberInteraction(); save();
+    authoring.revealCurrentChapter();
   });
 }
 function restartChapter() {
@@ -1095,7 +1108,7 @@ app.addEventListener('click',e=>{
   flushPreview();
   if(command==='start-story')beginStory();
   else if(command==='ending-home'){
-    state = act(story, state, {type:'dismiss'});
+    if (dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
     closeDialog(); rememberInteraction(); save();
   }
   else if(command==='dismiss')commit({type:'dismiss'});
