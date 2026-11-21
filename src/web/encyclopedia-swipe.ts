@@ -12,7 +12,7 @@ interface Swipe {
   claimed: boolean;
 }
 
-/** Touch page navigation and outward dismissal; vertical scrolling stays native. */
+/** Page navigation and dismissal by dragging the book. */
 export class EncyclopediaSwipe {
   private swipe?: Swipe;
   private dismissal?: { track: HTMLElement; animation: Animation };
@@ -73,10 +73,12 @@ export class EncyclopediaSwipe {
   }
 
   private begin = (event: PointerEvent) => {
-    if (event.pointerType !== 'touch' || !event.isPrimary || event.button !== 0 || this.swipe || this.dismissal) return;
+    const mouse = event.pointerType === 'mouse';
+    if ((!mouse && event.pointerType !== 'touch') || !event.isPrimary || event.button !== 0 || this.swipe || this.dismissal) return;
     const page = this.page(), target = event.target instanceof Element ? event.target : undefined;
     const track = target?.closest<HTMLElement>('.encyclopedia-track');
-    if (page === undefined || !track || this.hasSelection() || target?.closest('button, input, textarea, select, [contenteditable]')) return;
+    if (page === undefined || !track || target?.closest('button, input, textarea, select, [contenteditable]')) return;
+    if (mouse ? target?.closest('.reading-text') : this.hasSelection()) return;
     const index = track.querySelector('.encyclopedia-index')!, reading = track.querySelector('.encyclopedia-detail')!;
     this.swipe = {
       pointer: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp,
@@ -88,14 +90,16 @@ export class EncyclopediaSwipe {
   private move = (event: PointerEvent) => {
     const swipe = this.swipe;
     if (!swipe || event.pointerId !== swipe.pointer) return;
-    if (this.page() !== swipe.page || !swipe.track.isConnected || this.hasSelection()) { this.cancel(); return; }
+    const touch = event.pointerType === 'touch';
+    if (this.page() !== swipe.page || !swipe.track.isConnected || (touch && this.hasSelection())) { this.cancel(); return; }
     const dx = event.clientX - swipe.x, dy = event.clientY - swipe.y;
     if (!swipe.claimed) {
       // Leave holds to native text selection and reject diagonal/vertical intent
       // before taking capture. Never prevent the initial press or ordinary taps.
-      if (event.timeStamp - swipe.time > 400) { this.cancel(); return; }
+      if (touch && event.timeStamp - swipe.time > 400) { this.cancel(); return; }
       if (Math.hypot(dx, dy) < 10) return;
       if (Math.abs(dx) < Math.abs(dy) * 1.5) { this.cancel(); return; }
+      if (!touch && this.hasSelection()) getSelection()?.removeAllRanges();
       swipe.claimed = true;
       this.suppressClick = true;
       this.root.setPointerCapture(swipe.pointer);

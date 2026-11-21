@@ -312,6 +312,7 @@ test('long mobile encyclopedia scrolls without horizontal overflow and supports 
   expect(await indexNode.evaluate(el => el.isConnected)).toBe(true);
   await expect(page.locator('.encyclopedia-index')).toHaveAttribute('inert', '');
   await expect(page.locator('.encyclopedia-index')).toHaveAttribute('aria-hidden', 'true');
+  await expect(list).toHaveCSS('scrollbar-color', 'auto');
   const back = page.getByRole('button', { name: 'Index', exact: true });
   await expect(page.getByRole('button', { name: 'Close', exact: true })).toHaveCount(1);
   await expect(page.locator('.encyclopedia-detail [data-command="close"]')).toHaveCount(1);
@@ -356,7 +357,7 @@ test('touch opens an encyclopedia entry below threshold and dismisses reopened g
   await context.close();
 });
 
-test('the active page is centered with facing paper to the game edge; wide layouts expose both pages', async ({ page }) => {
+test('the active page is centered with a facing edge; wide proportions expose both pages', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openFixture(page, manuscript.replace('- Tool\n', '- Extra\n\n  Extra description.\n\n- Tool\n'));
@@ -413,9 +414,31 @@ test('the active page is centered with facing paper to the game edge; wide layou
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toHaveAttribute('aria-current', 'true');
   }
+  await page.setViewportSize({ width: 1024, height: 1366 });
+  await expect(detail).toHaveAttribute('inert', '');
+  const tabletPage = (await index.boundingBox())!, tabletWindow = (await pages.boundingBox())!;
+  const facingPage = (await detail.boundingBox())!;
+  expect(tabletPage.x + tabletPage.width / 2).toBeCloseTo(512, 0);
+  expect(tabletPage.width / tabletPage.height).toBeCloseTo(.7, 2);
+  expect(tabletWindow.x).toBe(0);
+  expect(tabletWindow.width).toBe(1024);
+  expect(facingPage.x + facingPage.width).toBeGreaterThan(1024);
+  expect(await detail.locator('.reading-text').evaluate(el => {
+    const text = document.createRange(); text.selectNodeContents(el);
+    const ink = text.getBoundingClientRect();
+    return ink.width > 0 && ink.left < innerWidth;
+  })).toBe(true);
+  await expect.poll(() => page.evaluate(() => !!document.elementFromPoint(innerWidth - 1, innerHeight / 2)?.closest('.encyclopedia-track'))).toBe(true);
   await page.getByRole('link', { name: 'Grain', exact: true }).click();
-  for (const width of [640, 1100]) {
-    await page.setViewportSize({ width, height: 800 });
+  await expect(index.locator('.encyclopedia-close')).toBeHidden();
+  expect((await index.boundingBox())!.x).toBeLessThan(0);
+  expect(await page.evaluate(() => !!document.elementFromPoint(1, innerHeight / 2)?.closest('.encyclopedia-track'))).toBe(true);
+  await page.setViewportSize({ width: 2200, height: 1800 });
+  await expect(index).toHaveAttribute('inert', '');
+  expect((await index.boundingBox())!.x).toBeLessThan(0);
+  expect(await page.evaluate(() => !!document.elementFromPoint(1, innerHeight / 2)?.closest('.encyclopedia-track'))).toBe(true);
+  for (const {width, height} of [{width: 600, height: 450}, {width: 1200, height: 900}]) {
+    await page.setViewportSize({ width, height });
     await expect(index).toHaveAttribute('aria-hidden', 'false');
     await expect(detail).toHaveAttribute('aria-hidden', 'false');
     expect(await index.evaluate(el => (el as HTMLElement).inert)).toBe(false);
@@ -434,6 +457,15 @@ test('the active page is centered with facing paper to the game edge; wide layou
     await expect(page.getByRole('link', { name: 'Stone', exact: true })).toBeFocused();
     expect(await node.evaluate(el => el.isConnected)).toBe(true);
   }
+  // The book stays at its height cap on both sides of this aspect-ratio boundary.
+  await page.setViewportSize({ width: 1400, height: 1120 });
+  await expect(index).toHaveAttribute('aria-hidden', 'false');
+  const cappedHeight = (await dialog.boundingBox())!.height;
+  await page.setViewportSize({ width: 1400, height: 1121 });
+  await expect(index).toHaveAttribute('inert', '');
+  expect((await dialog.boundingBox())!.height).toBe(cappedHeight);
+  await page.setViewportSize({ width: 1400, height: 1120 });
+  await expect(index).toHaveAttribute('aria-hidden', 'false');
   await page.setViewportSize({ width: 390, height: 800 });
   await expect(index).toHaveAttribute('inert', '');
   await expect(page.getByRole('button', { name: 'Index', exact: true })).toBeFocused();
@@ -456,6 +488,40 @@ test('the active page is centered with facing paper to the game edge; wide layou
     const bounds = document.querySelector('#app')!.getBoundingClientRect();
     return !!document.elementFromPoint(bounds.right - 1, 400)?.closest('.encyclopedia-track');
   })).toBe(true);
+});
+
+test('mouse drags turn the book pages and preserve text selection', async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 1366 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await openFixture(page);
+  await page.locator('[data-item="name:Grain"]').focus();
+  await page.keyboard.press('Enter');
+  const pages = page.locator('.encyclopedia-pages');
+  await expect(pages).toHaveClass(/show-detail/);
+  const header = (await page.locator('.encyclopedia-detail-toolbar').boundingBox())!;
+  const headerX = header.x + header.width / 2, headerY = header.y + header.height / 2;
+  const drag = async (x: number, y: number, dx: number) => {
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    await page.mouse.move(x + dx, y, { steps: 5 });
+    await page.mouse.up();
+  };
+  await drag(headerX, headerY, 120);
+  await expect(pages).not.toHaveClass(/show-detail/);
+  const stone = (await page.getByRole('link', { name: 'Stone', exact: true }).boundingBox())!;
+  await drag(stone.x + 180, stone.y + stone.height / 2, -120);
+  await expect(pages).toHaveClass(/show-detail/);
+  await expect(page.locator('.encyclopedia-reading')).toHaveText('A grain explanation.');
+  const ink = await page.locator('.encyclopedia-reading .reading-text').evaluate(el => {
+    const range = document.createRange(); range.selectNodeContents(el.querySelector('p')!);
+    const rect = range.getBoundingClientRect();
+    return { x: rect.x, y: rect.y, width: rect.width, height: rect.height };
+  });
+  await drag(ink.x + 1, ink.y + ink.height / 2, ink.width - 2);
+  await expect.poll(() => page.evaluate(() => getSelection()?.toString())).toContain('grain explanation');
+  await expect(pages).toHaveClass(/show-detail/);
+  await drag(headerX, headerY, -120);
+  await expect(page.locator('dialog')).toHaveCount(0);
 });
 
 test('chapter opening chooses first, previous selection, then latest shown wonder; mobile always opens the index', async ({ page }) => {

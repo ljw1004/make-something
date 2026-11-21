@@ -189,7 +189,7 @@ For stories with illustrated scenes, maintain a scene plan covering recurring lo
 
 ### Compose backgrounds for their intended frame
 
-The [UX framing rule](ux.md#work-surface-and-dragging) determines cropping from the image proportions and available pane, without author metadata. Use the usual **390:844** composition (for example, **780 × 1688** pixels) for phone-first stories. Keep the setting recognizable near the top and leave usable working space below; shorter phone viewports crop the bottom, and taller/narrower ones crop the sides. A taller source is not required to cover every phone because uniform filling handles those differences. Keep essential fixed targets clear of the expected cropped edges. Inspect the complete composition too, since wide screens reveal all of it and enlarge its objects together. Intentionally broader artwork is supported and fits in full even on phones.
+The [UX framing rule](ux.md#work-surface-and-dragging) determines cropping from the image and pane proportions. Use the usual **390:844** composition (for example, **780 × 1688** pixels) for tall scenes. Keep the setting recognizable near the top and leave usable working space below. Shorter fill-mode panes, including portrait tablets, crop the bottom. Taller and narrower panes crop the sides. Keep essential fixed targets clear of the expected cropped edges. Inspect the complete composition in landscape and nearly square panes, which reveal all of it and enlarge its objects together. Broader artwork fits in full even on phones.
 
 ### Register changing scenery
 

@@ -47,14 +47,17 @@ test('the carousel uses a full-height phone scene and centered black desktop gut
   expect(await page.locator('#catalogue-app').evaluate(el => getComputedStyle(el).backgroundColor)).toBe('rgb(0, 0, 0)');
 });
 
-test('phones fill all portrait widths, desktops enlarge the full scene and its cards, landscape phones fit',async({page})=>{
+test('phone and tablet proportions fill, landscape panes fit the full scene and scale its cards',async({page})=>{
   await open(page);
-  for(const size of [{width:390,height:664},{width:440,height:956},{width:484,height:1112}]){
+  for(const size of [{width:390,height:664},{width:440,height:956},{width:484,height:1112},{width:512,height:683},{width:1024,height:1366}]){
     await page.setViewportSize(size);
     await expect.poll(async()=>Math.round((await box(page,'.chapter-panel'))!.width)).toBe(size.width);
     await expect.poll(async()=>(await box(page,'.chapter-panel'))!.height).toBeCloseTo(size.height,1);
     expect((await box(page,'.chapter-panel'))!.x).toBeCloseTo(0,1);
   }
+  await page.setViewportSize({width:1024,height:1080});
+  await expect.poll(async()=>(await box(page,'.chapter-panel'))!.width).toBeCloseTo(390*1080/844,1);
+  expect((await box(page,'.scene-art'))!.height).toBeCloseTo(1080,1);
   await page.setViewportSize({width:1920,height:1200});
   await expect.poll(async()=>(await box(page,'.chapter-panel'))!.width).toBeCloseTo(390*1200/844,1);
   const scene=(await box(page,'.chapter-panel'))!,image=(await box(page,'.scene-art'))!;

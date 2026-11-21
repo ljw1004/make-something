@@ -15,10 +15,10 @@ export function sceneSize(image?: ImageSize): SceneSize {
   return {width: 390, height: usable ? 390 * usable.height / usable.width : 844, ...(usable ? {image: usable} : {})};
 }
 
-/** Only phone-shaped artwork fills a narrow portrait pane. Else fit the whole scene. */
+/** Tall artwork fills portrait panes, with a fit for more nearly square panes. */
 export function viewportBoard(width: number, height: number, image?: {width:number;height:number}) {
   const scene = sceneSize(image);
-  const cover = scene.height / scene.width >= 16 / 9 && width < 640 && height > width;
+  const cover = scene.height / scene.width >= 16 / 9 && height / width >= 5 / 4;
   const scale = (cover ? Math.max : Math.min)(width / scene.width, height / scene.height);
   const visibleWidth = cover ? width : scene.width * scale;
   const visibleHeight = cover ? height : scene.height * scale;

@@ -2434,3 +2434,11 @@ The initial pass reported zero lint errors and the existing 8 Creation, 22 Settl
 The parallel Settlement goals support making the house, window or mat first. All three orders replayed to the ending with readings dismissed, and 39 sampled in-chapter saves from the three preceding versions continued. Chromium checked both goal rows on 320px and 390px viewports, including the glass, window and mat goals.
 
 An editorial scan compared visible goals and required operations on one legal replay per catalogue story. The [backlog](projects/backlog.md#current-stories) records three possible clues to test with fresh players. Replay exposes hidden prerequisites and verifies routes, while fresh player observations show which steps actually need help.
+
+## 20 November 2026 — Scene and encyclopedia proportions
+
+The user replaced the shared 640px boundary with independent [scene framing](docs/ux.md#work-surface-and-dragging) and [book layout](docs/ux.md#encyclopedia) rules. Scene fill extends to portrait iPads. The 4:5 portrait boundary keeps near-square panes from cropping away the lowest work, including Creation’s gathering target. The book aims for 7:10 pages and centers one page with a facing edge or both pages based on the pane’s proportions.
+
+The production build, offline app resource audit, nine focused unit checks and 60 focused Chromium and WebKit checks passed. WebKit exercised the compiled Creation coast and book at both iPad orientations and combined Song with the final gathering at iPad portrait size and at the 4:5 edge. The broader Chromium selection passed 28 checks and reproduced an existing held-item label clipped during a drag on the preceding revision.
+
+The follow-up crops the continuous book at the game pane edge, retaining the facing page’s text and native scrollbar behavior. Mouse drags on paper, headings and index links join touch swipes for page turns and dismissal. Mouse drags in entry prose remain text selection. The rebuilt player passed 30 focused browser checks and three book unit checks. The production WebKit check on Creation’s coast turned both ways with a mouse and showed the facing page reaching the available edge.

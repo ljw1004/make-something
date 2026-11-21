@@ -116,7 +116,7 @@ test.describe('encyclopedia touch swipes', () => {
   for (const view of ['index', 'detail', 'spread-left', 'spread-right']) {
     test(`${view} outward swipe moves the whole book away, restores focus and does not click through`, async ({ page, context }) => {
       const spread = view.startsWith('spread'), direction = view === 'index' || view === 'spread-right' ? 1 : -1;
-      if (spread) await page.setViewportSize({ width: 1000, height: 844 });
+      if (spread) await page.setViewportSize({ width: 1100, height: 844 });
       await openBook(page);
       if (view === 'index') {
         await page.getByRole('button', { name: 'Index', exact: true }).tap();
@@ -165,7 +165,7 @@ test.describe('encyclopedia touch swipes', () => {
   });
 
   test('both wide pages still scroll vertically and short outward swipes return to the spread', async ({ page, context }) => {
-    await page.setViewportSize({ width: 1000, height: 844 });
+    await page.setViewportSize({ width: 1100, height: 844 });
     await openBook(page);
     const finger = touch(await context.newCDPSession(page)), track = page.locator('.encyclopedia-track');
     const start = (await track.boundingBox())!.x;
@@ -273,7 +273,7 @@ test.describe('encyclopedia touch swipes', () => {
     await expect(page.locator('dialog')).toHaveCount(0);
     expect(await page.locator('body').getAttribute('data-clicked-game')).toBeNull();
     await page.keyboard.press('Enter');
-    await page.setViewportSize({ width: 1000, height: 844 });
+    await page.setViewportSize({ width: 1100, height: 844 });
     await expect(page.locator('.encyclopedia-detail')).toHaveAttribute('aria-hidden', 'false');
     const spreadStart = (await track.boundingBox())!.x;
     await finger.start(250, 400); await finger.move(90, 400);

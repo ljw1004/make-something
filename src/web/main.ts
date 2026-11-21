@@ -775,7 +775,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     dialog.scrollTop = changing ? 0 : scroll;
     dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
     if (context.kind === 'encyclopedia') {
-      bookResize.observe(dialog); syncBookLayout();
+      bookResize.observe(app); syncBookLayout();
       const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
     } else bookResize.disconnect();
     chapterFooterResize.disconnect();
