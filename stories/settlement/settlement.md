@@ -79,7 +79,7 @@ We need a meal before we can get back to work. We will grow plants, fruit and gr
 - Plant
   - icon: ![Plant](assets/icons/plant.png)
 
-  *Plants*. Grasses carry seed heads that shake in the breeze. Fruit bushes need watering, and trees take root in the earth and grow woody trunks. Some softer stems contain can be crushed to get useful fibers.
+  *Plants*. Grasses carry seed heads that shake in the breeze. Fruit bushes need watering, and trees take root in the earth and grow woody trunks. Crushing softer stems can free their fibers.
 
 - Grain
   - icon: ![Grain](assets/icons/grain.png)
@@ -114,7 +114,11 @@ Here by the river would be a good place to build a house.
 **Goals**
 - Grow wood in the earth -- Wood
 - next: Build a house -- House
-- next: Make a sleeping mat -- Sleeping mat
+- next: Make glass from sand -- Glass
+- next: Make a glass window -- Window
+- Crush plant stems into fiber -- Plant fiber
+- next: Weave thread on a wooden frame -- Cloth
+- next: Stuff a sleeping mat with fiber -- Sleeping mat
 - next: Fit window and sleeping mat -- House[Window, Sleeping mat]
 
 **Items**
@@ -200,7 +204,8 @@ background: ![Across the brook](assets/backgrounds/04.webp)
 A river blocks the path. Build a footbridge to cross it, and a handcart to move supplies.
 
 **Goals**
-- Build a footbridge -- Footbridge
+- Make rope -- Rope
+- next: Build a wooden footbridge -- Footbridge
 - Shape planks into a wheel with stone -- Wheel
 - next: Make Handcart -- Handcart
 

@@ -18,6 +18,8 @@ Keep plain porridge in Breakfast. Dairy ends with butter, whipped cream and unst
 
 Name the fermented milk “Unstrained yoghurt” and the result of using the straining cloth “Yoghurt.” Cucumber yoghurt uses that finished yoghurt and the sliced cucumber prepared earlier for sandwiches. Keep the existing illustrations for these preparations.
 
+Make cider vinegar the first visible goal in **Vinegar and salad dressing** so the player sees the fermentation work before dressing the green salad.
+
 Use a chef’s knife consistently. Name hob and oven uses clearly. Heat matters where its omission would confuse the preparation, especially milk added to hot roux; do not add a heating gesture to every warm dish. Keep successive sauce states in the saucepan. Toss ravioli with herb brown butter in the frying pan. Assemble the meringue-coated Unbaked Alaska before baking it. Finish and ice the ganache-filled chocolate cake in its preparation chapter, not at dinner. Call the sugar-and-water mixture “Icing.”
 
 ## Serving occasions

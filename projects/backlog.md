@@ -14,6 +14,12 @@ Ideas are options to test, not obligations to implement. The current engine rema
 
 Creation’s chapter-ten Storm route has a narrow discoverability issue: all three players in the clearer-intro detailed cohort tried Clouds + Air before inspecting to discover Rainfall + Air. All completed; this is not a dead end. If revisiting that recipe, compare the expected pair directly rather than adding more explanatory prose. See the [current outcome](<../archive/2026.11.05 creation study/production/2026.11.05-revision/art-revision-outcome.md#logical-iteration-during-artwork>).
 
+Trial these possible clues from the 20 November checkpoint review with fresh players and normal partner highlights. Look for whether the visible goal gives players a reason to try the first required operation.
+
+- In **Settlement’s Baking bread**, Flour and Air produce Wild starter, a prerequisite hidden behind “Bake bread.” Try “Make a starter to raise the dough.” [Baking bread](../stories/settlement/settlement.md#baking-bread)
+- In **Cookbook’s Choux pastry**, both baking goals depend on first cooking a flour paste in the saucepan. Try “Cook the flour paste in the saucepan,” then reveal the two baking projects together. [Choux pastry](../stories/cookbook/cookbook.md#choux-pastry)
+- In **Ideas’ Views and navigation**, the distortion question gives little reason to start with the two ports’ longitudes. Try “Use longitude to compare the two ports,” then ask what the resulting chart distorts. [Views and navigation](../stories/ideas/ideas.md#views-and-navigation)
+
 Creation’s [fresh Islands/vent fast trial](<../archive/2026.11.05 creation study/playtests/2026.11.05_21.59.34/report.md>) found two existing combinations abstract: Moving plates + Earth → Continent, and Different songs + Food web → Many-voiced world. The latter's goal promises feeding support that its community summary does not make concrete. All players completed, and the new flooded-island explanation was clear. Revisit these particular connections if developing those chapters further; fast-menu predictability alone is not a reason to shorten the story's long chains.
 
 Editorial priorities:

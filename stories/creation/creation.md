@@ -267,11 +267,12 @@ The Earth is a fiery ball of magma. Rain cools it, and pools into the oceans.
 
 background: ![Water cycle](assets/backgrounds/c05-water-cycle.webp)
 
-Sunlight turns ocean water into vapour. Clouds form, rain falls on land, and rivers carry the water back to sea. The rivers too evaporate in the sun. *The water cycle.*
+Sunlight turns ocean water into vapour. Clouds form, rain falls on land, and rivers carry the water back to sea.
 
 **Goals**
 - Build a delta from river sediment -- Delta
-- Complete the water cycle -- Water cycle
+- Return rainwater to the sea in rivers -- Rivers
+- next: Let sunlight evaporate river water too -- Water cycle
 
 **Items**
 - Evaporation
@@ -359,7 +360,7 @@ Sunlight turns ocean water into vapour. Clouds form, rain falls on land, and riv
 
   **Water cycle**
 
-  Water evaporates, condenses into clouds, falls as precipitation and returns through rivers or groundwater. Plants add another route by releasing water vapour from their leaves. The same water can travel through many different places and forms.
+  Water evaporates, condenses into clouds, falls as precipitation and returns through rivers or groundwater. Some water evaporates from rivers before reaching the ocean. Plants add another route by releasing water vapour from their leaves.
 
   Sunlight supplies energy for evaporation; gravity brings rain and rivers down. [USGS: explore the water cycle](https://www.usgs.gov/special-topics/water-science-school/water-cycle).
 

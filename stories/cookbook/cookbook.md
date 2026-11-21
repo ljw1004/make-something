@@ -184,7 +184,11 @@ background: ![A little sharpness](assets/cooks-pen/backgrounds/apples-into-sharp
 Acidity balances richness.
 
 **Goals**
-- Dress a green salad. -- Dressed salad
+- Make cider vinegar.
+  - either: Cider vinegar
+  - or: Vinaigrette
+  - or: Dressed salad
+- next: Dress a green salad. -- Dressed salad
 
 **Hotspots**
 - Air fed vat (center 390px, 293.0000016px)
