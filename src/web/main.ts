@@ -34,7 +34,7 @@ import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
 import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, readingImages, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
-import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
+import { fitOnBoard, placeCreation, placeHotspotCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
 import {createDropResolver, type DropResolution, type DropTarget} from './drop-target.ts';
 import {DragTrace} from './drag-trace.ts';
@@ -1039,7 +1039,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       if (born) {
         let token=state.tokens[born],element=tile(born);
         if(element){
-          const hotspot = action.type === 'combine' ? action.hotspot ?? (receiver&&isFixed(story,receiver)?receiver.id:receiver?.hotspot) : undefined;
+          const station = action.type === 'combine' ? action.hotspot : undefined;
+          const hotspot = station ?? (receiver && isFixed(story, receiver) ? receiver.id : receiver?.hotspot);
           const preferred = preferredPosition(born, hotspot, token.chapter);
           if (preferred && action.type === 'combine') {
             // Record the successful authored placement in the same action so @H goals
@@ -1048,15 +1049,25 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
             state = act(story, before, action); render(false, false);
             token = state.tokens[born]; element = tile(born)!;
           }
-          const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry(token.chapter).bounds, boardGeometry(token.chapter).scene) : undefined;
-          const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
-          if(receivingRect&&receiver&&state.tokens[receiver.id].status==='available'){
-            occupied.push(...chapterObstacles(token.chapter));
+          const geometry = boardGeometry(token.chapter);
+          const size = {width: element.offsetWidth, height: element.offsetHeight};
+          const bounds = iconNames.creationBounds(element, geometry.bounds);
+          let position = preferred;
+          if (!position && receivingRect && receiver) {
+            const survives = state.tokens[receiver.id].status === 'available';
+            const items = availableTokens(state).filter(t => t.id !== born && t.id !== receiver.id && t.chapter === token.chapter)
+              .flatMap(t => { const el = tile(t.id); return el ? [tileRect(el)] : []; });
+            const otherHotspots = survives ? chapterObstacles(token.chapter, station) : [];
+            position = survives && station
+              ? placeHotspotCreation(receivingRect, size, {board: geometry.bounds, bounds, items, otherHotspots})
+              : placeCreation(receivingRect, size, !survives, bounds, [...items, ...otherHotspots]);
           }
-          const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
-          const position=preferred ?? (receivingRect&&receiver
-            ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
-            :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
+          if (!position) {
+            const centre = hotspot && (!receiver || isFixed(story, receiver))
+              ? hotspotCentre(fixedPresentation(token.chapter, hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), geometry.bounds, geometry.scene)
+              : undefined;
+            position = fitOnBoard(centre ? centre.x - size.width / 2 : token.x, centre ? centre.y - size.height / 2 : token.y, size.width, size.height, bounds);
+          }
           token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
           scheduleTutorialUpdate();
         }
@@ -1099,9 +1110,9 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     return `<div class="world" data-panel-width="${app.clientWidth}" style="width:${scenes.length*app.clientWidth}px;height:100%"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
   }
   /** Use the same measured receiving regions for arrivals and adjacent creations. */
-  function chapterObstacles(chapter: number) {
+  function chapterObstacles(chapter: number, excludedHotspot?: string) {
     const geometry=boardGeometry(chapter);
-    return presentHotspots(story,state,chapter).map(id=>{
+    return presentHotspots(story,state,chapter).filter(id=>id!==excludedHotspot).map(id=>{
       const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
       const measured=el.getBoundingClientRect();
       return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);

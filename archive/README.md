@@ -18,6 +18,10 @@ Keep one archive home per story study or project, using its earliest archive dat
 
 Supplied inspiration photographs, artwork and selected style references are valuable project material under the [retention policy](../docs/engineering.md#verification-records). Keep their originals in an indexed `inspiration/` or reference collection even when they were not used in the final artwork. When consolidating, inventory retained files before moving them, preserve distinct work and original image bytes, and verify against the original files or Git objects. Update navigation and supported export paths; keep historical prompts, source hashes and frozen reports identifiable as records of their original versions. Record provenance and any recovery limits in the project index or [working notes](../notes.md).
 
+### Hotspot result placement
+
+The [21 November placement comparisons](<2026.11.21 hotspot placement study/comparison.pdf>) show the nine distinct layouts selected from 40 staged drops in Cookbook and Settlement. The [result placement rules](../docs/ux.md#result-placement) describe the adopted behavior.
+
 ### Dialog surfaces
 
 The [20 November dialog surfaces record](<2026.11.20 dialog surfaces/README.md>) links the seven runtime assets, their image-generation requests, and a contact sheet showing the final textures repeated at game size.

@@ -1,4 +1,51 @@
 import {test, expect} from '@playwright/test';
+import {jumpToChapter} from './debug-helpers.ts';
+
+for (const viewport of [{width:390,height:844}, {width:820,height:1180}]) {
+  test(`vinegar takes the lower corner beside the juice at ${viewport.width}px`, async ({page}) => {
+    await page.setViewportSize(viewport);
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.goto('/make-something.html?story=stories/cookbook/cookbook.md');
+    await jumpToChapter(page, 'Vinegar and salad dressing', true);
+    await page.getByRole('button', {name:'Begin', exact:true}).click();
+
+    const item = (name: string) => page.locator(`[data-item="name:${name}"]`);
+    const centre = async (name: string) => {
+      const box = (await item(name).boundingBox())!;
+      return {x:box.x + box.width / 2, y:box.y + box.height / 2};
+    };
+    const drag = async (name: string, target: {x:number;y:number}) => {
+      const from = await centre(name);
+      await page.mouse.move(from.x, from.y);
+      await page.mouse.down();
+      await page.mouse.move(target.x, target.y, {steps:8});
+      await page.mouse.up();
+    };
+    const scale = viewport.width / 390;
+    await drag('Vinegar culture', {x:208 * scale, y:157 * scale});
+    await drag('Apple juice', {x:226 * scale, y:297 * scale});
+    await drag('Cider yeast', await centre('Apple juice'));
+    await expect(item('Hard cider')).toBeVisible();
+    const culture = (await item('Vinegar culture').boundingBox())!;
+    const juice = (await item('Apple juice').boundingBox())!;
+
+    await drag('Hard cider', await centre('Vinegar culture'));
+    const vinegar = item('Cider vinegar');
+    await expect(vinegar).toBeVisible();
+    const result = (await vinegar.boundingBox())!;
+    expect(result.x).toBeLessThan(culture.x);
+    expect(result.y).toBeGreaterThan(culture.y + culture.height / 2);
+    const overlapX = Math.min(result.x + result.width, juice.x + juice.width) - Math.max(result.x, juice.x);
+    const overlapY = Math.min(result.y + result.height, juice.y + juice.height) - Math.max(result.y, juice.y);
+    expect(overlapX).toBeGreaterThan(0);
+    expect(overlapY).toBeGreaterThan(0);
+    expect(overlapX * overlapY / (juice.width * juice.height)).toBeLessThan(.05);
+    expect(await item('Apple juice').boundingBox()).toEqual(juice);
+    await page.reload();
+    await expect(vinegar).toBeVisible();
+    expect(await vinegar.boundingBox()).toEqual(result);
+  });
+}
 
 test('a result overlaps its preserved receiver while avoiding another fixed receiving area', async ({page}) => {
     await page.emulateMedia({reducedMotion:'reduce'});
