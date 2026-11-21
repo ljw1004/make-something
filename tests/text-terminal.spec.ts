@@ -109,20 +109,21 @@ test('100-character column stays stable on wide resize and output leaves the pro
 
 test('both pages list current stories, load their unchanged runner openings, and report missing manuscripts',async({page})=>{
   const paths=storyIds();
+  const theologyChoice=String(paths.indexOf('theology/theology.md')+1);
   for (const style of ['fast','detailed'] as const) {
     await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html`);
     await expect(page.locator('#story-picker [data-story]')).toHaveCount(paths.length);
     await expect(page.locator('h1')).toHaveText(`MAKE SOMETHING WORTHWHILE [${style==='fast'?'story':'interaction'} simulator]`);
     await expect(page.locator('a,nav')).toHaveCount(0);
-    await expect(page.locator('#story-picker')).toContainText('6. THEOLOGY. You are Augustine, Aquinas, Martin Luther.');
+    await expect(page.locator('#story-picker')).toContainText(`${theologyChoice}. THEOLOGY. You are Augustine, Aquinas, Martin Luther.`);
     await page.locator('#command').fill('999');await page.locator('#command').press('Enter');
     await expect(page.getByRole('alert')).toContainText('Choose a story number');
-    await page.locator('#command').fill('6');await page.locator('#command').press('Enter');
+    await page.locator('#command').fill(theologyChoice);await page.locator('#command').press('Enter');
     await expect.poll(()=>output(page)).toContain('Augustine');
     expect(new URL(page.url()).searchParams.get('story')).toBe('stories/theology/theology.md');
     expect(new URL(page.url()).searchParams.get('chapter')).toBe('1');
     await expect(page.locator('#story-picker')).toBeVisible();
-    await expect(page.locator('.story-selection')).toHaveText('> 6');
+    await expect(page.locator('.story-selection')).toHaveText(`> ${theologyChoice}`);
     await page.goBack();
     await expect(page.locator('#story-picker')).toBeVisible();
     expect(new URL(page.url()).searchParams.has('story')).toBe(false);

@@ -1,0 +1,11 @@
+# Arm construction and food chemistry
+
+Selected 1800s atlas assets for original chapters 4 and 18. These implement the [production brief](../production-brief.md) and the canonical story's physical construction rules. The package supplies 26 mapped identities; shared amino-acid and muscle-cell supplies come from `../opening/`.
+
+The arm is one registered specimen: shoulder girdle, humerus, ulna, radius, grouped wrist/hand, then biceps and triceps. All stages reuse the same skeleton pixels. Muscle masks select generated anatomy and its attached tendons; the biceps tendon was corrected onto the radius before selection. The triceps lies behind the humerus and reaches the ulna's elbow tip. `assets/arm-complete-isolated.png` is the crop for later whole-body registration. There are no detached enlargements or action diagrams.
+
+Four enzyme samples contain only their protein molecules. Salivary fluid and the exact supplied amylase compose the saliva result at the same scale. Bile is fluid alone; the two fat states preserve their material and sample scale. The food-products master follows the opening glucose molecule's visual convention, and free glucose and amino acids directly reuse the opening assets. Atomic models illustrate current molecules rather than badges for foods or future purposes; they are educational structural approximations, not validated atomic-coordinate models.
+
+All painting was generated with the builtin image tool. Exact requests are in `sources/prompts.json` and `sources/material-prompts.json`; selected RGBA masters remain beside them. `build.py` mechanically crops, masks, registers, scales and composites those generated pixels. Rebuild with `uv run --with pillow python projects/anatomy-study/atlas/arm-food/build.py`. It writes runtime PNGs and `map.json`, using canonical parser identities and the shared 1560×2340 page coordinate convention.
+
+Inspection covered every declared asset, all seven registered arm states, alpha transparency on ivory, physical reagent/result continuity, and map-path existence. This is artwork coverage and composition inspection, not an independent student-recognition or learning test. Full story completion, actual chapter layout and browser image loading are checked centrally during integration.

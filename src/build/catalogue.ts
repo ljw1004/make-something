@@ -28,6 +28,7 @@ const carouselOrder = [
   'stories/settlement/settlement.md',
   'stories/creation/creation.md',
   'stories/mars/mars.md',
+  'stories/anatomy/anatomy.md',
   'stories/theology/theology.md',
   'stories/ideas/ideas.md',
 ];

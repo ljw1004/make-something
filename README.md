@@ -8,7 +8,7 @@ The [authoring guide's worthwhile-hook requirement](docs/story-authoring.md#requ
 
 ## Project
 
-Combination stories authored in Markdown, with illustrated editions of Settlement, Cookbook, Mars and Creation. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
+Combination stories authored in Markdown, with illustrated editions of Settlement, Cookbook, Mars, Creation and Anatomy. Cookbook uses Cook’s Pen illustrations, including domestic tea and dinner scenes; Mars uses physical expedition equipment and integrated landscapes. The browser game, story linter, checkpoint generator and logical AI playtester share one parser and game engine. The project has three commitments: combination, enjoyable interactive play and an empirical loop that can reject weak ideas.
 
 ## Run the game
 
@@ -32,6 +32,8 @@ Its [completed narrative study](archive/2026.11.06%20settlement%20study/narrativ
 
 **Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/make-something.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-examples.png) preserve its austere physical character. The completed [Mars study](archive/2026.11.01%20mars%20study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
+**Anatomy** uses 1800s-style atlas illustrations to build cells, tissues, organs and systems across 28 playable chapters. See the [story](stories/anatomy/anatomy.md), [design brief](stories/anatomy/design-brief.md) and [ongoing study](projects/anatomy-study/README.md).
+
 **Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/make-something.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md), [three moments of play](stories/creation/design-examples.png), [supplied art references](<archive/2026.11.05 creation study/inspiration/README.md>) and [completed Creation study](<archive/2026.11.05 creation study/README.md>).
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
@@ -42,6 +44,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/cookbook/cookbook.md` | `/stories/cookbook/cookbook.md` |
 | `/make-something.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
 | `/make-something.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
+| `/make-something.html?story=stories/anatomy/anatomy.md` | `/stories/anatomy/anatomy.md` |
 | `/make-something.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
