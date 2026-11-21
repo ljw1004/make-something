@@ -154,7 +154,7 @@ dialog button,dialog select{min-height:44px}
 .objective-overlay,.objective-overlay *{user-select:none;-webkit-user-select:none}
 .context-heading{display:block;margin-bottom:1em;font-size:.82em;line-height:1.35;font-weight:400}
 /* Readiness is not navigation. The player chooses when to leave a creation. */
-.chapter-next{position:absolute;z-index:35;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:52px;height:52px;border:2px solid #334f45;border-radius:15px;padding:0;background:#fffaf0;color:#173e32;box-shadow:0 2px 9px #172b3366;font-size:35px;line-height:1;display:grid;place-items:center;animation:next-button 1.3s ease-in-out infinite}
+.chapter-next{position:absolute;z-index:35;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:52px;height:52px;border:2px solid #334f45;border-radius:50%;padding:0;background:#fffaf0;color:#173e32;box-shadow:0 2px 9px #172b3366;font-size:35px;line-height:1;display:grid;place-items:center;animation:next-button 1.3s ease-in-out infinite}
 .chapter-next span{display:block;animation:next-right 1.3s ease-in-out infinite}
 @keyframes next-right{0%,100%{transform:translateX(-3px)}50%{transform:translateX(4px)}}
 @keyframes next-button{0%,100%{box-shadow:0 2px 9px #172b3366}50%{box-shadow:0 0 0 4px #fffaf0b3,0 2px 9px #172b3366}}
@@ -437,7 +437,7 @@ gap: 0;
       addEventListener('pagehide', () => { clearTimeout(timeout); clear(); }, {once:true});
     }
   } catch { /* The normal catalogue remains visible without browser storage. */ }
-</script><noscript><style>#catalogue-app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-CpWS82CI.js"></script>
+</script><noscript><style>#catalogue-app.catalogue-page:has(.story-carousel){overflow:auto}.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{width:100%;height:auto;max-height:none;position:relative;inset:auto}.story-carousel{display:block}.carousel-frame{max-width:34rem;margin:auto;container-type:normal}.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}.carousel-art{object-fit:contain;max-height:60vh;position:relative}</style></noscript>  <script type="module" crossorigin src="./assets/index-AKACyr7S.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-DbWZas9U.js">
   <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Ciz5teaA.js">
 </head><body><div class="status-bar-color" aria-hidden="true"></div><div id="catalogue-app" class="catalogue-page"><main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
