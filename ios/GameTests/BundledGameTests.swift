@@ -34,7 +34,7 @@ final class BundledGameTests: XCTestCase {
               const blur = document.querySelector('.status-bar-color');
               const rect = blur.getBoundingClientRect();
               const style = getComputedStyle(blur);
-              const surface = document.querySelector('#app').getBoundingClientRect();
+              const surface = document.querySelector('#catalogue-app').getBoundingClientRect();
               const slide = document.querySelector('.carousel-slide:not([hidden])');
               const footer = slide.querySelector('.carousel-footer').getBoundingClientRect();
               const subtitleSize = getComputedStyle(slide.querySelector('.carousel-description')).fontSize;
@@ -123,7 +123,12 @@ final class BundledGameTests: XCTestCase {
         _ = try await game.evaluateJavaScript("document.querySelector('a[data-story]').click()")
         try await wait("!!document.querySelector('dialog[open] button')", in: game)
         _ = try await game.evaluateJavaScript("document.querySelector('dialog[open] button').click()")
-        try await wait("!document.querySelector('[data-story-flip]')", in: game)
+        try await wait("""
+            (() => {
+              const board = document.querySelector('.game-surface');
+              return !!board && !board.inert && board.getBoundingClientRect().top === 0;
+            })()
+            """, in: game)
         _ = try await game.evaluateJavaScript("document.querySelector('[data-command=story]').click()")
         try await wait("!!document.querySelector('.popup-home')", in: game)
 
@@ -159,7 +164,7 @@ final class BundledGameTests: XCTestCase {
         await fulfillment(of: [citation], timeout: 3)
         XCTAssertEqual(game.url?.path, "/make-something.html")
         _ = try await game.evaluateJavaScript("document.querySelector('.popup-home').click()")
-        try await wait("!!document.querySelector('a[data-story]')", in: game)
+        try await wait("location.pathname === '/index.html' && !document.querySelector('.game-surface')", in: game)
         game = GameWebView(dataStore: store)
         controller.view = game
         game.openCatalogue()

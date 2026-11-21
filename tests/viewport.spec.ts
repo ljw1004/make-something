@@ -43,16 +43,16 @@ async function openFixture(page: Page) {
 }
 
 async function expectCurrentFits(page: Page, count: number) {
-  const height = page.viewportSize()!.height;
-  await expect.poll(() => page.locator('.viewport').evaluate(el => ({height: el.clientHeight, total: el.scrollHeight, top: el.scrollTop})))
-    .toEqual({height, total: count * height, top: (count - 1) * height});
+  const {width,height} = page.viewportSize()!;
+  await expect.poll(() => page.locator('.viewport').evaluate(el => ({width: el.clientWidth, total: el.scrollWidth, left: el.scrollLeft})))
+    .toEqual({width, total: count * width, left: (count - 1) * width});
   // CSS resizes the viewport before the resize handler updates the chapter scene.
   const panel = page.locator('.chapter-panel').last();
   await expect.poll(async () => (await panel.boundingBox())?.height).toBeCloseTo(height, 1);
   expect((await panel.boundingBox())!.y).toBeCloseTo(0, 1);
   expect(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight && document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  // Even deliberate attempts cannot reveal extra background below the active scene.
-  expect(await page.locator('.viewport').evaluate(el => { el.scrollTop += 1000; return el.scrollTop; })).toBe((count - 1) * height);
+  // The viewport ends at the active scene.
+  expect(await page.locator('.viewport').evaluate(el => { el.scrollLeft += 1000; return el.scrollLeft; })).toBe((count - 1) * width);
 }
 
 async function enterField(page: Page) {
@@ -72,10 +72,10 @@ async function pickup(page: Page, id: string) {
   await page.mouse.down();
 }
 
-const scrollTop = (page: Page) => page.locator('.viewport').evaluate(el => el.scrollTop);
+const scrollLeft = (page: Page) => page.locator('.viewport').evaluate(el => el.scrollLeft);
 async function scrollTo(page: Page, top: number) {
-  await page.locator('.viewport').evaluate((el, top) => { el.scrollTop = top; }, top);
-  await expect.poll(() => scrollTop(page)).toBe(top);
+  await page.locator('.viewport').evaluate((el, top) => { el.scrollLeft = top; }, top);
+  await expect.poll(() => scrollLeft(page)).toBe(top);
 }
 
 async function timedField(page: Page) {
@@ -91,7 +91,7 @@ test('latest-chapter pickups follow the pointer past the top, fit on release and
   await pickup(page, 'Kit');
   await page.mouse.move(150, 1, {steps: 8});
   await page.clock.runFor(1000);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   expect((await kit.boundingBox())!.y).toBeCloseTo(-9, 1);
   await page.mouse.up();
   expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
@@ -103,65 +103,65 @@ test('latest-chapter pickups follow the pointer past the top, fit on release and
   await scrollTo(page, 300);
   await page.mouse.up();
   await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Kit"]')).toHaveCount(1);
-  await scrollTo(page, 664);
-  expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
+  await scrollTo(page, 390);
+  expect((await kit.boundingBox())!.y).toBeCloseTo(90, 1);
   await page.clock.resume();
   // Let the native scroll event save the final position before navigating away.
   await expect.poll(()=>page.evaluate(()=>{
     const key=Object.keys(localStorage).find(key=>key.startsWith('combination-progress-v2:'));
-    return key?JSON.parse(localStorage.getItem(key)!).anchor.scrollTop:undefined;
-  })).toBe(664);
+    return key?JSON.parse(localStorage.getItem(key)!).anchor.chapterView:undefined;
+  })).toBe(1);
   await page.reload();
   await expectCurrentFits(page, 2);
-  expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
+  expect((await kit.boundingBox())!.y).toBeCloseTo(90, 1);
 });
 
 test('older pickups scroll after an edge hold, remain free until dropped, then lock on pickup and reset with the chapter', async ({page}) => {
   await timedField(page);
   await scrollTo(page, 0);
   await pickup(page, 'Frame');
-  await page.mouse.move(120, 663);
+  await page.mouse.move(389, 380);
   await page.clock.runFor(200);
-  expect(await scrollTop(page)).toBe(0);
+  expect(await scrollLeft(page)).toBe(0);
   // Leaving the edge resets the hold, even when returning to the same edge.
   await page.mouse.move(120, 400);
   await page.clock.runFor(500);
-  expect(await scrollTop(page)).toBe(0);
-  await page.mouse.move(120, 663);
+  expect(await scrollLeft(page)).toBe(0);
+  await page.mouse.move(389, 380);
   await page.clock.runFor(200);
-  expect(await scrollTop(page)).toBe(0);
+  expect(await scrollLeft(page)).toBe(0);
   await page.clock.runFor(400);
-  expect(await scrollTop(page)).toBeGreaterThan(0);
+  expect(await scrollLeft(page)).toBeGreaterThan(0);
   // No extra move events are needed to keep scrolling or update the dragged tile.
   await page.clock.runFor(1800);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   const frame = page.locator('[data-item="name:Frame"]');
-  const atBottom = (await frame.boundingBox())!;
-  expect(atBottom.y).toBeCloseTo(653, 1);
-  expect(atBottom.y + atBottom.height).toBeGreaterThan(664);
+  const atRight = (await frame.boundingBox())!;
+  expect(atRight.x).toBeCloseTo(379, 1);
+  expect(atRight.x + atRight.width).toBeGreaterThan(390);
   // Visiting the latest panel mid-gesture does not lock an older pickup.
-  await page.mouse.move(120, 1);
+  await page.mouse.move(1, 380);
   await page.clock.runFor(200);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   await page.clock.runFor(1800);
-  expect(await scrollTop(page)).toBe(0);
-  await page.mouse.move(120, 663);
+  expect(await scrollLeft(page)).toBe(0);
+  await page.mouse.move(389, 380);
   await page.clock.runFor(2000);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   await page.mouse.move(70, 180);
   const preview = await frame.boundingBox();
   await page.mouse.up();
   await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Frame"]')).toHaveCount(1);
   expect(await frame.boundingBox()).toEqual(preview);
   await page.clock.runFor(1000);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   await page.clock.resume();
   await page.reload();
   await expectCurrentFits(page, 2);
   await pickup(page, 'Frame');
-  await page.mouse.move(70, 1, {steps: 4});
+  await page.mouse.move(1, 200, {steps: 4});
   await page.waitForTimeout(400);
-  expect(await scrollTop(page)).toBe(664);
+  expect(await scrollLeft(page)).toBe(390);
   await page.mouse.up();
   await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Frame"]')).toHaveCount(1);
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Probe"]'));
@@ -173,15 +173,43 @@ test('older pickups scroll after an edge hold, remain free until dropped, then l
   await expect(page.locator('.chapter-panel[data-chapter="0"] [data-item="name:Frame"]')).toHaveCount(1);
 });
 
+test('leaving either edge settles by distance while the item stays held', async ({page}) => {
+  await timedField(page);
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await scrollTo(page, 0);
+  await pickup(page, 'Frame');
+  const held = page.locator('[data-item="name:Frame"].dragging');
+  for (const {edge, from, to} of [{edge:389, from:0, to:390}, {edge:1, from:390, to:0}]) {
+    for (const {hold, commits} of [{hold:350, commits:false}, {hold:420, commits:true}]) {
+      await page.mouse.move(edge, 380);
+      await page.clock.runFor(hold);
+      const distance = Math.abs((await scrollLeft(page)) - from);
+      expect(distance).toBeGreaterThan(commits ? 65 : 0);
+      expect(distance).toBeLessThan(commits ? 97.5 : 65);
+      await page.mouse.move(200, 380);
+      await page.clock.runFor(95);
+      const settling = Math.abs((await scrollLeft(page)) - from);
+      expect(commits ? settling > distance : settling < distance).toBe(true);
+      await page.clock.runFor(400);
+      expect(await scrollLeft(page)).toBe(commits ? to : from);
+      const tile = (await held.boundingBox())!;
+      expect(tile.x).toBeCloseTo(190, 1);
+      expect(tile.y).toBeCloseTo(370, 1);
+    }
+  }
+  await page.mouse.up();
+  await expect(page.locator('.chapter-panel[data-chapter="0"] [data-item="name:Frame"]')).toBeVisible();
+});
+
 for (const interruption of ['release', 'pointercancel', 'blur', 'resize']) test(`${interruption} stops an older item's ongoing edge scroll`, async ({page}) => {
   await timedField(page);
   await scrollTo(page, 0);
   await pickup(page, 'Frame');
-  await page.mouse.move(120, 663);
+  await page.mouse.move(389, 380);
   await page.clock.runFor(500);
-  const scrolling = await scrollTop(page);
+  const scrolling = await scrollLeft(page);
   expect(scrolling).toBeGreaterThan(0);
-  expect(scrolling).toBeLessThan(664);
+  expect(scrolling).toBeLessThan(390);
   if (interruption === 'release') await page.mouse.up();
   else {
     if (interruption === 'resize') await page.setViewportSize({width:390,height:650});
@@ -194,9 +222,9 @@ for (const interruption of ['release', 'pointercancel', 'blur', 'resize']) test(
     await page.mouse.up();
   }
   await page.clock.runFor(50); // Let resize/scroll observers finish before checking for a leaked loop.
-  const stopped = await scrollTop(page);
+  const stopped = await scrollLeft(page);
   await page.clock.runFor(1000);
-  expect(await scrollTop(page)).toBe(stopped);
+  expect(await scrollLeft(page)).toBe(stopped);
   await expect(page.locator('.is-dragging,.dragging')).toHaveCount(0);
   if (interruption !== 'release') await expect(page.locator('.chapter-panel[data-chapter="0"] [data-item="name:Frame"]')).toHaveCount(1);
 });
@@ -230,7 +258,7 @@ test('cover and chapter use identical pixels and cannot scroll at short, referen
   }
 });
 
-test('advancing and resizing keep the latest chapter at the bottom while scrollback remains available', async ({page}) => {
+test('advancing and resizing keep the latest chapter at the right while scrollback remains available', async ({page}) => {
   await page.setViewportSize({width:390,height:664});
   await openFixture(page);
   await page.getByRole('button', {name:'Start',exact:true}).click();
@@ -252,35 +280,36 @@ test('advancing and resizing keep the latest chapter at the bottom while scrollb
   await page.evaluate(() => {
     const key = Object.keys(localStorage).find(key => key.startsWith('combination-progress-v2:'))!;
     const saved = JSON.parse(localStorage.getItem(key)!);
-    delete saved.anchor.viewportHeight; saved.anchor.scrollTop = 1200;
+    delete saved.anchor.chapterView; saved.anchor.viewportHeight = 740; saved.anchor.scrollTop = 740;
     localStorage.setItem(key, JSON.stringify(saved));
   });
-  await page.reload(); await expectCurrentFits(page, 3);
-  await page.mouse.move(8, 400); await page.mouse.wheel(0, -300);
-  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBeLessThan(1480);
-  await page.locator('.viewport').evaluate(el => { el.scrollTop = 740; });
-  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBe(740);
-  // Setting scrollTop is synchronous; recording the deliberate position waits for
-  // the scroll event. Do not race that event with the following viewport resize.
+  await page.reload();
+  await expect.poll(() => scrollLeft(page)).toBe(320); // A saved vertical offset converts by its original panel height.
+  await page.keyboard.press('ArrowLeft');
+  await expect.poll(() => scrollLeft(page)).toBe(0);
+  await expect(page.locator('.game-surface')).not.toHaveClass(/chapter-sliding/);
+  await page.keyboard.press('ArrowRight');
+  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollLeft)).toBe(320);
+  // Confirm the history view was recorded before resizing.
   await expect.poll(() => page.evaluate(() => {
     const key = Object.keys(localStorage).find(key => key.startsWith('combination-progress-v2:'))!;
-    return JSON.parse(localStorage.getItem(key)!).anchor.scrollTop;
-  })).toBe(740);
+    return JSON.parse(localStorage.getItem(key)!).anchor.chapterView;
+  })).toBe(1);
   await page.setViewportSize({width:390,height:664});
-  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBe(664);
+  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollLeft)).toBe(390);
   await page.reload();
-  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBe(664);
-  await page.mouse.move(8, 400); await page.mouse.wheel(0, 5000);
+  await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollLeft)).toBe(390);
+  await page.keyboard.press('ArrowRight');
   await expectCurrentFits(page, 3);
   const final = page.locator('[data-item="name:Final"]'), source = (await final.boundingBox())!;
   await page.mouse.move(source.x+10,source.y+10); await page.mouse.down();
-  await page.locator('.viewport').evaluate(el => { el.scrollTop = 664; });
+  await page.locator('.viewport').evaluate(el => { el.scrollLeft = 390; });
   await page.mouse.move(200,450,{steps:4}); await page.mouse.up();
   // Deliberately scrolling mid-gesture cannot move a latest-chapter item backwards.
   await expect(page.locator('.chapter-panel[data-chapter="2"] [data-item="name:Final"]')).toHaveCount(1);
-  await page.locator('.viewport').evaluate(el => { el.scrollTop = el.scrollHeight; });
+  await page.locator('.viewport').evaluate(el => { el.scrollLeft = el.scrollWidth; });
   const moved = (await final.boundingBox())!;
-  expect(moved.x).toBeCloseTo(190,1); expect(moved.y).toBeCloseTo(0,1);
+  expect(moved.x).toBeCloseTo(0,1); expect(moved.y).toBeCloseTo(440,1);
 });
 
 test('wide movable artwork fits a cropped panel without changing its aspect ratio', async ({page}) => {
@@ -361,7 +390,7 @@ test('short-screen drops and resized saved items stay reachable without adding d
   expect(await frame.boundingBox()).toEqual(moved);
 });
 
-test('phone swipes can revisit history but cannot scroll below the current chapter', async ({browser}) => {
+test('phone swipes can revisit history but stop at the current chapter', async ({browser}) => {
   const context = await browser.newContext({viewport:{width:390,height:664},isMobile:true,hasTouch:true});
   try {
     const page = await context.newPage(); await openFixture(page);
@@ -369,17 +398,18 @@ test('phone swipes can revisit history but cannot scroll below the current chapt
     await page.getByRole('button', {name:'Begin',exact:true}).tap();
     const cdp = await context.newCDPSession(page);
     async function swipe(from: number, to: number) {
-      await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:8,y:from}]});
+      await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:from,y:110}]});
       for (let i = 1; i <= 12; i++) {
-        await cdp.send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:8,y:from+(to-from)*i/12}]});
+        await cdp.send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:from+(to-from)*i/12,y:110}]});
         await page.waitForTimeout(16);
       }
       await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
     }
-    await swipe(580,100); await expectCurrentFits(page, 1);
+    await swipe(350,60); await expectCurrentFits(page, 1);
     await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));
     await page.getByRole('button', {name:'Continue story'}).tap();
     await page.getByRole('button', {name:'Begin',exact:true}).tap();
+    await expectCurrentFits(page, 2);
     const kit = page.locator('[data-item="name:Kit"]'), box = (await kit.boundingBox())!;
     await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:box.x+10,y:box.y+10}]});
     await cdp.send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:150,y:1}]});
@@ -389,15 +419,15 @@ test('phone swipes can revisit history but cannot scroll below the current chapt
     await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
     expect((await kit.boundingBox())!.y).toBeCloseTo(0, 1);
     await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Kit"]')).toHaveCount(1);
-    await swipe(580,100); await expectCurrentFits(page, 2);
-    await swipe(100,580);
-    await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollTop)).toBeLessThan(664);
-    await swipe(580,100); await swipe(580,100);
+    await swipe(350,60); await expectCurrentFits(page, 2);
+    await swipe(60,350);
+    await expect.poll(() => page.locator('.viewport').evaluate(el => el.scrollLeft)).toBeLessThan(390);
+    await swipe(350,60); await swipe(350,60);
     await expectCurrentFits(page, 2);
   } finally { await context.close(); }
 });
 
-test('desktop scrollback reserves no scrollbar gutter but still scrolls by wheel', async ({page}) => {
+test('desktop chapter browsing keeps a full viewport and ignores both wheel axes', async ({page}) => {
   await page.setViewportSize({width:1440,height:790});
   await enterField(page);
   const viewport = page.locator('.viewport');
@@ -407,7 +437,9 @@ test('desktop scrollback reserves no scrollbar gutter but still scrolls by wheel
   }))).toEqual({scrollbar:'none',gutter:0});
   await page.mouse.move(1320,350);
   await page.mouse.wheel(0,-400);
-  await expect.poll(() => scrollTop(page)).toBeLessThan(790);
-  await page.mouse.wheel(0,1200);
-  await expect.poll(() => scrollTop(page)).toBe(790);
+  await page.mouse.wheel(-400,0);
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(resolve)));
+  expect(await scrollLeft(page)).toBe(1440);
+  await page.keyboard.press('ArrowLeft');
+  await expect.poll(() => scrollLeft(page)).toBe(0);
 });

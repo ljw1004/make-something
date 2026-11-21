@@ -68,7 +68,7 @@ test('circular hotspot corners reject pointer hits and drops; inherited occupant
   expect((await saved(page)).tokens['name:Bowl'].hotspot).toBe('name:Station');
   await page.getByRole('button',{name:'Continue story'}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
-  expect(await bowl.boundingBox()).toEqual(before);
+  await expect.poll(() => bowl.boundingBox()).toEqual(before);
   expect((await saved(page)).tokens['name:Bowl'].hotspot).toBe('name:Station');
   await page.reload();await expect(bowl).toBeVisible();
   expect(await bowl.boundingBox()).toEqual(before);
@@ -76,6 +76,7 @@ test('circular hotspot corners reject pointer hits and drops; inherited occupant
   await page.getByRole('button',{name:'Continue story'}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   expect((await saved(page)).tokens['name:Bowl'].hotspot).toBeUndefined();
+  await expect(page.locator('.game-surface')).not.toHaveClass(/chapter-sliding/);
   const moved=(await bowl.boundingBox())!,current=page.locator('.chapter-panel').last(),target=(await current.locator('[data-hotspot]').boundingBox())!;
   const cx=target.x+target.width/2,cy=target.y+target.height/2;
   expect(Math.hypot(cx-Math.max(moved.x,Math.min(moved.x+moved.width,cx)),cy-Math.max(moved.y,Math.min(moved.y+moved.height,cy)))).toBeGreaterThanOrEqual(40-.01);

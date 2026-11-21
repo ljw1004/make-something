@@ -1,19 +1,21 @@
 import { escape } from './markdown.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
-import {cacheCarouselLaunch} from './carousel-launch.ts';
 import {watchCarouselContrast} from './carousel-contrast.ts';
-import {holdFlip, leaveWithFlip, plainNavigation, takeFlip, warmStoryNavigation} from './story-flip.ts';
+import {plainNavigation, revealCatalogue, takeCatalogueSlide} from './document-navigation.ts';
+import {connectCataloguePlayer} from './catalogue-player.ts';
 import {viewportBoard} from './board-geometry.ts';
 import {catalogueStoryStarted} from './chapter-recovery.ts';
 import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
 import {selectedStory, selectStory} from './carousel-selection.ts';
+import {completesSwipe, SwipeMotion} from './swipe.ts';
 
-const app = document.querySelector<HTMLDivElement>('#app')!;
+const app = document.querySelector<HTMLDivElement>('#catalogue-app')!;
 const root = new URL('./', location.href);
-setHomeScreenIdentity({
+const catalogueIdentity = () => setHomeScreenIdentity({
   name: 'Make Something', icon: new URL('assets/homescreen.png', root).href,
   id: new URL('index.html', root).href, startURL: root.href, scope: root.href, themeColor: '#000000',
 });
+catalogueIdentity();
 const carousel = app.querySelector<HTMLElement>('.story-carousel');
 const frame = app.querySelector<HTMLElement>('.carousel-frame');
 const slides = [...app.querySelectorAll<HTMLElement>('.carousel-slide')];
@@ -93,9 +95,8 @@ if (bookmark) {
   function translate(index: number, pixels: number) {
     slides[index].style.transform = `translateX(${pixels}px)`;
   }
-  function track(delta: number) {
+  function track(delta: number, direction = delta < 0 ? 1 : -1) {
     const width = frame!.clientWidth;
-    const direction = delta < 0 ? 1 : -1;
     const next = wrap(current + direction);
     if (!width || next === current) return;
     if (incoming !== next) {
@@ -108,17 +109,28 @@ if (bookmark) {
     translate(current, offset);
     translate(next, offset + direction * width);
   }
-  function settle(advance: boolean, delta: number, after?: () => void) {
+  function settle(advance: boolean, delta: number, after?: () => void, releaseOffset?: number) {
+    const direction = delta < 0 ? 1 : -1;
+    if (releaseOffset !== undefined) track(releaseOffset, direction);
     if (incoming === undefined) return;
-    const next = incoming, direction = delta < 0 ? 1 : -1;
+    const next = incoming;
     const destination = advance ? next : current;
     if (reducedMotion.matches) { show(destination, advance); after?.(); return; }
+    const travel = direction * frame!.clientWidth;
+    const other = wrap(current - direction);
+    const reversing = releaseOffset !== undefined && releaseOffset * delta < 0 && other !== next && other !== current;
+    if (reversing) {
+      // Keep the previously exposed card alongside the cover until it crosses center.
+      slides[other].hidden = false;
+      translate(other, Math.max(-Math.abs(travel), Math.min(Math.abs(travel), releaseOffset)) - travel);
+      slides[other].classList.add('is-settling');
+    }
     for (const index of [current, next]) slides[index].classList.add('is-settling', ...(after ? ['is-arrow-settling'] : []));
     // Commit the finger-tracked position before applying the settle target.
     void frame!.offsetWidth;
-    const travel = direction * frame!.clientWidth;
     translate(current, advance ? -travel : 0);
     translate(next, advance ? 0 : travel);
+    if (reversing) translate(other, -2 * travel);
     settleDestination = destination;
     // Use the CSS duration so the end of the slide stays in sync when tuned.
     const duration = getComputedStyle(slides[current]).transitionDuration.split(',')[0].trim();
@@ -169,22 +181,27 @@ if (bookmark) {
     const legacy = saved < 0 ? find(new URL(location.href).searchParams.get('slide')) : -1;
     show(Math.max(0, saved, legacy), legacy >= 0);
   }
-  const returning = takeFlip('home') ? holdFlip(frame) : undefined;
+  const returning = takeCatalogueSlide();
+  if (returning) frame.dataset.homeSlide = 'waiting';
   restoreSlide();
+  const player = connectCataloguePlayer(app, storyLinks, link => {
+    if (link) show(storyLinks.indexOf(link));
+    else restoreSlide();
+    refreshLinks(); catalogueIdentity();
+  });
   if (returning) {
     const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
     if (art) art.loading = 'eager';
-    // If cover decoding stalls, animate the selected card rather than exposing
-    // the entire face untransformed on timeout.
+    // Bound the wait if the selected cover is still decoding.
     const reveal = () => {
       contrast.refresh();
-      void returning.reveal().then(contrast.schedule);
+      void revealCatalogue(frame).then(contrast.schedule);
     };
     const timeout = window.setTimeout(reveal, 750);
     void (art?.decode().catch(() => {}) ?? Promise.resolve()).then(() => {
       clearTimeout(timeout);
       // The timeout may already have started (or completed) this animation.
-      if (frame.dataset.storyFlip === 'waiting') reveal();
+      if (frame.dataset.homeSlide === 'waiting') reveal();
     });
   }
   window.addEventListener('pageshow', event => { if (event.persisted) restoreSlide(); });
@@ -216,11 +233,26 @@ if (bookmark) {
       : previousFocus?.matches('.carousel-next') ? '.carousel-next' : 'a[data-story]';
     advanceByArrow(event.key === 'ArrowLeft' ? -1 : 1, replacement);
   });
-  let press: { id: number; x: number; y: number; control: Element | null; axis?: 'x' | 'y'; repeat?: boolean; delta: number } | undefined;
+  let press: { id: number; x: number; y: number; motion: SwipeMotion; control: Element | null; axis?: 'x' | 'y'; repeat?: boolean; delta: number; canEnter: boolean } | undefined;
   let cancelledClick: Element | null = null;
+  function swipeIntroduction(link: HTMLAnchorElement) {
+    return link.querySelector('[data-launch-label]')?.textContent === 'Continue' ? 'skip' : 'show';
+  }
+  function scrollableDescription(target: Element) {
+    const description = target.closest<HTMLElement>('.carousel-description');
+    return !!description && description.scrollHeight > description.clientHeight;
+  }
+  function cancelPress() {
+    if (!press) return;
+    if (press.axis === 'x' && !press.repeat) settle(false, press.delta);
+    else player.cancel();
+    press = undefined;
+  }
   carousel.addEventListener('pointerdown', event => {
-    if (!event.isPrimary || event.button !== 0) return;
-    const repeatingArrow = (event.target as Element).closest('.carousel-repeat-arrows button');
+    if (press && event.pointerId !== press.id) { cancelPress(); return; }
+    if (!event.isPrimary || event.button !== 0 || player.busy) return;
+    const target = event.target as Element;
+    const repeatingArrow = target.closest('.carousel-repeat-arrows button');
     if (settling && !repeatingArrow) {
       pendingSteps.length = 0;
       // A fresh interaction can interrupt the tail of an animation.
@@ -228,10 +260,13 @@ if (bookmark) {
       if ((event.target as Element).closest('.carousel-slide[hidden]')) return;
     }
     cancelledClick = null;
-    press = {id: event.pointerId, x: event.clientX, y: event.clientY, delta: 0, repeat: !!repeatingArrow, control: (event.target as Element).closest('button, a[data-story], .carousel-footer a')};
+    press = {id:event.pointerId, x:event.clientX, y:event.clientY, motion:new SwipeMotion(event), delta:0, repeat:!!repeatingArrow,
+      control:target.closest('button, a[data-story], .carousel-footer a'),
+      canEnter:!scrollableDescription(target)};
   });
   window.addEventListener('pointermove', event => {
     if (press?.id !== event.pointerId || press.repeat) return;
+    press.motion.track(event);
     const dx = event.clientX - press.x, dy = event.clientY - press.y;
     if (!press.axis) {
       if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
@@ -240,6 +275,10 @@ if (bookmark) {
     if (press.axis === 'x') {
       press.delta = dx;
       track(dx);
+    } else if (press.canEnter) {
+      press.delta = dy;
+      const link = storyLinks[current];
+      player.track(link, -dy, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeIntroduction(link));
     }
   });
   window.addEventListener('pointerup', event => {
@@ -251,37 +290,42 @@ if (bookmark) {
       press = undefined;
       return;
     }
-    const advance = Math.abs(dx) >= 45 && (press.axis === 'x' || !press.axis && Math.abs(dx) > 1.35 * Math.abs(dy));
+    const axis = press.axis ?? (Math.abs(dx) > 1.35 * Math.abs(dy) ? 'x' : Math.abs(dy) > 1.35 * Math.abs(dx) ? 'y' : undefined);
+    const projected = axis ? press.motion.project(event, axis) : 0;
+    const advance = axis === 'x' && completesSwipe(projected);
     if (press.axis === 'x' || advance) {
       cancelledClick = press.control;
-      if (advance) track(dx);
-      settle(advance, advance ? dx : press.delta);
+      settle(advance, advance ? projected : press.delta, undefined, advance ? dx : undefined);
+    } else if (axis === 'y' && press.canEnter && projected < 0 && completesSwipe(projected)) {
+      cancelledClick = press.control;
+      const link = storyLinks[current];
+      player.enter(link, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeIntroduction(link));
+    } else if (press.axis === 'y' && press.canEnter) {
+      cancelledClick = press.control;
+      player.cancel();
     } else if (event.pointerType === 'touch' && Math.hypot(dx, dy) < 12 &&
       press.control?.matches('button, a[data-story]') && press.control.contains(event.target as Node)) {
       // Commit a touch tap on release, even when the browser withholds its
       // compatibility click immediately after a swipe. Do not double-activate.
       cancelledClick = press.control;
       if (press.control instanceof HTMLAnchorElement) {
-        cacheCarouselLaunch(new URL(press.control.dataset.story!, root).href, press.control.href, 'touch');
-        warmStoryNavigation(press.control.href);
-        if (!leaveWithFlip(frame, press.control.href, 'launch')) location.assign(press.control.href);
+        player.enter(press.control, 'touch');
       }
       else if (press.control instanceof HTMLButtonElement) press.control.click();
     }
     press = undefined;
   });
   window.addEventListener('pointercancel', event => {
-    if (press?.id !== event.pointerId) return;
-    if (!press.repeat) settle(false, press.delta);
-    press = undefined;
+    if (press?.id === event.pointerId) cancelPress();
   });
+  window.addEventListener('blur', cancelPress);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) cancelPress(); });
   carousel.addEventListener('click', event => {
     if (cancelledClick?.contains(event.target as Node) && event.detail > 0) { event.preventDefault(); event.stopPropagation(); cancelledClick = null; return; }
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-story]');
     if (link && plainNavigation(event, link)) {
-      cacheCarouselLaunch(new URL(link.dataset.story!, root).href, link.href, event instanceof PointerEvent && event.pointerType === 'touch' ? 'touch' : 'mouse');
-      warmStoryNavigation(link.href);
-      if (leaveWithFlip(frame, link.href, 'launch')) event.preventDefault();
+      event.preventDefault();
+      player.enter(link, event instanceof PointerEvent && event.pointerType === 'touch' ? 'touch' : 'mouse');
     }
   }, true);
 }

@@ -11,17 +11,17 @@
   <!-- Keep the loading screen styled before the application bundle arrives. -->
   <style>
     .story-loading { position:absolute; inset:0; display:grid; place-items:center; margin:0; background:#f3eddf; color:#35382f; font:16px/1.5 system-ui,sans-serif; text-align:center; }
-    :root.story-flip-bootstrap { background:#000; }
-    :root.story-flip-bootstrap .story-loading { background:#000; color:transparent; }
-    :root.story-flip-bootstrap .story-loading::after {
+    :root.story-entry-bootstrap { background:#000; }
+    :root.story-entry-bootstrap .story-loading { background:#000; color:transparent; }
+    :root.story-entry-bootstrap .story-loading::after {
       content:""; position:absolute; width:24px; height:24px; border:2px solid #f6efe255;
       border-top-color:#f6efe2; border-radius:50%; opacity:0;
-      animation:story-flip-spin .7s linear infinite, flip-show-spinner 0s var(--story-flip-spinner-delay,240ms) forwards;
+      animation:story-loading-spin .7s linear infinite, story-show-spinner 0s var(--story-loading-spinner-delay,240ms) forwards;
     }
-    @keyframes story-flip-spin { to { transform:rotate(1turn) } }
-    @keyframes flip-show-spinner { to { opacity:1 } }
+    @keyframes story-loading-spin { to { transform:rotate(1turn) } }
+    @keyframes story-show-spinner { to { opacity:1 } }
     @media (prefers-reduced-motion:reduce) {
-      :root.story-flip-bootstrap .story-loading::after { animation:flip-show-spinner 0s var(--story-flip-spinner-delay,240ms) forwards; }
+      :root.story-entry-bootstrap .story-loading::after { animation:story-show-spinner 0s var(--story-loading-spinner-delay,240ms) forwards; }
     }
   </style>
   <script>
@@ -37,12 +37,7 @@
       if (pending?.launch?.entry === 'carousel' && pending.launch.destination === location.href &&
           pending.expires > Date.now() && sameCatalogue && !history.state?.makeSomethingCarouselEntry &&
           navigation?.type !== 'reload' && navigation?.type !== 'back_forward') {
-        const root = document.documentElement;
-        const flip = JSON.parse(sessionStorage.getItem('make-something-flip-v1') || 'null');
-        const delay = flip?.journey === 'launch' && flip.destination === location.href && typeof flip.spinnerAt === 'number'
-          ? Math.max(0, flip.spinnerAt - Date.now()) : 240;
-        root.style.setProperty('--story-flip-spinner-delay', delay + 'ms');
-        root.classList.add('story-flip-bootstrap');
+        document.documentElement.classList.add('story-entry-bootstrap');
       }
     } catch { /* Direct loading and the player remain available without storage. */ }
   </script>
@@ -50,6 +45,6 @@
 <body data-catalogue="./index.html">
   <div class="status-bar-color" aria-hidden="true"></div>
   <main id="workspace"><div id="app" aria-label="Game"><div class="game-surface"><p class="story-loading" role="status">Loading story…</p></div></div></main>
-  <script type="module" src="/src/web/main.ts"></script>
+  <script type="module" src="/src/web/player-page.ts"></script>
 </body>
 </html>

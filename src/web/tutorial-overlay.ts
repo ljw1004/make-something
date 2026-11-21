@@ -135,8 +135,7 @@ export class TutorialOverlay {
     this.tracks = [];
   }
 
-  private destination(cue: Cue): Point | undefined {
-    const host = this.host.getBoundingClientRect();
+  private destination(cue: Cue, host = this.host.getBoundingClientRect()): Point | undefined {
     const visible = (element: HTMLElement) => {
       const r = element.getBoundingClientRect();
       return element.isConnected && r.width > 0 && r.height > 0 && r.left >= host.left && r.right <= host.right + 1 && r.top >= host.top && r.bottom <= host.bottom + 1;
@@ -149,14 +148,20 @@ export class TutorialOverlay {
     return points.find(p => cue.target.contains(document.elementFromPoint(p.x, p.y)));
   }
 
-  private positionLabel(cue: Cue, host: DOMRect, point: Point) {
-    const margin = 8, gap = 9;
+  private scene(cue: Cue, host: DOMRect) {
     // Goals live in the HUD. Items can also belong to an earlier, differently framed scene.
-    const panel = cue.target.closest('.chapter-panel') ?? this.host.querySelector('.chapter-panel:last-child');
-    const scene = panel?.getBoundingClientRect() ?? host;
+    const chapter = cue.target.closest('.chapter-panel');
+    if (chapter) return chapter.getBoundingClientRect();
+    const viewport = this.host.querySelector<HTMLElement>('.viewport');
+    const position = viewport ? Math.round(viewport.scrollLeft / viewport.clientWidth) : 0;
+    return viewport?.querySelectorAll('.chapter-panel')[position]?.getBoundingClientRect() ?? host;
+  }
+
+  private positionLabel(cue: Cue, host: DOMRect, scene: DOMRect, point: Point) {
+    const margin = 8, gap = 9;
     const xMin = Math.max(host.left, scene.left) - host.left + margin;
     const xMax = Math.min(host.right, scene.right) - host.left - margin;
-    const sceneTop = cue.kind === 'goals' ? (host.height - scene.height) / 2 : scene.top - host.top;
+    const sceneTop = scene.top - host.top;
     const yMin = Math.max(0, sceneTop) + margin;
     const yMax = Math.min(host.height, sceneTop + scene.height) - margin;
     this.label.style.setProperty('--label-room', `${Math.max(0, xMax - xMin)}px`);
@@ -174,10 +179,15 @@ export class TutorialOverlay {
     this.frame = 0;
     const cue = this.cue;
     if (!cue) return;
-    const destination = this.destination(cue);
+    const host = this.host.getBoundingClientRect(), scene = this.scene(cue, host);
+    for (const [edge, inset] of Object.entries({
+      top: scene.top - host.top, right: host.right - scene.right,
+      bottom: host.bottom - scene.bottom, left: scene.left - host.left,
+    })) this.root.style.setProperty(`--tutorial-clip-${edge}`, `${Math.max(0, inset)}px`);
+    const destination = this.destination(cue, host);
     this.root.hidden = !destination;
     if (destination) {
-      const host = this.host.getBoundingClientRect(), target = cue.target.getBoundingClientRect();
+      const target = cue.target.getBoundingClientRect();
       const end = {x: destination.x - host.x, y: destination.y - host.y};
       for (const [key, value] of Object.entries({x: target.x-host.x-4, y: target.y-host.y-4, width: target.width+8, height: target.height+8})) this.outline.setAttribute(key, String(value));
       const reduced = this.motion.matches;
@@ -214,7 +224,7 @@ export class TutorialOverlay {
       });
       this.gesture.style.transform = `translate(${gesturePosition.x}px,${gesturePosition.y}px)`;
       // The hotspot caption describes the destination, not the moving demonstration.
-      if (!this.label.hidden && !this.interacting) this.positionLabel(cue, host, end);
+      if (!this.label.hidden && !this.interacting) this.positionLabel(cue, host, scene, end);
       const tapping = cue.kind === 'goals' || cue.kind === 'encyclopedia';
       this.gesture.style.opacity = String(tapping ? 1 : opacity);
       this.gesture.classList.toggle('tutorial-press', !tapping && phase >= .12 && phase < .6);

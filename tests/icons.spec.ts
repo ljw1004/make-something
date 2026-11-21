@@ -162,6 +162,9 @@ test('right-edge drags follow the pickup point, then fit each icon on release an
     const preview=(await item.boundingBox())!;
     expect(preview.x).toBeCloseTo(381,1);
     expect(preview.x+preview.width).toBeGreaterThan(390);
+    const nameBox = (await item.locator('.icon-name').boundingBox())!;
+    expect(Math.abs(nameBox.x + nameBox.width/2 - (preview.x + preview.width/2))).toBeLessThan(1);
+    expect(Math.abs(nameBox.y + nameBox.height - preview.y)).toBeLessThan(1);
     await page.mouse.up();const released=(await item.boundingBox())!;
     expect(released.x+released.width).toBeCloseTo(390,1);
     expect(released.y).toBeCloseTo(y-11,1);
@@ -534,6 +537,7 @@ test('main catalogue opens the illustrated Settlement story with supplies placed
   await page.getByRole('button', {name:'Settlement', exact:true}).click();
   await expect(link.locator('.story-title')).toHaveText('Settlement');await link.click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await expect.poll(() => page.locator('.game-surface').evaluate(node => node.getBoundingClientRect().top)).toBe(0);
   for(const [name,x,y] of [['Earth',28,53],['Water',54,24],['Air',55,7],['Fire',75,36]] as const){
     const box=(await page.locator(`[data-item="name:${name}"]`).boundingBox())!;
     expect(box.x+box.width/2).toBeCloseTo(390*x/100,1);

@@ -20,38 +20,38 @@ export class EncyclopediaSwipe {
   private reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
   constructor(private root: HTMLElement, private page: () => BookPage | undefined,
-    private turn: (detail: boolean) => void, private close: () => void) {
+    private turn: (detail: boolean) => void, private close: () => void, signal?: AbortSignal) {
     document.addEventListener('pointerdown', event => {
       if (this.swipe && event.pointerId !== this.swipe.pointer) { this.cancel(); return; }
       if (event.isPrimary) this.suppressClick = false;
-    }, true);
-    root.addEventListener('pointerdown', this.begin);
-    document.addEventListener('pointermove', this.move);
-    document.addEventListener('pointerup', this.end);
+    }, {capture:true, signal});
+    root.addEventListener('pointerdown', this.begin, {signal});
+    document.addEventListener('pointermove', this.move, {signal});
+    document.addEventListener('pointerup', this.end, {signal});
     document.addEventListener('pointercancel', event => {
       if (event.pointerId === this.swipe?.pointer) this.cancel();
-    });
+    }, {signal});
     root.addEventListener('lostpointercapture', event => {
       // A touched descendant loses its implicit capture when the book claims it.
       // Only loss from our own capture is an interruption.
       if (event.target === root && event.pointerId === this.swipe?.pointer && event.buttons !== 0) this.cancel();
-    });
+    }, {signal});
     // The release must not activate a link or the game revealed by dismissal.
     document.addEventListener('click', event => {
       if (!this.suppressClick || event.detail === 0) return;
       this.suppressClick = false;
       event.preventDefault(); event.stopPropagation();
-    }, true);
+    }, {capture:true, signal});
     root.addEventListener('click', event => {
       if (this.dismissal) { event.preventDefault(); event.stopPropagation(); }
-    }, true);
+    }, {capture:true, signal});
     // A native selection or callout takes precedence over an undecided swipe.
-    root.addEventListener('selectstart', () => this.cancel());
-    root.addEventListener('contextmenu', () => this.cancel());
-    window.addEventListener('blur', () => this.cancel());
-    window.addEventListener('resize', () => this.cancel());
-    document.addEventListener('visibilitychange', () => { if (document.hidden) this.cancel(); });
-    this.reducedMotion.addEventListener('change', () => this.cancel());
+    root.addEventListener('selectstart', () => this.cancel(), {signal});
+    root.addEventListener('contextmenu', () => this.cancel(), {signal});
+    window.addEventListener('blur', () => this.cancel(), {signal});
+    window.addEventListener('resize', () => this.cancel(), {signal});
+    document.addEventListener('visibilitychange', () => { if (document.hidden) this.cancel(); }, {signal});
+    this.reducedMotion.addEventListener('change', () => this.cancel(), {signal});
   }
 
   cancel() {

@@ -60,7 +60,7 @@ background: ![page](room.svg)
     await page.mouse.move(x,y);
     const held=(await paper.boundingBox())!;
     expect(held.x).toBeCloseTo(x-100,1);expect(held.y).toBeCloseTo(y-100,1);
-    expect(await page.locator('.viewport').evaluate(el=>el.scrollHeight)).toBe(844);
+    expect(await page.locator('.viewport').evaluate(el=>el.scrollWidth)).toBe(390);
     await page.mouse.up();
     const released=(await paper.boundingBox())!;
     expect(released.x).toBeCloseTo(Math.max(0,Math.min(190,x-100)),1);

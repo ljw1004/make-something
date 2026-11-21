@@ -2374,3 +2374,31 @@ The production build, 19 focused Node checks, all 12 carousel browser tests and 
 The follow-up reduced the subtitle blur to 3px and gave Support and Privacy separate 2px blurs. It removed the lettering shadows, matched the two links to the subtitle’s colour and trimmed the subtitle blur to about 0.2ex below the last visible line. The production build, all 12 carousel browser tests and all three native integration tests passed again. The generated catalogue was checked in Chromium and WebKit across all six covers, with visual checks on native Settlement and pinned Mission to Mars on the iPhone 17 simulator. On History of ideas, the shared black footer text has lower contrast against the darker artwork beneath the links.
 
 Support and Privacy now share the subtitle’s responsive font size. The production build, all 12 carousel browser tests and all three native integration tests passed. The generated catalogue also reported matching sizes for all three labels at three phone sizes in WebKit with standalone mode emulated.
+
+## 20 November 2026 — Swipe navigation
+
+The catalogue opens the selected story with an upward swipe and returns to the same cover with a downward swipe. [Catalogue UX](docs/ux.md#catalogue-and-story-identity) records the matching button transitions, the stationary introduction, and entry while loading. [Board UX](docs/ux.md#work-surface-and-dragging) records sideways chapter navigation, the right-arrow advance and side-edge dragging for items picked up on earlier boards.
+
+The production build passed. The focused Chromium suite passed 84 checks and its resize timing case passed on rerun after waiting for the new height. The related reading-scroll check passed in Chromium and WebKit. The catalogue-settle check passed in Chromium. All 16 focused Node checks and all three iOS Simulator integration tests passed. The broader browser run reproduced existing reader, tutorial and authored placement failures against the preceding revision. Touch gestures were exercised with browser emulation.
+
+The web follow-up added mouse drags on empty scenery and made horizontal trackpad input advance one chapter per swipe. A mouse drag previously left the board in place, and a trackpad swipe could leave it between chapters. The web build and 33 focused Chromium tests passed, with a separate mouse and trackpad-input check in desktop WebKit.
+
+The web follow-up extended upward cover entry and downward board return to mouse drags and vertical trackpad swipes. The web build and 46 focused Chromium tests passed, including the scrollable cover description. Desktop WebKit passed both mouse and trackpad-input round trips.
+
+Swipe entry now goes directly to the board. Activating Start or Continue still presents the stationary chapter introduction. Sideways chapter transitions position adjacent artwork edge to edge inside a centered frame. The production build and 23 focused Chromium navigation tests passed. Desktop WebKit also verified swipe entry and a wide-screen transition between scenes with different artwork widths.
+
+Goals and the advance arrow stay visible during sideways slides. Cross-chapter dragging now starts its side-edge hold at the visible artwork edge, which restores it on wide screens where the viewport edge was far from the board. The web build and 31 focused Chromium tests passed, including a stationary edge hold and a drop onto a chapter with a different scene scale.
+
+Edge scrolling while carrying an item now uses the same adjacent artwork layout as chapter swipes. The held item stays under the pointer, and a mid-slide drop resolves against the visible board before that board centers. Swipe entry now uses the cover label as the cue for showing the introduction. Start shows it and Continue opens the board directly. The web build and 54 focused Chromium tests passed, including mid-slide and completed carries and both swipe-entry paths.
+
+Wheel events are no longer used for web navigation between the carousel, stories or chapters. Wheel scrolling is reserved for descriptions and readings. The web build and 48 focused Chromium tests passed, including both wheel axes on the chapter board and wheel input over the carousel and story.
+
+During cross-chapter carries, stationary items, labels and hotspots now clip with their artwork and only the visible portion can receive a drop. The held artwork and label travel together beyond the board edge and fit back onto the board on release. A changing scene width preserves an active edge hold. The web build passed. The focused Chromium checks passed after rerunning one interrupted by a development-server reload, and three desktop WebKit checks passed. The regression checks exercised both gutters, hidden drop targets, and the held label at the right edge.
+
+Web navigation swipes now complete when released at least a quarter of the way through the slide. Shorter swipes snap back. The web build and 56 focused Chromium checks passed, including short swipes in all four directions and downward swipes during both story loading states.
+
+Leaving a side edge while carrying an item now settles the chapter slide using the same quarter-distance rule. The item stays under the pointer, and tutorial overlays clip to the artwork. The web build passed, along with 79 focused Chromium checks and five desktop WebKit checks. An independent Settlement partner-hints unit test still references the missing “Bread for the journey” chapter.
+
+Web navigation now settles using the predicted stopping point. It estimates release velocity from the final 60 ms and projects a stop under constant deceleration before applying the quarter-distance threshold. Automated item edge scrolling still uses actual board travel. The web build, three projection unit tests, 63 Chromium checks and four desktop WebKit checks passed. The keyboard scrollback fixture now waits for the previous slide to finish before the next keypress. Touch evidence uses browser emulation.
+
+The web swipe threshold is now 65 CSS pixels in either axis, one sixth of the 390 CSS pixel reference width. The same threshold applies to actual board travel when an item leaves an edge. The web build, four unit tests, 55 Chromium checks and two desktop WebKit checks passed. The vertical boundary checks covered releases at 64 and 65 pixels.

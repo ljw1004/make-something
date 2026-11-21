@@ -47,1232 +47,1558 @@ import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
-import {readCarouselLaunch} from './carousel-launch.ts';
-import {holdFlip, leaveWithFlip, plainNavigation, takeFlip} from './story-flip.ts';
+import {finishCarouselLaunch, readCarouselLaunch} from './carousel-launch.ts';
+import {leaveForCatalogue, plainNavigation} from './document-navigation.ts';
 import {carouselStoryPath, selectStory} from './carousel-selection.ts';
+import {completesSwipe, SwipeMotion} from './swipe.ts';
 
-const app = document.querySelector<HTMLDivElement>('#app')!;
-guardGameInput(app);
-const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
-const iconNames = new IconNames();
-let inputTrace:DragTrace|undefined;
-const workspace = document.querySelector<HTMLElement>('#workspace')!;
-const surface = app.querySelector<HTMLDivElement>('.game-surface')!;
-const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
-app.append(dialogLayer);
-const tutorialOverlay = new TutorialOverlay(app);
-let tutorialProgress: TutorialProgress | undefined;
-let hotspotTutorialRecipe: string | undefined;
-let tutorialSaveError = '', progressSaveError = '';
-let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
-let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
-interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; scrollTop: number; viewportHeight?: number; dialog?: DialogContext; encyclopedia: EncyclopediaHistory }
-let anchor: Anchor;
-let itemOrder: string[] = [];
-let expectedScroll = 0;
-let finishIncomingStoryFlip: ((leaving?: boolean) => void) | undefined;
-// Presentation only: engine progression and arrival layout are committed once,
-// before scrolling. Keep fractions so resize/redraw can replace the viewport.
-let chapterSlide: {state: State; story: Story; from: number; to: number; position: number; started: number; frame: number} | undefined;
-let previewTimer: ReturnType<typeof setTimeout> | undefined;
-let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
-let storyStarted = false;
-let entryContext: ReturnType<typeof readCarouselLaunch> | undefined;
-let dialogContext: DialogContext | undefined;
-let dialogOpener: HTMLElement | undefined;
-let encyclopediaScroll = 0;
-let encyclopediaHistory: EncyclopediaHistory = {};
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const goalPulses = new GoalPulses(surface, () => ({
-  blocked: !storyStarted || starting || mobileDebug.isOpen || document.hidden,
-  reducedMotion: reducedMotion.matches,
-}));
-const desktopDebug = matchMedia('(min-width: 900px)');
-const itemArtwork = new ItemArtwork();
-let starting = true;
-let pendingArtwork: object | undefined;
-let artworkStatusTimer: ReturnType<typeof setTimeout> | undefined;
-let artworkFrame = 0;
-let preloadedState: State | undefined, preloadedStory: Story | undefined, preloadedStarted = false;
-
-function cancelArtworkWait() {
-  pendingArtwork = undefined;
-  clearTimeout(artworkStatusTimer); app.querySelector('.artwork-loading')?.remove();
-  surface.removeAttribute('aria-busy'); surface.inert = !!dialogContext || !!finishIncomingStoryFlip; dialogLayer.inert = false;
-}
-function actionError(error: unknown) {
-  modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);
-}
-/** Preserve the current view until the next layout has its own dimensions. */
-function withArtwork(paths: string[], apply: () => void) {
-  if (pendingArtwork) return;
-  const run = () => { try { apply(); } catch (error) { actionError(error); } };
-  const prepared = itemArtwork.prepare(paths, asset);
-  if (!prepared) { run(); return; }
-  const pending = pendingArtwork = {}, before = state, source = story;
-  surface.setAttribute('aria-busy', 'true'); surface.inert = true; dialogLayer.inert = true;
-  artworkStatusTimer = setTimeout(() => {
-    const status = document.createElement('p'); status.className = 'artwork-loading';
-    status.setAttribute('role', 'status'); status.textContent = 'Loading artwork…'; app.append(status);
-  }, 150);
-  void prepared.then(() => {
-    if (pendingArtwork !== pending) return;
-    cancelArtworkWait();
-    if (state === before && story === source) run();
-  });
-}
-window.addEventListener('online', () => {
-  itemArtwork.retryFailures();
-  if (starting || !state) return;
-  const source = story, before = state;
-  const prepared = itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
-  if (prepared) void prepared.then(() => { if (story === source && state === before) render(false, false); });
-  preloadedState = undefined; scheduleArtwork();
-});
-function scheduleArtwork() {
-  if (preloadedState === state && preloadedStory === story && preloadedStarted === storyStarted) return;
-  preloadedState = state; preloadedStory = story; preloadedStarted = storyStarted;
-  cancelAnimationFrame(artworkFrame);
-  // Let the prepared cover/chapter paint before starting speculative work.
-  artworkFrame = requestAnimationFrame(() => {
-    artworkFrame = requestAnimationFrame(() => {
-      try {
-        itemArtwork.preload(lookaheadArtwork(story, state, storyStarted), asset);
-        if (storyStarted) {
-          const source = story, before = state, prepared = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
-          if (prepared) void prepared.then(() => { if (story === source && state === before) render(false, false); });
-        }
-      }
-      catch { /* Incomplete drafts still display their current chapter. */ }
-    });
-  });
-}
-const creationLabels = new Map<string, ReturnType<typeof setTimeout>>();
-function clearCreationLabels() {
-  creationLabels.forEach(timer => clearTimeout(timer)); creationLabels.clear();
-}
-function announceCreation(id: string) {
-  clearTimeout(creationLabels.get(id));
-  creationLabels.set(id, setTimeout(() => { creationLabels.delete(id); tile(id)?.classList.remove('newly-created'); }, 1700));
-}
-const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
-const imageGeometry = (image?: string) => viewportBoard(app.clientWidth, app.clientHeight, itemArtwork.dimensions(image, asset));
-const boardGeometry = (chapter = state.chapter) => imageGeometry(background(story, chapter));
-const elementGeometry = (element: HTMLElement) => boardGeometry(Number(element.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
-const name = (id: string) => label(story, state, id);
-const key = () => storyProgressKey(documentURL);
-const asset = (path: string) => {
-  try { return resolveStoryAsset(path, authoring.assetBaseURL); }
-  catch { return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E'; }
-};
-function fingerprint(text: string) { let value = 2166136261; for (const c of text) value = Math.imul(value ^ c.charCodeAt(0), 16777619); return (value >>> 0).toString(16); }
-function parse(text: string): Story {
-  try { return parseStory(text, { id: storyID, file: documentURL }); }
-  catch (error) {
-    const partial = parseStory('', { id: storyID, file: documentURL });
-    partial.diagnostics.push({ severity: 'error', code: 'parse-recovery', message: (error as Error).message, source: partial.source, span: { from: 0, to: text.length }, stage: 'fast' });
-    return partial;
-  }
-}
-function cancelGoalTimers() { goalTimers.forEach(clearTimeout); goalTimers = []; }
-function resetGoalView() { cancelGoalTimers(); goalView = undefined; goalPulses.reset(); }
-function settleGoalEntrance() {
-  if (goalView?.phase !== 'leaving') return;
-  cancelGoalTimers(); goalView = { ...goalView, phase: 'arrow' };
-  app.querySelector('.goals-leaving')?.remove();
-  const arrow = app.querySelector<HTMLButtonElement>('.chapter-next'); if (arrow) { arrow.classList.remove('entering'); arrow.disabled = false; }
-}
-function animateGoalEntrance() {
-  const current = goalView;
-  goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, goalPulseDuration));
-}
-reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); });
-
-function rememberInteraction() {
-  if (!state) return;
-  anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], scrollTop: chapterSlide ? chapterSlide.to * app.clientHeight : app.querySelector('.viewport')?.scrollTop ?? 0, viewportHeight: app.clientHeight, dialog: dialogContext && {...dialogContext}, encyclopedia: {...encyclopediaHistory} };
-}
-function save() {
-  if (!storyStarted) return;
-  saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-    hash, state, chapterSession, itemOrder, editedSnapshot, encyclopedia: encyclopediaHistory,
-    anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, scrollTop: anchor.scrollTop, viewportHeight: anchor.viewportHeight, dialog: anchor.dialog, encyclopedia: anchor.encyclopedia },
-  })), showSaveError);
-}
-function updateTutorial() {
-  try { updateTutorialCue(); }
-  finally { goalPulses.update(); }
-}
-function updateTutorialCue() {
-  tutorialOverlay.dragging(!!drag || !!hotspotPress);
-  if (chapterSlide || app.dataset.storyFlip || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
-    tutorialOverlay.show(); return;
-  }
-  // Keep the chosen demonstration stable until the player finishes their gesture.
-  if (drag || hotspotPress) return;
-  const {dragDone, hotspotDone, goalsDone, encyclopediaDone} = tutorialProgress.completion;
-  if (!dragDone && state.chapter === 0) {
-    try {
-      const action = tutorialAction(story, state);
-      const source = action && tile(action.a);
-      const receiver = action?.b ?? action?.hotspot;
-      const target = receiver ? tile(receiver) ?? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === receiver) : undefined;
-      if (source && target && tutorialOverlay.show({kind: 'drag', source, target})) return;
-    } catch { /* An incomplete live draft must not interrupt play. */ }
-  }
-  if (!hotspotDone) {
-    try {
-      const scene = panel(state.chapter);
-      if (scene) for (const opportunity of hotspotTutorials(story, state, hotspotTutorialRecipe)) {
-        const sources = opportunity.sources.map(id => tile(id));
-        const target = [...scene.querySelectorAll<HTMLElement>('[data-hotspot]')].find(el => el.dataset.hotspot === opportunity.hotspot);
-        const receiver = opportunity.receiver ? tile(opportunity.receiver) : undefined;
-        if (!target || sources.some(source => !source) || (opportunity.receiver && !receiver)) continue;
-        const elements = sources as HTMLElement[], destination = (receiver ?? target).getBoundingClientRect();
-        const point = {x: destination.x + destination.width / 2, y: destination.y + destination.height / 2};
-        const source = elements[0].getBoundingClientRect();
-        const resolution = createDropResolver(story, state, opportunity.sources[0])(point,
-          {x: point.x - source.width / 2, y: point.y - source.height / 2, width: source.width, height: source.height}, dropTargets(scene, state.chapter));
-        // Do not demonstrate a drop stolen by an overlapping item or a different operation.
-        const valid = opportunity.receiver
-          ? resolution.action && recipeFor(story, state, resolution.action)?.id === opportunity.recipe
-          : !resolution.action && !resolution.ambiguous.length && resolution.target?.dataset.hotspot === opportunity.hotspot;
-        if (valid && tutorialOverlay.show({kind: 'hotspot', sources: elements, target, receiver})) {
-          hotspotTutorialRecipe = opportunity.recipe; return;
-        }
-      }
-    } catch { /* An incomplete live draft must not interrupt play. */ }
-  }
-  const result = encyclopediaHistory.latestResult;
-  if (!encyclopediaDone && result && state.tokens[result]?.status === 'available' &&
-      browserReadings(story, state, result).some(reading => reading.encyclopedia && reading.encyclopedia !== reading.popup)) {
-    const target = panel(state.tokens[result].chapter)?.querySelector<HTMLElement>(`[data-item="${CSS.escape(result)}"],[data-hotspot="${CSS.escape(result)}"]`);
-    if (target && tutorialOverlay.show({kind: 'encyclopedia', target})) return;
-  }
-  if (!goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
-    const target = surface.querySelector<HTMLElement>('.objective-overlay:not(:disabled)');
-    if (target && tutorialOverlay.show({kind: 'goals', target})) return;
-  }
-  tutorialOverlay.show();
-}
-function showSaveError(error: string) {
-  progressSaveError = error; renderSaveError();
-}
-function renderSaveError() {
-  const error = progressSaveError || tutorialSaveError; saveError = error;
-  const toggle = app.querySelector<HTMLElement>('.debug-toggle'); if (toggle) toggle.dataset.saveError = String(!!saveError);
-  let alert = app.querySelector<HTMLParagraphElement>('.save-alert');
-  if (error) { if (!alert) { alert = document.createElement('p'); alert.className = 'save-alert'; app.append(alert); } alert.setAttribute('role', 'alert'); alert.textContent = error; }
-  else alert?.remove();
-}
-function updateEditingIndicators() {
-  if (!authoring) return;
-  // The Vite development server runs the authored -dev template (also at the
-  // local pretty URL). The built player never exposes developer controls.
-  if (!import.meta.env.DEV) { updateTutorial(); return; }
-  let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
-  if (!toggle) {
-    toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
-    toggle.setAttribute('aria-label', 'Toggle debug panel');
-    app.append(toggle);
-  }
-  const edited = String(authoring.edited);
-  if (toggle.dataset.edited !== edited) {
-    toggle.dataset.edited = edited;
-    toggle.classList.toggle('edit-indicator', authoring.edited);
-    toggle.innerHTML = authoring.edited
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15l-1 5Z"/></svg>'
-      : '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg>';
-  }
-  toggle.title = authoring.edited ? 'Local edits — toggle debug panel' : 'Toggle debug panel';
-  toggle.dataset.saveError = String(!!saveError);
-  toggle.setAttribute('aria-controls', desktopDebug.matches ? 'debug-panel' : 'mobile-debug-panel');
-  toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug.isOpen));
-  let warning = app.querySelector<HTMLElement>('.draft-warning');
-  if (authoring.store.unsaved && !authoring.isOpen) {
-    if (!warning) { warning = document.createElement('p'); warning.className = 'draft-warning'; warning.setAttribute('role', 'alert'); app.append(warning); }
-    warning.textContent = desktopDebug.matches
-      ? 'Your edit is only in memory. Open the debug panel and copy the text before leaving.'
-      : 'Your edit is only in memory. Return to the desktop editor and copy the text before leaving.';
-  } else warning?.remove();
-  updateTutorial();
-}
-function layoutChanged() {
-  updateEditingIndicators();
-  if (state) { render(false, false); checkText(story, previewText); }
+interface CataloguePlayerOptions {
+  url: string;
+  modality: 'mouse' | 'touch';
+  introduction: 'show' | 'skip' | 'restore';
+  drafts: Map<string, DraftStore>;
+  home: () => void;
+  trackHome: (offset: number, settling: boolean) => void;
 }
 
-let diagnostics: LiveDiagnostics | undefined;
-function checkText(parsed: Story, text: string) {
-  if (!authoring?.isOpen) return;
-  diagnostics ??= new LiveDiagnostics(
-    (results, phase) => authoring?.setDiagnostics(results, phase),
-    message => authoring?.setPreviewStatus(message),
-  );
-  const titleImages = parsed.titleImages ?? [];
-  const coordinateChapters = [...new Set(coordinateEntries(parsed).map(e => e.chapter))];
-  const prepared = itemArtwork.prepare([...placementArtwork(parsed), ...coordinateChapters.map(chapter => background(parsed,chapter)).filter((url):url is string=>!!url), ...titleImages.map(image => image.url)], asset);
-  if (prepared) {
-    diagnostics.check(parsed, text);
+export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOptions) {
+  const lifecycle = new AbortController();
+  const signal = lifecycle.signal;
+  const app = workspace.querySelector<HTMLDivElement>('#app')!;
+  guardGameInput(app);
+  const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
+  let committed = !options;
+  let entranceSettled = !options;
+  let loadFailed = false;
+  let entryShown = false;
+  let identity: Story | undefined;
+  let leaving = false;
+  const iconNames = new IconNames();
+  let inputTrace:DragTrace|undefined;
+  const surface = app.querySelector<HTMLDivElement>('.game-surface')!;
+  const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
+  app.append(dialogLayer);
+  const tutorialOverlay = new TutorialOverlay(app);
+  let tutorialProgress: TutorialProgress | undefined;
+  let hotspotTutorialRecipe: string | undefined;
+  let tutorialSaveError = '', progressSaveError = '';
+  let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
+  let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
+  interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; chapterView?: number; scrollTop?: number; viewportHeight?: number; dialog?: DialogContext; encyclopedia: EncyclopediaHistory }
+  let anchor: Anchor;
+  let itemOrder: string[] = [];
+  let expectedScroll = 0;
+  // Presentation only: engine progression and arrival layout are committed once,
+  // before scrolling. Keep fractions so resize/redraw can replace the viewport.
+  let chapterSlide: {state: State; story: Story; from: number; to: number; position: number; started: number; frame: number} | undefined;
+  let previewTimer: ReturnType<typeof setTimeout> | undefined;
+  let goalView: GoalPresentation | undefined, goalTimers: ReturnType<typeof setTimeout>[] = [];
+  let storyStarted = false;
+  let entryContext: ReturnType<typeof readCarouselLaunch> | undefined;
+  let dialogContext: DialogContext | undefined;
+  let dialogOpener: HTMLElement | undefined;
+  let encyclopediaScroll = 0;
+  let encyclopediaHistory: EncyclopediaHistory = {};
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const goalPulses = new GoalPulses(surface, () => ({
+    blocked: !storyStarted || starting || !entranceSettled || mobileDebug.isOpen || document.hidden,
+    reducedMotion: reducedMotion.matches,
+  }));
+  const desktopDebug = matchMedia('(min-width: 900px)');
+  const itemArtwork = new ItemArtwork();
+  let starting = true;
+  let pendingArtwork: object | undefined;
+  let artworkStatusTimer: ReturnType<typeof setTimeout> | undefined;
+  let artworkFrame = 0;
+  let preloadedState: State | undefined, preloadedStory: Story | undefined, preloadedStarted = false;
+
+  function cancelArtworkWait() {
+    pendingArtwork = undefined;
+    clearTimeout(artworkStatusTimer); app.querySelector('.artwork-loading')?.remove();
+    surface.removeAttribute('aria-busy'); surface.inert = !!dialogContext; dialogLayer.inert = false;
+  }
+  function actionError(error: unknown) {
+    modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`);
+  }
+  /** Preserve the current view until the next layout has its own dimensions. */
+  function withArtwork(paths: string[], apply: () => void) {
+    if (pendingArtwork) return;
+    const run = () => { try { apply(); } catch (error) { actionError(error); } };
+    const prepared = itemArtwork.prepare(paths, asset);
+    if (!prepared) { run(); return; }
+    const pending = pendingArtwork = {}, before = state, source = story;
+    surface.setAttribute('aria-busy', 'true'); surface.inert = true; dialogLayer.inert = true;
+    artworkStatusTimer = setTimeout(() => {
+      const status = document.createElement('p'); status.className = 'artwork-loading';
+      status.setAttribute('role', 'status'); status.textContent = 'Loading artwork…'; app.append(status);
+    }, 150);
     void prepared.then(() => {
-      if (previewText === text && authoring.text === text) { diagnostics?.invalidate(); checkText(parsed, text); }
+      if (pendingArtwork !== pending) return;
+      cancelArtworkWait();
+      if (state === before && story === source) run();
     });
-    return;
   }
-  const probe = document.createElement('div');
-  probe.className = 'board fixed-locations';
-  probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:390px;--board-scale:1;visibility:hidden;pointer-events:none';
-  probe.innerHTML = hotspotProbeHTML(parsed, h => itemArtwork.hotspot(h, asset), chapter => sceneSize(itemArtwork.dimensions(background(parsed, chapter), asset)));
-  document.body.append(probe);
-  try {
-    diagnostics.check(parsed, text, measureHotspots(probe),
-      titleImages.map(image => ({url: image.url, ...itemArtwork.dimensions(image.url, asset) ?? {width: 0, height: 0}})),
-      coordinateChapters.map(chapter => ({chapter,...itemArtwork.dimensions(background(parsed,chapter),asset) ?? {width:0,height:0}})));
-  }
-  finally { probe.remove(); }
-}
-function schedulePreview() {
-  cancelArtworkWait();
-  diagnostics?.invalidate();
-  clearTimeout(previewTimer);
-  previewTimer = setTimeout(() => { previewTimer = undefined; applyText(authoring.text); }, 90);
-}
-function flushPreview() {
-  if (!authoring || authoring.text === previewText) return;
-  clearTimeout(previewTimer); previewTimer = undefined; applyText(authoring.text);
-}
-function applyText(text: string) {
-  const parsed = parse(text), next = recoverPreviewStory(parsed);
-  updateHomeScreenIdentity(parsed);
-  checkText(parsed, text);
-  cancelGesture('story-preview'); feedback.clear(); clearCreationLabels();
-  if (!storyStarted) {
-    // There is no played inventory to preserve on a cover. Begin the edited
-    // manuscript afresh rather than carrying supplies from an unstarted draft.
-    story = next; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
-    previewText = text; hash = fingerprint(text); editedSnapshot = false;
-    authoring.setPreviewStatus(''); render(false, false); rememberInteraction();
-    const prepared = itemArtwork.prepare(coverArtwork(story), asset);
-    if (prepared) void prepared.then(() => { if (previewText === text) render(false, false); });
-    return;
-  }
-  const context = dialogContext && ['confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
-  const update = reconcileLiveStory(anchor.story, next, anchor.state);
-  story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
-  itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
-  const entry = reconcileLiveStory(anchor.story, next, anchor.chapterSession.entry).state;
-  chapterSession = {
-    entry: entry.chapter === state.chapter ? entry : structuredClone(state),
-    combined: anchor.chapterSession.combined,
-    itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
-  };
-  dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
-  encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
-  authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
-  render(false, false);
-  const prepared = itemArtwork.prepare(currentArtwork(story, state), asset);
-  if (prepared) void prepared.then(() => { if (previewText === text) { render(false, false); refreshDialog(); } });
-  setScroll(anchorScroll());
-  refreshDialog();
-  save();
-}
-function setScroll(top: number) {
-  const viewport = app.querySelector<HTMLElement>('.viewport');
-  if (viewport) { viewport.scrollTop = top; expectedScroll = viewport.scrollTop; }
-}
-function anchorScroll() {
-  // Legacy anchors do not identify their viewport, so resume their active chapter.
-  return anchor.viewportHeight ? anchor.scrollTop * app.clientHeight / anchor.viewportHeight : Math.max(0, (state.visited.length - 1) * app.clientHeight);
-}
-function scrollToCurrentChapter() { setScroll(Math.max(0, (state.visited.length - 1) * app.clientHeight)); }
-
-function finishChapterSlide(arrive = true) {
-  const slide = chapterSlide;
-  if (!slide) return;
-  cancelAnimationFrame(slide.frame); chapterSlide = undefined;
-  surface.inert = !!dialogContext || !!pendingArtwork;
-  surface.classList.remove('chapter-sliding');
-  if (arrive && state === slide.state && story === slide.story) {
-    scrollToCurrentChapter(); showPending(); rememberInteraction(); save();
-    scheduleTutorialUpdate();
-  }
-}
-function animateChapterSlide() {
-  const slide = chapterSlide;
-  if (!slide) return;
-  surface.inert = true; surface.classList.add('chapter-sliding');
-  setScroll(slide.position * app.clientHeight);
-  slide.started = performance.now();
-  const tick = (now: number) => {
-    if (chapterSlide !== slide) return;
-    if (state !== slide.state || story !== slide.story) { finishChapterSlide(false); return; }
-    const progress = Math.min(1, (now - slide.started) / 350);
-    if (progress === 1 || reducedMotion.matches || document.hidden) { finishChapterSlide(); return; }
-    const eased = progress * progress * (3 - 2 * progress);
-    slide.position = slide.from + (slide.to - slide.from) * eased;
-    setScroll(slide.position * app.clientHeight);
-    slide.frame = requestAnimationFrame(tick);
-  };
-  slide.frame = requestAnimationFrame(tick);
-}
-reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) finishChapterSlide(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden) finishChapterSlide(); });
-
-function updateHomeScreenIdentity(parsed: Story) {
-  const startURL = new URL(location.href);
-  startURL.search = ''; startURL.hash = '';
-  startURL.searchParams.set('story', new URL(documentURL).pathname);
-  setHomeScreenIdentity({
-    name: parsed.title, icon: parsed.titleImages?.[0] && asset(parsed.titleImages[0].url),
-    id: documentURL, startURL: startURL.href, scope: new URL('./', catalogueURL).href, themeColor: '#172830',
-  });
-}
-async function start() {
-  let flip: ReturnType<typeof holdFlip> | undefined;
-  starting = true;
-  surface.replaceChildren();
-  document.documentElement.classList.remove('story-flip-bootstrap');
-  try {
-    documentURL = resolveStoryURL(location.href);
-    const path = new URL(documentURL).pathname;
-    // Only the former story.md route may inherit a folder-keyed legacy save.
-    storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
-    legacySaveKey = legacyProgressKey(documentURL);
-    const {fromCarousel, modality, skipCover} = entryContext ??= readCarouselLaunch(documentURL, catalogueURL);
-    const journey = skipCover ? takeFlip('launch') : undefined;
-    if (skipCover) flip = holdFlip(app, 'launch', journey?.spinnerAt);
-    else surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
-    tutorialProgress = new TutorialProgress({manuscript: documentURL, catalogue: fromCarousel ? catalogueURL.href : undefined},
-      error => {tutorialSaveError = error; renderSaveError();});
-    if (modality) tutorialOverlay.modality(modality);
-    const drafts = new DraftStore(documentURL);
-    const document = await loadStoryDocument(documentURL, drafts);
-    authoring = new AuthoringSession(document, drafts, workspace, {
-      onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
-      currentChapterLine: () => {
-        flushPreview();
-        return story.chapters[state.chapter]?.source.line;
-      },
-      onCheckpoint: line => {
-        flushPreview();
-        const index = story.chapters.findIndex(chapter => chapter.source.line === line);
-        if (index >= 0) jumpToCheckpoint(index);
-      },
+  window.addEventListener('online', () => {
+    itemArtwork.retryFailures();
+    if (starting || !state) return;
+    const source = story, before = state;
+    const prepared = itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
+    if (prepared) void prepared.then(() => { if (!signal.aborted && story === source && state === before) render(false, false); });
+    preloadedState = undefined; scheduleArtwork();
+  }, {signal});
+  function scheduleArtwork() {
+    if (preloadedState === state && preloadedStory === story && preloadedStarted === storyStarted) return;
+    preloadedState = state; preloadedStory = story; preloadedStarted = storyStarted;
+    cancelAnimationFrame(artworkFrame);
+    // Let the prepared cover/chapter paint before starting speculative work.
+    artworkFrame = requestAnimationFrame(() => {
+      artworkFrame = requestAnimationFrame(() => {
+        try {
+          itemArtwork.preload(lookaheadArtwork(story, state, storyStarted), asset);
+          if (storyStarted) {
+            const source = story, before = state, prepared = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
+            if (prepared) void prepared.then(() => { if (!signal.aborted && story === source && state === before) render(false, false); });
+          }
+        }
+        catch { /* Incomplete drafts still display their current chapter. */ }
+      });
     });
-    previewText = document.text; hash = fingerprint(previewText);
-    const parsed = parse(previewText); story = recoverPreviewStory(parsed);
-    updateHomeScreenIdentity(parsed);
-    state = newGame(story); chapterSession = captureChapter(state);
-    let loaded = false;
-    try {
-      const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
-      encyclopediaHistory = restoreEncyclopediaHistory(saved?.encyclopedia);
-      if (saved?.anchor && typeof saved.anchor.text === 'string') {
-        const source = recoverPreviewStory(parse(saved.anchor.text));
-        const prior = restoreLiveState(source, saved.anchor.state);
-        if (prior) {
-          const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
-          anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, combined: hasChapterCombination(prior, saved.anchor.chapterSession), itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog), encyclopedia: restoreEncyclopediaHistory(saved.anchor.encyclopedia) };
-        }
-      }
-      if (saved?.hash === hash) {
-        const restored = saved.editedSnapshot ? restoreLiveState(story, saved.state) : restorePresentation(story, saved.state);
-        if (restored) {
-          state = restored; editedSnapshot = !!saved.editedSnapshot;
-          itemOrder = restoreItemOrder(Object.keys(state.tokens), saved.itemOrder);
-          const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
-          chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), combined: hasChapterCombination(state, saved.chapterSession), itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
-          loaded = true;
-        }
-      }
-    } catch { saveError = 'The saved game could not be restored. Your Markdown draft is intact.'; }
-    if (!loaded && anchor) {
-      const update = reconcileLiveStory(anchor.story, story, anchor.state); story = update.story; state = update.state;
-      itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
-      encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
-      chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
+  }
+  const creationLabels = new Map<string, ReturnType<typeof setTimeout>>();
+  function clearCreationLabels() {
+    creationLabels.forEach(timer => clearTimeout(timer)); creationLabels.clear();
+  }
+  function announceCreation(id: string) {
+    clearTimeout(creationLabels.get(id));
+    creationLabels.set(id, setTimeout(() => { creationLabels.delete(id); tile(id)?.classList.remove('newly-created'); }, 1700));
+  }
+  const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
+  const imageGeometry = (image?: string) => viewportBoard(app.clientWidth, app.clientHeight, itemArtwork.dimensions(image, asset));
+  const boardGeometry = (chapter = state.chapter) => imageGeometry(background(story, chapter));
+  const elementGeometry = (element: HTMLElement) => boardGeometry(Number(element.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
+  const name = (id: string) => label(story, state, id);
+  const key = () => storyProgressKey(documentURL);
+  const asset = (path: string) => {
+    try { return resolveStoryAsset(path, authoring.assetBaseURL); }
+    catch { return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E'; }
+  };
+  function fingerprint(text: string) { let value = 2166136261; for (const c of text) value = Math.imul(value ^ c.charCodeAt(0), 16777619); return (value >>> 0).toString(16); }
+  function parse(text: string): Story {
+    try { return parseStory(text, { id: storyID, file: documentURL }); }
+    catch (error) {
+      const partial = parseStory('', { id: storyID, file: documentURL });
+      partial.diagnostics.push({ severity: 'error', code: 'parse-recovery', message: (error as Error).message, source: partial.source, span: { from: 0, to: text.length }, stage: 'fast' });
+      return partial;
     }
-    storyStarted = loaded || !!skipCover;
-    if (!loaded) encyclopediaHistory = {};
-    await itemArtwork.prepare(storyStarted ? currentArtwork(story, state) : coverArtwork(story), asset);
-    starting = false;
-    render(!loaded, !loaded || !skipCover);
-    if (skipCover || (loaded && fromCarousel && state.completed)) scrollToCurrentChapter();
-    else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientHeight));
-    let entryShown = false, leavingFromPopup = false;
-    if (flip) await flip.reveal(!!journey, {board:surface, onStart(settle) {
-      surface.inert = true;
-      finishIncomingStoryFlip = (leaving = false) => {
-        leavingFromPopup = leaving;
-        settle();
-        finishIncomingStoryFlip = undefined;
-        surface.inert = !!dialogContext || !!pendingArtwork;
-      };
-      entryShown = true;
-      showChapterEntry(true);
-    }});
-    // Home can settle the incoming half early and immediately start the
-    // opposite journey. Do not replace that outgoing face or its saved state.
-    finishIncomingStoryFlip?.();
-    if (!leavingFromPopup) {
-      if (skipCover && !entryShown) showChapterEntry();
-      else if (entryShown) showPending();
+  }
+  function cancelGoalTimers() { goalTimers.forEach(clearTimeout); goalTimers = []; }
+  function resetGoalView() { cancelGoalTimers(); goalView = undefined; goalPulses.reset(); }
+  function settleGoalEntrance() {
+    if (goalView?.phase !== 'leaving') return;
+    cancelGoalTimers(); goalView = { ...goalView, phase: 'arrow' };
+    app.querySelector('.goals-leaving')?.remove();
+    const arrow = app.querySelector<HTMLButtonElement>('.chapter-next'); if (arrow) { arrow.classList.remove('entering'); arrow.disabled = false; }
+  }
+  function animateGoalEntrance() {
+    const current = goalView;
+    goalTimers.push(setTimeout(() => { if (goalView === current) settleGoalEntrance(); }, goalPulseDuration));
+  }
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) settleGoalEntrance(); goalPulses.refreshMotion(); }, {signal});
+
+  function rememberInteraction() {
+    if (!state) return;
+    anchor = { text: previewText, story, state: structuredClone(state), chapterSession: structuredClone(chapterSession), itemOrder: [...itemOrder], chapterView: chapterSlide?.to ?? boardPress?.index ?? expectedScroll / Math.max(1, app.clientWidth), dialog: dialogContext && {...dialogContext}, encyclopedia: {...encyclopediaHistory} };
+  }
+  function save() {
+    if (!storyStarted || !committed) return;
+    saveProgress(() => localStorage.setItem(key(), JSON.stringify({
+      hash, state, chapterSession, itemOrder, editedSnapshot, encyclopedia: encyclopediaHistory,
+      anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, chapterView: anchor.chapterView, dialog: anchor.dialog, encyclopedia: anchor.encyclopedia },
+    })), showSaveError);
+  }
+  function updateTutorial() {
+    try { updateTutorialCue(); }
+    finally { goalPulses.update(); }
+  }
+  function updateTutorialCue() {
+    tutorialOverlay.dragging(!!drag || !!hotspotPress);
+    if (chapterSlide || !entranceSettled || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
+      tutorialOverlay.show(); return;
+    }
+    // Keep the chosen demonstration stable until the player finishes their gesture.
+    if (drag || hotspotPress) return;
+    const {dragDone, hotspotDone, goalsDone, encyclopediaDone} = tutorialProgress.completion;
+    if (!dragDone && state.chapter === 0) {
+      try {
+        const action = tutorialAction(story, state);
+        const source = action && tile(action.a);
+        const receiver = action?.b ?? action?.hotspot;
+        const target = receiver ? tile(receiver) ?? [...(panel(0)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(element => element.dataset.hotspot === receiver) : undefined;
+        if (source && target && tutorialOverlay.show({kind: 'drag', source, target})) return;
+      } catch { /* An incomplete live draft must not interrupt play. */ }
+    }
+    if (!hotspotDone) {
+      try {
+        const scene = panel(state.chapter);
+        if (scene) for (const opportunity of hotspotTutorials(story, state, hotspotTutorialRecipe)) {
+          const sources = opportunity.sources.map(id => tile(id));
+          const target = [...scene.querySelectorAll<HTMLElement>('[data-hotspot]')].find(el => el.dataset.hotspot === opportunity.hotspot);
+          const receiver = opportunity.receiver ? tile(opportunity.receiver) : undefined;
+          if (!target || sources.some(source => !source) || (opportunity.receiver && !receiver)) continue;
+          const elements = sources as HTMLElement[], destination = (receiver ?? target).getBoundingClientRect();
+          const point = {x: destination.x + destination.width / 2, y: destination.y + destination.height / 2};
+          const source = elements[0].getBoundingClientRect();
+          const resolution = createDropResolver(story, state, opportunity.sources[0])(point,
+            {x: point.x - source.width / 2, y: point.y - source.height / 2, width: source.width, height: source.height}, dropTargets(scene, state.chapter));
+          // Do not demonstrate a drop stolen by an overlapping item or a different operation.
+          const valid = opportunity.receiver
+            ? resolution.action && recipeFor(story, state, resolution.action)?.id === opportunity.recipe
+            : !resolution.action && !resolution.ambiguous.length && resolution.target?.dataset.hotspot === opportunity.hotspot;
+          if (valid && tutorialOverlay.show({kind: 'hotspot', sources: elements, target, receiver})) {
+            hotspotTutorialRecipe = opportunity.recipe; return;
+          }
+        }
+      } catch { /* An incomplete live draft must not interrupt play. */ }
+    }
+    const result = encyclopediaHistory.latestResult;
+    if (!encyclopediaDone && result && state.tokens[result]?.status === 'available' &&
+        browserReadings(story, state, result).some(reading => reading.encyclopedia && reading.encyclopedia !== reading.popup)) {
+      const target = panel(state.tokens[result].chapter)?.querySelector<HTMLElement>(`[data-item="${CSS.escape(result)}"],[data-hotspot="${CSS.escape(result)}"]`);
+      if (target && tutorialOverlay.show({kind: 'encyclopedia', target})) return;
+    }
+    if (!goalsDone && goalView?.phase === 'goals' && !state.completed && story.chapters[state.chapter]?.goals.length) {
+      const target = surface.querySelector<HTMLElement>('.objective-overlay:not(:disabled)');
+      if (target && tutorialOverlay.show({kind: 'goals', target})) return;
+    }
+    tutorialOverlay.show();
+  }
+  function showSaveError(error: string) {
+    progressSaveError = error; renderSaveError();
+  }
+  function renderSaveError() {
+    const error = progressSaveError || tutorialSaveError; saveError = error;
+    const toggle = app.querySelector<HTMLElement>('.debug-toggle'); if (toggle) toggle.dataset.saveError = String(!!saveError);
+    let alert = app.querySelector<HTMLParagraphElement>('.save-alert');
+    if (error) { if (!alert) { alert = document.createElement('p'); alert.className = 'save-alert'; app.append(alert); } alert.setAttribute('role', 'alert'); alert.textContent = error; }
+    else alert?.remove();
+  }
+  function updateEditingIndicators() {
+    if (!authoring) return;
+    // The Vite development server runs the authored -dev template (also at the
+    // local pretty URL). The built player never exposes developer controls.
+    if (!import.meta.env.DEV) { updateTutorial(); return; }
+    let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
+    if (!toggle) {
+      toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
+      toggle.setAttribute('aria-label', 'Toggle debug panel');
+      app.append(toggle);
+    }
+    const edited = String(authoring.edited);
+    if (toggle.dataset.edited !== edited) {
+      toggle.dataset.edited = edited;
+      toggle.classList.toggle('edit-indicator', authoring.edited);
+      toggle.innerHTML = authoring.edited
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15l-1 5Z"/></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg>';
+    }
+    toggle.title = authoring.edited ? 'Local edits — toggle debug panel' : 'Toggle debug panel';
+    toggle.dataset.saveError = String(!!saveError);
+    toggle.setAttribute('aria-controls', desktopDebug.matches ? 'debug-panel' : 'mobile-debug-panel');
+    toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug.isOpen));
+    let warning = app.querySelector<HTMLElement>('.draft-warning');
+    if (authoring.store.unsaved && !authoring.isOpen) {
+      if (!warning) { warning = document.createElement('p'); warning.className = 'draft-warning'; warning.setAttribute('role', 'alert'); app.append(warning); }
+      warning.textContent = desktopDebug.matches
+        ? 'Your edit is only in memory. Open the debug panel and copy the text before leaving.'
+        : 'Your edit is only in memory. Return to the desktop editor and copy the text before leaving.';
+    } else warning?.remove();
+    updateTutorial();
+  }
+  function layoutChanged() {
+    updateEditingIndicators();
+    if (state) { render(false, false); checkText(story, previewText); }
+  }
+
+  let diagnostics: LiveDiagnostics | undefined;
+  function checkText(parsed: Story, text: string) {
+    if (!authoring?.isOpen) return;
+    diagnostics ??= new LiveDiagnostics(
+      (results, phase) => authoring?.setDiagnostics(results, phase),
+      message => authoring?.setPreviewStatus(message),
+    );
+    const titleImages = parsed.titleImages ?? [];
+    const coordinateChapters = [...new Set(coordinateEntries(parsed).map(e => e.chapter))];
+    const prepared = itemArtwork.prepare([...placementArtwork(parsed), ...coordinateChapters.map(chapter => background(parsed,chapter)).filter((url):url is string=>!!url), ...titleImages.map(image => image.url)], asset);
+    if (prepared) {
+      diagnostics.check(parsed, text);
+      void prepared.then(() => {
+        if (!signal.aborted && previewText === text && authoring.text === text) { diagnostics?.invalidate(); checkText(parsed, text); }
+      });
+      return;
+    }
+    const probe = document.createElement('div');
+    probe.className = 'board fixed-locations';
+    probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:390px;--board-scale:1;visibility:hidden;pointer-events:none';
+    probe.innerHTML = hotspotProbeHTML(parsed, h => itemArtwork.hotspot(h, asset), chapter => sceneSize(itemArtwork.dimensions(background(parsed, chapter), asset)));
+    document.body.append(probe);
+    try {
+      diagnostics.check(parsed, text, measureHotspots(probe),
+        titleImages.map(image => ({url: image.url, ...itemArtwork.dimensions(image.url, asset) ?? {width: 0, height: 0}})),
+        coordinateChapters.map(chapter => ({chapter,...itemArtwork.dimensions(background(parsed,chapter),asset) ?? {width:0,height:0}})));
+    }
+    finally { probe.remove(); }
+  }
+  function schedulePreview() {
+    cancelArtworkWait();
+    diagnostics?.invalidate();
+    clearTimeout(previewTimer);
+    previewTimer = setTimeout(() => { previewTimer = undefined; applyText(authoring.text); }, 90);
+  }
+  function flushPreview() {
+    if (!authoring || authoring.text === previewText) return;
+    clearTimeout(previewTimer); previewTimer = undefined; applyText(authoring.text);
+  }
+  function applyText(text: string) {
+    const parsed = parse(text), next = recoverPreviewStory(parsed);
+    updateHomeScreenIdentity(parsed);
+    checkText(parsed, text);
+    cancelGesture('story-preview'); feedback.clear(); clearCreationLabels();
+    if (!storyStarted) {
+      // There is no played inventory to preserve on a cover. Begin the edited
+      // manuscript afresh rather than carrying supplies from an unstarted draft.
+      story = next; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
+      previewText = text; hash = fingerprint(text); editedSnapshot = false;
+      authoring.setPreviewStatus(''); render(false, false); rememberInteraction();
+      const prepared = itemArtwork.prepare(coverArtwork(story), asset);
+      if (prepared) void prepared.then(() => { if (!signal.aborted && previewText === text) render(false, false); });
+      return;
+    }
+    const context = dialogContext && ['confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
+    const update = reconcileLiveStory(anchor.story, next, anchor.state);
+    story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
+    itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
+    const entry = reconcileLiveStory(anchor.story, next, anchor.chapterSession.entry).state;
+    chapterSession = {
+      entry: entry.chapter === state.chapter ? entry : structuredClone(state),
+      combined: anchor.chapterSession.combined,
+      itemOrder: entry.chapter === state.chapter ? restoreItemOrder(Object.keys(entry.tokens), anchor.chapterSession.itemOrder, update.items) : [...itemOrder],
+    };
+    dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
+    encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
+    authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
+    render(false, false);
+    const prepared = itemArtwork.prepare(currentArtwork(story, state), asset);
+    if (prepared) void prepared.then(() => { if (!signal.aborted && previewText === text) { render(false, false); refreshDialog(); } });
+    setScroll(anchorScroll());
+    refreshDialog();
+    save();
+  }
+  function setScroll(left: number) {
+    const viewport = app.querySelector<HTMLElement>('.viewport');
+    if (viewport) { viewport.scrollLeft = left; expectedScroll = viewport.scrollLeft; }
+  }
+  function anchorScroll() {
+    // Legacy anchors do not identify their viewport, so resume their active chapter.
+    const position = anchor.chapterView ?? (anchor.viewportHeight && (anchor.scrollTop ?? 0) / anchor.viewportHeight) ?? state.visited.length - 1;
+    return position * app.clientWidth;
+  }
+  function scrollToCurrentChapter() { setScroll(Math.max(0, (state.visited.length - 1) * app.clientWidth)); }
+
+  let movingPanels: HTMLElement[] = [];
+  function clearChapterMotion() {
+    const viewport = surface.querySelector<HTMLElement>('.viewport');
+    viewport?.classList.remove('chapter-motion', 'chapter-carry');
+    app.style.removeProperty('--chapter-motion-inset');
+    viewport?.style.removeProperty('--chapter-carry-clip');
+    for (const panel of movingPanels) clearMovingPanel(panel);
+    movingPanels = [];
+  }
+  function clearMovingPanel(panel: HTMLElement) {
+    panel.classList.remove('chapter-motion-panel');
+    panel.style.removeProperty('translate');
+    panel.style.removeProperty('--chapter-items-left');
+    panel.style.removeProperty('--chapter-items-right');
+  }
+  function chapterWidth(position: number) {
+    const chapter = state.visited[Math.max(0, Math.min(state.visited.length - 1, position))];
+    return boardGeometry(chapter).width;
+  }
+  function chapterTravel(from: number, to: number) {
+    return (chapterWidth(from) + chapterWidth(to)) / 2;
+  }
+  function chapterFrameWidth(position: number) {
+    const from = Math.floor(position), to = Math.ceil(position);
+    const outgoing = chapterWidth(from);
+    return outgoing + (chapterWidth(to) - outgoing) * (position - from);
+  }
+  function positionChapterMotion(position: number, carrying = false) {
+    const viewport = surface.querySelector<HTMLElement>('.viewport')!;
+    const width = app.clientWidth;
+    setScroll(position * width);
+    const from = Math.floor(position), to = Math.ceil(position);
+    const outgoingWidth = chapterWidth(from), incomingWidth = chapterWidth(to);
+    if (outgoingWidth >= width && incomingWidth >= width) { clearChapterMotion(); return; }
+
+    // Bring art edges together while keeping the logical viewport slots.
+    const distance = (outgoingWidth + incomingWidth) / 2;
+    const inset = (width - chapterFrameWidth(position)) / 2;
+    const panels: HTMLElement[] = [];
+    for (const index of new Set([from, to])) {
+      const chapter = state.visited[index];
+      const shift = (index - position) * distance;
+      const offset = expectedScroll - index * width + shift;
+      for (const panel of viewport.querySelectorAll<HTMLElement>(`.scene-panel[data-chapter="${chapter}"], .chapter-panel[data-chapter="${chapter}"]`)) {
+        panel.style.translate = `${offset}px`;
+        panel.classList.add('chapter-motion-panel');
+        if (carrying && panel.matches('.chapter-panel')) {
+          const geometry = boardGeometry(chapter), left = geometry.left + shift;
+          // Express the frame's cut in the board's unscaled coordinates.
+          panel.style.setProperty('--chapter-items-left', `${Math.max(0, inset - left) / geometry.scale}px`);
+          panel.style.setProperty('--chapter-items-right', `${Math.max(0, left + geometry.width - (width - inset)) / geometry.scale}px`);
+        }
+        panels.push(panel);
+      }
+    }
+    for (const panel of movingPanels) {
+      if (!panels.includes(panel)) clearMovingPanel(panel);
+    }
+    movingPanels = panels;
+    app.style.setProperty('--chapter-motion-inset', `${inset}px`);
+    viewport.classList.add('chapter-motion');
+    viewport.classList.toggle('chapter-carry', carrying);
+    if (carrying) {
+      // Clip the scenery without clipping the item held under the pointer.
+      const left = expectedScroll + inset, right = viewport.scrollWidth - expectedScroll - width + inset;
+      viewport.style.setProperty('--chapter-carry-clip', `inset(0 ${right}px 0 ${left}px)`);
+    }
+  }
+
+  function finishChapterSlide(arrive = true) {
+    const slide = chapterSlide;
+    if (!slide) return;
+    cancelAnimationFrame(slide.frame); chapterSlide = undefined;
+    clearChapterMotion();
+    surface.inert = !!dialogContext || !!pendingArtwork;
+    surface.classList.remove('chapter-sliding');
+    if (arrive && state === slide.state && story === slide.story) {
+      setScroll(slide.to * app.clientWidth); showPending(); rememberInteraction(); save();
+      scheduleTutorialUpdate();
+    }
+  }
+  function animateChapterSlide() {
+    const slide = chapterSlide;
+    if (!slide) return;
+    surface.inert = true; surface.classList.add('chapter-sliding');
+    positionChapterMotion(slide.position);
+    slide.started = performance.now();
+    const tick = (now: number) => {
+      if (chapterSlide !== slide) return;
+      if (state !== slide.state || story !== slide.story) { finishChapterSlide(false); return; }
+      const progress = Math.min(1, (now - slide.started) / 350);
+      if (progress === 1 || reducedMotion.matches || document.hidden) { finishChapterSlide(); return; }
+      const eased = progress * progress * (3 - 2 * progress);
+      slide.position = slide.from + (slide.to - slide.from) * eased;
+      positionChapterMotion(slide.position);
+      slide.frame = requestAnimationFrame(tick);
+    };
+    slide.frame = requestAnimationFrame(tick);
+  }
+  function browseChapter(position: number) {
+    const to = Math.max(0, Math.min(state.visited.length - 1, position));
+    const from = expectedScroll;
+    if (reducedMotion.matches || from === to * app.clientWidth) {
+      setScroll(to * app.clientWidth); rememberInteraction(); save(); scheduleTutorialUpdate();
+      return;
+    }
+    const fraction = from / app.clientWidth;
+    chapterSlide = {state, story, from:fraction, to, position:fraction, started:0, frame:0};
+    animateChapterSlide();
+    rememberInteraction(); save();
+  }
+  function swipeChapter(position: number, from?: number) {
+    if (position === state.visited.length && chapterComplete(story, state) && !state.completed) {
+      commit({type:'advance'}, from);
+    } else browseChapter(position);
+  }
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) finishChapterSlide(); }, {signal});
+  document.addEventListener('visibilitychange', () => { if (document.hidden) finishChapterSlide(); }, {signal});
+
+  function updateHomeScreenIdentity(parsed: Story) {
+    const startURL = new URL(options?.url ?? location.href);
+    startURL.search = ''; startURL.hash = '';
+    startURL.searchParams.set('story', new URL(documentURL).pathname);
+    setHomeScreenIdentity({
+      name: parsed.title, icon: parsed.titleImages?.[0] && asset(parsed.titleImages[0].url),
+      id: documentURL, startURL: startURL.href, scope: new URL('./', catalogueURL).href, themeColor: '#172830',
+    });
+  }
+  async function start() {
+    starting = true;
+    surface.replaceChildren();
+    let loading: number | undefined;
+    const showDelayedLoading = () => window.setTimeout(() => {
+      const status = document.createElement('div');
+      status.className = 'story-entry-loading';
+      status.setAttribute('role', 'status');
+      status.innerHTML = '<span class="sr-only">Loading story…</span>';
+      surface.append(status);
+    }, 240);
+    if (options && loadFailed) loading = showDelayedLoading();
+    if (options) signal.addEventListener('abort', () => clearTimeout(loading), {once:true});
+    document.documentElement.classList.remove('story-entry-bootstrap');
+    try {
+      documentURL = resolveStoryURL(options?.url ?? location.href);
+      const path = new URL(documentURL).pathname;
+      // Only the former story.md route may inherit a folder-keyed legacy save.
+      storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
+      legacySaveKey = legacyProgressKey(documentURL);
+      const {fromCarousel, modality, skipCover, resumeEntry, skipIntroduction} = entryContext ??= options
+        ? {fromCarousel:true, modality:options.modality, skipCover:true, skipIntroduction:options.introduction === 'skip'}
+        : readCarouselLaunch(documentURL, catalogueURL);
+      if (!options) {
+        if (skipCover) loading = showDelayedLoading();
+        else surface.innerHTML = '<p class="story-loading" role="status">Loading story…</p>';
+      }
+      tutorialProgress = new TutorialProgress({manuscript: documentURL, catalogue: fromCarousel ? catalogueURL.href : undefined},
+        error => {tutorialSaveError = error; renderSaveError();});
+      if (modality) tutorialOverlay.modality(modality);
+      const drafts = options?.drafts.get(documentURL) ?? new DraftStore(documentURL);
+      const document = await loadStoryDocument(documentURL, drafts, (url, init) => fetch(url, {...init, signal}));
+      if (signal.aborted || leaving) return;
+      authoring = new AuthoringSession(document, drafts, workspace, {
+        onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+        currentChapterLine: () => {
+          flushPreview();
+          return story.chapters[state.chapter]?.source.line;
+        },
+        onCheckpoint: line => {
+          flushPreview();
+          const index = story.chapters.findIndex(chapter => chapter.source.line === line);
+          if (index >= 0) jumpToCheckpoint(index);
+        },
+      });
+      previewText = document.text; hash = fingerprint(previewText);
+      const parsed = parse(previewText); story = recoverPreviewStory(parsed);
+      identity = parsed;
+      if (committed) updateHomeScreenIdentity(parsed);
+      state = newGame(story); chapterSession = captureChapter(state);
+      let loaded = false;
+      try {
+        const saved = JSON.parse(localStorage.getItem(key()) ?? (legacySaveKey ? localStorage.getItem(legacySaveKey) : null) ?? 'null');
+        encyclopediaHistory = restoreEncyclopediaHistory(saved?.encyclopedia);
+        if (saved?.anchor && typeof saved.anchor.text === 'string') {
+          const source = recoverPreviewStory(parse(saved.anchor.text));
+          const prior = restoreLiveState(source, saved.anchor.state);
+          if (prior) {
+            const entry = restoreLiveState(source, saved.anchor.chapterSession?.entry) ?? prior;
+            anchor = { text: saved.anchor.text, story: source, state: prior, chapterSession: { entry, combined: hasChapterCombination(prior, saved.anchor.chapterSession), itemOrder: restoreItemOrder(Object.keys(entry.tokens), saved.anchor.chapterSession?.itemOrder) }, itemOrder: restoreItemOrder(Object.keys(prior.tokens), saved.anchor.itemOrder), chapterView: Number.isFinite(saved.anchor.chapterView) ? saved.anchor.chapterView : undefined, scrollTop: Number.isFinite(saved.anchor.scrollTop) ? saved.anchor.scrollTop : 0, viewportHeight: Number.isFinite(saved.anchor.viewportHeight) && saved.anchor.viewportHeight > 0 ? saved.anchor.viewportHeight : undefined, dialog: restoreDialogContext(saved.anchor.dialog), encyclopedia: restoreEncyclopediaHistory(saved.anchor.encyclopedia) };
+          }
+        }
+        if (saved?.hash === hash) {
+          const restored = saved.editedSnapshot ? restoreLiveState(story, saved.state) : restorePresentation(story, saved.state);
+          if (restored) {
+            state = restored; editedSnapshot = !!saved.editedSnapshot;
+            itemOrder = restoreItemOrder(Object.keys(state.tokens), saved.itemOrder);
+            const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
+            chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), combined: hasChapterCombination(state, saved.chapterSession), itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
+            loaded = true;
+          }
+        }
+      } catch { saveError = 'The saved game could not be restored. Your Markdown draft is intact.'; }
+      if (!loaded && anchor) {
+        const update = reconcileLiveStory(anchor.story, story, anchor.state); story = update.story; state = update.state;
+        itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
+        encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
+        chapterSession = captureChapter(state, itemOrder); editedSnapshot = true; loaded = true;
+      }
+      storyStarted = loaded || !!skipCover || !!resumeEntry;
+      if (!loaded) encyclopediaHistory = {};
+      const omitIntroduction = skipIntroduction && state.pending[0]?.kind === 'chapter';
+      const visibleState = omitIntroduction ? {...state, pending:state.pending.slice(1)} : state;
+      await itemArtwork.prepare(storyStarted ? currentArtwork(story, visibleState) : coverArtwork(story), asset);
+      if (signal.aborted || leaving) return;
+      starting = false; loadFailed = false;
+      clearTimeout(loading);
+      render(!loaded, !omitIntroduction && (!loaded || !skipCover));
+      if (omitIntroduction) {
+        if (!loaded) chapterSession = captureChapter(state, itemOrder);
+        state = act(story, state, {type:'dismiss'});
+      }
+      if (skipCover || (loaded && fromCarousel && state.completed)) scrollToCurrentChapter();
+      else setScroll(anchor ? anchorScroll() : Math.max(0, (state.visited.length - 1) * app.clientWidth));
+      if (options) {
+        if (committed) persistEntry();
+        if (entranceSettled) finishEntry();
+        return;
+      }
+      if (skipCover && !skipIntroduction) showChapterEntry();
+      else if (skipIntroduction) showPending();
       if (!anchor || skipCover) rememberInteraction();
       save();
+      finishCarouselLaunch();
+      checkText(parsed, previewText);
+      authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+      updateEditingIndicators();
+      if (loaded) {
+        const source = story;
+        const scrollback = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
+        if (scrollback) void scrollback.then(() => { if (!signal.aborted && story === source) render(false, false); });
+      }
+    } catch (error) {
+      if (signal.aborted || leaving) return;
+      clearTimeout(loading);
+      loadFailed = true;
+      starting = false;
+      surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;
     }
-    checkText(parsed, previewText);
+  }
+  function previewIntroduction() {
+    if (starting || loadFailed || entryShown || leaving || options?.introduction !== 'show') return;
+    entryShown = true;
+    showChapterEntry(true);
+  }
+  function hideIntroductionPreview() {
+    if (committed || !entryShown) return;
+    entryShown = false;
+    closeDialog();
+  }
+  function persistEntry() {
+    if (starting || loadFailed) return;
+    if (identity) updateHomeScreenIdentity(identity);
+    rememberInteraction();
+    save();
+    finishCarouselLaunch();
+  }
+  function commitEntry() {
+    committed = true;
+    persistEntry();
+  }
+  function finishEntry() {
+    entranceSettled = true;
+    if (starting || loadFailed) return;
+    previewIntroduction();
+    if (!entryShown) showPending();
+    surface.inert = !!dialogContext;
     authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators();
-    if (loaded) {
-      const source = story;
-      const scrollback = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
-      if (scrollback) void scrollback.then(() => { if (story === source) render(false, false); });
+  }
+  function goHome(offset = 0, ending = false) {
+    if (leaving) return;
+    selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
+    if (!starting && !loadFailed) {
+      flushPreview();
+      finishChapterSlide();
+      if (ending && dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
+      closeDialog(); rememberInteraction(); save();
     }
-  } catch (error) {
-    finishIncomingStoryFlip?.();
-    flip?.release();
-    starting = false;
-    surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;
+    leaving = true;
+    if (options) options.home();
+    else if (!leaveForCatalogue(app, surface, catalogueURL.href, offset)) location.assign(catalogueURL.href);
   }
-}
-function closeDialog() {
-  bookSwipe.cancel();
-  const editing = document.activeElement?.closest('.story-editor');
-  if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
-  bookResize.disconnect();
-  chapterFooterResize.disconnect();
-  dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = !!chapterSlide || !!finishIncomingStoryFlip; dialogContext = undefined;
-  if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
-  dialogOpener = undefined;
-  updateTutorial();
-}
-function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
-  bookSwipe.cancel();
-  feedback.clear();
-  let dialog = dialogLayer.querySelector('dialog');
-  const focused = document.activeElement as HTMLElement | null;
-  const changing = dialogContext?.kind !== context.kind;
-  if (!dialog) { dialogOpener = focused ?? undefined; dialog = document.createElement('dialog'); dialog.addEventListener('cancel', event => { event.preventDefault(); escapeDialog(); }); dialogLayer.append(dialog); }
-  if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialog.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
-  dialog.className = kind;
-  const scroll = dialog.scrollTop;
-  reconcile(dialog, content);
-  dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
-  updateTutorial();
-  if (!dialog.open) {
-    // WebKit defers show()'s native focus scroll until layout. Suppress that
-    // initial focus; the explicit preventScroll focus below owns it instead.
-    dialog.inert = true;
-    dialog.show();
-    dialog.inert = false;
+  function closeDialog() {
+    bookSwipe.cancel();
+    const editing = document.activeElement?.closest('.story-editor');
+    if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
+    bookResize.disconnect();
+    chapterFooterResize.disconnect();
+    dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = !!chapterSlide || !entranceSettled && committed && !starting; dialogContext = undefined;
+    if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
+    dialogOpener = undefined;
+    updateTutorial();
   }
-  // New readings start at the top; live updates retain the reader's position.
-  dialog.scrollTop = changing ? 0 : scroll;
-  dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
-  if (context.kind === 'encyclopedia') {
-    bookResize.observe(dialog); syncBookLayout();
-    const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
-  } else bookResize.disconnect();
-  chapterFooterResize.disconnect();
-  const footer = dialog.querySelector<HTMLElement>('.chapter-actions');
-  if (footer) {
-    fitChapterFooter(footer);
-    chapterFooterResize.observe(footer);
-    for (const control of footer.children) chapterFooterResize.observe(control);
+  function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
+    bookSwipe.cancel();
+    feedback.clear();
+    let dialog = dialogLayer.querySelector('dialog');
+    const focused = document.activeElement as HTMLElement | null;
+    const changing = dialogContext?.kind !== context.kind;
+    if (!dialog) { dialogOpener = focused ?? undefined; dialog = document.createElement('dialog'); dialog.addEventListener('cancel', event => { event.preventDefault(); escapeDialog(); }); dialogLayer.append(dialog); }
+    if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialog.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
+    dialog.className = kind;
+    const scroll = dialog.scrollTop;
+    reconcile(dialog, content);
+    dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
+    updateTutorial();
+    if (!dialog.open) {
+      // WebKit defers show()'s native focus scroll until layout. Suppress that
+      // initial focus; the explicit preventScroll focus below owns it instead.
+      dialog.inert = true;
+      dialog.show();
+      dialog.inert = false;
+    }
+    // New readings start at the top; live updates retain the reader's position.
+    dialog.scrollTop = changing ? 0 : scroll;
+    dialog.setAttribute('aria-label', context.kind === 'encyclopedia' ? 'Encyclopedia' : 'Story reading');
+    if (context.kind === 'encyclopedia') {
+      bookResize.observe(dialog); syncBookLayout();
+      const list = dialog.querySelector('.encyclopedia-list'); if (list) list.scrollTop = encyclopediaScroll;
+    } else bookResize.disconnect();
+    chapterFooterResize.disconnect();
+    const footer = dialog.querySelector<HTMLElement>('.chapter-actions');
+    if (footer) {
+      fitChapterFooter(footer);
+      chapterFooterResize.observe(footer);
+      for (const control of footer.children) chapterFooterResize.observe(control);
+    }
+    if (focused?.closest('.story-editor')) focused.focus({ preventScroll: true });
+    else if (committed && (changing || !focused?.isConnected)) dialog.querySelector<HTMLElement>(context.kind === 'chapter' ? '.chapter-close' : 'button, a[href]')?.focus({ preventScroll: true });
+    return dialog;
   }
-  if (focused?.closest('.story-editor')) focused.focus({ preventScroll: true });
-  else if (changing || !focused?.isConnected) dialog.querySelector<HTMLElement>(context.kind === 'chapter' ? '.chapter-close' : 'button, a[href]')?.focus({ preventScroll: true });
-  return dialog;
-}
-const popupHomeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h5v-7h4v7h5V9"/></svg>';
-const popupRestartIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 1 1 2 7M3 5v6h6"/></svg>';
-function popupHome(placement: 'ending' | 'chapter') {
-  return entryContext?.fromCarousel
-    ? `<a class="popup-home" href="${escape(catalogueURL.href)}"${placement === 'ending' ? ' data-command="ending-home"' : ''}>${placement === 'chapter' ? popupHomeIcon : ''}<span class="popup-action-label">Home</span>${placement === 'ending' ? popupHomeIcon : ''}</a>`
-    : '';
-}
-function pendingContent() {
-  const notice = state.pending[0];
-  if (!notice) return '';
-  if (notice.kind === 'chapter') return chapterEntryContent(notice.markdown, 'dismiss');
-  return `${readingBody(browserItemText(notice.markdown), asset)}<div class="dialog-actions"><button data-command="dismiss">Continue</button></div>`;
-}
-function chapterIntroduction() {
-  return chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
-}
-function chapterEntryContent(text: string, command: 'dismiss' | 'close') {
-  const ending = state.completed;
-  const body = text.trim() ? readingBody(text, asset) : `<h1>${escape(story.chapters[state.chapter].name)}</h1>`;
-  return `${body}<div class="dialog-actions${ending ? ' ending-actions' : ''}"><button data-command="${command}">${ending ? 'End' : 'Begin'}</button>${ending ? popupHome('ending') : ''}</div>`;
-}
-function showChapterEntry(duringIncomingFlip = false) {
-  if (state.pending[0]?.kind === 'chapter') { showPending(duringIncomingFlip); return; }
-  // Re-reading an introduction is presentation only. Do not dismiss an
-  // already queued discovery or add a synthetic action to the save history.
-  modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', { kind: 'entry' });
-}
-function showPending(duringIncomingFlip = false) {
-  if ((app.dataset.storyFlip && !duringIncomingFlip) || !storyStarted || dialogContext || !state?.pending.length) return;
-  if (chapterSlide && state.pending[0].kind !== 'chapter') return;
-  openPendingReading();
-}
-function openPendingReading() {
-  const notice = state.pending[0];
-  if (notice.kind === 'wonder') goalPulses.wonder(notice.key);
-  modal(pendingContent(), notice.kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
-  if (notice.kind === 'wonder') encyclopediaHistory.wonder = notice.item;
-}
-function chapterContent() {
-  const recovery = state.completed ? 'story' : chapterRecovery(chapterSession);
-  const text = chapterIntroduction();
-  const encyclopedia = encyclopediaEntries(story, state).length >= 3
-    ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon popup-action-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label popup-action-label">Encyclopedia</span></button>` : '';
-  const header = `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>`;
-  const restart = recovery === 'chapter' ? 'Restart chapter' : 'Restart story';
-  const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
-  return `${header}${readingBody(text, asset)}<div class="chapter-actions"><button class="recovery-action" data-command="${command}"><span class="popup-action-icon" aria-hidden="true">${popupRestartIcon}</span><span class="popup-action-label">${restart}</span></button>${popupHome('chapter')}${encyclopedia}</div>`;
-}
-function fitChapterFooter(footer: HTMLElement) {
-  // Measure the natural one-line controls with their glyphs, even if the
-  // previous narrower layout hid the labels. The row itself stays full-width.
-  footer.classList.remove('icons-only');
-  const controls = [...footer.children];
-  const gap = parseFloat(getComputedStyle(footer).columnGap) || 0;
-  const widths = controls.map(node => node.getBoundingClientRect().width);
-  // With all three controls, Home is centered on the whole row.
-  const natural = widths.length === 3
-    ? Math.max(widths[0], widths[2]) * 2 + widths[1] + gap * 2
-    : widths.reduce((sum, width) => sum + width, 0) + gap * Math.max(0, widths.length - 1);
-  footer.classList.toggle('icons-only', natural > footer.getBoundingClientRect().width + .01);
-}
-const chapterFooterResize = new ResizeObserver(entries => {
-  const footer = entries[0]?.target.closest<HTMLElement>('.chapter-actions');
-  if (footer) fitChapterFooter(footer);
-});
-void document.fonts.ready.then(() => {
-  const footer = dialogLayer.querySelector<HTMLElement>('.chapter-actions');
-  if (footer) fitChapterFooter(footer);
-});
-function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
-function confirmRestart() {
-  const lessons = entryContext?.fromCarousel
-    ? 'This resets the opening drag lesson for this story but keeps the tutorials shared across the carousel.'
-    : 'This resets the tutorial progress for this story but does not change the tutorials shared across the carousel.';
-  modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the first chapter’s introduction. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
-}
-const bookSwipe = new EncyclopediaSwipe(dialogLayer,
-  () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
-  detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
-  () => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') dismissReading(); });
-const bookResize = new ResizeObserver(() => { bookSwipe.cancel(); syncBookLayout(); });
-function bookIsSpread() {
-  const dialog = dialogLayer.querySelector('dialog');
-  return !!dialog && getComputedStyle(dialog).getPropertyValue('--book-spread').trim() === '1';
-}
-function syncBookLayout() {
-  if (dialogContext?.kind !== 'encyclopedia') return;
-  const dialog = dialogLayer.querySelector<HTMLElement>('dialog')!;
-  const detail = !!dialogContext.detail, spread = bookIsSpread();
-  let moveFocus = false;
-  for (const [selector, hidden] of [['.encyclopedia-index [data-command="close"]', spread], ['[data-command="encyclopedia-back"]', spread || !dialogContext.item]] as const) {
-    const control = dialog.querySelector<HTMLElement>(selector)!;
-    moveFocus ||= hidden && control.contains(document.activeElement);
-    control.hidden = hidden;
+  const popupHomeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h5v-7h4v7h5V9"/></svg>';
+  const popupRestartIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 1 1 2 7M3 5v6h6"/></svg>';
+  function popupHome(placement: 'ending' | 'chapter') {
+    return entryContext?.fromCarousel
+      ? `<a class="popup-home" href="${escape(catalogueURL.href)}"${placement === 'ending' ? ' data-command="ending-home"' : ''}>${placement === 'chapter' ? popupHomeIcon : ''}<span class="popup-action-label">Home</span>${placement === 'ending' ? popupHomeIcon : ''}</a>`
+      : '';
   }
-  for (const [selector, inactive] of [['.encyclopedia-index', !spread && detail], ['.encyclopedia-detail', !spread && !detail]] as const) {
-    const pane = dialog.querySelector<HTMLElement>(selector)!;
-    moveFocus ||= inactive && pane.contains(document.activeElement);
-    pane.inert = inactive;
-    pane.setAttribute('aria-hidden', String(inactive));
+  function pendingContent() {
+    const notice = state.pending[0];
+    if (!notice) return '';
+    if (notice.kind === 'chapter') return chapterEntryContent(notice.markdown, 'dismiss');
+    return `${readingBody(browserItemText(notice.markdown), asset)}<div class="dialog-actions"><button data-command="dismiss">Continue</button></div>`;
   }
-  if (moveFocus) {
-    focusBookPage();
+  function chapterIntroduction() {
+    return chapterSession.entry.pending.find(n => n.kind === 'chapter')?.markdown ?? story.chapters[state.chapter].intro;
   }
-}
-function selectedEncyclopediaLink() {
-  return dialogLayer.querySelector<HTMLElement>('.encyclopedia-list [aria-current]') ?? dialogLayer.querySelector<HTMLElement>('.encyclopedia-list a');
-}
-function focusBookPage() {
-  const detail = dialogContext?.kind === 'encyclopedia' && dialogContext.detail;
-  (detail && !bookIsSpread() ? dialogLayer.querySelector<HTMLElement>('[data-command="encyclopedia-back"]') : selectedEncyclopediaLink())?.focus({ preventScroll: true });
-}
-function revealEncyclopediaSelection() {
-  const link = selectedEncyclopediaLink(), list = dialogLayer.querySelector('.encyclopedia-list');
-  if (!link || !list) return;
-  // Scroll only the list: scrollIntoView can also shift the clipped page track.
-  const row = link.getBoundingClientRect(), bounds = list.getBoundingClientRect();
-  if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
-  else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
-}
-function openEncyclopedia(item?: string, detail = false, focus = true) {
-  const editing = !!document.activeElement?.closest('.story-editor');
-  const previous = dialogContext?.kind === 'encyclopedia' ? dialogContext : undefined;
-  const entries = encyclopediaEntries(story, state);
-  item = [item, encyclopediaHistory.wonder, encyclopediaHistory.selected].find(id => entries.some(entry => entry.id === id)) ?? entries[0]?.id;
-  const reading = dialogLayer.querySelector('.encyclopedia-reading'), scroll = previous?.item === item ? reading?.scrollTop ?? 0 : 0;
-  const context: DialogContext = { kind: 'encyclopedia', item, detail };
-  modal(encyclopediaBook(story, state, item, detail, asset), 'encyclopedia', context);
-  const nextReading = dialogLayer.querySelector('.encyclopedia-reading'); if (nextReading) nextReading.scrollTop = scroll;
-  if (!previous) revealEncyclopediaSelection();
-  if (focus && !editing) focusBookPage();
-  if (focus) {
-    if (detail || bookIsSpread()) encyclopediaHistory.selected = item;
-    rememberInteraction(); save();
+  function chapterEntryContent(text: string, command: 'dismiss' | 'close') {
+    const ending = state.completed;
+    const body = text.trim() ? readingBody(text, asset) : `<h1>${escape(story.chapters[state.chapter].name)}</h1>`;
+    return `${body}<div class="dialog-actions${ending ? ' ending-actions' : ''}"><button data-command="${command}">${ending ? 'End' : 'Begin'}</button>${ending ? popupHome('ending') : ''}</div>`;
   }
-}
-function backToEncyclopediaIndex() {
-  if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, false);
-}
-function dismissReading() {
-  closeDialog(); showPending(); rememberInteraction(); save();
-}
-function read(id: string) {
-  flushPreview();
-  if (!browserReadings(story, state, id).some(reading => reading.encyclopedia.trim())) return false;
-  tutorialProgress?.finish('encyclopediaDone');
-  openEncyclopedia(id, true);
-  return true;
-}
-function toggleDebugPanel() {
-  if (!import.meta.env.DEV) return;
-  if (desktopDebug.matches) { authoring.toggle(); return; }
-  if (mobileDebug.isOpen) { mobileDebug.close(); return; }
-  flushPreview(); cancelGesture('debug-panel'); feedback.clear();
-  mobileDebug.open(story.chapters.map(chapter => chapter.name), state.chapter);
-  updateEditingIndicators();
-}
-desktopDebug.addEventListener('change', () => {
-  if (!authoring) return;
-  mobileDebug.close();
-  authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
-  updateEditingIndicators();
-});
-function jumpToCheckpoint(index: number) {
-  try {
-    cancelArtworkWait();
-    flushPreview();
-    const next = checkpoint(story, index);
-    next.seen.push(...next.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
-    next.pending = next.pending.filter(notice => notice.kind === 'chapter');
-    withArtwork(currentArtwork(story, next), () => {
-      resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
-      encyclopediaHistory.latestResult = undefined;
-      state = next; itemOrder = []; editedSnapshot = false; storyStarted = true;
-      closeDialog(); render(true, true, true); rememberInteraction(); save();
-    });
-  } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
-}
-function refreshDialog() {
-  state = dismissTextOnlyWonders(story, state);
-  if (dialogContext?.kind === 'pending') {
-    if (state.pending.length) openPendingReading();
-    else closeDialog();
-  } else if (dialogContext?.kind === 'entry') modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', dialogContext);
-  else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
-  else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
-  if (!dialogContext) showPending();
-}
-function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
-  if (!hotspot) return;
-  const h = fixedPresentation(chapter,hotspot), token = state.tokens[id], el = tile(id);
-  const place = h?.placements?.find(p => p.item.id === id && matches(token, p.item));
-  const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
-  if (!place || !el || !location) return;
-  const geometry = boardGeometry(chapter);
-  if (!validCentre(place, geometry.scene.image)) return;
-  const centre = scenePoint(place, geometry.scene);
-  const bounds = location.getBoundingClientRect(), boardScale = geometry.scale;
-  const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, geometry.bounds, geometry.scene);
-  // Invalid live drafts use ordinary placement; never attach an outside authored point.
-  if (!containsPoint(rect, centre)) return;
-  const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
-    const element = tile(t.id);
-    return element ? [tileRect(element)] : [];
+  function showChapterEntry(duringEntrance = false) {
+    if (state.pending[0]?.kind === 'chapter') { showPending(duringEntrance); return; }
+    // Re-reading an introduction is presentation only. Do not dismiss an
+    // already queued discovery or add a synthetic action to the save history.
+    modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', { kind: 'entry' });
+  }
+  function showPending(duringEntrance = false) {
+    if ((!entranceSettled && !duringEntrance) || !storyStarted || dialogContext || !state?.pending.length) return;
+    if (chapterSlide && state.pending[0].kind !== 'chapter') return;
+    openPendingReading();
+  }
+  function openPendingReading() {
+    const notice = state.pending[0];
+    if (notice.kind === 'wonder') goalPulses.wonder(notice.key);
+    modal(pendingContent(), notice.kind === 'wonder' ? 'wonder' : 'intertitle', { kind: 'pending' });
+    if (notice.kind === 'wonder') encyclopediaHistory.wonder = notice.item;
+  }
+  function chapterContent() {
+    const recovery = state.completed ? 'story' : chapterRecovery(chapterSession);
+    const text = chapterIntroduction();
+    const encyclopedia = encyclopediaEntries(story, state).length >= 3
+      ? `<button class="chapter-encyclopedia" data-command="encyclopedia"><span class="chapter-book-icon popup-action-icon" aria-hidden="true">${openBook}</span><span class="chapter-book-label popup-action-label">Encyclopedia</span></button>` : '';
+    const header = `<header class="chapter-popup-header"><button class="chapter-close" data-command="close" aria-label="Close" title="Close"><span aria-hidden="true">×</span></button></header>`;
+    const restart = recovery === 'chapter' ? 'Restart chapter' : 'Restart story';
+    const command = recovery === 'chapter' ? 'reset-chapter' : 'confirm-reset-story';
+    return `${header}${readingBody(text, asset)}<div class="chapter-actions"><button class="recovery-action" data-command="${command}"><span class="popup-action-icon" aria-hidden="true">${popupRestartIcon}</span><span class="popup-action-label">${restart}</span></button>${popupHome('chapter')}${encyclopedia}</div>`;
+  }
+  function fitChapterFooter(footer: HTMLElement) {
+    // Measure the natural one-line controls with their glyphs, even if the
+    // previous narrower layout hid the labels. The row itself stays full-width.
+    footer.classList.remove('icons-only');
+    const controls = [...footer.children];
+    const gap = parseFloat(getComputedStyle(footer).columnGap) || 0;
+    const widths = controls.map(node => node.getBoundingClientRect().width);
+    // With all three controls, Home is centered on the whole row.
+    const natural = widths.length === 3
+      ? Math.max(widths[0], widths[2]) * 2 + widths[1] + gap * 2
+      : widths.reduce((sum, width) => sum + width, 0) + gap * Math.max(0, widths.length - 1);
+    footer.classList.toggle('icons-only', natural > footer.getBoundingClientRect().width + .01);
+  }
+  const chapterFooterResize = new ResizeObserver(entries => {
+    const footer = entries[0]?.target.closest<HTMLElement>('.chapter-actions');
+    if (footer) fitChapterFooter(footer);
   });
-  return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied, geometry.bounds);
-}
-function commit(action: Action) { try {
-  if (pendingArtwork || (chapterSlide && !(action.type === 'dismiss' && dialogContext?.kind === 'pending' && state.pending[0]?.kind === 'chapter'))) return;
-  inputTrace?.record('commit:start',{action});
-  flushPreview();
-  if (action.type === 'move' && action.hotspot) {
-    const token = state.tokens[action.item];
-    // Apply authored positions on entry; let existing occupants be rearranged.
-    if (token?.hotspot !== action.hotspot || token?.chapter !== action.chapter) {
-      const position = preferredPosition(action.item, action.hotspot, action.chapter);
-      if (position) action = {...action, ...position};
+  void document.fonts.ready.then(() => {
+    const footer = dialogLayer.querySelector<HTMLElement>('.chapter-actions');
+    if (footer) fitChapterFooter(footer);
+  });
+  function reopenChapter() { flushPreview(); modal(chapterContent(), 'intertitle chapter-popup', { kind: 'chapter' }); rememberInteraction(); }
+  function confirmRestart() {
+    const lessons = entryContext?.fromCarousel
+      ? 'This resets the opening drag lesson for this story but keeps the tutorials shared across the carousel.'
+      : 'This resets the tutorial progress for this story but does not change the tutorials shared across the carousel.';
+    modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the first chapter’s introduction. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
+  }
+  const bookSwipe = new EncyclopediaSwipe(dialogLayer,
+    () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
+    detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
+    () => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') dismissReading(); }, signal);
+  const bookResize = new ResizeObserver(() => { bookSwipe.cancel(); syncBookLayout(); });
+  function bookIsSpread() {
+    const dialog = dialogLayer.querySelector('dialog');
+    return !!dialog && getComputedStyle(dialog).getPropertyValue('--book-spread').trim() === '1';
+  }
+  function syncBookLayout() {
+    if (dialogContext?.kind !== 'encyclopedia') return;
+    const dialog = dialogLayer.querySelector<HTMLElement>('dialog')!;
+    const detail = !!dialogContext.detail, spread = bookIsSpread();
+    let moveFocus = false;
+    for (const [selector, hidden] of [['.encyclopedia-index [data-command="close"]', spread], ['[data-command="encyclopedia-back"]', spread || !dialogContext.item]] as const) {
+      const control = dialog.querySelector<HTMLElement>(selector)!;
+      moveFocus ||= hidden && control.contains(document.activeElement);
+      control.hidden = hidden;
+    }
+    for (const [selector, inactive] of [['.encyclopedia-index', !spread && detail], ['.encyclopedia-detail', !spread && !detail]] as const) {
+      const pane = dialog.querySelector<HTMLElement>(selector)!;
+      moveFocus ||= inactive && pane.contains(document.activeElement);
+      pane.inert = inactive;
+      pane.setAttribute('aria-hidden', String(inactive));
+    }
+    if (moveFocus) {
+      focusBookPage();
     }
   }
-  if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
-  const before = state, previous = state.chapter, next = act(story, state, action);
-  withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
-    const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
-    const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
-    state = next; noteChapterAction(chapterSession, action);
-    // Dismissing the incoming reading is allowed without interrupting the board.
-    if (chapterSlide && action.type === 'dismiss') chapterSlide.state = state;
-    inputTrace?.record('commit:applied',{action});
-    const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
-    if (action.type === 'combine') {
-      combinationHaptic();
-      // Fitting a slot updates an existing compound. Its new reading can qualify too.
-      encyclopediaHistory.latestResult = born ?? recipeFor(story, before, action)?.result.id;
-      if (before.chapter === 0) tutorialProgress?.finish('dragDone');
+  function selectedEncyclopediaLink() {
+    return dialogLayer.querySelector<HTMLElement>('.encyclopedia-list [aria-current]') ?? dialogLayer.querySelector<HTMLElement>('.encyclopedia-list a');
+  }
+  function focusBookPage() {
+    const detail = dialogContext?.kind === 'encyclopedia' && dialogContext.detail;
+    (detail && !bookIsSpread() ? dialogLayer.querySelector<HTMLElement>('[data-command="encyclopedia-back"]') : selectedEncyclopediaLink())?.focus({ preventScroll: true });
+  }
+  function revealEncyclopediaSelection() {
+    const link = selectedEncyclopediaLink(), list = dialogLayer.querySelector('.encyclopedia-list');
+    if (!link || !list) return;
+    // Scroll only the list: scrollIntoView can also shift the clipped page track.
+    const row = link.getBoundingClientRect(), bounds = list.getBoundingClientRect();
+    if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
+    else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
+  }
+  function openEncyclopedia(item?: string, detail = false, focus = true) {
+    const editing = !!document.activeElement?.closest('.story-editor');
+    const previous = dialogContext?.kind === 'encyclopedia' ? dialogContext : undefined;
+    const entries = encyclopediaEntries(story, state);
+    item = [item, encyclopediaHistory.wonder, encyclopediaHistory.selected].find(id => entries.some(entry => entry.id === id)) ?? entries[0]?.id;
+    const reading = dialogLayer.querySelector('.encyclopedia-reading'), scroll = previous?.item === item ? reading?.scrollTop ?? 0 : 0;
+    const context: DialogContext = { kind: 'encyclopedia', item, detail };
+    modal(encyclopediaBook(story, state, item, detail, asset), 'encyclopedia', context);
+    const nextReading = dialogLayer.querySelector('.encyclopedia-reading'); if (nextReading) nextReading.scrollTop = scroll;
+    if (!previous) revealEncyclopediaSelection();
+    if (focus && !editing) focusBookPage();
+    if (focus) {
+      if (detail || bookIsSpread()) encyclopediaHistory.selected = item;
+      rememberInteraction(); save();
     }
-    if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
-    if (previous !== state.chapter) clearCreationLabels();
-    if (born) announceCreation(born);
-    closeDialog();
-    if (action.type === 'advance' && previous !== state.chapter && !reducedMotion.matches && !document.hidden) {
-      const from = (app.querySelector('.viewport')?.scrollTop ?? expectedScroll) / app.clientHeight;
-      chapterSlide = {state, story, from, to: state.visited.length - 1, position: from, started: 0, frame: 0};
-    }
-    render(previous !== state.chapter, true, false, before);
-    if (action.type === 'advance') animateChapterSlide();
-    if (born) {
-      let token=state.tokens[born],element=tile(born);
-      if(element){
-        const hotspot = action.type === 'combine' ? action.hotspot ?? (receiver&&isFixed(story,receiver)?receiver.id:receiver?.hotspot) : undefined;
-        const preferred = preferredPosition(born, hotspot, token.chapter);
-        if (preferred && action.type === 'combine') {
-          // Record the successful authored placement in the same action so @H goals
-          // and saves replay exactly, including when the receiving ingredient survives.
-          action = {...action, resultPlacement: preferred};
-          state = act(story, before, action); render(false, false);
-          token = state.tokens[born]; element = tile(born)!;
-        }
-        const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry(token.chapter).bounds, boardGeometry(token.chapter).scene) : undefined;
-        const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
-        if(receivingRect&&receiver&&state.tokens[receiver.id].status==='available'){
-          occupied.push(...chapterObstacles(token.chapter));
-        }
-        const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
-        const position=preferred ?? (receivingRect&&receiver
-          ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
-          :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
-        token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
-        scheduleTutorialUpdate();
+  }
+  function backToEncyclopediaIndex() {
+    if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, false);
+  }
+  function dismissReading() {
+    closeDialog(); showPending(); rememberInteraction(); save();
+  }
+  function read(id: string) {
+    flushPreview();
+    if (!browserReadings(story, state, id).some(reading => reading.encyclopedia.trim())) return false;
+    tutorialProgress?.finish('encyclopediaDone');
+    openEncyclopedia(id, true);
+    return true;
+  }
+  function toggleDebugPanel() {
+    if (!import.meta.env.DEV) return;
+    if (desktopDebug.matches) { authoring.toggle(); return; }
+    if (mobileDebug.isOpen) { mobileDebug.close(); return; }
+    flushPreview(); cancelGesture('debug-panel'); feedback.clear();
+    mobileDebug.open(story.chapters.map(chapter => chapter.name), state.chapter);
+    updateEditingIndicators();
+  }
+  desktopDebug.addEventListener('change', () => {
+    if (!authoring) return;
+    mobileDebug.close();
+    authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+    updateEditingIndicators();
+  }, {signal});
+  function jumpToCheckpoint(index: number) {
+    try {
+      cancelArtworkWait();
+      flushPreview();
+      const next = checkpoint(story, index);
+      next.seen.push(...next.pending.filter(notice => notice.kind === 'wonder').map(notice => notice.key));
+      next.pending = next.pending.filter(notice => notice.kind === 'chapter');
+      withArtwork(currentArtwork(story, next), () => {
+        resetGoalView(); cancelGesture('checkpoint'); clearCreationLabels();
+        encyclopediaHistory.latestResult = undefined;
+        state = next; itemOrder = []; editedSnapshot = false; storyStarted = true;
+        closeDialog(); render(true, true, true); rememberInteraction(); save();
+      });
+    } catch (error) { modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); }
+  }
+  function refreshDialog() {
+    state = dismissTextOnlyWonders(story, state);
+    if (dialogContext?.kind === 'pending') {
+      if (state.pending.length) openPendingReading();
+      else closeDialog();
+    } else if (dialogContext?.kind === 'entry') modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', dialogContext);
+    else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
+    else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
+    if (!dialogContext) showPending();
+  }
+  function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
+    if (!hotspot) return;
+    const h = fixedPresentation(chapter,hotspot), token = state.tokens[id], el = tile(id);
+    const place = h?.placements?.find(p => p.item.id === id && matches(token, p.item));
+    const location = [...(panel(chapter)?.querySelectorAll<HTMLElement>('[data-hotspot]') ?? [])].find(el => el.dataset.hotspot === hotspot);
+    if (!place || !el || !location) return;
+    const geometry = boardGeometry(chapter);
+    if (!validCentre(place, geometry.scene.image)) return;
+    const centre = scenePoint(place, geometry.scene);
+    const bounds = location.getBoundingClientRect(), boardScale = geometry.scale;
+    const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, geometry.bounds, geometry.scene);
+    // Invalid live drafts use ordinary placement; never attach an outside authored point.
+    if (!containsPoint(rect, centre)) return;
+    const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
+      const element = tile(t.id);
+      return element ? [tileRect(element)] : [];
+    });
+    return placeAtCentre(centre, {width: el.offsetWidth, height: el.offsetHeight}, occupied, geometry.bounds);
+  }
+  function commit(action: Action, swipeFrom?: number) { try {
+    if (!committed || pendingArtwork || (chapterSlide && !(action.type === 'dismiss' && dialogContext?.kind === 'pending' && state.pending[0]?.kind === 'chapter'))) return;
+    inputTrace?.record('commit:start',{action});
+    flushPreview();
+    if (action.type === 'move' && action.hotspot) {
+      const token = state.tokens[action.item];
+      // Apply authored positions on entry; let existing occupants be rearranged.
+      if (token?.hotspot !== action.hotspot || token?.chapter !== action.chapter) {
+        const position = preferredPosition(action.item, action.hotspot, action.chapter);
+        if (position) action = {...action, ...position};
       }
     }
-    if (previous !== state.chapter) authoring.revealCurrentChapter();
-    rememberInteraction(); save();
-    inputTrace?.record('commit:finished',{action});
-  });
-} catch (error) { inputTrace?.record('commit:error',{message:(error as Error).message,stack:(error as Error).stack}); modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
-function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el => el.dataset.item === id); }
-function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
-function tileRect(element: HTMLElement) {
-  return {x: parseFloat(element.style.left) + elementGeometry(element).bounds.x, y: parseFloat(element.style.top), width: element.offsetWidth, height: element.offsetHeight};
-}
-function positionTile(element: HTMLElement, position: {x: number; y: number}) {
-  const bounds = elementGeometry(element).bounds;
-  const fitted = fitOnBoard(position.x, position.y, element.offsetWidth, element.offsetHeight, bounds);
-  element.style.left = `${fitted.x - bounds.x}px`; element.style.top = `${fitted.y}px`;
-  iconNames.position(element, bounds.width);
-}
-
-/** One viewport per history entry, with independently fitted/cropped scene contents. */
-function panelStyle(geometry: ReturnType<typeof boardGeometry>, position: number) {
-  const {scale, bounds, scene, left, top, labelScale, cardScale} = geometry;
-  return `left:${left}px;top:${position*app.clientHeight+top}px;--board-scale:${scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
-}
-function frameControls(geometry: ReturnType<typeof boardGeometry>) {
-  const hudScale = geometry.cover ? 1 : geometry.scale;
-  for (const [key,value] of Object.entries({
-    'frame-left':`${geometry.left}px`, 'frame-top':`${geometry.top}px`, 'hud-scale':String(hudScale),
-    'hud-width':`${Math.max(0,Math.min(358,geometry.width/hudScale-32))}px`,
-    'goals-height':`${Math.min(140,geometry.height/hudScale*.2)}px`,
-  })) app.style.setProperty(`--${key}`,value);
-}
-function worldHTML(scenes: {chapter: number; image?: string; content: string; label: string}[]) {
-  const frames = scenes.map(scene => ({...scene,geometry:imageGeometry(scene.image)}));
-  // Separate stacking contexts let the fixed goals sit between scenery and objects.
-  const scenery = frames.map(({chapter,image,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}</div>`).join('');
-  const chapters = frames.map(({chapter,content,label,geometry},position) => `<section class="chapter-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}" aria-label="${escape(label)}">${content}</section>`).join('');
-  return `<div class="world" data-panel-height="${app.clientHeight}" style="width:100%;height:${scenes.length*app.clientHeight}px"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
-}
-/** Use the same measured receiving regions for arrivals and adjacent creations. */
-function chapterObstacles(chapter: number) {
-  const geometry=boardGeometry(chapter);
-  return presentHotspots(story,state,chapter).map(id=>{
-    const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
-    const measured=el.getBoundingClientRect();
-    return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);
-  });
-}
-function packArrival(checkpointLayout=false, source?: State){
-  const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!isFixed(story,t)),fresh=new Set(state.newItems);
-  const geometry=boardGeometry(),primitives=indexStory(story).primitives;
-  const previousChapter=source?.chapter??state.visited.at(-2);
-  const descriptions=tokens.map(t=>{
-    const position=story.items[t.id].icon?.position;
-    const start=primitives.has(t.id)&&position&&validCentre(position,geometry.scene.image)?{x:position.x/(geometry.scene.image?.width??geometry.scene.width),y:position.y/(geometry.scene.image?.height??geometry.scene.height)}:undefined;
-    const element=tile(t.id)!,measured=element.getBoundingClientRect();
-    return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
-      headroom:iconNames.headroom(element),
-      fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
-      fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
-  });
-  const hotspots=chapterObstacles(state.chapter);
-  const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
-  const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
-  const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,hotspots,checkpoint:checkpointLayout});
-  state.arrivalDivider=layout.divider!==undefined;
-  for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
-  const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');
-  if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
-  panel(state.chapter)?.classList.toggle('crowded',layout.crowded);
-}
-let tutorialFrame=0;
-function scheduleTutorialUpdate(){cancelAnimationFrame(tutorialFrame);tutorialFrame=requestAnimationFrame(updateTutorial);}
-function renderLanding() {
-  const bg = story.cover ?? background(story, 0);
-  frameControls(imageGeometry(bg));
-  reconcile(surface, `<div class="viewport story-landing">${worldHTML([{chapter: 0, image: bg, content: '', label: `${story.title} opening scene`}])}</div><button class="story-start" data-command="start-story">Start</button>`);
-  setScroll(0); updateEditingIndicators();
-}
-function beginStory() {
-  if (storyStarted) return;
-  flushPreview();
-  withArtwork(currentArtwork(story, state), () => {
-    storyStarted = true; resetGoalView();
-    render(true); rememberInteraction(); save();
-  });
-}
-function restartStory() {
-  cancelArtworkWait();
-  const next = newGame(story);
-  withArtwork(currentArtwork(story, next), () => {
-    resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
-    storyStarted = true; state = next; chapterSession = captureChapter(state); itemOrder = []; editedSnapshot = false;
-    encyclopediaHistory = {}; encyclopediaScroll = 0;
-    tutorialProgress?.reset();
-    if (legacySaveKey) saveProgress(() => localStorage.removeItem(legacySaveKey!), showSaveError);
-    render(true); showChapterEntry(); rememberInteraction(); save();
-    authoring.revealCurrentChapter();
-  });
-}
-function restartChapter() {
-  const next = structuredClone(chapterSession.entry);
-  withArtwork(currentArtwork(story, next), () => {
-    encyclopediaHistory.latestResult = undefined;
-    clearCreationLabels(); resetGoalView(); closeDialog(); state = next;
-    itemOrder = restoreItemOrder(Object.keys(state.tokens), chapterSession.itemOrder);
-    if (editedSnapshot) state.actions = [];
-    chapterSession = captureChapter(state, itemOrder);
-    render(); scrollToCurrentChapter(); rememberInteraction(); save();
-  });
-}
-function fixedPresentation(chapter:number,id:string){
-  return hotspotPresentation(story,state,chapter,id);
-}
-function fixedHTML(chapter:number,id:string){
-  const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
-  const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true);
-  const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
-  return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry(chapter).bounds,boardGeometry(chapter).scene);
-}
-function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
-  if (starting) return;
-  if (chapterSlide && (chapterSlide.state !== state || chapterSlide.story !== story)) finishChapterSlide(false);
-  scheduleArtwork();
-  inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
-  if (!storyStarted) { renderLanding(); return; }
-  state = dismissTextOnlyWonders(story, state);
-  // Rendering may acknowledge hidden-only notices without changing the arrival.
-  if (chapterSlide) chapterSlide.state = state;
-  itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
-  const oldHeight=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)||app.clientHeight;
-  const scroll=(oldHeight!==app.clientHeight?expectedScroll:app.querySelector('.viewport')?.scrollTop??0)*app.clientHeight/oldHeight;
-  const goals=displayedGoals(story,state),finished=chapterComplete(story,state),geometry=boardGeometry();
-  goalPulses.observe(story,state);
-  const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,reducedMotion.matches);
-  const changedView=goalView?.key!==nextView.key||goalView.phase!==nextView.phase;
-  if(changedView){cancelGoalTimers();goalView=nextView;}
-  const leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
-  const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
-  frameControls(geometry);
-  reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
-    const geometry=boardGeometry(chapter);
-    return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
-      const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon);
-      return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" ${applicable?'title="Double-click or double-tap to read"':''}>${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
-    }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
-  }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${story.chapters[state.chapter+1]?.image?'':'right'} ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>${story.chapters[state.chapter+1]?.image?'↓':'→'}</span></button>`:''}`);
-  const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(chapterSlide||Number(app.querySelector<HTMLElement>('.world')?.dataset.panelHeight)!==app.clientHeight)return;scheduleTutorialUpdate();if(viewport.scrollTop!==expectedScroll){expectedScroll=viewport.scrollTop;rememberInteraction();save();}}
-  // Measure the destination panel against the fixed HUD at its settled offset.
-  // animateChapterSlide restores the starting offset in the same task, before paint.
-  if (arrival) scrollToCurrentChapter();
-  else setScroll(chapterSlide ? chapterSlide.position * app.clientHeight : scroll);
-  for(const element of surface.querySelectorAll<HTMLElement>('.icon-thing,.hotspot-icon'))iconNames.measure(element);
-  if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
-  for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
-  for(const element of surface.querySelectorAll<HTMLElement>('.hotspot-icon'))iconNames.position(element,elementGeometry(element).bounds.width);
-  if(changedView&&leaving)animateGoalEntrance();if(finish)showPending();
-  updateEditingIndicators();
-  inputTrace?.record('render:finished');
-}
-// Item IDs are name:/id: identities; the separate prefix keeps hotspot feedback unambiguous.
-function feedbackKey(element:HTMLElement){return element.dataset.item??`hotspot:${element.dataset.hotspot}`;}
-function highlight(key:string,pressed=false){
-  const isHotspot=key.startsWith('hotspot:'),id=isHotspot?key.slice(8):key,selected=isHotspot?undefined:tile(id);
-  clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);
-  const locations=[...app.querySelectorAll<HTMLElement>('[data-hotspot]')];
-  if(isHotspot)locations.filter(el=>el.dataset.hotspot===id).forEach(el=>el.classList.add('pressed'));
-  try{
-    const hints=partnerHints(story,state,{kind:isHotspot?'hotspot':'item',id},drag?.id===id&&drag.moved?'from':'either');
-    hints.items.forEach(item=>tile(item)?.classList.add('possible'));
-    locations.filter(el=>hints.hotspots.has(el.dataset.hotspot!)).forEach(el=>el.classList.add('possible'));
-  }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
-}
-function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
-interface PointerPress {
-  pointer:number; el:HTMLElement; startX:number; startY:number; moved:boolean;
-}
-interface Drag extends PointerPress {
-  id:string; grabX:number; grabY:number;
-  point:Pick<PointerEvent,'clientX'|'clientY'>; lockedChapter?:number; edgeScroll?:DragEdgeScroll;
-  resolve?:ReturnType<typeof createDropResolver>;
-}
-let drag:Drag|undefined;
-let traceTile:HTMLElement|undefined,tracePointer:number|undefined;
-function movedEnough(d:PointerPress,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale;}
-let hotspotPress:(PointerPress&{key:string})|undefined;
-const feedback=new ItemFeedback(highlight,()=>clearHighlights());
-let suppressReleaseClick=false;
-// Suppress the native click belonging to the double-tap that opened a reader.
-document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},true);
-function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
-  const world=app.querySelector('.world')!.getBoundingClientRect();
-  const index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientY-world.top)/app.clientHeight)));
-  const chapter=d.lockedChapter??state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
-  const {scale:size,bounds}=boardGeometry(chapter);
-  // The held drawing follows the pickup point even beyond the page edge.
-  // Targeting uses this same geometry; fitting happens only after the drop.
-  const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX,y:(e.clientY-rect.top)/size-d.grabY};
-  return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
-}
-function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
-    return [...scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
-      const rect=el.getBoundingClientRect();
-      // Stations share the authored circle/rectangle geometry used by lint/layout.
-      const region=el.dataset.hotspot
-        ? hotspotRect(fixedPresentation(chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
-        : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
-      if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
-      return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
+    if (isNoopMove(state, action)) { inputTrace?.record('commit:noop',{action}); render(); return; }
+    const before = state, previous = state.chapter, next = act(story, state, action);
+    const advanceFrom = swipeFrom ?? expectedScroll / app.clientWidth;
+    withArtwork([...currentArtwork(story, next), ...resultArtwork(story, before, action), ...changedHotspotArtwork(story, before, next)], () => {
+      const receiver=action.type==='combine'&&action.b?state.tokens[action.b]:undefined,receivingTile=receiver?tile(receiver.id):undefined;
+      const receivingRect=receiver&&receivingTile?tileRect(receivingTile):undefined;
+      state = next; noteChapterAction(chapterSession, action);
+      // Dismissing the incoming reading is allowed without interrupting the board.
+      if (chapterSlide && action.type === 'dismiss') chapterSlide.state = state;
+      inputTrace?.record('commit:applied',{action});
+      const born = action.type === 'combine' ? Object.keys(state.tokens).find(id => !before.tokens[id]) : undefined;
+      if (action.type === 'combine') {
+        combinationHaptic();
+        // Fitting a slot updates an existing compound. Its new reading can qualify too.
+        encyclopediaHistory.latestResult = born ?? recipeFor(story, before, action)?.result.id;
+        if (before.chapter === 0) tutorialProgress?.finish('dragDone');
+      }
+      if (completesHotspotTutorial(action)) tutorialProgress?.finish('hotspotDone');
+      if (previous !== state.chapter) clearCreationLabels();
+      if (born) announceCreation(born);
+      closeDialog();
+      if (action.type === 'advance' && previous !== state.chapter && !reducedMotion.matches && !document.hidden) {
+        const from = advanceFrom;
+        chapterSlide = {state, story, from, to: state.visited.length - 1, position: from, started: 0, frame: 0};
+      }
+      render(previous !== state.chapter, true, false, before);
+      if (action.type === 'advance') animateChapterSlide();
+      if (born) {
+        let token=state.tokens[born],element=tile(born);
+        if(element){
+          const hotspot = action.type === 'combine' ? action.hotspot ?? (receiver&&isFixed(story,receiver)?receiver.id:receiver?.hotspot) : undefined;
+          const preferred = preferredPosition(born, hotspot, token.chapter);
+          if (preferred && action.type === 'combine') {
+            // Record the successful authored placement in the same action so @H goals
+            // and saves replay exactly, including when the receiving ingredient survives.
+            action = {...action, resultPlacement: preferred};
+            state = act(story, before, action); render(false, false);
+            token = state.tokens[born]; element = tile(born)!;
+          }
+          const centre = hotspot && (!receiver||isFixed(story,receiver)) ? hotspotCentre(fixedPresentation(token.chapter,hotspot), activeHotspots(story, token.chapter).indexOf(hotspot), boardGeometry(token.chapter).bounds, boardGeometry(token.chapter).scene) : undefined;
+          const occupied=availableTokens(state).filter(t=>t.id!==born&&t.id!==receiver?.id&&t.chapter===token.chapter).flatMap(t=>{const el=tile(t.id);return el?[tileRect(el)]:[];});
+          if(receivingRect&&receiver&&state.tokens[receiver.id].status==='available'){
+            occupied.push(...chapterObstacles(token.chapter));
+          }
+          const creationBounds=iconNames.creationBounds(element,boardGeometry(token.chapter).bounds);
+          const position=preferred ?? (receivingRect&&receiver
+            ?placeCreation(receivingRect,{width:element.offsetWidth,height:element.offsetHeight},state.tokens[receiver.id].status!=='available',creationBounds,occupied)
+            :fitOnBoard(centre ? centre.x-element.offsetWidth/2 : token.x,centre ? centre.y-element.offsetHeight/2 : token.y,element.offsetWidth,element.offsetHeight,creationBounds));
+          token.x=position.x;token.y=position.y;positionTile(element,token);element.classList.add('born');
+          scheduleTutorialUpdate();
+        }
+      }
+      if (previous !== state.chapter) authoring.revealCurrentChapter();
+      rememberInteraction(); save();
+      inputTrace?.record('commit:finished',{action});
     });
-}
-function dropAt(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
-  try {
-    d.resolve??=createDropResolver(story,state,d.id);
-    return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,dropTargets(destination.scene,destination.chapter));
-  } catch(error) {
-    inputTrace?.record('drop:error',{message:(error as Error).message,stack:(error as Error).stack});
-    authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
-    return {ambiguous:[]};
+  } catch (error) { inputTrace?.record('commit:error',{message:(error as Error).message,stack:(error as Error).stack}); modal(`<p>${escape((error as Error).message)}</p><button data-command="close">Close</button>`); } }
+  function tile(id: string) { return [...app.querySelectorAll<HTMLElement>('[data-item]')].find(el => el.dataset.item === id); }
+  function panel(chapter: number) { return app.querySelector<HTMLElement>(`.chapter-panel[data-chapter="${chapter}"]`); }
+  function tileRect(element: HTMLElement) {
+    return {x: parseFloat(element.style.left) + elementGeometry(element).bounds.x, y: parseFloat(element.style.top), width: element.offsetWidth, height: element.offsetHeight};
   }
-}
-app.addEventListener('pointerdown',e=>{
-  if (chapterSlide) return;
-  tutorialOverlay.modality(e.pointerType);
-  const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');
-  if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
-    inputTrace?.record('press:ignored',{reason:!el?'no-item':drag||hotspotPress?'gesture-active':e.button!==0?'other-button':'dialog-open'});return;
+  function positionTile(element: HTMLElement, position: {x: number; y: number}) {
+    const bounds = elementGeometry(element).bounds;
+    const fitted = fitOnBoard(position.x, position.y, element.offsetWidth, element.offsetHeight, bounds);
+    element.style.left = `${fitted.x - bounds.x}px`; element.style.top = `${fitted.y}px`;
+    iconNames.position(element, bounds.width);
   }
-  if(inputTrace?.enabled){traceTile=el;tracePointer=e.pointerId;}
-  // Pointer feedback owns this press; a compatibility click must not leave touch focus hovering.
-  e.preventDefault();
-  if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,moved:false};feedback.begin(hotspotPress.key);app.setPointerCapture(e.pointerId);inputTrace?.record('hotspot:begin');updateTutorial();return;}
-  const id=el.dataset.item!;feedback.begin(id);
-  itemOrder = [...itemOrder.filter(item => item !== id), id];
-  app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
-  rememberInteraction(); save();
-  const bounds=el.getBoundingClientRect(),boardScale=elementGeometry(el).scale;
-  // Pickup location, not encounter history or the panel crossed mid-drag, owns the restriction.
-  drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
-  if(drag.lockedChapter===undefined){
-    const gesture=drag;
-    gesture.edgeScroll=new DragEdgeScroll(app.querySelector<HTMLElement>('.viewport')!,()=>previewDrag(gesture));
+
+  /** One viewport per history entry, with independently fitted/cropped scene contents. */
+  function panelStyle(geometry: ReturnType<typeof boardGeometry>, position: number) {
+    const {scale, bounds, scene, left, top, labelScale, cardScale} = geometry;
+    return `left:${position*app.clientWidth+left}px;top:${top}px;--board-scale:${scale};--label-scale:${labelScale};--card-scale:${cardScale};--panel-width:${bounds.width}px;--panel-height:${bounds.height}px;--scene-height:${scene.height}px;--scene-left:${-bounds.x}px`;
   }
-  // The stable app owns capture even if an artwork load or redraw updates the tile.
-  app.setPointerCapture(e.pointerId);
-  inputTrace?.record('drag:begin',{rectangle:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},boardScale});
-  goalPulses.pickup();
-  updateTutorial();
-});
-document.addEventListener('pointermove',e=>{
-  if(hotspotPress?.pointer===e.pointerId){hotspotPress.moved ||= movedEnough(hotspotPress,e);return;}
-  if(!drag||e.pointerId!==drag.pointer)return;
-  if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
-  drag.point={clientX:e.clientX,clientY:e.clientY};
-  drag.edgeScroll?.update(e.clientY);
-  previewDrag(drag);
-});
-function previewDrag(d:Drag){
-  const destination=dragDestination(d,d.point),source=d.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=elementGeometry(d.el).scale;
-  d.el.style.scale=String(boardGeometry(destination.chapter).scale/size);
-  d.el.style.transformOrigin='top left';
-  d.el.classList.add('dragging');app.classList.add('is-dragging');
-  d.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
-  iconNames.position(d.el,boardGeometry(destination.chapter).bounds.width,destination.position.y);
-  app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
-  const {target, action, usefulPlacement, ambiguous}=dropAt(d,d.point,destination);
-  inputTrace?.record('drag:preview',{chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,usefulPlacement,ambiguous});
-  if(target&&!ambiguous.length&&(action||usefulPlacement))target.classList.add(action?'will-create':'will-place');
-  if (action?.b) tile(action.b)?.classList.add('will-create');
-  ambiguous.forEach(id => tile(id)?.classList.add('possible'));
-}
-function releaseCapture(pointer:number){if(app.hasPointerCapture(pointer))app.releasePointerCapture(pointer);}
-function restoreGestureTile(d:NonNullable<typeof drag>){
-  d.el.style.removeProperty('scale');d.el.style.removeProperty('transform-origin');
-  d.el.classList.remove('dragging');app.classList.remove('is-dragging');
-  const token=state.tokens[d.id];if(token&&d.el.isConnected){positionTile(d.el,token);}
-  inputTrace?.record('drag:restored',{item:d.id});
-}
-function endDrag(e:PointerEvent,cancel=false){
-  inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
-  if(hotspotPress?.pointer===e.pointerId){
-    const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);
-    // Fixed targets keep the press, but attempted drags cannot become taps.
-    if(cancel)feedback.clear();
-    else if(feedback.release(press.key,!press.moved&&!movedEnough(press,e))){suppressReleaseClick=true;read(press.key.slice(8));}
-    return;
+  function frameControls(geometry: ReturnType<typeof boardGeometry>) {
+    const hudScale = geometry.cover ? 1 : geometry.scale;
+    for (const [key,value] of Object.entries({
+      'frame-left':`${geometry.left}px`, 'frame-top':`${geometry.top}px`, 'hud-scale':String(hudScale),
+      'hud-width':`${Math.max(0,Math.min(358,geometry.width/hudScale-32))}px`,
+      'goals-height':`${Math.min(140,geometry.height/hudScale*.2)}px`,
+    })) app.style.setProperty(`--${key}`,value);
   }
-  if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
-  d.edgeScroll?.stop();releaseCapture(d.pointer);
-  if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});restoreGestureTile(d);feedback.clear();return;}
-  // A quick release can be the first event reporting travel beyond click tolerance.
-  if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*elementGeometry(d.el).scale});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
-  // Resolve the final rectangle from release coordinates before resetting any drag visuals.
-  const destination=dragDestination(d,e),{target,action,ambiguous}=dropAt(d,e,destination);
-  inputTrace?.record('drop:resolved',{item:d.id,pointer:{x:e.clientX,y:e.clientY},chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,ambiguous});
-  d.el.style.removeProperty('scale');d.el.style.removeProperty('transform-origin');
-  d.el.classList.remove('dragging');app.classList.remove('is-dragging');
-  if(action)commit(action);
-  else if(!ambiguous.length){
-    const position=fitOnBoard(destination.position.x,destination.position.y,d.el.offsetWidth,d.el.offsetHeight,boardGeometry(destination.chapter).bounds);
-    commit({type:'move',item:d.id,chapter:destination.chapter,...position,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+  function worldHTML(scenes: {chapter: number; image?: string; content: string; label: string}[]) {
+    const frames = scenes.map(scene => ({...scene,geometry:imageGeometry(scene.image)}));
+    // Separate stacking contexts let the fixed goals sit between scenery and objects.
+    const scenery = frames.map(({chapter,image,geometry},position) => `<div class="scene-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}">${image ? `<img class="scene-art" src="${escape(asset(image))}" alt="">` : ''}</div>`).join('');
+    const chapters = frames.map(({chapter,content,label,geometry},position) => `<section class="chapter-panel" data-chapter="${chapter}" style="${panelStyle(geometry,position)}" aria-label="${escape(label)}"><div class="chapter-items-frame"><div class="chapter-items">${content}</div></div></section>`).join('');
+    return `<div class="world" data-panel-width="${app.clientWidth}" style="width:${scenes.length*app.clientWidth}px;height:100%"><div class="scene-layer" aria-hidden="true">${scenery}</div><div class="board fixed-locations">${chapters}</div></div>`;
   }
-  restoreGestureTile(d);
-  if(inputTrace?.enabled)requestAnimationFrame(()=>{
-    if(!inputTrace?.enabled)return;
-    const element=tile(d.id),rect=element?.getBoundingClientRect(),style=element&&getComputedStyle(element);
-    inputTrace.record('drop:after-frame',{item:d.id,rectangle:rect?{x:rect.x,y:rect.y,width:rect.width,height:rect.height}:null,transform:style?.transform,scale:style?.scale});
-  });
-  if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
-}
-document.addEventListener('pointerup',e=>{endDrag(e);updateTutorial();});document.addEventListener('pointercancel',e=>{endDrag(e,true);updateTutorial();});
-function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;d.edgeScroll?.stop();releaseCapture(d.pointer);restoreGestureTile(d);feedback.clear();}updateTutorial();}
-window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();});
-document.addEventListener('visibilitychange',updateTutorial);
-app.addEventListener('lostpointercapture',e=>{
-  const {pointerId,buttons}=e as PointerEvent;
-  // Chrome can end capture on a buttons=0 move before delivering pointerup.
-  // Keep that gesture for the document's release handler, using its final coordinates.
-  // Losing capture while a button is still held remains an interrupted gesture.
-  if(buttons!==0&&(drag?.pointer===pointerId||hotspotPress?.pointer===pointerId))cancelGesture('lost-pointer-capture');
-});
-app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
-app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
-// Also reject queued/synthetic activation, rather than relying only on inert.
-app.addEventListener('click', e => {
-  // A quick second press where the arrow was must not become a Begin click
-  // if the new dialog happens to place its button under the same point.
-  if ((chapterSlide || finishIncomingStoryFlip) && (!dialogLayer.contains(e.target as Node) || e.detail > 1)) {
-    e.preventDefault(); e.stopImmediatePropagation();
+  /** Use the same measured receiving regions for arrivals and adjacent creations. */
+  function chapterObstacles(chapter: number) {
+    const geometry=boardGeometry(chapter);
+    return presentHotspots(story,state,chapter).map(id=>{
+      const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
+      const measured=el.getBoundingClientRect();
+      return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);
+    });
   }
-}, true);
-app.addEventListener('keydown', e => {
-  if (((chapterSlide || finishIncomingStoryFlip) && !dialogLayer.contains(e.target as Node)) || (e.repeat && (e.key === 'Enter' || e.key === ' '))) e.preventDefault();
-}, true);
-app.addEventListener('click',e=>{
-  if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
-  const element=e.target as Element;
-  const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
-  const home = element.closest<HTMLAnchorElement>('a.popup-home');
-  if (home) {
-    if (!plainNavigation(e, home)) return;
-    selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
+  function packArrival(checkpointLayout=false, source?: State){
+    const tokens=availableTokens(state).filter(t=>t.chapter===state.chapter&&!isFixed(story,t)),fresh=new Set(state.newItems);
+    const geometry=boardGeometry(),primitives=indexStory(story).primitives;
+    const previousChapter=source?.chapter??state.visited.at(-2);
+    const descriptions=tokens.map(t=>{
+      const position=story.items[t.id].icon?.position;
+      const start=primitives.has(t.id)&&position&&validCentre(position,geometry.scene.image)?{x:position.x/(geometry.scene.image?.width??geometry.scene.width),y:position.y/(geometry.scene.image?.height??geometry.scene.height)}:undefined;
+      const element=tile(t.id)!,measured=element.getBoundingClientRect();
+      return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
+        headroom:iconNames.headroom(element),
+        fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
+        fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
+    });
+    const hotspots=chapterObstacles(state.chapter);
+    const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
+    const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
+    const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,hotspots,checkpoint:checkpointLayout});
+    state.arrivalDivider=layout.divider!==undefined;
+    for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
+    const divider=panel(state.chapter)?.querySelector<HTMLElement>('.arrival-divider');
+    if(divider){divider.hidden=layout.divider===undefined;if(layout.divider!==undefined)divider.style.top=`${layout.divider}px`;}
+    panel(state.chapter)?.classList.toggle('crowded',layout.crowded);
+  }
+  let tutorialFrame=0;
+  function scheduleTutorialUpdate(){cancelAnimationFrame(tutorialFrame);tutorialFrame=requestAnimationFrame(updateTutorial);}
+  function renderLanding() {
+    const bg = story.cover ?? background(story, 0);
+    frameControls(imageGeometry(bg));
+    reconcile(surface, `<div class="viewport story-landing">${worldHTML([{chapter: 0, image: bg, content: '', label: `${story.title} opening scene`}])}</div><button class="story-start" data-command="start-story">Start</button>`);
+    setScroll(0); updateEditingIndicators();
+  }
+  function beginStory() {
+    if (storyStarted) return;
     flushPreview();
-    finishIncomingStoryFlip?.(true);
-    finishChapterSlide();
-    if (home.dataset.command === 'ending-home' && dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
-    closeDialog(); rememberInteraction(); save();
+    withArtwork(currentArtwork(story, state), () => {
+      storyStarted = true; resetGoalView();
+      render(true); rememberInteraction(); save();
+    });
+  }
+  function restartStory() {
+    cancelArtworkWait();
+    const next = newGame(story);
+    withArtwork(currentArtwork(story, next), () => {
+      resetGoalView(); closeDialog(); cancelGesture('restart-story'); feedback.clear(); clearCreationLabels();
+      storyStarted = true; state = next; chapterSession = captureChapter(state); itemOrder = []; editedSnapshot = false;
+      encyclopediaHistory = {}; encyclopediaScroll = 0;
+      tutorialProgress?.reset();
+      if (legacySaveKey) saveProgress(() => localStorage.removeItem(legacySaveKey!), showSaveError);
+      render(true); showChapterEntry(); rememberInteraction(); save();
+      authoring.revealCurrentChapter();
+    });
+  }
+  function restartChapter() {
+    const next = structuredClone(chapterSession.entry);
+    withArtwork(currentArtwork(story, next), () => {
+      encyclopediaHistory.latestResult = undefined;
+      clearCreationLabels(); resetGoalView(); closeDialog(); state = next;
+      itemOrder = restoreItemOrder(Object.keys(state.tokens), chapterSession.itemOrder);
+      if (editedSnapshot) state.actions = [];
+      chapterSession = captureChapter(state, itemOrder);
+      render(); scrollToCurrentChapter(); rememberInteraction(); save();
+    });
+  }
+  function fixedPresentation(chapter:number,id:string){
+    return hotspotPresentation(story,state,chapter,id);
+  }
+  function fixedHTML(chapter:number,id:string){
+    const h=fixedPresentation(chapter,id),item=story.items[id],token=state.tokens[id];
+    const visual=itemArtwork.visual(item,token.slots,name,asset,undefined,h.icon,true);
+    const fixedVisual={...visual,className:visual.icon?visual.className.replace('icon-thing','hotspot-icon').replace('icon-circular','hotspot-circular'):''};
+    return hotspotHTML(h,activeHotspots(story,chapter).indexOf(id),fixedVisual,boardGeometry(chapter).bounds,boardGeometry(chapter).scene);
+  }
+  function render(arrival=false,finish=true,checkpointLayout=false,arrivalSource?:State){
+    if (starting) return;
+    if (chapterSlide && (chapterSlide.state !== state || chapterSlide.story !== story)) finishChapterSlide(false);
+    scheduleArtwork();
+    inputTrace?.record('render:start',{arrival,finish,checkpointLayout});
+    if (!storyStarted) { renderLanding(); return; }
+    state = dismissTextOnlyWonders(story, state);
+    // Rendering may acknowledge hidden-only notices without changing the arrival.
+    if (chapterSlide) chapterSlide.state = state;
+    itemOrder = restoreItemOrder(Object.keys(state.tokens), itemOrder);
+    const oldWidth=Number(app.querySelector<HTMLElement>('.world')?.dataset.panelWidth)||app.clientWidth;
+    const scroll=expectedScroll*app.clientWidth/oldWidth;
+    const goals=displayedGoals(story,state),finished=chapterComplete(story,state),geometry=boardGeometry();
+    goalPulses.observe(story,state);
+    const nextView=goalPresentation(goalView,`${story.id}:${state.chapter}`,finished&&!state.completed,reducedMotion.matches);
+    const changedView=goalView?.key!==nextView.key||goalView.phase!==nextView.phase;
+    if(changedView){cancelGoalTimers();goalView=nextView;}
+    const leaving=goalView?.phase==='leaving',showGoals=goalView?.phase==='goals'||leaving||state.completed;
+    const gold=new Set<string>();for(const {goal:g,done} of goals)if(done)for(const c of g.conditions)if(matches(state.tokens[c.item.id],c.item)&&(!c.hotspot||state.tokens[c.item.id].hotspot===c.hotspot)){gold.add(c.item.id);if(c.hotspot)gold.add(c.hotspot);}
+    frameControls(geometry);
+    reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
+      const geometry=boardGeometry(chapter);
+      return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
+        const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon);
+        return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" ${applicable?'title="Double-click or double-tap to read"':''}>${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
+      }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
+    }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>→</span></button>`:''}`);
+    const viewport=app.querySelector<HTMLElement>('.viewport')!;viewport.onscroll=()=>{if(chapterSlide||boardPress||Number(app.querySelector<HTMLElement>('.world')?.dataset.panelWidth)!==app.clientWidth)return;scheduleTutorialUpdate();if(viewport.scrollLeft!==expectedScroll){expectedScroll=viewport.scrollLeft;rememberInteraction();save();}}
+    // Measure the destination panel against the fixed HUD at its settled offset.
+    // animateChapterSlide restores the starting offset in the same task, before paint.
+    if (arrival) scrollToCurrentChapter();
+    else if (chapterSlide) positionChapterMotion(chapterSlide.position);
+    else if (boardPress?.axis === 'x') positionChapterMotion(scroll / app.clientWidth);
+    else if (drag?.edgePosition !== undefined) positionChapterMotion(drag.edgePosition, true);
+    else setScroll(scroll);
+    for(const element of surface.querySelectorAll<HTMLElement>('.icon-thing,.hotspot-icon'))iconNames.measure(element);
+    if(arrival){packArrival(checkpointLayout,arrivalSource);if(finish)chapterSession=captureChapter(state,itemOrder);}
+    for(const token of availableTokens(state)){const element=tile(token.id);if(element)positionTile(element,token);}
+    for(const element of surface.querySelectorAll<HTMLElement>('.hotspot-icon'))iconNames.position(element,elementGeometry(element).bounds.width);
+    if (drag?.moved) previewDrag(drag);
+    if(changedView&&leaving)animateGoalEntrance();if(finish)showPending();
+    updateEditingIndicators();
+    inputTrace?.record('render:finished');
+  }
+  // Item IDs are name:/id: identities; the separate prefix keeps hotspot feedback unambiguous.
+  function feedbackKey(element:HTMLElement){return element.dataset.item??`hotspot:${element.dataset.hotspot}`;}
+  function highlight(key:string,pressed=false){
+    const isHotspot=key.startsWith('hotspot:'),id=isHotspot?key.slice(8):key,selected=isHotspot?undefined:tile(id);
+    clearHighlights(selected);selected?.classList.add('pressed');selected?.classList.toggle('reading-selected',pressed);
+    const locations=[...app.querySelectorAll<HTMLElement>('[data-hotspot]')];
+    if(isHotspot)locations.filter(el=>el.dataset.hotspot===id).forEach(el=>el.classList.add('pressed'));
+    try{
+      const hints=partnerHints(story,state,{kind:isHotspot?'hotspot':'item',id},drag?.id===id&&drag.moved?'from':'either');
+      hints.items.forEach(item=>tile(item)?.classList.add('possible'));
+      locations.filter(el=>hints.hotspots.has(el.dataset.hotspot!)).forEach(el=>el.classList.add('possible'));
+    }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
+  }
+  function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
+  interface PointerPress {
+    pointer:number; el:HTMLElement; startX:number; startY:number; moved:boolean;
+  }
+  interface Drag extends PointerPress {
+    id:string; grabX:number; grabY:number;
+    point:Pick<PointerEvent,'clientX'|'clientY'>; lockedChapter?:number; edgeScroll?:DragEdgeScroll;
+    edgePosition?:number; edgeSettlement?:{frame:number; to:number};
+    resolve?:ReturnType<typeof createDropResolver>;
+  }
+  let drag:Drag|undefined;
+  let boardPress: {id:number; x:number; y:number; motion:SwipeMotion; index:number; left:number; axis?:'x'|'y'; delta:number} | undefined;
+  function worldOffset(pixels: number) {
+    const world = surface.querySelector<HTMLElement>('.world');
+    if (world) world.style.transform = pixels ? `translateX(${-pixels}px)` : '';
+  }
+  function maySwipeHome() { return !!entryContext?.fromCarousel; }
+  function trackBoard(event: PointerEvent) {
+    const press = boardPress;
+    if (!press || press.id !== event.pointerId) return;
+    if (event.type === 'pointermove') press.motion.track(event);
+    const dx = event.clientX - press.x, dy = event.clientY - press.y;
+    if (!press.axis) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+      press.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+      if (event.type === 'pointermove') app.setPointerCapture(event.pointerId);
+    }
+    press.delta = press.axis === 'x' ? dx : dy;
+    if (reducedMotion.matches) return;
+    if (press.axis === 'y' && maySwipeHome()) {
+      const offset = Math.max(0, Math.min(app.clientHeight, dy));
+      if (options) options.trackHome(offset, false);
+      else surface.style.transform = `translateY(${offset}px)`;
+    }
+    if (press.axis !== 'x' || starting || !storyStarted) return;
+    const width = app.clientWidth;
+    const last = state.visited.length - 1;
+    const travel = chapterTravel(press.index, press.index - Math.sign(dx));
+    const position = press.left / width - dx / travel;
+    const tracked = Math.max(0, Math.min(last, press.index + 1, Math.max(press.index - 1, position)));
+    positionChapterMotion(tracked);
+    const beyond = chapterComplete(story, state) && !state.completed ? Math.min(travel / 4, (position - last) * travel) : 0;
+    worldOffset(Math.max(0, beyond));
+  }
+  function endBoard(event?: PointerEvent, cancelled = false) {
+    const press = boardPress;
+    if (!press || (event && press.id !== event.pointerId)) return;
+    if (event && !cancelled) trackBoard(event);
+    boardPress = undefined;
+    releaseCapture(press.id);
+    const down = Math.max(0, press.delta);
+    const projected = event && press.axis && !cancelled ? press.motion.project(event, press.axis) : 0;
+    if (press.axis === 'y' && maySwipeHome() && projected > 0 && completesSwipe(projected)) {
+      suppressReleaseClick = true;
+      goHome(down);
+      return;
+    }
+    if (press.axis === 'y' && options && maySwipeHome()) options.trackHome(0, !cancelled);
+    if (!options && surface.style.transform) {
+      surface.style.removeProperty('transform');
+      if (!reducedMotion.matches && !cancelled) surface.animate(
+        [{transform:`translateY(${down}px)`}, {transform:'translateY(0)'}], {duration:180, easing:'ease-out'});
+    }
+    worldOffset(0);
+    if (press.axis) suppressReleaseClick = true;
+    if (press.axis !== 'x' || !storyStarted || starting) return;
+    if (cancelled) { clearChapterMotion(); setScroll(press.left); return; }
+    const direction = -Math.sign(projected);
+    const to = press.index + (completesSwipe(projected) ? direction : 0);
+    const trackedTravel = chapterTravel(press.index, press.index - Math.sign(press.delta));
+    const beyond = reducedMotion.matches ? 0 : Math.min(.25, press.left / app.clientWidth - press.index - press.delta / trackedTravel);
+    swipeChapter(to, press.index + beyond);
+    if (!chapterSlide) clearChapterMotion();
+  }
+  let traceTile:HTMLElement|undefined,tracePointer:number|undefined;
+  function movedEnough(d:PointerPress,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale;}
+  let hotspotPress:(PointerPress&{key:string})|undefined;
+  const feedback=new ItemFeedback(highlight,()=>clearHighlights());
+  let suppressReleaseClick=false;
+  // Suppress the native click belonging to the double-tap that opened a reader.
+  document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},{capture:true, signal});
+  function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
+    const world=app.querySelector('.world')!.getBoundingClientRect();
+    let index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientX-world.left)/app.clientWidth)));
+    if (d.edgePosition !== undefined && surface.querySelector('.chapter-carry')) {
+      const from = Math.floor(d.edgePosition);
+      // Both boards meet here in the view. Target the side the cursor is on.
+      const seam = panel(state.visited[from])!.getBoundingClientRect().right;
+      index = e.clientX >= seam ? Math.ceil(d.edgePosition) : from;
+    }
+    const chapter=d.lockedChapter??state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
+    const {scale:size,bounds}=boardGeometry(chapter);
+    // The held drawing follows the pickup point even beyond the page edge.
+    // Targeting uses this same geometry; fitting happens only after the drop.
+    const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX,y:(e.clientY-rect.top)/size-d.grabY};
+    return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
+  }
+  function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
+      return [...scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
+        const rect=el.getBoundingClientRect();
+        // Stations share the authored circle/rectangle geometry used by lint/layout.
+        const region=el.dataset.hotspot
+          ? hotspotRect(fixedPresentation(chapter,el.dataset.hotspot),0,{width:rect.width,height:rect.height,circular:el.classList.contains('hotspot-circular')})
+          : {x:rect.x,y:rect.y,width:rect.width,height:rect.height};
+        if(el.dataset.hotspot){region.x=rect.x+(rect.width-region.width)/2;region.y=rect.y+(rect.height-region.height)/2;}
+        return {value:el,item:el.dataset.item,hotspot:el.dataset.hotspot,chapter,region,zIndex:Number(getComputedStyle(el).zIndex)||0};
+      });
+  }
+  function dropAt(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>,destination:ReturnType<typeof dragDestination>):DropResolution<HTMLElement> {
+    try {
+      d.resolve??=createDropResolver(story,state,d.id);
+      const clip = surface.querySelector('.chapter-carry') ? destination.scene.querySelector('.chapter-items-frame')?.getBoundingClientRect() : undefined;
+      return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,dropTargets(destination.scene,destination.chapter),clip);
+    } catch(error) {
+      inputTrace?.record('drop:error',{message:(error as Error).message,stack:(error as Error).stack});
+      authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
+      return {ambiguous:[]};
+    }
+  }
+  document.addEventListener('keydown', event => {
+    if (!entranceSettled || !storyStarted || dialogContext || chapterSlide || boardPress || drag || hotspotPress ||
+       (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') ||
+       (event.target !== document.body && !app.contains(event.target as Node))) return;
+    event.preventDefault();
+    browseChapter(Math.round(expectedScroll / app.clientWidth) + (event.key === 'ArrowLeft' ? -1 : 1));
+  }, {signal});
+  app.addEventListener('pointerdown',e=>{
+    if (chapterSlide || !committed || (!entranceSettled && !starting)) return;
+    tutorialOverlay.modality(e.pointerType);
+    const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');
+    if (boardPress && boardPress.id !== e.pointerId) { endBoard(undefined, true); return; }
+    if (!el && !boardPress && !drag && !hotspotPress && !dialogContext && !pendingArtwork &&
+      e.isPrimary && e.button === 0 &&
+      !(e.target as Element).closest('button, a[href], .hud-stack')) {
+      boardPress = {id:e.pointerId, x:e.clientX, y:e.clientY, motion:new SwipeMotion(e), index:Math.round(expectedScroll / app.clientWidth),
+        left:expectedScroll, delta:0};
+    }
+    if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
+      inputTrace?.record('press:ignored',{reason:!el?'no-item':drag||hotspotPress?'gesture-active':e.button!==0?'other-button':'dialog-open'});return;
+    }
+    if(inputTrace?.enabled){traceTile=el;tracePointer=e.pointerId;}
+    // Pointer feedback owns this press; a compatibility click must not leave touch focus hovering.
     e.preventDefault();
-    if (leaveWithFlip(app, home.href, 'home')) updateTutorial();
-    else location.assign(home.href);
-    return;
-  }
-  const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
-  const command=target.dataset.command;
-  if(target instanceof HTMLAnchorElement)e.preventDefault();
-  if(command==='retry'){void start();return;}
-  if(command==='debug'){toggleDebugPanel();return;}
-  flushPreview();
-  if(command==='start-story')beginStory();
-  else if(command==='dismiss')commit({type:'dismiss'});
-  else if(command==='advance')commit({type:'advance'});
-  else if(command==='close')dismissReading();
-  else if(command==='confirm-reset-story')confirmRestart();
-  else if(command==='cancel-reset-story')reopenChapter();
-  else if(command==='reset-story')restartStory();
-  else if(command==='reset-chapter')restartChapter();
-  else if(command==='story'){goalPulses.resetCounter();tutorialProgress?.finish('goalsDone');reopenChapter();}
-  else if(command==='encyclopedia')openEncyclopedia();
-  else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
-  else if(command==='encyclopedia-back')backToEncyclopediaIndex();
-});
-window.addEventListener('resize',()=>{cancelGesture('window-resize');if(state&&!document.querySelector('.chooser')&&!document.querySelector('dialog'))render();});
-new ResizeObserver(entries=>{inputTrace?.record('layout:resize-observer',{sizes:entries.map(entry=>({width:entry.contentRect.width,height:entry.contentRect.height}))});cancelGesture('game-resize');if(state)render(false,false);}).observe(app);
-function escapeDialog() {
-  if (dialogContext?.kind === 'pending') commit({ type: 'dismiss' });
-  else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail && !bookIsSpread()) backToEncyclopediaIndex();
-  else dismissReading();
-}
-dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); if (!event.repeat) escapeDialog(); } });
-// Goals readings close on a tap over the backdrop or noninteractive prose.
-// A drag to select text, scrolling, or using a control isn't a dismissal.
-function chapterDismissTarget(target: EventTarget | null) {
-  return dialogContext?.kind === 'chapter' && target instanceof Element &&
-    !target.closest('button, a[href], input, select, textarea, label, summary, details, [contenteditable], [tabindex]');
-}
-let chapterPress: {id: number; x: number; y: number} | undefined;
-let chapterTap = false;
-dialogLayer.addEventListener('pointerdown', event => {
-  chapterTap = false;
-  chapterPress = event.isPrimary && event.button === 0 && chapterDismissTarget(event.target)
-    ? {id:event.pointerId, x:event.clientX, y:event.clientY} : undefined;
-});
-dialogLayer.addEventListener('pointermove', event => {
-  if (chapterPress?.id === event.pointerId && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) > 8) chapterPress = undefined;
-});
-dialogLayer.addEventListener('pointerup', event => {
-  if (chapterPress?.id !== event.pointerId) return;
-  chapterTap = chapterDismissTarget(event.target) && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) <= 8;
-  chapterPress = undefined;
-});
-dialogLayer.addEventListener('pointercancel', () => { chapterPress = undefined; chapterTap = false; });
-dialogLayer.addEventListener('click', event => {
-  const dismiss = chapterTap && event.detail > 0 && chapterDismissTarget(event.target);
-  chapterTap = false;
-  if (dismiss) {
-    flushPreview();
-    if (dialogContext?.kind === 'chapter') dismissReading();
-  }
-});
-if(import.meta.env.DEV){
-  inputTrace=new DragTrace(app,()=>{
-    const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
-    return {
-      chapter:state?.chapter,actions:state?.actions.length,dialog:dialogContext?.kind??null,
-      focused:document.hasFocus(),visibility:document.visibilityState,
-      drag:drag?{id:drag.id,pointer:drag.pointer,moved:drag.moved,startX:drag.startX,startY:drag.startY,grabX:drag.grabX,grabY:drag.grabY}:null,
-      hotspotPress:hotspotPress?{key:hotspotPress.key,pointer:hotspotPress.pointer,moved:hotspotPress.moved,startX:hotspotPress.startX,startY:hotspotPress.startY}:null,captured:tracePointer!==undefined&&app.hasPointerCapture(tracePointer),
-      item:token?{id:token.id,x:token.x,y:token.y,chapter:token.chapter,status:token.status,hotspot:token.hotspot??null}:null,
-      tile:element?{connected:element.isConnected,left:element.style.left,top:element.style.top,dragging:element.classList.contains('dragging')}:null,
-    };
+    if(el.dataset.hotspot){hotspotPress={key:feedbackKey(el),pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,moved:false};feedback.begin(hotspotPress.key);app.setPointerCapture(e.pointerId);inputTrace?.record('hotspot:begin');updateTutorial();return;}
+    const id=el.dataset.item!;feedback.begin(id);
+    itemOrder = [...itemOrder.filter(item => item !== id), id];
+    app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
+    rememberInteraction(); save();
+    const bounds=el.getBoundingClientRect(),boardScale=elementGeometry(el).scale;
+    // Pickup location, not encounter history or the panel crossed mid-drag, owns the restriction.
+    drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
+    if(drag.lockedChapter===undefined){
+      const gesture=drag;
+      const viewport = app.querySelector<HTMLElement>('.viewport')!;
+      gesture.edgeScroll = new DragEdgeScroll(viewport, () => {
+        const {left, width} = viewport.getBoundingClientRect();
+        const artworkWidth = chapterFrameWidth(gesture.edgePosition ?? viewport.scrollLeft / viewport.clientWidth);
+        const inset = (width - artworkWidth) / 2;
+        return {left:left + inset, right:left + width - inset};
+      }, distance => scrollHeldItem(gesture, viewport, distance), direction => settleHeldItem(gesture, direction));
+    }
+    // The stable app owns capture even if an artwork load or redraw updates the tile.
+    app.setPointerCapture(e.pointerId);
+    inputTrace?.record('drag:begin',{rectangle:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},boardScale});
+    goalPulses.pickup();
+    updateTutorial();
   });
-  import.meta.hot?.on('vite:beforeFullReload',()=>inputTrace?.record('vite:before-full-reload'));
+  document.addEventListener('pointermove',e=>{
+    trackBoard(e);
+    if(hotspotPress?.pointer===e.pointerId){hotspotPress.moved ||= movedEnough(hotspotPress,e);return;}
+    if(!drag||e.pointerId!==drag.pointer)return;
+    if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
+    drag.point={clientX:e.clientX,clientY:e.clientY};
+    drag.edgeScroll?.update(e.clientX);
+    previewDrag(drag);
+  }, {signal});
+  function scrollHeldItem(d: Drag, viewport: HTMLElement, distance: number) {
+    const position = d.edgePosition ?? viewport.scrollLeft / viewport.clientWidth;
+    const next = distance > 0 ? Math.floor(position) + 1 : Math.ceil(position) - 1;
+    const interval = chapterTravel(next, next - Math.sign(distance));
+    const target = position + distance / interval;
+    d.edgePosition = distance > 0 ? Math.min(next, target) : Math.max(next, target);
+    positionChapterMotion(d.edgePosition, true);
+    previewDrag(d);
+  }
+  function settleHeldItem(d: Drag, direction: number) {
+    const from = d.edgePosition;
+    if (from === undefined) return;
+    const origin = direction > 0 ? Math.floor(from) : Math.ceil(from);
+    const next = origin + direction;
+    const distance = (from - origin) * chapterTravel(origin, next);
+    const to = completesSwipe(distance) ? next : origin;
+    const finish = () => {
+      d.edgeSettlement = undefined;
+      d.edgePosition = undefined;
+      clearChapterMotion();
+      setScroll(to * app.clientWidth);
+      previewDrag(d);
+      rememberInteraction(); save();
+    };
+    if (from === to || reducedMotion.matches || document.hidden) { finish(); return; }
+
+    const started = performance.now();
+    const settlement = d.edgeSettlement = {frame:0, to};
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - started) / 180);
+      if (progress === 1 || reducedMotion.matches || document.hidden) { finish(); return; }
+      const eased = 1 - (1 - progress) ** 3;
+      d.edgePosition = from + (to - from) * eased;
+      positionChapterMotion(d.edgePosition, true);
+      previewDrag(d);
+      settlement.frame = requestAnimationFrame(tick);
+    };
+    settlement.frame = requestAnimationFrame(tick);
+  }
+  function finishCarryMotion(d: Drag, destination?: number) {
+    const settlement = d.edgeSettlement;
+    if (settlement) cancelAnimationFrame(settlement.frame);
+    if (d.edgePosition === undefined) return;
+    if (settlement || surface.querySelector('.chapter-carry')) {
+      clearChapterMotion();
+      const index = destination === undefined ? settlement?.to ?? Math.round(d.edgePosition) : state.visited.indexOf(destination);
+      setScroll(index * app.clientWidth);
+    }
+    rememberInteraction(); save();
+  }
+  function previewDrag(d:Drag){
+    const destination=dragDestination(d,d.point),source=d.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=elementGeometry(d.el).scale;
+    d.el.style.scale=String(boardGeometry(destination.chapter).scale/size);
+    d.el.style.transformOrigin='top left';
+    d.el.classList.add('dragging');app.classList.add('is-dragging');
+    d.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
+    iconNames.follow(d.el);
+    app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
+    const {target, action, usefulPlacement, ambiguous}=dropAt(d,d.point,destination);
+    inputTrace?.record('drag:preview',{chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,usefulPlacement,ambiguous});
+    if(target&&!ambiguous.length&&(action||usefulPlacement))target.classList.add(action?'will-create':'will-place');
+    if (action?.b) tile(action.b)?.classList.add('will-create');
+    ambiguous.forEach(id => tile(id)?.classList.add('possible'));
+  }
+  function releaseCapture(pointer:number){if(app.hasPointerCapture(pointer))app.releasePointerCapture(pointer);}
+  function restoreGestureTile(d:NonNullable<typeof drag>){
+    d.el.style.removeProperty('scale');d.el.style.removeProperty('transform-origin');
+    d.el.classList.remove('dragging');app.classList.remove('is-dragging');
+    const token=state.tokens[d.id];if(token&&d.el.isConnected){positionTile(d.el,token);}
+    inputTrace?.record('drag:restored',{item:d.id});
+  }
+  function endDrag(e:PointerEvent,cancel=false){
+    inputTrace?.record('gesture:end-request',{pointer:e.pointerId,cancel});
+    if(hotspotPress?.pointer===e.pointerId){
+      const press=hotspotPress;hotspotPress=undefined;releaseCapture(e.pointerId);
+      // Fixed targets keep the press, but attempted drags cannot become taps.
+      if(cancel)feedback.clear();
+      else if(feedback.release(press.key,!press.moved&&!movedEnough(press,e))){suppressReleaseClick=true;read(press.key.slice(8));}
+      return;
+    }
+    if(!drag||drag.pointer!==e.pointerId){inputTrace?.record('drag:end-ignored',{reason:drag?'different-pointer':'no-active-drag'});return;}const d=drag;drag=undefined;
+    d.edgeScroll?.stop();releaseCapture(d.pointer);
+    if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});finishCarryMotion(d);restoreGestureTile(d);feedback.clear();return;}
+    // A quick release can be the first event reporting travel beyond click tolerance.
+    if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*elementGeometry(d.el).scale});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
+    // Resolve the final rectangle from release coordinates before resetting any drag visuals.
+    const destination=dragDestination(d,e),{target,action,ambiguous}=dropAt(d,e,destination);
+    inputTrace?.record('drop:resolved',{item:d.id,pointer:{x:e.clientX,y:e.clientY},chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,ambiguous});
+    d.el.style.removeProperty('scale');d.el.style.removeProperty('transform-origin');
+    d.el.classList.remove('dragging');app.classList.remove('is-dragging');
+    finishCarryMotion(d,destination.chapter);
+    if(action)commit(action);
+    else if(!ambiguous.length){
+      const position=fitOnBoard(destination.position.x,destination.position.y,d.el.offsetWidth,d.el.offsetHeight,boardGeometry(destination.chapter).bounds);
+      commit({type:'move',item:d.id,chapter:destination.chapter,...position,...(target?.dataset.hotspot?{hotspot:target.dataset.hotspot}:{})});
+    }
+    restoreGestureTile(d);
+    if(inputTrace?.enabled)requestAnimationFrame(()=>{
+      if(!inputTrace?.enabled)return;
+      const element=tile(d.id),rect=element?.getBoundingClientRect(),style=element&&getComputedStyle(element);
+      inputTrace.record('drop:after-frame',{item:d.id,rectangle:rect?{x:rect.x,y:rect.y,width:rect.width,height:rect.height}:null,transform:style?.transform,scale:style?.scale});
+    });
+    if(!document.querySelector('dialog')&&state.tokens[d.id]?.status==='available')feedback.release(d.id,false);else feedback.clear();
+  }
+  document.addEventListener('pointerup',e=>{endBoard(e);endDrag(e);updateTutorial();}, {signal});document.addEventListener('pointercancel',e=>{endBoard(e,true);endDrag(e,true);updateTutorial();}, {signal});
+  function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});endBoard(undefined,true);if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;d.edgeScroll?.stop();releaseCapture(d.pointer);finishCarryMotion(d);restoreGestureTile(d);feedback.clear();}updateTutorial();}
+  window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();}, {signal});
+  document.addEventListener('visibilitychange',updateTutorial, {signal});
+  app.addEventListener('lostpointercapture',e=>{
+    const {pointerId,buttons}=e as PointerEvent;
+    // Chrome can end capture on a buttons=0 move before delivering pointerup.
+    // Keep that gesture for the document's release handler, using its final coordinates.
+    // Losing capture while a button is still held remains an interrupted gesture.
+    if(e.target===app && buttons!==0 &&
+      (drag?.pointer===pointerId||hotspotPress?.pointer===pointerId||boardPress?.id===pointerId))cancelGesture('lost-pointer-capture');
+  });
+  app.addEventListener('pointerover',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');if(el&&!document.querySelector('dialog'))feedback.hover(feedbackKey(el));}});
+  app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
+  // Also reject queued/synthetic activation, rather than relying only on inert.
+  app.addEventListener('click', e => {
+    // A quick second press where the arrow was must not become a Begin click
+    // if the new dialog happens to place its button under the same point.
+    if ((chapterSlide || !entranceSettled && !starting) && (!dialogLayer.contains(e.target as Node) || e.detail > 1)) {
+      e.preventDefault(); e.stopImmediatePropagation();
+    }
+  }, true);
+  app.addEventListener('keydown', e => {
+    if (((chapterSlide || !entranceSettled && !starting) && !dialogLayer.contains(e.target as Node)) || (e.repeat && (e.key === 'Enter' || e.key === ' '))) e.preventDefault();
+  }, true);
+  app.addEventListener('click',e=>{
+    if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
+    const element=e.target as Element;
+    const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
+    const home = element.closest<HTMLAnchorElement>('a.popup-home');
+    if (home) {
+      if (!plainNavigation(e, home)) return;
+      e.preventDefault();
+      goHome(0, home.dataset.command === 'ending-home');
+      return;
+    }
+    const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
+    const command=target.dataset.command;
+    if(target instanceof HTMLAnchorElement)e.preventDefault();
+    if(command==='retry'){void start();return;}
+    if(command==='debug'){toggleDebugPanel();return;}
+    flushPreview();
+    if(command==='start-story')beginStory();
+    else if(command==='dismiss')commit({type:'dismiss'});
+    else if(command==='advance')commit({type:'advance'});
+    else if(command==='close')dismissReading();
+    else if(command==='confirm-reset-story')confirmRestart();
+    else if(command==='cancel-reset-story')reopenChapter();
+    else if(command==='reset-story')restartStory();
+    else if(command==='reset-chapter')restartChapter();
+    else if(command==='story'){goalPulses.resetCounter();tutorialProgress?.finish('goalsDone');reopenChapter();}
+    else if(command==='encyclopedia')openEncyclopedia();
+    else if(command==='encyclopedia-read')openEncyclopedia(target.dataset.reading!,true);
+    else if(command==='encyclopedia-back')backToEncyclopediaIndex();
+  });
+  window.addEventListener('resize',()=>{cancelGesture('window-resize');if(state && !starting && !loadFailed && !dialogContext)render();}, {signal});
+  window.addEventListener('pageshow', event => { if (event.persisted) leaving = false; }, {signal});
+  const gameResize = new ResizeObserver(entries=>{inputTrace?.record('layout:resize-observer',{sizes:entries.map(entry=>({width:entry.contentRect.width,height:entry.contentRect.height}))});cancelGesture('game-resize');if(state && !starting && !loadFailed)render(false,false);});
+  gameResize.observe(app);
+  function escapeDialog() {
+    if (dialogContext?.kind === 'pending') commit({ type: 'dismiss' });
+    else if (dialogContext?.kind === 'encyclopedia' && dialogContext.detail && !bookIsSpread()) backToEncyclopediaIndex();
+    else dismissReading();
+  }
+  dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); if (!event.repeat) escapeDialog(); } });
+  // Goals readings close on a tap over the backdrop or noninteractive prose.
+  // A drag to select text, scrolling, or using a control isn't a dismissal.
+  function chapterDismissTarget(target: EventTarget | null) {
+    return dialogContext?.kind === 'chapter' && target instanceof Element &&
+      !target.closest('button, a[href], input, select, textarea, label, summary, details, [contenteditable], [tabindex]');
+  }
+  let chapterPress: {id: number; x: number; y: number} | undefined;
+  let chapterTap = false;
+  dialogLayer.addEventListener('pointerdown', event => {
+    chapterTap = false;
+    chapterPress = event.isPrimary && event.button === 0 && chapterDismissTarget(event.target)
+      ? {id:event.pointerId, x:event.clientX, y:event.clientY} : undefined;
+  });
+  dialogLayer.addEventListener('pointermove', event => {
+    if (chapterPress?.id === event.pointerId && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) > 8) chapterPress = undefined;
+  });
+  dialogLayer.addEventListener('pointerup', event => {
+    if (chapterPress?.id !== event.pointerId) return;
+    chapterTap = chapterDismissTarget(event.target) && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) <= 8;
+    chapterPress = undefined;
+  });
+  dialogLayer.addEventListener('pointercancel', () => { chapterPress = undefined; chapterTap = false; });
+  dialogLayer.addEventListener('click', event => {
+    const dismiss = chapterTap && event.detail > 0 && chapterDismissTarget(event.target);
+    chapterTap = false;
+    if (dismiss) {
+      flushPreview();
+      if (dialogContext?.kind === 'chapter') dismissReading();
+    }
+  });
+  if(import.meta.env.DEV){
+    inputTrace=new DragTrace(app,()=>{
+      const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
+      return {
+        chapter:state?.chapter,actions:state?.actions.length,dialog:dialogContext?.kind??null,
+        focused:document.hasFocus(),visibility:document.visibilityState,
+        drag:drag?{id:drag.id,pointer:drag.pointer,moved:drag.moved,startX:drag.startX,startY:drag.startY,grabX:drag.grabX,grabY:drag.grabY}:null,
+        hotspotPress:hotspotPress?{key:hotspotPress.key,pointer:hotspotPress.pointer,moved:hotspotPress.moved,startX:hotspotPress.startX,startY:hotspotPress.startY}:null,captured:tracePointer!==undefined&&app.hasPointerCapture(tracePointer),
+        item:token?{id:token.id,x:token.x,y:token.y,chapter:token.chapter,status:token.status,hotspot:token.hotspot??null}:null,
+        tile:element?{connected:element.isConnected,left:element.style.left,top:element.style.top,dragging:element.classList.contains('dragging')}:null,
+      };
+    });
+    import.meta.hot?.on('vite:beforeFullReload',()=>inputTrace?.record('vite:before-full-reload'));
+  }
+  const ready = start();
+  return {
+    ready, previewIntroduction, hideIntroductionPreview, commitEntry, finishEntry,
+    focusEntry() {
+      app.querySelector<HTMLElement>('dialog button, .load-error button')?.focus({preventScroll:true});
+    },
+    setEntryOverlay(inert: boolean) { dialogLayer.inert = inert; },
+    dispose() {
+      lifecycle.abort(); gameResize.disconnect();
+      finishChapterSlide(false);
+      cancelGesture('leave-story'); cancelArtworkWait(); closeDialog();
+      clearTimeout(previewTimer); clearCreationLabels(); resetGoalView();
+      cancelAnimationFrame(artworkFrame); cancelAnimationFrame(tutorialFrame);
+      tutorialOverlay.show(); mobileDebug.close();
+      if (options && authoring) {
+        if (authoring.store.unsaved) options.drafts.set(documentURL, authoring.store);
+        else options.drafts.delete(documentURL);
+      }
+      diagnostics?.dispose(); authoring?.dispose(); inputTrace?.dispose();
+      workspace.remove();
+    },
+  };
 }
-void start();

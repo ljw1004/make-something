@@ -41,7 +41,7 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
   // The stable sort preserves manuscript discovery order for unlisted stories.
   const orderedEntries = entries.toSorted((a, b) => rank(a.path) - rank(b.path));
   const arrow = (left: boolean) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${left ? 'm15 4-8 8 8 8' : 'm9 4 8 8-8 8'}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  const play = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="m10 7 7 5-7 5z" fill="currentColor"/></svg>';
+  const enter = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="M12 6v11m-5-5 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
   return `<main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
     ${orderedEntries.map((entry, index) => {
       const href = `make-something.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
@@ -50,7 +50,7 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
         ${cover ? `<img class="carousel-art" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} src="${escape(cover)}" alt="" draggable="false">` : ''}
         <nav class="carousel-dots" aria-label="Choose a story">${orderedEntries.map((destination, dot) => `<button type="button" aria-label="${escape(destination.title)}" ${dot === index ? 'aria-current="true"' : ''}></button>`).join('')}</nav>
         <div class="carousel-panel">
-          <div class="carousel-bar"><a href="${escape(href)}" data-story="${escape(entry.path)}"><h2 class="story-title">${escape(entry.title)}</h2><span class="carousel-action"><span data-launch-label>Start</span>${play}</span></a>
+          <div class="carousel-bar"><a href="${escape(href)}" data-story="${escape(entry.path)}"><h2 class="story-title">${escape(entry.title)}</h2><span class="carousel-action"><span data-launch-label>Start</span>${enter}</span></a>
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story">${arrow(true)}</button>
             <button type="button" class="carousel-arrow carousel-next" aria-label="Next story">${arrow(false)}</button>
           </div>

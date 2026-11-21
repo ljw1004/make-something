@@ -19,9 +19,9 @@ test('touch dragging moves a card while empty-space touch scrolls the story',asy
   const cdp=await context.newCDPSession(page),card=page.locator('.chapter-panel').last().locator('.thing').first(),box=(await card.boundingBox())!;
   const start={x:box.x+20,y:box.y+20};await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[start]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:250,y:710}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
   const after=(await card.boundingBox())!;expect(Math.abs(after.y-box.y)).toBeGreaterThan(50);
-  const empty={x:2,y:300};
-  expect(await page.evaluate(p=>!!document.elementFromPoint(p.x,p.y)?.closest('[data-item],[data-hotspot]'),empty)).toBe(false);
-  const before=await page.locator('.viewport').evaluate(el=>el.scrollTop);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[empty]});for(let y=320;y<=650;y+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:empty.x,y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollTop)).toBeLessThan(before);
+  const empty={x:20,y:100};
+  expect(await page.evaluate(p=>document.elementFromPoint(p.x,p.y)?.closest('.viewport') !== document.querySelector('.viewport') || !!document.elementFromPoint(p.x,p.y)?.closest('[data-item],[data-hotspot]'),empty)).toBe(false);
+  const before=await page.locator('.viewport').evaluate(el=>el.scrollLeft);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[empty]});for(let x=40;x<=340;x+=20){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:empty.y}]});await page.waitForTimeout(16);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(()=>page.locator('.viewport').evaluate(el=>el.scrollLeft)).toBeLessThan(before);
   await context.close();
 });
 test('text cards follow the pickup point then fit their full rectangle at every board edge',async({page})=>{
@@ -122,11 +122,24 @@ test('a card covering centered goals keeps native pointer precedence',async({pag
 });
 
 test('holding a described item does not read or obstruct a later drag; double-click still reads',async({page})=>{
-  await page.goto('/');await page.locator('[data-story="stories/settlement/settlement.md"]').click();
+  await page.route('**/reading-hold/story.md', route => route.fulfill({contentType:'text/markdown', body:`# Reading
+## Garden
+Read about the things in the garden.
+**Items**
+- Plant
+
+  A plant can be read about.
+
+- Spade
+**Goals**
+- Dig -- Bed
+**Combinations**
+- Plant [preserve] + Spade [preserve] -> Bed
+`}));
+  await page.goto('/make-something.html?story=reading-hold/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
-  await jumpToChapter(page,chapter('settlement',18),true);await page.getByRole('button',{name:'Begin',exact:true}).click();
-  const plant=page.locator('[data-item="name:Plant"]');await plant.scrollIntoViewIfNeeded();const box=(await plant.boundingBox())!;
+  const plant=page.locator('[data-item="name:Plant"]'),box=(await plant.boundingBox())!;
   await page.mouse.move(box.x+20,box.y+20);await page.mouse.down();await page.waitForTimeout(650);
   await expect(page.locator('dialog')).toHaveCount(0);
   await page.mouse.move(75,580,{steps:5});await page.mouse.up();

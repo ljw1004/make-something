@@ -48,17 +48,17 @@ async function enterField(page: Page, appearance: Appearance = 'text') {
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));
   await page.getByRole('button', {name: 'Continue story'}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
-  await expect.poll(() => scrollTop(page)).toBe(844);
+  await expect.poll(() => scrollLeft(page)).toBe(390);
 }
 
 const station = (page: Page) => page.locator('[data-hotspot="name:Station"]');
-const scrollTop = (page: Page) => page.locator('.viewport').evaluate(el => el.scrollTop);
+const scrollLeft = (page: Page) => page.locator('.viewport').evaluate(el => el.scrollLeft);
 const centre = (box: {x: number; y: number; width: number; height: number}) => ({x: box.x + box.width / 2, y: box.y + box.height / 2});
 
 async function swipe(cdp: CDPSession, page: Page, start: {x: number; y: number}) {
   await cdp.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [start]});
-  for (let dy = 20; dy <= 240; dy += 20) {
-    await cdp.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: start.x, y: start.y + dy}]});
+  for (let dx = 15; dx <= 150; dx += 15) {
+    await cdp.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: start.x + dx, y: start.y}]});
     await page.waitForTimeout(16);
   }
   await cdp.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
@@ -75,7 +75,7 @@ for (const appearance of ['text', 'artwork', 'hitbox'] as const) test(`${appeara
     const start = appearance === 'hitbox' ? {x: box.x + 5, y: box.y + box.height / 2} : centre(box);
     const cdp = await context.newCDPSession(page);
     await swipe(cdp, page, start);
-    expect(await scrollTop(page)).toBe(844);
+    expect(await scrollLeft(page)).toBe(390);
     expect(await hotspot.boundingBox()).toEqual(box);
     await expect(page.locator('dialog')).toHaveCount(0);
     await expect(page.locator('.dragging')).toHaveCount(0);
@@ -88,7 +88,7 @@ for (const appearance of ['text', 'artwork', 'hitbox'] as const) test(`${appeara
     const empty = {x: 2, y: 300};
     expect(await page.evaluate(point => !!document.elementFromPoint(point.x, point.y)?.closest('[data-item],[data-hotspot]'), empty)).toBe(false);
     await swipe(cdp, page, empty);
-    await expect.poll(() => scrollTop(page)).toBeLessThan(844);
+    await expect.poll(() => scrollLeft(page)).toBeLessThan(390);
   } finally { await context.close(); }
 });
 
@@ -104,7 +104,7 @@ test('hotspot mouse travel, including release-only and returning travel, never c
     if (travel !== 'release-only') await cdp.send('Input.dispatchMouseEvent', {type: 'mouseMoved', x: start.x, y: start.y + 180, button: 'left', buttons: 1});
     await cdp.send('Input.dispatchMouseEvent', {type: 'mouseReleased', x: start.x, y: start.y + (travel === 'returning' ? 0 : 180), button: 'left', buttons: 0, clickCount: 1});
     await expect(page.locator('dialog')).toHaveCount(0);
-    expect(await scrollTop(page)).toBe(844);
+    expect(await scrollLeft(page)).toBe(390);
     expect(await hotspot.boundingBox()).toEqual(box);
     // The attempted drag also clears the first click from the double-tap pair.
     await hotspot.click();

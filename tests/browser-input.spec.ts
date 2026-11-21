@@ -79,12 +79,12 @@ test.describe('reading scroll', () => {
     await page.getByRole('button', { name: 'Continue story', exact: true }).click();
     await page.getByRole('button', { name: 'Begin', exact: true }).click();
     const viewport = page.locator('.viewport');
-    const before = await viewport.evaluate(element => element.scrollTop);
+    const before = await viewport.evaluate(element => element.scrollLeft);
     expect(before).toBeGreaterThan(0);
     await page.locator('[data-item="name:Flour"]').last().dragTo(page.locator('[data-item="name:Tool"]').last());
     await expectReadingStart('Continue');
     await page.getByRole('button', { name: 'Continue', exact: true }).click();
-    expect(await viewport.evaluate(element => element.scrollTop)).toBe(before);
+    expect(await viewport.evaluate(element => element.scrollLeft)).toBe(before);
   });
 
   test('live edits preserve wonder scroll and editor focus', async ({ page }) => {

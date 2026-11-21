@@ -1,22 +1,20 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#000000"><link rel="icon" type="image/png" sizes="64x64" href="./assets/appicon.png" vite-ignore><meta name="application-name" content="Make Something"><meta name="apple-mobile-web-app-title" content="Make Something"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="./assets/homescreen.png" vite-ignore><title>Make Something Worthwhile</title><!-- catalogue-styles --><style>
 :root.carousel-home-bootstrap{background:#000}
-:root.carousel-home-bootstrap #app{visibility:hidden}
+:root.carousel-home-bootstrap #catalogue-app{visibility:hidden}
 </style><script>
   // The generated catalogue contains a visible default card before its module
   // runs. Keep it dark only on a matching, one-shot Home navigation.
   try {
     const clean = address => { const url = new URL(address); url.hash = ''; return url.href; };
-    const marker = JSON.parse(sessionStorage.getItem('make-something-flip-v1') || 'null');
+    const marker = JSON.parse(sessionStorage.getItem('make-something-home-slide-v1') || 'null');
     const navigation = performance.getEntriesByType('navigation')[0];
     const remaining = marker?.expires - Date.now();
-    if (!location.hash && marker?.journey === 'home' &&
-        marker.destination === clean(location.href) &&
+    if (!location.hash && marker?.destination === clean(location.href) &&
         (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:') && remaining > 0 && remaining <= 15000 &&
         navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
         !matchMedia('(prefers-reduced-motion: reduce)').matches &&
-        typeof HTMLElement.prototype.animate === 'function' &&
-        CSS.supports('transform', 'perspective(1400px) rotateY(45deg)')) {
+        typeof HTMLElement.prototype.animate === 'function') {
       const root = document.documentElement;
       root.classList.add('carousel-home-bootstrap');
       const clear = () => root.classList.remove('carousel-home-bootstrap');
@@ -26,9 +24,9 @@
     }
   } catch { /* The normal catalogue remains visible without browser storage. */ }
 </script><noscript><style>
-#app.catalogue-page:has(.story-carousel){overflow:auto}
+#catalogue-app.catalogue-page:has(.story-carousel){overflow:auto}
 .story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{position:relative;inset:auto;width:100%;height:auto;max-height:none}
 .story-carousel{display:block}.carousel-frame{container-type:normal;max-width:34rem;margin:auto}
 .carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}
 .carousel-art{position:relative;max-height:60vh;object-fit:contain}
-</style></noscript></head><body><div class="status-bar-color" aria-hidden="true"></div><div id="app" class="catalogue-page"><!-- story-catalogue --></div><script type="module" src="/src/web/catalogue.ts"></script></body></html>
+</style></noscript></head><body><div class="status-bar-color" aria-hidden="true"></div><div id="catalogue-app" class="catalogue-page"><!-- story-catalogue --></div><script type="module" src="/src/web/catalogue.ts"></script></body></html>

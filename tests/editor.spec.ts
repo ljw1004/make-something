@@ -116,7 +116,7 @@ test('live edits update the current view and survive temporary deletion of its c
   await openFixture(page);
   const card = page.locator('[data-item="id:frame"]');
   const geometry = await card.evaluate(element => ({ left: (element as HTMLElement).style.left, top: (element as HTMLElement).style.top }));
-  const scroll = await page.locator('.viewport').evaluate(element => { element.scrollTop = 20; return element.scrollTop; });
+  const scroll = await page.locator('.viewport').evaluate(element => { element.scrollLeft = 20; return element.scrollLeft; });
   const image = await page.locator('.scene-art').elementHandle();
   await page.getByRole('button', { name: 'Read this chapter' }).click();
   const popup = await page.locator('dialog').elementHandle();
@@ -134,7 +134,7 @@ test('live edits update the current view and survive temporary deletion of its c
   expect(await image!.evaluate(element => element.isConnected)).toBe(true);
   expect(await popup!.evaluate(element => element.isConnected)).toBe(true);
   expect(await card.evaluate(element => ({ left: (element as HTMLElement).style.left, top: (element as HTMLElement).style.top }))).toEqual(geometry);
-  expect(await page.locator('.viewport').evaluate(element => element.scrollTop)).toBe(scroll);
+  expect(await page.locator('.viewport').evaluate(element => element.scrollLeft)).toBe(scroll);
 
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await card.dblclick();

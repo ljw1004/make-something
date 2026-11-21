@@ -12,6 +12,7 @@ interface Callbacks {
 
 /** Draft durability is independent of parser, linter, preview and game progress. */
 export class AuthoringSession {
+  private readonly lifecycle = new AbortController();
   readonly store: DraftStore;
   readonly url: string;
   text: string;
@@ -48,7 +49,7 @@ export class AuthoringSession {
     this.saveKind = document.warning ? 'error' : this.edited ? 'saved' : 'info';
     window.addEventListener('beforeunload', event => {
       if (this.store.unsaved) { event.preventDefault(); event.returnValue = ''; }
-    });
+    }, {signal: this.lifecycle.signal});
     window.addEventListener('storage', event => {
       if (!this.store.affectsStorageKey(event.key)) return;
       this.refreshRecoveries();
@@ -56,7 +57,12 @@ export class AuthoringSession {
       if (latest && latest.text !== this.text) {
         this.editor?.setPreviewStatus('Another tab saved a different draft. Your open buffer is unchanged; use Saved copies to compare.');
       }
-    });
+    }, {signal: this.lifecycle.signal});
+  }
+
+  dispose() {
+    this.lifecycle.abort();
+    this.editor?.destroy();
   }
 
   open() {

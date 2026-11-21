@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="./assets/appicon.png" >
   <title>Make Something Worthwhile</title>
   <!-- Keep the loading screen styled before the application bundle arrives. -->
-  <style>.story-loading{color:#35382f;text-align:center;background:#f3eddf;place-items:center;margin:0;font:16px/1.5 system-ui,sans-serif;display:grid;position:absolute;inset:0}:root.story-flip-bootstrap{background:#000}:root.story-flip-bootstrap .story-loading{color:#0000;background:#000}:root.story-flip-bootstrap .story-loading:after{content:"";opacity:0;width:24px;height:24px;animation:story-flip-spin .7s linear infinite, flip-show-spinner 0s var(--story-flip-spinner-delay,.24s) forwards;border:2px solid #f6efe255;border-top-color:#f6efe2;border-radius:50%;position:absolute}@keyframes story-flip-spin{to{transform:rotate(1turn)}}@keyframes flip-show-spinner{to{opacity:1}}@media (prefers-reduced-motion:reduce){:root.story-flip-bootstrap .story-loading:after{animation:flip-show-spinner 0s var(--story-flip-spinner-delay,.24s) forwards}}</style>
+  <style>.story-loading{color:#35382f;text-align:center;background:#f3eddf;place-items:center;margin:0;font:16px/1.5 system-ui,sans-serif;display:grid;position:absolute;inset:0}:root.story-entry-bootstrap{background:#000}:root.story-entry-bootstrap .story-loading{color:#0000;background:#000}:root.story-entry-bootstrap .story-loading:after{content:"";opacity:0;width:24px;height:24px;animation:story-loading-spin .7s linear infinite, story-show-spinner 0s var(--story-loading-spinner-delay,.24s) forwards;border:2px solid #f6efe255;border-top-color:#f6efe2;border-radius:50%;position:absolute}@keyframes story-loading-spin{to{transform:rotate(1turn)}}@keyframes story-show-spinner{to{opacity:1}}@media (prefers-reduced-motion:reduce){:root.story-entry-bootstrap .story-loading:after{animation:story-show-spinner 0s var(--story-loading-spinner-delay,.24s) forwards}}</style>
   <script>
     // Keep the handoff dark even if the application bundle is slow. The
     // player validates and consumes the same one-shot marker independently.
@@ -23,20 +23,16 @@
       if (pending?.launch?.entry === 'carousel' && pending.launch.destination === location.href &&
           pending.expires > Date.now() && sameCatalogue && !history.state?.makeSomethingCarouselEntry &&
           navigation?.type !== 'reload' && navigation?.type !== 'back_forward') {
-        const root = document.documentElement;
-        const flip = JSON.parse(sessionStorage.getItem('make-something-flip-v1') || 'null');
-        const delay = flip?.journey === 'launch' && flip.destination === location.href && typeof flip.spinnerAt === 'number'
-          ? Math.max(0, flip.spinnerAt - Date.now()) : 240;
-        root.style.setProperty('--story-flip-spinner-delay', delay + 'ms');
-        root.classList.add('story-flip-bootstrap');
+        document.documentElement.classList.add('story-entry-bootstrap');
       }
     } catch { /* Direct loading and the player remain available without storage. */ }
   </script>
-  <script type="module" crossorigin src="./assets/make-something-BTaY9hiJ.js"></script>
+  <script type="module" crossorigin src="./assets/make-something-BDAh60GQ.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-DbWZas9U.js">
-  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Cox9btQL.js">
+  <link rel="modulepreload" crossorigin href="./assets/carousel-selection-Ciz5teaA.js">
   <link rel="modulepreload" crossorigin href="./assets/placement-hints-CTdErv94.js">
-  <link rel="stylesheet" crossorigin href="./assets/make-something-BH6zb4Hd.css">
+  <link rel="modulepreload" crossorigin href="./assets/main-DzoCyona.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-CHcg2clA.css">
 </head>
 <body data-catalogue="./index.html">
   <div class="status-bar-color" aria-hidden="true"></div>

@@ -102,6 +102,28 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await expect(title).toHaveText(first!);
     await expect(page).toHaveURL(address);
     const client = await context.newCDPSession(page);
+    for (const dx of [-60,60]) {
+      await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:170,y:220}]});
+      await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:170+dx,y:220}]});
+      await expect(page.locator('.carousel-slide:visible')).toHaveCount(2);
+      await page.waitForTimeout(80);
+      await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+      await expect(active).toHaveCount(1);
+      await expect(title).toHaveText(first!);
+    }
+    for (const {positions, destination} of [
+      {positions:[140,110], destination:'Settlement'},
+      {positions:[110,150], destination:first!},
+    ]) {
+      const start = Date.now() / 1000;
+      await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:170,y:220}], timestamp:start});
+      for (const [index,x] of positions.entries()) {
+        await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x,y:220}], timestamp:start + (index + 1) * .016});
+      }
+      await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:start + .036});
+      await expect(active).toHaveCount(1);
+      await expect(title).toHaveText(destination);
+    }
     const privacy = (await active.getByRole('link', {name:'Privacy', exact:true}).boundingBox())!;
     const x = Math.round(privacy.x + privacy.width / 2);
     const y = Math.round(privacy.y + privacy.height / 2);
@@ -131,6 +153,7 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x:160,y:380}]});
     await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:186,y:380}]});
     await expect.poll(translated).toEqual([Array(5).fill(-364), Array(5).fill(26)]);
+    await page.waitForTimeout(80);
     await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
     await expect(active).toHaveCount(1);
     await expect(title).toHaveText(second!);

@@ -16,7 +16,7 @@ body{margin:0;min-width:0;overflow:hidden}
 }
 /* The game owns presses and double-taps. Apply pan-y at every scroll surface,
    including nested readers, so scrolling never opts back into browser zoom. */
-:where(#app, #app *, .mobile-debug, .mobile-debug *){
+:where(#app, #app *, #catalogue-app, #catalogue-app *, .mobile-debug, .mobile-debug *){
   -webkit-user-select:none;user-select:none;
   -webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;
   touch-action:pan-y;
@@ -28,15 +28,22 @@ body{margin:0;min-width:0;overflow:hidden}
 }
 button,select{font:inherit;color:inherit}button{cursor:pointer}
 /* Focus is invisible throughout the player; gameplay feedback has its own states. */
-:where(#app, #app *, .mobile-debug, .mobile-debug *):focus{outline:none}
-#app{height:100dvh;position:relative;overflow:hidden;container:game / inline-size}
+:where(#app, #app *, #catalogue-app, #catalogue-app *, .mobile-debug, .mobile-debug *):focus{outline:none}
+#app,#catalogue-app{height:100dvh;position:relative;overflow:hidden;container:game / inline-size}
 /* The world is the whole viewport; the HUD never takes layout height. */
-.viewport{overflow-anchor:none;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior:none}
+.viewport{overflow-anchor:none;position:absolute;inset:0;overflow:hidden;touch-action:none;overscroll-behavior:none}
+.viewport.chapter-motion:not(.chapter-carry){clip-path:inset(0 var(--chapter-motion-inset))}
+.chapter-motion :is(.scene-panel,.chapter-panel):not(.chapter-motion-panel){visibility:hidden}
+.chapter-carry .scene-layer{clip-path:var(--chapter-carry-clip)}
+.chapter-items-frame,.chapter-items{position:absolute;inset:0}
+.chapter-carry .chapter-items-frame{left:var(--chapter-items-left,0px);right:var(--chapter-items-right,0px);overflow:clip}
+.chapter-carry .chapter-items{left:calc(-1 * var(--chapter-items-left,0px));right:auto;width:var(--panel-width)}
+/* The held tile uses its transformed panel as its containing block and can
+   follow the pointer outside the overflow clip around the stationary items. */
+.chapter-carry .thing.dragging{position:fixed;visibility:visible}
 /* Game scrollback stays scrollable without a visible scrollbar or gutter. */
 .viewport,.carousel-description{scrollbar-width:none}
 .viewport::-webkit-scrollbar,.carousel-description::-webkit-scrollbar{display:none}
-.chapter-sliding .viewport{overflow-y:hidden;touch-action:none}
-.chapter-sliding .location-hud,.chapter-sliding .chapter-next{visibility:hidden}
 .board{position:relative;width:100%;max-width:600px;margin-inline:auto;min-height:100%;touch-action:pan-y;isolation:isolate}.location-label{position:absolute;left:5px;right:5px;pointer-events:none;border-top:1px solid #cfbfa5;color:#8b715b;font-size:10px;padding-top:3px}.thing,.hotspot{position:absolute;transform:translate(-50%,-50%);user-select:none;-webkit-user-select:none}.thing{width:96px;min-height:44px;border:1px solid #8d8068;border-radius:8px;padding:4px;background:#fffaf0;box-shadow:0 2px 4px #53422e15;font-size:12px;line-height:1.15;z-index:3;touch-action:none;-webkit-touch-callout:none;overflow-wrap:anywhere}.hotspot{width:104px;height:82px;border:1.5px solid #9a8b70;border-radius:0;background:transparent;font-size:11px;padding:5px;display:flex;align-items:flex-start;justify-content:center;z-index:1;touch-action:none}.thing .slot{display:block;height:18px;line-height:16px;border:1px dashed #b5a58a;border-radius:3px;margin-top:3px;font-size:9px;overflow:hidden;white-space:nowrap}.thing .slot.filled{border-style:solid;background:#ebe9dc}.pressed{outline:3px solid #163d46;outline-offset:3px;box-shadow:0 0 0 3px #fffaf0!important}.possible{border-color:#063e53!important;outline:2px dashed #fffaf0!important;outline-offset:4px;box-shadow:0 0 0 2px #fffaf0,0 0 0 5px #063e53,0 4px 12px #14252c88!important}.will-create,.will-place{outline:3px solid #6b2e04!important;outline-offset:3px;background:#ffe2a0!important;box-shadow:0 0 0 3px #fffaf0,0 0 0 6px #b25108,0 5px 16px #29190088!important}.goal-met{border-color:#b58b23;box-shadow:0 0 10px #d4aa5366;outline:2px solid #d6ad48;outline-offset:1px}.thing.goal-met{background:#fff1c6}.dragging{pointer-events:none;animation:none!important;transition:none!important}.born{animation:arrival .65s ease-out}@keyframes arrival{0%{transform:translate(calc(-50% + var(--birth-x,0px)),calc(-50% + var(--birth-y,0px))) scale(.75);background:#ffe3a3;box-shadow:0 0 18px #d58b36}55%{background:#ffecc1;box-shadow:0 0 12px #d58b36}100%{transform:translate(-50%,-50%) scale(1)}}
 /* Goals sit beneath objects; the debug control remains reachable above them. */
 .hud-stack{z-index:2}
@@ -146,11 +153,8 @@ dialog button,dialog select{min-height:44px}
 .objective-overlay,.objective-overlay *{user-select:none;-webkit-user-select:none}
 .context-heading{display:block;margin-bottom:1em;font-size:.82em;line-height:1.35;font-weight:400}
 /* Readiness is not navigation. The player chooses when to leave a creation. */
-.chapter-next{position:absolute;z-index:35;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:52px;height:52px;border:2px solid #334f45;border-radius:50%;padding:0;background:#fffaf0;color:#173e32;box-shadow:0 2px 9px #172b3366;font-size:35px;line-height:1;display:grid;place-items:center}
-.chapter-next span{display:block;animation:next-down 1.3s ease-in-out infinite}
-.chapter-next.right{border-radius:15px;animation:next-button 1.3s ease-in-out infinite}
-.chapter-next.right span{animation-name:next-right}
-@keyframes next-down{0%,100%{transform:translateY(-3px)}50%{transform:translateY(4px)}}
+.chapter-next{position:absolute;z-index:35;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:52px;height:52px;border:2px solid #334f45;border-radius:15px;padding:0;background:#fffaf0;color:#173e32;box-shadow:0 2px 9px #172b3366;font-size:35px;line-height:1;display:grid;place-items:center;animation:next-button 1.3s ease-in-out infinite}
+.chapter-next span{display:block;animation:next-right 1.3s ease-in-out infinite}
 @keyframes next-right{0%,100%{transform:translateX(-3px)}50%{transform:translateX(4px)}}
 @keyframes next-button{0%,100%{box-shadow:0 2px 9px #172b3366}50%{box-shadow:0 0 0 4px #fffaf0b3,0 2px 9px #172b3366}}
 @media(prefers-reduced-motion:reduce){.chapter-next,.chapter-next span{animation:none}}
@@ -290,8 +294,26 @@ dialog button,dialog select{min-height:44px}
 
 
 /* Landing catalogue, framed to the same artwork dimensions as the game. */
-#app.catalogue-page:has(.story-carousel){background:#000;overflow:hidden}
-.story-carousel{position:absolute;inset:0;display:grid;place-items:center;background:#000;touch-action:pan-y pinch-zoom}
+#catalogue-app:has(.story-carousel){background:#000;overflow:hidden}
+body:has(> #catalogue-app){background:#000}
+#workspace.catalogue-player { position:absolute; inset:0; pointer-events:none; }
+#workspace.catalogue-player > #app { background:transparent; width:100%; }
+.catalogue-player .game-surface {
+  position:absolute; inset:0;
+  transform:translateY(var(--entry-board-offset,100%));
+  background:#000; pointer-events:auto; touch-action:none;
+}
+.catalogue-player > .story-entry-loading { transform:translateY(var(--entry-board-offset,100%)); }
+.catalogue-player .game-dialog-layer, .catalogue-player .debug-toggle, .catalogue-player .story-editor { pointer-events:auto; }
+.story-entry-loading {
+  position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; color:#f6efe2;
+}
+.story-entry-loading::before {
+  content:""; width:24px; height:24px; border:2px solid #f6efe255;
+  border-top-color:currentColor; border-radius:50%; animation:story-entry-spin .7s linear infinite;
+}
+@media (prefers-reduced-motion:reduce) { .story-entry-loading::before { animation:none; } }
+.story-carousel{position:absolute;inset:0;display:grid;place-items:center;background:#000;touch-action:pinch-zoom}
 /* Carousel tuning: cqh units follow the artwork frame rather than the window. */
 .carousel-frame {
   --carousel-title-size: clamp(17px, 3.7cqh, 42px);
@@ -389,18 +411,7 @@ gap: 0;
 .carousel-footer a > span{position:relative}
 .carousel-footer a:focus-visible{outline:1px solid #fff;outline-offset:-6px;border-radius:8px}
 
-/* The chapter and catalogue stay dark behind the two sides of the story flip. */
-:root.story-flip-active{background:#000}
-[data-story-flip="waiting"]{visibility:hidden}
-
-
-.story-flip-loading {
-  position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
-  pointer-events:none;background:#000;color:#f6efe2;
-}
-.story-flip-loading::before {
-  content:"";width:24px;height:24px;border:2px solid #f6efe255;
-  border-top-color:currentColor;border-radius:50%;animation:story-flip-spin .7s linear infinite;
-}
-@keyframes story-flip-spin { to { transform:rotate(1turn) } }
-@media (prefers-reduced-motion:reduce){.story-flip-loading::before{animation:none}}
+/* Keep document navigation dark until the selected cover enters. */
+:root.catalogue-document-slide{background:#000}
+[data-home-slide="waiting"]{visibility:hidden}
+@keyframes story-entry-spin { to { transform:rotate(1turn) } }

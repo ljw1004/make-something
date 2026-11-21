@@ -64,6 +64,12 @@ export class DragTrace {
 
   get enabled() { return !!this.listeners; }
 
+  dispose() {
+    this.listeners?.abort();
+    this.listeners = undefined;
+    delete (window as {dragTrace?: Window['dragTrace']}).dragTrace;
+  }
+
   record(type: string, details?: unknown) {
     if (!this.enabled) return;
     if (this.entries.length === limit) { this.entries.shift(); this.dropped++; }
