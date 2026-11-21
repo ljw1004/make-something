@@ -453,7 +453,7 @@ test('a move-only first chapter says Start but keeps saved positions; combining 
   await expect(card).toContainText('Continue');
 });
 
-test('Continue reopens an acknowledged later chapter before any saved discovery', async ({page}) => {
+test('swiping restores an open wonder and tapping Continue clears it before Begin', async ({page}) => {
   const twoChapters = story.replace('## Ending\nThe kit is ready.', `## Field
 The workshop is behind you.
 
@@ -490,12 +490,34 @@ The workshop is behind you.
   await page.locator('[data-item="name:Kit"]').dragTo(page.locator('[data-item="name:Probe"]'));
   await expect(reading).toContainText('You found a sample.');
 
-  await launch();
+  const drag = async (x: number, from: number, to: number) => {
+    await page.mouse.move(x, from);
+    await page.mouse.down();
+    await page.mouse.move(x, to, {steps:5});
+    await page.mouse.up();
+  };
+  const card = page.locator('.carousel-slide:visible a[data-story="stories/mars/mars.md"]');
+  await drag(7, 190, 390);
+  await expect(card).toBeFocused();
+  await drag(20, 690, 390);
+  await expect(reading).toContainText('You found a sample.');
+  await expect(reading.getByRole('button', {name:'Continue',exact:true})).toBeFocused();
+
+  await page.reload();
+  await expect(reading).toContainText('You found a sample.');
+  await drag(7, 190, 390);
+  await expect(page).toHaveURL(/\/index.html$/);
+  await expect(card).toBeVisible();
+  await card.click();
   await expect(reading).toContainText('The workshop is behind you.');
   await begin.click();
-  await expect(reading).toContainText('You found a sample.');
-  await page.getByRole('button', {name:'Continue', exact:true}).click();
+  await expect(reading).toHaveCount(0);
   await expect(page.locator('[data-item="name:Sample"]')).toBeVisible();
+  await page.locator('[data-item="name:Sample"]').dblclick();
+  await expect(reading).toHaveAccessibleName('Encyclopedia');
+  await expect(reading).toContainText('You found a sample.');
+  await drag(7, 190, 390);
+  await expect(reading).toHaveAccessibleName('Encyclopedia');
   await page.reload();
   await expect(page.locator('[data-item="name:Sample"]')).toBeVisible();
   await expect(reading).toHaveCount(0);

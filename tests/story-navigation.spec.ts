@@ -27,11 +27,11 @@ async function serveStory(page: Page, body = fixture) {
 async function touch(client: CDPSession, type: 'touchStart'|'touchMove'|'touchEnd', x = 0, y = 0, timestamp?: number) {
   await client.send('Input.dispatchTouchEvent', {type, touchPoints:type === 'touchEnd' ? [] : [{x,y}], timestamp});
 }
-async function verticalFlick(client: CDPSession, y: number, delta: number) {
+async function verticalFlick(client: CDPSession, y: number, delta: number, x = 20) {
   const start = Date.now() / 1000;
-  await touch(client, 'touchStart', 20, y, start);
-  await touch(client, 'touchMove', 20, y + delta / 2, start + .016);
-  await touch(client, 'touchMove', 20, y + delta, start + .032);
+  await touch(client, 'touchStart', x, y, start);
+  await touch(client, 'touchMove', x, y + delta / 2, start + .016);
+  await touch(client, 'touchMove', x, y + delta, start + .032);
   await touch(client, 'touchEnd', 0, 0, start + .036);
 }
 
@@ -82,6 +82,65 @@ test('a Start swipe previews the introduction and a Continue swipe opens the boa
     await expect.poll(() => offset(board(page))).toBe(0);
     await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
     await expect(page.locator('dialog')).toHaveCount(0);
+  } finally { await context.close(); }
+});
+
+test('backdrop swipes leave and resume chapter readings without taking over gestures inside them', async ({browser}) => {
+  const context = await browser.newContext({viewport:{width:390,height:844}, isMobile:true, hasTouch:true});
+  try {
+    const page = await context.newPage();
+    const prose = Array.from({length:20}, (_, i) => `Workshop instruction ${i + 1}. Read the plans carefully.`).join('\n\n');
+    await serveStory(page, fixture.replace('Make a kit.', prose));
+    await page.goto('/');
+    await card(page).tap();
+    const reading = page.getByRole('dialog');
+    await expect(begin(page)).toBeFocused();
+    await expect(page.locator('.catalogue-player')).toHaveClass(/entry-settled/);
+    const client = await context.newCDPSession(page);
+
+    const readingTop = await offset(reading);
+    await touch(client, 'touchStart', 7, 220);
+    await touch(client, 'touchMove', 7, 340);
+    await expect.poll(() => offset(reading)).toBe(readingTop + 120);
+    await expect.poll(() => offset(board(page))).toBe(120);
+    await client.send('Input.dispatchTouchEvent', {type:'touchCancel',touchPoints:[]});
+    await expect.poll(() => offset(reading)).toBe(readingTop);
+    await expect(page).toHaveURL(storyURL);
+
+    await verticalFlick(client, 220, 110, 7);
+    await expect(card(page)).toBeFocused();
+    await verticalFlick(client, 690, -110);
+    await expect(begin(page)).toBeFocused();
+    await begin(page).tap();
+    await expect(page.locator('.catalogue-player')).toHaveClass(/entry-settled/);
+    await page.getByRole('button', {name:'Read this chapter'}).tap();
+    const close = reading.getByRole('button', {name:'Close',exact:true});
+    await expect(close).toBeFocused();
+    const proseScroll = reading.locator('.reading-text');
+    await verticalFlick(client, 520, -170, 160);
+    await expect.poll(() => proseScroll.evaluate(node => node.scrollTop)).toBeGreaterThan(0);
+    const scrollTop = await proseScroll.evaluate(node => node.scrollTop);
+    await touch(client, 'touchStart', 7, 110);
+    await touch(client, 'touchMove', 127, 110);
+    await touch(client, 'touchEnd');
+    await expect(close).toBeFocused();
+    await expect.poll(() => offset(board(page))).toBe(0);
+
+    await verticalFlick(client, 220, 110, 7);
+    await expect(card(page)).toBeFocused();
+    await verticalFlick(client, 690, -110);
+    await expect(close).toBeFocused();
+    await expect.poll(() => proseScroll.evaluate(node => node.scrollTop)).toBeGreaterThanOrEqual(scrollTop);
+    await expect(page.locator('.catalogue-player')).toHaveClass(/entry-settled/);
+    await page.touchscreen.tap(7, 220);
+    await expect(reading).toHaveCount(0);
+    await verticalFlick(client, 110, 110, 7);
+    await expect(card(page)).toBeFocused();
+    await verticalFlick(client, 690, -110);
+    await expect(page).toHaveURL(storyURL);
+    await expect.poll(() => offset(board(page))).toBe(0);
+    // The card still says Start because no combination has been made.
+    await expect(reading).toHaveCount(0);
   } finally { await context.close(); }
 });
 

@@ -235,8 +235,8 @@ if (bookmark) {
   });
   let press: { id: number; x: number; y: number; motion: SwipeMotion; control: Element | null; axis?: 'x' | 'y'; repeat?: boolean; delta: number; canEnter: boolean } | undefined;
   let cancelledClick: Element | null = null;
-  function swipeIntroduction(link: HTMLAnchorElement) {
-    return link.querySelector('[data-launch-label]')?.textContent === 'Continue' ? 'skip' : 'show';
+  function swipeActivation(link: HTMLAnchorElement) {
+    return link.querySelector('[data-launch-label]')?.textContent === 'Continue' ? 'swipe-continue' : 'swipe-start';
   }
   function scrollableDescription(target: Element) {
     const description = target.closest<HTMLElement>('.carousel-description');
@@ -278,7 +278,7 @@ if (bookmark) {
     } else if (press.canEnter) {
       press.delta = dy;
       const link = storyLinks[current];
-      player.track(link, -dy, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeIntroduction(link));
+      player.track(link, -dy, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeActivation(link));
     }
   });
   window.addEventListener('pointerup', event => {
@@ -299,7 +299,7 @@ if (bookmark) {
     } else if (axis === 'y' && press.canEnter && projected < 0 && completesSwipe(projected)) {
       cancelledClick = press.control;
       const link = storyLinks[current];
-      player.enter(link, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeIntroduction(link));
+      player.enter(link, event.pointerType === 'mouse' ? 'mouse' : 'touch', swipeActivation(link));
     } else if (press.axis === 'y' && press.canEnter) {
       cancelledClick = press.control;
       player.cancel();

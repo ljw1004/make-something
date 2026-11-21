@@ -11,7 +11,7 @@ function itemImages(story: Story, chapter: number, ref: Ref): string[] {
   const item = story.items[ref.id];
   return [itemPresentation(story, chapter, ref.id).icon?.url, ...(item?.slots.filter(slot => ref.slots.includes(slot.accepts)).map(slot => slot.icon?.url) ?? [])].filter((url): url is string => !!url);
 }
-function readingImages(text: string): string[] {
+export function readingImages(text: string): string[] {
   const paths: string[] = [];
   markdown(text, path => { paths.push(path); return path; });
   return paths;

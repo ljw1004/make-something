@@ -305,6 +305,7 @@ body:has(> #catalogue-app){background:#000}
 }
 .catalogue-player > .story-entry-loading { transform:translateY(var(--entry-board-offset,100%)); }
 .catalogue-player .game-dialog-layer, .catalogue-player .debug-toggle, .catalogue-player .story-editor { pointer-events:auto; }
+.catalogue-player.entry-settled .game-dialog-layer { transform:translateY(var(--entry-board-offset,0%)); }
 .story-entry-loading {
   position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; color:#f6efe2;
 }

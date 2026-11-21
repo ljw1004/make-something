@@ -5,6 +5,7 @@
 .game-surface { touch-action:none; }
 .game-dialog-layer { z-index: 50; display: grid; place-items: center; padding: 14px; background: #26372f88; }
 .game-dialog-layer[hidden] { display: none; }
+.game-dialog-backdrop { position: absolute; inset: 0; touch-action: none; }
 .game-dialog-layer dialog { position: relative; inset: auto; margin: 0; width: min(100%, 470px); max-height: calc(100dvh - 28px); }
 .game-dialog-layer dialog.wonder { width: min(100%, 560px); }
 #workspace .hud-stack { position: absolute; width:max-content; max-width:var(--hud-width,358px);

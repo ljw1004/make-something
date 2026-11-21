@@ -1,7 +1,7 @@
 import { combinationHaptic } from './haptics.ts';
 import {validCentre} from '../story/coordinates.ts';
 import {coordinateEntries} from '../lint/coordinates.ts';
-import { restoreDialogContext, type DialogContext } from './dialog-context.ts';
+import { restoreCarouselResume, restoreDialogContext, type CarouselResume, type DialogContext } from './dialog-context.ts';
 import './style.css';
 import './workspace.css';
 import './item-artwork.css';
@@ -32,7 +32,7 @@ import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
 import { IconNames } from './icon-names.ts';
-import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
+import {coverArtwork, currentArtwork, changedHotspotArtwork, lookaheadArtwork, placementArtwork, readingImages, scrollbackArtwork, resultArtwork} from './artwork-plan.ts';
 import { arrivalLayout } from './arrival-layout.ts';
 import { fitOnBoard, placeCreation, placeAtCentre, viewportBoard, sceneSize, scenePoint } from './board-geometry.ts';
 import { partnerHints } from './partner-hints.ts';
@@ -47,7 +47,7 @@ import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
 import {setHomeScreenIdentity} from './home-screen.ts';
-import {finishCarouselLaunch, readCarouselLaunch} from './carousel-launch.ts';
+import {finishCarouselLaunch, readCarouselLaunch, type CarouselActivation} from './carousel-launch.ts';
 import {leaveForCatalogue, plainNavigation} from './document-navigation.ts';
 import {carouselStoryPath, selectStory} from './carousel-selection.ts';
 import {completesSwipe, SwipeMotion} from './swipe.ts';
@@ -55,7 +55,7 @@ import {completesSwipe, SwipeMotion} from './swipe.ts';
 interface CataloguePlayerOptions {
   url: string;
   modality: 'mouse' | 'touch';
-  introduction: 'show' | 'skip' | 'restore';
+  activation?: CarouselActivation;
   drafts: Map<string, DraftStore>;
   home: () => void;
   trackHome: (offset: number, settling: boolean) => void;
@@ -77,6 +77,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let inputTrace:DragTrace|undefined;
   const surface = app.querySelector<HTMLDivElement>('.game-surface')!;
   const dialogLayer = document.createElement('div'); dialogLayer.className = 'game-dialog-layer'; dialogLayer.hidden = true;
+  const dialogBackdrop = document.createElement('div'); dialogBackdrop.className = 'game-dialog-backdrop';
+  dialogLayer.append(dialogBackdrop);
   app.append(dialogLayer);
   const tutorialOverlay = new TutorialOverlay(app);
   let tutorialProgress: TutorialProgress | undefined;
@@ -97,6 +99,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let entryContext: ReturnType<typeof readCarouselLaunch> | undefined;
   let dialogContext: DialogContext | undefined;
   let dialogOpener: HTMLElement | undefined;
+  let carouselResume: CarouselResume | undefined;
+  let entryResume: CarouselResume | undefined, showEntryIntroduction = false;
   let encyclopediaScroll = 0;
   let encyclopediaHistory: EncyclopediaHistory = {};
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -212,7 +216,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   function save() {
     if (!storyStarted || !committed) return;
     saveProgress(() => localStorage.setItem(key(), JSON.stringify({
-      hash, state, chapterSession, itemOrder, editedSnapshot, encyclopedia: encyclopediaHistory,
+      hash, state, chapterSession, itemOrder, editedSnapshot, encyclopedia: encyclopediaHistory, carouselResume,
       anchor: anchor && { text: anchor.text, state: anchor.state, chapterSession: anchor.chapterSession, itemOrder: anchor.itemOrder, chapterView: anchor.chapterView, dialog: anchor.dialog, encyclopedia: anchor.encyclopedia },
     })), showSaveError);
   }
@@ -534,6 +538,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   async function start() {
     starting = true;
+    entryResume = undefined;
     surface.replaceChildren();
     let loading: number | undefined;
     const showDelayedLoading = () => window.setTimeout(() => {
@@ -552,8 +557,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       // Only the former story.md route may inherit a folder-keyed legacy save.
       storyID = path.endsWith('/story.md') ? path.split('/').at(-2) || 'story' : documentURL;
       legacySaveKey = legacyProgressKey(documentURL);
-      const {fromCarousel, modality, skipCover, resumeEntry, skipIntroduction} = entryContext ??= options
-        ? {fromCarousel:true, modality:options.modality, skipCover:true, skipIntroduction:options.introduction === 'skip'}
+      const {fromCarousel, modality, skipCover, resumeEntry, activation} = entryContext ??= options
+        ? {fromCarousel:true, modality:options.modality, skipCover:true, activation:options.activation}
         : readCarouselLaunch(documentURL, catalogueURL);
       if (!options) {
         if (skipCover) loading = showDelayedLoading();
@@ -601,6 +606,9 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
             itemOrder = restoreItemOrder(Object.keys(state.tokens), saved.itemOrder);
             const entry = editedSnapshot ? restoreLiveState(story, saved.chapterSession?.entry) : undefined;
             chapterSession = editedSnapshot ? { entry: entry ?? structuredClone(state), combined: hasChapterCombination(state, saved.chapterSession), itemOrder: restoreItemOrder(Object.keys((entry ?? state).tokens), saved.chapterSession?.itemOrder) } : restoreChapterSession(story, state, saved.chapterSession) ?? captureChapter(state);
+            if (activation === 'swipe-start' || activation === 'swipe-continue') {
+              entryResume = restoreCarouselResume(saved.carouselResume, state.pending[0]?.key);
+            }
             loaded = true;
           }
         }
@@ -613,9 +621,18 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       }
       storyStarted = loaded || !!skipCover || !!resumeEntry;
       if (!loaded) encyclopediaHistory = {};
-      const omitIntroduction = skipIntroduction && state.pending[0]?.kind === 'chapter';
+      // An explicit carousel launch opens the introduction and skips unread
+      // discoveries. Record dismissals so the old wonders stay gone on replay.
+      if (activation === 'tap') {
+        while (state.pending[0]?.kind === 'wonder') state = act(story, state, {type:'dismiss'});
+      }
+      showEntryIntroduction = activation === 'tap' || activation === 'swipe-start';
+      const omitIntroduction = !entryResume && activation === 'swipe-continue' && state.pending[0]?.kind === 'chapter';
       const visibleState = omitIntroduction ? {...state, pending:state.pending.slice(1)} : state;
-      await itemArtwork.prepare(storyStarted ? currentArtwork(story, visibleState) : coverArtwork(story), asset);
+      const entryProse = entryResume?.kind === 'chapter' || entryResume?.kind === 'entry' ||
+        (!entryResume && showEntryIntroduction && state.pending[0]?.kind !== 'chapter') ? chapterIntroduction() : '';
+      const paths = storyStarted ? [...currentArtwork(story, visibleState), ...readingImages(entryProse)] : coverArtwork(story);
+      await itemArtwork.prepare(paths, asset);
       if (signal.aborted || leaving) return;
       starting = false; loadFailed = false;
       clearTimeout(loading);
@@ -631,8 +648,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
         if (entranceSettled) finishEntry();
         return;
       }
-      if (skipCover && !skipIntroduction) showChapterEntry();
-      else if (skipIntroduction) showPending();
+      previewEntryReading();
+      if (!entryShown) showPending();
       if (!anchor || skipCover) rememberInteraction();
       save();
       finishCarouselLaunch();
@@ -652,12 +669,16 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       surface.innerHTML = `<div class="load-error"><h1>Story could not be loaded</h1><p>${escape((error as Error).message)}</p><button data-command="retry">Try again</button></div>`;
     }
   }
-  function previewIntroduction() {
-    if (starting || loadFailed || entryShown || leaving || options?.introduction !== 'show') return;
+  function previewEntryReading() {
+    if (starting || loadFailed || entryShown || leaving || (!entryResume && !showEntryIntroduction)) return;
     entryShown = true;
-    showChapterEntry(true);
+    if (!entryResume || entryResume.kind === 'entry') showChapterEntry(true);
+    else if (entryResume.kind === 'pending') showPending(true);
+    else if (entryResume.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', {kind:'chapter'});
+    const readingScroll = readingScrollContainer();
+    if (readingScroll && entryResume && entryResume.kind !== 'board') readingScroll.scrollTop = entryResume.scrollTop;
   }
-  function hideIntroductionPreview() {
+  function hideEntryReadingPreview() {
     if (committed || !entryShown) return;
     entryShown = false;
     closeDialog();
@@ -676,37 +697,57 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   function finishEntry() {
     entranceSettled = true;
     if (starting || loadFailed) return;
-    previewIntroduction();
+    previewEntryReading();
     if (!entryShown) showPending();
     surface.inert = !!dialogContext;
     authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators();
   }
-  function goHome(offset = 0, ending = false) {
+  function readingScrollContainer() {
+    return dialogLayer.querySelector<HTMLElement>(dialogContext?.kind === 'chapter' ? '.reading-text' : 'dialog');
+  }
+  function captureCarouselResume(): CarouselResume | undefined {
+    const kind = dialogContext?.kind;
+    const scrollTop = readingScrollContainer()?.scrollTop ?? 0;
+    if (kind === 'pending' && state.pending[0]) return {kind, key:state.pending[0].key, scrollTop};
+    if (kind === 'entry' || kind === 'chapter') return {kind, scrollTop};
+    if (!kind) return {kind:'board'};
+  }
+  function goHome(cause: 'swipe' | 'home' | 'ending-home', offset = 0) {
     if (leaving) return;
     selectStory(catalogueURL, carouselStoryPath(catalogueURL, documentURL));
     if (!starting && !loadFailed) {
       flushPreview();
       finishChapterSlide();
-      if (ending && dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
-      closeDialog(); rememberInteraction(); save();
+      if (cause === 'ending-home' && dialogContext?.kind === 'pending') state = act(story, state, {type:'dismiss'});
+      carouselResume = cause === 'ending-home' ? {kind:'board'} : captureCarouselResume();
+      if (cause === 'swipe' && dialogContext) dialogLayer.inert = true;
+      else closeDialog();
+      rememberInteraction();
+      anchor.dialog = undefined;
+      save();
     }
     leaving = true;
     if (options) options.home();
-    else if (!leaveForCatalogue(app, surface, catalogueURL.href, offset)) location.assign(catalogueURL.href);
+    else {
+      dialogLayer.style.removeProperty('transform');
+      if (!leaveForCatalogue(app, surface, catalogueURL.href, offset)) location.assign(catalogueURL.href);
+    }
   }
   function closeDialog() {
+    if (boardPress?.backdrop) endBoard(undefined, true);
     bookSwipe.cancel();
     const editing = document.activeElement?.closest('.story-editor');
     if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
     bookResize.disconnect();
     chapterFooterResize.disconnect();
-    dialogLayer.replaceChildren(); dialogLayer.hidden = true; surface.inert = !!chapterSlide || !entranceSettled && committed && !starting; dialogContext = undefined;
+    dialogLayer.querySelector('dialog')?.remove(); dialogLayer.hidden = true; surface.inert = !!chapterSlide || !entranceSettled && committed && !starting; dialogContext = undefined;
     if (!editing && dialogOpener?.isConnected) dialogOpener.focus({ preventScroll: true });
     dialogOpener = undefined;
     updateTutorial();
   }
   function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
+    if (boardPress?.backdrop) endBoard(undefined, true);
     bookSwipe.cancel();
     feedback.clear();
     let dialog = dialogLayer.querySelector('dialog');
@@ -1201,7 +1242,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     resolve?:ReturnType<typeof createDropResolver>;
   }
   let drag:Drag|undefined;
-  let boardPress: {id:number; x:number; y:number; motion:SwipeMotion; index:number; left:number; axis?:'x'|'y'; delta:number} | undefined;
+  let boardPress: {id:number; x:number; y:number; motion:SwipeMotion; index:number; left:number; axis?:'x'|'y'; delta:number; backdrop:boolean} | undefined;
   function worldOffset(pixels: number) {
     const world = surface.querySelector<HTMLElement>('.world');
     if (world) world.style.transform = pixels ? `translateX(${-pixels}px)` : '';
@@ -1222,9 +1263,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if (press.axis === 'y' && maySwipeHome()) {
       const offset = Math.max(0, Math.min(app.clientHeight, dy));
       if (options) options.trackHome(offset, false);
-      else surface.style.transform = `translateY(${offset}px)`;
+      else {
+        surface.style.transform = `translateY(${offset}px)`;
+        if (press.backdrop) dialogLayer.style.transform = surface.style.transform;
+      }
     }
-    if (press.axis !== 'x' || starting || !storyStarted) return;
+    if (press.backdrop || press.axis !== 'x' || starting || !storyStarted) return;
     const width = app.clientWidth;
     const last = state.visited.length - 1;
     const travel = chapterTravel(press.index, press.index - Math.sign(dx));
@@ -1244,18 +1288,22 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const projected = event && press.axis && !cancelled ? press.motion.project(event, press.axis) : 0;
     if (press.axis === 'y' && maySwipeHome() && projected > 0 && completesSwipe(projected)) {
       suppressReleaseClick = true;
-      goHome(down);
+      goHome('swipe', down);
       return;
     }
     if (press.axis === 'y' && options && maySwipeHome()) options.trackHome(0, !cancelled);
-    if (!options && surface.style.transform) {
-      surface.style.removeProperty('transform');
-      if (!reducedMotion.matches && !cancelled) surface.animate(
-        [{transform:`translateY(${down}px)`}, {transform:'translateY(0)'}], {duration:180, easing:'ease-out'});
+    if (!options && press.axis === 'y') {
+      for (const layer of press.backdrop ? [surface, dialogLayer] : [surface]) {
+        if (!layer.style.transform) continue;
+        const transform = layer.style.transform;
+        layer.style.removeProperty('transform');
+        if (!reducedMotion.matches && !cancelled) layer.animate(
+          [{transform}, {transform:'translateY(0)'}], {duration:180, easing:'ease-out'});
+      }
     }
     worldOffset(0);
     if (press.axis) suppressReleaseClick = true;
-    if (press.axis !== 'x' || !storyStarted || starting) return;
+    if (press.backdrop || press.axis !== 'x' || !storyStarted || starting) return;
     if (cancelled) { clearChapterMotion(); setScroll(press.left); return; }
     const direction = -Math.sign(projected);
     const to = press.index + (completesSwipe(projected) ? direction : 0);
@@ -1317,15 +1365,17 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     browseChapter(Math.round(expectedScroll / app.clientWidth) + (event.key === 'ArrowLeft' ? -1 : 1));
   }, {signal});
   app.addEventListener('pointerdown',e=>{
-    if (chapterSlide || !committed || (!entranceSettled && !starting)) return;
+    if (leaving || chapterSlide || !committed || (!entranceSettled && !starting)) return;
     tutorialOverlay.modality(e.pointerType);
     const el=(e.target as Element).closest<HTMLElement>('[data-item],[data-hotspot]');
     if (boardPress && boardPress.id !== e.pointerId) { endBoard(undefined, true); return; }
-    if (!el && !boardPress && !drag && !hotspotPress && !dialogContext && !pendingArtwork &&
-      e.isPrimary && e.button === 0 &&
-      !(e.target as Element).closest('button, a[href], .hud-stack')) {
+    const kind = dialogContext?.kind;
+    const backdrop = e.target === dialogBackdrop && maySwipeHome() &&
+      (kind === 'entry' || kind === 'chapter' || kind === 'pending');
+    const emptyBoard = !dialogContext && !el && !(e.target as Element).closest('button, a[href], .hud-stack');
+    if ((emptyBoard || backdrop) && !boardPress && !drag && !hotspotPress && !pendingArtwork && e.isPrimary && e.button === 0) {
       boardPress = {id:e.pointerId, x:e.clientX, y:e.clientY, motion:new SwipeMotion(e), index:Math.round(expectedScroll / app.clientWidth),
-        left:expectedScroll, delta:0};
+        left:expectedScroll, delta:0, backdrop};
     }
     if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
       inputTrace?.record('press:ignored',{reason:!el?'no-item':drag||hotspotPress?'gesture-active':e.button!==0?'other-button':'dialog-open'});return;
@@ -1473,7 +1523,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   document.addEventListener('pointerup',e=>{endBoard(e);endDrag(e);updateTutorial();}, {signal});document.addEventListener('pointercancel',e=>{endBoard(e,true);endDrag(e,true);updateTutorial();}, {signal});
   function cancelGesture(reason:string){inputTrace?.record('gesture:cancel',{reason});endBoard(undefined,true);if(hotspotPress){const pointer=hotspotPress.pointer;hotspotPress=undefined;releaseCapture(pointer);feedback.clear();}if(drag){const d=drag;drag=undefined;d.edgeScroll?.stop();releaseCapture(d.pointer);finishCarryMotion(d);restoreGestureTile(d);feedback.clear();}updateTutorial();}
   window.addEventListener('blur',()=>{cancelGesture('window-blur');feedback.clear();}, {signal});
-  document.addEventListener('visibilitychange',updateTutorial, {signal});
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && boardPress?.backdrop) endBoard(undefined, true);
+    updateTutorial();
+  }, {signal});
   app.addEventListener('lostpointercapture',e=>{
     const {pointerId,buttons}=e as PointerEvent;
     // Chrome can end capture on a buttons=0 move before delivering pointerup.
@@ -1486,6 +1539,9 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   app.addEventListener('pointerout',e=>{if(e.pointerType==='mouse'&&!drag&&!hotspotPress){const next=e.relatedTarget instanceof Element?e.relatedTarget.closest<HTMLElement>('[data-item],[data-hotspot]'):null;feedback.hover(next&&app.contains(next)?feedbackKey(next):undefined);}});
   // Also reject queued/synthetic activation, rather than relying only on inert.
   app.addEventListener('click', e => {
+    if (suppressReleaseClick && e.detail > 0) {
+      suppressReleaseClick = false; e.preventDefault(); e.stopImmediatePropagation();
+    }
     // A quick second press where the arrow was must not become a Begin click
     // if the new dialog happens to place its button under the same point.
     if ((chapterSlide || !entranceSettled && !starting) && (!dialogLayer.contains(e.target as Node) || e.detail > 1)) {
@@ -1496,14 +1552,13 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if (((chapterSlide || !entranceSettled && !starting) && !dialogLayer.contains(e.target as Node)) || (e.repeat && (e.key === 'Enter' || e.key === ' '))) e.preventDefault();
   }, true);
   app.addEventListener('click',e=>{
-    if(suppressReleaseClick&&e.detail>0){suppressReleaseClick=false;e.preventDefault();return;}
     const element=e.target as Element;
     const item=element.closest<HTMLElement>('[data-item]');if(item&&e.detail===0){read(item.dataset.item!);return;}
     const home = element.closest<HTMLAnchorElement>('a.popup-home');
     if (home) {
       if (!plainNavigation(e, home)) return;
       e.preventDefault();
-      goHome(0, home.dataset.command === 'ending-home');
+      goHome(home.dataset.command === 'ending-home' ? 'ending-home' : 'home');
       return;
     }
     const target=element.closest<HTMLElement>('[data-command]');if(!target)return;
@@ -1526,7 +1581,14 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     else if(command==='encyclopedia-back')backToEncyclopediaIndex();
   });
   window.addEventListener('resize',()=>{cancelGesture('window-resize');if(state && !starting && !loadFailed && !dialogContext)render();}, {signal});
-  window.addEventListener('pageshow', event => { if (event.persisted) leaving = false; }, {signal});
+  window.addEventListener('pageshow', event => {
+    if (event.persisted && leaving) {
+      leaving = false;
+      dialogLayer.inert = false;
+      carouselResume = undefined;
+      save();
+    }
+  }, {signal});
   const gameResize = new ResizeObserver(entries=>{inputTrace?.record('layout:resize-observer',{sizes:entries.map(entry=>({width:entry.contentRect.width,height:entry.contentRect.height}))});cancelGesture('game-resize');if(state && !starting && !loadFailed)render(false,false);});
   gameResize.observe(app);
   function escapeDialog() {
@@ -1557,14 +1619,19 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     chapterPress = undefined;
   });
   dialogLayer.addEventListener('pointercancel', () => { chapterPress = undefined; chapterTap = false; });
-  dialogLayer.addEventListener('click', event => {
+  function dismissChapterTap(event: MouseEvent) {
+    if (event.currentTarget === dialogBackdrop) event.stopPropagation();
     const dismiss = chapterTap && event.detail > 0 && chapterDismissTarget(event.target);
     chapterTap = false;
     if (dismiss) {
       flushPreview();
       if (dialogContext?.kind === 'chapter') dismissReading();
     }
-  });
+  }
+  dialogLayer.addEventListener('click', dismissChapterTap);
+  // A direct listener makes the narrow backdrop a touch target even beside
+  // a scrollable reading, where Chromium otherwise adjusts hits into the dialog.
+  dialogBackdrop.addEventListener('click', dismissChapterTap);
   if(import.meta.env.DEV){
     inputTrace=new DragTrace(app,()=>{
       const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
@@ -1581,7 +1648,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   const ready = start();
   return {
-    ready, previewIntroduction, hideIntroductionPreview, commitEntry, finishEntry,
+    ready, previewEntryReading, hideEntryReadingPreview, commitEntry, finishEntry,
     focusEntry() {
       app.querySelector<HTMLElement>('dialog button, .load-error button')?.focus({preventScroll:true});
     },

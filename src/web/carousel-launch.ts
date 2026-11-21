@@ -1,5 +1,12 @@
 type Modality = 'mouse' | 'touch';
-interface CarouselLaunch { entry: 'carousel'; source?: string; manuscript: string; destination: string; modality: Modality; inPage?: boolean; skipIntroduction?: boolean }
+export type CarouselActivation = 'tap' | 'swipe-start' | 'swipe-continue';
+interface CarouselEntryContext {
+  fromCarousel: boolean; modality?: Modality; resumeEntry?: boolean; skipCover?: boolean; activation?: CarouselActivation;
+}
+interface CarouselLaunch {
+  entry: 'carousel'; source?: string; manuscript: string; destination: string; modality: Modality;
+  inPage?: boolean; activation?: CarouselActivation; skipIntroduction?: boolean;
+}
 const stateKey = 'makeSomethingCarouselEntry';
 const pendingKey = 'make-something-entry-v1';
 
@@ -10,26 +17,32 @@ const valid = (value: unknown, manuscript: string, destination: string): value i
 };
 
 /** Preserve the carousel origin on reload, even if the first load was interrupted. */
-export function carouselEntryState(manuscript: string, destination: string, modality: Modality, skipIntroduction: boolean) {
-  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, inPage:true, skipIntroduction};
+export function carouselEntryState(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation) {
+  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, inPage:true, activation};
   return {[stateKey]:launch};
 }
 
 /** Transfer context for a full navigation when same-document history is unavailable. */
-export function cacheCarouselLaunch(manuscript: string, destination: string, modality: Modality, skipIntroduction: boolean) {
-  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, skipIntroduction};
+export function cacheCarouselLaunch(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation) {
+  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, activation};
   try { sessionStorage.setItem(pendingKey, JSON.stringify({launch, expires:Date.now() + 30_000})); }
   catch { /* The real link still opens the normal story route. */ }
 }
 
 export function finishCarouselLaunch() {
   const launch = history.state?.[stateKey];
-  if (launch?.skipIntroduction !== true) return;
-  try { history.replaceState({...history.state, [stateKey]:{...launch, skipIntroduction:false}}, ''); }
+  if (!launch?.activation && launch?.skipIntroduction !== true) return;
+  try { history.replaceState({...history.state, [stateKey]:{...launch, activation:undefined, skipIntroduction:false}}, ''); }
   catch { /* The story can still retain its ordinary progress. */ }
 }
 
-export function readCarouselLaunch(manuscript: string, catalogue: URL) {
+function launchActivation(launch: CarouselLaunch): CarouselActivation | undefined {
+  const {activation} = launch;
+  if (activation === 'tap' || activation === 'swipe-start' || activation === 'swipe-continue') return activation;
+  if (launch.skipIntroduction === true) return 'swipe-continue';
+}
+
+export function readCarouselLaunch(manuscript: string, catalogue: URL): CarouselEntryContext {
   const destination = location.href;
   let pending: {launch?: unknown; expires?: number} | null = null;
   try {
@@ -42,10 +55,10 @@ export function readCarouselLaunch(manuscript: string, catalogue: URL) {
   } catch { /* Storage may be unavailable or damaged. */ }
 
   const remembered = history.state?.[stateKey];
-  if (valid(remembered, manuscript, destination)) return {
-    fromCarousel:true, modality:remembered.modality, resumeEntry:remembered.inPage,
-    skipIntroduction:remembered.inPage && remembered.skipIntroduction === true,
-  };
+  if (valid(remembered, manuscript, destination)) {
+    const activation = remembered.inPage ? launchActivation(remembered) : undefined;
+    return {fromCarousel:true, modality:remembered.modality, resumeEntry:remembered.inPage, skipCover:!!activation, activation};
+  }
   if (!pending || !Number.isFinite(pending.expires) || pending.expires! < Date.now() ||
     !valid(pending.launch, manuscript, destination)) return {fromCarousel:false};
   // WebKit omits the HTTP referrer on app-scheme navigation. The in-tab
@@ -59,5 +72,5 @@ export function readCarouselLaunch(manuscript: string, catalogue: URL) {
 
   try { history.replaceState({...history.state, [stateKey]:{...pending.launch, inPage:true}}, ''); }
   catch { /* Preserve context for the current page even if history is unavailable. */ }
-  return {fromCarousel:true, modality:pending.launch.modality, skipCover:true, skipIntroduction:pending.launch.skipIntroduction === true};
+  return {fromCarousel:true, modality:pending.launch.modality, skipCover:true, activation:launchActivation(pending.launch) ?? 'swipe-start'};
 }

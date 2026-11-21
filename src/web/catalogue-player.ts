@@ -1,15 +1,14 @@
-import {cacheCarouselLaunch, carouselEntryState, readCarouselLaunch} from './carousel-launch.ts';
+import {cacheCarouselLaunch, carouselEntryState, readCarouselLaunch, type CarouselActivation} from './carousel-launch.ts';
 import type {mountPlayer} from './main.ts';
 import type {DraftStore} from './story-document.ts';
 import {completesSwipe, SwipeMotion} from './swipe.ts';
 
 type Player = ReturnType<typeof mountPlayer>;
 type Modality = 'mouse' | 'touch';
-type Introduction = 'show' | 'skip' | 'restore';
 interface Visit {
   link: HTMLAnchorElement;
   modality: Modality;
-  introduction: Introduction;
+  activation?: CarouselActivation;
   workspace: HTMLElement;
   player?: Player;
   progress: number;
@@ -38,8 +37,8 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     cover.style.transform = `translateY(${-100 * y}%)`;
     entry.workspace.style.setProperty('--entry-board-offset', `${100 * (1 - y)}%`);
     if (!entry.leaving) {
-      if (y >= .5) entry.player?.previewIntroduction();
-      else entry.player?.hideIntroductionPreview();
+      if (y >= .5) entry.player?.previewEntryReading();
+      else entry.player?.hideEntryReadingPreview();
     }
   }
 
@@ -71,17 +70,18 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
 
   function finish(entry: Visit) {
     entry.settled = true;
+    entry.workspace.classList.add('entry-settled');
     entry.player?.finishEntry();
     entry.player?.focusEntry();
   }
 
-  function open(link: HTMLAnchorElement, modality: Modality, introduction: Introduction) {
+  function open(link: HTMLAnchorElement, modality: Modality, activation?: CarouselActivation) {
     const workspace = document.createElement('main');
     workspace.id = 'workspace';
     workspace.className = 'catalogue-player';
     workspace.innerHTML = '<div id="app" aria-label="Game"><div class="game-surface"></div></div>';
     cover.after(workspace);
-    const entry: Visit = {link, modality, introduction, workspace, progress:0, frame:0, committed:false, settled:false, leaving:false, loading:0};
+    const entry: Visit = {link, modality, activation, workspace, progress:0, frame:0, committed:false, settled:false, leaving:false, loading:0};
     visit = entry;
     workspace.inert = true;
     const status = document.createElement('div');
@@ -94,7 +94,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     void module.then(({mountPlayer}) => {
       if (visit !== entry || entry.leaving) return;
       const player = entry.player = mountPlayer(workspace, {
-        url:link.href, modality, introduction, drafts,
+        url:link.href, modality, activation, drafts,
         home: () => leave(entry),
         trackHome: (offset, settling) => {
           if (visit !== entry || entry.leaving) return;
@@ -164,14 +164,13 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
   }
 
   function commit(entry: Visit, push: boolean) {
-    const {link, modality} = entry;
+    const {link, modality, activation} = entry;
     const manuscript = new URL(link.dataset.story!, home).href;
-    const skipIntroduction = entry.introduction === 'skip';
     try {
-      if (push) history.pushState(carouselEntryState(manuscript, link.href, modality, skipIntroduction), '', link.href);
+      if (push) history.pushState(carouselEntryState(manuscript, link.href, modality, activation), '', link.href);
     } catch {
       clear(entry);
-      cacheCarouselLaunch(manuscript, link.href, modality, skipIntroduction);
+      cacheCarouselLaunch(manuscript, link.href, modality, activation);
       location.assign(link.href);
       return;
     }
@@ -190,16 +189,16 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     const remembered = link && readCarouselLaunch(new URL(link.dataset.story!, home).href, new URL(home));
     if (link && remembered?.fromCarousel && remembered.modality) {
       restoreCover(link);
-      commit(open(link, remembered.modality, remembered.skipIntroduction ? 'skip' : 'restore'), false);
+      commit(open(link, remembered.modality, remembered.activation), false);
     } else restoreCover();
   });
 
   return {
     get busy() { return !!visit?.committed; },
-    track(link: HTMLAnchorElement, offset: number, modality: Modality, introduction: 'show' | 'skip') {
+    track(link: HTMLAnchorElement, offset: number, modality: Modality, activation: CarouselActivation) {
       if (visit?.committed) return;
       if (!visit && offset <= 0) return;
-      const entry = visit ?? open(link, modality, introduction);
+      const entry = visit ?? open(link, modality, activation);
       stop(entry);
       position(entry, Math.max(0, Math.min(1, offset / cover.clientHeight)));
     },
@@ -208,10 +207,10 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
       if (!entry || entry.committed) return;
       animate(entry, 0, () => clear(entry));
     },
-    enter(link: HTMLAnchorElement, modality: Modality, introduction: 'show' | 'skip' = 'show') {
+    enter(link: HTMLAnchorElement, modality: Modality, activation: CarouselActivation = 'tap') {
       if (visit?.committed) return;
-      if (visit && (visit.link !== link || visit.introduction !== introduction)) clear(visit);
-      commit(visit ?? open(link, modality, introduction), true);
+      if (visit && (visit.link !== link || visit.activation !== activation)) clear(visit);
+      commit(visit ?? open(link, modality, activation), true);
     },
   };
 }
