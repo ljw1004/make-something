@@ -55,7 +55,7 @@ export interface Recipe {
   installation?: string; source: Source;
 }
 export interface Story {
-  id: string; title: string; description: string; cover?: string; chapters: Chapter[];
+  id: string; title: string; description: string; cover?: string; dialogs?: string; chapters: Chapter[];
   /** Authored H1 content and its ordinary Markdown images; title remains text-only. */
   heading?: string; titleImages?: HeadingImage[];
   items: Record<string, Item>; hotspots: Record<string, Hotspot>; recipes: Recipe[];

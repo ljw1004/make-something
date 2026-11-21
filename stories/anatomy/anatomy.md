@@ -1,6 +1,7 @@
 # ![Anatomical illustration](assets/opening/assets/heading.png) Anatomy
 
 background: ![Engraved anatomical figure with the thorax fading into ivory paper](assets/cover.webp)
+dialogs: ![Ivory atlas paper](assets/dialogs.webp)
 
 Build an anatomy and physiology textbook, one combination at a time: cells, tissues, organs and systems. Discover how their structures make movement, exchange, regulation and renewal possible.
 

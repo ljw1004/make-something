@@ -1,6 +1,7 @@
 # ![A repaired expedition lander](icon.png) Mission to Mars
 
 background: ![The delivered habitat before arrival](assets/live-feedback/cover-before-crash.webp)
+dialogs: ![Pale stone-gray](assets/dialogs.png)
 
 Your lander crashes badly onto the surface. Can you patch things up and complete your science mission?
 

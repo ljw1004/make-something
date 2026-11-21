@@ -1,5 +1,7 @@
 # ![A mixing bowl with dough and a wooden spoon](icon.png) Cookbook
 
+dialogs: ![Warm watercolor paper](assets/dialogs.webp)
+
 Write a cookbook. Make doughs, sauces, fillings, pastries and cakes.
 
 > NOTE: Adapted from `kitchen-caravan-small-sessions-v8` at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. The original conversion retained its sessions and mechanics; the practical-cookbook revision changes introductions, selected preparations, fixed equipment and dinner. Decision history and evidence limits are in notes.md and the Cookbook study outcomes.

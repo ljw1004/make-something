@@ -756,6 +756,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if (!dialog) { dialogOpener = focused ?? undefined; dialog = document.createElement('dialog'); dialog.addEventListener('cancel', event => { event.preventDefault(); escapeDialog(); }); dialogLayer.append(dialog); }
     if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialog.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
     dialog.className = kind;
+    if (context.kind !== 'error' && story.dialogs) {
+      dialog.classList.add('story-dialog-texture');
+      dialog.style.setProperty('--story-dialog-image', `url(${JSON.stringify(asset(story.dialogs))})`);
+    } else dialog.style.removeProperty('--story-dialog-image');
     const scroll = dialog.scrollTop;
     reconcile(dialog, content);
     dialogContext = context; dialogLayer.hidden = false; surface.inert = true;
@@ -971,6 +975,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     } else if (dialogContext?.kind === 'entry') modal(chapterEntryContent(chapterIntroduction(), 'close'), 'intertitle', dialogContext);
     else if (dialogContext?.kind === 'chapter') modal(chapterContent(), 'intertitle chapter-popup', dialogContext);
     else if (dialogContext?.kind === 'encyclopedia') openEncyclopedia(dialogContext.item, !!dialogContext.detail, false);
+    else if (dialogContext?.kind === 'confirm') confirmRestart();
     if (!dialogContext) showPending();
   }
   function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {

@@ -269,6 +269,13 @@ dialog button,dialog select{min-height:44px}
 .encyclopedia-reading .reading-text{font-size:19px;line-height:1.5;overflow-wrap:anywhere}
 .encyclopedia-reading .reading-text>:first-child{margin-top:8px}
 .encyclopedia-placeholder{color:#857b69;font:italic 17px/1.5 Georgia,serif;margin-top:16px}
+.game-dialog-layer dialog.story-dialog-texture { color: #000; }
+.story-dialog-texture:not(.encyclopedia), .story-dialog-texture .encyclopedia-track {
+  background-image: var(--story-dialog-image);
+  background-repeat: repeat;
+}
+.story-dialog-texture :is(.encyclopedia-index, .encyclopedia-detail, .encyclopedia-spine) { background-color: transparent; }
+.story-dialog-texture :is(a, button, .encyclopedia-chapter h2, .encyclopedia-placeholder) { color: inherit; }
 .encyclopedia-pages.show-detail .encyclopedia-track{transform:translateX(calc(-1 * (var(--book-page-width) + 12px)))}
 /* Two narrow (320px) mobile views fit in the available game area. The editor
    can reduce that area independently of the browser window. */

@@ -1,5 +1,7 @@
 # ![An open manuscript with a cross and quill](icon.png) Theology
 
+dialogs: ![Light ivory vellum](assets/dialogs.webp)
+
 You are Augustine, Aquinas, Martin Luther. How will you respond to the arguments of your day? Why does evil exist? Can we do good without God’s help? What happens at Communion? Replay these great debates from their perspectives. Share their struggles to reconcile faith, reason, and the ideas of their time.
 
 > NOTE: Reconstructing an attributed religious argument is not endorsement, demonstration of a miracle, or authentication of an object. These desks compare texts; they do not claim that the writers met. The Book of Two Principles and the Lyon ritual are distinct witnesses, not a single creed for everyone called Cathar. Examples use Consider:; invented situations remain identified in their prose or author notes. The desk voice is a modern educational reconstruction, not a quotation or evidence that a writer read a particular other manuscript. Claims are stated directly; first person belongs mainly to hypothetical examples and attributed quotations. The creation popup’s voice and italic conclusion stay with the original desk when later board labels gain attribution. Separate encyclopedia entries explain the sources in an editorial voice.

@@ -1,6 +1,7 @@
 # ![Light, sea and living earth emerging in a mosaic](icon.png) Creation
 
 background: ![Creation](assets/backgrounds/c01-deep.webp)
+dialogs: ![Pale blue watercolor paper](assets/dialogs.webp)
 
 Create the world, and every living creature that moves upon it.
 

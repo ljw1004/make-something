@@ -1,5 +1,7 @@
 # ![An apple tree in front of a timber cottage](icon.png) Settlement
 
+dialogs: ![Oatmeal rag paper](assets/dialogs.webp)
+
 You are a settler at the dawn of history. Found your land's first settlement.
 
 > NOTE: Adapted from `elements-basket-continuity-v10`, exported from the current campaign at source commit `1c95988a4e3771abcf2be28183ce009d38645d2c`. This is storybook alchemy, not chemistry, engineering, manufacturing or survival instructions. A recipe represents a recognisable craft relationship, not a complete bill of materials.

@@ -28,6 +28,42 @@ test('explicit backgrounds are separate from catalogue and chapter reading image
   assert.deepEqual(backgroundDiagnostics(text), []);
 });
 
+test('dialog tiles belong in the story header and stay out of prose and scenery', () => {
+  const declaration = 'dialogs: ![paper](assets/dialogs.webp)';
+  const description = '![catalogue](cover.webp)\n\nStory description.';
+  const intro = 'background: ![room](room.webp)\nOpening words.';
+  for (const cover of ['', 'background: ![cover](cover.webp)\n\n']) {
+    const text = manuscript(`${cover}${declaration}\n${description}`, intro).replaceAll('\n', '\r\n');
+    const story = parseStory(text);
+    assert.equal(story.dialogs, 'assets/dialogs.webp');
+    assert.equal(story.cover, cover ? 'cover.webp' : undefined);
+    assert.equal(story.description, description);
+    assert.equal(story.chapters[0].intro, 'Opening words.');
+    assert.deepEqual(coverArtwork(story), [cover ? 'cover.webp' : 'room.webp']);
+    assert(!story.diagnostics.some(d => d.code.startsWith('dialogs-')));
+  }
+});
+
+test('misplaced and malformed dialog declarations produce located errors without leaking into readings', () => {
+  const first = 'dialogs: ![](first.webp)';
+  const duplicate = 'dialogs: ![](later.webp)';
+  const unsupported = 'dialogs: ![](other.webp) (stretch)';
+  const text = manuscript(`${first}\n${duplicate}\nDescription.`, `background: ![](room.webp)\n${unsupported}\nOpening.`);
+  const story = parseStory(text);
+  assert.deepEqual(story.diagnostics.filter(d => d.code.startsWith('dialogs-')).map(d => [d.code, text.slice(d.span.from, d.span.to)]), [
+    ['dialogs-position', duplicate], ['dialogs-position', unsupported], ['dialogs-syntax', unsupported],
+  ]);
+  assert.equal(story.dialogs, 'first.webp');
+  assert.equal(story.description, 'Description.');
+  assert.equal(story.chapters[0].intro, 'Opening.');
+  for (const prefix of ['> NOTE: Author comment.\n', 'Description.\n']) {
+    const misplaced = parseStory(manuscript(prefix + first));
+    assert.equal(misplaced.dialogs, undefined);
+    assert(misplaced.diagnostics.some(d => d.code === 'dialogs-position'));
+  }
+  assert.equal(parseStory(manuscript(unsupported)).dialogs, undefined);
+});
+
 test('unprefixed images always remain prose, even first; a cover does not supply the opening chapter setting', () => {
   for (const prose of [
     '![first](first.webp)',
@@ -100,16 +136,16 @@ test('background declarations require exactly one Markdown image with a nonempty
   }
 });
 
-test('CLI artwork checks include independent catalogue images and cover backgrounds with CRLF source spans', () => {
+test('CLI artwork checks include catalogue images, covers and dialog tiles with CRLF source spans', () => {
   const folder = mkdtempSync(join(tmpdir(), 'combination-cover-'));
   try {
-    const markdown = manuscript('background: ![cover](assets/cover.webp)\n\n![catalogue](assets/catalogue.webp)\n\nDescription.').replaceAll('\n', '\r\n');
+    const markdown = manuscript('background: ![cover](assets/cover.webp)\ndialogs: ![paper](assets/dialogs.webp)\n\n![catalogue](assets/catalogue.webp)\n\nDescription.').replaceAll('\n', '\r\n');
     const story = parseStory(markdown, { file: join(folder, 'story.md') });
     const missing = lintStoryImages(story, markdown);
     assert.deepEqual(missing.map(d => [d.code, markdown.slice(d.span.from, d.span.to)]),
-      [['missing-image', 'assets/cover.webp'], ['missing-image', 'assets/catalogue.webp']]);
+      [['missing-image', 'assets/cover.webp'], ['missing-image', 'assets/dialogs.webp'], ['missing-image', 'assets/catalogue.webp']]);
     mkdirSync(join(folder, 'assets'));
-    for (const name of ['cover', 'catalogue']) writeFileSync(join(folder, `assets/${name}.webp`), 'artwork placeholder for existence check');
+    for (const name of ['cover', 'dialogs', 'catalogue']) writeFileSync(join(folder, `assets/${name}.webp`), 'artwork placeholder for existence check');
     assert.deepEqual(lintStoryImages(story, markdown), []);
     const remote = manuscript('background: ![cover](https://example.com/cover.webp)\n![catalogue](https://example.com/catalogue.webp)');
     assert.deepEqual(lintStoryImages(parseStory(remote, { file: join(folder, 'story.md') }), remote), []);

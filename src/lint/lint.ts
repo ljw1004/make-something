@@ -150,8 +150,8 @@ export function lintStory(story: Story, options: LintOptions = {}): Diagnostic[]
 
 /** Potentially expensive global reachability/exclusivity analysis. Run in the browser worker. */
 export function lintStoryAnalysis(story: Story, fastDiagnostics: readonly Diagnostic[] = lintStory(story, {analysis: false}), options: LintOptions = {}): Diagnostic[] {
-  // Catalogue artwork cannot change logical reachability, including in unfinished drafts.
-  if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error' && !['missing-story-icon', 'story-icon-square', 'story-icon-image'].includes(diagnostic.code))) return [];
+  // Catalogue and dialog artwork cannot change logical reachability, including in unfinished drafts.
+  if (fastDiagnostics.some(diagnostic => diagnostic.severity === 'error' && !['missing-story-icon', 'story-icon-square', 'story-icon-image', 'dialogs-position', 'dialogs-syntax'].includes(diagnostic.code))) return [];
   const error = (code: string, message: string): Diagnostic[] => [{
     severity: 'error', code, message, source: story.source,
     span: story.source.span ?? {from: 0, to: 0}, stage: 'deep',

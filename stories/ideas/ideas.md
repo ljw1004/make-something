@@ -1,5 +1,7 @@
 # ![A brass armillary sphere on a book](icon.png) History of ideas
 
+dialogs: ![Pale celadon book paper](assets/dialogs.webp)
+
 Follow questions across centuries: what explains an eclipse, what makes a life good, and when should a rule change? Combine evidence, arguments and inventions to discover how ideas meet—and what each encounter makes possible.
 
 > NOTE: Item statements are authored paraphrases or teaching reconstructions, not historical quotations. Combining them reconstructs an argument, comparison, model or object; it does not certify its truth. Dates belong to the indicated inquiry. Teaching comparisons do not assert direct historical influence. The final observatory and civic arrangements are speculative proposals, not forecasts.

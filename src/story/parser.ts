@@ -367,21 +367,33 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     if (parts.length > 2 || (parts.length === 2 && !parts[1].text)) error('goal-syntax', 'A placement condition needs one item and one hotspot separated by @.', line, raw);
     return { item: ref(parts[0].text, line, 'item', 'reference', 'goal', from + parts[0].from), ...(parts[1]?.text ? { hotspot: ref(parts[1].text, line, 'hotspot', 'reference', 'goal', from + parts[1].from).id } : {}), source: source(line) };
   }
-  function extractBackground(body: Line[], heading?: Line): {image?: string; content: Line[]} {
+  function extractSurfaceImages(body: Line[], heading: Line | undefined, scope: 'story' | 'chapter') {
     // Placement uses authored lines, so only blank lines may precede the declaration.
-    const firstLine = heading ? originalLines.findIndex((text, index) => index >= heading.line && text.trim()) + 1 : 0;
-    let image: string | undefined;
+    const firstNonblankAfter = (line: number) => originalLines.findIndex((text, index) => index >= line && text.trim()) + 1;
+    const firstLine = heading ? firstNonblankAfter(heading.line) : 0;
+    const dialogsLine = scope === 'story' && /^[\t ]*background\s*:/.test(originalLines[firstLine - 1] ?? '')
+      ? firstNonblankAfter(firstLine) : firstLine;
+    let background: string | undefined, dialogs: string | undefined;
     const content = body.filter(line => {
-      if (!/^[\t ]*background\s*:/.test(line.text)) return true;
-      const first = line.line === firstLine;
-      if (!first) error('background-position', 'background: must be the first nonblank line after the story or chapter heading; only one background is allowed.', line.line);
-      const match = /^[\t ]*background:[\t ]+!\[[^\]]*\]\(([^)]+)\)[\t ]*$/.exec(line.text);
-      if (!match?.[1].trim()) error('background-syntax', 'Use background: ![alt](nonempty-path) on a line of its own.', line.line);
-      else if (first) image = match[1].trim();
+      const marker = /^[\t ]*(background|dialogs)\s*:/.exec(line.text)?.[1];
+      if (!marker) return true;
+      const positioned = marker === 'background' ? line.line === firstLine : scope === 'story' && line.line === dialogsLine;
+      if (!positioned) {
+        const message = marker === 'background'
+          ? 'background: must be the first nonblank line after the story or chapter heading; only one background is allowed.'
+          : 'Place one dialogs: declaration immediately after the story heading or its optional cover background, allowing blank lines.';
+        error(`${marker}-position`, message, line.line);
+      }
+      const path = /^[\t ]*(?:background|dialogs):[\t ]+!\[[^\]]*\]\(([^)]+)\)[\t ]*$/.exec(line.text)?.[1].trim();
+      if (!path) error(`${marker}-syntax`, `Use ${marker}: ![alt](nonempty-path) on a line of its own.`, line.line);
+      else if (positioned) {
+        if (marker === 'background') background = path;
+        else dialogs = path;
+      }
       // Even invalid metadata is not player-facing prose in a best-effort preview.
       return false;
     });
-    return {image, content};
+    return {background, dialogs, content};
   }
   const chapterLines: { heading: Line; lines: Line[] }[] = []; const preamble: Line[] = [];
   for (const line of lines) {
@@ -398,9 +410,10 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
   }).replace(/\s+/g, ' ').trim() || options.id || 'Untitled story';
   if (title) story.source = source(title.line);
   if (!title) error('missing-title', 'A story needs a # title.', 1);
-  const cover = extractBackground(preamble.filter(l => l !== title), title);
-  story.description = cover.content.map(l => l.text).join('\n').trim();
-  if (cover.image) story.cover = cover.image;
+  const metadata = extractSurfaceImages(preamble.filter(l => l !== title), title, 'story');
+  story.description = metadata.content.map(l => l.text).join('\n').trim();
+  if (metadata.background) story.cover = metadata.background;
+  if (metadata.dialogs) story.dialogs = metadata.dialogs;
   for (const block of chapterLines) {
     const heading = chapterHeading(block.heading.text.slice(3));
     if (!heading.valid) error('chapter-heading', 'Use ## Title or ## `unique-id` Title, with a nonempty identifier and title.', block.heading.line);
@@ -408,9 +421,9 @@ export function parseStory(markdown: string, options: { id?: string; file?: stri
     const headingText = block.heading.text.slice(3).trim(), headingStart = startOf(headingText, block.heading.line);
     record(chapterSymbolID(chapter), 'chapter', 'declaration', headingStart, headingStart + headingText.length, true);
     const sections = new Map<string, Line[]>(); let current = 'intro'; sections.set(current, []);
-    const background = extractBackground(block.lines, block.heading);
-    if (background.image) chapter.image = background.image;
-    for (const line of background.content) {
+    const metadata = extractSurfaceImages(block.lines, block.heading, 'chapter');
+    if (metadata.background) chapter.image = metadata.background;
+    for (const line of metadata.content) {
       const section = /^\*\*(Goals|Hotspots|Items|Combinations)\*\*\s*$/.exec(line.text);
       if (section) {
         current = section[1];
