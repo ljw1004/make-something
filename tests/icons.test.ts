@@ -8,7 +8,7 @@ import {lintStory} from '../src/lint/lint.ts';
 import {lintStoryImages} from '../src/lint/images.ts';
 import {newGame} from '../src/engine/game.ts';
 
-const manuscript = (body: string) => `# ![icon](https://example.com/icon.png) Icon workshop\n## Start\nbackground: ![room](https://example.com/room.webp)\n\n${body}`;
+const manuscript = (body: string) => `# ![icon](icon.png) Icon workshop\n## Start\nbackground: ![room](room.webp)\n\n${body}`;
 const iconErrors = (text: string) => lintStory(parseStory(text), {analysis: false, backgroundMeasurements:[{chapter:0,width:390,height:844}]}).filter(diagnostic => diagnostic.code.includes('icon'));
 
 test('item icons and aligned slot overlays retain source spans without creating references or wonders', () => {
@@ -105,8 +105,9 @@ test('CLI artwork lint checks item and slot icon files relative to the manuscrip
       '> NOTE: ![unused](author-note.png)', '**Items**',
       '- House (compound)', '  - icon: ![house](house.png)',
       '  - unnamed slot: accepts Window, icon: ![fitted](window-overlay.png)',
-      '- Window', '  - icon: ![window](https://example.com/window.png)',
+      '- Window', '  - icon: ![window](window.png)',
     ].join('\n')).replaceAll('\n', '\r\n');
+    for (const image of ['icon.png', 'room.webp', 'window.png']) writeFileSync(join(folder, image), 'fixture');
     const story = parseStory(markdown, {file: join(folder, 'story.md')});
     let diagnostics = lintStoryImages(story, markdown);
     assert.deepEqual(diagnostics.map(diagnostic => markdown.slice(diagnostic.span.from, diagnostic.span.to)), ['house.png', 'window-overlay.png']);
@@ -131,7 +132,7 @@ test('hotspot artwork retains coordinates and contextual recipes without introdu
 - Clay
 - Fire
 ## Return
-background: ![yard](https://example.com/yard.webp)
+background: ![yard](yard.webp)
 **Hotspots**
 - Kiln yard (center 304.2px, 548.6px)
   - icon: ![same yard](yard.png)
@@ -146,8 +147,7 @@ background: ![yard](https://example.com/yard.webp)
   assert.deepEqual(iconErrors(text).map(d => d.code), ['conflicting-icon']);
   assert.deepEqual(Object.keys(newGame(story).tokens).sort(), ['name:Clay', 'name:Fire', 'name:Kiln yard']);
   const missing = lintStoryImages(story, text).filter(d => d.code === 'missing-image');
-  assert(missing.length > 0);
-  assert(missing.every(d => text.slice(d.span.from, d.span.to) === 'yard.png'));
+  assert.deepEqual(missing.map(d => text.slice(d.span.from, d.span.to)), ['icon.png', 'room.webp', 'yard.png', 'yard.webp', 'yard.png']);
 });
 
 test('primitive icon centres accept either marker order and preserve authoritative metadata', () => {

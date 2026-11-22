@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {dirname, resolve} from 'node:path';
+import {artworkFile} from './images.ts';
 import {chromium, type Browser} from '@playwright/test';
 import type {Diagnostic, Story} from '../story/types.ts';
 import {escape} from '../web/markdown.ts';
@@ -13,9 +13,9 @@ import {coordinateEntries, lintCoordinateGeometry} from './coordinates.ts';
 const css = ['style.css', 'item-artwork.css'].map(file => readFileSync(new URL(`../web/${file}`, import.meta.url), 'utf8')).join('\n');
 
 function imageURL(story: Story, path: string): string {
-  if (/^https?:\/\//i.test(path)) return path;
-  const mime = /\.svg$/i.test(path) ? 'image/svg+xml' : /\.webp$/i.test(path) ? 'image/webp' : /\.jpe?g$/i.test(path) ? 'image/jpeg' : /\.gif$/i.test(path) ? 'image/gif' : 'image/png';
-  return `data:${mime};base64,${readFileSync(resolve(dirname(story.source.file), path)).toString('base64')}`;
+  const file = artworkFile(story.source.file, path);
+  const mime = /\.svg$/i.test(file) ? 'image/svg+xml' : /\.webp$/i.test(file) ? 'image/webp' : /\.jpe?g$/i.test(file) ? 'image/jpeg' : /\.gif$/i.test(file) ? 'image/gif' : 'image/png';
+  return `data:${mime};base64,${readFileSync(file).toString('base64')}`;
 }
 
 /** Reuse the browser for story-icon dimensions and optional hotspot geometry. */

@@ -1,6 +1,6 @@
 import { posix } from 'node:path';
 import { escape, markdown } from '../web/markdown.ts';
-import { resolveStoryAsset } from '../web/story-document.ts';
+import { resolveStoryAsset, storyQuery } from '../web/story-document.ts';
 
 export interface CatalogueEntry { path: string; title: string; description: string; cover?: string }
 
@@ -10,8 +10,6 @@ function catalogueAsset(storyPath: string): (reference: string) => string {
   return reference => {
     try {
       const resolved = new URL(resolveStoryAsset(reference, storyURL));
-      if (/^[a-z][a-z\d+.-]*:/i.test(reference) || resolved.origin !== 'https://catalogue.invalid') return resolved.href;
-      if (reference.startsWith('/')) return reference;
       // Keep generated HTML portable beneath any hosting prefix.
       return posix.relative('/site/', resolved.pathname) + resolved.search + resolved.hash;
     }
@@ -45,7 +43,7 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
   const enter = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor"/><path d="M12 6v11m-5-5 5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
   return `<main class="story-carousel" aria-label="Make Something Worthwhile stories"><h1 class="sr-only">Make Something Worthwhile</h1><div class="carousel-frame">
     ${orderedEntries.map((entry, index) => {
-      const href = `make-something.html?story=${encodeURIComponent(entry.path).replaceAll('%2F', '/')}`;
+      const href = `make-something.html${storyQuery(entry.path)}`;
       const cover = entry.cover ? catalogueAsset(entry.path)(entry.cover) : '';
       return `<section class="carousel-slide"${index ? ' hidden' : ''} aria-label="${escape(entry.title)}">
         ${cover ? `<img class="carousel-art" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} src="${escape(cover)}" alt="" draggable="false">` : ''}

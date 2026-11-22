@@ -48,7 +48,7 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/make-something.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
 | `/make-something.html` | `/story.md` (supply this file to use this route) |
 
-The `story` parameter points to a `.md` file on the same server. Relative paths resolve against the player page, so the same layout works under a website subdirectory; root-relative paths also work. Without the parameter, the player always requests `story.md` beside itself. A missing story displays an error. Relative artwork references resolve against the Markdown file's directory; absolute HTTP(S) image URLs also work. Markdown is rendered without executing embedded HTML or scripts.
+The `story` parameter selects a Markdown file relative to the player page. Artwork paths are relative to the manuscript. Both must be relative file paths without a leading slash or consecutive dots, including in filenames. Without the parameter the player requests `story.md` beside itself. Home-screen shortcuts use the same relative selection as catalogue links. A missing story displays an error. Markdown is rendered without executing embedded HTML or scripts.
 
 The former `combinations.html` and `combinations-dev.html` routes are removed without redirects. Update old bookmarks to the new player filename, keeping their story parameter. Renaming only the player page leaves manuscript URLs unchanged, so progress, drafts and tutorial completion remain available on the same origin. The hosted repository-path change described below gives those stories new URLs.
 

@@ -26,7 +26,7 @@ import {browserItemText} from '../story/text-only.ts';
 import {browserReadings, dismissTextOnlyWonders} from './item-readings.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, hasChapterCombination, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
-import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset } from './story-document.ts';
+import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset, storyQuery } from './story-document.ts';
 import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
@@ -529,8 +529,9 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
 
   function updateHomeScreenIdentity(parsed: Story) {
     const startURL = new URL(options?.url ?? location.href);
-    startURL.search = ''; startURL.hash = '';
-    startURL.searchParams.set('story', new URL(documentURL).pathname);
+    const storyPath = startURL.searchParams.get('story');
+    startURL.search = storyPath === null ? '' : storyQuery(storyPath);
+    startURL.hash = '';
     setHomeScreenIdentity({
       name: parsed.title, icon: parsed.titleImages?.[0] && asset(parsed.titleImages[0].url),
       id: documentURL, startURL: startURL.href, scope: new URL('./', catalogueURL).href, themeColor: '#172830',

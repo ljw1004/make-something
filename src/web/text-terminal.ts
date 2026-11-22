@@ -136,7 +136,7 @@ async function openStory(url:URL):Promise<HTMLElement> {
     if (chapter !== null && !/^[1-9]\d*$/.test(chapter)) throw new Error('Chapter must be a positive whole number.');
     const startingChapter=chapter === null ? 1 : Number(chapter);
     const storyURL=resolveStoryURL(url.href);
-    const response=await fetch(storyURL);
+    const response=await fetch(storyURL, {mode: 'same-origin'});
     if (!response.ok) throw new Error(`Could not load the story (HTTP ${response.status}).`);
     story=parseStory(await response.text(),{id:storyURL,file:storyURL});
     adventure=startAdventure(story,{chapter:startingChapter,playStyle:style,mode:'story'});

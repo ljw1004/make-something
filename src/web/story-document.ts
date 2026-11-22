@@ -1,3 +1,5 @@
+import {resolveRelativeFile} from '../story/relative-file.ts';
+
 /** Story files and editor drafts are independent of game saves and resets. */
 export interface DraftStorage {
   readonly length: number;
@@ -58,24 +60,22 @@ export function canonicalStoryURL(input: string | URL): string {
   return url.href;
 }
 
+export function storyQuery(path: string): string {
+  return '?story=' + encodeURIComponent(path).replaceAll('%2F', '/');
+}
+
 export function resolveStoryURL(pageURL: string | URL): string {
   const page = storyResourceURL(pageURL);
   const selectors = page.searchParams.getAll('story');
   const path = selectors[0] ?? 'story.md';
-  if (selectors.length > 1 || !/\.md$/i.test(path) || path !== path.trim() ||
-    /[:\\?#\u0000-\u001f\u007f]/.test(path) || path.startsWith('//')) {
-    throw new Error('Choose a Markdown file path on this server, for example ?story=stories/theology/theology.md.');
+  if (selectors.length > 1 || !/\.md$/i.test(path) || /[?#]/.test(path)) {
+    throw new Error('Choose one relative Markdown file, for example ?story=stories/theology/theology.md.');
   }
-  return new URL(path, page).href;
+  return resolveRelativeFile(path, page).href;
 }
 
 export function resolveStoryAsset(reference: string, storyURL: string): string {
-  const base = storyResourceURL(storyURL);
-  const asset = storyResourceURL(new URL(reference, base));
-  if ((asset.protocol === 'msw:' || base.protocol === 'msw:') && base.protocol !== asset.protocol) {
-    throw new Error('Bundled stories use bundled artwork.');
-  }
-  return asset.href;
+  return resolveRelativeFile(reference, storyResourceURL(storyURL)).href;
 }
 
 function browserStorage(): DraftStorage | undefined {
@@ -96,7 +96,8 @@ function parseRecord(raw: string, url: string): DraftRecord | undefined {
     if (value?.version !== 1 || value.url !== url || typeof value.text !== 'string' ||
       typeof value.sessionId !== 'string' || typeof value.revision !== 'string' ||
       !Number.isFinite(value.updatedAt) || typeof value.assetBaseURL !== 'string') return;
-    canonicalStoryURL(value.assetBaseURL);
+    const base = storyResourceURL(value.assetBaseURL), manuscript = new URL(url);
+    if (base.protocol !== manuscript.protocol || base.host !== manuscript.host) value.assetBaseURL = url;
     return value as DraftRecord;
   } catch { return; }
 }
@@ -237,7 +238,7 @@ export async function loadStoryDocument(url: string, drafts: DraftStore, fetcher
     return {url: canonical, assetBaseURL: stored.draft.assetBaseURL, text: stored.draft.text, edited: true, warning: stored.warning, recoveries: stored.recoveries};
   }
   let response: Response;
-  try { response = await fetcher(canonical, {credentials: 'same-origin', cache: 'no-cache'}); }
+  try { response = await fetcher(canonical, {mode: canonical.startsWith('msw:') ? 'cors' : 'same-origin', credentials: 'same-origin', cache: 'no-cache'}); }
   catch { throw new Error(`Could not load the story at ${canonical}. Check that the Markdown file is available on this server.`); }
   if (!response.ok) throw new Error(`Could not load the story at ${canonical} (HTTP ${response.status}).`);
   if (/text\/html/i.test(response.headers.get('content-type') ?? '')) {

@@ -7,7 +7,7 @@ test('catalogue cover and prose image paths belong to their story, including a s
   const cover = html.match(/src="([^"]+)"/)![1];
   assert.equal(new URL(cover, 'https://example.org/games/index.html').href, 'https://example.org/games/stories/my-story/assets/cover.webp');
   assert.match(html, /<p>Authored description.<\/p>/);
-  assert.match(html, /src="https:\/\/example.com\/picture.webp"/);
+  assert.doesNotMatch(html, /src="https:\/\/example.com\/picture.webp"/);
 });
 
 test('invalid catalogue artwork cannot break every story card', () => {
@@ -33,8 +33,8 @@ test('baked catalogue uses portable story links and escaped authored text withou
   assert.match(html, /&lt;A &amp; B&gt;/);
   assert.doesNotMatch(html, /<script>/);
   assert.match(html, /src="stories\/shared\/assets\/a%20b.webp"/);
-  assert.match(html, /src="\/shared\/root.webp"/);
-  assert.match(html, /src="https:\/\/example.com\/cover.webp"/);
+  assert.doesNotMatch(html, /src="\/shared\/root.webp"/);
+  assert.doesNotMatch(html, /src="https:\/\/example.com\/cover.webp"/);
   for (const base of ['https://example.org/', 'https://example.org/make-something/']) {
     const link = new URL(html.match(/href="([^"]+)"/)![1], base);
     assert.equal(new URL(link.searchParams.get('story')!, link).href, new URL(path, base).href);

@@ -43,7 +43,7 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
   expect(first.id).toBe(origin + '/stories/cookbook/cookbook.md');
   expect(first.icons?.[0]?.url).toBe(origin + '/stories/cookbook/icon.png');
   const launch = new URL(first.startUrl!);
-  expect(launch.searchParams.get('story')).toBe('/stories/cookbook/cookbook.md');
+  expect(launch.search).toBe('?story=stories/cookbook/cookbook.md');
   expect(launch.searchParams.has('home')).toBe(false);
   expect(launch.hash).toBe('');
   await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', first.name!);

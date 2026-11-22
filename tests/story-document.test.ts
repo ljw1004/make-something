@@ -19,12 +19,17 @@ test('portable story paths and artwork resolve from their own documents, rejecti
   assert.equal(resolveStoryURL('https://example.test/work/mars/make-something.html'), 'https://example.test/work/mars/story.md');
   assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=mars/mars.md#ignored'), url);
   assert.equal(resolveStoryURL('https://example.test/work/mars/make-something.html?story=mars.md'), url);
-  assert.equal(resolveStoryURL('https://example.test/work/player/make-something.html?story=../mars/mars.md'), url);
   assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=mars%2Fmars.md'), url);
-  assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=/work/mars/mars.md'), url);
   assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=shared/another%20story.md'), 'https://example.test/work/shared/another%20story.md');
   assert.equal(resolveStoryAsset('assets/scene.webp', url), 'https://example.test/work/mars/assets/scene.webp');
-  assert.equal(resolveStoryAsset('https://art.test/scene.webp', url), 'https://art.test/scene.webp');
+  for (const path of ['/mars.md', '../mars.md', 'dir/../mars.md', 'dir/moon..map.md', 'https://example.test/work/mars.md',
+    '%2Fmars.md', '%2e.mars.md', '%252e%252e/mars.md', 'dir%5cmars.md']) {
+    const page = new URL('https://example.test/work/make-something.html');
+    page.searchParams.set('story', path);
+    assert.throws(() => resolveStoryURL(page), path);
+    assert.throws(() => resolveStoryAsset(path, url), path);
+  }
+  assert.equal(resolveStoryAsset('assets/a%20b.webp', url), 'https://example.test/work/mars/assets/a%20b.webp');
   for (const selector of ['', 'mars', '../private', 'https://other.test/story.md', '//other.test/story.md', 'javascript:story.md', 'mars%5Cmars.md', 'mars/mars.md%23fragment', 'mars/mars.md%3Fquery', '%2e%2e', 'mars/mars.md&story=cookbook/cookbook.md']) {
     assert.throws(() => resolveStoryURL(`https://example.test/work/make-something.html?story=${selector}`));
   }
@@ -33,7 +38,7 @@ test('portable story paths and artwork resolve from their own documents, rejecti
   }
 });
 
-test('the installed player resolves its own bundle and keeps remote artwork on web stories only', () => {
+test('the installed player resolves its own bundle and requires local artwork', () => {
   const story = resolveStoryURL('msw://app/make-something.html?story=stories/mars/mars.md');
   assert.equal(story, 'msw://app/stories/mars/mars.md');
   assert.equal(resolveStoryAsset('icon.png', story), 'msw://app/stories/mars/icon.png');
@@ -68,6 +73,17 @@ test('cached invalid and empty drafts override the server without a network requ
   }
   assert.equal(new DraftStore('https://example.test/other/mars/story.md', {storage}).read().draft, undefined);
   assert.equal(draft.delete().deleted, true); assert.equal(draft.read().draft, undefined); assert.equal(storage.length, 0);
+});
+
+test('an old draft with an external artwork base keeps its text and uses the manuscript directory', async () => {
+  const storage = new Storage(), draft = new DraftStore(url, {storage});
+  const record = draft.save('My draft').record;
+  for (const key of storage.values.keys()) {
+    storage.setItem(key, JSON.stringify({...record, assetBaseURL: 'https://art.test/elsewhere/story.md'}));
+  }
+  const loaded = await loadStoryDocument(url, new DraftStore(url, {storage}));
+  assert.equal(loaded.text, 'My draft');
+  assert.equal(loaded.assetBaseURL, url);
 });
 
 test('concurrent editors preserve their own latest buffers and recover after a corrupted current record', () => {

@@ -139,7 +139,7 @@ test('background declarations require exactly one Markdown image with a nonempty
 test('CLI artwork checks include catalogue images, covers and dialog tiles with CRLF source spans', () => {
   const folder = mkdtempSync(join(tmpdir(), 'combination-cover-'));
   try {
-    const markdown = manuscript('background: ![cover](assets/cover.webp)\ndialogs: ![paper](assets/dialogs.webp)\n\n![catalogue](assets/catalogue.webp)\n\nDescription.').replaceAll('\n', '\r\n');
+    const markdown = manuscript('background: ![cover](assets/cover.webp)\ndialogs: ![paper](assets/dialogs.webp)\n\n![catalogue](assets/catalogue.webp)\n\nDescription.', 'Opening words.').replaceAll('\n', '\r\n');
     const story = parseStory(markdown, { file: join(folder, 'story.md') });
     const missing = lintStoryImages(story, markdown);
     assert.deepEqual(missing.map(d => [d.code, markdown.slice(d.span.from, d.span.to)]),
@@ -147,7 +147,9 @@ test('CLI artwork checks include catalogue images, covers and dialog tiles with 
     mkdirSync(join(folder, 'assets'));
     for (const name of ['cover', 'dialogs', 'catalogue']) writeFileSync(join(folder, `assets/${name}.webp`), 'artwork placeholder for existence check');
     assert.deepEqual(lintStoryImages(story, markdown), []);
-    const remote = manuscript('background: ![cover](https://example.com/cover.webp)\n![catalogue](https://example.com/catalogue.webp)');
-    assert.deepEqual(lintStoryImages(parseStory(remote, { file: join(folder, 'story.md') }), remote), []);
+    const remote = manuscript('background: ![cover](https://example.com/cover.webp)\n![catalogue](https://example.com/catalogue.webp)', 'Opening words.');
+    const rejected = lintStoryImages(parseStory(remote, { file: join(folder, 'story.md') }), remote);
+    assert.equal(rejected.length, 2);
+    assert(rejected.every(d => d.message.startsWith('Invalid artwork path:')));
   } finally { rmSync(folder, { recursive: true, force: true }); }
 });
