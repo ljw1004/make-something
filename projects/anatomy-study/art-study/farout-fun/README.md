@@ -1,6 +1,6 @@
 # FAROUT FUN — independent Anatomy art candidate
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-fun/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-fun/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 The sole external drawing reference is [the supplied FAROUT FUN image](../../inspiration/farout-fun.png). Its fibrous torn-paper construction, coral, violet, gold and cobalt inform this candidate. This revision reuses only this candidate's own selected anatomy sources. It remains a comparison candidate, not an adopted production style.
 

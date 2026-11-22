@@ -19,7 +19,7 @@ Make a kit.
 `;
   await page.route('**/tooltip-fixture.md', route =>
     route.fulfill({contentType:'text/markdown',body:manuscript}));
-  await page.goto('/make-something.html?story=tooltip-fixture.md');
+  await page.goto('/index.html?story=tooltip-fixture.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const frame = page.locator('[data-item="name:Frame"]');

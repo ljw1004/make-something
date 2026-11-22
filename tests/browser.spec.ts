@@ -37,7 +37,7 @@ Fit the cabinet.
 - Panel
 - Shelf
 `}));
-  await page.goto('/make-something.html?story=text-edge-fixture/story.md');
+  await page.goto('/index.html?story=text-edge-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const card=page.locator('[data-item="name:Tall wooden cabinet"]');
@@ -136,7 +136,7 @@ Read about the things in the garden.
 **Combinations**
 - Plant [preserve] + Spade [preserve] -> Bed
 `}));
-  await page.goto('/make-something.html?story=reading-hold/story.md');
+  await page.goto('/index.html?story=reading-hold/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   const plant=page.locator('[data-item="name:Plant"]'),box=(await plant.boundingBox())!;

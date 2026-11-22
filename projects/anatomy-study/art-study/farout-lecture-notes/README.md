@@ -1,6 +1,6 @@
 # Farout lecture notes — Anatomy artwork candidate
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-lecture-notes/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-lecture-notes/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 Independent interpretation of [farout-lecture-notes.png](../../inspiration/farout-lecture-notes.png): coloured-pencil hatching, dark handwritten contours, pink/purple/blue/yellow material colours and ruled notebook paper. Only this reference and this candidate's own prior generations informed the refresh; no other theme was inspected.
 

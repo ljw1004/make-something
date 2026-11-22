@@ -20,7 +20,7 @@ const expected=(adventure:Adventure)=>terminalMarkdown(renderFrame({...adventure
 })).replace(/<[^>]*>/g,'').replace(/&(amp|lt|gt|quot|#39);/g,(_,entity:string)=>({amp:'&',lt:'<',gt:'>',quot:'"','#39':"'"}[entity]!));
 async function fixture(page:Page,style:PlayStyle) {
   await page.route('**/terminal-fixture/story.md',route=>route.fulfill({contentType:'text/markdown',body:terminalStory}));
-  await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=terminal-fixture/story.md`);
+  await page.goto(`/simulator.html?mode=${style}&story=terminal-fixture/story.md`);
   await expect(page.locator('#prompt')).toBeVisible();
 }
 
@@ -107,11 +107,11 @@ test('100-character column stays stable on wide resize and output leaves the pro
   await expect(page.locator('#transcript img')).toHaveCount(0);
 });
 
-test('both pages list current stories, load their unchanged runner openings, and report missing manuscripts',async({page})=>{
+test('both simulator modes list current stories, load their unchanged runner openings, and report missing manuscripts',async({page})=>{
   const paths=storyIds();
   const theologyChoice=String(paths.indexOf('theology/theology.md')+1);
   for (const style of ['fast','detailed'] as const) {
-    await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html`);
+    await page.goto(`/simulator.html?mode=${style}`);
     await expect(page.locator('#story-picker [data-story]')).toHaveCount(paths.length);
     await expect(page.locator('h1')).toHaveText(`MAKE SOMETHING WORTHWHILE [${style==='fast'?'story':'interaction'} simulator]`);
     await expect(page.locator('a,nav')).toHaveCount(0);
@@ -128,14 +128,14 @@ test('both pages list current stories, load their unchanged runner openings, and
     await expect(page.locator('#story-picker')).toBeVisible();
     expect(new URL(page.url()).searchParams.has('story')).toBe(false);
     for (const path of paths) {
-      await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=stories/${path}`);
+      await page.goto(`/simulator.html?mode=${style}&story=stories/${path}`);
       const source=parseStory(readFileSync(`stories/${path}`,'utf8'),{id:path});
       const adventure=startAdventure(source,{playStyle:style});
       await expect.poll(()=>output(page)).toBe(expected(adventure));
       await expect(page.locator('#transcript img')).toHaveCount(0);
     }
   }
-  await page.goto('/simulator-story.html?story=missing-terminal-story.md');
+  await page.goto('/simulator.html?story=missing-terminal-story.md');
   await expect(page.getByRole('status')).toContainText('HTTP 404');
   await expect(page.getByRole('link',{name:'Try again'})).toBeVisible();
   await expect(page.locator('#prompt')).toBeHidden();
@@ -144,14 +144,14 @@ test('both pages list current stories, load their unchanged runner openings, and
 test('direct chapter URLs use original checkpoints, including skips and invalid requests',async({page})=>{
   await fixture(page,'fast');
   for (const chapter of [3,4,5]) {
-    await page.goto(`/simulator-story.html?story=terminal-fixture/story.md&chapter=${chapter}`);
+    await page.goto(`/simulator.html?story=terminal-fixture/story.md&chapter=${chapter}`);
     const adventure=startAdventure(story,{chapter});
     await expect.poll(()=>output(page)).toBe(expected(adventure));
     expect(new URL(page.url()).searchParams.get('chapter')).toBe(String(adventure.state.chapter+1));
     await expect(page.locator('#transcript img')).toHaveCount(0);
   }
   for (const chapter of ['0','-1','1.5','cat','',String(story.chapters.length+1)]) {
-    await page.goto(`/simulator-story.html?story=terminal-fixture/story.md&chapter=${chapter}`);
+    await page.goto(`/simulator.html?story=terminal-fixture/story.md&chapter=${chapter}`);
     await expect(page.getByRole('status')).toContainText('Chapter must be');
     await expect(page.locator('#prompt')).toBeHidden();
   }
@@ -187,7 +187,7 @@ for (const style of ['fast','detailed'] as const) test(`${style} chapter URL cha
   const parsed=parseStory(source,{id:'optional'});
   let loads=0;
   await page.route('**/optional.md',route=>{loads++;return route.fulfill({body:source});});
-  await page.goto(`/simulator-${style==='fast'?'story':'interactions'}.html?story=optional.md`);
+  await page.goto(`/simulator.html?mode=${style}&story=optional.md`);
   let adventure=startAdventure(parsed,{playStyle:style});
   await expect.poll(()=>output(page)).toBe(expected(adventure));
   const historyLength=await page.evaluate(()=>window.history.length);

@@ -6,7 +6,7 @@ test('debug icon is present in the development player but absent from the built 
   await page.route('**/debug-fixture.md', route => route.fulfill({contentType:'text/markdown',body:manuscript}));
 
   await page.setViewportSize({width:1100,height:800});
-  await page.goto('/make-something-dev.html?story=debug-fixture.md');
+  await page.goto('/index-dev.html?story=debug-fixture.md');
   await expect(page.getByRole('button', {name:'Start',exact:true})).toBeVisible();
   await expect(page.getByRole('button', {name:'Toggle debug panel'})).toBeVisible();
 
@@ -16,11 +16,9 @@ test('debug icon is present in the development player but absent from the built 
   });
 
   // Read the checked-in build directly instead of Vite's template alias.
-  await page.route(/\/make-something\.html\?story=debug-fixture\.md$/, route =>
-    route.fulfill({path:resolve('make-something.html'),contentType:'text/html'}));
-  await page.route(/\/assets\/[^/]+\.(?:js|css)$/, route =>
-    route.fulfill({path:resolve('.' + new URL(route.request().url()).pathname)}));
-  await page.goto('/make-something.html?story=debug-fixture.md');
+  await page.route(/\/index\.html\?story=debug-fixture\.md$/, route =>
+    route.fulfill({path:resolve('index.html'),contentType:'text/html'}));
+  await page.goto('/index.html?story=debug-fixture.md');
   await expect(page.getByRole('button', {name:'Start',exact:true})).toBeVisible();
   await expect(page.getByRole('button', {name:'Toggle debug panel'})).toHaveCount(0);
   await expect(page.locator('.story-editor')).toHaveCount(0);

@@ -22,7 +22,7 @@ ${station?'- A [transform] @ Oven -> X':'- A [transform] + B [preserve] -> X\n- 
     return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${room?780:size}" height="${room?1688:size}"><rect width="100%" height="100%" fill="#c3ab81"/></svg>`});
   });
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.goto('/make-something.html?story=drop-fixture/story.md');
+  await page.goto('/index.html?story=drop-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
 }
@@ -49,7 +49,7 @@ background: ![page](room.svg)
     const paper=r.request().url().endsWith('paper.svg');
     return r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${paper?800:780}" height="${paper?800:1688}"><rect width="100%" height="100%" fill="${paper?'orange':'white'}"/></svg>`});
   });
-  await page.goto('/make-something.html?story=paper-edge/story.md');
+  await page.goto('/index.html?story=paper-edge/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   const paper=item(page,'Paper'),fold=page.locator('[data-hotspot="name:Fold"]');
   // Every edge keeps the same finger-to-paper offset while held, without

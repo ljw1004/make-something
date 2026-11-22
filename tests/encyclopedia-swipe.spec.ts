@@ -17,7 +17,7 @@ ${entries}
 
 async function openBook(page: Page) {
   await page.route('**/swipe-fixture.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
-  await page.goto('/make-something.html?story=swipe-fixture.md');
+  await page.goto('/index.html?story=swipe-fixture.md');
   await page.getByRole('button', { name: 'Start', exact: true }).tap();
   await page.getByRole('button', { name: 'Begin', exact: true }).tap();
   await page.locator('[data-item="name:Entry 15"]').focus();

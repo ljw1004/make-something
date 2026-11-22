@@ -5,7 +5,7 @@ for (const viewport of [{width:390,height:844}, {width:820,height:1180}]) {
   test(`vinegar takes the lower corner beside the juice at ${viewport.width}px`, async ({page}) => {
     await page.setViewportSize(viewport);
     await page.emulateMedia({reducedMotion:'reduce'});
-    await page.goto('/make-something.html?story=stories/cookbook/cookbook.md');
+    await page.goto('/index.html?story=stories/cookbook/cookbook.md');
     await jumpToChapter(page, 'Vinegar and salad dressing', true);
     await page.getByRole('button', {name:'Begin', exact:true}).click();
 
@@ -75,7 +75,7 @@ Use the paper at the machine.
       const [width,height]=file==='room.svg'?[390,844]:file==='setup.svg'?[800,400]:[320,320];
       return route.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="${width}" height="${height}" fill="${file==='room.svg'?'#efe9da':'#518794'}"/></svg>`});
     });
-    await page.goto('/make-something.html?story=result-space/story.md');
+    await page.goto('/index.html?story=result-space/story.md');
     await page.getByRole('button',{name:'Start',exact:true}).click();
     await page.getByRole('button',{name:'Begin',exact:true}).click();
     const receiver=page.locator('[data-item="name:Machine"]'), before=(await receiver.boundingBox())!;
@@ -125,7 +125,7 @@ ${authored ? '  - place: Bread (center 300px, 220px)' : ''}
     const [w,h]=file==='page.svg'?[390,844]:file==='bread.svg'?[320,240]:[160,160];
     return r.fulfill({contentType:'image/svg+xml',body:`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="${file==='page.svg'?'white':'orange'}"/></svg>`});
   });
-  await page.goto('/make-something.html?story=hotspot-result/story.md');
+  await page.goto('/index.html?story=hotspot-result/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   const oven=page.locator('[data-hotspot="name:Oven"]'), target=(await oven.boundingBox())!;
   await page.locator('[data-item="name:Dough"]').dragTo(oven);

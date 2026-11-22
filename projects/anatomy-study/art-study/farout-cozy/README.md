@@ -1,6 +1,6 @@
 # Farout Cozy — Anatomy art candidate
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-cozy/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-cozy/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 Full production source: [anatomy.md](anatomy.md). Illustrated original chapters: **1, 4, 8 and 18**. The governing story intent remains the [Anatomy design brief](../../../../stories/anatomy/design-brief.md); this is an independent comparison candidate, not an adopted production style.
 

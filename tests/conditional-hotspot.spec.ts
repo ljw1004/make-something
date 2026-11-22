@@ -15,7 +15,7 @@ test('a hotspot waits for its conditional artwork, keeps its identity and positi
   });
   await page.emulateMedia({reducedMotion:'reduce'});
   try {
-    await page.goto('/make-something.html?story=conditional-world/story.md');
+    await page.goto('/index.html?story=conditional-world/story.md');
     await page.getByRole('button',{name:'Start',exact:true}).click();
     await page.getByRole('button',{name:'Begin',exact:true}).click();
     const world = page.locator('[data-hotspot="id:world"]'), moon = page.locator('[data-item="id:moon"]');

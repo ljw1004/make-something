@@ -28,7 +28,7 @@ d.text((16,47),'Anatomy · Interactive anatomy on a blank sheet · Completed cha
 for i,(n,name) in enumerate([(1,'Cell boundary'),(4,'Bones and muscles'),(8,'Hearing'),(18,'Digestion')]):
  d.text((i*400+10,79),f'{n}. {name}',font=font(18),fill='#18272d');im=Image.open(CAP/f'chapter-{n}.png').convert('RGB').resize((390,844),Image.Resampling.LANCZOS);sample.paste(im,(i*400+5,105))
 sample.save(R/'contact-sheet.jpg',quality=95,subsampling=0)
-play='../../../../make-something.html?story=projects/anatomy-study/art-study/farout-star-trek/anatomy.md'
+play='../../../../index.html?story=projects/anatomy-study/art-study/farout-star-trek/anatomy.md'
 cards='\n'.join(f'<section id="chapter-{n}"><h2>{n}. {escape(t)}</h2><a href="chapter-sheets/chapter-{n}.jpg"><img loading="lazy" width="800" height="936" src="chapter-sheets/chapter-{n}.jpg" alt="Starting pieces and completed chapter: {escape(t)}"></a></section>' for n,t in enumerate(titles,1))
 nav=' '.join(f'<a href="#chapter-{n}">{n}</a>' for n in range(1,29))
 (R/'review.html').write_text('''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anatomy · Star Trek rework</title><style>

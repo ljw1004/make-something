@@ -1,10 +1,10 @@
 # Star Trek: build the textbook page
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-star-trek/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-star-trek/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 The revised full-book trial for the [Anatomy design brief](../../../../stories/anatomy/design-brief.md), using the supplied [Star Trek inspiration](../../inspiration/farout-star-trek.png): translucent cyan contours, violet/coral tissue, ivory skeleton and gold details on midnight blue.
 
-- [Play the revised book](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-star-trek/anatomy.md).
+- [Play the revised book](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-star-trek/anatomy.md).
 - [Compare starting pieces and completed constructions in all 28 chapters](http://127.0.0.1:5173/projects/anatomy-study/art-study/farout-star-trek/review.html).
 - [Complete contact sheet](all-chapters.jpg), [four-chapter comparison](contact-sheet.jpg), and [verification record](../../art-review/2026.11.14_21.49.10/report.md).
 

@@ -67,8 +67,8 @@ export function storyQuery(path: string): string {
 export function resolveStoryURL(pageURL: string | URL): string {
   const page = storyResourceURL(pageURL);
   const selectors = page.searchParams.getAll('story');
-  const path = selectors[0] ?? 'story.md';
-  if (selectors.length > 1 || !/\.md$/i.test(path) || /[?#]/.test(path)) {
+  const path = selectors[0];
+  if (selectors.length !== 1 || !/\.md$/i.test(path) || /[?#]/.test(path)) {
     throw new Error('Choose one relative Markdown file, for example ?story=stories/theology/theology.md.');
   }
   return resolveRelativeFile(path, page).href;

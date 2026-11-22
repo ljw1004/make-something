@@ -34,7 +34,7 @@ final class BundledWebsite: NSObject, WKURLSchemeHandler {
             }
             let headers = [
                 "Content-Type": mime,
-                "Content-Security-Policy": "default-src msw://app; script-src msw://app 'unsafe-inline'; style-src msw://app 'unsafe-inline'; img-src msw://app data:; manifest-src data:; object-src 'none'; frame-src 'none'; base-uri 'none'"
+                "Content-Security-Policy": "default-src msw://app; script-src msw://app 'unsafe-inline'; worker-src blob:; style-src msw://app 'unsafe-inline'; img-src msw://app data:; manifest-src data:; object-src 'none'; frame-src 'none'; base-uri 'none'"
             ]
             task.didReceive(HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: headers)!)
             task.didReceive(data)

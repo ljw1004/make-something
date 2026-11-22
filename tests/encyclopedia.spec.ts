@@ -32,7 +32,7 @@ Workshop introduction.
 
 async function openFixture(page: Page, text = manuscript) {
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: text }));
-  await page.goto('/make-something.html?story=library-fixture/story.md');
+  await page.goto('/index.html?story=library-fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await expect(page.locator('dialog button')).toHaveCount(1);
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
@@ -114,7 +114,7 @@ test('an unfinished encyclopedia cue survives reload with reduced motion and a d
 test('only the reopened chapter dismisses on prose or backdrop taps, with a top-right Close and left-aligned recovery', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
-  await page.goto('/make-something.html?story=library-fixture/story.md');
+  await page.goto('/index.html?story=library-fixture/story.md');
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   const backdrop = page.locator('.game-dialog-layer');
   const outside = () => backdrop.click({ position: { x: 4, y: 4 } });

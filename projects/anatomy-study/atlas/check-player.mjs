@@ -18,7 +18,7 @@ async function saved(){return page.evaluate(()=>Object.values(localStorage).map(
 async function visiblePoint(locator){return locator.evaluate(el=>{const b=el.getBoundingClientRect();for(const [u,v] of [[.5,.5],[.85,.5],[.15,.5],[.5,.15],[.5,.85],[.85,.15],[.85,.85],[.15,.15],[.15,.85]]){const x=b.x+b.width*u,y=b.y+b.height*v,h=document.elementFromPoint(x,y);if(h&&(h===el||el.contains(h)))return{x,y};}return null;});}
 for(const chapter of range){
  try{
-  if(!continuous||chapter===1){await page.goto('http://127.0.0.1:5173/make-something.html?story='+file);await settle();const start=page.getByRole('button',{name:'Start',exact:true});if(await start.count())await start.click();await dismiss();}
+  if(!continuous||chapter===1){await page.goto('http://127.0.0.1:5173/index.html?story='+file);await settle();const start=page.getByRole('button',{name:'Start',exact:true});if(await start.count())await start.click();await dismiss();}
   if(!continuous&&chapter!==1){await page.getByRole('button',{name:'Toggle debug panel'}).click();if(viewport.width>=900){await page.getByRole('button',{name:'Chapter',exact:true}).click();await page.getByRole('option',{name:`${chapter}. ${story.chapters[chapter-1].name}`,exact:true}).click();await page.getByRole('button',{name:'Close debug panel',exact:true}).click();}else await page.getByRole('button',{name:`${chapter}. ${story.chapters[chapter-1].name}`,exact:true}).click();await dismiss();}
   const panel=page.locator('.chapter-panel').last();if(Number(await panel.getAttribute('data-chapter'))!==chapter-1)throw Error('Wrong chapter after Continue');
   const start=checkpoint(story,chapter-1),end=checkpoint(story,chapter,start),actions=end.actions.slice(start.actions.length).filter(a=>a.type==='combine'||a.type==='move');

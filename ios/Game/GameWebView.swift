@@ -57,7 +57,7 @@ final class GameWebView: WKWebView, WKNavigationDelegate, WKUIDelegate {
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let url = action.request.url, BundledWebsite.contains(url),
            action.targetFrame?.isMainFrame == true,
-           ["/index.html", "/make-something.html"].contains(url.path) {
+           url.path == "/index.html" {
             decisionHandler(.allow)
         } else {
             openExternalLink(action)

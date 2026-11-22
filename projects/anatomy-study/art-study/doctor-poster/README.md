@@ -1,6 +1,6 @@
 # Doctor's poster
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/doctor-poster/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/doctor-poster/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 A clinical painted atlas: luminous coral tissue, ivory bones, slate-blue membranes, purple cellular structures and gold nerves on a blank white sheet. The assigned references are [ear.jpeg](../../inspiration/ear.jpeg) and [muscles.jpeg](../../inspiration/muscles.jpeg); only these and this candidate's own retained artwork were inspected.
 

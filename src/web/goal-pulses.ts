@@ -1,3 +1,4 @@
+import GoalWorker from './goal-worker.ts?worker&inline';
 import type {Story} from '../story/types.ts';
 import type {State} from '../engine/types.ts';
 import {chapterComplete} from '../engine/game.ts';
@@ -100,7 +101,7 @@ export class GoalPulses {
     // Prepare the ranking before it is needed. A pickup never waits for a worker;
     // if the current state's result is not ready, it uses the top unfinished row.
     let worker: Worker;
-    try { worker = new Worker(new URL('./goal-worker.ts',import.meta.url),{type:'module'}); }
+    try { worker = new GoalWorker(); }
     catch {return;}
     let active = true;
     const timeout = setTimeout(() => finish(),250);

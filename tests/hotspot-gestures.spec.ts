@@ -42,7 +42,7 @@ async function enterField(page: Page, appearance: Appearance = 'text') {
     return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="${width}" height="${height}" fill="tan"/></svg>`});
   });
   await page.emulateMedia({reducedMotion: 'reduce'});
-  await page.goto('/make-something.html?story=hotspot-gestures/story.md');
+  await page.goto('/index.html?story=hotspot-gestures/story.md');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.locator('[data-item="name:Frame"]').dragTo(page.locator('[data-item="name:Tool"]'));

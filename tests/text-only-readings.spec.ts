@@ -24,7 +24,7 @@ test('text-only item passages never show blank popups or empty reading controls,
 - C [transform] + Part [consume] -> D
 `;
  await page.route('**/text-caption-fixture.md',route=>route.fulfill({contentType:'text/markdown',body:source}));
- await page.goto('/make-something.html?story=text-caption-fixture.md');
+ await page.goto('/index.html?story=text-caption-fixture.md');
  await page.getByRole('button',{name:'Start',exact:true}).click();
  await expect(page.locator('[data-item="name:A"] .reading-indicator')).toHaveCount(0);
  await page.locator('[data-item="name:A"]').dblclick();await expect(page.getByRole('dialog')).toHaveCount(0);
@@ -58,7 +58,7 @@ test('live edits can hide and restore a pending reading without losing the const
 - A [transform] + B [consume] -> C
 `;
  await page.route('**/editable-caption-fixture.md',route=>route.fulfill({contentType:'text/markdown',body:source}));
- await page.goto('/make-something.html?story=editable-caption-fixture.md');
+ await page.goto('/index.html?story=editable-caption-fixture.md');
  await page.getByRole('button',{name:'Start',exact:true}).click();
  await openDebugPanel(page);
  await page.locator('[data-item="name:A"]').dragTo(page.locator('[data-item="name:B"]'));

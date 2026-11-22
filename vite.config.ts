@@ -1,16 +1,22 @@
-import { resolve } from 'node:path';
+import {resolve} from 'node:path';
 import { defineConfig } from 'vite';
-import { sitePages, sitePageNames } from './src/build/site.ts';
+import { sitePages } from './src/build/site.ts';
 
-export default defineConfig({
+export default defineConfig(({command}) => ({
   base: './',
   appType: 'mpa',
   publicDir: false,
   plugins: [sitePages()],
+  builder: {},
+  environments: command === 'build' ? {
+    client: {build: {rolldownOptions: {input: 'index-dev.html'}}},
+    simulator: {consumer: 'client', build: {rolldownOptions: {input: 'simulator-dev.html'}}},
+  } : undefined,
   build: {
     outDir: '.',
     emptyOutDir: false,
-    rolldownOptions: { input: Object.fromEntries(sitePageNames.map(name => [name,resolve(`${name}-dev.html`)])) },
+    modulePreload: false,
+    rolldownOptions: {output: {codeSplitting: false}},
   },
-  server: { watch: { ignored: ['**/archive/**', '**/runs/**', ...sitePageNames.map(name => resolve(`${name}.html`)), `${resolve('assets')}/**`] } },
-});
+  server: {watch: {ignored: ['**/archive/**', '**/runs/**', resolve('index.html'), resolve('simulator.html')]}},
+}));

@@ -99,7 +99,7 @@ def main():
             print(f'Overview awaits {slug} contact sheet');return
         sheets.append(Image.open(path).convert('RGB').resize((1600,1120),Image.Resampling.LANCZOS))
         nav.append(f'<a href="#{slug}">{escape(title)}</a>')
-        play=f'../../../make-something.html?story=projects/anatomy-study/art-study/{slug}/sample.md'
+        play=f'../../../index.html?story=projects/anatomy-study/art-study/{slug}/sample.md'
         details=' · '.join(f'<a href="{slug}/comparison/chapter-{n}.jpg">Chapter {n}</a>' for n,_ in CHAPTERS)
         cards.append(f'<section id="{slug}"><div class="caption"><h2>{escape(title)}</h2><p><a class="play" href="{play}">Play all four chapters ↗</a> · <a href="{slug}/contact-sheet.jpg">Full contact sheet ↗</a> · <a href="{slug}/README.md">Sources and production notes</a></p><p>{details}</p></div><a href="{slug}/contact-sheet.jpg"><img loading="lazy" width="3200" height="2240" src="{slug}/contact-sheet.jpg" alt="Four chapters and their complete icon families in {escape(title)}"></a></section>')
     overview=Image.new('RGB',(1600,1120*len(sheets)),'#f1f1ec')

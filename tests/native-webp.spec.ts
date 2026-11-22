@@ -34,7 +34,7 @@ background: ![moving scene](${kind==='background'?'once.webp':'room.svg'})`;
   await page.route('**/native-webp/story.md',r=>r.fulfill({contentType:'text/markdown',body:manuscript}));
   await page.route('**/native-webp/room.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"><rect width="100%" height="100%" fill="white"/></svg>'}));
   await page.route('**/native-webp/once.webp',r=>r.fulfill({contentType:'image/webp',body:once}));
-  await page.goto('/make-something.html?story=native-webp/story.md');
+  await page.goto('/index.html?story=native-webp/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.waitForTimeout(2100); // Speculative decoding must not exhaust the displayed animation.
   await page.locator('[data-item="name:A"]').dragTo(page.locator('[data-item="name:B"]'));

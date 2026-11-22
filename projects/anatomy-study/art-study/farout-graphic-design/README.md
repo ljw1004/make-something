@@ -1,6 +1,6 @@
 # FAROUT GRAPHIC DESIGN — Anatomy comparison candidate
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-graphic-design/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-graphic-design/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 Independent interpretation of [farout-graphic-design.png](../../inspiration/farout-graphic-design.png), using only this reference and this theme's earlier generated artwork. Angular anatomical facets, lithographic grain, oxide red, slate blue and cream define the drawing treatment. The [Anatomy brief](../../../../stories/anatomy/design-brief.md) and [common assignment](../artist-instructions.md) govern the work.
 

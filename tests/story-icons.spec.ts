@@ -40,7 +40,7 @@ test('live authoring measures heading art and clears old shape diagnostics after
     const width = route.request().url().endsWith('/wide.svg') ? 512 : 256;
     return route.fulfill({contentType: 'image/svg+xml', body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="256"/>`});
   });
-  await page.goto('/make-something.html?story=icon-draft/story.md');
+  await page.goto('/index.html?story=icon-draft/story.md');
   await openDebugPanel(page);
   const shapeError = page.locator('.editor-diagnostic-text').filter({hasText: 'Story icons must be square'});
   await expect(shapeError).toHaveCount(1);

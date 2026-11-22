@@ -1,48 +1,37 @@
-import { existsSync, statSync, readFileSync, unlinkSync } from 'node:fs';
+import { existsSync, statSync, readFileSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
 import type { Plugin } from 'vite';
 import { loadStory, storyIds } from '../story/load.ts';
 import { renderCatalogue, renderTerminalCatalogue } from './catalogue.ts';
 
-export const sitePageNames = ['index','make-something','simulator-story','simulator-interactions'] as const;
-
-const inventory = 'assets/build-files.json';
-const bundleFile = (path: unknown): path is string => typeof path === 'string' && /^assets\/[^/\\]+\.(?:js|css|map)$/.test(path);
-
 /** Root HTML is generated output; development always reads the editable templates. */
 export function sitePages(): Plugin {
-  let root: string, output: string;
-  let previous: string[] = [];
+  let root: string;
   return {
     name: 'site-pages',
     configResolved(config) {
       root = config.root;
-      output = resolve(root, config.build.outDir);
+      const output = resolve(root, config.build.outDir);
       const rootFromOutput = relative(output, root);
       const containsRoot = rootFromOutput === '' || (rootFromOutput !== '..' && !rootFromOutput.startsWith('../') && !isAbsolute(rootFromOutput));
       if (containsRoot && config.build.emptyOutDir !== false) {
         throw new Error('A root build requires emptyOutDir: false; the repository must never be emptied.');
       }
-      const manifest = resolve(output, inventory);
-      if (config.command === 'build' && existsSync(manifest)) {
-        const files: unknown = JSON.parse(readFileSync(manifest, 'utf8'));
-        if (!Array.isArray(files) || !files.every(bundleFile)) throw new Error('Invalid generated bundle inventory.');
-        previous = files;
-      }
     },
     configureServer(server) {
       server.middlewares.use(async (request, response, next) => {
-        const path = new URL(request.url ?? '/', 'http://localhost').pathname;
-        const catalogue = path === '/' || path === '/index.html' || path === '/index-dev.html';
-        const player = path === '/make-something-dev.html' || path.endsWith('/make-something.html');
-        const terminal = /^\/(simulator-story|simulator-interactions)(?:-dev)?\.html$/.exec(path)?.[1];
-        if (catalogue || player || terminal) {
+        const url = new URL(request.url ?? '/', 'http://localhost');
+        const path = url.pathname;
+        const simulator = /^\/simulator(?:-dev)?\.html$/.test(path);
+        const rootPage = ['/', '/index.html', '/index-dev.html'].includes(path);
+        const adjacent = !rootPage && path.endsWith('/index.html') && url.searchParams.has('story');
+        if (rootPage || adjacent || simulator) {
           try {
-            let html = readFileSync(resolve(root, `${catalogue ? 'index' : terminal ?? 'make-something'}-dev.html`), 'utf8');
-            if (player) {
+            let html = readFileSync(resolve(root, simulator ? 'simulator-dev.html' : 'index-dev.html'), 'utf8');
+            if (adjacent) {
               const prefix = '../'.repeat(path.split('/').length - 2);
-              html = html.replace('data-catalogue="./index.html"', `data-catalogue="${prefix || './'}index.html"`);
-              html = html.replace('href="./assets/appicon.png"', `href="${prefix || './'}assets/appicon.png"`);
+              html = html.replace('data-catalogue="./index.html"', `data-catalogue="${prefix}index.html"`)
+                .replaceAll('href="./assets/', `href="${prefix}assets/`);
             }
             response.setHeader('Content-Type', 'text/html');
             response.end(await server.transformIndexHtml(path, html));
@@ -66,10 +55,6 @@ export function sitePages(): Plugin {
       // Insert artwork after Vite's HTML processing so it stays an ordinary URL.
       order: 'post',
       handler(html) {
-        if (html.includes('<!-- catalogue-styles -->')) {
-          const css = readFileSync(resolve(root, 'src/web/style.css'), 'utf8');
-          html = html.replace('<!-- catalogue-styles -->', () => `<style>${css}</style>`);
-        }
         if (!html.includes('<!-- story-catalogue -->') && !html.includes('<!-- terminal-catalogue -->')) return html;
         const stories = resolve(root, 'stories');
         const entries = storyIds(stories).map(path => {
@@ -83,20 +68,27 @@ export function sitePages(): Plugin {
     generateBundle: {
       order: 'post',
       handler(_, bundle) {
-        for (const name of sitePageNames) {
-          const source = `${name}-dev.html`, page = bundle[source];
-          if (!page || page.type !== 'asset') throw new Error(`Missing built template: ${source}`);
-          delete bundle[source];
-          this.emitFile({ type: 'asset', fileName: `${name}.html`, source: page.source });
+        const page = Object.values(bundle).find(file => file.fileName.endsWith('-dev.html'));
+        if (!page || page.type !== 'asset') throw new Error('Missing page template');
+        let html = String(page.source);
+        for (const file of Object.values(bundle)) {
+          if (file.fileName === page.fileName) continue;
+          const url = `./${file.fileName}`;
+          if (file.type === 'chunk' && file.isEntry && !file.imports.length && file.dynamicImports.every(path => path === file.fileName)) {
+            const tag = `<script type="module" crossorigin src="${url}"></script>`;
+            if (!html.includes(tag)) throw new Error(`Missing entry script ${url}`);
+            // An HTML parser recognizes script end tags even inside a JavaScript string.
+            html = html.replace(tag, () => `<script type="module">${file.code.replace(/<\/script/gi, '<\\/script')}</script>`);
+          } else if (file.type === 'asset' && file.fileName.endsWith('.css')) {
+            const tag = `<link rel="stylesheet" crossorigin href="${url}">`;
+            if (!html.includes(tag)) throw new Error(`Missing stylesheet ${url}`);
+            html = html.replace(tag, () => `<style>${file.source}</style>`);
+          } else throw new Error(`Unexpected external dependency: ${file.fileName}`);
+          delete bundle[file.fileName];
         }
-        this.emitFile({ type: 'asset', fileName: inventory, source: JSON.stringify(Object.keys(bundle).filter(bundleFile).sort(), null, 2) + '\n' });
+        delete bundle[page.fileName];
+        this.emitFile({type: 'asset', fileName: page.fileName.replace('-dev.html', '.html'), source: html});
       },
-    },
-    writeBundle(_, bundle) {
-      // Only retire files listed by the previous successful build, after new output exists.
-      for (const file of previous) {
-        if (!(file in bundle) && existsSync(resolve(output, file))) unlinkSync(resolve(output, file));
-      }
     },
   };
 }

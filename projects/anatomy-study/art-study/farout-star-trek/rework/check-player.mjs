@@ -18,7 +18,7 @@ for(const chapter of range){
  const context=await browser.newContext({viewport,deviceScaleFactor:2,reducedMotion:'reduce'});const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
  try{
   const start=checkpoint(story,chapter-1),end=checkpoint(story,chapter,start);const actions=end.actions.slice(start.actions.length).filter(a=>a.type==='combine'||a.type==='move');
-  await page.goto('http://127.0.0.1:5173/make-something.html?story='+file);
+  await page.goto('http://127.0.0.1:5173/index.html?story='+file);
   await page.getByRole('button',{name:'Start',exact:true}).click();await dismiss(page);
   if(chapter!==1){await page.getByRole('button',{name:'Toggle debug panel'}).click();if(viewport.width>=900){await page.getByRole('button',{name:'Chapter',exact:true}).click();await page.getByRole('option',{name:`${chapter}. ${story.chapters[chapter-1].name}`,exact:true}).click();await page.getByRole('button',{name:'Close debug panel',exact:true}).click();}else{await page.getByRole('button',{name:`${chapter}. ${story.chapters[chapter-1].name}`,exact:true}).click();}await dismiss(page);}
   await page.screenshot({path:`${out}/chapter-${chapter}-entry.png`});

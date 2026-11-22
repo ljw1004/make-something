@@ -10,9 +10,10 @@ import {terminalCommandInput} from './terminal-command-input.ts';
 import {resolveStoryURL} from './story-document.ts';
 import {highlightTerminalObjects, terminalFrame, terminalFrameMarkdown} from './text-terminal-frame.ts';
 
-const requestedStyle = document.body.dataset.playStyle;
-if (requestedStyle !== 'fast' && requestedStyle !== 'detailed') throw new Error('Unknown terminal play style.');
-const style = requestedStyle;
+const style = new URLSearchParams(location.search).get('mode') === 'detailed' ? 'detailed' : 'fast';
+const modeLabel = style === 'fast' ? '[story simulator]' : '[interaction simulator]';
+document.title = `Make Something Worthwhile ${modeLabel}`;
+document.querySelector('#simulator-mode')!.textContent = modeLabel;
 const transcript = document.querySelector<HTMLDivElement>('#transcript')!;
 const form = document.querySelector<HTMLFormElement>('#prompt')!;
 const input = document.querySelector<HTMLInputElement>('#command')!;

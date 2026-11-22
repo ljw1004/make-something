@@ -22,7 +22,7 @@ background: ![room](room.svg)
     const [width,height] = route.request().url().endsWith('room.svg') ? [390,844] : [40,80];
     return route.fulfill({contentType:'image/svg+xml', body:`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="#567"/></svg>`});
   });
-  await page.goto('/make-something.html?story=authored-targets/story.md');
+  await page.goto('/index.html?story=authored-targets/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   for (const viewport of [{width:390,height:844},{width:320,height:568},{width:844,height:390}]) {
     await page.setViewportSize(viewport);

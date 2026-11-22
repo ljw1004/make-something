@@ -15,23 +15,22 @@ class Storage implements DraftStorage {
 const url = 'https://example.test/work/mars/mars.md';
 
 test('portable story paths and artwork resolve from their own documents, rejecting remote selectors and unsafe schemes', () => {
-  assert.equal(resolveStoryURL('https://example.test/work/make-something.html'), 'https://example.test/work/story.md');
-  assert.equal(resolveStoryURL('https://example.test/work/mars/make-something.html'), 'https://example.test/work/mars/story.md');
-  assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=mars/mars.md#ignored'), url);
-  assert.equal(resolveStoryURL('https://example.test/work/mars/make-something.html?story=mars.md'), url);
-  assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=mars%2Fmars.md'), url);
-  assert.equal(resolveStoryURL('https://example.test/work/make-something.html?story=shared/another%20story.md'), 'https://example.test/work/shared/another%20story.md');
+  assert.throws(() => resolveStoryURL('https://example.test/work/index.html'));
+  assert.equal(resolveStoryURL('https://example.test/work/index.html?story=mars/mars.md#ignored'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/mars/index.html?story=mars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/index.html?story=mars%2Fmars.md'), url);
+  assert.equal(resolveStoryURL('https://example.test/work/index.html?story=shared/another%20story.md'), 'https://example.test/work/shared/another%20story.md');
   assert.equal(resolveStoryAsset('assets/scene.webp', url), 'https://example.test/work/mars/assets/scene.webp');
   for (const path of ['/mars.md', '../mars.md', 'dir/../mars.md', 'dir/moon..map.md', 'https://example.test/work/mars.md',
     '%2Fmars.md', '%2e.mars.md', '%252e%252e/mars.md', 'dir%5cmars.md']) {
-    const page = new URL('https://example.test/work/make-something.html');
+    const page = new URL('https://example.test/work/index.html');
     page.searchParams.set('story', path);
     assert.throws(() => resolveStoryURL(page), path);
     assert.throws(() => resolveStoryAsset(path, url), path);
   }
   assert.equal(resolveStoryAsset('assets/a%20b.webp', url), 'https://example.test/work/mars/assets/a%20b.webp');
   for (const selector of ['', 'mars', '../private', 'https://other.test/story.md', '//other.test/story.md', 'javascript:story.md', 'mars%5Cmars.md', 'mars/mars.md%23fragment', 'mars/mars.md%3Fquery', '%2e%2e', 'mars/mars.md&story=cookbook/cookbook.md']) {
-    assert.throws(() => resolveStoryURL(`https://example.test/work/make-something.html?story=${selector}`));
+    assert.throws(() => resolveStoryURL(`https://example.test/work/index.html?story=${selector}`));
   }
   for (const asset of ['javascript:alert(1)', 'data:text/html,hello', 'https://user:secret@example.test/a.webp']) {
     assert.throws(() => resolveStoryAsset(asset, url));
@@ -39,11 +38,11 @@ test('portable story paths and artwork resolve from their own documents, rejecti
 });
 
 test('the installed player resolves its own bundle and requires local artwork', () => {
-  const story = resolveStoryURL('msw://app/make-something.html?story=stories/mars/mars.md');
+  const story = resolveStoryURL('msw://app/index.html?story=stories/mars/mars.md');
   assert.equal(story, 'msw://app/stories/mars/mars.md');
   assert.equal(resolveStoryAsset('icon.png', story), 'msw://app/stories/mars/icon.png');
   for (const base of ['msw://other', 'msw://app:80', 'msw://name@app', 'file:///app']) {
-    assert.throws(() => resolveStoryURL(base + '/make-something.html'));
+    assert.throws(() => resolveStoryURL(base + '/index.html'));
   }
   assert.throws(() => resolveStoryAsset('https://other.test/icon.png', story));
   assert.throws(() => resolveStoryAsset('msw://app/icon.png', url));
@@ -51,13 +50,13 @@ test('the installed player resolves its own bundle and requires local artwork', 
 
 test('stories sharing artwork keep independent drafts, while routes to the same file share a draft', () => {
   const storage = new Storage();
-  const otherURL = resolveStoryURL('https://example.test/work/make-something.html?story=mars/alternate.md');
+  const otherURL = resolveStoryURL('https://example.test/work/index.html?story=mars/alternate.md');
   const first = new DraftStore(url, {storage}), second = new DraftStore(otherURL, {storage});
   assert.equal(resolveStoryAsset('assets/scene.webp', url), resolveStoryAsset('assets/scene.webp', otherURL));
   first.save('First manuscript'); second.save('Second manuscript');
   const formerPlayerURL = resolveStoryURL('https://example.test/work/combinations.html?story=mars/mars.md');
   assert.equal(new DraftStore(formerPlayerURL, {storage}).read().draft?.text, 'First manuscript');
-  const adjacentURL = resolveStoryURL('https://example.test/work/mars/make-something.html?story=mars.md');
+  const adjacentURL = resolveStoryURL('https://example.test/work/mars/index.html?story=mars.md');
   assert.equal(new DraftStore(adjacentURL, {storage}).read().draft?.text, 'First manuscript');
   first.delete();
   assert.equal(second.read().draft?.text, 'Second manuscript');

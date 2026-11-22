@@ -36,7 +36,7 @@ for(const theme of themes){
     const onError=e=>errors.push(e.message);page.on('pageerror',onError);
     try{
       if(!sample||chapter.n===1){
-        await page.goto(`http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/${theme}/${sample?'sample':'anatomy'}.md`);
+        await page.goto(`http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/${theme}/${sample?'sample':'anatomy'}.md`);
         await page.getByRole('button',{name:'Start',exact:true}).click();
         await page.getByRole('button',{name:'Begin',exact:true}).click();await dismiss(page);
       }

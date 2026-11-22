@@ -2,7 +2,7 @@
 
 A combination anatomy and physiology textbook for **grades 9–10, non-AP/non-Honors**. Build cells, tissues, organs and systems, then discover how their relationships sustain a living body. The selected art direction is a naturalistic **1800s anatomical atlas**, with modern explanatory scale and blank paper backgrounds. The [main manuscript](../../stories/anatomy/anatomy.md) is in the game's catalogue. This study remains active for further iterations.
 
-The [study manuscript](anatomy.md) and its artwork preserve the edition added to the catalogue and serve as the starting point for further experiments. The illustrated edition has **132 combination and fitting actions on its native completion route, across 28 playable chapters and an epilogue**. Chapters 1–27 build local anatomy. Chapter 28 connects the completed structures in ten operations. All 257 item identities and 23 fitted layers have artwork. [Play the catalogue edition](http://127.0.0.1:5173/make-something.html?story=stories/anatomy/anatomy.md) or inspect the [chapter sheets, complete icon inventory and combination sequences](http://127.0.0.1:5173/projects/anatomy-study/atlas/review.html).
+The [study manuscript](anatomy.md) and its artwork preserve the edition added to the catalogue and serve as the starting point for further experiments. The illustrated edition has **132 combination and fitting actions on its native completion route, across 28 playable chapters and an epilogue**. Chapters 1–27 build local anatomy. Chapter 28 connects the completed structures in ten operations. All 257 item identities and 23 fitted layers have artwork. [Play the catalogue edition](http://127.0.0.1:5173/index.html?story=stories/anatomy/anatomy.md) or inspect the [chapter sheets, complete icon inventory and combination sequences](http://127.0.0.1:5173/projects/anatomy-study/atlas/review.html).
 
 Artwork depicts what each thing physically is now. It carries no reagent-history badges, future-purpose symbols, detached enlargements or duplicate organs. The revised opening distinguishes an empty membrane from contained water and uses a porous nuclear envelope. The single completed cell carries into differentiation; the arm chapter first differentiates a bone-building cell, then builds living bone tissue, then humerus, ulna, radius and wrist/hand before biceps and triceps. Hearing and balance finish as local organs. Digestion uses separate enzyme substances and a physically mixed saliva. The [design brief](../../stories/anatomy/design-brief.md) owns these rules; [atlas production](atlas/README.md) records implementation and verification, and the [curriculum audit](curriculum.md) records the taught vocabulary.
 
@@ -12,9 +12,9 @@ Current verification belongs to the [atlas production record](atlas/README.md). 
 
 With the development server running, open the study copy through these routes.
 
-- [Play with detailed text interactions](http://127.0.0.1:5173/simulator-interactions.html?story=projects/anatomy-study/anatomy.md).
-- [Play with the fast menu](http://127.0.0.1:5173/simulator-story.html?story=projects/anatomy-study/anatomy.md).
-- [Open the graphical player](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/anatomy.md) with the complete atlas artwork.
+- [Play with detailed text interactions](http://127.0.0.1:5173/simulator.html?mode=detailed&story=projects/anatomy-study/anatomy.md).
+- [Play with the fast menu](http://127.0.0.1:5173/simulator.html?story=projects/anatomy-study/anatomy.md).
+- [Open the graphical player](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/anatomy.md) with the complete atlas artwork.
 
 Use **Restart story** for browser progress created against an earlier draft. The catalogue and study manuscript URLs each have their own progress and draft storage, as do the earlier Anatomy and Undissection project URLs.
 

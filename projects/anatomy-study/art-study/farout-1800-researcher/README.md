@@ -1,6 +1,6 @@
 # Researcher's notebook
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/farout-1800-researcher/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-1800-researcher/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 An independent study of only [the supplied researcher reference](../../inspiration/farout-1800-researcher.png) and this theme's own prior masters: sepia pen, fine crosshatching and restrained rose, ochre, lavender and olive washes on warm paper. The modern explanatory composition uses anatomical locators and located enlargements; historical drawing manner is not a historical physiology claim.
 

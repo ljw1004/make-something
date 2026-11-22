@@ -1,6 +1,6 @@
 # Classic 1800s anatomical atlas
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/classic-1800/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/classic-1800/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 Independent chapter 1, 4, 8 and 18 study under the [Anatomy design brief](../../../../stories/anatomy/design-brief.md). The supplied [classic2](../../inspiration/classic2.jpeg) and [classic3](../../inspiration/classic3.jpeg) informed fine parallel engraving, anatomical contours, rose madder muscle, sage accents and restrained paper colour. These references were inspected directly; other artists' themes were not consulted.
 

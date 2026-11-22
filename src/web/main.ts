@@ -27,7 +27,7 @@ import {browserReadings, dismissTextOnlyWonders} from './item-readings.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, hasChapterCombination, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset, storyQuery } from './story-document.ts';
-import { AuthoringSession } from './authoring.ts';
+import type { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
@@ -84,7 +84,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let tutorialProgress: TutorialProgress | undefined;
   let hotspotTutorialRecipe: string | undefined;
   let tutorialSaveError = '', progressSaveError = '';
-  let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession;
+  let story: Story, state: State, chapterSession: ChapterSession, authoring: AuthoringSession | undefined;
+  let manuscriptBaseURL = '';
   let documentURL = '', storyID = '', legacySaveKey = '', previewText = '', hash = '', saveError = '', editedSnapshot = false;
   interface Anchor { text: string; story: Story; state: State; chapterSession: ChapterSession; itemOrder: string[]; chapterView?: number; scrollTop?: number; viewportHeight?: number; dialog?: DialogContext; encyclopedia: EncyclopediaHistory }
   let anchor: Anchor;
@@ -105,7 +106,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let encyclopediaHistory: EncyclopediaHistory = {};
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const goalPulses = new GoalPulses(surface, () => ({
-    blocked: !storyStarted || starting || !entranceSettled || mobileDebug.isOpen || document.hidden,
+    blocked: !storyStarted || starting || !entranceSettled || mobileDebug?.isOpen || document.hidden,
     reducedMotion: reducedMotion.matches,
   }));
   const desktopDebug = matchMedia('(min-width: 900px)');
@@ -176,14 +177,14 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     clearTimeout(creationLabels.get(id));
     creationLabels.set(id, setTimeout(() => { creationLabels.delete(id); tile(id)?.classList.remove('newly-created'); }, 1700));
   }
-  const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
+  const mobileDebug = import.meta.env.DEV ? new MobileDebug(jumpToCheckpoint, updateEditingIndicators) : undefined;
   const imageGeometry = (image?: string) => viewportBoard(app.clientWidth, app.clientHeight, itemArtwork.dimensions(image, asset));
   const boardGeometry = (chapter = state.chapter) => imageGeometry(background(story, chapter));
   const elementGeometry = (element: HTMLElement) => boardGeometry(Number(element.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
   const name = (id: string) => label(story, state, id);
   const key = () => storyProgressKey(documentURL);
   const asset = (path: string) => {
-    try { return resolveStoryAsset(path, authoring.assetBaseURL); }
+    try { return resolveStoryAsset(path, authoring?.assetBaseURL ?? manuscriptBaseURL); }
     catch { return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E'; }
   };
   function fingerprint(text: string) { let value = 2166136261; for (const c of text) value = Math.imul(value ^ c.charCodeAt(0), 16777619); return (value >>> 0).toString(16); }
@@ -226,7 +227,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function updateTutorialCue() {
     tutorialOverlay.dragging(!!drag || !!hotspotPress);
-    if (chapterSlide || !entranceSettled || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
+    if (chapterSlide || !entranceSettled || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug?.isOpen) {
       tutorialOverlay.show(); return;
     }
     // Keep the chosen demonstration stable until the player finishes their gesture.
@@ -287,10 +288,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     else alert?.remove();
   }
   function updateEditingIndicators() {
-    if (!authoring) return;
-    // The Vite development server runs the authored -dev template (also at the
-    // local pretty URL). The built player never exposes developer controls.
     if (!import.meta.env.DEV) { updateTutorial(); return; }
+    if (!authoring) return;
     let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
     if (!toggle) {
       toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
@@ -308,7 +307,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     toggle.title = authoring.edited ? 'Local edits — toggle debug panel' : 'Toggle debug panel';
     toggle.dataset.saveError = String(!!saveError);
     toggle.setAttribute('aria-controls', desktopDebug.matches ? 'debug-panel' : 'mobile-debug-panel');
-    toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug.isOpen));
+    toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug?.isOpen));
     let warning = app.querySelector<HTMLElement>('.draft-warning');
     if (authoring.store.unsaved && !authoring.isOpen) {
       if (!warning) { warning = document.createElement('p'); warning.className = 'draft-warning'; warning.setAttribute('role', 'alert'); app.append(warning); }
@@ -325,7 +324,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
 
   let diagnostics: LiveDiagnostics | undefined;
   function checkText(parsed: Story, text: string) {
-    if (!authoring?.isOpen) return;
+    if (!import.meta.env.DEV || !authoring?.isOpen) return;
     diagnostics ??= new LiveDiagnostics(
       (results, phase) => authoring?.setDiagnostics(results, phase),
       message => authoring?.setPreviewStatus(message),
@@ -336,7 +335,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if (prepared) {
       diagnostics.check(parsed, text);
       void prepared.then(() => {
-        if (!signal.aborted && previewText === text && authoring.text === text) { diagnostics?.invalidate(); checkText(parsed, text); }
+        if (!signal.aborted && previewText === text && authoring?.text === text) { diagnostics?.invalidate(); checkText(parsed, text); }
       });
       return;
     }
@@ -356,10 +355,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     cancelArtworkWait();
     diagnostics?.invalidate();
     clearTimeout(previewTimer);
-    previewTimer = setTimeout(() => { previewTimer = undefined; applyText(authoring.text); }, 90);
+    previewTimer = setTimeout(() => { previewTimer = undefined; if (authoring) applyText(authoring.text); }, 90);
   }
   function flushPreview() {
-    if (!authoring || authoring.text === previewText) return;
+    if (!import.meta.env.DEV || !authoring || authoring.text === previewText) return;
     clearTimeout(previewTimer); previewTimer = undefined; applyText(authoring.text);
   }
   function applyText(text: string) {
@@ -372,7 +371,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       // manuscript afresh rather than carrying supplies from an unstarted draft.
       story = next; state = newGame(story); chapterSession = captureChapter(state); itemOrder = [];
       previewText = text; hash = fingerprint(text); editedSnapshot = false;
-      authoring.setPreviewStatus(''); render(false, false); rememberInteraction();
+      authoring?.setPreviewStatus(''); render(false, false); rememberInteraction();
       const prepared = itemArtwork.prepare(coverArtwork(story), asset);
       if (prepared) void prepared.then(() => { if (!signal.aborted && previewText === text) render(false, false); });
       return;
@@ -389,7 +388,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     };
     dialogContext = context?.kind === 'encyclopedia' ? { ...context, item: context.item ? update.items.get(context.item) ?? context.item : undefined } : context;
     encyclopediaHistory = remapEncyclopediaHistory(anchor.encyclopedia, update.items);
-    authoring.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
+    authoring?.setPreviewStatus(update.chapterRemoved ? 'The current chapter is temporarily missing. Restoring it brings you back until you interact with the game.' : '');
     render(false, false);
     const prepared = itemArtwork.prepare(currentArtwork(story, state), asset);
     if (prepared) void prepared.then(() => { if (!signal.aborted && previewText === text) { render(false, false); refreshDialog(); } });
@@ -571,18 +570,23 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       const drafts = options?.drafts.get(documentURL) ?? new DraftStore(documentURL);
       const document = await loadStoryDocument(documentURL, drafts, (url, init) => fetch(url, {...init, signal}));
       if (signal.aborted || leaving) return;
-      authoring = new AuthoringSession(document, drafts, workspace, {
-        onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
-        currentChapterLine: () => {
-          flushPreview();
-          return story.chapters[state.chapter]?.source.line;
-        },
-        onCheckpoint: line => {
-          flushPreview();
-          const index = story.chapters.findIndex(chapter => chapter.source.line === line);
-          if (index >= 0) jumpToCheckpoint(index);
-        },
-      });
+      manuscriptBaseURL = document.assetBaseURL;
+      if (import.meta.env.DEV) {
+        const {AuthoringSession} = await import('./authoring.ts');
+        if (signal.aborted || leaving) return;
+        authoring = new AuthoringSession(document, drafts, workspace, {
+          onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+          currentChapterLine: () => {
+            flushPreview();
+            return story.chapters[state.chapter]?.source.line;
+          },
+          onCheckpoint: line => {
+            flushPreview();
+            const index = story.chapters.findIndex(chapter => chapter.source.line === line);
+            if (index >= 0) jumpToCheckpoint(index);
+          },
+        });
+      }
       previewText = document.text; hash = fingerprint(previewText);
       const parsed = parse(previewText); story = recoverPreviewStory(parsed);
       identity = parsed;
@@ -655,7 +659,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       save();
       finishCarouselLaunch();
       checkText(parsed, previewText);
-      authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+      authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
       updateEditingIndicators();
       if (loaded) {
         const source = story;
@@ -701,7 +705,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     previewEntryReading();
     if (!entryShown) showPending();
     surface.inert = !!dialogContext;
-    authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+    authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators();
   }
   function readingScrollContainer() {
@@ -941,16 +945,16 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function toggleDebugPanel() {
     if (!import.meta.env.DEV) return;
-    if (desktopDebug.matches) { authoring.toggle(); return; }
-    if (mobileDebug.isOpen) { mobileDebug.close(); return; }
+    if (desktopDebug.matches) { authoring?.toggle(); return; }
+    if (mobileDebug?.isOpen) { mobileDebug?.close(); return; }
     flushPreview(); cancelGesture('debug-panel'); feedback.clear();
-    mobileDebug.open(story.chapters.map(chapter => chapter.name), state.chapter);
+    mobileDebug?.open(story.chapters.map(chapter => chapter.name), state.chapter);
     updateEditingIndicators();
   }
   desktopDebug.addEventListener('change', () => {
     if (!authoring) return;
-    mobileDebug.close();
-    authoring.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+    mobileDebug?.close();
+    authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
     updateEditingIndicators();
   }, {signal});
   function jumpToCheckpoint(index: number) {
@@ -1073,7 +1077,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
           scheduleTutorialUpdate();
         }
       }
-      if (previous !== state.chapter) authoring.revealCurrentChapter();
+      if (previous !== state.chapter) authoring?.revealCurrentChapter();
       rememberInteraction(); save();
       inputTrace?.record('commit:finished',{action});
     });
@@ -1168,7 +1172,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       tutorialProgress?.reset();
       if (legacySaveKey) saveProgress(() => localStorage.removeItem(legacySaveKey!), showSaveError);
       render(true); showChapterEntry(); rememberInteraction(); save();
-      authoring.revealCurrentChapter();
+      authoring?.revealCurrentChapter();
     });
   }
   function restartChapter() {
@@ -1246,7 +1250,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       const hints=partnerHints(story,state,{kind:isHotspot?'hotspot':'item',id},drag?.id===id&&drag.moved?'from':'either');
       hints.items.forEach(item=>tile(item)?.classList.add('possible'));
       locations.filter(el=>hints.hotspots.has(el.dataset.hotspot!)).forEach(el=>el.classList.add('possible'));
-    }catch(error){authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
+    }catch(error){authoring?.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);}
   }
   function clearHighlights(keep?:HTMLElement){app.querySelectorAll<HTMLElement>('.reading-selected').forEach(el=>{if(el!==keep)el.classList.remove('reading-selected');});app.querySelectorAll('.pressed,.possible,.will-create,.will-place').forEach(el=>el.classList.remove('pressed','possible','will-create','will-place'));}
   interface PointerPress {
@@ -1370,7 +1374,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       return d.resolve({x:e.clientX,y:e.clientY},destination.rectangle,dropTargets(destination.scene,destination.chapter),clip);
     } catch(error) {
       inputTrace?.record('drop:error',{message:(error as Error).message,stack:(error as Error).stack});
-      authoring.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
+      authoring?.setPreviewStatus(`Partner analysis is unavailable: ${(error as Error).message}`);
       return {ambiguous:[]};
     }
   }
@@ -1676,7 +1680,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       cancelGesture('leave-story'); cancelArtworkWait(); closeDialog();
       clearTimeout(previewTimer); clearCreationLabels(); resetGoalView();
       cancelAnimationFrame(artworkFrame); cancelAnimationFrame(tutorialFrame);
-      tutorialOverlay.show(); mobileDebug.close();
+      tutorialOverlay.show(); mobileDebug?.close();
       if (options && authoring) {
         if (authoring.store.unsaved) options.drafts.set(documentURL, authoring.store);
         else options.drafts.delete(documentURL);

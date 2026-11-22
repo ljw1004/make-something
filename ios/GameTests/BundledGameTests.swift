@@ -120,6 +120,29 @@ final class BundledGameTests: XCTestCase {
         _ = try await game.evaluateJavaScript("document.querySelectorAll('.carousel-slide:not([hidden]) .carousel-footer a').forEach(link => link.click())")
         await fulfillment(of: [support, privacy], timeout: 3)
         XCTAssertEqual(game.url, BundledWebsite.catalogue)
+        // Observe the actual embedded worker while the opening board ranks its goals.
+        _ = try await game.evaluateJavaScript("""
+            const NativeWorker = Worker;
+            let workerProbe;
+            window.workerResult = 'No goal worker constructed';
+            window.Worker = class extends NativeWorker {
+              constructor(url, options) {
+                if (!workerProbe) {
+                  window.workerResult = 'Loading ' + String(url).split(':')[0] + ' worker';
+                  try {
+                    // The game can cancel a search after 250ms. Give this independent
+                    // copy of its real worker time to start on a cold simulator.
+                    workerProbe = new NativeWorker(url, options);
+                    workerProbe.onmessage = () => { window.workerResult = 'ready'; workerProbe.terminate(); };
+                    workerProbe.onerror = e => { window.workerResult = e.message || 'Worker load failed'; };
+                    workerProbe.postMessage({});
+                  } catch (error) { window.workerResult = String(error); }
+                }
+                super(url, options);
+              }
+            };
+            true
+            """)
         _ = try await game.evaluateJavaScript("document.querySelector('a[data-story]').click()")
         try await wait("!!document.querySelector('dialog[open] button')", in: game)
         _ = try await game.evaluateJavaScript("document.querySelector('dialog[open] button').click()")
@@ -132,18 +155,12 @@ final class BundledGameTests: XCTestCase {
         _ = try await game.evaluateJavaScript("document.querySelector('[data-command=story]').click()")
         try await wait("!!document.querySelector('.popup-home')", in: game)
 
-        // Exercise module-worker delivery, including its imports, from the installed bundle.
-        let workerReply = try await game.callAsyncJavaScript("""
-            const files = await (await fetch('./assets/build-files.json')).json();
-            const worker = new Worker(files.find(f => f.includes('/goal-worker-')), {type:'module'});
-            return await new Promise((resolve, reject) => {
-              worker.onmessage = () => { worker.terminate(); resolve(true); };
-              worker.onerror = e => reject(Error(e.message || 'Worker failed to load'));
-              worker.postMessage({});
-              setTimeout(() => { worker.terminate(); reject(Error('Worker timed out')); }, 5000);
-            });
-            """, arguments: [:], in: nil, contentWorld: .page)
-        XCTAssertEqual(workerReply as? Bool, true)
+        do {
+            try await wait("window.workerResult === 'ready'", in: game)
+        } catch {
+            let detail = try await game.evaluateJavaScript("window.workerResult")
+            XCTFail("Embedded worker failed: \(String(describing: detail))")
+        }
         let remoteBlocked = try await game.callAsyncJavaScript("""
             return await new Promise(resolve => {
               document.addEventListener('securitypolicyviolation', e => {
@@ -162,7 +179,7 @@ final class BundledGameTests: XCTestCase {
             document.body.append(a); a.click();
             """)
         await fulfillment(of: [citation], timeout: 3)
-        XCTAssertEqual(game.url?.path, "/make-something.html")
+        XCTAssertEqual(game.url?.path, "/index.html")
         _ = try await game.evaluateJavaScript("document.querySelector('.popup-home').click()")
         try await wait("location.pathname === '/index.html' && !document.querySelector('.game-surface')", in: game)
         game = GameWebView(dataStore: store)

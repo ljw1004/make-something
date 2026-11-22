@@ -1,32 +1,104 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#000000"><link rel="icon" type="image/png" sizes="64x64" href="./assets/appicon.png" vite-ignore><meta name="application-name" content="Make Something"><meta name="apple-mobile-web-app-title" content="Make Something"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="./assets/homescreen.png" vite-ignore><title>Make Something Worthwhile</title><!-- catalogue-styles --><style>
-:root.carousel-home-bootstrap{background:#000}
-:root.carousel-home-bootstrap #catalogue-app{visibility:hidden}
-</style><script>
-  // The generated catalogue contains a visible default card before its module
-  // runs. Keep it dark only on a matching, one-shot Home navigation.
-  try {
-    const clean = address => { const url = new URL(address); url.hash = ''; return url.href; };
-    const marker = JSON.parse(sessionStorage.getItem('make-something-home-slide-v1') || 'null');
-    const navigation = performance.getEntriesByType('navigation')[0];
-    const remaining = marker?.expires - Date.now();
-    if (!location.hash && marker?.destination === clean(location.href) &&
-        (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:') && remaining > 0 && remaining <= 15000 &&
-        navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
-        !matchMedia('(prefers-reduced-motion: reduce)').matches &&
-        typeof HTMLElement.prototype.animate === 'function') {
-      const root = document.documentElement;
-      root.classList.add('carousel-home-bootstrap');
-      const clear = () => root.classList.remove('carousel-home-bootstrap');
-      // If the script never arrives, leave the static catalogue usable.
-      const timeout = setTimeout(clear, remaining);
-      addEventListener('pagehide', () => { clearTimeout(timeout); clear(); }, {once:true});
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" sizes="64x64" href="./assets/appicon.png" vite-ignore>
+  <meta name="application-name" content="Make Something">
+  <meta name="apple-mobile-web-app-title" content="Make Something">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="./assets/homescreen.png" vite-ignore>
+  <title>Make Something Worthwhile</title>
+  <link rel="stylesheet" href="/src/web/style.css">
+  <style>
+  :root.carousel-home-bootstrap{background:#000}
+  :root.carousel-home-bootstrap #catalogue-app{visibility:hidden}
+  </style>
+  <script>
+    // The generated catalogue contains a visible default card before its module
+    // runs. Keep it dark only on a matching, one-shot Home navigation.
+    try {
+      const clean = address => { const url = new URL(address); url.hash = ''; return url.href; };
+      const marker = JSON.parse(sessionStorage.getItem('make-something-home-slide-v1') || 'null');
+      const navigation = performance.getEntriesByType('navigation')[0];
+      const remaining = marker?.expires - Date.now();
+      if (!location.hash && marker?.destination === clean(location.href) &&
+          (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:') && remaining > 0 && remaining <= 15000 &&
+          navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
+          !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+          typeof HTMLElement.prototype.animate === 'function') {
+        const root = document.documentElement;
+        root.classList.add('carousel-home-bootstrap');
+        const clear = () => root.classList.remove('carousel-home-bootstrap');
+        // If the script never arrives, leave the static catalogue usable.
+        const timeout = setTimeout(clear, remaining);
+        addEventListener('pagehide', () => { clearTimeout(timeout); clear(); }, {once:true});
+      }
+    } catch { /* The normal catalogue remains visible without browser storage. */ }
+  </script>
+  <noscript>
+  <style>
+  #catalogue-app.catalogue-page:has(.story-carousel){overflow:auto}
+  .story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{position:relative;inset:auto;width:100%;height:auto;max-height:none}
+  .story-carousel{display:block}.carousel-frame{container-type:normal;max-width:34rem;margin:auto}
+  .carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}
+  .carousel-art{position:relative;max-height:60vh;object-fit:contain}
+  </style>
+  </noscript>
+  <style>
+    .story-loading { position:absolute; inset:0; display:grid; place-items:center; margin:0; background:#f3eddf; color:#35382f; font:16px/1.5 system-ui,sans-serif; text-align:center; }
+    :root.story-entry-bootstrap { background:#000; }
+    :root.story-entry-bootstrap .story-loading { background:#000; color:transparent; }
+    :root.story-entry-bootstrap .story-loading::after {
+      content:""; position:absolute; width:24px; height:24px; border:2px solid #f6efe255;
+      border-top-color:#f6efe2; border-radius:50%; opacity:0;
+      animation:story-loading-spin .7s linear infinite, story-show-spinner 0s var(--story-loading-spinner-delay,240ms) forwards;
     }
-  } catch { /* The normal catalogue remains visible without browser storage. */ }
-</script><noscript><style>
-#catalogue-app.catalogue-page:has(.story-carousel){overflow:auto}
-.story-carousel,.carousel-frame,.carousel-slide,.carousel-panel,.carousel-bar,.carousel-description{position:relative;inset:auto;width:100%;height:auto;max-height:none}
-.story-carousel{display:block}.carousel-frame{container-type:normal;max-width:34rem;margin:auto}
-.carousel-slide[hidden]{display:block!important}.carousel-dots,.carousel-arrow{display:none}
-.carousel-art{position:relative;max-height:60vh;object-fit:contain}
-</style></noscript></head><body><div class="status-bar-color" aria-hidden="true"></div><div id="catalogue-app" class="catalogue-page"><!-- story-catalogue --></div><script type="module" src="/src/web/catalogue.ts"></script></body></html>
+    @keyframes story-loading-spin { to { transform:rotate(1turn) } }
+    @keyframes story-show-spinner { to { opacity:1 } }
+    @media (prefers-reduced-motion:reduce) {
+      :root.story-entry-bootstrap .story-loading::after { animation:story-show-spinner 0s var(--story-loading-spinner-delay,240ms) forwards; }
+    }
+  </style>
+  <script>
+    // Keep the handoff dark even if the application bundle is slow. The
+    // player validates and consumes the same one-shot marker independently.
+    try {
+      const pending = JSON.parse(sessionStorage.getItem('make-something-entry-v1') || 'null');
+      const referrer = new URL(document.referrer || (location.protocol === 'msw:' ? pending?.launch?.source : ''));
+      const directory = new URL('./', location.href);
+      const sameCatalogue = referrer.protocol === directory.protocol && referrer.host === directory.host &&
+        ['', 'index.html', 'index-dev.html'].some(page => referrer.pathname === new URL(page, directory).pathname);
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (pending?.launch?.entry === 'carousel' && pending.launch.destination === location.href &&
+          pending.expires > Date.now() && sameCatalogue && !history.state?.makeSomethingCarouselEntry &&
+          navigation?.type !== 'reload' && navigation?.type !== 'back_forward') {
+        document.documentElement.classList.add('story-entry-bootstrap');
+      }
+    } catch { /* Direct loading and the player remain available without storage. */ }
+  </script>
+</head>
+<body data-catalogue="./index.html">
+  <div class="status-bar-color" aria-hidden="true"></div>
+  <div id="catalogue-app" class="catalogue-page"><noscript><!-- story-catalogue --></noscript></div>
+  <template id="player-view">
+    <main id="workspace"><div id="app" aria-label="Game"><div class="game-surface"><p class="story-loading" role="status">Loading story…</p></div></div></main>
+  </template>
+  <script>
+    // noscript provides the static catalogue and keeps its images inert on direct story visits.
+    const catalogue = document.getElementById('catalogue-app');
+    const player = document.getElementById('player-view');
+    if (new URLSearchParams(location.search).has('story')) {
+      catalogue.replaceWith(player.content);
+      document.querySelector('link[rel="apple-touch-icon"]').remove();
+      document.querySelector('meta[name="theme-color"]').content = '#172830';
+    } else {
+      catalogue.innerHTML = catalogue.querySelector('noscript').textContent;
+    }
+    player.remove();
+  </script>
+  <script type="module" src="/src/web/site-entry.ts"></script>
+</body>
+</html>

@@ -28,7 +28,7 @@ async function open(page: Page, otherArtwork?: Promise<void>, body = manuscript)
     if (r.request().url().endsWith('/other.svg')) await otherArtwork;
     await r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844"><rect width="390" height="844" fill="tan"/></svg>'});
   });
-  await page.goto('/make-something.html?story=slide-fixture/story.md');
+  await page.goto('/index.html?story=slide-fixture/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
 }

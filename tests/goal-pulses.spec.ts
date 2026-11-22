@@ -45,7 +45,7 @@ async function open(page: Page,text = manuscript,acknowledgeGoals = true) {
     };
   });
   await page.route('**/goal-pulses/story.md',route => route.fulfill({contentType:'text/markdown',body:text}));
-  await page.goto('/make-something.html?story=goal-pulses/story.md');
+  await page.goto('/index.html?story=goal-pulses/story.md');
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByRole('button',{name:'Begin',exact:true}).click();
   if (acknowledgeGoals) await readGoals(page);

@@ -13,7 +13,7 @@ Make a kit.
 - Frame [preserve] + Tool [preserve] -> Kit
 `;
 
-const storyURL = /make-something.html\?story=stories\/cookbook\/cookbook\.md$/;
+const storyURL = /index.html\?story=stories\/cookbook\/cookbook\.md$/;
 const catalogue = (page: Page) => page.locator('#catalogue-app');
 const board = (page: Page) => page.locator('.game-surface');
 const begin = (page: Page) => page.getByRole('button', {name:'Begin', exact:true});
@@ -241,7 +241,7 @@ for (const resource of ['bundle', 'manuscript'] as const) {
 test('reduced motion enters and returns immediately, and a direct story still starts on its cover', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
   await serveStory(page);
-  await page.goto('/make-something.html?story=stories/cookbook/cookbook.md');
+  await page.goto('/index.html?story=stories/cookbook/cookbook.md');
   await expect(page.getByRole('button',{name:'Start',exact:true})).toBeVisible();
   await page.goto('/');
   await card(page).click();

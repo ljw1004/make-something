@@ -1,6 +1,5 @@
 """Xcode build phase. Package the checked-in production game and verify its offline resources."""
 from html.parser import HTMLParser
-import json
 import os
 from pathlib import Path
 import plistlib
@@ -8,9 +7,6 @@ import re
 import sqlite3
 import subprocess
 from urllib.parse import parse_qs, unquote, urlsplit
-
-
-GAME_PAGES = ("index.html", "make-something.html")
 
 
 class GamePage(HTMLParser):
@@ -50,32 +46,31 @@ def resource(root, source, address):
 
 
 def audit(root):
-    stories = set()
-    for name in GAME_PAGES:
-        page = GamePage(root / name, root)
-        page.feed(page.path.read_text())
-        stories.update(page.stories)
+    if {path.name for path in root.iterdir()} != {"index.html", "assets", "stories"}:
+        raise ValueError("Unexpected files in the packaged website")
+    if {path.name for path in (root / "assets").iterdir()} != {"appicon.png", "homescreen.png"}:
+        raise ValueError("Expected only the two app icons in assets/")
+    page = GamePage(root / "index.html", root)
+    page.feed(page.path.read_text())
+    stories = page.stories
     manuscripts = {p for p in (root / "stories").rglob("*.md") if p.name.lower() != "design-brief.md"}
     if not stories or stories != manuscripts:
         raise ValueError("Bundled manuscripts and the production catalogue differ. Run npm run build.")
     for story in stories:
         for image in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", story.read_text()):
             resource(root, story, image)
-    for asset in json.loads((root / "assets/build-files.json").read_text()):
-        resource(root, root / "index.html", asset)
 
 
 def enable_full_bleed(root):
     viewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
     native_viewport = viewport.replace('">', ', viewport-fit=cover">')
     stylesheet = Path(__file__).with_name("native-layout.css").read_text()
-    for name in GAME_PAGES:
-        page = root / name
-        html = page.read_text()
-        if html.count(viewport) != 1:
-            raise ValueError(f"Expected one production viewport tag in {name}")
-        page.write_text(html.replace(viewport, native_viewport)
-                        .replace("</head>", f"<style>\n{stylesheet}</style>\n</head>", 1))
+    page = root / "index.html"
+    html = page.read_text()
+    if html.count(viewport) != 1:
+        raise ValueError("Expected one production viewport tag in index.html")
+    page.write_text(html.replace(viewport, native_viewport)
+                    .replace("</head>", f"<style>\n{stylesheet}</style>\n</head>", 1))
 
 
 def write_build_version(derived, info_template):
@@ -96,8 +91,12 @@ if __name__ == "__main__":
     repo = Path(os.environ["SRCROOT"]).parent
     website = (Path(os.environ["TARGET_BUILD_DIR"]) / os.environ["UNLOCALIZED_RESOURCES_FOLDER_PATH"] / "Website").resolve()
     website.mkdir(parents=True, exist_ok=True)
-    subprocess.run(["/usr/bin/rsync", "-a", "--delete", "--exclude=.DS_Store", "--exclude=._*",
-                    *GAME_PAGES, "assets", "stories", str(website)], cwd=repo, check=True)
+    subprocess.run([
+        "/usr/bin/rsync", "-a", "--delete", "--delete-excluded", "--exclude=.DS_Store", "--exclude=._*",
+        "--include=/index.html", "--include=/assets/", "--include=/assets/appicon.png",
+        "--include=/assets/homescreen.png", "--include=/stories/***", "--exclude=*",
+        str(repo) + "/", str(website),
+    ], check=True)
     enable_full_bleed(website)
     audit(website)
     write_build_version(Path(os.environ["DERIVED_FILE_DIR"]), repo / "ios/Game/Info.plist")

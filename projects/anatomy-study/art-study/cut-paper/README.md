@@ -1,6 +1,6 @@
 # Contemporary cut-paper scientific atlas
 
-[Play all four illustrated chapters](http://127.0.0.1:5173/make-something.html?story=projects/anatomy-study/art-study/cut-paper/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
+[Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/cut-paper/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
 Comparison candidate for original chapters 1, 4, 8 and 18, under the single [Anatomy design brief](../../../../stories/anatomy/design-brief.md). The complete manuscript retains the original narrative and mechanics. [Full production source](anatomy.md).
 

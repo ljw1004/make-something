@@ -167,7 +167,7 @@ test('carousel wraps, swipes across the artwork, and launches a touch tutorial',
     await expect(title).toHaveText('Cookbook');
     await expect(page).toHaveURL(address);
     await active.locator('a[data-story]').tap();
-    await expect(page).toHaveURL(/\/make-something.html\?story=stories\/cookbook\/cookbook\.md$/);
+    await expect(page).toHaveURL(/\/index.html\?story=stories\/cookbook\/cookbook\.md$/);
     await expect(page.locator('.tutorial-overlay')).toHaveAttribute('data-modality', 'touch');
     await expect(page.getByRole('button', {name:'Begin'})).toBeVisible();
   } finally { await context.close(); }
@@ -235,7 +235,7 @@ test('carousel continues navigating when storage is blocked', async ({page}) => 
 test('the direct ending offers only End, which dismisses and stays in the story', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType:'text/markdown', body:story}));
-  await page.goto('/make-something.html?story=stories/mars/mars.md');
+  await page.goto('/index.html?story=stories/mars/mars.md');
   const address = page.url();
   await page.getByRole('button', {name:'Start', exact:true}).click();
   await page.getByRole('button', {name:'Begin', exact:true}).click();

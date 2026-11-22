@@ -37,7 +37,7 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
   await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', 'Make Something');
 
   await page.route('**/stories/cookbook/*.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
-  await page.goto('/make-something.html?story=stories/cookbook/cookbook.md&home=show#chapter');
+  await page.goto('/index.html?story=stories/cookbook/cookbook.md&home=show#chapter');
   const first = await browserManifest(page);
   expect(first.name).toBe('Workshop & Wonders');
   expect(first.id).toBe(origin + '/stories/cookbook/cookbook.md');
@@ -53,7 +53,7 @@ test('Chromium accepts inline catalogue and story manifests with existing icons 
 
   await page.goto(first.startUrl!);
   expect((await browserManifest(page)).id).toBe(first.id);
-  await page.goto('/make-something.html?story=stories/cookbook/alternate.md');
+  await page.goto('/index.html?story=stories/cookbook/alternate.md');
   expect((await browserManifest(page)).id).not.toBe(first.id);
 });
 
@@ -66,9 +66,9 @@ test('ordinary carousel click gives in-progress goals a Home link that survives 
   await page.goto('/');
   await page.getByRole('button', {name: 'Mission to Mars', exact: true}).click();
   const card = page.locator('[data-story="stories/mars/mars.md"]');
-  await expect(card).toHaveAttribute('href', 'make-something.html?story=stories/mars/mars.md');
+  await expect(card).toHaveAttribute('href', 'index.html?story=stories/mars/mars.md');
   await card.click();
-  const clean = /\/make-something.html\?story=stories\/mars\/mars\.md$/;
+  const clean = /\/index.html\?story=stories\/mars\/mars\.md$/;
   await expect(page).toHaveURL(clean);
   await expect(page.locator('.tutorial-overlay')).toHaveAttribute('data-modality', 'mouse');
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
@@ -100,7 +100,7 @@ test('ordinary carousel click gives in-progress goals a Home link that survives 
   await expect(home).toBeVisible();
   // A same-address navigation from the current document is a reload in Chromium.
   await page.goto('/');
-  await page.goto('/make-something.html?story=stories/mars/mars.md');
+  await page.goto('/index.html?story=stories/mars/mars.md');
   await expect(page.locator('[data-item="name:Kit"]')).toBeVisible();
   await goals.click();
   await expect(home).toHaveCount(0);
@@ -108,10 +108,10 @@ test('ordinary carousel click gives in-progress goals a Home link that survives 
 
 test('fresh direct and legacy bookmark story visits open the cover without carousel context', async ({page}) => {
   await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
-  await page.goto('/make-something.html?story=stories/mars/mars.md');
+  await page.goto('/index.html?story=stories/mars/mars.md');
   await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
   await page.goto('/index.html#mars');
-  await expect(page).toHaveURL(/make-something.html\?story=stories\/mars\/mars\.md$/);
+  await expect(page).toHaveURL(/index.html\?story=stories\/mars\/mars\.md$/);
   await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByRole('button', {name: 'Begin', exact: true}).click();
@@ -122,7 +122,7 @@ test('fresh direct and legacy bookmark story visits open the cover without carou
 test('a stale launch token cannot start a fresh direct visit', async ({page}) => {
   await page.route('**/stories/mars/mars.md', route => route.fulfill({contentType: 'text/markdown', body: manuscript}));
   await page.goto('/');
-  const target = '/make-something.html?story=stories/mars/mars.md';
+  const target = '/index.html?story=stories/mars/mars.md';
   await page.evaluate(target => {
     sessionStorage.setItem('make-something-entry-v1', JSON.stringify({
       launch: {entry:'carousel', manuscript:new URL('/stories/mars/mars.md', location.href).href, destination:new URL(target, location.href).href, modality:'touch'},
@@ -142,7 +142,7 @@ test('live title edits replace installation metadata without waiting for older i
   const draft = manuscript.replace('(icon.png)', '(slow.png)');
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType: 'text/markdown', body: draft}));
   try {
-    await page.goto('/make-something.html?story=stories/cookbook/cookbook.md', {waitUntil: 'domcontentloaded'});
+    await page.goto('/index.html?story=stories/cookbook/cookbook.md', {waitUntil: 'domcontentloaded'});
     await expect(page.getByRole('button', {name: 'Start', exact: true})).toBeVisible();
     await openDebugPanel(page);
     const editor = page.getByRole('textbox', {name: 'Story Markdown'});
