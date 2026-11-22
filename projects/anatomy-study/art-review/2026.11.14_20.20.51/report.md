@@ -1,6 +1,6 @@
 # Anatomy: thirteen artwork directions
 
-This report consolidates production and review of the [artwork comparison](../../art-study/README.md), governed by the [active design brief](../../../../stories/anatomy/design-brief.md) and [icon guide](../../../../docs/icon-guide.md). Consolidation began 14 November 2026 at 20:20:51 America/Los_Angeles; the directory timestamp records that point, not an invented start time for the earlier individual production checks.
+This report consolidates production and review of the [artwork comparison](../../art-study/README.md), governed by the [active design brief](../../../../contrib/anatomy/design-brief.md) and [icon guide](../../../../docs/icon-guide.md). Consolidation began 14 November 2026 at 20:20:51 America/Los_Angeles; the directory timestamp records that point, not an invented start time for the earlier individual production checks.
 
 ## Version and scope
 

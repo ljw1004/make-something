@@ -1,6 +1,6 @@
 # Opening atlas artwork
 
-Production sources and mechanically derived cutouts for chapters 1–3 and 5–8. The [production contract](../production-brief.md) governs these assets; the [story brief](../../../../stories/anatomy/design-brief.md) owns the visual intent. Exact generation requests accompany their selected masters in `sources/`.
+Production sources and mechanically derived cutouts for chapters 1–3 and 5–8. The [production contract](../production-brief.md) governs these assets; the [story brief](../../../../contrib/anatomy/design-brief.md) owns the visual intent. Exact generation requests accompany their selected masters in `sources/`.
 
 The nuclear envelope study preserves two porous double-wall cutaways. The frontal shell is selected because its cavity leaves the tangled DNA clearly visible.
 

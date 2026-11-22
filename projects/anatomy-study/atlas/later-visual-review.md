@@ -1,6 +1,6 @@
 # Later atlas visual review
 
-Fresh informed model review begun 15 November 2026, approximately 00:35 PST, by `atlas_review_later`. The reviewer did not produce these assets. Instructions: [production brief](production-brief.md), [active design brief](../../../stories/anatomy/design-brief.md), and [icon review guidance](../../../docs/icon-guide.md). Supplied context included item identities, manuscript descriptions, maps, producers, and the classic2/classic3 references. This is neither blind recognition nor evidence of human comprehension.
+Fresh informed model review begun 15 November 2026, approximately 00:35 PST, by `atlas_review_later`. The reviewer did not produce these assets. Instructions: [production brief](production-brief.md), [active design brief](../../../contrib/anatomy/design-brief.md), and [icon review guidance](../../../docs/icon-guide.md). Supplied context included item identities, manuscript descriptions, maps, producers, and the classic2/classic3 references. This is neither blind recognition nor evidence of human comprehension.
 
 ## Scope and method
 

@@ -1,6 +1,6 @@
 # School scope: an ordinary action
 
-Author reference for the **grades 8–10 organ-and-system prototype**. The question is how a body can perform an ordinary action, such as lifting a cup, and keep doing useful work. Players reconstruct an explanation using mature structures; the assembly does not represent embryological development, surgery or bringing a body to life. The [design brief](../../../stories/anatomy/design-brief.md) owns the particular action and story decisions. The [source index](README.md) owns bibliographic and license details.
+Author reference for the **grades 8–10 organ-and-system prototype**. The question is how a body can perform an ordinary action, such as lifting a cup, and keep doing useful work. Players reconstruct an explanation using mature structures; the assembly does not represent embryological development, surgery or bringing a body to life. The [design brief](../../../contrib/anatomy/design-brief.md) owns the particular action and story decisions. The [source index](README.md) owns bibliographic and license details.
 
 These narrow scope choices belong to the earlier four-chapter *Lift a glass* prototype. They are historical, including the exclusions below. The current grades 9–10, non-AP/non-Honors story follows the [curriculum audit](../curriculum.md), active brief and [across-scale grounding](scale-grounding.md); its additional cellular relationships do not retroactively change the earlier study.
 

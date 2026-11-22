@@ -1,6 +1,6 @@
 # Ideas study
 
-Continuing development of [History of ideas](../../stories/ideas/ideas.md), guided by the game's [educational purpose](../../README.md#philosophy) and the story's [design brief](../../stories/ideas/design-brief.md). Follow the interplay of ideas from ancient times to modern, including discoveries worth experiencing without a later descendant. Length is settled; current priorities are playability, enjoyment, intelligibility, hooks and teaching coverage.
+Continuing development of [History of ideas](../../contrib/ideas/ideas.md), guided by the game's [educational purpose](../../README.md#philosophy) and the story's [design brief](../../contrib/ideas/design-brief.md). Follow the interplay of ideas from ancient times to modern, including discoveries worth experiencing without a later descendant. Length is settled; current priorities are playability, enjoyment, intelligibility, hooks and teaching coverage.
 
 Playtests follow the shared [evaluation method](../../docs/fun-and-evaluation.md#chapter-fun-playtests). Retained runs contain accepted player responses, independent assessments, chapter syntheses and the mechanically assembled report. These are local chapter assessments, not continuous whole-story player journeys, browser tests, human enjoyment measurements or factual authenticity reviews.
 

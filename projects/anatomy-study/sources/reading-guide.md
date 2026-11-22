@@ -2,7 +2,7 @@
 
 These are original design notes, not textbook excerpts. The [source index](README.md) owns bibliographic details, license evidence, access status and local reading links. The suggested order connects materials to mechanisms and mechanisms to the continued functioning of a whole body.
 
-For the current grades **9–10, non-AP/non-Honors** story, start with the [curriculum audit](../curriculum.md) and [design brief](../../../stories/anatomy/design-brief.md). [School scope](school-scope.md) records the former grades 8–10 ordinary-action prototype. The wider sequence below and its water-and-heat notes preserve author research; they are not a requirement to teach every microscopic mechanism or add every structure to the game.
+For the current grades **9–10, non-AP/non-Honors** story, start with the [curriculum audit](../curriculum.md) and [design brief](../../../contrib/anatomy/design-brief.md). [School scope](school-scope.md) records the former grades 8–10 ordinary-action prototype. The wider sequence below and its water-and-heat notes preserve author research; they are not a requirement to teach every microscopic mechanism or add every structure to the game.
 
 ## Read for construction decisions
 

@@ -32,9 +32,11 @@ Its [completed narrative study](archive/2026.11.06%20settlement%20study/narrativ
 
 **Mission to Mars** follows a solo astronaut from a crash through shelter, farming, an uncertain discovery and a return built with local iron: `/index.html?story=stories/mars/mars.md`. The [live story](stories/mars/mars.md), [design brief](stories/mars/design-brief.md) and [three moments of play](stories/mars/design-examples.png) preserve its austere physical character. The completed [Mars study](archive/2026.11.01%20mars%20study/README.md) retains the unchanged v12 reference, earlier versions, production artwork and review outcomes.
 
-**Anatomy** uses 1800s-style atlas illustrations to build cells, tissues, organs and systems across 28 playable chapters. See the [story](stories/anatomy/anatomy.md), [design brief](stories/anatomy/design-brief.md) and [ongoing study](projects/anatomy-study/README.md).
+**Anatomy** is a web contribution that uses 1800s-style atlas illustrations to build cells, tissues, organs and systems across 28 playable chapters. See the [story](contrib/anatomy/anatomy.md), [design brief](contrib/anatomy/design-brief.md) and [ongoing study](projects/anatomy-study/README.md).
 
 **Creation** gives you Earth, Air, Fire and Water to make stars, a living world and minds that begin creating for themselves: `/index.html?story=stories/creation/creation.md`. Its 187 combinations across 26 chapters use 182 circular illustrations, 22 painted backgrounds and evolving landscape hotspots. See the [story](stories/creation/creation.md), [design brief](stories/creation/design-brief.md), [three moments of play](stories/creation/design-examples.png), [supplied art references](<archive/2026.11.05 creation study/inspiration/README.md>) and [completed Creation study](<archive/2026.11.05 creation study/README.md>).
+
+**History of ideas** is a web contribution about connections and discoveries from antiquity to modern times. See the [story](contrib/ideas/ideas.md) and [ongoing study](projects/ideas-study/README.md).
 
 The player fetches Markdown as an ordinary file. These routes work in development and the production build:
 
@@ -44,8 +46,9 @@ The player fetches Markdown as an ordinary file. These routes work in developmen
 | `/index.html?story=stories/cookbook/cookbook.md` | `/stories/cookbook/cookbook.md` |
 | `/index.html?story=stories/theology/theology.md` | `/stories/theology/theology.md` |
 | `/index.html?story=stories/mars/mars.md` | `/stories/mars/mars.md` |
-| `/index.html?story=stories/anatomy/anatomy.md` | `/stories/anatomy/anatomy.md` |
+| `/index.html?story=contrib/anatomy/anatomy.md` | `/contrib/anatomy/anatomy.md` |
 | `/index.html?story=stories/creation/creation.md` | `/stories/creation/creation.md` |
+| `/index.html?story=contrib/ideas/ideas.md` | `/contrib/ideas/ideas.md` |
 | `/` or `/index.html` | Catalogue (no manuscript request) |
 
 The `story` parameter selects a Markdown file relative to the player page. Artwork paths are relative to the manuscript. Both must be relative file paths without a leading slash or consecutive dots, including in filenames. Without the parameter the page shows the catalogue. Only entering a story starts loading its manuscript and board artwork. Home-screen shortcuts use the same relative selection as catalogue links. A missing story displays an error. Markdown is rendered without executing embedded HTML or scripts.
@@ -58,15 +61,15 @@ Chromium supports the browser tests, checks that story-heading icons are square,
 
 The two editable templates are [index-dev.html](index-dev.html) and [simulator-dev.html](simulator-dev.html). Vite serves them at the ordinary page URLs. For a development preview beside a draft, use a URL such as `/projects/example-study/index.html?story=draft.md`.
 
-The build writes two independent files, `index.html` for the catalogue and graphical player and `simulator.html` for both text modes. Each embeds its own JavaScript, CSS and story list. The graphical player embeds its goal-ranking worker. The live editor, chapter picker and editor diagnostics are development tools. The only external game resources are the favicon, home-screen icon and original story files and artwork.
+The build writes two independent web pages, `index.html` for the catalogue and graphical player and `simulator.html` for both text modes. Each embeds its own JavaScript, CSS and story list. The graphical player embeds its goal-ranking worker. The live editor, chapter picker and editor diagnostics are development tools. The only external game resources are the favicon, home-screen icon and original story files and artwork.
 
-Deploy the generated root pages, `assets/` and `stories/` together, preserving their layout. The shared app icon follows the [identity guidance](docs/ux.md#catalogue-and-story-identity); home-screen titles, story icons and conditional Home navigation follow the [home-screen UX](docs/ux.md#home-screen-apps). Editing a manuscript or its artwork does not require rebuilding JavaScript. Adding/removing a story or changing its catalogue title, description or cover URL requires rebuilding the catalogue and terminal story lists. Development regenerates the catalogue on each page request. See [GitHub Pages publication](#github-pages-publication) for this repository's setup.
+Deploy the generated root pages, `assets/`, `stories/` and `contrib/` together, preserving their layout. The shared app icon follows the [identity guidance](docs/ux.md#catalogue-and-story-identity); home-screen titles, story icons and conditional Home navigation follow the [home-screen UX](docs/ux.md#home-screen-apps). Editing a manuscript or its artwork does not require rebuilding JavaScript. Adding/removing a story or changing its catalogue title, description or cover URL requires rebuilding the catalogue and terminal story lists. Development regenerates the catalogue on each page request. See [GitHub Pages publication](#github-pages-publication) for this repository's setup.
 
 The build writes the generated pages into the repository root with `emptyOutDir: false`. Edit the templates and source modules, then rebuild.
 
 ### iPhone and iPad app
 
-Open [MakeSomething.xcodeproj](ios/MakeSomething.xcodeproj) in Xcode, choose the **MakeSomething** scheme and an iPhone or iPad simulator, and press **Run**. The target supports iOS 17 and later. A checkout includes the production web build. After editing web code or catalogue metadata, run `npm run build` before building in Xcode. Each Xcode build copies `index.html`, the two icons and `stories/` into the app and checks the catalogue, manuscripts and artwork.
+Open [MakeSomething.xcodeproj](ios/MakeSomething.xcodeproj) in Xcode, choose the **MakeSomething** scheme and an iPhone or iPad simulator, and press **Run**. The target supports iOS 17 and later. A checkout includes the production web build. After editing web code or catalogue metadata, run `npm run build` before building in Xcode. The web build also generates [the iOS catalogue](ios/Packaging/catalogue.html). Xcode inserts it into the bundled copy of `index.html`, copies the two icons and `stories/`, and checks that every catalogue entry, manuscript and illustration is available offline.
 
 Use **Product → Test** for the native WebKit integration checks. For a device release check, install a fresh build and switch on airplane mode with Wi-Fi off before first launch. Open Cookbook, combine Grain with Millstone, feel the impact, return Home and verify **Continue**. Quit and relaunch, resume, and confirm Flour is still on the board. Turn off [Haptics](docs/ux.md#native-ios-app), resume and verify the next successful combination is silent to the touch. Check an encyclopedia citation with connectivity restored and return to the same board.
 
@@ -104,7 +107,7 @@ Keep verification, building and publication separate. Choose the preparation ste
 | Catalogue entries, titles or descriptions | Check the affected catalogue entries; lint any changed stories as above. | `npm run build` |
 | Application and story changes together | Perform both applicable verification steps. | `npm run build` |
 
-When publishing, commit the changed source and original story/artwork files together with any regenerated root pages, then push to `main`. An all-story audit remains an explicit `npm run lint` step; it is not part of the application build or a prerequisite for publishing engine changes. GitHub handles publication of committed files; there is no custom Actions workflow or separate publishing branch. Access settings are independent of this layout.
+When publishing, commit the changed source and original story/artwork files together with any regenerated pages and iOS catalogue, then push to `main`. An all-story audit remains an explicit `npm run lint` step; it is not part of the application build or a prerequisite for publishing engine changes. GitHub handles publication of committed files; there is no custom Actions workflow or separate publishing branch. Access settings are independent of this layout.
 
 The former `/dist/` pages and flattened manuscript paths are retired. Browser saves, drafts and tutorial completion at those old Markdown URLs remain stored under their old keys; this layout change does not migrate or delete them. New URLs under `stories/` have their own state, following the [story identity rule](docs/ux.md#catalogue-and-story-identity).
 
@@ -138,16 +141,20 @@ Drafts use browser local storage, keyed by the full Markdown URL. Two player rou
 
 ## Story layout
 
-The bundled manuscripts use their story names as filenames:
+To contribute a playable story, open a GitHub pull request with its manuscript and artwork under `contrib/<slug>/`. Preview it with `npm run dev` and check it with `npm run lint -- contrib/<slug>/<slug>.md`. The web catalogue picks it up automatically. The [authoring guide](docs/story-authoring.md) covers story design and the Markdown format.
+
+Both collections use the same layout:
 
 ```text
 stories/<slug>/<slug>.md
 stories/<slug>/assets/...
+contrib/<slug>/<slug>.md
+contrib/<slug>/assets/...
 ```
 
-Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. Catalogue discovery finds `.md` manuscripts under `stories/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its project directory.
+Multiple manuscripts can share a directory and its artwork: for example, `stories/theology/theology.md` and `stories/theology/alternate.md` can both reference `assets/scene.webp` in `stories/theology/assets/`. Catalogue discovery finds `.md` manuscripts under `stories/` and `contrib/`, excluding the reserved filename `design-brief.md` (case-insensitive). A story may keep its durable editorial and visual intent in that companion brief. Keep research, iteration notes and other non-story documentation in its existing study under `projects/`, whichever collection ships the story.
 
-The linter, checkpoint and playtesting tools accept the path relative to `stories/`, such as `theology/theology.md`, or a filename without `.md`, such as `theology`, when that short name is unique. `npm run play -- list` lists the full paths. The [analyzer](#story-analysis) takes explicit file paths relative to the current directory or absolute paths, and recognizes stories by content. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves `stories/` at its repository path, matching the published layout. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
+The linter, checkpoint and playtesting tools accept repository-relative paths such as `stories/theology/theology.md` and `contrib/anatomy/anatomy.md`. A collection-relative path such as `theology/theology.md` or a short name such as `theology` also works when unique. `npm run play -- list` lists the full paths. The [analyzer](#story-analysis) takes explicit file paths relative to the current directory or absolute paths, and recognizes stories by content. The browser uses each Markdown URL for independent drafts and saves, including when manuscripts share a directory. Neither the path nor filename is the player-facing title. Vite serves both collections at their repository paths, matching the published layout. Start with the [authoring guide](docs/story-authoring.md) when writing a story and consult the [specification](docs/story-format-spec.md) for syntax and semantics.
 
 Settlement (`settlement`) and Theology (`theology`) were renamed from Elements (`elements`) and Divinity (`divinity`) on 31 October 2026. The old story routes, including the earlier `elements-icons` route, are no longer served. Existing browser saves and drafts remain under their original URLs; the renames do not migrate or delete them.
 
@@ -232,6 +239,7 @@ Maintain the [strict directory hygiene defined in AGENTS.md](AGENTS.md#directory
 - `src/playtest/`: player observations, frozen sessions, AI transport and evaluation.
 - `docs/`: standing specifications, adopted guidance and reusable workflows.
 - `projects/`: active project briefs, research, plans and supporting material; see the [project index](projects/README.md).
-- `stories/`: active stories and their assets.
+- `stories/`: stories and artwork shipped on iOS and web.
+- `contrib/`: playable stories and artwork shipped on the web only.
 - `runs/`: ignored trial generations, intermediate artwork, review sheets and verification output; see the [retention policy](docs/engineering.md#verification-records) for selected production and requested deliverables.
 - `archive/`: historical source and research; follow its [usage policy](archive/README.md).

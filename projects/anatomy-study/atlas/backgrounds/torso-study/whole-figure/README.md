@@ -1,15 +1,15 @@
 # Anatomy whole-figure frontispiece
 
-The user chose the centered neck-and-shoulders crop and asked for a more visible, better proportioned suggestion of the legs. The [unfaded master](unfaded.png) shows the entire continuous anatomical figure from chin to feet, using the [game’s finished body artwork](../../../../../../stories/anatomy/assets/composition-review/finale/assets/body-beneath-the-skin.png) for the pose and limb proportions. The export crops that standing figure with a consistent scale so the shoulders fill most of the width. The knees and upper calves are visible below the description. The crop ends above the feet.
+The user chose the centered neck-and-shoulders crop and asked for a more visible, better proportioned suggestion of the legs. The [unfaded master](unfaded.png) shows the entire continuous anatomical figure from chin to feet, using the [game’s finished body artwork](../../../../../../contrib/anatomy/assets/composition-review/finale/assets/body-beneath-the-skin.png) for the pose and limb proportions. The export crops that standing figure with a consistent scale so the shoulders fill most of the width. The knees and upper calves are visible below the description. The crop ends above the feet.
 
 The built-in ImageGen tool made the [unfaded master](unfaded.png), [first wide-cover fade](first-fade.png) and [final faded master](faded.png). The first fade used the [centered cutaway](../centered-cutaway.png) for its paper and tonal transition. The last pass fades the abdomen earlier and softens the lower echo near the footer.
 
 An independent Terra reviewer examined the unfaded figure and two faded exports as real carousel cards with the title, full subtitle, dots, Continue label and footer. The reviewer found the whole figure convincingly tall and athletic, with substantial thighs and calves and plausible alignment through the knees and ankles. The torso was somewhat elongated and stylized. The first wide-cover fade scored 4/5 for harmony. The revised fade scored 4.5/5, with a quieter transition by the dots and a legible footer. Only the faint tops of the knees appear on a short phone.
 
-Export the [live cover](../../../../../../stories/anatomy/assets/cover.webp) from this directory.
+Export the [live cover](../../../../../../contrib/anatomy/assets/cover.webp) from this directory.
 
 ```sh
-cwebp -quiet -q 87 -m 6 -crop 231 0 530 1147 -resize 780 1688 faded.png -o ../../../../../../stories/anatomy/assets/cover.webp
+cwebp -quiet -q 87 -m 6 -crop 231 0 530 1147 -resize 780 1688 faded.png -o ../../../../../../contrib/anatomy/assets/cover.webp
 ```
 
 ## Generation requests

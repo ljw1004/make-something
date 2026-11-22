@@ -1,6 +1,6 @@
 # Independent artist assignment
 
-This records the common assignment for the thirteen-theme comparison. The coordinator supplies each artist's reference image(s), theme name and exclusive output directory separately. The [Anatomy design brief](../../../stories/anatomy/design-brief.md) remains the single governing story brief; this is a production assignment, not another story or UX specification.
+This records the common assignment for the thirteen-theme comparison. The coordinator supplies each artist's reference image(s), theme name and exclusive output directory separately. The [Anatomy design brief](../../../contrib/anatomy/design-brief.md) remains the single governing story brief; this is a production assignment, not another story or UX specification.
 
 Read the repository instructions and README, the [icon guide](../../../docs/icon-guide.md), [story specification](../../../docs/story-format-spec.md), [authoring guide](../../../docs/story-authoring.md), relevant [engineering](../../../docs/engineering.md) and [UX](../../../docs/ux.md) guidance, the design brief and [source manuscript](../anatomy.md).
 

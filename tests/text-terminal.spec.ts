@@ -109,7 +109,7 @@ test('100-character column stays stable on wide resize and output leaves the pro
 
 test('both simulator modes list current stories, load their unchanged runner openings, and report missing manuscripts',async({page})=>{
   const paths=storyIds();
-  const theologyChoice=String(paths.indexOf('theology/theology.md')+1);
+  const theologyChoice=String(paths.indexOf('stories/theology/theology.md')+1);
   for (const style of ['fast','detailed'] as const) {
     await page.goto(`/simulator.html?mode=${style}`);
     await expect(page.locator('#story-picker [data-story]')).toHaveCount(paths.length);
@@ -128,8 +128,8 @@ test('both simulator modes list current stories, load their unchanged runner ope
     await expect(page.locator('#story-picker')).toBeVisible();
     expect(new URL(page.url()).searchParams.has('story')).toBe(false);
     for (const path of paths) {
-      await page.goto(`/simulator.html?mode=${style}&story=stories/${path}`);
-      const source=parseStory(readFileSync(`stories/${path}`,'utf8'),{id:path});
+      await page.goto(`/simulator.html?mode=${style}&story=${path}`);
+      const source=parseStory(readFileSync(path,'utf8'),{id:path});
       const adventure=startAdventure(source,{playStyle:style});
       await expect.poll(()=>output(page)).toBe(expected(adventure));
       await expect(page.locator('#transcript img')).toHaveCount(0);

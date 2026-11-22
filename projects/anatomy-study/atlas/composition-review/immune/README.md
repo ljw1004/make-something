@@ -1,6 +1,6 @@
 # Airway and immune-response replacement family
 
-Artwork for Anatomy chapters 15 and 17 under the active [design brief](../../../../../stories/anatomy/design-brief.md). `map.json` supplies fifteen replacement item assets plus positions for the two mutually exclusive fixed node states. The canonical manuscript is not edited here. Root integration applies the concrete chapter-17 changes in `changes.json` and checks fixed-state retirement; `description-replacements.json` describes the supplied pictures.
+Artwork for Anatomy chapters 15 and 17 under the active [design brief](../../../../../contrib/anatomy/design-brief.md). `map.json` supplies fifteen replacement item assets plus positions for the two mutually exclusive fixed node states. The canonical manuscript is not edited here. Root integration applies the concrete chapter-17 changes in `changes.json` and checks fixed-state retirement; `description-replacements.json` describes the supplied pictures.
 
 ## Selected sources and production
 

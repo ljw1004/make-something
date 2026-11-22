@@ -1,6 +1,6 @@
 # Chapter composition review
 
-This revision applies the [composition review method](../../../../docs/icon-guide.md#review-the-construction-not-just-the-cutouts) to every playable chapter of [Anatomy](../../anatomy.md). The [active brief](../../../../stories/anatomy/design-brief.md) owns the story decisions. Selected artwork and its exact generation requests live in the corresponding specimen packages here; detailed reviewer transcripts and frozen packets are disposable under `runs/`.
+This revision applies the [composition review method](../../../../docs/icon-guide.md#review-the-construction-not-just-the-cutouts) to every playable chapter of [Anatomy](../../anatomy.md). The [active brief](../../../../contrib/anatomy/design-brief.md) owns the story decisions. Selected artwork and its exact generation requests live in the corresponding specimen packages here; detailed reviewer transcripts and frozen packets are disposable under `runs/`.
 
 Each chapter receives a new independent, ephemeral reviewer conversation. Each revision receives another new conversation. Producers never act as their own independent reviewers. Reviewers see the complete inventory, actual combination rules and operand/result strips at the same playing scale. They do not receive the user's flagged chapter list, earlier verdicts or production explanations. These are informed visual reviews, not blind recognition or measured learning outcomes.
 

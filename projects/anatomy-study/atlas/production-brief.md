@@ -1,6 +1,6 @@
 # Anatomy — selected 1800s atlas production
 
-Governed by [the single design brief](../../../stories/anatomy/design-brief.md) and [icon guide](../../../docs/icon-guide.md). This is the selected full-book direction, replacing the comparative selection phase.
+Governed by [the single design brief](../../../contrib/anatomy/design-brief.md) and [icon guide](../../../docs/icon-guide.md). This is the selected full-book direction, replacing the comparative selection phase.
 
 Use fine naturalistic engraving, believable anatomical contours, restrained rose/madder/sage/ochre washes and warm ivory paper, matching `../art-study/classic-1800/` and supplied `../inspiration/classic2.jpeg`, `classic3.jpeg`. Inspect those images. Preserve modern explanatory scale and the successful large specimen views. No glossy cartoons, faceted geometry or holographic glow.
 

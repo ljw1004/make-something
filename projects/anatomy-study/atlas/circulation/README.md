@@ -1,6 +1,6 @@
 # Circulation and local defenses — selected anatomical atlas
 
-Original chapters 9–17: balance organs, blood, vessels, heart, lungs and chest, airway defenses, lymph return and immune cells. Governed by the [production brief](../production-brief.md) and [story design brief](../../../../stories/anatomy/design-brief.md).
+Original chapters 9–17: balance organs, blood, vessels, heart, lungs and chest, airway defenses, lymph return and immune cells. Governed by the [production brief](../production-brief.md) and [story design brief](../../../../contrib/anatomy/design-brief.md).
 
 `map.json` supplies 83 item identities and both chest fittings. Runtime images are in `assets/`. `description-replacements.json` contains exact manuscript-text replacements for superseded arrows, insets, labels and temporal panels; integration is owned by the main story edit.
 

@@ -200,7 +200,7 @@ test('carousel selections preserve the address and history and persist by manusc
   const active = page.locator('.carousel-slide:visible');
   expect(await active.locator('.carousel-dots button').evaluateAll(dots =>
     dots.map(dot => dot.getAttribute('aria-label')))).toEqual([
-    'Cookbook', 'Settlement', 'Creation', 'Mission to Mars', 'Anatomy', 'Theology', 'History of ideas',
+    'Cookbook', 'Settlement', 'Creation', 'Mission to Mars', 'Theology', 'Anatomy', 'History of ideas',
   ]);
   const mark = await page.evaluate(() => {
     history.replaceState({testMarker:true}, '');

@@ -9,7 +9,7 @@ test('production pages work beneath a prefix with only HTML, icons and story fil
   await page.route('**/standalone/**', async route => {
     const file = new URL(route.request().url()).pathname.slice('/standalone/'.length);
     requests.push(file);
-    if (['index.html', 'simulator.html', 'assets/appicon.png', 'assets/homescreen.png'].includes(file) || file.startsWith('stories/')) {
+    if (['index.html', 'simulator.html', 'assets/appicon.png', 'assets/homescreen.png'].includes(file) || file.startsWith('stories/') || file.startsWith('contrib/')) {
       await route.fulfill({path: resolve(file)});
     } else {
       unexpected.push(file);
@@ -26,6 +26,14 @@ test('production pages work beneath a prefix with only HTML, icons and story fil
   expect(requests.filter(path => path.endsWith('.md'))).toEqual(['stories/cookbook/cookbook.md']);
   await page.reload();
   await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeVisible();
+
+  for (const [title, slug] of [['Anatomy', 'anatomy'], ['History of ideas', 'ideas']]) {
+    await page.goto('/standalone/index.html');
+    await page.getByRole('button', {name: title, exact: true}).click();
+    await card.click();
+    await expect(page.getByRole('button', {name: 'Begin', exact: true})).toBeVisible();
+    expect(new URL(page.url()).searchParams.get('story')).toBe(`contrib/${slug}/${slug}.md`);
+  }
 
   for (const mode of ['fast', 'detailed']) {
     await page.goto(`/standalone/simulator.html?mode=${mode}&story=stories/cookbook/cookbook.md&chapter=2`);

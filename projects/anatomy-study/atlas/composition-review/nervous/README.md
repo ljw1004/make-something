@@ -1,6 +1,6 @@
 # Nervous-system replacement family
 
-Replacement artwork for Anatomy chapter 6 under the active [design brief](../../../../../stories/anatomy/design-brief.md). The selected family is **posterior revision 4**, with corrected lower-root routing and a naturally prepared nerve receiving site. Fresh independent round-13 review accepted every criterion and operation with no remaining issues. Root integration owns canonical adoption. No recipes change. `map.json` supplies eleven transparent PNGs under original item IDs; `description-replacements.json` supplies viewpoint descriptions.
+Replacement artwork for Anatomy chapter 6 under the active [design brief](../../../../../contrib/anatomy/design-brief.md). The selected family is **posterior revision 4**, with corrected lower-root routing and a naturally prepared nerve receiving site. Fresh independent round-13 review accepted every criterion and operation with no remaining issues. Root integration owns canonical adoption. No recipes change. `map.json` supplies eleven transparent PNGs under original item IDs; `description-replacements.json` supplies viewpoint descriptions.
 
 Run `uv run --with pillow python projects/anatomy-study/atlas/composition-review/nervous/produce.py`.
 

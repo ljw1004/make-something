@@ -6,7 +6,7 @@
 
 The sole external visual reference is the user's [invented macabre image](../../inspiration/farout-macabre.png), inspected directly. The theme keeps its dark umber cabinet atmosphere, luminous ivory structures, crimson tissue and amber highlights. No other candidate's art, prompts or notes were consulted.
 
-The selected originals and [exact generation requests](sources/prompts.json) remain in [sources](sources/). They were produced with the **built-in imagegen tool**. This revision mechanically reuses those same originals; it makes no new generation request. Original background paintings are retained as provenance, but their anatomical compositions are no longer used as backgrounds. The scientific and narrative source is the unchanged Anatomy manuscript and its [single design brief](../../../../stories/anatomy/design-brief.md).
+The selected originals and [exact generation requests](sources/prompts.json) remain in [sources](sources/). They were produced with the **built-in imagegen tool**. This revision mechanically reuses those same originals; it makes no new generation request. Original background paintings are retained as provenance, but their anatomical compositions are no longer used as backgrounds. The scientific and narrative source is the unchanged Anatomy manuscript and its [single design brief](../../../../contrib/anatomy/design-brief.md).
 
 [produce.py](produce.py) owns extraction, masking, registration and exports. [extraction.json](extraction.json) records source bounds and registration; [art-map.json](art-map.json) owns manuscript presentation links. Every selected chapter now has a blank textured surface sampled exclusively from an anatomy-free lower strip of the original arm master. All anatomy is interactive artwork.
 

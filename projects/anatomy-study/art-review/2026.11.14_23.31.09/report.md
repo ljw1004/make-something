@@ -4,7 +4,7 @@ The user found blank icons after advancing from chapter 1. The comparison linked
 
 Each of the thirteen themes now has a generated `sample.md`: cell boundary → bones and muscles → hearing → digestion → a short ending. Gallery and study play links open these samples. Full `anatomy.md` editions remain unchanged as production sources, including the fully illustrated Star Trek book. Separate sample URLs avoid resuming old full-book progress. Contact sheets retain original chapter numbers and have been rebuilt from the consecutive sample captures.
 
-The [builder](../../art-study/checks/build-samples.ts) retains selected goals, recipes, artwork and five relevant fittings. It removes the three later cell fittings and associated conditional descriptions/name change, and supplies muscle cells directly in the arm chapter instead of requiring omitted chapter 3. It adjusts the arm introduction and adds a clear sample ending. The [shared brief](../../../../stories/anatomy/design-brief.md#selected-artwork-1800s-anatomical-atlas) owns this delivery scope.
+The [builder](../../art-study/checks/build-samples.ts) retains selected goals, recipes, artwork and five relevant fittings. It removes the three later cell fittings and associated conditional descriptions/name change, and supplies muscle cells directly in the arm chapter instead of requiring omitted chapter 3. It adjusts the arm introduction and adds a clear sample ending. The [shared brief](../../../../contrib/anatomy/design-brief.md#selected-artwork-1800s-anatomical-atlas) owns this delivery scope.
 
 Verification:
 

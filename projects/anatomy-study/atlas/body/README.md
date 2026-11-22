@@ -1,6 +1,6 @@
 # Later anatomy: selected 1800s atlas artwork
 
-Physical specimen artwork for the original chapters 19–28, governed by the [production brief](../production-brief.md) and [story design brief](../../../../stories/anatomy/design-brief.md).
+Physical specimen artwork for the original chapters 19–28, governed by the [production brief](../production-brief.md) and [story design brief](../../../../contrib/anatomy/design-brief.md).
 
 `map.json` supplies 91 identities and 16 registered fitted layers. It includes the final head sensory fittings and a common chest registration that accommodates the later arm and lymph fittings. The final body mechanically reuses the built intestinal, urinary, chest, arm and nervous structures. Its skin covering was generated against that actual assembled pose, then opened as a continuous cutaway. No anatomical content lives in a background.
 

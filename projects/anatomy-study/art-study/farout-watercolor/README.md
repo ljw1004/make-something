@@ -2,7 +2,7 @@
 
 [Play all four illustrated chapters](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/art-study/farout-watercolor/sample.md): cell boundary → bones and muscles → hearing → digestion. This sample plays consecutively and ends after digestion. Chapter numbers on the contact sheet refer to the original full book.
 
-Illustrates original chapters **1, 4, 8 and 18**, including all 33 identities in the comparison inventory and the five relevant fitted layers. The complete [manuscript](anatomy.md) preserves the source story's gameplay and narrative. Other chapters remain explicitly unillustrated. This is an unpublished comparison candidate governed by the [Anatomy design brief](../../../../stories/anatomy/design-brief.md).
+Illustrates original chapters **1, 4, 8 and 18**, including all 33 identities in the comparison inventory and the five relevant fitted layers. The complete [manuscript](anatomy.md) preserves the source story's gameplay and narrative. Other chapters remain explicitly unillustrated. This is an unpublished comparison candidate governed by the [Anatomy design brief](../../../../contrib/anatomy/design-brief.md).
 
 The sole style reference is [the supplied watercolor drawing](../../inspiration/farout-watercolor.png): translucent lavender, coral and ochre washes, fine plum contours and pooling pigment. The refresh reuses only this theme's selected generated masters. The exact built-in imagegen requests remain in [prompts.json](sources/prompts.json) and [additional-prompts.json](sources/additional-prompts.json); no new generation was required. All four selected originals remain in `sources/`.
 

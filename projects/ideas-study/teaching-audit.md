@@ -1,6 +1,6 @@
 # Ideas: teaching and presentation audit
 
-The [design brief](../../stories/ideas/design-brief.md) owns the adopted intent: an interesting, educational journey through interacting ideas, with discoveries worth pursuing even when they have no later descendant. Length is settled. This audit concerns the current manuscript's teaching, intelligibility, hooks and intellectual actions; it is not a new history-of-everything syllabus or a claim of measured learning.
+The [design brief](../../contrib/ideas/design-brief.md) owns the adopted intent: an interesting, educational journey through interacting ideas, with discoveries worth pursuing even when they have no later descendant. Length is settled. This audit concerns the current manuscript's teaching, intelligibility, hooks and intellectual actions; it is not a new history-of-everything syllabus or a claim of measured learning.
 
 ## Scope and findings
 

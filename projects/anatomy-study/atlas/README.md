@@ -1,6 +1,6 @@
 # Anatomy — complete 1800s atlas
 
-The [study manuscript](../anatomy.md) records the selected illustrated edition added to the [catalogue](../../../stories/anatomy/anatomy.md). Both follow the [design brief](../../../stories/anatomy/design-brief.md). The edition includes 28 playable chapters and an epilogue. The [chapter-by-chapter composition revision](composition-review/README.md) uses a fresh independent reviewer for every chapter and every revision. Its [outcomes](composition-review/outcomes.md) supersede the earlier broad visual review below.
+The [study manuscript](../anatomy.md) records the selected illustrated edition added to the [catalogue](../../../contrib/anatomy/anatomy.md). Both follow the [design brief](../../../contrib/anatomy/design-brief.md). The edition includes 28 playable chapters and an epilogue. The [chapter-by-chapter composition revision](composition-review/README.md) uses a fresh independent reviewer for every chapter and every revision. Its [outcomes](composition-review/outcomes.md) supersede the earlier broad visual review below.
 
 - [Play the study manuscript](http://127.0.0.1:5173/index.html?story=projects/anatomy-study/anatomy.md).
 - [Review all chapters and their complete icon inventories](http://127.0.0.1:5173/projects/anatomy-study/atlas/review.html).

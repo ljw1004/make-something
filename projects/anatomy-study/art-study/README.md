@@ -1,6 +1,6 @@
 # Anatomy artwork comparison
 
-Independent artwork studies for the [Anatomy project](../README.md), governed by its [single design brief](../../../stories/anatomy/design-brief.md) and the [icon workflow](../../../docs/icon-guide.md). The user selected the 1800s anatomical atlas. The [complete selected edition](../atlas/README.md) now lives in the canonical story; these comparison samples retain their original four-chapter conditions.
+Independent artwork studies for the [Anatomy project](../README.md), governed by its [single design brief](../../../contrib/anatomy/design-brief.md) and the [icon workflow](../../../docs/icon-guide.md). The user selected the 1800s anatomical atlas. The [complete selected edition](../atlas/README.md) now lives in the canonical story; these comparison samples retain their original four-chapter conditions.
 
 Every direction covers the same four chapters: **1 — An inside of its own**, **4 — Hard bones and pulling muscles**, **8 — Vibration into signals**, and **18 — Breaking down a meal**. Each artist interprets its assigned references independently, without seeing another artist's output. The revised comparison includes **33 item identities, five fitted layers and seven assembled states per style**. Four chapter panels show the starting and completed player views alongside each complete icon family. Inspection thumbnails enlarge isolated details; the player views show their actual relative sizes.
 

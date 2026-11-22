@@ -7,6 +7,7 @@ import { renderCatalogue, renderTerminalCatalogue } from './catalogue.ts';
 /** Root HTML is generated output; development always reads the editable templates. */
 export function sitePages(): Plugin {
   let root: string;
+  let nativeCatalogue: string;
   return {
     name: 'site-pages',
     configResolved(config) {
@@ -54,13 +55,15 @@ export function sitePages(): Plugin {
     transformIndexHtml: {
       // Insert artwork after Vite's HTML processing so it stays an ordinary URL.
       order: 'post',
-      handler(html) {
+      handler(html, context) {
         if (!html.includes('<!-- story-catalogue -->') && !html.includes('<!-- terminal-catalogue -->')) return html;
-        const stories = resolve(root, 'stories');
-        const entries = storyIds(stories).map(path => {
-          const { story } = loadStory(resolve(stories, path));
-          return { path: `stories/${path}`, title: story.title, cover: story.cover ?? story.chapters[0]?.image, description: story.description };
+        const entries = storyIds(root).map(path => {
+          const { story } = loadStory(resolve(root, path));
+          return { path, title: story.title, cover: story.cover ?? story.chapters[0]?.image, description: story.description };
         });
+        if (html.includes('<!-- story-catalogue -->') && context.bundle) {
+          nativeCatalogue = renderCatalogue(entries.filter(entry => entry.path.startsWith('stories/')));
+        }
         return html.replace('<!-- story-catalogue -->', () => renderCatalogue(entries))
           .replace('<!-- terminal-catalogue -->', () => renderTerminalCatalogue(entries));
       },
@@ -87,6 +90,9 @@ export function sitePages(): Plugin {
           delete bundle[file.fileName];
         }
         delete bundle[page.fileName];
+        if (page.fileName === 'index-dev.html') {
+          this.emitFile({type: 'asset', fileName: 'ios/Packaging/catalogue.html', source: nativeCatalogue});
+        }
         this.emitFile({type: 'asset', fileName: page.fileName.replace('-dev.html', '.html'), source: html});
       },
     },

@@ -61,7 +61,7 @@ def audit(root):
             resource(root, story, image)
 
 
-def enable_full_bleed(root):
+def prepare_native_page(root):
     viewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
     native_viewport = viewport.replace('">', ', viewport-fit=cover">')
     stylesheet = Path(__file__).with_name("native-layout.css").read_text()
@@ -69,6 +69,11 @@ def enable_full_bleed(root):
     html = page.read_text()
     if html.count(viewport) != 1:
         raise ValueError("Expected one production viewport tag in index.html")
+    catalogue = Path(__file__).with_name("catalogue.html").read_text()
+    html, count = re.subn(r'(<noscript id="story-catalogue">).*?(</noscript>)',
+                          lambda match: match[1] + catalogue + match[2], html, flags=re.DOTALL)
+    if count != 1:
+        raise ValueError("Expected one story catalogue in index.html. Run npm run build.")
     page.write_text(html.replace(viewport, native_viewport)
                     .replace("</head>", f"<style>\n{stylesheet}</style>\n</head>", 1))
 
@@ -97,6 +102,6 @@ if __name__ == "__main__":
         "--include=/assets/homescreen.png", "--include=/stories/***", "--exclude=*",
         str(repo) + "/", str(website),
     ], check=True)
-    enable_full_bleed(website)
+    prepare_native_page(website)
     audit(website)
     write_build_version(Path(os.environ["DERIVED_FILE_DIR"]), repo / "ios/Game/Info.plist")

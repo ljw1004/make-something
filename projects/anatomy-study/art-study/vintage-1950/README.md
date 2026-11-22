@@ -4,7 +4,7 @@
 
 [Full production source](anatomy.md). The illustrated comparison chapters are **1, 4, 8 and 18**. Other chapters retain neutral placeholders.
 
-The independent references are [vintage1](../../inspiration/vintage1.jpeg) and [vintage2](../../inspiration/vintage2.jpeg): opaque gouache, lithographic modelling, warm ivory paper, dusty teal, ochre and vermilion. The [Anatomy design brief](../../../../stories/anatomy/design-brief.md) governs this candidate. No other candidate's artwork was consulted for this revision.
+The independent references are [vintage1](../../inspiration/vintage1.jpeg) and [vintage2](../../inspiration/vintage2.jpeg): opaque gouache, lithographic modelling, warm ivory paper, dusty teal, ochre and vermilion. The [Anatomy design brief](../../../../contrib/anatomy/design-brief.md) governs this candidate. No other candidate's artwork was consulted for this revision.
 
 All four backgrounds are completely blank ivory sheets, 780 × 1688. All scientific content belongs to interactive artwork. The complete comparison family covers **33 identities and five relevant fitted overlays**. The original three selected atlases remain the sources for the portable family. The opening water and lipid strip are mechanically extracted from the same membrane-bag painting, preserving its exact repeating-unit magnification and aqueous material. The standalone nucleus and fitted nucleus share one export size. Hearing composites retain a located, explicitly captioned tissue enlargement, alongside the macroscopic ear or coil.
 

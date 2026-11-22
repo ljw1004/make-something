@@ -1,6 +1,6 @@
 # Anatomy working notes
 
-The [study manuscript](anatomy.md) is for grades **9–10, non-AP/non-Honors**. The [design brief](../../stories/anatomy/design-brief.md) owns lasting intent and constraints. The [source library](sources/README.md) records research provenance. This file records story ideas, arcs, hypotheses, reviews, measured results and decisions.
+The [study manuscript](anatomy.md) is for grades **9–10, non-AP/non-Honors**. The [design brief](../../contrib/anatomy/design-brief.md) owns lasting intent and constraints. The [source library](sources/README.md) records research provenance. This file records story ideas, arcs, hypotheses, reviews, measured results and decisions.
 
 The textbook-spread audit comes first, followed by the embryonic-signal revision and the reordered-subject/cell revision, its preceding human item audit and the local-anatomy/final-assembly revision, followed by the physical-item revision, the enclosed-cell correction, the ordinary-biology revision, the preceding Fun revision, the opening-linearity review, naming record, cell-prelude development, textbook revision and preceding curriculum study. Earlier sections preserve the proposals, scores and judgments of their time, including superseded audiences, manuscripts and provisional conclusions. Their filenames and hashes identify historical conditions; the older playable manuscripts and separate note files have been removed. Requested player records and reports remain in `playtests/`.
 
@@ -315,14 +315,14 @@ Together, these changes produce the candidate sequence **1–6 → 25–27 → 7
 
 The selection rule is to keep a constructed anatomical subject close to its next meaningful use, while respecting actual operands, physical compartments and audience demand. This order remains a hypothesis: it has not been parsed as a reordered manuscript, mechanically validated or tested for cumulative pacing. Chapter transitions, supplied-item timing, fixed contexts and finale handoffs would need review when applying it. Early completion remains welcome; this is not a proposal to gate otherwise valid recipes.
 
-The [brief's revision checks](../../stories/anatomy/design-brief.md#lessons-that-govern-every-revision) now own these requirements. At the time of this audit, the preceding selection below was the current tested manuscript. No new fast/detailed campaign was run for the audit itself; the later applied revision and its tests are recorded above.
+The [brief's revision checks](../../contrib/anatomy/design-brief.md#lessons-that-govern-every-revision) now own these requirements. At the time of this audit, the preceding selection below was the current tested manuscript. No new fast/detailed campaign was run for the audit itself; the later applied revision and its tests are recorded above.
 
 <a id="local-assembly-revision"></a>
 ## Local structures, then final assembly — 14 November 2026
 
 The next human playthrough identified a common representational problem across the draft. A ribosome alternated between a loose component and a separate close-up of installed machinery; physiological states acquired their own tiles; normal blood supply became an extra tissue-making step; and many local organs were repeatedly installed into an accumulated body. The user supplied a clearer arc: learn and build individual parts in their own anatomy-textbook chapters, then enjoy putting those parts together in a distinct finale. They explicitly praised chapter 13's food transformations.
 
-The [brief](../../stories/anatomy/design-brief.md#local-chapters-then-final-assembly) now owns that arc. Its [revision checks](../../stories/anatomy/design-brief.md#lessons-that-govern-every-revision) require a consistent representational role, a real physical contribution, and a reason for each compound. Preserve valuable distinctions such as opposite muscle actions; remove weak assembly chores. A collection must have actual anatomical organization, boundaries or connections. Whole-body convergence belongs at the end, with independent preparation and flexible order before the justified final covering.
+The [brief](../../contrib/anatomy/design-brief.md#local-chapters-then-final-assembly) now owns that arc. Its [revision checks](../../contrib/anatomy/design-brief.md#lessons-that-govern-every-revision) require a consistent representational role, a real physical contribution, and a reason for each compound. Preserve valuable distinctions such as opposite muscle actions; remove weak assembly chores. A collection must have actual anatomical organization, boundaries or connections. Whole-body convergence belongs at the end, with independent preparation and flexible order before the justified final covering.
 
 ### Feedback, hypotheses and chosen changes
 
@@ -531,7 +531,7 @@ The earlier arcs and source hashes below remain historical. The new ending build
 
 The user's next playthrough rejected glucose as a permanent cell fitting, ATP + cell → Working cell, the DNA/membrane division exercise, too many weakly distinguished bone operands and the imposed tendon order. Chapter 4's differentiation comparison worked. The feedback also required a whole-story response: the user cannot serve as the only detector of recurring design faults.
 
-The [active brief](../../stories/anatomy/design-brief.md#lessons-that-govern-every-revision) now owns the resulting requirements: handle physical things; distinguish persistent structures from consumed supplies; preserve producers; demand a material contribution; introduce parts through use; choose a useful level of anatomical detail; allow natural assembly orders; retain understandable independent projects; audit actual school-level demands. Earlier broad “physical model” statements had not prevented fuel fittings and activation badges. These new checks are concrete enough to reject those designs before scoring.
+The [active brief](../../contrib/anatomy/design-brief.md#lessons-that-govern-every-revision) now owns the resulting requirements: handle physical things; distinguish persistent structures from consumed supplies; preserve producers; demand a material contribution; introduce parts through use; choose a useful level of anatomical detail; allow natural assembly orders; retain understandable independent projects; audit actual school-level demands. Earlier broad “physical model” statements had not prevented fuel fittings and activation badges. These new checks are concrete enough to reject those designs before scoring.
 
 ### Hypotheses and changes before testing
 
@@ -1823,7 +1823,7 @@ The [native report](playtests/2026.11.12_08.12.50/report.md) and original reques
 ## Full-story development
 
 
-Authorized 12 November 2026: approximately 200 required combinations in 20–30 chapters, with blind reviews, iterative fast playtesting and subsequent iterative detailed playtesting. The [design brief](../../stories/anatomy/design-brief.md) is the single source of intent and constraints. [Five-round findings](#detailed-round-5-observations-integration-audit-and-retained-ten-chapter-reference) are evidence to learn from, not a requirement to preserve weak chapters.
+Authorized 12 November 2026: approximately 200 required combinations in 20–30 chapters, with blind reviews, iterative fast playtesting and subsequent iterative detailed playtesting. The [design brief](../../contrib/anatomy/design-brief.md) is the single source of intent and constraints. [Five-round findings](#detailed-round-5-observations-integration-audit-and-retained-ten-chapter-reference) are evidence to learn from, not a requirement to preserve weak chapters.
 
 <a id="full-story-completed-pass-and-retained-draft"></a>
 
@@ -2367,7 +2367,7 @@ The requested structured player-response arrays, chapter reports and mechanicall
 
 ### Current cell-first textbook arc
 
-The [full manuscript](anatomy.md) has **32 chapters and 172 required combinations** after the [enclosed-cell correction](#enclosure-selected), following the [ordinary-biology revision](#ordinary-selected). The [design brief](../../stories/anatomy/design-brief.md) owns lasting intent; the [curriculum audit](curriculum.md) separates ordinary-course relationships, locally taught anatomy and four bounded excursions. Earlier studies preserve their original versions and scores.
+The [full manuscript](anatomy.md) has **32 chapters and 172 required combinations** after the [enclosed-cell correction](#enclosure-selected), following the [ordinary-biology revision](#ordinary-selected). The [design brief](../../contrib/anatomy/design-brief.md) owns lasting intent; the [curriculum audit](curriculum.md) separates ordinary-course relationships, locally taught anatomy and four bounded excursions. Earlier studies preserve their original versions and scores.
 
 | Passage | Anatomical/physiological question | Grounded reason to care |
 |---|---|---|
@@ -2389,7 +2389,7 @@ The arc is a textbook reconstruction across scales, not manufacture of a living 
 ### Earlier ten-chapter exploration (historical)
 
 
-This earlier comparison tested two arrangements under the [same brief](../../stories/anatomy/design-brief.md): *From the inside out*, the cells-first experiment, and *A hand that keeps itself*, the arm-first reference, following the four-chapter *Lift a glass* prototype. Their manuscripts have been removed. The following account records the earlier designs; the sole current story is [anatomy.md](anatomy.md), described above.
+This earlier comparison tested two arrangements under the [same brief](../../contrib/anatomy/design-brief.md): *From the inside out*, the cells-first experiment, and *A hand that keeps itself*, the arm-first reference, following the four-chapter *Lift a glass* prototype. Their manuscripts have been removed. The following account records the earlier designs; the sole current story is [anatomy.md](anatomy.md), described above.
 
 The cells-first opening follows **cellular ingredients → working muscle cells → organized muscles → an articulated arm**. Its first three chapters have eight, five and six combinations. Fuel enters the already constructed cells, so their internal work remains attached to the thing the player made. The fitted cell becomes one item that can participate in tissue construction; the tissue's organization then becomes essential to moving the joint. This order tests the pleasure of building a body from smaller beginnings.
 
@@ -3037,7 +3037,7 @@ At the user's request, the 30-chapter full draft replaces the earlier prototype 
 
 This is a historical study of earlier ten-chapter manuscripts, which have been removed. Continue development in [anatomy.md](anatomy.md); the [full-story study](#full-story-development) covers its current 30-chapter form. Original filenames and scores below identify the versions tested.
 
-An active exploration following the user's favorable response to *Lift a glass*. Intended eventual scale: about 200 combinations in 20–30 chapters. Immediate experiment: ten varied chapters. The position of this passage in a longer game is deliberately open. The [design brief](../../stories/anatomy/design-brief.md) owns accepted intent; the [narrative arc](#narrative-arc) describes the current experiment. No graphics, screenshots or browser verification are in scope.
+An active exploration following the user's favorable response to *Lift a glass*. Intended eventual scale: about 200 combinations in 20–30 chapters. Immediate experiment: ten varied chapters. The position of this passage in a longer game is deliberately open. The [design brief](../../contrib/anatomy/design-brief.md) owns accepted intent; the [narrative arc](#narrative-arc) describes the current experiment. No graphics, screenshots or browser verification are in scope.
 
 ### Compound finding
 
@@ -3327,7 +3327,7 @@ The user next requested three `--detailed` revision/retest rounds examining Fun,
 
 This is a historical study of earlier ten-chapter manuscripts, which have been removed. Continue development in [anatomy.md](anatomy.md); the [full-story study](#full-story-development) covers its current 30-chapter form. Original filenames and scores below identify the versions tested.
 
-The user requested three `--detailed` revision-and-retest rounds after the [fast study](#expansion-three-further-fast-revision-rounds), considering **Fun, hook and worthwhile together** and examining patterns of combination as well as weak chapters. The [single active brief](../../stories/anatomy/design-brief.md) governs audience, science, concise prose, planned illustrations and scope. The subject has ample material; this experiment asks which relationships and actions deserve the player's attention.
+The user requested three `--detailed` revision-and-retest rounds after the [fast study](#expansion-three-further-fast-revision-rounds), considering **Fun, hook and worthwhile together** and examining patterns of combination as well as weak chapters. The [single active brief](../../contrib/anatomy/design-brief.md) governs audience, science, concise prose, planned illustrations and scope. The subject has ample material; this experiment asks which relationships and actions deserve the player's attention.
 
 ### Design and evidence limits
 
@@ -3689,6 +3689,6 @@ Across the five rounds: **90 completed chapter playthroughs, 90 fresh independen
 
 #### Next scope — full story, authorized 12 November 2026
 
-The user judged that the subject has enough substance and requested a roughly 200-combination full story, with blind reviews, iterative fast testing for worthwhile/hook and subsequent iterative detailed testing for Fun/worthwhile/hook. They explicitly encouraged replacing stubbornly weak passages with fresh authors who receive only the scope and a very rough chapter purpose. The [full-story study](#full-story-development) owns that next experiment; this ledger remains the complete five-round record. The [single design brief](../../stories/anatomy/design-brief.md) continues to govern both references and the expansion.
+The user judged that the subject has enough substance and requested a roughly 200-combination full story, with blind reviews, iterative fast testing for worthwhile/hook and subsequent iterative detailed testing for Fun/worthwhile/hook. They explicitly encouraged replacing stubbornly weak passages with fresh authors who receive only the scope and a very rough chapter purpose. The [full-story study](#full-story-development) owns that next experiment; this ledger remains the complete five-round record. The [single design brief](../../contrib/anatomy/design-brief.md) continues to govern both references and the expansion.
 
 Retained ten-chapter reference SHA-256: `6027ae16b373134bd7dba63327246f193c6a170454329f0b4467e81824157e5a`. Final lint: zero errors, four reviewed compound-transition warnings; 82 rules including generated fittings and alternative routes, 62 required actions. Chapters 2, 3, 7 and 9 were unchanged throughout the five rounds.

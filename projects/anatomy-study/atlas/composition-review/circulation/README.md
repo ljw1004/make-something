@@ -1,6 +1,6 @@
 # Circulation, lung and chest composition repair
 
-Selected production artwork for chapters 11–14 and 16. The [active design brief](../../../../../stories/anatomy/design-brief.md) and [icon guide](../../../../../docs/icon-guide.md) govern this package. The original `atlas/circulation` package and canonical manuscript were not overwritten by this producer.
+Selected production artwork for chapters 11–14 and 16. The [active design brief](../../../../../contrib/anatomy/design-brief.md) and [icon guide](../../../../../docs/icon-guide.md) govern this package. The original `atlas/circulation` package and canonical manuscript were not overwritten by this producer.
 
 `map.json` supplies 46 item mappings, the two registered chest slots, and the chapter-12 regional presentation of the body vessels. `changes.json` supplies the exact proposed descriptions, approved chapter-13 renames and explicit whole-lung handoff for integration. Run `produce.py` with Pillow and NumPy from any directory. It reads only selected source paintings and performs masks, crops, alpha composition and scale normalization; it does not draw anatomy.
 

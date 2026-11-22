@@ -12,7 +12,7 @@ The composition review also changes several physical units. Chapter 13 construct
 
 The finale supplies an explicit Chest region containing the completed breathing apparatus at whole-body scale. It accepts the arm and lymph return without reusing the earlier thoracic-scale fitting canvases. Its ten operations remain.
 
-Representative quantities are intentional: a single cell can become numerous as tissue forms, without a separate multiplication action. That convention does not excuse changing the kind of cell, supplying unexplained specialized descendants, or mismatching the installed scale. The [design brief](../../../stories/anatomy/design-brief.md) owns the story decisions; the [icon guide](../../../docs/icon-guide.md#review-the-construction-not-just-the-cutouts) owns the reusable review method.
+Representative quantities are intentional: a single cell can become numerous as tissue forms, without a separate multiplication action. That convention does not excuse changing the kind of cell, supplying unexplained specialized descendants, or mismatching the installed scale. The [design brief](../../../contrib/anatomy/design-brief.md) owns the story decisions; the [icon guide](../../../docs/icon-guide.md#review-the-construction-not-just-the-cutouts) owns the reusable review method.
 
 The BMP-2 differentiation step is a focused extension beyond core classroom vocabulary. Prior lineage commitment and other normal signals are supplied, rather than claiming that one molecule alone turns any cell into bone. [Wagley et al., 2020](https://pubmed.ncbi.nlm.nih.gov/32535942/) supports BMP-2-associated osteoblast differentiation in human mesenchymal stem cells.
 

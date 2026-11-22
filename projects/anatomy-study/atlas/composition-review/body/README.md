@@ -1,6 +1,6 @@
 # Anatomy composition repairs: later tissues and body
 
-This package repairs concrete composition failures in chapters 19–26. It leaves the original `atlas/body` package intact. The active [design brief](../../../../../stories/anatomy/design-brief.md) and [icon guide](../../../../../docs/icon-guide.md) govern its anatomical units, naturalistic engraving, and present-state illustrations. Chapter 27 passed review unchanged; chapter 28 is owned by the separate finale package.
+This package repairs concrete composition failures in chapters 19–26. It leaves the original `atlas/body` package intact. The active [design brief](../../../../../contrib/anatomy/design-brief.md) and [icon guide](../../../../../docs/icon-guide.md) govern its anatomical units, naturalistic engraving, and present-state illustrations. Chapter 27 passed review unchanged; chapter 28 is owned by the separate finale package.
 
 | Chapters | Selected repair |
 | --- | --- |

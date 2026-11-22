@@ -1,6 +1,6 @@
 # Sensory-organ replacement family
 
-Replacement artwork for Anatomy chapters 7–9, prepared under the active [design brief](../../../../../stories/anatomy/design-brief.md). The package does not modify the canonical manuscript. The root integration pass owns adoption and fresh independent review.
+Replacement artwork for Anatomy chapters 7–9, prepared under the active [design brief](../../../../../contrib/anatomy/design-brief.md). The package does not modify the canonical manuscript. The root integration pass owns adoption and fresh independent review.
 
 `map.json` maps the existing item identities to 26 transparent PNGs. No slots or recipes change. The completed eye uses original identity `name:Eye with optic nerve`; integration reverses the temporary art alias. Paths are relative to `projects/anatomy-study/anatomy.md`.
 

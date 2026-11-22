@@ -1,6 +1,6 @@
 # Star Trek whole-book artwork rework
 
-The [Anatomy design brief](../../../../../stories/anatomy/design-brief.md) owns lasting intent. This production pass implements the user's correction to the first comparison: every chapter must be illustrated; backgrounds are blank sheets; the interactive constructions themselves carry the anatomy. Other comparison styles are unchanged pending this trial.
+The [Anatomy design brief](../../../../../contrib/anatomy/design-brief.md) owns lasting intent. This production pass implements the user's correction to the first comparison: every chapter must be illustrated; backgrounds are blank sheets; the interactive constructions themselves carry the anatomy. Other comparison styles are unchanged pending this trial.
 
 ## Shared production contract
 

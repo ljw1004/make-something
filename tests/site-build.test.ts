@@ -21,6 +21,8 @@ test('root pages embed independent code and styles, and development serves fresh
     mkdirSync(join(root, 'stories/shared'), {recursive: true});
     write('stories/shared/story.md', '# First title\n\nbackground: ![start](start.svg)\n\n## Workshop\n');
     write('stories/shared/design-brief.md', '# Excluded brief\n');
+    mkdirSync(join(root, 'contrib/example'), {recursive: true});
+    write('contrib/example/example.md', '# Experimental title\n\n## Opening\n');
     write('page.css', '.chooser{display:block}');
     write('index.js', 'document.title = "graphical fixture";');
     write('simulator.js', 'document.title = "terminal fixture";');
@@ -33,6 +35,13 @@ test('root pages embed independent code and styles, and development serves fresh
       assert.doesNotMatch(read(name + '.html'), /<script[^>]* src=|rel="stylesheet"|Excluded brief/);
       assert.match(read(name + '.html'), /<style>\.chooser\{display:block\}/);
     }
+    for (const page of ['index.html', 'simulator.html']) {
+      assert.deepEqual([...read(page).matchAll(/data-story="([^"]+)"/g)].map(match => match[1]),
+        ['stories/shared/story.md', 'contrib/example/example.md']);
+    }
+    const native = read('ios/Packaging/catalogue.html');
+    assert.match(native, /data-story="stories\/shared\/story.md"/);
+    assert.doesNotMatch(native, /contrib\/|Experimental title/);
     assert.match(read('index.html'), /graphical fixture/);
     assert.match(read('index.html'), /href="index.html\?story=stories\/shared\/story.md"/);
     assert.match(read('index.html'), /src="stories\/shared\/start.svg"/);

@@ -1,13 +1,13 @@
 # Anatomy background artwork
 
-The [frontispiece](../../../../stories/anatomy/assets/cover.webp) crops a single tall anatomical figure with broad shoulders, a fading diaphragm and a faint lower-body echo at the same scale. The [composition study](torso-study/README.md) records the alternatives, full unfaded artwork, export and independent Terra reviews. The [shared chapter paper](../../../../stories/anatomy/assets/chapter-paper.webp) is unprinted matte ivory. Both use the same aspect ratio as the Cookbook and Settlement covers.
+The [frontispiece](../../../../contrib/anatomy/assets/cover.webp) crops a single tall anatomical figure with broad shoulders, a fading diaphragm and a faint lower-body echo at the same scale. The [composition study](torso-study/README.md) records the alternatives, full unfaded artwork, export and independent Terra reviews. The [shared chapter paper](../../../../contrib/anatomy/assets/chapter-paper.webp) is unprinted matte ivory. Both use the same aspect ratio as the Cookbook and Settlement covers.
 
 The built-in ImageGen tool produced the [chapter paper master](chapter-paper.png). The chapter paper retains the 1560-pixel width of the original artwork canvas, so the authored coordinates remain registered at the same scale.
 
 Export the chapter paper from this directory.
 
 ```sh
-cwebp -quiet -q 87 -m 6 -crop 116 0 744 1610 -resize 1560 3376 chapter-paper.png -o ../../../../stories/anatomy/assets/chapter-paper.webp
+cwebp -quiet -q 87 -m 6 -crop 116 0 744 1610 -resize 1560 3376 chapter-paper.png -o ../../../../contrib/anatomy/assets/chapter-paper.webp
 ```
 
 The [paired arm engravings](paired-arm-plates.png), [spacing pass](paired-arm-layout.png) and [paired arm master](paired-arm-frontispiece.png) record the preceding cover. The [earlier cover](frontispiece.png), [initial paper](ivory-paper.png) and [initial placement](cover-layout.png) record the preceding shoulder-and-hand composition.
