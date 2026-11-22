@@ -58,7 +58,7 @@ Repair the underlying units or redraw the whole family when moving cutouts canno
 
 ## 3. Research a visual language for this story
 
-Treat the [existing reference collections](../references/icon-sets/) as a starting library. They are neither an exhaustive menu nor a requirement to reuse Settlement's styles. If the story's subject, tone or recognition problems call for a different treatment, research additional art styles before selecting one. An established direction can be reused when it already fits; research should resolve an actual uncertainty.
+Treat the [existing reference collections](../archive/icon-generation/icon-sets/) as a starting library. They are neither an exhaustive menu nor a requirement to reuse Settlement's styles. If the story's subject, tone or recognition problems call for a different treatment, research additional art styles before selecting one. An established direction can be reused when it already fits; research should resolve an actual uncertainty.
 
 Look at concrete works and object depictions, including sources outside game icon packs. Follow promising directions into their actual visual vocabulary. A style name alone is too broad: inspect how examples use contours, shapes, colour, perspective, texture and empty space. Record the source and the qualities worth borrowing. Distinguish a reference for technique or atmosphere from an object depiction; for artwork intended to ship directly, retain its source and usage terms.
 
@@ -80,7 +80,7 @@ Explain these choices with a few reference images. Inspect candidate treatments 
 
 Research and testing should inform each other. If a promising direction loses essential structure at small size, investigate a different simplification or another visual language. Once a pilot works, retain a small approved family of icons as production references alongside the original art references. Continue comparing new work with those anchors so that successive batches do not drift.
 
-For example, a print treatment can be specified through the shape of ink masses and cuts, not merely the word “woodcut.” Settlement's [reference image](../references/icon-sets/woodcut-color/inspiration.png) and [generation requests](../archive/icon-generation/icon-study/prompts.json) illustrate the difference between naming a style and describing its visible properties. They do not make that style the default for another story.
+For example, a print treatment can be specified through the shape of ink masses and cuts, not merely the word “woodcut.” Settlement's [reference image](../archive/icon-generation/icon-sets/woodcut-color/inspiration.png) and [generation requests](../archive/icon-generation/icon-study/prompts.json) illustrate the difference between naming a style and describing its visible properties. They do not make that style the default for another story.
 
 ## 4. Choose a representative pilot
 
@@ -233,8 +233,8 @@ Use these sources to inspect concrete implementations of the workflow. Their sty
 | Material | Useful for |
 |---|---|
 | [Original icon brief](../archive/icon-generation/instructions.md) | Recognition goals, contextual depiction briefs and the idea of testing a small family first |
-| [Reference collections](../references/icon-sets/) | Starting points for visual research; investigate further directions whenever the story calls for them |
-| [Study prompts](../archive/icon-generation/icon-study/prompts.json), [source art](../references/icon-sets/generated-study/) and [review records](../archive/icon-generation/icon-study/reviews/) | Comparing requests, versions, guesses and targeted repairs |
+| [Reference collections](../archive/icon-generation/icon-sets/) | Starting points for visual research; investigate further directions whenever the story calls for them |
+| [Study prompts](../archive/icon-generation/icon-study/prompts.json), [source art](../archive/icon-generation/icon-sets/generated-study/) and [review records](../archive/icon-generation/icon-study/reviews/) | Comparing requests, versions, guesses and targeted repairs |
 | [Style comparison](../archive/icon-generation/icon-study/screenshots/comparison.png) | Inspecting the same pilot subjects in several visual languages and matching scenes |
 | [Production record](../archive/icon-generation/settlement-icons/README.md), [generation records](../archive/icon-generation/settlement-icons/generations/) and [contact sheets](../archive/icon-generation/settlement-icons/contact-sheets/) | Extending a selected direction across a whole campaign |
 | [Mars production sources](<../archive/2026.11.01 mars study/production/README.md>) and [outcomes](<../archive/2026.11.01 mars study/art-review/2026.11.01_22.36.52/report.md>) | Physically informed sizes, varied silhouettes, registered equipment fittings and landscape targets |

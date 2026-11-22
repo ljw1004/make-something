@@ -88,7 +88,7 @@ The frozen comparison used an earlier interface that allowed combinations behind
 
 Creation's [completed artwork review](<../archive/2026.11.05 creation study/art-review/2026.11.05_05.30.00/report.md>) supports coherent families and context-assisted meanings, with remaining ambiguity in fossil prints, call marks, memory and coat variation, cellular organization, and the song/tide-inquiry sequences. Human phone trials should test these distinctions with normal names/readings, native touch, and continuous play through catastrophe, recovery and independent invention. The six AI campaigns and Chromium checks do not establish recognition speed, enjoyment or retained learning. Its [live brief](../stories/creation/design-brief.md) owns the adopted intent.
 
-Settlement uses the selected coloured woodcut artwork; the seven former playable samples are retained as [reference collections](../references/icon-sets). Validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
+Settlement uses the selected coloured woodcut artwork; the seven former playable samples are retained as [reference collections](../archive/icon-generation/icon-sets). Validate recognition speed and material/content distinctions on a phone; repeat-exposure agent reviews do not establish those outcomes.
 
 The main Settlement story uses the [accepted lighter backgrounds](../stories/settlement/design-brief.md). Check recognition with the daughters who reported difficulty: the user's completed playthrough favoured the treatment, but their response remains untested. The [completed comparison](<../archive/2026.11.06 settlement study/README.md>) retains the requested sheets and acceptance record.
 

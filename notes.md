@@ -228,7 +228,7 @@ The user clarified that content-opportunity findings should be author-review war
 
 ## 31 October 2026 icon project brief
 
-The icon project brief (then `docs/icons.md`) records the proposed Elements icon presentation and art-generation experiments; the [art-style references](references/icon-sets/art-styles/index.md) collect six visual directions. The brief remains a design proposal, with implementation and art-style selection pending. Recognition, touch usability and consistency across a complete icon set have not yet been evaluated. This checkpoint preserves the brief and reference assets for the next phase.
+The icon project brief (then `docs/icons.md`) records the proposed Elements icon presentation and art-generation experiments; the [art-style references](archive/icon-generation/icon-sets/) collect six visual directions. The brief remains a design proposal, with implementation and art-style selection pending. Recognition, touch usability and consistency across a complete icon set have not yet been evaluated. This checkpoint preserves the brief and reference assets for the next phase.
 
 ## 31 October 2026 encountered-item encyclopedia
 

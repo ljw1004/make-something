@@ -22,7 +22,7 @@ npm run dev
 
 Open the local address printed by Vite. Drag things together; compatible partners are highlighted without revealing the future result. Goals sit at the bottom and become the next-chapter arrow when complete. Reopen the chapter text through its goals for the applicable recovery action; automatic chapter introductions have only **Begin**. The discreet bug icon toggles the debug pane for live story editing and checkpoint jumps. See [UX](docs/ux.md) for the interaction and recovery rules.
 
-Seven icon styles are retained as [reference collections](references/icon-sets/), each with its own description and preview.
+Seven icon styles are retained as [reference collections](archive/icon-generation/icon-sets/), each with its own description and preview.
 
 **Settlement** uses rustic coloured woodcuts: `/index.html?story=stories/settlement/settlement.md`.
 

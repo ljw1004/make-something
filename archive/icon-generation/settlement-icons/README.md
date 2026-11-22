@@ -12,7 +12,7 @@ The selected coloured woodcut study supplies the palette and earnest functional 
 
 The [scene plan](../../scripts/settlement-icons/scenes.ts) owns the geography and construction sequence. Home, the orchard and the opening cooking clearing are on the **near, starting bank**. The house replaces the lean-to there. The footbridge then crosses away from home toward the mill and village. River views retain right-to-left flow; no reference is mirrored. Later visits retain completed structures, while construction chapters avoid showing their own finished work prematurely.
 
-The user’s admired [river inspiration](../../references/icon-sets/elements-rustic/river-inspiration.png) is retained as a palette and atmosphere reference only. Its far-bank shelter and busy foreground made it unsuitable as the playable scene. The selected opening puts the lean-to and orchard on our bank and gives the foreground a broad natural clearing. Every later background keeps similarly generous working space.
+The user’s admired [river inspiration](../icon-sets/elements-rustic/river-inspiration.png) is retained as a palette and atmosphere reference only. Its far-bank shelter and busy foreground made it unsuitable as the playable scene. The selected opening puts the lean-to and orchard on our bank and gives the foreground a broad natural clearing. Every later background keeps similarly generous working space.
 
 Every hotspot is now part of the background itself. Its separate PNG contains **100% transparent pixels** and defines only the interactive rectangle. The cellar was cut into the existing earth bank, the kiln built against the pottery yard wall, and the kitchen fire painted into the existing fireplace recess. Terrain hotspots use the actual landscape already present. All nine appearances were reviewed together, including both visits to the same quarry face. The final landing target covers empty inlet water until the player places the lantern. Each chapter’s author note records the centre, dimensions and physical feature; syntax and behaviour belong to the [specification](../story-format-spec.md) and [UX guide](../ux.md).
 
@@ -36,7 +36,7 @@ The four primitive icon declarations also specify initial centres, maintained in
 | Material | Location |
 |---|---|
 | Runtime story and compact assets | [stories/settlement](../../stories/settlement/) |
-| Selected source atlases and background originals | [references/icon-sets/elements-rustic](../../references/icon-sets/elements-rustic/) |
+| Selected source atlases and background originals | [elements-rustic](../icon-sets/elements-rustic/) |
 | Exact generation prompts, references and revision reasons | [generations](generations/) |
 | Item distinctions and scene plan | [scripts/settlement-icons](../../scripts/settlement-icons/) |
 | Extraction bounds and output dimensions | [atlas-maps](atlas-maps/) |

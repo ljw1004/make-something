@@ -6,15 +6,15 @@ Seven versions of **The maker's clearing** compared the same twenty belongings a
 
 | Direction | Reference collection |
 |---|---|
-| Coloured woodcut, following the original reference | [Coloured woodcut](../../references/icon-sets/woodcut-color/readme.txt) |
-| Wood engraving, revised after the Blake discussion | [Wood engraving](../../references/icon-sets/woodcut/readme.txt) |
-| Risograph | [Risograph](../../references/icon-sets/riso/readme.txt) |
-| Medieval manuscript | [Medieval manuscript](../../references/icon-sets/medieval/readme.txt) |
-| Traditional game | [Traditional game](../../references/icon-sets/traditional-game/readme.txt) |
-| Japanese Edo | [Japanese Edo](../../references/icon-sets/japanese-edo/readme.txt) |
-| Encyclopedic engraving / Diderot | [Diderot](../../references/icon-sets/diderot/readme.txt) |
+| Coloured woodcut, following the original reference | [Coloured woodcut](../icon-sets/woodcut-color/readme.txt) |
+| Wood engraving, revised after the Blake discussion | [Wood engraving](../icon-sets/woodcut-bw/readme.txt) |
+| Risograph | [Risograph](../icon-sets/riso/readme.txt) |
+| Medieval manuscript | [Medieval manuscript](../icon-sets/medieval/readme.txt) |
+| Traditional game | [Traditional game](../icon-sets/traditional-game/readme.txt) |
+| Japanese Edo | [Japanese Edo](../icon-sets/japanese-edo/readme.txt) |
+| Encyclopedic engraving / Diderot | [Diderot](../icon-sets/diderot/readme.txt) |
 
-Each collection has a `readme.txt`, a `preview.jpg` showing its icons on the matching background, and an `icons/` directory containing its 20 item PNGs, two transparent House overlays and background JPEG. The previews are full-resolution JPEG copies of the retained individual gallery screenshots. Available inspiration images sit beside the readme as `inspiration.png` or `inspiration.jpeg`; the two woodcut variants share the image in `woodcut/`. Image files retain their original bytes, dimensions, alpha and overlay registration. The complete [illustrated Settlement campaign](../settlement-icons/README.md) remains playable. Syntax belongs to the [specification](../story-format-spec.md); interaction belongs to [UX](../ux.md).
+Each collection has a `readme.txt`, a `preview.jpg` showing its icons on the matching background, and an `icons/` directory containing its 20 item PNGs, two transparent House overlays and background JPEG. The previews are full-resolution JPEG copies of the retained individual gallery screenshots. Available inspiration images sit beside the readme as `inspiration.png` or `inspiration.jpeg`; the two woodcut variants share the image in `woodcut-color/`. Image files retain their original bytes, dimensions, alpha and overlay registration. The complete [illustrated Settlement campaign](../settlement-icons/README.md) remains playable. Syntax belongs to the [specification](../story-format-spec.md); interaction belongs to [UX](../ux.md).
 
 ## Compare the screenshots
 
@@ -40,7 +40,7 @@ The first woodcut and riso generations drifted toward rounded game inventory gra
 
 Blake's actual *Thornton's Virgil* engravings cut white lines through black masses; his illuminated books use a different relief-etching and hand-finishing process. The [NGV article and reference image](https://www.ngv.vic.gov.au/essay/william-blake-and-the-ngv-the-history-of-the-virgil-wood-engravings/) guided the revised engraving. The [British Museum account](https://www.britishmuseum.org/collection/term/BIOG19807) supplies the illuminated-printing distinction. An early illuminated-colour proof did not escape the rendered-game look and remains an unused proof.
 
-The user subsequently asked for the colour and feel of [the original woodcut reference](../../references/icon-sets/woodcut/inspiration.png), with an earnest treatment. The seventh comparison followed that reference directly, keeping the monochrome engraving available separately. Its first proof retained too much fine hatching and modeled miniature detail. A second pass uses broader cuts, flatter coloured areas and fewer presentation shadows. The generated clearing uses the same inks, with a pale open centre. The reviewer still has reservations about its game-inventory character; this is a comparison to try, not a claim that human style preference has been settled.
+The user subsequently asked for the colour and feel of [the original woodcut reference](../icon-sets/woodcut-color/inspiration.png), with an earnest treatment. The seventh comparison followed that reference directly, keeping the monochrome engraving available separately. Its first proof retained too much fine hatching and modeled miniature detail. A second pass uses broader cuts, flatter coloured areas and fewer presentation shadows. The generated clearing uses the same inks, with a pale open centre. The reviewer still has reservations about its game-inventory character; this is a comparison to try, not a claim that human style preference has been settled.
 
 The traditional circles were corrected after the user specified **20% black**, rather than opaque charcoal. Image generation isolated the foreground objects; deterministic canvas composition puts a black disk with alpha 51/255 behind each. Foreground paint retains its own opacity, including the translucent air and smoke. This isolation may repaint small details; it is not a pixel-identical cutout. The original atlas and earlier review sheets are retained, and those earlier reviews describe the opaque-backing version.
 
@@ -65,7 +65,7 @@ Remaining questions for human comparison: monochrome Brick versus stone; Brine v
 
 ## Assets and reproduction
 
-Artwork was produced with the built-in image generator. [Exact prompts](prompts.json) record selected and rejected directions. Source atlases and the reviewed superseded sheets are under `references/icon-sets/generated-study/`; purchased/reference artwork was not modified. Prompt and review records retain the source paths used at the time, including the former `art-styles/woodcut.png` path now located at `woodcut/inspiration.png`. The selected [coloured assets](../../references/icon-sets/woodcut-color/icons) and corrected [traditional assets](../../references/icon-sets/traditional-game/icons) live in their reference collections. [Atlas maps](atlas-maps) record extraction regions. Mechanical extraction, resizing, alpha padding, traditional circle composition and slot registration use Chromium canvas; they do not synthesize or redraw the illustrated objects.
+Artwork was produced with the built-in image generator. [Exact prompts](prompts.json) record selected and rejected directions. Source atlases and the reviewed superseded sheets are under `references/icon-sets/generated-study/`; purchased/reference artwork was not modified. Prompt and review records retain the source paths used at the time, including the former `art-styles/woodcut.png` path now located at `woodcut/inspiration.png`. The selected [coloured assets](../icon-sets/woodcut-color/icons) and corrected [traditional assets](../icon-sets/traditional-game/icons) live in their reference collections. [Atlas maps](atlas-maps) record extraction regions. Mechanical extraction, resizing, alpha padding, traditional circle composition and slot registration use Chromium canvas; they do not synthesize or redraw the illustrated objects.
 
 ```sh
 node scripts/prepare-icon-study.ts riso woodcut woodcut-color medieval traditional-game japanese-edo diderot

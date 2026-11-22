@@ -8,7 +8,7 @@ The initial question was whether this should feel like a travelling cook’s inv
 
 | Direction | Artistic statement and reconstruction cues | Verdict |
 |---|---|---|
-| Traditional painted inventory | Familiar individually rendered objects, rounded volume, readable silhouette and warm painted scenery. Use the retained traditional atlas and the repository’s [traditional game collection](../../../../references/icon-sets/traditional-game/). | The user preferred its background to the original mobile scene. It supplied the setting for the later cartoon hybrid. |
+| Traditional painted inventory | Familiar individually rendered objects, rounded volume, readable silhouette and warm painted scenery. Use the retained traditional atlas and the repository’s [traditional game collection](../../../icon-generation/icon-sets/traditional-game/). | The user preferred its background to the original mobile scene. It supplied the setting for the later cartoon hybrid. |
 | Mobile cartoon | Plump exaggerated forms, bright appetizing colour, polished highlights, strong outlines and equal visual weight. | The user preferred these icons. The first mobile background was not the preferred setting. |
 | Grounded tempera | Quiet earth colours, matte painted surfaces, observed proportions and handmade domestic objects. | Explored as a more grounded story treatment; not shortlisted. No separate negative user verdict was recorded. |
 | Storybook pencil | Warm coloured hatching and domestic picture-book softness in a narrative scene. | Explored, not shortlisted; no separate rejection reason recorded. |
