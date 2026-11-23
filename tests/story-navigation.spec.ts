@@ -14,7 +14,7 @@ Make a kit.
 `;
 
 const storyURL = /index.html\?story=stories\/cookbook\/cookbook\.md$/;
-const catalogue = (page: Page) => page.locator('#catalogue-app');
+const catalogue = (page: Page) => page.locator('.story-carousel');
 const board = (page: Page) => page.locator('.game-surface');
 const begin = (page: Page) => page.getByRole('button', {name:'Begin', exact:true});
 const card = (page: Page) => page.locator('a[data-story="stories/cookbook/cookbook.md"]');

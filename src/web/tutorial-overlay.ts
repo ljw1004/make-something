@@ -1,3 +1,4 @@
+import {layoutRect, previewScale} from './device-preview.ts';
 import './tutorial.css';
 
 type Modality = 'mouse' | 'touch' | 'pen' | 'unknown';
@@ -136,26 +137,30 @@ export class TutorialOverlay {
     this.tracks = [];
   }
 
-  private destination(cue: Cue, host = this.host.getBoundingClientRect()): Point | undefined {
+  private rect(element: Element) { return layoutRect(element, previewScale(this.host)); }
+
+  private destination(cue: Cue, host = this.rect(this.host)): Point | undefined {
     const visible = (element: HTMLElement) => {
-      const r = element.getBoundingClientRect();
+      const r = this.rect(element);
       return element.isConnected && r.width > 0 && r.height > 0 && r.left >= host.left && r.right <= host.right + 1 && r.top >= host.top && r.bottom <= host.bottom + 1;
     };
     if (document.hidden || ![cue.target, receiver(cue), ...sources(cue)].every(visible)) return;
-    const target = receiver(cue).getBoundingClientRect();
+    const target = this.rect(receiver(cue));
     if (cue.kind === 'drag' || cue.kind === 'hotspot') return {x: target.x + target.width / 2, y: target.y + target.height / 2};
     // An overlapping object can intercept a tap. Aim at an uncovered point.
     const points = [0.5, 0.25, 0.75, 0.1, 0.9].flatMap(x => [0.5, 0.25, 0.75].map(y => ({x: target.x + x * target.width, y: target.y + y * target.height})));
-    return points.find(p => cue.target.contains(document.elementFromPoint(p.x, p.y)));
+    const scale = previewScale(this.host);
+    return points.find(p => cue.target.contains(document.elementFromPoint(p.x * scale, p.y * scale)));
   }
 
   private scene(cue: Cue, host: DOMRect) {
     // Goals live in the HUD. Items can also belong to an earlier, differently framed scene.
     const chapter = cue.target.closest('.chapter-panel');
-    if (chapter) return chapter.getBoundingClientRect();
+    if (chapter) return this.rect(chapter);
     const viewport = this.host.querySelector<HTMLElement>('.viewport');
     const position = viewport ? Math.round(viewport.scrollLeft / viewport.clientWidth) : 0;
-    return viewport?.querySelectorAll('.chapter-panel')[position]?.getBoundingClientRect() ?? host;
+    const panel = viewport?.querySelectorAll('.chapter-panel')[position];
+    return panel ? this.rect(panel) : host;
   }
 
   private positionLabel(cue: Cue, host: DOMRect, scene: DOMRect, point: Point) {
@@ -166,7 +171,7 @@ export class TutorialOverlay {
     const yMin = Math.max(0, sceneTop) + margin;
     const yMax = Math.min(host.height, sceneTop + scene.height) - margin;
     this.label.style.setProperty('--label-room', `${Math.max(0, xMax - xMin)}px`);
-    const {width, height} = this.label.getBoundingClientRect();
+    const {width, height} = this.rect(this.label);
     const left = Math.max(xMin, Math.min(xMax - width, point.x - width / 2));
     const clearance = cue.kind === 'hotspot' ? dragContactRadius + 2 : tapRippleRadius;
     const above = point.y - clearance - height;
@@ -180,7 +185,7 @@ export class TutorialOverlay {
     this.frame = 0;
     const cue = this.cue;
     if (!cue) return;
-    const host = this.host.getBoundingClientRect(), scene = this.scene(cue, host);
+    const host = this.rect(this.host), scene = this.scene(cue, host);
     for (const [edge, inset] of Object.entries({
       top: scene.top - host.top, right: host.right - scene.right,
       bottom: host.bottom - scene.bottom, left: scene.left - host.left,
@@ -193,7 +198,7 @@ export class TutorialOverlay {
       if (visibleKind) this.onShown(visibleKind);
     }
     if (destination) {
-      const target = cue.target.getBoundingClientRect();
+      const target = this.rect(cue.target);
       const end = {x: destination.x - host.x, y: destination.y - host.y};
       for (const [key, value] of Object.entries({x: target.x-host.x-4, y: target.y-host.y-4, width: target.width+8, height: target.height+8})) this.outline.setAttribute(key, String(value));
       const reduced = this.motion.matches;
@@ -206,7 +211,7 @@ export class TutorialOverlay {
       const opacity = opacityAt(phase);
       let gesturePosition = end;
       sources(cue).forEach((element, index) => {
-        const source = element.getBoundingClientRect(), track = this.tracks[index];
+        const source = this.rect(element), track = this.tracks[index];
         const start = {x: source.x + source.width / 2 - host.x, y: source.y + source.height / 2 - host.y};
         const dx = end.x - start.x, dy = end.y - start.y, length = Math.max(1, Math.hypot(dx, dy));
         const bow = Math.min(36, length * .16);

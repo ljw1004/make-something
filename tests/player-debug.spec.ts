@@ -163,3 +163,107 @@ for (const mode of ['standalone', 'iOS standalone']) {
     await expect(page.locator('.debug-button, .story-editor')).toHaveCount(0);
   });
 }
+
+test('Start and Continue keep the sidebar boundary while the story loads at iPad size', async ({page}) => {
+  await serveBuild(page);
+  await page.setViewportSize({width:1100,height:800});
+  let release: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/' + storyPath, async route => {
+    await gate;
+    await route.fulfill({contentType:'text/markdown', body:manuscript + '- Paint + Tool -> A\n'});
+  });
+  await page.goto('/index.html');
+  await page.getByRole('button', {name:'History of ideas', exact:true}).click();
+  await page.getByRole('button', {name:'Toggle carousel debug panel'}).click();
+  await page.getByLabel('Screen dimensions').selectOption('ipad-portrait');
+  const cover = page.locator('.story-carousel');
+  const app = page.locator('#app');
+  const editor = page.getByRole('textbox', {name:'Story Markdown'});
+  const card = page.locator('.carousel-slide:visible a[data-story]');
+  const size = (el: HTMLElement) => [el.clientWidth, el.clientHeight];
+  const pane = await cover.boundingBox();
+  expect(pane!.width).toBeCloseTo(550, 1);
+  expect(await cover.evaluate(size)).toEqual([1024,1366]);
+  await expect(card).toContainText('Start');
+  await card.click();
+  await expect(page.locator('.story-entry-loading')).toBeVisible();
+  expect(await app.boundingBox()).toEqual(pane);
+  await expect(page.locator('#carousel-debug-panel')).toBeVisible();
+  release!();
+  await expect(editor).toBeVisible();
+  expect(await app.boundingBox()).toEqual(pane);
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  await page.locator('[data-item="name:Seed"]').dragTo(page.locator('[data-item="name:Brush"]'));
+  await expect(page.locator('[data-item="name:Paint"]')).toBeVisible();
+  await page.getByRole('button',{name:'Read this chapter'}).click();
+  await page.getByRole('link',{name:'Home',exact:true}).click();
+  await expect(card).toContainText('Continue');
+  expect(await cover.boundingBox()).toEqual(pane);
+  await card.click();
+  await expect(editor).toBeVisible();
+  expect(await app.boundingBox()).toEqual(pane);
+  await page.getByRole('button',{name:'Close debug panel'}).click();
+  expect(await app.evaluate(size)).toEqual([1024,1366]);
+  expect((await app.boundingBox())!.height).toBeCloseTo(800,1);
+  await page.reload();
+  await expect(page.locator('.chapter-panel')).toBeVisible();
+  expect(await app.evaluate(size)).toEqual([1024,1366]);
+  await expect(editor).toHaveCount(0);
+});
+
+test('the carousel popup remembers device dimensions across close and reload and can restore Auto', async ({page}) => {
+  await serveBuild(page);
+  await page.goto('/index.html');
+  const toggle = page.getByRole('button',{name:'Toggle carousel debug panel'});
+  const choice = page.getByLabel('Screen dimensions');
+  const cover = page.locator('.story-carousel');
+  const size = () => cover.evaluate(el => [el.clientWidth,el.clientHeight]);
+  await toggle.click();
+  await choice.selectOption('iphone');
+  expect(await size()).toEqual([390,844]);
+  await choice.selectOption('ipad-landscape');
+  expect(await size()).toEqual([1366,1024]);
+  await page.getByRole('button',{name:'Close',exact:true}).click();
+  await page.reload();
+  expect(await size()).toEqual([1366,1024]);
+  await toggle.click();
+  await expect(choice).toHaveValue('ipad-landscape');
+  await page.setViewportSize({width:1000,height:700});
+  await expect(page.locator('.catalogue-debug-panel:not(:modal)')).toBeVisible();
+  expect((await cover.boundingBox())!.width).toBeCloseTo(500,1);
+  await choice.selectOption('auto');
+  expect(await size()).toEqual([390,700]);
+  await toggle.click();
+  expect(await size()).toEqual([1000,700]);
+});
+
+test('the scaled Creation opening preserves item placement and goal size at iPad portrait dimensions', async ({page, browser}) => {
+  const reference = await browser.newPage({viewport:{width:1024,height:1366}});
+  try {
+    await page.setViewportSize({width:1100,height:800});
+    async function opening(view: Page, pinned: boolean) {
+      await view.goto('/index.html');
+      await view.getByRole('button',{name:'Creation',exact:true}).click();
+      if (pinned) {
+        await view.getByRole('button',{name:'Toggle carousel debug panel'}).click();
+        await view.getByLabel('Screen dimensions').selectOption('ipad-portrait');
+      }
+      await view.locator('.carousel-slide:visible a[data-story]').click();
+      await view.getByRole('button',{name:'Begin',exact:true}).click();
+      await expect(view.locator('#workspace')).toHaveClass(/entry-settled/);
+      return view.locator('#app').evaluate(app => {
+        const bounds = app.getBoundingClientRect(), scale = bounds.width / app.clientWidth;
+        return [...app.querySelectorAll('[data-item], [data-hotspot], .objective-line')].map(el => {
+          const r = el.getBoundingClientRect();
+          return {id:el.getAttribute('aria-label') ?? el.textContent,
+            box:[(r.x-bounds.x)/scale, (r.y-bounds.y)/scale, r.width/scale, r.height/scale]};
+        });
+      });
+    }
+    const actual = await opening(page, true), expected = await opening(reference, false);
+    expect(actual.map(item => item.id)).toEqual(expected.map(item => item.id));
+    expect(expected.length).toBeGreaterThan(3);
+    actual.forEach((item, i) => item.box.forEach((value, j) => expect(value).toBeCloseTo(expected[i].box[j],1)));
+  } finally { await reference.close(); }
+});

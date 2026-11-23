@@ -1,3 +1,5 @@
+import {previewScale} from './device-preview.ts';
+
 const normalTextContrast = 4.5;
 const linear = Float64Array.from({length: 256}, (_, byte) => {
   const value = byte / 255;
@@ -49,6 +51,7 @@ function trimBlur(context: CanvasRenderingContext2D, backdrop: HTMLElement, text
     backdrop.style.setProperty('--carousel-blur-bottom', '100%');
     return;
   }
+  const scale = previewScale(backdrop);
   const lastLine = Math.max(...text.map(box => box.bottom));
   let edge = lastLine;
   if (lastLine < clipBottom) {
@@ -57,10 +60,10 @@ function trimBlur(context: CanvasRenderingContext2D, backdrop: HTMLElement, text
       context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
       const metrics = context.measureText(lineText(box));
       const margin = 0.2 * context.measureText('x').actualBoundingBoxAscent;
-      return lastLine - metrics.fontBoundingBoxDescent + metrics.actualBoundingBoxDescent + margin;
+      return lastLine + scale * (metrics.actualBoundingBoxDescent - metrics.fontBoundingBoxDescent + margin);
     }));
   }
-  backdrop.style.setProperty('--carousel-blur-bottom', `${Math.max(0, clipBottom - edge)}px`);
+  backdrop.style.setProperty('--carousel-blur-bottom', `${Math.max(0, clipBottom - edge) / scale}px`);
 }
 
 // A summed-area table lets every background pixel contribute to the blur
@@ -121,7 +124,7 @@ function sample(context: CanvasRenderingContext2D, art: HTMLImageElement, image:
   const layer = getComputedStyle(backdrop, '::before');
   const blur = (layer.backdropFilter || layer.getPropertyValue('-webkit-backdrop-filter')).match(/blur\(([\d.]+)px\)/);
   // Estimate the rendered Gaussian blur with a box of comparable variance.
-  const radius = blur ? Math.round(Number(blur[1]) * Math.sqrt(3) * resolution) : 0;
+  const radius = blur ? Math.round(Number(blur[1]) * Math.sqrt(3) * resolution * previewScale(backdrop)) : 0;
   const lines = text.map(({left, top, right, bottom}) => ({
     left: Math.floor(left * resolution), top: Math.floor(top * resolution),
     right: Math.ceil(right * resolution), bottom: Math.ceil(bottom * resolution),

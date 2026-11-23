@@ -16,7 +16,10 @@ export class SwipeMotion {
   private readonly start: Sample;
   private readonly samples: Sample[];
 
-  constructor(start: Sample) {
+  private readonly displayScale: number;
+
+  constructor(start: Sample, displayScale = 1) {
+    this.displayScale = displayScale;
     this.start = start;
     this.samples = [start];
   }
@@ -51,8 +54,8 @@ export class SwipeMotion {
       start -= delta * (time - earlier) / (time - sample.timeStamp);
       time = earlier;
     }
-    const velocity = (end[coordinate] - start) / Math.max(minimumInterval, end.timeStamp - time);
+    const velocity = (end[coordinate] - start) / this.displayScale / Math.max(minimumInterval, end.timeStamp - time);
     const coast = velocity * Math.abs(velocity) / (2 * deceleration);
-    return end[coordinate] - this.start[coordinate] + coast;
+    return (end[coordinate] - this.start[coordinate]) / this.displayScale + coast;
   }
 }

@@ -22,7 +22,7 @@ export function leaveForCatalogue(face: HTMLElement, board: HTMLElement, href: s
   if (!supportsMotion()) return false;
   let animation: Animation;
   try {
-    animation = face.animate([{transform:`translateY(${offset}px)`}, {transform:'translateY(100dvh)'}],
+    animation = face.animate([{transform:`translateY(${offset}px)`}, {transform:'translateY(100%)'}],
       {duration, easing:'ease-in', fill:'both'});
   } catch {
     return false;
@@ -69,7 +69,7 @@ export async function revealCatalogue(face: HTMLElement) {
   let animation: Animation | undefined;
   try {
     if (!supportsMotion()) return;
-    animation = face.animate([{transform:'translateY(-100dvh)'}, {transform:'translateY(0)'}],
+    animation = face.animate([{transform:'translateY(calc(-1 * var(--device-height, 100dvh)))'}, {transform:'translateY(0)'}],
       {duration, easing:'ease-out'});
     await animation.finished;
   } catch { /* Restore the settled cover if animation is interrupted. */ }

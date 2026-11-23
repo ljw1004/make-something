@@ -1,3 +1,4 @@
+import {layoutRect, previewScale} from './device-preview.ts';
 type ReadingView = 'popup' | 'index' | 'detail' | 'spread';
 
 interface Swipe {
@@ -115,8 +116,9 @@ export class ReadingSwipe {
     }
     const track = target.closest<HTMLElement>(page === 'popup' ? 'dialog' : '.encyclopedia-track');
     if (!track) return;
-    const distance = page === 'popup' ? track.getBoundingClientRect().width
-      : track.querySelector('.encyclopedia-detail')!.getBoundingClientRect().left - track.querySelector('.encyclopedia-index')!.getBoundingClientRect().left;
+    const scale = previewScale(this.root);
+    const distance = page === 'popup' ? layoutRect(track, scale).width
+      : layoutRect(track.querySelector('.encyclopedia-detail')!, scale).left - layoutRect(track.querySelector('.encyclopedia-index')!, scale).left;
     const scroller = !mouse && page === 'popup' ? target.closest<HTMLElement>('.chapter-popup .reading-text') ?? track : undefined;
     this.swipe = {
       pointer: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp,
@@ -132,7 +134,8 @@ export class ReadingSwipe {
     if (!swipe || event.pointerId !== swipe.pointer) return;
     const touch = event.pointerType === 'touch';
     if (this.page() !== swipe.page || !swipe.track.isConnected || (touch && this.hasSelection())) { this.cancel(); return; }
-    const dx = event.clientX - swipe.x, dy = event.clientY - swipe.y;
+    const scale = previewScale(this.root);
+    const dx = (event.clientX - swipe.x) / scale, dy = (event.clientY - swipe.y) / scale;
     if (!swipe.axis) {
       // Leave long presses to native selection and lock one axis per drag.
       if (touch && event.timeStamp - swipe.time > 400) { this.cancel(); return; }
@@ -163,7 +166,7 @@ export class ReadingSwipe {
     const swipe = this.swipe;
     if (!swipe) return;
     const travel = swipe.axis === 'Y' ? event.clientY - swipe.y : event.clientX - swipe.x;
-    const commit = swipe.axis && Math.abs(travel) >= Math.min(80, swipe.distance * .22);
+    const commit = swipe.axis && Math.abs(travel) / previewScale(this.root) >= Math.min(80, swipe.distance * .22);
     // Resolve the last dragged position before restoring the CSS transition.
     // Reconciliation can then change pages without snapping to an intermediate end.
     if (swipe.axis) swipe.track.getBoundingClientRect();
@@ -178,7 +181,8 @@ export class ReadingSwipe {
   private slideOut(swipe: Swipe, direction: number) {
     const { track } = swipe;
     const from = getComputedStyle(track).transform;
-    const bounds = track.getBoundingClientRect(), viewport = this.root.getBoundingClientRect();
+    const scale = previewScale(this.root);
+    const bounds = layoutRect(track, scale), viewport = layoutRect(this.root, scale);
     const matrix = new DOMMatrixReadOnly(from);
     const destination = swipe.axis === 'Y'
       ? matrix.m42 + (direction > 0 ? viewport.bottom - bounds.top : viewport.top - bounds.bottom)

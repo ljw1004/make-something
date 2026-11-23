@@ -1,3 +1,4 @@
+import {previewScale} from './device-preview.ts';
 import {cacheCarouselLaunch, carouselEntryState, readCarouselLaunch, type CarouselActivation} from './carousel-launch.ts';
 import {rememberCatalogueReturn} from './document-navigation.ts';
 import type {mountCatalogueDebug} from './catalogue-debug.ts';
@@ -22,7 +23,7 @@ interface Visit {
 }
 
 /** Keep both live surfaces in one viewport during the vertical transition. */
-export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElement[], debug: ReturnType<typeof mountCatalogueDebug>, restoreCover: (link?: HTMLAnchorElement) => void) {
+export function connectCataloguePlayer(cover: HTMLElement, carousel: HTMLElement, links: HTMLAnchorElement[], debug: ReturnType<typeof mountCatalogueDebug>, restoreCover: (link?: HTMLAnchorElement) => void) {
   const home = new URL('index.html', location.href).href;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let visit: Visit | undefined;
@@ -36,7 +37,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     entry.progress = progress;
     const y = reducedMotion.matches
       ? (entry.committed && !entry.leaving ? 1 : 0) : progress;
-    cover.style.transform = `translateY(${-100 * y}%)`;
+    carousel.style.transform = `translateY(${-100 * y}%)`;
     entry.workspace.style.setProperty('--entry-board-offset', `${100 * (1 - y)}%`);
     if (!entry.leaving) {
       if (y >= .5) entry.player?.previewEntryReading();
@@ -53,7 +54,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     entry.player?.dispose();
     entry.workspace.remove();
     cover.inert = false;
-    cover.style.removeProperty('transform');
+    carousel.style.removeProperty('transform');
   }
 
   function animate(entry: Visit, to: number, done: () => void) {
@@ -82,6 +83,8 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     workspace.id = 'workspace';
     workspace.className = 'catalogue-player';
     workspace.innerHTML = '<div id="app" aria-label="Game"><div class="game-surface"></div></div>';
+    const sidebarOpen = debug.sidebarOpen;
+    workspace.classList.toggle('editor-open', sidebarOpen);
     cover.after(workspace);
     const entry: Visit = {link, modality, activation, workspace, progress:0, frame:0, committed:false, settled:false, leaving:false, loading:0};
     visit = entry;
@@ -90,18 +93,21 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     status.className = 'story-entry-loading';
     status.setAttribute('role', 'status');
     status.innerHTML = '<span class="sr-only">Loading story…</span>';
-    entry.loading = window.setTimeout(() => workspace.append(status), 240);
+    const app = workspace.querySelector<HTMLElement>('#app')!;
+    entry.loading = window.setTimeout(() => app.append(status), 240);
     permitReturnWhileMounting(entry);
     module ??= import('./main.ts');
     void module.then(({mountPlayer}) => {
       if (visit !== entry || entry.leaving) return;
       const player = entry.player = mountPlayer(workspace, {
-        url:link.href, modality, activation, drafts,
+        url:link.href, modality, activation, drafts, sidebarOpen,
+        // The outgoing sidebar holds its place until the destination controls are ready.
+        onDebugReady: () => { if (visit === entry && !entry.leaving) debug.close(); },
         home: sidebarOpen => leave(entry, sidebarOpen),
         trackHome: (offset, settling) => {
           if (visit !== entry || entry.leaving) return;
           if (settling) animate(entry, 1, () => {});
-          else { stop(entry); position(entry, 1 - offset / workspace.clientHeight); }
+          else { stop(entry); position(entry, 1 - offset / app.clientHeight); }
         },
       });
       player.setEntryOverlay(!entry.committed);
@@ -129,13 +135,13 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     surface.addEventListener('pointerdown', event => {
       if (entry.player || !entry.committed || !event.isPrimary || event.button !== 0) return;
       stop(entry);
-      press = {id:event.pointerId, x:event.clientX, y:event.clientY, progress:entry.progress, motion:new SwipeMotion(event)};
+      press = {id:event.pointerId, x:event.clientX, y:event.clientY, progress:entry.progress, motion:new SwipeMotion(event, previewScale(surface))};
       surface.setPointerCapture(event.pointerId);
     });
     surface.addEventListener('pointermove', event => {
       if (press?.id !== event.pointerId) return;
       press.motion.track(event);
-      position(entry, Math.max(0, press.progress - Math.max(0, (event.clientY - press.y) / surface.clientHeight)));
+      position(entry, Math.max(0, press.progress - Math.max(0, (event.clientY - press.y) / surface.getBoundingClientRect().height)));
     });
     surface.addEventListener('pointerup', event => {
       if (press?.id !== event.pointerId) return;
@@ -170,16 +176,15 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     const {link, modality, activation} = entry;
     const manuscript = new URL(link.dataset.story!, home).href;
     try {
-      if (push) history.pushState(carouselEntryState(manuscript, link.href, modality, activation), '', link.href);
+      if (push) history.pushState(carouselEntryState(manuscript, link.href, modality, activation, debug.sidebarOpen), '', link.href);
     } catch {
       clear(entry);
-      cacheCarouselLaunch(manuscript, link.href, modality, activation);
+      cacheCarouselLaunch(manuscript, link.href, modality, activation, debug.sidebarOpen);
       location.assign(link.href);
       return;
     }
     entry.committed = true;
     entry.workspace.inert = false; cover.inert = true;
-    debug.close();
     entry.player?.setEntryOverlay(false);
     entry.player?.commitEntry();
     if (entry.progress >= .5) entry.player?.focusEntry();
@@ -204,7 +209,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
       if (!visit && offset <= 0) return;
       const entry = visit ?? open(link, modality, activation);
       stop(entry);
-      position(entry, Math.max(0, Math.min(1, offset / cover.clientHeight)));
+      position(entry, Math.max(0, Math.min(1, offset / carousel.clientHeight)));
     },
     cancel() {
       const entry = visit;

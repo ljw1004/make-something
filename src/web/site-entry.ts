@@ -1,5 +1,7 @@
 import {mountCatalogue} from './catalogue.ts';
+import {initializeDevicePreview} from './device-preview.ts';
 
+initializeDevicePreview();
 const cover = document.querySelector<HTMLDivElement>('#catalogue-app');
 if (cover) {
   mountCatalogue(cover);

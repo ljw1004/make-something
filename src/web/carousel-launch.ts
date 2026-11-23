@@ -1,11 +1,11 @@
 type Modality = 'mouse' | 'touch';
 export type CarouselActivation = 'tap' | 'swipe-start' | 'swipe-continue';
 interface CarouselEntryContext {
-  fromCarousel: boolean; modality?: Modality; resumeEntry?: boolean; skipCover?: boolean; activation?: CarouselActivation;
+  fromCarousel: boolean; modality?: Modality; resumeEntry?: boolean; skipCover?: boolean; sidebarOpen?: boolean; activation?: CarouselActivation;
 }
 interface CarouselLaunch {
   entry: 'carousel'; source?: string; manuscript: string; destination: string; modality: Modality;
-  inPage?: boolean; activation?: CarouselActivation; skipIntroduction?: boolean;
+  inPage?: boolean; sidebarOpen?: boolean; activation?: CarouselActivation; skipIntroduction?: boolean;
 }
 const stateKey = 'makeSomethingCarouselEntry';
 const pendingKey = 'make-something-entry-v1';
@@ -17,14 +17,14 @@ const valid = (value: unknown, manuscript: string, destination: string): value i
 };
 
 /** Preserve the carousel origin on reload, even if the first load was interrupted. */
-export function carouselEntryState(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation) {
-  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, inPage:true, activation};
+export function carouselEntryState(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation, sidebarOpen = false) {
+  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, inPage:true, activation, sidebarOpen};
   return {[stateKey]:launch};
 }
 
 /** Transfer context for a full navigation when same-document history is unavailable. */
-export function cacheCarouselLaunch(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation) {
-  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, activation};
+export function cacheCarouselLaunch(manuscript: string, destination: string, modality: Modality, activation?: CarouselActivation, sidebarOpen = false) {
+  const launch: CarouselLaunch = {entry:'carousel', source:location.href, manuscript, destination, modality, activation, sidebarOpen};
   try { sessionStorage.setItem(pendingKey, JSON.stringify({launch, expires:Date.now() + 30_000})); }
   catch { /* The real link still opens the normal story route. */ }
 }
@@ -32,7 +32,7 @@ export function cacheCarouselLaunch(manuscript: string, destination: string, mod
 export function finishCarouselLaunch() {
   const launch = history.state?.[stateKey];
   if (!launch?.activation && launch?.skipIntroduction !== true) return;
-  try { history.replaceState({...history.state, [stateKey]:{...launch, activation:undefined, skipIntroduction:false}}, ''); }
+  try { history.replaceState({...history.state, [stateKey]:{...launch, activation:undefined, sidebarOpen:undefined, skipIntroduction:false}}, ''); }
   catch { /* The story can still retain its ordinary progress. */ }
 }
 
@@ -57,7 +57,7 @@ export function readCarouselLaunch(manuscript: string, catalogue: URL): Carousel
   const remembered = history.state?.[stateKey];
   if (valid(remembered, manuscript, destination)) {
     const activation = remembered.inPage ? launchActivation(remembered) : undefined;
-    return {fromCarousel:true, modality:remembered.modality, resumeEntry:remembered.inPage, skipCover:!!activation, activation};
+    return {fromCarousel:true, modality:remembered.modality, resumeEntry:remembered.inPage, skipCover:!!activation, sidebarOpen:remembered.sidebarOpen === true, activation};
   }
   if (!pending || !Number.isFinite(pending.expires) || pending.expires! < Date.now() ||
     !valid(pending.launch, manuscript, destination)) return {fromCarousel:false};
@@ -72,5 +72,5 @@ export function readCarouselLaunch(manuscript: string, catalogue: URL): Carousel
 
   try { history.replaceState({...history.state, [stateKey]:{...pending.launch, inPage:true}}, ''); }
   catch { /* Preserve context for the current page even if history is unavailable. */ }
-  return {fromCarousel:true, modality:pending.launch.modality, skipCover:true, activation:launchActivation(pending.launch) ?? 'swipe-start'};
+  return {fromCarousel:true, modality:pending.launch.modality, skipCover:true, sidebarOpen:pending.launch.sidebarOpen === true, activation:launchActivation(pending.launch) ?? 'swipe-start'};
 }

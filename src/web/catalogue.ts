@@ -1,3 +1,4 @@
+import {layoutRect, previewScale} from './device-preview.ts';
 import { escape } from './markdown.ts';
 import {mountCatalogueDebug} from './catalogue-debug.ts';
 import {isHomeScreenApp, setHomeScreenIdentity} from './home-screen.ts';
@@ -44,6 +45,10 @@ export function mountCatalogue(app: HTMLDivElement) {
     if (link) location.replace(link.href);
     else app.innerHTML = `<main class="chooser"><h1>Stories unavailable</h1><p>Unknown story: ${escape(bookmark)}.</p></main>`;
   } else if (carousel && frame && slides.length) {
+    const viewport = document.createElement('div');
+    viewport.className = 'carousel-viewport';
+    carousel.before(viewport);
+    viewport.append(carousel);
     const standalone = isHomeScreenApp();
     const native = location.protocol === 'msw:';
     if (import.meta.env.DEV || native || standalone) {
@@ -147,12 +152,13 @@ export function mountCatalogue(app: HTMLDivElement) {
       if (!reducedMotion.matches) {
         // The arrows travel with their cards. Retain the resting hit areas
         // during the short transition so a quick second press is not lost.
-        const origin = frame!.getBoundingClientRect();
+        const scale = previewScale(viewport);
+        const origin = layoutRect(frame!, scale);
         repeatArrows.replaceChildren();
         for (const [name, repeatStep] of [['prev', -1], ['next', 1]] as const) {
           const selector = `.carousel-${name}`;
           const source = slides[current].querySelector<HTMLButtonElement>(selector)!;
-          const box = source.getBoundingClientRect();
+          const box = layoutRect(source, scale);
           const repeat = document.createElement('button');
           repeat.type = 'button'; repeat.tabIndex = -1;
           Object.assign(repeat.style, {left:`${box.x - origin.x}px`,top:`${box.y - origin.y}px`,width:`${box.width}px`,height:`${box.height}px`});
@@ -188,7 +194,7 @@ export function mountCatalogue(app: HTMLDivElement) {
     const debug = mountCatalogueDebug(app, frame, new URL('index.html', root).href,
       storyLinks.map(link => new URL(link.dataset.story!, root).href));
     if (returning?.sidebarOpen) debug.openSidebar();
-    const player = connectCataloguePlayer(app, storyLinks, debug, link => {
+    const player = connectCataloguePlayer(app, carousel, storyLinks, debug, link => {
       if (link) show(storyLinks.indexOf(link));
       else restoreSlide();
       refreshLinks(); catalogueIdentity();
@@ -264,14 +270,15 @@ export function mountCatalogue(app: HTMLDivElement) {
         if ((event.target as Element).closest('.carousel-slide[hidden]')) return;
       }
       cancelledClick = null;
-      press = {id:event.pointerId, x:event.clientX, y:event.clientY, motion:new SwipeMotion(event), delta:0, repeat:!!repeatingArrow,
+      press = {id:event.pointerId, x:event.clientX, y:event.clientY, motion:new SwipeMotion(event, previewScale(viewport)), delta:0, repeat:!!repeatingArrow,
         control:target.closest('button, a[data-story], .carousel-footer a'),
         canEnter:!scrollableDescription(target)};
     });
     window.addEventListener('pointermove', event => {
       if (press?.id !== event.pointerId || press.repeat) return;
       press.motion.track(event);
-      const dx = event.clientX - press.x, dy = event.clientY - press.y;
+      const scale = previewScale(viewport);
+      const dx = (event.clientX - press.x) / scale, dy = (event.clientY - press.y) / scale;
       if (!press.axis) {
         if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
         press.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
@@ -287,7 +294,8 @@ export function mountCatalogue(app: HTMLDivElement) {
     });
     window.addEventListener('pointerup', event => {
       if (press?.id !== event.pointerId) return;
-      const dx = event.clientX - press.x, dy = event.clientY - press.y;
+      const scale = previewScale(viewport);
+      const dx = (event.clientX - press.x) / scale, dy = (event.clientY - press.y) / scale;
       if (press.repeat) {
         cancelledClick = press.control;
         if (Math.hypot(dx, dy) < 12 && press.control instanceof HTMLButtonElement) press.control.click();

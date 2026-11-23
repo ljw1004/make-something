@@ -1,3 +1,4 @@
+import {layoutRect, previewScale} from './device-preview.ts';
 import { combinationHaptic } from './haptics.ts';
 import {validCentre} from '../story/coordinates.ts';
 import {coordinateEntries} from '../lint/coordinates.ts';
@@ -59,6 +60,8 @@ interface CataloguePlayerOptions {
   modality: 'mouse' | 'touch';
   activation?: CarouselActivation;
   drafts: Map<string, DraftStore>;
+  sidebarOpen: boolean;
+  onDebugReady: () => void;
   home: (sidebarOpen: boolean) => void;
   trackHome: (offset: number, settling: boolean) => void;
 }
@@ -67,6 +70,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   const lifecycle = new AbortController();
   const signal = lifecycle.signal;
   const app = workspace.querySelector<HTMLDivElement>('#app')!;
+  const measuredRect = (element: Element) => layoutRect(element, previewScale(app));
   guardGameInput(app);
   const catalogueURL = new URL(document.body.dataset.catalogue ?? './index.html', location.href);
   let committed = !options;
@@ -853,12 +857,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     footer.classList.remove('icons-only');
     const controls = [...footer.children];
     const gap = parseFloat(getComputedStyle(footer).columnGap) || 0;
-    const widths = controls.map(node => node.getBoundingClientRect().width);
+    const widths = controls.map(node => measuredRect(node).width);
     // With all three controls, Home is centered on the whole row.
     const natural = widths.length === 3
       ? Math.max(widths[0], widths[2]) * 2 + widths[1] + gap * 2
       : widths.reduce((sum, width) => sum + width, 0) + gap * Math.max(0, widths.length - 1);
-    footer.classList.toggle('icons-only', natural > footer.getBoundingClientRect().width + .01);
+    footer.classList.toggle('icons-only', natural > measuredRect(footer).width + .01);
   }
   const chapterFooterResize = new ResizeObserver(entries => {
     const footer = entries[0]?.target.closest<HTMLElement>('.chapter-actions');
@@ -924,7 +928,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const link = selectedEncyclopediaLink(), list = dialogLayer.querySelector('.encyclopedia-list');
     if (!link || !list) return;
     // Scroll only the list: scrollIntoView can also shift the clipped page track.
-    const row = link.getBoundingClientRect(), bounds = list.getBoundingClientRect();
+    const row = measuredRect(link), bounds = measuredRect(list);
     if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
     else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
   }
@@ -960,9 +964,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   function prepareStoryDebug() {
     if (starting || loadFailed || !entranceSettled || !committed) return;
     const available = browserDebugAvailable();
-    if (available) authoring ??= createAuthoring?.();
-    else mobileDebug.close();
+    if (available && !authoring) {
+      authoring = createAuthoring?.();
+      if (options?.sidebarOpen || entryContext?.sidebarOpen) authoring?.open();
+    } else if (!available) mobileDebug.close();
     authoring?.setAvailable(available && desktopDebug.matches);
+    options?.onDebugReady();
     updateEditingIndicators();
   }
   function toggleDebugPanel() {
@@ -1004,6 +1011,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     else if (dialogContext?.kind === 'confirm') confirmRestart();
     if (!dialogContext) showPending();
   }
+  // Arrival packing works in the untransformed scene. Measuring a scaled client
+  // rectangle introduces position-dependent rounding that can break placement ties.
+  function layoutSize(element: HTMLElement) {
+    const style = getComputedStyle(element);
+    return {width: parseFloat(style.width), height: parseFloat(style.height)};
+  }
   function preferredPosition(id: string, hotspot: string | undefined, chapter: number) {
     if (!hotspot) return;
     const h = fixedPresentation(chapter,hotspot), token = state.tokens[id], el = tile(id);
@@ -1013,8 +1026,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const geometry = boardGeometry(chapter);
     if (!validCentre(place, geometry.scene.image)) return;
     const centre = scenePoint(place, geometry.scene);
-    const bounds = location.getBoundingClientRect(), boardScale = geometry.scale;
-    const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {width: bounds.width / boardScale, height: bounds.height / boardScale, circular: location.classList.contains('hotspot-circular')}, geometry.bounds, geometry.scene);
+    const rect = hotspotRect(h, activeHotspots(story, chapter).indexOf(hotspot), {...layoutSize(location), circular: location.classList.contains('hotspot-circular')}, geometry.bounds, geometry.scene);
     // Invalid live drafts use ordinary placement; never attach an outside authored point.
     if (!containsPoint(rect, centre)) return;
     const occupied = availableTokens(state).filter(t => t.id !== id && t.chapter === chapter).flatMap(t => {
@@ -1140,8 +1152,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const geometry=boardGeometry(chapter);
     return presentHotspots(story,state,chapter).filter(id=>id!==excludedHotspot).map(id=>{
       const el=panel(chapter)!.querySelector<HTMLElement>(`[data-hotspot="${CSS.escape(id)}"]`)!;
-      const measured=el.getBoundingClientRect();
-      return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{width:measured.width/geometry.scale,height:measured.height/geometry.scale,circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);
+      return hotspotRect(fixedPresentation(chapter,id),activeHotspots(story,chapter).indexOf(id),{...layoutSize(el),circular:el.classList.contains('hotspot-circular')},geometry.bounds,geometry.scene);
     });
   }
   function packArrival(checkpointLayout=false, source?: State){
@@ -1151,15 +1162,15 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const descriptions=tokens.map(t=>{
       const position=story.items[t.id].icon?.position;
       const start=primitives.has(t.id)&&position&&validCentre(position,geometry.scene.image)?{x:position.x/(geometry.scene.image?.width??geometry.scene.width),y:position.y/(geometry.scene.image?.height??geometry.scene.height)}:undefined;
-      const element=tile(t.id)!,measured=element.getBoundingClientRect();
-      return {id:t.id,x:t.x,y:t.y,width:measured.width/geometry.scale,height:measured.height/geometry.scale,
+      const element=tile(t.id)!;
+      return {id:t.id,x:t.x,y:t.y,...layoutSize(element),
         headroom:iconNames.headroom(element),
         fresh:fresh.has(t.id),start,fromChapter:source?.tokens[t.id]?.chapter??previousChapter,
         fixed:!!t.hotspot&&!story.chapters[state.chapter].image};
     });
     const hotspots=chapterObstacles(state.chapter);
     const goals=app.querySelector<HTMLElement>('.hud-stack,.chapter-next');
-    const goalsTop=goals?(goals.getBoundingClientRect().top-panel(state.chapter)!.getBoundingClientRect().top)/geometry.scale:geometry.bounds.height;
+    const goalsTop=goals?(measuredRect(goals).top-measuredRect(panel(state.chapter)!).top)/geometry.scale:geometry.bounds.height;
     const layout=arrivalLayout(descriptions,{bounds:geometry.bounds,scene:geometry.scene,goalsTop,previousChapter,hotspots,checkpoint:checkpointLayout});
     state.arrivalDivider=layout.divider!==undefined;
     for(const t of tokens){const p=layout.positions.get(t.id)!;t.x=p.x;t.y=p.y;positionTile(tile(t.id)!,t);}
@@ -1294,7 +1305,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const press = boardPress;
     if (!press || press.id !== event.pointerId) return;
     if (event.type === 'pointermove') press.motion.track(event);
-    const dx = event.clientX - press.x, dy = event.clientY - press.y;
+    const scale = previewScale(app);
+    const dx = (event.clientX - press.x) / scale, dy = (event.clientY - press.y) / scale;
     if (!press.axis) {
       if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
       press.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
@@ -1355,7 +1367,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if (!chapterSlide) clearChapterMotion();
   }
   let traceTile:HTMLElement|undefined,tracePointer:number|undefined;
-  function movedEnough(d:PointerPress,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale;}
+  function movedEnough(d:PointerPress,e:PointerEvent){return Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>5*elementGeometry(d.el).scale*previewScale(app);}
   let hotspotPress:(PointerPress&{key:string})|undefined;
   const feedback=new ItemFeedback(highlight,()=>clearHighlights());
   let suppressReleaseClick=false;
@@ -1363,7 +1375,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},{capture:true, signal});
   function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
     const world=app.querySelector('.world')!.getBoundingClientRect();
-    let index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientX-world.left)/app.clientWidth)));
+    let index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientX-world.left)/(app.clientWidth*previewScale(app)))));
     if (d.edgePosition !== undefined && surface.querySelector('.chapter-carry')) {
       const from = Math.floor(d.edgePosition);
       // Both boards meet here in the view. Target the side the cursor is on.
@@ -1371,7 +1383,8 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       index = e.clientX >= seam ? Math.ceil(d.edgePosition) : from;
     }
     const chapter=d.lockedChapter??state.visited[index],scene=panel(chapter)!,rect=scene.getBoundingClientRect();
-    const {scale:size,bounds}=boardGeometry(chapter);
+    const {scale,bounds}=boardGeometry(chapter);
+    const size=scale*previewScale(app);
     // The held drawing follows the pickup point even beyond the page edge.
     // Targeting uses this same geometry; fitting happens only after the drop.
     const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX,y:(e.clientY-rect.top)/size-d.grabY};
@@ -1416,7 +1429,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       (kind === 'entry' || kind === 'chapter' || kind === 'pending');
     const emptyBoard = !dialogContext && !el && !(e.target as Element).closest('button, a[href], .hud-stack');
     if ((emptyBoard || backdrop) && !boardPress && !drag && !hotspotPress && !pendingArtwork && e.isPrimary && e.button === 0) {
-      boardPress = {id:e.pointerId, x:e.clientX, y:e.clientY, motion:new SwipeMotion(e), index:Math.round(expectedScroll / app.clientWidth),
+      boardPress = {id:e.pointerId, x:e.clientX, y:e.clientY, motion:new SwipeMotion(e, previewScale(app)), index:Math.round(expectedScroll / app.clientWidth),
         left:expectedScroll, delta:0, backdrop};
     }
     if(!el||drag||hotspotPress||document.querySelector('dialog')||e.button!==0){
@@ -1430,14 +1443,14 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     itemOrder = [...itemOrder.filter(item => item !== id), id];
     app.querySelectorAll<HTMLElement>('[data-item]').forEach(item => { item.style.zIndex = String(3 + itemOrder.indexOf(item.dataset.item!)); });
     rememberInteraction(); save();
-    const bounds=el.getBoundingClientRect(),boardScale=elementGeometry(el).scale;
+    const bounds=el.getBoundingClientRect(),boardScale=elementGeometry(el).scale*previewScale(app);
     // Pickup location, not encounter history or the panel crossed mid-drag, owns the restriction.
     drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
     if(drag.lockedChapter===undefined){
       const gesture=drag;
       const viewport = app.querySelector<HTMLElement>('.viewport')!;
       gesture.edgeScroll = new DragEdgeScroll(viewport, () => {
-        const {left, width} = viewport.getBoundingClientRect();
+        const {left, width} = measuredRect(viewport);
         const artworkWidth = chapterFrameWidth(gesture.edgePosition ?? viewport.scrollLeft / viewport.clientWidth);
         const inset = (width - artworkWidth) / 2;
         return {left:left + inset, right:left + width - inset};
@@ -1455,7 +1468,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     if(!drag||e.pointerId!==drag.pointer)return;
     if(!drag.moved&&movedEnough(drag,e)){drag.moved=true;inputTrace?.record('drag:recognized');highlight(drag.id,true);}if(!drag.moved)return;
     drag.point={clientX:e.clientX,clientY:e.clientY};
-    drag.edgeScroll?.update(e.clientX);
+    drag.edgeScroll?.update(e.clientX / previewScale(app));
     previewDrag(drag);
   }, {signal});
   function scrollHeldItem(d: Drag, viewport: HTMLElement, distance: number) {
@@ -1510,10 +1523,11 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function previewDrag(d:Drag){
     const destination=dragDestination(d,d.point),source=d.el.closest<HTMLElement>('[data-chapter]')!.getBoundingClientRect(),size=elementGeometry(d.el).scale;
+    const displayedScale = size * previewScale(app);
     d.el.style.scale=String(boardGeometry(destination.chapter).scale/size);
     d.el.style.transformOrigin='top left';
     d.el.classList.add('dragging');app.classList.add('is-dragging');
-    d.el.style.left=`${(destination.rectangle.x-source.left)/size}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/size}px`;
+    d.el.style.left=`${(destination.rectangle.x-source.left)/displayedScale}px`;d.el.style.top=`${(destination.rectangle.y-source.top)/displayedScale}px`;
     iconNames.follow(d.el);
     app.querySelectorAll('.will-create,.will-place').forEach(e=>e.classList.remove('will-create','will-place'));
     const {target, action, usefulPlacement, ambiguous}=dropAt(d,d.point,destination);
@@ -1542,7 +1556,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     d.edgeScroll?.stop();releaseCapture(d.pointer);
     if(cancel){inputTrace?.record('drag:cancel',{reason:'pointercancel',item:d.id});finishCarryMotion(d);restoreGestureTile(d);feedback.clear();return;}
     // A quick release can be the first event reporting travel beyond click tolerance.
-    if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*elementGeometry(d.el).scale});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
+    if(!d.moved&&!movedEnough(d,e)){inputTrace?.record('drag:click',{item:d.id,travel:Math.hypot(e.clientX-d.startX,e.clientY-d.startY),threshold:5*elementGeometry(d.el).scale*previewScale(app)});restoreGestureTile(d);if(feedback.release(d.id,true)){suppressReleaseClick=true;read(d.id);}return;}
     // Resolve the final rectangle from release coordinates before resetting any drag visuals.
     const destination=dragDestination(d,e),{target,action,ambiguous}=dropAt(d,e,destination);
     inputTrace?.record('drop:resolved',{item:d.id,pointer:{x:e.clientX,y:e.clientY},chapter:destination.chapter,position:destination.position,rectangle:destination.rectangle,target:target?feedbackKey(target):null,action,ambiguous});
