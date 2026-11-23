@@ -59,7 +59,7 @@ interface CataloguePlayerOptions {
   modality: 'mouse' | 'touch';
   activation?: CarouselActivation;
   drafts: Map<string, DraftStore>;
-  home: () => void;
+  home: (sidebarOpen: boolean) => void;
   trackHome: (offset: number, settling: boolean) => void;
 }
 
@@ -734,10 +734,11 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       save();
     }
     leaving = true;
-    if (options) options.home();
+    const sidebarOpen = authoring?.isOpen === true;
+    if (options) options.home(sidebarOpen);
     else {
       dialogLayer.style.removeProperty('transform');
-      if (!leaveForCatalogue(app, surface, catalogueURL.href, offset)) location.assign(catalogueURL.href);
+      if (!leaveForCatalogue(app, surface, catalogueURL.href, offset, sidebarOpen)) location.assign(catalogueURL.href);
     }
   }
   function closeDialog() {

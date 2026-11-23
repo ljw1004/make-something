@@ -49,12 +49,15 @@ export function mountCatalogueDebug(app: HTMLElement, frame: HTMLElement, catalo
     else panel.showModal();
     button.setAttribute('aria-expanded', 'true');
   }
-  button.addEventListener('click', () => {
-    if (panel.open) { panel.close(); return; }
+  function open() {
     app.append(panel);
     error.textContent = '';
     refreshCount();
     show();
+  }
+  button.addEventListener('click', () => {
+    if (panel.open) panel.close();
+    else open();
   });
   panel.addEventListener('close', () => {
     if (panel.open) return;
@@ -73,5 +76,10 @@ export function mountCatalogueDebug(app: HTMLElement, frame: HTMLElement, catalo
   }
   sync();
   standaloneDisplay.addEventListener('change', sync);
-  return () => panel.close();
+  return {
+    close: () => panel.close(),
+    openSidebar() {
+      if (browserDebugAvailable() && desktopDebug.matches && !panel.open) open();
+    },
+  };
 }

@@ -2468,3 +2468,5 @@ The user chose ordinary browser tabs as the authoring surface. The [debug pane p
 The production build, 53 focused Chromium tests, four focused WebKit tests, 11 unit tests and all three native iPhone simulator checks passed. The carousel reset preserved the selected card, story progress and drafts without requesting a manuscript. Home Screen checks exercised the standalone display signals and the individual story’s launch URL in browser automation.
 
 The carousel panel now follows the story editor’s 900px breakpoint. Tutorial display tracking begins with this revision because earlier saves record completed actions only. The production build, 31 Chromium tests, five WebKit tests, eight unit tests and three native simulator tests passed. Checks covered resizing an open panel, navigating alongside it, recording an actual hint and resetting the count.
+
+Home now carries an open story editor sidebar over to the carousel’s debug pane. The production build, 30 Chromium checks and two focused WebKit checks passed, including Home after a story reload with reduced motion enabled.

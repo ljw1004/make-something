@@ -9,16 +9,22 @@ export function plainNavigation(event: MouseEvent, link: HTMLAnchorElement) {
     !event.metaKey && !event.shiftKey && (!link.target || link.target === '_self') && !link.hasAttribute('download');
 }
 
+/** Carry the visible layout across a full-document Home navigation, with or without motion. */
+export function rememberCatalogueReturn(href: string, sidebarOpen: boolean) {
+  try {
+    sessionStorage.setItem(key, JSON.stringify({source:clean(location.href), destination:clean(href), expires:Date.now()+15_000, sidebarOpen}));
+  } catch { /* Home navigation also works without session storage. */ }
+}
+
 /** A story loaded as its own document has no live cover underneath it. */
-export function leaveForCatalogue(face: HTMLElement, board: HTMLElement, href: string, offset: number) {
+export function leaveForCatalogue(face: HTMLElement, board: HTMLElement, href: string, offset: number, sidebarOpen: boolean) {
+  rememberCatalogueReturn(href, sidebarOpen);
   if (!supportsMotion()) return false;
   let animation: Animation;
   try {
-    sessionStorage.setItem(key, JSON.stringify({source:clean(location.href), destination:clean(href), expires:Date.now()+15_000}));
     animation = face.animate([{transform:`translateY(${offset}px)`}, {transform:'translateY(100dvh)'}],
       {duration, easing:'ease-in', fill:'both'});
   } catch {
-    try { sessionStorage.removeItem(key); } catch { /* Storage is optional. */ }
     return false;
   }
   board.style.removeProperty('transform');
@@ -42,17 +48,18 @@ export function leaveForCatalogue(face: HTMLElement, board: HTMLElement, href: s
 }
 
 /** Consume the marker once; Back, reload and direct links restore without motion. */
-export function takeCatalogueSlide() {
+export function takeCatalogueReturn() {
   try {
     const raw = sessionStorage.getItem(key);
-    if (!raw) return false;
+    if (!raw) return;
     sessionStorage.removeItem(key);
     const marker = JSON.parse(raw);
     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
-    return supportsMotion() && navigation?.type !== 'reload' && navigation?.type !== 'back_forward' &&
-      marker?.destination === clean(location.href) && marker.expires > Date.now() &&
-      (document.referrer ? marker.source === clean(document.referrer) : location.protocol === 'msw:');
-  } catch { return false; }
+    if (navigation?.type === 'reload' || navigation?.type === 'back_forward' ||
+        marker?.destination !== clean(location.href) || !(marker.expires > Date.now()) ||
+        (document.referrer ? marker.source !== clean(document.referrer) : location.protocol !== 'msw:')) return;
+    return {animate: supportsMotion(), sidebarOpen: marker.sidebarOpen === true};
+  } catch { return; }
 }
 
 export async function revealCatalogue(face: HTMLElement) {

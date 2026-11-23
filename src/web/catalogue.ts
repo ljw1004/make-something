@@ -2,7 +2,7 @@ import { escape } from './markdown.ts';
 import {mountCatalogueDebug} from './catalogue-debug.ts';
 import {isHomeScreenApp, setHomeScreenIdentity} from './home-screen.ts';
 import {watchCarouselContrast} from './carousel-contrast.ts';
-import {plainNavigation, revealCatalogue, takeCatalogueSlide} from './document-navigation.ts';
+import {plainNavigation, revealCatalogue, takeCatalogueReturn} from './document-navigation.ts';
 import {connectCataloguePlayer} from './catalogue-player.ts';
 import {viewportBoard} from './board-geometry.ts';
 import {catalogueStoryStarted} from './chapter-recovery.ts';
@@ -182,17 +182,18 @@ export function mountCatalogue(app: HTMLDivElement) {
       const legacy = saved < 0 ? find(new URL(location.href).searchParams.get('slide')) : -1;
       show(Math.max(0, saved, legacy), legacy >= 0);
     }
-    const returning = takeCatalogueSlide();
-    if (returning) frame.dataset.homeSlide = 'waiting';
+    const returning = takeCatalogueReturn();
+    if (returning?.animate) frame.dataset.homeSlide = 'waiting';
     restoreSlide();
-    const closeDebug = mountCatalogueDebug(app, frame, new URL('index.html', root).href,
+    const debug = mountCatalogueDebug(app, frame, new URL('index.html', root).href,
       storyLinks.map(link => new URL(link.dataset.story!, root).href));
-    const player = connectCataloguePlayer(app, storyLinks, closeDebug, link => {
+    if (returning?.sidebarOpen) debug.openSidebar();
+    const player = connectCataloguePlayer(app, storyLinks, debug, link => {
       if (link) show(storyLinks.indexOf(link));
       else restoreSlide();
       refreshLinks(); catalogueIdentity();
     });
-    if (returning) {
+    if (returning?.animate) {
       const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
       if (art) art.loading = 'eager';
       // Bound the wait if the selected cover is still decoding.

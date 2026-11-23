@@ -96,6 +96,28 @@ test('the right-hand pane fits beside a working carousel and adapts to a modal o
   await expect(panel.getByRole('status')).toHaveText('1/4 tutorials shown');
 });
 
+for (const reload of [false, true]) {
+  test(`Home keeps an open story sidebar on its carousel card${reload ? ' after reload' : ''}`, async ({page}) => {
+    await serveBuild(page);
+    await page.setViewportSize({width:1100, height:800});
+    if (reload) await page.emulateMedia({reducedMotion:'reduce'});
+    await page.goto('/index.html');
+    await page.getByRole('button', {name:'History of ideas', exact:true}).click();
+    await page.locator('.carousel-slide:visible a[data-story]').click();
+    await page.getByRole('button', {name:'Begin', exact:true}).click();
+    await page.getByRole('button', {name:'Toggle debug panel'}).click();
+    if (reload) await page.reload();
+    await expect(page.getByRole('textbox', {name:'Story Markdown'})).toBeVisible();
+    await page.getByRole('button', {name:'Read this chapter'}).click();
+    await page.getByRole('link', {name:'Home', exact:true}).click();
+    await expect(page).toHaveURL('/index.html');
+    const sidebar = page.getByRole('dialog', {name:'Carousel debug'});
+    await expect(sidebar.getByRole('button', {name:'Reset'})).toBeVisible();
+    await expect(page.locator('.story-carousel')).toHaveCSS('width','390px');
+    await expect(page.locator('.carousel-slide:visible h2')).toHaveText('History of ideas');
+  });
+}
+
 test('an ordinary browser story offers the desktop editor with inline diagnostics and the mobile chapter picker', async ({page}) => {
   await serveBuild(page);
   await page.setViewportSize({width:1100, height:800});

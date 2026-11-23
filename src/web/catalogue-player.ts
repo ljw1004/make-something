@@ -1,4 +1,6 @@
 import {cacheCarouselLaunch, carouselEntryState, readCarouselLaunch, type CarouselActivation} from './carousel-launch.ts';
+import {rememberCatalogueReturn} from './document-navigation.ts';
+import type {mountCatalogueDebug} from './catalogue-debug.ts';
 import type {mountPlayer} from './main.ts';
 import type {DraftStore} from './story-document.ts';
 import {completesSwipe, SwipeMotion} from './swipe.ts';
@@ -20,7 +22,7 @@ interface Visit {
 }
 
 /** Keep both live surfaces in one viewport during the vertical transition. */
-export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElement[], onEnter: () => void, restoreCover: (link?: HTMLAnchorElement) => void) {
+export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElement[], debug: ReturnType<typeof mountCatalogueDebug>, restoreCover: (link?: HTMLAnchorElement) => void) {
   const home = new URL('index.html', location.href).href;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let visit: Visit | undefined;
@@ -95,7 +97,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
       if (visit !== entry || entry.leaving) return;
       const player = entry.player = mountPlayer(workspace, {
         url:link.href, modality, activation, drafts,
-        home: () => leave(entry),
+        home: sidebarOpen => leave(entry, sidebarOpen),
         trackHome: (offset, settling) => {
           if (visit !== entry || entry.leaving) return;
           if (settling) animate(entry, 1, () => {});
@@ -150,14 +152,15 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     });
   }
 
-  function leave(entry: Visit) {
+  function leave(entry: Visit, sidebarOpen = false) {
     if (visit !== entry || entry.leaving) return;
     entry.leaving = true;
     entry.workspace.inert = true;
+    if (sidebarOpen) debug.openSidebar();
     animate(entry, 0, () => {
       clear(entry);
       try { history.pushState(null, '', home); }
-      catch { location.assign(home); return; }
+      catch { rememberCatalogueReturn(home, sidebarOpen); location.assign(home); return; }
       restoreCover(entry.link);
       entry.link.focus({preventScroll:true});
     });
@@ -176,7 +179,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     }
     entry.committed = true;
     entry.workspace.inert = false; cover.inert = true;
-    onEnter();
+    debug.close();
     entry.player?.setEntryOverlay(false);
     entry.player?.commitEntry();
     if (entry.progress >= .5) entry.player?.focusEntry();
