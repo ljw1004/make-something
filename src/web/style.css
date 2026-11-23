@@ -189,6 +189,8 @@ dialog button,dialog select{min-height:44px}
 
 /* The goals are scenery rather than another opaque card. */
 .location-hud .objective-line{background:#fffaf08c;box-shadow:none;text-shadow:0 1px 2px #fffaf0cc}
+.game-dialog-layer dialog:is(.intertitle,.wonder){transform:translateX(0)}
+@media(prefers-reduced-motion:no-preference){.game-dialog-layer dialog:is(.intertitle,.wonder){transition:transform .18s ease-out}}
 /* Reopened chapter prose has a quiet close control and a single compact footer. */
 .game-dialog-layer dialog.chapter-popup{display:flex;flex-direction:column;overflow:hidden;padding:12px 16px}
 .chapter-popup-header{display:flex;align-items:center;justify-content:space-between;flex:none;margin:-6px -8px 0 0}

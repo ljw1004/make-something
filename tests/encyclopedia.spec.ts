@@ -111,7 +111,7 @@ test('an unfinished encyclopedia cue survives reload with reduced motion and a d
   await expect(label).toBeHidden();
 });
 
-test('only the reopened chapter dismisses on prose or backdrop taps, with a top-right Close and left-aligned recovery', async ({ page }) => {
+test('only the reopened chapter dismisses on backdrop taps, with a top-right Close and left-aligned recovery', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 600 });
   await page.route('**/library-fixture/story.md', route => route.fulfill({ contentType: 'text/markdown', body: manuscript }));
   await page.goto('/index.html?story=library-fixture/story.md');
@@ -134,8 +134,7 @@ test('only the reopened chapter dismisses on prose or backdrop taps, with a top-
   const footer = (await page.locator('.chapter-actions').boundingBox())!;
   expect(recovery.x).toBeCloseTo(footer.x, 0);
   await page.locator('.chapter-popup .reading-text').click();
-  await expect(dialog).toHaveCount(0);
-  await goals.click();
+  await expect(dialog).toBeVisible();
   // A text-selection gesture ending outside must not become a backdrop dismissal.
   const prose = (await page.locator('.chapter-popup .reading-text').boundingBox())!;
   await page.mouse.move(prose.x + 10, prose.y + 10); await page.mouse.down();

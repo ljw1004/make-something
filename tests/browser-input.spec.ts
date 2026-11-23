@@ -40,6 +40,77 @@ async function openFixture(page: Page, touch = false, source = manuscript) {
   if (touch) await start.tap(); else await start.click();
 }
 
+test.describe('reading popup swipes', () => {
+  test.use({hasTouch:true});
+  for (const input of ['mouse', 'touch'] as const) {
+    test(`${input} dismisses introductions, goals and wonders with horizontal and vertical swipes`, async ({page, browserName}) => {
+      test.skip(input === 'touch' && browserName !== 'chromium', 'Touch injection uses Chromium CDP.');
+      await openFixture(page, input === 'touch');
+      if (input === 'mouse') await page.emulateMedia({reducedMotion:'no-preference'});
+      const popup = page.getByRole('dialog', {name:'Story reading'});
+      const client = input === 'touch' ? await page.context().newCDPSession(page) : undefined;
+      async function drag(dx: number, dy = 0) {
+        // Finger gestures can start on text. Mouse drags on the paper leave
+        // the same text available for selection.
+        const box = (await popup.locator('.reading-text p').first().boundingBox())!;
+        const x = client ? box.x + box.width / 2 : dx <= 0 ? box.x + box.width - 3 : box.x + 3;
+        const y = box.y + box.height / 2;
+        if (client) {
+          await client.send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{x,y}]});
+          await client.send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:x+dx,y:y+dy}]});
+          await client.send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+        } else {
+          await page.mouse.move(x,y);
+          await page.mouse.down();
+          await page.mouse.move(x+dx,y+dy,{steps:4});
+          const offset = await popup.evaluate(el => {
+            const matrix = new DOMMatrixReadOnly(getComputedStyle(el).transform);
+            return [matrix.m41, matrix.m42];
+          });
+          expect(offset[0]).toBeCloseTo(dx, 0);
+          expect(offset[1]).toBeCloseTo(dy, 0);
+          await page.mouse.up();
+        }
+      }
+      await expect(popup).toContainText('workshop introduction');
+      await drag(24);
+      await expect(popup).toBeVisible();
+      await expect.poll(() => popup.evaluate(el => el.getAnimations().length)).toBe(0);
+      await drag(-120);
+      await expect(popup).toHaveCount(0);
+      const goals = page.getByRole('button', {name:'Read this chapter'});
+      await goals.click();
+      if (input === 'mouse') {
+        const word = (await popup.locator('strong').boundingBox())!;
+        const y = word.y + word.height / 2;
+        await page.mouse.move(word.x + 1, y);
+        await page.mouse.down();
+        await page.mouse.move(word.x + word.width - 1, y, {steps:4});
+        await page.mouse.up();
+        expect(await page.evaluate(() => getSelection()?.toString())).toBe('workshop');
+      }
+      const prose = popup.locator('.reading-text');
+      if (client) await prose.tap(); else await prose.click();
+      await expect(popup).toBeVisible();
+      const paper = {position:{x:26, y:10}};
+      if (client) await popup.tap(paper); else await popup.click(paper);
+      await expect(popup).toBeVisible();
+      await drag(0, 120);
+      await expect(popup).toHaveCount(0);
+      await goals.click();
+      await drag(120);
+      await expect(popup).toHaveCount(0);
+      await page.locator('[data-item="name:Grain"]').dragTo(page.locator('[data-item="name:Stone"]'));
+      await expect(popup).toContainText('flour explanation');
+      await drag(0, -120);
+      await expect(popup).toHaveCount(0);
+      await page.reload();
+      await expect(page.locator('[data-item="name:Flour"]')).toBeVisible();
+      await expect(popup).toHaveCount(0);
+    });
+  }
+});
+
 test.describe('reading scroll', () => {
   async function settleReading(page: Page) {
     // WebKit can defer native focus scrolling until layout, after show() returns.
@@ -117,7 +188,8 @@ async function selectedByDoubleClick(page: Page, target: Locator) {
 }
 
 test('only chapter and wonder prose can be selected in all four reading views', async ({ page }) => {
-  await page.setViewportSize({ width: 1000, height: 844 });
+  // Both encyclopedia pages must be visible for their native selection checks.
+  await page.setViewportSize({ width: 1100, height: 844 });
   await openFixture(page);
   const prose = page.locator('.reading-text');
   expect(await selectedByDoubleClick(page, prose.locator('strong'))).toBe('workshop');

@@ -144,6 +144,37 @@ test('backdrop swipes leave and resume chapter readings without taking over gest
   } finally { await context.close(); }
 });
 
+test('vertical touch swipes scroll long readings and dismiss on a fresh swipe past an edge', async ({browser}) => {
+  const context = await browser.newContext({viewport:{width:390,height:844}, isMobile:true, hasTouch:true, reducedMotion:'reduce'});
+  try {
+    const page = await context.newPage();
+    await serveStory(page, fixture.replace('Make a kit.', 'Read the workshop instructions.\n\n'.repeat(60)));
+    await page.goto('/');
+    await card(page).tap();
+    const client = await context.newCDPSession(page);
+    const reading = page.getByRole('dialog');
+    await expect(begin(page)).toBeVisible();
+    await verticalFlick(client, 360, 140, 190);
+    await expect(reading).toHaveCount(0);
+    await page.getByRole('button', {name:'Read this chapter'}).tap();
+    const prose = reading.locator('.reading-text');
+    // Reach the end of the prose during the first drag. Only the next drag
+    // can dismiss it, even when the first finger travels beyond the edge.
+    await prose.evaluate(el => { el.scrollTop = el.scrollHeight - el.clientHeight - 50; });
+    await touch(client, 'touchStart', 190, 550);
+    await touch(client, 'touchMove', 190, 470);
+    await touch(client, 'touchMove', 190, 390);
+    await expect.poll(() => prose.evaluate(el => el.scrollHeight - el.clientHeight - el.scrollTop)).toBeLessThanOrEqual(1);
+    await prose.evaluate(el => el.addEventListener('scrollend', () => el.setAttribute('data-scroll-ended', ''), {once:true}));
+    await touch(client, 'touchEnd');
+    await expect(prose).toHaveAttribute('data-scroll-ended', '');
+    await expect(reading).toBeVisible();
+    await verticalFlick(client, 550, -160, 190);
+    await expect(reading).toHaveCount(0);
+    await expect(page).toHaveURL(storyURL);
+  } finally { await context.close(); }
+});
+
 test('tap slides in both directions and Back and Forward restore the corresponding view', async ({page}) => {
   // Slow rAF so both halves can be observed without depending on machine load.
   await page.addInitScript(() => {

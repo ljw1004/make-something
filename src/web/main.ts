@@ -20,7 +20,7 @@ import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
 import { saveProgress } from './persistence.ts';
 import { encyclopediaBook } from './encyclopedia-book.ts';
-import { EncyclopediaSwipe } from './encyclopedia-swipe.ts';
+import { ReadingSwipe } from './reading-swipe.ts';
 import { encyclopediaEntries, openBook, restoreEncyclopediaHistory, remapEncyclopediaHistory, type EncyclopediaHistory } from './encyclopedia.ts';
 import { ItemFeedback } from './item-feedback.ts';
 import { restoreItemOrder } from './item-order.ts';
@@ -746,7 +746,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function closeDialog() {
     if (boardPress?.backdrop) endBoard(undefined, true);
-    bookSwipe.cancel();
+    readingSwipe.cancel();
     const editing = document.activeElement?.closest('.story-editor');
     if (dialogContext?.kind === 'encyclopedia') encyclopediaScroll = dialogLayer.querySelector('.encyclopedia-list')?.scrollTop ?? 0;
     bookResize.disconnect();
@@ -758,7 +758,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function modal(content: string, kind = 'ordinary', context: DialogContext = { kind: 'error' }) {
     if (boardPress?.backdrop) endBoard(undefined, true);
-    bookSwipe.cancel();
+    readingSwipe.cancel();
     feedback.clear();
     let dialog = dialogLayer.querySelector('dialog');
     const focused = document.activeElement as HTMLElement | null;
@@ -875,11 +875,20 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       : 'This resets the tutorial progress for this story but does not change the tutorials shared across the carousel.';
     modal(`<h1>Restart this story?</h1><p>This removes all progress in this story on this device, including completed chapters, discoveries and item positions. ${lessons} Your Markdown draft is kept. You will return to the first chapter’s introduction. This cannot be undone. Your other stories are unchanged.</p><div class="dialog-actions"><button data-command="cancel-reset-story">Cancel</button><button class="danger" data-command="reset-story">Restart story</button></div>`, 'ordinary', {kind:'confirm'});
   }
-  const bookSwipe = new EncyclopediaSwipe(dialogLayer,
-    () => dialogContext?.kind === 'encyclopedia' ? bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index' : undefined,
+  const readingSwipe = new ReadingSwipe(dialogLayer,
+    () => {
+      switch (dialogContext?.kind) {
+        case 'entry': case 'pending': case 'chapter': return 'popup';
+        case 'encyclopedia': return bookIsSpread() ? 'spread' : dialogContext.detail ? 'detail' : 'index';
+      }
+    },
     detail => { flushPreview(); if (dialogContext?.kind === 'encyclopedia' && dialogContext.item) openEncyclopedia(dialogContext.item, detail); },
-    () => { flushPreview(); if (dialogContext?.kind === 'encyclopedia') dismissReading(); }, signal);
-  const bookResize = new ResizeObserver(() => { bookSwipe.cancel(); syncBookLayout(); });
+    () => {
+      flushPreview();
+      if (dialogContext?.kind === 'pending') commit({type:'dismiss'});
+      else if (dialogContext) dismissReading();
+    }, signal);
+  const bookResize = new ResizeObserver(() => { readingSwipe.cancel(); syncBookLayout(); });
   function bookIsSpread() {
     const dialog = dialogLayer.querySelector('dialog');
     return !!dialog && getComputedStyle(dialog).getPropertyValue('--book-spread').trim() === '1';
@@ -1630,17 +1639,11 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     else dismissReading();
   }
   dialogLayer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); if (!event.repeat) escapeDialog(); } });
-  // Goals readings close on a tap over the backdrop or noninteractive prose.
-  // A drag to select text, scrolling, or using a control isn't a dismissal.
-  function chapterDismissTarget(target: EventTarget | null) {
-    return dialogContext?.kind === 'chapter' && target instanceof Element &&
-      !target.closest('button, a[href], input, select, textarea, label, summary, details, [contenteditable], [tabindex]');
-  }
   let chapterPress: {id: number; x: number; y: number} | undefined;
   let chapterTap = false;
   dialogLayer.addEventListener('pointerdown', event => {
     chapterTap = false;
-    chapterPress = event.isPrimary && event.button === 0 && chapterDismissTarget(event.target)
+    chapterPress = event.isPrimary && event.button === 0 && dialogContext?.kind === 'chapter' && event.target === dialogBackdrop
       ? {id:event.pointerId, x:event.clientX, y:event.clientY} : undefined;
   });
   dialogLayer.addEventListener('pointermove', event => {
@@ -1648,23 +1651,18 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   });
   dialogLayer.addEventListener('pointerup', event => {
     if (chapterPress?.id !== event.pointerId) return;
-    chapterTap = chapterDismissTarget(event.target) && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) <= 8;
+    chapterTap = event.target === dialogBackdrop && Math.hypot(event.clientX - chapterPress.x, event.clientY - chapterPress.y) <= 8;
     chapterPress = undefined;
   });
   dialogLayer.addEventListener('pointercancel', () => { chapterPress = undefined; chapterTap = false; });
-  function dismissChapterTap(event: MouseEvent) {
-    if (event.currentTarget === dialogBackdrop) event.stopPropagation();
-    const dismiss = chapterTap && event.detail > 0 && chapterDismissTarget(event.target);
-    chapterTap = false;
-    if (dismiss) {
+  // Listen on the backdrop itself so touch hit testing includes its narrow edges.
+  dialogBackdrop.addEventListener('click', event => {
+    if (chapterTap && event.detail > 0) {
       flushPreview();
       if (dialogContext?.kind === 'chapter') dismissReading();
     }
-  }
-  dialogLayer.addEventListener('click', dismissChapterTap);
-  // A direct listener makes the narrow backdrop a touch target even beside
-  // a scrollable reading, where Chromium otherwise adjusts hits into the dialog.
-  dialogBackdrop.addEventListener('click', dismissChapterTap);
+    chapterTap = false;
+  });
   if(import.meta.env.DEV){
     inputTrace=new DragTrace(app,()=>{
       const element=drag?.el??traceTile,id=element?.dataset.item,token=id?state?.tokens[id]:undefined;
