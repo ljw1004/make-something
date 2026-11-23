@@ -59,7 +59,7 @@ export function mountCatalogue(app: HTMLDivElement) {
     function measure() {
       const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
       const dimensions = art?.naturalWidth ? {width: art.naturalWidth, height: art.naturalHeight} : undefined;
-      const geometry = viewportBoard(app.clientWidth, app.clientHeight, dimensions);
+      const geometry = viewportBoard(carousel!.clientWidth, carousel!.clientHeight, dimensions);
       frame!.style.width = `${geometry.width}px`;
       frame!.style.height = `${geometry.height}px`;
     }
@@ -185,13 +185,13 @@ export function mountCatalogue(app: HTMLDivElement) {
     const returning = takeCatalogueSlide();
     if (returning) frame.dataset.homeSlide = 'waiting';
     restoreSlide();
-    const player = connectCataloguePlayer(app, storyLinks, link => {
+    const closeDebug = mountCatalogueDebug(app, frame, new URL('index.html', root).href,
+      storyLinks.map(link => new URL(link.dataset.story!, root).href));
+    const player = connectCataloguePlayer(app, storyLinks, closeDebug, link => {
       if (link) show(storyLinks.indexOf(link));
       else restoreSlide();
       refreshLinks(); catalogueIdentity();
     });
-    mountCatalogueDebug(app, frame, new URL('index.html', root).href,
-      storyLinks.map(link => new URL(link.dataset.story!, root).href));
     if (returning) {
       const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
       if (art) art.loading = 'eager';
@@ -209,7 +209,7 @@ export function mountCatalogue(app: HTMLDivElement) {
     }
     window.addEventListener('pageshow', event => { if (event.persisted) restoreSlide(); });
     slides.forEach(slide => slide.querySelector('img.carousel-art')?.addEventListener('load', measure));
-    new ResizeObserver(measure).observe(app);
+    new ResizeObserver(measure).observe(carousel);
     slides.forEach(slide => {
       for (const [name, step] of [['prev', -1], ['next', 1]] as const) {
         const selector = `.carousel-${name}`;

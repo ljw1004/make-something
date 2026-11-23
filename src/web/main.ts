@@ -14,7 +14,7 @@ import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
 import LintWorker from './lint-worker.ts?worker&inline';
-import {browserDebugAvailable, debugGlyph} from './debug-control.ts';
+import {browserDebugAvailable, debugGlyph, desktopDebug} from './debug-control.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
 import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
@@ -44,7 +44,7 @@ import {DragEdgeScroll} from './drag-scroll.ts';
 import {containsPoint, hotspotCentre, hotspotRect, hotspotHTML, hotspotProbeHTML, measureHotspots} from './hotspot-view.ts';
 import {tutorialAction, hotspotTutorials, completesHotspotTutorial} from '../engine/tutorial.ts';
 import {legacyProgressKey, storyProgressKey} from './progress-keys.ts';
-import {TutorialProgress} from './tutorial-progress.ts';
+import {recordTutorialShown, TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
@@ -82,7 +82,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   const dialogBackdrop = document.createElement('div'); dialogBackdrop.className = 'game-dialog-backdrop';
   dialogLayer.append(dialogBackdrop);
   app.append(dialogLayer);
-  const tutorialOverlay = new TutorialOverlay(app);
+  const tutorialOverlay = new TutorialOverlay(app, kind => recordTutorialShown(documentURL, kind));
   let tutorialProgress: TutorialProgress | undefined;
   let hotspotTutorialRecipe: string | undefined;
   let tutorialSaveError = '', progressSaveError = '';
@@ -112,7 +112,6 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     reducedMotion: reducedMotion.matches,
   }));
   let createAuthoring: (() => AuthoringSession) | undefined;
-  const desktopDebug = matchMedia('(min-width: 900px)');
   const itemArtwork = new ItemArtwork();
   let starting = true;
   let pendingArtwork: object | undefined;

@@ -21,6 +21,7 @@ export class TutorialOverlay {
   private label = document.createElement('div');
   private tracks: Track[] = [];
   private cue?: Cue;
+  private visibleKind?: Cue['kind'];
   private frame = 0;
   private epoch = 0;
   private appearance = '';
@@ -29,7 +30,7 @@ export class TutorialOverlay {
   private outline = document.createElementNS(svgNS, 'rect');
   private host: HTMLElement;
 
-  constructor(host: HTMLElement) {
+  constructor(host: HTMLElement, private readonly onShown: (kind: Cue['kind']) => void) {
     this.host = host;
     this.root.className = 'tutorial-overlay fixed-locations';
     this.root.setAttribute('aria-hidden', 'true'); this.root.inert = true; this.root.hidden = true;
@@ -84,7 +85,7 @@ export class TutorialOverlay {
       this.cue.target.classList.remove('tutorial-goals-target');
     }
     if (!cue) {
-      this.cue = undefined; this.root.hidden = true;
+      this.cue = undefined; this.visibleKind = undefined; this.root.hidden = true;
       cancelAnimationFrame(this.frame); this.frame = 0; this.clearTracks();
       return false;
     }
@@ -186,6 +187,11 @@ export class TutorialOverlay {
     })) this.root.style.setProperty(`--tutorial-clip-${edge}`, `${Math.max(0, inset)}px`);
     const destination = this.destination(cue, host);
     this.root.hidden = !destination;
+    const visibleKind = destination && !this.interacting ? cue.kind : undefined;
+    if (visibleKind !== this.visibleKind) {
+      this.visibleKind = visibleKind;
+      if (visibleKind) this.onShown(visibleKind);
+    }
     if (destination) {
       const target = cue.target.getBoundingClientRect();
       const end = {x: destination.x - host.x, y: destination.y - host.y};

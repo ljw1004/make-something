@@ -1,5 +1,7 @@
 import {isHomeScreenApp} from './home-screen.ts';
 
+export const desktopDebug = matchMedia('(min-width: 900px)');
+
 /** Both catalogue and player offer debug controls only in ordinary browser tabs. */
 export function browserDebugAvailable() {
   return location.protocol !== 'msw:' && !isHomeScreenApp();

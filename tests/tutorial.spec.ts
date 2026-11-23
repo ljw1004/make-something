@@ -256,7 +256,7 @@ test('keyboard Start, old saves and changed manuscripts preserve evidence withou
   await jumpToChapter(page, 'Second', true); await page.getByRole('button', {name: 'Begin', exact: true}).click();
   await page.evaluate(() => { for (const key of Object.keys(localStorage)) if (key.startsWith('combination-tutorial-')) localStorage.removeItem(key); });
   await page.reload(); await expect(cue(page, 'goals')).toBeVisible();
-  expect(await page.evaluate(() => Object.keys(localStorage).some(key => key.startsWith('combination-tutorial-')))).toBe(false);
+  expect(await page.evaluate(() => Object.keys(localStorage).some(key => key.startsWith('combination-tutorial-v1:') || key.startsWith('combination-tutorial-drag-v2:')))).toBe(false);
 });
 
 test('a tutorial-only storage failure remains visible after a successful game save', async ({page}) => {

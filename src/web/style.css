@@ -392,11 +392,20 @@ gap: 0;
 .carousel-arrow:hover{background:#ffffff20}
 .carousel-arrow svg{width:25px;height:25px}
 .carousel-frame > .catalogue-debug{right:max(8px,env(safe-area-inset-right));top:max(4px,env(safe-area-inset-top))}
-.catalogue-debug-panel{width:min(320px,calc(100vw - 24px));padding:16px}
-.catalogue-debug-panel header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.catalogue-debug-panel{width:min(340px,calc(100vw - 24px));padding:18px;color:#35382f}
+.catalogue-debug-panel header,.tutorial-count-row{display:flex;align-items:center;gap:12px}
+.catalogue-debug-panel header{justify-content:space-between;margin-bottom:12px}
 .catalogue-debug-panel h2{margin:0;font:22px/1.2 Georgia,serif}
-.catalogue-debug-panel header button{width:44px;margin:0;padding:0;border:0;background:none;font-size:24px}
-.catalogue-debug-panel p:empty{display:none}
+.catalogue-debug-panel .reset-tutorials{min-height:44px;padding:4px 8px;border:0;background:transparent;color:#395f55;text-decoration:underline}
+.catalogue-debug-panel header button{width:44px;padding:0;border:0;background:none;font-size:24px}
+.catalogue-debug-panel footer{margin-top:16px;text-align:right}
+.catalogue-debug-panel footer button{min-width:82px;background:#30453e;color:#fff}
+.catalogue-debug-panel:modal header button,.catalogue-debug-panel:not(:modal) footer,.catalogue-debug-panel p:empty{display:none}
+.catalogue-debug-panel[open]:not(:modal){
+  position:absolute;inset:0 0 0 390px;width:auto;height:100%;max-width:none;max-height:none;margin:0;
+  border:0;border-left:1px solid #c6b99e;border-radius:0;box-shadow:none
+}
+#catalogue-app:has(> .catalogue-debug-panel[open]:not(:modal)) > .story-carousel{right:auto;width:390px}
 .carousel-repeat-arrows{position:absolute;inset:0;z-index:4;pointer-events:none}
 .carousel-repeat-arrows[hidden]{display:none}
 .carousel-repeat-arrows button{position:absolute;pointer-events:auto;opacity:0;padding:0}

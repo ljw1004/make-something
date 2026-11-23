@@ -20,7 +20,7 @@ interface Visit {
 }
 
 /** Keep both live surfaces in one viewport during the vertical transition. */
-export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElement[], restoreCover: (link?: HTMLAnchorElement) => void) {
+export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElement[], onEnter: () => void, restoreCover: (link?: HTMLAnchorElement) => void) {
   const home = new URL('index.html', location.href).href;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let visit: Visit | undefined;
@@ -176,6 +176,7 @@ export function connectCataloguePlayer(cover: HTMLElement, links: HTMLAnchorElem
     }
     entry.committed = true;
     entry.workspace.inert = false; cover.inert = true;
+    onEnter();
     entry.player?.setEntryOverlay(false);
     entry.player?.commitEntry();
     if (entry.progress >= .5) entry.player?.focusEntry();
