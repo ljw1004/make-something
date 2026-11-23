@@ -1,7 +1,10 @@
 import type {Hotspot, Icon, Item} from '../story/types.ts';
 import {escape} from './markdown.ts';
 import {iconDimensions} from './hotspot-view.ts';
+import type {viewportBoard} from './board-geometry.ts';
 import {ArtworkLoader} from './artwork-loader.ts';
+
+type MovableFrame = Pick<ReturnType<typeof viewportBoard>, 'bounds' | 'itemScale'>;
 
 /** Read intrinsic sizes once, before chapter layout, without replacing connected images. */
 export class ItemArtwork {
@@ -21,22 +24,27 @@ export class ItemArtwork {
     return path ? this.images.get(asset(path))?.size : undefined;
   }
 
-  private size(icon: Icon, asset: (path: string) => string, bounds?: {width: number; height: number}, fixed = false) {
+  displaySize(icon: Icon, asset: (path: string) => string, frame?: MovableFrame, fixed = false) {
     const base = this.images.get(asset(icon.url))?.size, size = iconDimensions(base?.width ?? 224, base?.height ?? 224, fixed);
-    const fit = bounds ? Math.min(1, bounds.width / size.width, bounds.height / size.height) : 1;
-    return `--icon-width:${size.width*fit}px;--icon-height:${size.height*fit}px;`;
+    const fit = frame ? Math.min(frame.itemScale, frame.bounds.width / size.width, frame.bounds.height / size.height) : 1;
+    return {width:size.width * fit, height:size.height * fit};
+  }
+
+  private sizeStyle(icon: Icon, asset: (path: string) => string, frame?: MovableFrame, fixed = false) {
+    const {width, height} = this.displaySize(icon, asset, frame, fixed);
+    return `--icon-width:${width}px;--icon-height:${height}px;`;
   }
 
   hotspot(hotspot: Hotspot, asset: (path: string) => string) {
     const icon = hotspot.icon;
     if (!icon || this.images.get(asset(icon.url))?.failed) return {className: '', style: '', html: escape(hotspot.name)};
     return {
-      className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.size(icon, asset, undefined, true),
+      className: `hotspot-icon${icon.circular ? ' hotspot-circular' : ''}`, style: this.sizeStyle(icon, asset, undefined, true),
       html: `<span class="icon-stack" aria-hidden="true"><img class="hotspot-art" src="${escape(asset(icon.url))}" alt="" draggable="false"></span><span class="icon-name" aria-hidden="true">${escape(hotspot.name)}</span>`,
     };
   }
 
-  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, bounds?: {width: number; height: number}, icon = item.icon, fixed = false) {
+  visual(item: Item, filled: readonly string[], name: (id: string) => string, asset: (path: string) => string, frame?: MovableFrame, icon = item.icon, fixed = false) {
     const base = icon && this.images.get(asset(icon.url));
     const fitted = item.slots.filter(slot => filled.includes(slot.accepts));
     const usable = icon && !base?.failed && fitted.every(slot => slot.icon && !this.images.get(asset(slot.icon.url))?.failed);
@@ -46,7 +54,7 @@ export class ItemArtwork {
     };
     return {
       icon: true, className: `icon-thing${icon.circular ? ' icon-circular' : ''}`,
-      style: this.size(icon, asset, bounds, fixed),
+      style: this.sizeStyle(icon, asset, frame, fixed),
       html: `<span class="icon-stack" aria-hidden="true"><img class="item-icon" src="${escape(asset(icon.url))}" alt="" draggable="false">${fitted.map(slot => `<img class="slot-icon" data-icon-slot="${escape(slot.accepts)}" src="${escape(asset(slot.icon!.url))}" alt="" draggable="false">`).join('')}</span><span class="item-label icon-name" aria-hidden="true">${escape(name(item.id))}</span>`,
     };
   }

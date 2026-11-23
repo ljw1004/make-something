@@ -23,8 +23,11 @@ export function viewportBoard(width: number, height: number, image?: {width:numb
   const visibleWidth = cover ? width : scene.width * scale;
   const visibleHeight = cover ? height : scene.height * scale;
   const bounds = {x: cover ? (scene.width - visibleWidth / scale) / 2 : 0, y: 0, width: cover ? visibleWidth / scale : scene.width, height: cover ? visibleHeight / scale : scene.height};
-  return {scale, scene, cover, width: visibleWidth, height: visibleHeight, left: (width-visibleWidth)/2, top: (height-visibleHeight)/2, bounds,
-    labelScale: cover ? 1 / scale : 1, cardScale: cover ? width / 390 / scale : 1};
+  // Movable objects grow with the scene up to twice their reference size.
+  // Fixed artwork always keeps the scene scale so painted features stay registered.
+  const itemScale = Math.min(1, 2 / scale);
+  return {scale, itemScale, scene, cover, width: visibleWidth, height: visibleHeight, left: (width-visibleWidth)/2, top: (height-visibleHeight)/2, bounds,
+    labelScale: cover ? 1 / scale : 1, cardScale: Math.min(itemScale, cover ? width / referenceBoard.width / scale : 1)};
 }
 
 /** Coordinates remain in the reference scene; only the visible drop bounds change. */

@@ -326,10 +326,13 @@ The sheltered room is up. Now I need ceramic blocks for the berth and crop beds,
 **Hotspots**
 - `reflector-base` (center 430.999998px, 474.0000216px)
   - icon: ![reflector base](assets/live-feedback/fire-reflector-base.png)
+  - hitbox: (center 390px, 474px) (size 616px, 480px)
 - `open-reflector` (center 430.999998px, 474.0000216px)
   - icon: ![open reflector](assets/live-feedback/fire-open-reflector.png)
+  - hitbox: (center 376px, 474px) (size 588px, 480px)
 - `solar-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![assembled solar furnace](assets/live-feedback/fire-solar-furnace.png)
+  - hitbox: (center 376px, 474px) (size 588px, 480px)
 
 **Items**
 - `reflector-base` Reflector base
@@ -910,10 +913,13 @@ I need vessels for making fuel, and a new support for the lander. The red ground
 **Hotspots**
 - `solar-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![solar-furnace](assets/live-feedback/metal-from-the-red-ground-solar-furnace.png)
+  - hitbox: (center 376px, 474px) (size 588px, 480px)
 - `electrochemical-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![electrochemical-furnace](assets/live-feedback/metal-from-the-red-ground-electrochemical-furnace.png)
+  - hitbox: (center 376px, 474px) (size 588px, 480px)
 - `powered-reduction-furnace` (center 430.999998px, 474.0000216px)
   - icon: ![powered-reduction-furnace](assets/live-feedback/metal-from-the-red-ground-powered-reduction-furnace.png)
+  - hitbox: (center 376px, 474px) (size 588px, 480px)
 
 **Items**
 - `solar-furnace`

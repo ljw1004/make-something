@@ -1250,7 +1250,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     reconcile(surface,`<div class="viewport">${worldHTML(state.visited.map((chapter,position)=>{
       const geometry=boardGeometry(chapter);
       return {chapter,image:background(story,chapter),label:`${story.title} scene ${position+1}`,content:`${presentHotspots(story,state,chapter).map(id=>fixedHTML(chapter,id)).join('')}${availableTokens(state).filter(t=>t.chapter===chapter&&!isFixed(story,t)).map(t=>{
-        const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry.bounds,appearance.icon);
+        const item=story.items[t.id],appearance=itemPresentation(story,state.chapter,t.id),applicable=browserReadings(story,state,t.id).some(reading=>reading.encyclopedia.trim()),selected=tile(t.id)?.classList.contains('reading-selected'),visual=itemArtwork.visual(item,t.slots,name,asset,geometry,appearance.icon);
         return `<button class="thing ${visual.className} ${creationLabels.has(t.id)?'newly-created':''} ${selected?'reading-selected pressed':''} ${chapter===state.chapter&&gold.has(t.id)?'goal-met':''}" data-item="${escape(t.id)}" style="left:${t.x}px;top:${t.y}px;z-index:${3+itemOrder.indexOf(t.id)};${visual.style}" aria-label="${escape(name(t.id))}" ${applicable?'title="Double-click or double-tap to read"':''}>${visual.html}${applicable?'<span class="reading-indicator" aria-hidden="true">' + openBook + '</span>':''}</button>`;
       }).join('')}${chapter===state.chapter&&state.arrivalDivider&&state.newItems.length?`<div class="arrival-divider" style="top:${Math.max(65,Math.min(...state.newItems.map(id=>state.tokens[id]?.y??844))-18)}px"><span>new items</span></div>`:''}`};
     }))}</div>${showGoals?`<div class="hud-stack location-hud ${leaving?'goals-leaving':''}" style="--goal-exit-duration:${goalPulseDuration}ms" ${leaving?'aria-hidden="true"':''}><button class="objective-overlay" ${leaving?'disabled':''} data-command="story" aria-label="Read this chapter"><span class="objectives">${goals.map(({goal,done},index)=>`<span class="objective-line ${done?'done':''}" data-goal-row="${index}"><span class="goal-checkbox" aria-hidden="true">${done?'✓':''}</span><span>${escape(goal.text)}</span><span class="sr-only">${done?'Completed':'Not completed'}</span></span>`).join('')}${state.completed?'<span class="objective-line ending">The End</span>':''}</span></button></div>`:''}${goalView?.phase!=='goals'&&!state.completed?`<button class="chapter-next ${leaving?'entering':''}" data-command="advance" aria-label="Continue story"><span>→</span></button>`:''}`);
@@ -1289,7 +1289,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     pointer:number; el:HTMLElement; startX:number; startY:number; moved:boolean;
   }
   interface Drag extends PointerPress {
-    id:string; grabX:number; grabY:number;
+    id:string; grabX:number; grabY:number; sizeChapter:number;
     point:Pick<PointerEvent,'clientX'|'clientY'>; lockedChapter?:number; edgeScroll?:DragEdgeScroll;
     edgePosition?:number; edgeSettlement?:{frame:number; to:number};
     resolve?:ReturnType<typeof createDropResolver>;
@@ -1373,6 +1373,19 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let suppressReleaseClick=false;
   // Suppress the native click belonging to the double-tap that opened a reader.
   document.addEventListener('pointerdown',()=>{suppressReleaseClick=false;},{capture:true, signal});
+  function sizeCarriedItem(d: Drag, chapter: number) {
+    if (d.sizeChapter === chapter) return;
+    d.sizeChapter = chapter;
+    const geometry = boardGeometry(chapter);
+    const icon = itemPresentation(story, state.chapter, d.id).icon;
+    if (icon && d.el.classList.contains('icon-thing')) {
+      const {width, height} = itemArtwork.displaySize(icon, asset, geometry);
+      d.el.style.setProperty('--icon-width', width + 'px');
+      d.el.style.setProperty('--icon-height', height + 'px');
+    }
+    d.el.style.setProperty('--card-scale', String(geometry.cardScale));
+    d.el.style.setProperty('--label-scale', String(geometry.labelScale));
+  }
   function dragDestination(d:Drag,e:Pick<PointerEvent,'clientX'|'clientY'>) {
     const world=app.querySelector('.world')!.getBoundingClientRect();
     let index=Math.max(0,Math.min(state.visited.length-1,Math.floor((e.clientX-world.left)/(app.clientWidth*previewScale(app)))));
@@ -1387,8 +1400,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     const size=scale*previewScale(app);
     // The held drawing follows the pickup point even beyond the page edge.
     // Targeting uses this same geometry; fitting happens only after the drop.
-    const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX,y:(e.clientY-rect.top)/size-d.grabY};
-    return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:d.el.offsetWidth*size,height:d.el.offsetHeight*size}};
+    sizeCarriedItem(d,chapter);
+    const {width,height}=layoutSize(d.el);
+    const position={x:(e.clientX-rect.left)/size+bounds.x-d.grabX*width,y:(e.clientY-rect.top)/size-d.grabY*height};
+    return {chapter,scene,position,rectangle:{x:rect.left+(position.x-bounds.x)*size,y:rect.top+position.y*size,width:width*size,height:height*size}};
   }
   function dropTargets(scene:HTMLElement,chapter:number):DropTarget<HTMLElement>[] {
       return [...scene.querySelectorAll<HTMLElement>('[data-item],[data-hotspot]')].map(el=>{
@@ -1445,7 +1460,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     rememberInteraction(); save();
     const bounds=el.getBoundingClientRect(),boardScale=elementGeometry(el).scale*previewScale(app);
     // Pickup location, not encounter history or the panel crossed mid-drag, owns the restriction.
-    drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/boardScale,grabY:(e.clientY-bounds.top)/boardScale,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
+    drag={id,pointer:e.pointerId,el,startX:e.clientX,startY:e.clientY,grabX:(e.clientX-bounds.left)/bounds.width,grabY:(e.clientY-bounds.top)/bounds.height,sizeChapter:state.tokens[id].chapter,moved:false,point:{clientX:e.clientX,clientY:e.clientY},lockedChapter:state.tokens[id].chapter===state.chapter?state.chapter:undefined};
     if(drag.lockedChapter===undefined){
       const gesture=drag;
       const viewport = app.querySelector<HTMLElement>('.viewport')!;
@@ -1540,7 +1555,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   function restoreGestureTile(d:NonNullable<typeof drag>){
     d.el.style.removeProperty('scale');d.el.style.removeProperty('transform-origin');
     d.el.classList.remove('dragging');app.classList.remove('is-dragging');
-    const token=state.tokens[d.id];if(token&&d.el.isConnected){positionTile(d.el,token);}
+    const token=state.tokens[d.id];
+    if(token&&d.el.isConnected){
+      sizeCarriedItem(d,token.chapter);
+      d.el.style.removeProperty('--card-scale');d.el.style.removeProperty('--label-scale');
+      positionTile(d.el,token);
+    }
     inputTrace?.record('drag:restored',{item:d.id});
   }
   function endDrag(e:PointerEvent,cancel=false){

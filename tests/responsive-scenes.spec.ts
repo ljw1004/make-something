@@ -173,10 +173,31 @@ for (const finishScroll of [true, false]) test(
     expect(await viewport.evaluate(el => el.scrollLeft)).toBeLessThan(800);
     expect(next.x).toBeLessThan(pointerX);
   }
-  expect((await frame.boundingBox())!.width).toBeCloseTo(first.width * activeBoard.width / olderBoard.width,1);
+  expect((await frame.boundingBox())!.width).toBeCloseTo(Math.min(2 * 160 / 4, first.width * activeBoard.width / olderBoard.width),1);
   await page.mouse.up();
   await expect.poll(() => viewport.evaluate(el => el.scrollLeft)).toBe(1600);
   await expect(page.locator('.chapter-panel[data-chapter="1"] [data-item="name:Frame"]')).toBeVisible();
-  expect((await frame.boundingBox())!.width).toBeCloseTo(first.width * activeBoard.width / olderBoard.width,1);
+  expect((await frame.boundingBox())!.width).toBeCloseTo(Math.min(2 * 160 / 4, first.width * activeBoard.width / olderBoard.width),1);
   expect(errors).toEqual([]);
+});
+
+test('the iPad Creation opening caps the movable elements and keeps a row clear of the water and goals', async ({page}) => {
+  await page.setViewportSize({width:1024,height:1366});
+  await page.goto('/index.html?story=stories/creation/creation.md');
+  await page.getByRole('button',{name:'Start',exact:true}).click();
+  await page.getByRole('button',{name:'Begin',exact:true}).click();
+  const items = page.locator('.chapter-panel [data-item]');
+  await expect(items).toHaveCount(3);
+  const row = await items.evaluateAll(elements => elements.map(el => el.getBoundingClientRect().toJSON()));
+  const water = (await page.locator('[data-hotspot="name:Waters of the deep"]').boundingBox())!;
+  const goals = (await page.locator('.hud-stack').boundingBox())!;
+  for (const item of row) {
+    expect(item.width).toBeCloseTo(128,1);
+    expect(item.height).toBeCloseTo(128,1);
+    expect(item.y).toBeCloseTo(row[0].y,1);
+    expect(item.bottom).toBeLessThanOrEqual(water.y + 1);
+    expect(item.bottom).toBeLessThan(goals.y);
+  }
+  await page.setViewportSize({width:390,height:844});
+  await expect.poll(async () => (await items.first().boundingBox())!.width).toBeCloseTo(64,1);
 });

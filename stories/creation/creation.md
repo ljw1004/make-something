@@ -25,7 +25,7 @@ In the beginning, the Earth was without form, and void.
 - (three hotspots are a lot but okay here because the surrounding waters, opened sky and world are distinct parts of one creation scene)
 - Waters of the deep (center 397.8px, 523.28px)
   - icon: ![The primordial waters](assets/hotspots/receiver.png)
-  - hitbox: (center 397.8px, 523.28px) (size 733.2px, 877.76px)
+  - hitbox: (center 397.8px, 555.28px) (size 733.2px, 813.76px)
   - place: Stars (center 663px, 236.32px)
   - place: Asteroids (center 117px, 607.68px)
 - Void (center 390px, 844px)
