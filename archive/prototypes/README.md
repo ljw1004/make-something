@@ -16,7 +16,7 @@ These links open the preserved pages on GitHub Pages. All nine prototypes were m
 | 2 | The Bell Orchard: [v2](https://ljw1004.github.io/make-something/archive/prototypes/story.html?game=bell2) · [v1](https://ljw1004.github.io/make-something/archive/prototypes/story.html?game=bell) |
 | 2 | Mneme: [v2](https://ljw1004.github.io/make-something/archive/prototypes/story.html?game=mneme2) · [v1](https://ljw1004.github.io/make-something/archive/prototypes/story.html?game=mneme) |
 | 3 | [Hands-on table](https://ljw1004.github.io/make-something/archive/prototypes/board.html?experiment=hands) |
-| 4 | Shared canvas: [Elements](https://ljw1004.github.io/make-something/archive/prototypes/board.html) · [Forms](https://ljw1004.github.io/make-something/archive/prototypes/board.html?mode=forms) · [Ideas](https://ljw1004.github.io/make-something/archive/prototypes/board.html?mode=ideas) |
+| 4 | Shared canvas: [Elements](https://ljw1004.github.io/make-something/archive/prototypes/board.html?mode=elements) · [Forms](https://ljw1004.github.io/make-something/archive/prototypes/board.html?mode=forms) · [Ideas](https://ljw1004.github.io/make-something/archive/prototypes/board.html?mode=ideas) |
 | 5a | [Elements: A World to Make](https://ljw1004.github.io/make-something/archive/prototypes/elements-discovery.html) — dragging without illustrations |
 | 5b | [Cooking: From Hearth to Snack Cake](https://ljw1004.github.io/make-something/archive/prototypes/campaign.html?world=food) — dragging without illustrations |
 | 7a | [Elements: A River Worth Returning To](https://ljw1004.github.io/make-something/archive/prototypes/campaign.html?world=elements-basket-continuity-v10) — illustrated v10 |
