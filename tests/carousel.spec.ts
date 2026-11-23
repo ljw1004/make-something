@@ -17,6 +17,32 @@ Make a kit.
 The kit is ready.
 `;
 
+test('the automatic chapter popup previews live edits on reentry from the carousel', async ({page}) => {
+  await page.setViewportSize({width:1100, height:800});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType:'text/markdown', body:story}));
+  await page.goto('/');
+  await page.getByRole('button', {name:'Cookbook', exact:true}).click();
+  const launch = page.locator('.carousel-slide:visible a[data-story]');
+  await launch.click();
+  await page.getByRole('button', {name:'Begin', exact:true}).click();
+  await page.getByRole('button', {name:'Toggle debug panel'}).click();
+  await page.getByRole('button', {name:'Read this chapter'}).click();
+  await page.getByRole('link', {name:'Home', exact:true}).click();
+  await expect(page).toHaveURL(/index\.html$/);
+  await launch.click();
+  const popup = page.getByRole('dialog', {name:'Story reading'});
+  await expect(popup).toContainText('Make a kit.');
+  const editor = page.getByRole('textbox', {name:'Story Markdown'});
+  await editor.focus();
+  await page.keyboard.press('ControlOrMeta+A');
+  await page.keyboard.insertText(story.replace('Make a kit.', 'Assemble a kit.'));
+  await expect(popup).toContainText('Assemble a kit.');
+  await expect(editor).toBeFocused();
+  await popup.getByRole('button', {name:'Begin', exact:true}).click();
+  await expect(popup).toHaveCount(0);
+});
+
 test('Start skips the cover, final Home preserves progress, and Restart keeps shared tutorial flags', async ({page}) => {
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.route('**/stories/cookbook/cookbook.md', route => route.fulfill({contentType:'text/markdown', body:story}));

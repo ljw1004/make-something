@@ -383,7 +383,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       if (prepared) void prepared.then(() => { if (!signal.aborted && previewText === text) render(false, false); });
       return;
     }
-    const context = dialogContext && ['confirm','error'].includes(dialogContext.kind) ? dialogContext : anchor.dialog;
+    // An automatic reading can open after the last game interaction. Preview
+    // the visible dialog, using the anchor to recover missing readings and to
+    // map encyclopedia item IDs from the original manuscript.
+    const context = !dialogContext || dialogContext.kind === 'encyclopedia' ? anchor.dialog : dialogContext;
     const update = reconcileLiveStory(anchor.story, next, anchor.state);
     story = update.story; state = update.state; previewText = text; hash = fingerprint(text); editedSnapshot = true;
     itemOrder = restoreItemOrder(Object.keys(state.tokens), anchor.itemOrder, update.items);
