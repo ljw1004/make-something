@@ -28,7 +28,7 @@ The [20 November dialog surfaces record](<2026.11.20 dialog surfaces/README.md>)
 
 ### Message counts
 
-[Message counts and agentic duration](<2026.11.11 message counts/README.md>) contains the final cumulative chart, explanations and definitions, and its reproducible numeric input and renderer. Archived at the user's request on 11 November 2026. The data distinguishes Codex and Dot and preserves each initial prompt's word count and run duration, with individual steers' word counts and relative delays. It retains no message wording, absolute timestamps or original identifiers.
+Archived on 11 November 2026 and refreshed on 23 November, the retrospective contains a cumulative chart, its numeric input and renderer, and the generation procedure. The data distinguishes local Codex, Dot and ChatGPT. It preserves each initial prompt's word count and run duration, plus individual steers' word counts and relative delays. [Message counts and agentic duration](<2026.11.11 message counts/README.md>)
 
 ### Authenticity improvements evidence
 

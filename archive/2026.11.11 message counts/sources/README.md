@@ -1,6 +1,6 @@
 # Message data and reproduction
 
-**[message-counts.json](message-counts.json) is the sole authoritative input to the [final chart](../message-counts.png).** It preserves all 597 plotted runs and their 1,260 individual human messages: 597 initial prompts and 663 steers. Runs appear in the chronological order of their initial prompts, numbered `sequence: 1` through `597` across both Codex and Dot. Each run is one object containing the initial prompt's word count, the whole run's duration, and an ordered list of steers with their individual word counts and relative arrival times.
+**`message-counts.json` is the sole authoritative input to the chart.** It preserves 1,072 plotted runs and their 1,853 human messages, including 781 steers. Runs appear in initial-prompt order, numbered `sequence: 1` through `1072` across Codex, Dot and ChatGPT. Each run contains the initial prompt's word count, the whole run's duration, and an ordered list of its steers with their individual word counts and relative arrival times. [Dataset](message-counts.json) · [Chart](../message-counts.png)
 
 For example, this illustrative record represents a two-hour Story run with a 40-word initial prompt and two steers:
 
@@ -22,8 +22,8 @@ The first steer arrived two minutes after the initial prompt, and the second arr
 
 | Field | Meaning |
 |---|---|
-| `sequence` | Chronological rank of this initial prompt among the retained timed runs, across both sources. `1` came first. This is a new ordinal, not an original message ID. |
-| `source` | `codex` or `dot`; the current chart combines both. |
+| `sequence` | Chronological rank of this initial prompt among the retained timed runs across sources. `1` came first. |
+| `source` | `codex` for local sessions, `dot` for the earlier Dot dataset, or `chatgpt` for the account export. |
 | `area` | The initial prompt's `art`, `story` or `game-engine` area. The original Other category is included in Game-engine. |
 | `word_count` | Human-written words in the **initial prompt only**. |
 | `duration_seconds` | Elapsed duration of the whole run, counted once. |
@@ -31,11 +31,15 @@ The first steer arrived two minutes after the initial prompt, and the second arr
 | `steers[].delay_seconds` | Seconds from the initial prompt's logged arrival to this steer. It is a relative elapsed interval, not a timestamp or time of day. |
 | `steers[].word_count` | Human-written words in this individual steer. |
 
-Both assistants use this format. Codex grouping follows its recorded turns; Dot grouping follows the previously reviewed continuous response episodes. Each Dot steer retains its own arrival delay even when it introduced a different request. Area describes the whole run's initial request; a separate category for each steer is not inferred.
+Codex grouping follows recorded turns. Dot and ChatGPT grouping follows reviewed response intervals. Each steer retains its own arrival delay even when it introduced a different request. The whole run takes the area of its initial request.
 
 There are no message contents, replies, attachments, dates, timestamps, time-of-day fields, original message or conversation identifiers, or model rationales. The sequence preserves which initial prompt came first, without retaining when it was sent or the gap between runs. It does not number steers or imply completion order: separate runs can overlap. Within each run, steer order and relative delays are preserved. Only runs with usable durations are included, and the sequence has no gaps for omitted runs. The earlier consolidated CSV has been removed to keep one authoritative input.
 
-The data totals remain **663 steers, 1,260 messages, 94,729 words and 213.9425937153 hours**. Codex contributes 534 runs, 491 steers, 1,025 messages and 74,733 words; Dot contributes 63 runs, 172 steers, 235 messages and 19,996 words. The [explanation](../README.md) defines the categories, word-count policy, duration measure and exclusions.
+The audited data totals **781 steers, 1,853 messages, 124,992 words and 265.4215815556 hours**. The main README gives totals by source and area and defines the counting and timing rules. [Chart explanation](../README.md)
+
+To generate the JSON from private conversation sources, follow [Generating message-counts.json](../README.md#generating-message-countsjson). That procedure covers extraction, attachment audits, Luna classification and Dot response-boundary review, chronology and anonymization. The original extraction scripts and private review inputs are not retained here; the commands below redraw the chart from the existing JSON.
+
+## Redraw the chart
 
 [plot_message_counts.py](plot_message_counts.py) validates the allowed fields, consecutive sequence numbers, source/category labels, nonnegative word counts, and ordered steer delays within each run's duration. It then derives run word totals and steer counts from the individual messages and checks that every duration bucket conserves them. It draws the final PNG at 1755 × 891 with linear scales; its cumulative ordering still follows run duration rather than chronology.
 
@@ -49,4 +53,4 @@ MPLCONFIGDIR=runs/retrospective-mpl-cache runs/retrospective-plot-venv/bin/pytho
 
 The default output is `archive/2026.11.11 message counts/message-counts.png`. Use `--dataset` to select another directory containing `message-counts.json`, or `--output runs/retrospective-preview.png` for a temporary preview. The virtual environment, font cache and previews are disposable scratch material.
 
-The individual measurements were recovered from the original saved word-count and processing records, with relative delays calculated from source message times in memory. No words were distributed artificially across steers. Every run's source, area, duration, message count and total words reconciled exactly with the previous chart input. The restored detail reproduced the accepted chart pixel for pixel. Conversation-bearing recovery inputs and temporary tooling were not retained in this directory.
+The 23 November refresh preserved each baseline run's measurements and recomputed its sequence from recovered start times to accommodate earlier ChatGPT runs. The generation procedure records the source inputs and review steps. [Generation procedure](../README.md#generating-message-countsjson)

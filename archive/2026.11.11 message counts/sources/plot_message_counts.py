@@ -20,6 +20,7 @@ DATA = Path(__file__).resolve().parent
 
 AREAS = {"art": "Art", "story": "Story", "game-engine": "Game-engine"}
 AREA_COLORS = {"art": "#4472c4", "story": "#ed7d31", "game-engine": "#70ad47"}
+SOURCES = {"codex", "dot", "chatgpt"}
 
 
 def style_axes(ax, xlabel, ylabel):
@@ -45,7 +46,7 @@ def load_timed_groups(dataset):
             raise ValueError(f"Unexpected fields in run {index}")
         if type(run["sequence"]) is not int or run["sequence"] != index:
             raise ValueError(f"Expected chronological sequence {index}")
-        if run["source"] not in ("codex", "dot") or run["area"] not in groups:
+        if run["source"] not in SOURCES or run["area"] not in groups:
             raise ValueError(f"Unknown source or area in run {index}")
         words, seconds, steers = run["word_count"], run["duration_seconds"], run["steers"]
         if (type(words) is not int or words < 0 or type(seconds) not in (int, float)
@@ -87,7 +88,6 @@ def duration_hour_groups(ranked):
 
 
 def cumulative_figure(groups):
-    # The 6h cutoff includes every Art and Game-engine run without rounding.
     bands = {area: duration_hour_groups(rows) for area, rows in groups.items()}
     # Widen the chart and plotting rectangle by 1.5x, preserving their height.
     figure_width = 6.5 * 1.5
@@ -100,14 +100,14 @@ def cumulative_figure(groups):
     maximum_hours = max(sum(band["hours"] for band in rows) for rows in bands.values())
     maximum_prompts = max(sum(band["prompts"] + band["steers"] for band in rows) for rows in bands.values())
     ax.set_xlim(0, np.ceil(maximum_hours * 1.03))
-    ax.set_ylim(0, maximum_prompts * 1.17)
-    # Stop hour labels/gridlines at 140 while retaining the full Story endpoint.
-    ax.set_xticks(np.arange(0, 141, 20))
+    # Leave room for the title and subtitles inside the plot.
+    ax.set_ylim(0, maximum_prompts * 1.35)
+    ax.set_xticks(np.arange(0, maximum_hours + 1e-9, 20))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:,.0f}"))
     area_labels = {
         "art": ((10, 0), "left", "center"),
-        "story": ((0, -36), "right", "top"),
-        "game-engine": ((-48, 14), "left", "bottom"),
+        "story": ((0, -20), "right", "top"),
+        "game-engine": ((10, 0), "left", "center"),
     }
     # These labels describe cumulative duration cutoffs, not each area's maximum.
     # Only the final label rounds the longest duration; intermediate cutoffs
@@ -141,7 +141,7 @@ def cumulative_figure(groups):
         total_words = sum(row["words"] for row in groups[area])
         average = total_words / prompts[-1]
         offset, horizontal, vertical = area_labels[area]
-        ax.annotate(f"{AREAS[area]}, {total_words / 1000:.0f}kwords\n(avg {average:.0f} words/prompt)",
+        ax.annotate(f"{AREAS[area]}, {total_words / 1000:.0f}k words\n(avg {average:.0f} words/prompt)",
                     (hours[-1], prompts[-1]),
                     xytext=offset, textcoords="offset points", ha=horizontal, va=vertical,
                     fontsize=10, color=color, linespacing=1.25,
@@ -155,7 +155,7 @@ def cumulative_figure(groups):
     total_words = sum(row["words"] for row in all_rows)
     total_hours = sum(row["seconds"] for row in all_rows) / 3600
     ax.text(0.03, 0.845,
-            f"Total {total_prompts} prompts, {total_words / 1000:.0f} kwords, {total_hours:.0f}hrs agentic runs",
+            f"Total {total_prompts} prompts, {total_words / 1000:.0f}k words, {total_hours:.0f}hrs agentic runs",
             transform=ax.transAxes, ha="left", va="top", fontsize=9.5, color="#595959", zorder=50)
     return figure
 
