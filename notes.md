@@ -2460,3 +2460,9 @@ The production build and focused browser checks passed, including serving both p
 Anatomy and History of ideas moved into `contrib/` with their manuscripts, briefs and artwork. Their studies continue in their existing project directories. The user accepted new story URLs and fresh saves. The [catalogue rules](docs/ux.md#catalogue-and-story-identity) describe the two editions.
 
 The production build passed. All 21 focused Chromium checks and all three native iPhone simulator checks passed. Both contributions opened from their individual production cards, and their 325 artwork references resolved. The packaged iOS catalogue contained the five curated stories. The unit suite passed 341 of 343 checks, with the same Settlement and Theology failures recorded above.
+
+## 22 November 2026 — Browser debug controls
+
+The user chose ordinary browser tabs as the authoring surface. The [debug pane policy](docs/ux.md#debug-pane) covers native and Home Screen launches and the carousel’s tutorial reset. The published graphical page includes the editor and its diagnostics worker and measures about 335 kB gzip.
+
+The production build, 53 focused Chromium tests, four focused WebKit tests, 11 unit tests and all three native iPhone simulator checks passed. The carousel reset preserved the selected card, story progress and drafts without requesting a manuscript. Home Screen checks exercised the standalone display signals and the individual story’s launch URL in browser automation.

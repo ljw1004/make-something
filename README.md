@@ -61,7 +61,7 @@ Chromium supports the browser tests, checks that story-heading icons are square,
 
 The two editable templates are [index-dev.html](index-dev.html) and [simulator-dev.html](simulator-dev.html). Vite serves them at the ordinary page URLs. For a development preview beside a draft, use a URL such as `/projects/example-study/index.html?story=draft.md`.
 
-The build writes two independent web pages, `index.html` for the catalogue and graphical player and `simulator.html` for both text modes. Each embeds its own JavaScript, CSS and story list. The graphical player embeds its goal-ranking worker. The live editor, chapter picker and editor diagnostics are development tools. The only external game resources are the favicon, home-screen icon and original story files and artwork.
+The build writes two independent web pages, `index.html` for the catalogue and graphical player and `simulator.html` for both text modes. Each embeds its own JavaScript, CSS and story list. The graphical player embeds its goal-ranking worker. Ordinary browser tabs offer the live editor and chapter picker. The graphical page also embeds the editor diagnostics worker. The only external game resources are the favicon, home-screen icon and original story files and artwork.
 
 Deploy the generated root pages, `assets/`, `stories/` and `contrib/` together, preserving their layout. The shared app icon follows the [identity guidance](docs/ux.md#catalogue-and-story-identity); home-screen titles, story icons and conditional Home navigation follow the [home-screen UX](docs/ux.md#home-screen-apps). Editing a manuscript or its artwork does not require rebuilding JavaScript. Adding/removing a story or changing its catalogue title, description or cover URL requires rebuilding the catalogue and terminal story lists. Development regenerates the catalogue on each page request. See [GitHub Pages publication](#github-pages-publication) for this repository's setup.
 
@@ -113,7 +113,7 @@ The former `/dist/` pages and flattened manuscript paths are retired. Browser sa
 
 ## Edit a story live
 
-In the Vite development game, click the **bug icon** to toggle the debug pane. With the desktop editor open, the game uses a 390px preview pane and the Markdown editor fills the remaining window space. Closing it restores the full game area; scenery and objects follow the [responsive framing rule](docs/ux.md#work-surface-and-dragging). Opening it aligns the caret, editor scroll and chapter dropdown with the current gameplay chapter; see the [debug-pane contract](docs/ux.md#debug-pane).
+In an ordinary browser tab, click the **bug icon** on the carousel to reset tutorials, or inside a story to toggle its debug pane. The native iOS app and Home Screen web apps hide both controls. With the desktop editor open, the game uses a 390px preview pane and the Markdown editor fills the remaining window space. Closing it restores the full game area; scenery and objects follow the [responsive framing rule](docs/ux.md#work-surface-and-dragging). Opening it aligns the caret, editor scroll and chapter dropdown with the current gameplay chapter; see the [debug-pane contract](docs/ux.md#debug-pane).
 
 Edits save immediately and update the current game view, including open readings, goals, rules and backgrounds. When there are local edits, a red pen replaces the bug icon; both toggle the same pane. The panel opens automatically on desktop if the story URL has a saved draft **or** its editor was last left open; closing it is remembered but does not override a saved draft.
 

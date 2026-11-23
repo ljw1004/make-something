@@ -25,7 +25,7 @@ export class LiveDiagnostics {
   constructor(
     publish: (diagnostics: Diagnostic[], phase: 'fast' | 'complete') => void,
     failure: (message: string) => void,
-    worker: DiagnosticWorker = new Worker(new URL('./lint-worker.ts', import.meta.url), { type: 'module' }),
+    worker: DiagnosticWorker,
   ) {
     this.publish = publish;
     this.failure = failure;

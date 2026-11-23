@@ -13,6 +13,8 @@ import { activeHotspots, background, indexStory } from '../engine/analysis.ts';
 import { hotspotPresentation, itemPresentation } from '../engine/presentation.ts';
 import type { State, Action } from '../engine/types.ts';
 import { checkpoint } from '../debug/checkpoint.ts';
+import LintWorker from './lint-worker.ts?worker&inline';
+import {browserDebugAvailable, debugGlyph} from './debug-control.ts';
 import { LiveDiagnostics } from './live-diagnostics.ts';
 import { markdown, escape } from './markdown.ts';
 import { reconcile } from './reconcile.ts';
@@ -27,7 +29,7 @@ import {browserReadings, dismissTextOnlyWonders} from './item-readings.ts';
 import { readingBody, goalPresentation, type GoalPresentation } from './presentation.ts';
 import { captureChapter, restorePresentation, restoreChapterSession, isNoopMove, noteChapterAction, hasChapterCombination, chapterRecovery, displayedGoals, type ChapterSession } from './chapter-session.ts';
 import { DraftStore, loadStoryDocument, resolveStoryURL, resolveStoryAsset, storyQuery } from './story-document.ts';
-import type { AuthoringSession } from './authoring.ts';
+import { AuthoringSession } from './authoring.ts';
 import { MobileDebug } from './mobile-debug.ts';
 import { recoverPreviewStory, reconcileLiveStory, restoreLiveState } from './live-story.ts';
 import { ItemArtwork } from './item-artwork.ts';
@@ -46,7 +48,7 @@ import {TutorialProgress} from './tutorial-progress.ts';
 import {TutorialOverlay} from './tutorial-overlay.ts';
 import {GoalPulses,goalPulseDuration} from './goal-pulses.ts';
 import { guardGameInput } from './game-input.ts';
-import {setHomeScreenIdentity} from './home-screen.ts';
+import {setHomeScreenIdentity, standaloneDisplay} from './home-screen.ts';
 import {finishCarouselLaunch, readCarouselLaunch, type CarouselActivation} from './carousel-launch.ts';
 import {leaveForCatalogue, plainNavigation} from './document-navigation.ts';
 import {carouselStoryPath, selectStory} from './carousel-selection.ts';
@@ -106,9 +108,10 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   let encyclopediaHistory: EncyclopediaHistory = {};
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const goalPulses = new GoalPulses(surface, () => ({
-    blocked: !storyStarted || starting || !entranceSettled || mobileDebug?.isOpen || document.hidden,
+    blocked: !storyStarted || starting || !entranceSettled || mobileDebug.isOpen || document.hidden,
     reducedMotion: reducedMotion.matches,
   }));
+  let createAuthoring: (() => AuthoringSession) | undefined;
   const desktopDebug = matchMedia('(min-width: 900px)');
   const itemArtwork = new ItemArtwork();
   let starting = true;
@@ -177,7 +180,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     clearTimeout(creationLabels.get(id));
     creationLabels.set(id, setTimeout(() => { creationLabels.delete(id); tile(id)?.classList.remove('newly-created'); }, 1700));
   }
-  const mobileDebug = import.meta.env.DEV ? new MobileDebug(jumpToCheckpoint, updateEditingIndicators) : undefined;
+  const mobileDebug = new MobileDebug(jumpToCheckpoint, updateEditingIndicators);
   const imageGeometry = (image?: string) => viewportBoard(app.clientWidth, app.clientHeight, itemArtwork.dimensions(image, asset));
   const boardGeometry = (chapter = state.chapter) => imageGeometry(background(story, chapter));
   const elementGeometry = (element: HTMLElement) => boardGeometry(Number(element.closest<HTMLElement>('[data-chapter]')!.dataset.chapter));
@@ -227,7 +230,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
   }
   function updateTutorialCue() {
     tutorialOverlay.dragging(!!drag || !!hotspotPress);
-    if (chapterSlide || !entranceSettled || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug?.isOpen) {
+    if (chapterSlide || !entranceSettled || !storyStarted || !tutorialProgress || dialogContext || state.pending.length || mobileDebug.isOpen) {
       tutorialOverlay.show(); return;
     }
     // Keep the chosen demonstration stable until the player finishes their gesture.
@@ -288,11 +291,15 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     else alert?.remove();
   }
   function updateEditingIndicators() {
-    if (!import.meta.env.DEV) { updateTutorial(); return; }
-    if (!authoring) return;
+    if (!browserDebugAvailable() || !authoring) {
+      app.querySelector('.debug-toggle')?.remove();
+      app.querySelector('.draft-warning')?.remove();
+      updateTutorial();
+      return;
+    }
     let toggle = app.querySelector<HTMLButtonElement>('.debug-toggle');
     if (!toggle) {
-      toggle = document.createElement('button'); toggle.className = 'debug-toggle'; toggle.dataset.command = 'debug';
+      toggle = document.createElement('button'); toggle.className = 'debug-button debug-toggle'; toggle.dataset.command = 'debug';
       toggle.setAttribute('aria-label', 'Toggle debug panel');
       app.append(toggle);
     }
@@ -302,12 +309,12 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       toggle.classList.toggle('edit-indicator', authoring.edited);
       toggle.innerHTML = authoring.edited
         ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15l-1 5Z"/></svg>'
-        : '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 4 7 2m8 2 2-2M8 8V7a4 4 0 0 1 8 0v1M12 9v12M5 9H2m3 5H1m5 5-3 3m16-13h3m-3 5h4m-5 5 3 3"/><rect x="5" y="8" width="14" height="13" rx="6"/></svg>';
+        : debugGlyph;
     }
     toggle.title = authoring.edited ? 'Local edits — toggle debug panel' : 'Toggle debug panel';
     toggle.dataset.saveError = String(!!saveError);
     toggle.setAttribute('aria-controls', desktopDebug.matches ? 'debug-panel' : 'mobile-debug-panel');
-    toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug?.isOpen));
+    toggle.setAttribute('aria-expanded', String(desktopDebug.matches ? authoring.isOpen : mobileDebug.isOpen));
     let warning = app.querySelector<HTMLElement>('.draft-warning');
     if (authoring.store.unsaved && !authoring.isOpen) {
       if (!warning) { warning = document.createElement('p'); warning.className = 'draft-warning'; warning.setAttribute('role', 'alert'); app.append(warning); }
@@ -324,10 +331,11 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
 
   let diagnostics: LiveDiagnostics | undefined;
   function checkText(parsed: Story, text: string) {
-    if (!import.meta.env.DEV || !authoring?.isOpen) return;
+    if (!authoring?.isOpen) return;
     diagnostics ??= new LiveDiagnostics(
       (results, phase) => authoring?.setDiagnostics(results, phase),
       message => authoring?.setPreviewStatus(message),
+      new LintWorker(),
     );
     const titleImages = parsed.titleImages ?? [];
     const coordinateChapters = [...new Set(coordinateEntries(parsed).map(e => e.chapter))];
@@ -358,7 +366,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     previewTimer = setTimeout(() => { previewTimer = undefined; if (authoring) applyText(authoring.text); }, 90);
   }
   function flushPreview() {
-    if (!import.meta.env.DEV || !authoring || authoring.text === previewText) return;
+    if (!authoring || authoring.text === previewText) return;
     clearTimeout(previewTimer); previewTimer = undefined; applyText(authoring.text);
   }
   function applyText(text: string) {
@@ -571,22 +579,18 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       const document = await loadStoryDocument(documentURL, drafts, (url, init) => fetch(url, {...init, signal}));
       if (signal.aborted || leaving) return;
       manuscriptBaseURL = document.assetBaseURL;
-      if (import.meta.env.DEV) {
-        const {AuthoringSession} = await import('./authoring.ts');
-        if (signal.aborted || leaving) return;
-        authoring = new AuthoringSession(document, drafts, workspace, {
-          onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
-          currentChapterLine: () => {
-            flushPreview();
-            return story.chapters[state.chapter]?.source.line;
-          },
-          onCheckpoint: line => {
-            flushPreview();
-            const index = story.chapters.findIndex(chapter => chapter.source.line === line);
-            if (index >= 0) jumpToCheckpoint(index);
-          },
-        });
-      }
+      createAuthoring = () => new AuthoringSession(document, drafts, workspace, {
+        onText: schedulePreview, onLayout: layoutChanged, onDraft: updateEditingIndicators,
+        currentChapterLine: () => {
+          flushPreview();
+          return story.chapters[state.chapter]?.source.line;
+        },
+        onCheckpoint: line => {
+          flushPreview();
+          const index = story.chapters.findIndex(chapter => chapter.source.line === line);
+          if (index >= 0) jumpToCheckpoint(index);
+        },
+      });
       previewText = document.text; hash = fingerprint(previewText);
       const parsed = parse(previewText); story = recoverPreviewStory(parsed);
       identity = parsed;
@@ -659,8 +663,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       save();
       finishCarouselLaunch();
       checkText(parsed, previewText);
-      authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
-      updateEditingIndicators();
+      prepareStoryDebug();
       if (loaded) {
         const source = story;
         const scrollback = itemArtwork.prepare(scrollbackArtwork(story, state), asset);
@@ -705,8 +708,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     previewEntryReading();
     if (!entryShown) showPending();
     surface.inert = !!dialogContext;
-    authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
-    updateEditingIndicators();
+    prepareStoryDebug();
   }
   function readingScrollContainer() {
     return dialogLayer.querySelector<HTMLElement>(dialogContext?.kind === 'chapter' ? '.reading-text' : 'dialog');
@@ -943,19 +945,26 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
     openEncyclopedia(id, true);
     return true;
   }
-  function toggleDebugPanel() {
-    if (!import.meta.env.DEV) return;
-    if (desktopDebug.matches) { authoring?.toggle(); return; }
-    if (mobileDebug?.isOpen) { mobileDebug?.close(); return; }
-    flushPreview(); cancelGesture('debug-panel'); feedback.clear();
-    mobileDebug?.open(story.chapters.map(chapter => chapter.name), state.chapter);
+  function prepareStoryDebug() {
+    if (starting || loadFailed || !entranceSettled || !committed) return;
+    const available = browserDebugAvailable();
+    if (available) authoring ??= createAuthoring?.();
+    else mobileDebug.close();
+    authoring?.setAvailable(available && desktopDebug.matches);
     updateEditingIndicators();
   }
-  desktopDebug.addEventListener('change', () => {
-    if (!authoring) return;
-    mobileDebug?.close();
-    authoring?.setAvailable(import.meta.env.DEV && desktopDebug.matches);
+  function toggleDebugPanel() {
+    if (!browserDebugAvailable() || !authoring) return;
+    if (desktopDebug.matches) { authoring.toggle(); return; }
+    if (mobileDebug.isOpen) { mobileDebug.close(); return; }
+    flushPreview(); cancelGesture('debug-panel'); feedback.clear();
+    mobileDebug.open(story.chapters.map(chapter => chapter.name), state.chapter);
     updateEditingIndicators();
+  }
+  standaloneDisplay.addEventListener('change', prepareStoryDebug, {signal});
+  desktopDebug.addEventListener('change', () => {
+    mobileDebug.close();
+    prepareStoryDebug();
   }, {signal});
   function jumpToCheckpoint(index: number) {
     try {
@@ -1680,7 +1689,7 @@ export function mountPlayer(workspace: HTMLElement, options?: CataloguePlayerOpt
       cancelGesture('leave-story'); cancelArtworkWait(); closeDialog();
       clearTimeout(previewTimer); clearCreationLabels(); resetGoalView();
       cancelAnimationFrame(artworkFrame); cancelAnimationFrame(tutorialFrame);
-      tutorialOverlay.show(); mobileDebug?.close();
+      tutorialOverlay.show(); mobileDebug.close();
       if (options && authoring) {
         if (authoring.store.unsaved) options.drafts.set(documentURL, authoring.store);
         else options.drafts.delete(documentURL);

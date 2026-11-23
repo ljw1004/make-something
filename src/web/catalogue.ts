@@ -1,5 +1,6 @@
 import { escape } from './markdown.ts';
-import {setHomeScreenIdentity} from './home-screen.ts';
+import {mountCatalogueDebug} from './catalogue-debug.ts';
+import {isHomeScreenApp, setHomeScreenIdentity} from './home-screen.ts';
 import {watchCarouselContrast} from './carousel-contrast.ts';
 import {plainNavigation, revealCatalogue, takeCatalogueSlide} from './document-navigation.ts';
 import {connectCataloguePlayer} from './catalogue-player.ts';
@@ -43,7 +44,7 @@ export function mountCatalogue(app: HTMLDivElement) {
     if (link) location.replace(link.href);
     else app.innerHTML = `<main class="chooser"><h1>Stories unavailable</h1><p>Unknown story: ${escape(bookmark)}.</p></main>`;
   } else if (carousel && frame && slides.length) {
-    const standalone = matchMedia('(display-mode: standalone)').matches;
+    const standalone = isHomeScreenApp();
     const native = location.protocol === 'msw:';
     if (import.meta.env.DEV || native || standalone) {
       frame.querySelectorAll<HTMLElement>('.carousel-footer').forEach(footer => { footer.hidden = false; });
@@ -189,6 +190,8 @@ export function mountCatalogue(app: HTMLDivElement) {
       else restoreSlide();
       refreshLinks(); catalogueIdentity();
     });
+    mountCatalogueDebug(app, frame, new URL('index.html', root).href,
+      storyLinks.map(link => new URL(link.dataset.story!, root).href));
     if (returning) {
       const art = slides[current].querySelector<HTMLImageElement>('.carousel-art');
       if (art) art.loading = 'eager';

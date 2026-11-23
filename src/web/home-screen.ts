@@ -1,3 +1,10 @@
+export const standaloneDisplay = matchMedia('(display-mode: standalone)');
+
+export function isHomeScreenApp() {
+  return standaloneDisplay.matches ||
+    (navigator as Navigator & {standalone?: boolean}).standalone === true;
+}
+
 interface HomeScreenIdentity {
   name: string;
   icon?: string;

@@ -70,6 +70,8 @@ final class BundledGameTests: XCTestCase {
         defer { window.isHidden = true }
         game.openCatalogue()
         try await wait("!!document.querySelector('link[rel=manifest]')", in: game)
+        let hasDebug = try await game.evaluateJavaScript("!!document.querySelector('.debug-button')")
+        XCTAssertEqual(hasDebug as? Bool, false)
         for title in ["Cookbook", "Settlement"] {
             _ = try await game.evaluateJavaScript("document.querySelector('.carousel-slide:not([hidden]) .carousel-dots button[aria-label=\(title)]').click()")
             try await wait("""

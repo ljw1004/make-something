@@ -4,7 +4,16 @@ const initialAdvanced: Advanced = {hotspotDone: false, goalsDone: false, encyclo
 const initialCompletion: TutorialCompletion = {dragDone: false, ...initialAdvanced};
 type StorageAccess = () => Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
 const advancedKey = (url: string) => `combination-tutorial-v1:${encodeURIComponent(url)}`;
+const dragKey = (url: string) => `combination-tutorial-drag-v2:${encodeURIComponent(url)}`;
 const load = (raw: string | null): Partial<TutorialCompletion> | null => JSON.parse(raw ?? 'null');
+
+export function resetCatalogueTutorials(catalogue: string, manuscripts: readonly string[]) {
+  localStorage.removeItem(advancedKey(catalogue));
+  for (const manuscript of manuscripts) {
+    localStorage.removeItem(advancedKey(manuscript));
+    localStorage.removeItem(dragKey(manuscript));
+  }
+}
 
 /** Opening drag always follows the manuscript. Only advanced lessons may be shared. */
 export class TutorialProgress {
@@ -22,7 +31,7 @@ export class TutorialProgress {
     this.storage = storage;
     this.storyKey = advancedKey(scope.manuscript);
     this.key = scope.catalogue ? advancedKey(scope.catalogue) : this.storyKey;
-    this.dragKey = `combination-tutorial-drag-v2:${encodeURIComponent(scope.manuscript)}`;
+    this.dragKey = dragKey(scope.manuscript);
     try {
       const saved = load(storage().getItem(this.key));
       const drag = storage().getItem(this.dragKey);
