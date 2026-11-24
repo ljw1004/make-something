@@ -356,47 +356,43 @@ test('the carousel blur follows visible text and keeps long descriptions scrolla
   await page.setViewportSize({width:320,height:568});
   await page.goto('/');
   const active = page.locator('.carousel-slide:not([inert])');
-  const layer = () => active.evaluate(slide => {
-    const panel = slide.querySelector<HTMLElement>('.carousel-description-frame')!;
-    const backdrop = getComputedStyle(panel, '::before');
-    const abstract = slide.querySelector<HTMLElement>('.carousel-description')!;
-    const panelBox = panel.getBoundingClientRect();
-    const clip = abstract.getBoundingClientRect();
-    const range = document.createRange();
-    range.selectNodeContents(abstract.querySelector('p')!);
-    const lastLine = Math.max(...Array.from(range.getClientRects())
-      .filter(rect => rect.top < clip.bottom && rect.bottom > clip.top)
-      .map(rect => Math.min(rect.bottom, clip.bottom)));
-    const coveredHeight = parseFloat(backdrop.height);
-    return {
-      bounded: panelBox.top + parseFloat(backdrop.top) > 0 && panelBox.bottom < innerHeight,
-      height: coveredHeight,
-      panelHeight: panelBox.height,
-      edgeToText: panelBox.bottom - parseFloat(backdrop.bottom) - lastLine,
-      actual: {
-        textLayer: getComputedStyle(abstract).zIndex,
-        noPointerInterception: backdrop.pointerEvents,
-        feathered: backdrop.maskImage.startsWith('linear-gradient('),
-        blur: backdrop.backdropFilter,
-        tint: backdrop.backgroundColor,
-        shadow: getComputedStyle(abstract).textShadow,
-      },
-    };
-  });
+  const backdrop = active.locator('.carousel-description-backdrop');
+  const layer = async () => {
+    await expect(backdrop).toBeVisible();
+    return backdrop.evaluate(el => {
+      const canvas = el as HTMLCanvasElement;
+      const clip = canvas.parentElement!.getBoundingClientRect();
+      const rect = canvas.getBoundingClientRect();
+      const data = canvas.getContext('2d')!.getImageData(0, 0, canvas.width, canvas.height).data;
+      const range = document.createRange();
+      const walker = document.createTreeWalker(canvas.nextElementSibling!, NodeFilter.SHOW_TEXT);
+      let lastLine = clip.top;
+      for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+        if (!text.textContent?.trim()) continue;
+        range.selectNodeContents(text);
+        for (const box of range.getClientRects()) {
+          if (box.top < clip.bottom) lastLine = Math.max(lastLine, Math.min(box.bottom, clip.bottom));
+        }
+      }
+      // Read the painted footprint, including the partially transparent feather.
+      let lastPainted = 0;
+      for (let i = 3; i < data.length; i += 4) {
+        if (data[i]) lastPainted = Math.floor((i / 4) / canvas.width) + 1;
+      }
+      const end = Math.min(clip.bottom, rect.top + lastPainted * rect.height / canvas.height);
+      return {height:end - clip.top, margin:end - lastLine, pointer:getComputedStyle(canvas).pointerEvents};
+    });
+  };
   const short = await layer();
-  expect(short.bounded).toBe(true);
-  expect(Math.abs(short.edgeToText)).toBeLessThan(3);
-  expect(short.height).toBeLessThan(short.panelHeight - 15);
+  expect(short.pointer).toBe('none');
+  expect(short.margin).toBeGreaterThanOrEqual(7);
+  expect(short.margin).toBeLessThanOrEqual(9);
   await page.getByRole('button', {name:'Theology',exact:true}).click();
   await expect(active.getByRole('heading')).toHaveText('Theology');
   const long = await layer();
-  expect(long.bounded).toBe(true);
   expect(long.height).toBeGreaterThan(short.height + 45);
-  expect(Math.abs(long.edgeToText)).toBeLessThan(3);
-  expect(long.actual).toEqual({
-    textLayer:'1', noPointerInterception:'none', feathered:true,
-    blur:'blur(3px)', tint:'rgba(0, 0, 0, 0)', shadow:'none',
-  });
+  expect(long.margin).toBeGreaterThanOrEqual(7);
+  expect(long.margin).toBeLessThanOrEqual(9);
   // A constrained window still scrolls the abstract and bounds the backdrop
   // by the visible panel, not by the full scrollable document.
   await page.setViewportSize({width:320,height:300});
@@ -407,7 +403,8 @@ test('the carousel blur follows visible text and keeps long descriptions scrolla
   await expect.poll(() => prose.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
   const constrained = await layer();
   expect(constrained.height).toBeLessThan(long.height);
-  expect(Math.abs(constrained.edgeToText)).toBeLessThan(3);
+  expect(constrained.margin).toBeGreaterThanOrEqual(0);
+  expect(constrained.margin).toBeLessThanOrEqual(9);
 });
 
 test('the subtitle chooses ink for the card and the footer links have separate blurs', async ({page}) => {
@@ -418,7 +415,8 @@ test('the subtitle chooses ink for the card and the footer links have separate b
     <rect x="185" width="20" height="650" fill="black"/>
     <rect x="195" y="740" width="195" height="104" fill="black"/>`)}));
   await page.route('**/settlement/assets/backgrounds/01.webp', route => route.fulfill({contentType:'image/svg+xml', body:cover(`
-    <rect width="390" height="844" fill="black"/>`)}));
+    <rect width="390" height="844" fill="black"/>
+    <rect x="185" width="20" height="650" fill="white"/>`)}));
   await page.goto('/');
   const active = page.locator('.carousel-slide:not([hidden])');
   const description = active.locator('.carousel-description');
@@ -427,6 +425,20 @@ test('the subtitle chooses ink for the card and the footer links have separate b
   await expect(description).toHaveCSS('color', 'rgb(0, 0, 0)');
   await expect(support).toHaveCSS('color', 'rgb(0, 0, 0)');
   await expect(privacy).toHaveCSS('color', 'rgb(0, 0, 0)');
+  const sampleLine = () => active.evaluate(slide => {
+    const canvas = slide.querySelector('canvas')!;
+    const rect = canvas.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(slide.querySelector('.carousel-description p')!.firstChild!);
+    const line = range.getClientRects()[0];
+    const y = Math.floor((line.top + line.height / 2 - rect.top) * canvas.height / rect.height);
+    const center = slide.getBoundingClientRect().left + slide.clientWidth / 2;
+    const pixel = (x: number) => Array.from(canvas.getContext('2d')!.getImageData(
+      Math.floor((x - rect.left) * canvas.width / rect.width), y, 1, 1).data);
+    return [pixel(center), pixel(center - 40)];
+  });
+  // At 4.5:1 the first passing sRGB grey for black type is 117.
+  expect(await sampleLine()).toEqual([[117,117,117,255],[255,255,255,255]]);
   for (const link of [support, privacy]) {
     await expect(link).toHaveCSS('text-shadow', 'none');
     expect(await link.evaluate(el => getComputedStyle(el, '::before').backdropFilter)).toBe('blur(2px)');
@@ -434,6 +446,8 @@ test('the subtitle chooses ink for the card and the footer links have separate b
   expect(await active.locator('.carousel-footer').evaluate(el => getComputedStyle(el, '::before').backdropFilter)).toBe('none');
   await active.getByRole('button', {name:'Settlement', exact:true}).click();
   await expect(active).toHaveAttribute('data-ink', 'light');
+  // With white type the last passing grey is 118. The surrounding black survives.
+  expect(await sampleLine()).toEqual([[118,118,118,255],[0,0,0,255]]);
   await expect(description).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(support).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(privacy).toHaveCSS('color', 'rgb(255, 255, 255)');

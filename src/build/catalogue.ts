@@ -51,7 +51,7 @@ export function renderCatalogue(entries: CatalogueEntry[]): string {
             <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous story">${arrow(true)}</button>
             <button type="button" class="carousel-arrow carousel-next" aria-label="Next story">${arrow(false)}</button>
           </div>
-          <div class="carousel-description-frame"><div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div></div>
+          <div class="carousel-description-frame"><canvas class="carousel-description-backdrop" aria-hidden="true" hidden></canvas><div class="carousel-description">${catalogueDescription(entry.description, entry.path)}</div></div>
         </div>
         <nav class="carousel-footer" aria-label="App information" hidden>
           <a href="https://unto.me/make-something/support.html" target="_blank" rel="noopener noreferrer"><span>Support</span></a>

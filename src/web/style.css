@@ -364,13 +364,13 @@ body:has(> #catalogue-app){background:#000}
 @media (prefers-reduced-motion:reduce){.carousel-slide.is-settling{transition:none}}
 .carousel-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
 .carousel-panel{position:absolute;top:var(--carousel-bar-top);inset-inline:0;max-height:calc(100% - var(--carousel-bar-top) - max(2cqh, var(--carousel-footer-space, 0px)));display:flex;flex-direction:column}
-.carousel-description-frame{position:relative;display:flex;flex-direction:column;min-height:0}
-.carousel-description-frame::before,.carousel-footer a::before{
+.carousel-description-frame{position:relative;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.carousel-description-backdrop{position:absolute;pointer-events:none}
+.carousel-description-frame:has(canvas[hidden])::before,.carousel-footer a::before{
   content:"";position:absolute;inset:0;pointer-events:none;
   mask-composite:intersect;
 }
-.carousel-description-frame::before{
-  bottom:var(--carousel-blur-bottom, 20px);
+.carousel-description-frame:has(canvas[hidden])::before{
   -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
   mask-image:linear-gradient(transparent,#000 8px,#000 calc(100% - 3px),transparent),
     linear-gradient(to right,transparent,#000 14px,#000 calc(100% - 14px),transparent);
